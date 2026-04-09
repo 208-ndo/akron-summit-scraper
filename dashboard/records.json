@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-09T19:37:11.528135+00:00",
+  "fetched_at": "2026-04-09T20:09:25.733183+00:00",
   "source": "Akron / Summit County, Ohio",
   "date_range": {
     "from": "2026-01-09",
@@ -84,7 +84,7 @@
       "score": 55
     },
     {
-      "doc_num": "PCF1-T1-R2",
+      "doc_num": "PCF1-T1-R3",
       "doc_type": "NOFC",
       "filed": "2026-04-09",
       "cat": "NOFC",
@@ -243,10 +243,10 @@
       "grantee": "Pacific Asset Holding, Llc",
       "amount": null,
       "legal": "PACIFIC ASSET HOLDING, LLC -VS- VICTORY OH SOLUTIONS, LLC",
-      "prop_address": "1734 MANCHESTER RD",
+      "prop_address": "VERMONT PL",
       "prop_city": "AKRON",
       "prop_state": "OH",
-      "prop_zip": "44314",
+      "prop_zip": "44312",
       "mail_address": "",
       "mail_city": "",
       "mail_state": "",

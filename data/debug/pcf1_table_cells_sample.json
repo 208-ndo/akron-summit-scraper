@@ -3,8 +3,15 @@
     "Action",
     "Case Name",
     "Date Added",
-    "Case Category Foreclosure: 10 Personal Injury: 5 Workers Compensation: 2 Cognovit Action: 2 Breach of Contract: 6 Unfair Consumer Sales Act: 1 Judgment Lien: 11 Judgment Lien Juvenile Court: 1 Other Civil: 4 Refiled Case: 1 Negligence: 1 Select All",
+    "Case Category Other Civil: 5 Foreclosure: 10 Personal Injury: 5 Workers Compensation: 2 Cognovit Action: 2 Breach of Contract: 6 Unfair Consumer Sales Act: 1 Judgment Lien: 11 Judgment Lien Juvenile Court: 1 Refiled Case: 1 Negligence: 1 Select All",
     "Status"
+  ],
+  [
+    "Get Docs",
+    "SEVEN SEVENTEEN CREDIT UNION INC -VS- DANIEL J ROBINSON",
+    "04/09/2026 03:48 PM",
+    "Other Civil",
+    "Pending Review"
   ],
   [
     "Get Docs",
@@ -165,13 +172,6 @@
     "CAPITAL ONE, N.A. -VS- MARILYN TALKINGTON",
     "04/09/2026 01:05 AM",
     "Judgment Lien",
-    "Filing Complete"
-  ],
-  [
-    "Get Docs",
-    "DOUG P. KUZYK -VS- DAVID A. LESHON",
-    "04/08/2026 06:33 PM",
-    "Negligence",
     "Filing Complete"
   ]
 ]
