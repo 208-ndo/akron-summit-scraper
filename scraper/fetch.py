@@ -96,7 +96,8 @@ LIKELY_PID_KEYS = [
 
 ACTION_WORDS = {
     "action", "get docs", "docs", "document", "documents", "view", "open", "details", "search",
-    "case", "select", "division", "home", "welcome", "click here", "continue", "begin"
+    "case", "select", "division", "home", "welcome", "click here", "continue", "begin",
+    "date added", "party", "plaintiff", "defendant"
 }
 
 
@@ -172,9 +173,13 @@ def retry_request(url: str, attempts: int = 3, timeout: int = 60) -> requests.Re
 
 def normalize_name(name: str) -> str:
     name = clean_text(name).upper()
-    name = re.sub(r"[^A-Z0-9,&.\- /]", " ", name)
+    name = re.sub(r"[^A-Z0-9,&.\- /']", " ", name)
     name = re.sub(r"\s+", " ", name).strip()
     return name
+
+
+def title_name(name: str) -> str:
+    return clean_text(name).title()
 
 
 def build_owner_name(row: dict) -> str:
@@ -267,7 +272,7 @@ def category_flags(doc_type: str, owner: str = "") -> List[str]:
     if dt == "PRO":
         flags.append("Probate / estate")
 
-    corp_terms = [" LLC", " INC", " CORP", " CO ", " COMPANY", " TRUST", " LP", " LTD"]
+    corp_terms = [" LLC", " INC", " CORP", " CO ", " COMPANY", " TRUST", " LP", " LTD", " BANK "]
     if any(term in f" {owner_upper} " for term in corp_terms):
         flags.append("LLC / corp owner")
 
@@ -492,28 +497,6 @@ def build_parcel_index() -> Dict[str, dict]:
     return owner_index
 
 
-def try_parse_date(text: str) -> Optional[str]:
-    text = clean_text(text)
-    if not text:
-        return None
-
-    patterns = [
-        r"\b\d{4}-\d{2}-\d{2}\b",
-        r"\b\d{1,2}/\d{1,2}/\d{2,4}\b",
-        r"\b\d{1,2}-\d{1,2}-\d{2,4}\b",
-    ]
-    for pattern in patterns:
-        match = re.search(pattern, text)
-        if match:
-            raw = match.group(0)
-            for fmt in ("%Y-%m-%d", "%m/%d/%Y", "%m/%d/%y", "%m-%d-%Y", "%m-%d-%y"):
-                try:
-                    return datetime.strptime(raw, fmt).date().isoformat()
-                except ValueError:
-                    continue
-    return None
-
-
 async def click_first_matching(page, selectors: List[str]) -> bool:
     for selector in selectors:
         try:
@@ -549,56 +532,33 @@ def infer_doc_type_from_text(text: str) -> Optional[str]:
     return None
 
 
-def looks_like_bad_owner(text: str) -> bool:
-    t = clean_text(text).lower()
-    if not t:
-        return True
-    if t in ACTION_WORDS:
-        return True
-    if any(word in t for word in ACTION_WORDS):
-        return True
-    if len(t) <= 3:
-        return True
-    return False
+def try_parse_date(text: str) -> Optional[str]:
+    text = clean_text(text)
+    if not text:
+        return None
 
-
-def choose_owner_from_cells(cells: List[str], full_row_text: str) -> str:
-    # Prefer cells that are not dates, not action labels, not doc types, and contain letters.
-    for cell in cells:
-        c = clean_text(cell)
-        if not c:
-            continue
-        if looks_like_bad_owner(c):
-            continue
-        if try_parse_date(c):
-            continue
-        if infer_doc_type_from_text(c):
-            continue
-        if re.fullmatch(r"[$\d,.\- ]+", c):
-            continue
-        if sum(ch.isalpha() for ch in c) < 4:
-            continue
-        return c.title()
-
-    # Fallback: remove known junk from row text and try to salvage a name-like phrase.
-    text = clean_text(full_row_text)
-    for junk in ["Get Docs", "Action", "Docs", "Document", "View", "Open"]:
-        text = text.replace(junk, " ")
-    text = re.sub(r"\s+", " ", text).strip()
-
-    if looks_like_bad_owner(text):
-        return ""
-    if sum(ch.isalpha() for ch in text) < 4:
-        return ""
-
-    return text.title()
+    patterns = [
+        r"\b\d{4}-\d{2}-\d{2}\b",
+        r"\b\d{1,2}/\d{1,2}/\d{2,4}\b",
+        r"\b\d{1,2}-\d{1,2}-\d{2,4}\b",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, text)
+        if match:
+            raw = match.group(0)
+            for fmt in ("%Y-%m-%d", "%m/%d/%Y", "%m/%d/%y", "%m-%d-%Y", "%m-%d-%y"):
+                try:
+                    return datetime.strptime(raw, fmt).date().isoformat()
+                except ValueError:
+                    continue
+    return None
 
 
 def extract_case_number(text: str, fallback: str) -> str:
     text_u = clean_text(text).upper()
     patterns = [
         r"\b\d{2,4}[ -][A-Z]{1,6}[ -]\d{2,8}\b",
-        r"\b[A-Z]{1,6}[ -]\d{2,8}\b",
+        r"\b[A-Z]{2,}[ ]\d{2}\b",
         r"\b\d{6,}\b",
     ]
     for pattern in patterns:
@@ -608,13 +568,81 @@ def extract_case_number(text: str, fallback: str) -> str:
     return fallback
 
 
+def split_caption_party(caption: str) -> Tuple[str, str]:
+    caption_clean = clean_text(caption)
+    upper = caption_clean.upper()
+
+    separators = [" -VS- ", " VS. ", " VS ", " V. ", " V "]
+    for sep in separators:
+        if sep in upper:
+            parts = re.split(re.escape(sep), upper, maxsplit=1)
+            if len(parts) == 2:
+                plaintiff = clean_text(parts[0]).title()
+                defendant = clean_text(parts[1]).title()
+                return defendant, plaintiff
+
+    return "", ""
+
+
+def clean_defendant_name(name: str) -> str:
+    n = clean_text(name)
+    if not n:
+        return ""
+
+    n = re.sub(r"\bAka\b.*$", "", n, flags=re.IGNORECASE).strip()
+    n = re.sub(r"\bEt Al\b.*$", "", n, flags=re.IGNORECASE).strip()
+    n = re.sub(r"\bUnknown Heirs Of\b", "", n, flags=re.IGNORECASE).strip()
+    n = re.sub(r"\bJohn Doe\b", "", n, flags=re.IGNORECASE).strip()
+    n = re.sub(r"\bJane Doe\b", "", n, flags=re.IGNORECASE).strip()
+    n = re.sub(r"\s+", " ", n).strip(" ,.-")
+
+    if not n:
+        return ""
+
+    bad_exact = {"Date Added", "Action", "Get Docs", "Party", "Plaintiff", "Defendant"}
+    if n in bad_exact:
+        return ""
+
+    return n
+
+
+def looks_like_person_or_entity(name: str) -> bool:
+    n = clean_text(name)
+    if not n:
+        return False
+    if n.lower() in ACTION_WORDS:
+        return False
+    if len(n) < 4:
+        return False
+    letters = sum(ch.isalpha() for ch in n)
+    return letters >= 4
+
+
+def extract_parties_from_cells(cells: List[str]) -> Tuple[str, str, str]:
+    row_text = clean_text(" ".join(cells))
+
+    for cell in cells:
+        owner, plaintiff = split_caption_party(cell)
+        owner = clean_defendant_name(owner)
+        plaintiff = clean_text(plaintiff)
+        if looks_like_person_or_entity(owner):
+            return owner, plaintiff, cell
+
+    owner, plaintiff = split_caption_party(row_text)
+    owner = clean_defendant_name(owner)
+    plaintiff = clean_text(plaintiff)
+    if looks_like_person_or_entity(owner):
+        return owner, plaintiff, row_text
+
+    return "", "", row_text
+
+
 def parse_pending_civil_table(html: str, base_url: str, prefix: str) -> List[LeadRecord]:
     soup = BeautifulSoup(html, "lxml")
     records: List[LeadRecord] = []
-
-    tables = soup.find_all("table")
     debug_rows: List[List[str]] = []
 
+    tables = soup.find_all("table")
     for table_idx, table in enumerate(tables, start=1):
         rows = table.find_all("tr")
         for row_idx, row in enumerate(rows, start=1):
@@ -634,19 +662,15 @@ def parse_pending_civil_table(html: str, base_url: str, prefix: str) -> List[Lea
             if datetime.fromisoformat(filed).date() < cutoff:
                 continue
 
-            owner = choose_owner_from_cells(cells, row_text)
+            owner, plaintiff, source_caption = extract_parties_from_cells(cells)
             if not owner:
-                continue
-            if looks_like_bad_owner(owner):
                 continue
 
             amount_match = re.search(r"\$[\d,]+(?:\.\d{2})?", row_text)
             amount = parse_amount(amount_match.group(0)) if amount_match else None
 
-            href = ""
             link = row.find("a", href=True)
-            if link:
-                href = clean_text(link.get("href"))
+            href = clean_text(link.get("href")) if link else ""
 
             doc_num = extract_case_number(row_text, f"{prefix}-T{table_idx}-R{row_idx}")
 
@@ -656,10 +680,10 @@ def parse_pending_civil_table(html: str, base_url: str, prefix: str) -> List[Lea
                 filed=filed,
                 cat=doc_type,
                 cat_label=LEAD_TYPE_MAP.get(doc_type, doc_type),
-                owner=owner,
-                grantee="",
+                owner=title_name(owner),
+                grantee=title_name(plaintiff),
                 amount=amount,
-                legal="",
+                legal=clean_text(source_caption),
                 clerk_url=requests.compat.urljoin(base_url, href) if href else base_url,
             )
             record.flags = category_flags(record.doc_type, record.owner)
@@ -1013,7 +1037,3 @@ async def main() -> None:
     write_ghl_csv(all_records)
 
     logging.info("Finished. Total records: %s", len(all_records))
-
-
-if __name__ == "__main__":
-    asyncio.run(main())
