@@ -234,6 +234,10 @@ def name_variants(name: str) -> List[str]:
             variants.add(f"{first} {middle} {last}".strip())
             variants.add(f"{last}, {first} {middle}".strip())
 
+        if len(parts) >= 3:
+            variants.add(f"{parts[-1]} {parts[0]}")
+            variants.add(f"{parts[0]} {parts[-1]}")
+
     return [v.strip() for v in variants if v.strip()]
 
 
@@ -545,9 +549,9 @@ def build_parcel_index() -> Dict[str, dict]:
         for variant in name_variants(owner):
             owner_index.setdefault(variant, record)
 
-    save_debug_json("parcel_by_id_sample.json", list(parcel_by_id.values())[:10])
-    save_debug_json("owner_index_sample.json", list(owner_index.items())[:20])
-    save_debug_json("owner_values_sample.json", list(owner_index.keys())[:50])
+    save_debug_json("parcel_by_id_sample.json", list(parcel_by_id.values())[:25])
+    save_debug_json("owner_index_sample.json", list(owner_index.items())[:500])
+    save_debug_json("owner_values_sample.json", list(owner_index.keys())[:2000])
 
     logging.info(
         "Built parcel index with %s owner-name keys from %s parcel rows / %s owner rows / %s mail rows / %s legal rows",
@@ -1009,7 +1013,6 @@ def split_name(full_name: str) -> Tuple[str, str]:
     if len(parts) == 1:
         return parts[0], ""
     return parts[0], " ".join(parts[1:])
-
 
 def write_ghl_csv(records: List[LeadRecord]) -> None:
     OUTPUT_CSV_PATH.parent.mkdir(parents=True, exist_ok=True)
