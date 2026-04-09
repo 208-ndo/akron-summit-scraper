@@ -41,7 +41,7 @@ CAMA_PAGE_URL = "https://fiscaloffice.summitoh.net/index.php/documents-a-forms/v
 
 HEADERS = {
     "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; Win64; x64) "
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
         "Chrome/124.0.0.0 Safari/537.36"
     )
@@ -90,7 +90,7 @@ LIKELY_MAIL_STATE_KEYS = [
     "STATE", "MAILSTATE", "MSTATE", "STATECODE"
 ]
 LIKELY_MAIL_ZIP_KEYS = [
-    "MAILZIP", "ZIP", "MZIP", "OWNER_ZIPCD1", "OWNER_ZIPCD2"
+    "MAILZIP", "ZIP", "MZIP", "OWNER ZIPCD1", "OWNER ZIPCD2", "OWNER_ZIPCD1", "OWNER_ZIPCD2"
 ]
 LIKELY_LEGAL_KEYS = [
     "LEGAL", "LEGAL_DESC", "LEGALDESCRIPTION", "LEGDESC"
@@ -116,7 +116,7 @@ CORP_WORDS = {
 }
 NOISE_NAME_WORDS = {
     "AKA", "ET", "AL", "UNKNOWN", "HEIRS", "SPOUSE", "JOHN", "JANE", "DOE", "ADMINISTRATOR",
-    "EXECUTOR", "FIDUCIARY", "TRUSTEE"
+    "EXECUTOR", "FIDUCIARY", "TRUSTEE", "OR"
 }
 
 
@@ -192,7 +192,7 @@ def retry_request(url: str, attempts: int = 3, timeout: int = 60) -> requests.Re
     last_error = None
     for attempt in range(1, attempts + 1):
         try:
-            resp = requests.get(url, headers=HEADERS, timeout=timeout)
+            resp = requests.get(url, headers=HEADERS, timeout=timeout, allow_redirects=True)
             resp.raise_for_status()
             return resp
         except Exception as exc:
@@ -216,6 +216,9 @@ def normalize_person_name(name: str) -> str:
     n = re.sub(r"\bET AL\b.*$", "", n).strip()
     n = re.sub(r"\bUNKNOWN HEIRS OF\b", "", n).strip()
     n = re.sub(r"\bUNKNOWN SPOUSE OF\b", "", n).strip()
+    n = re.sub(r"\bUNKNOWN ADMINISTRATOR\b", "", n).strip()
+    n = re.sub(r"\bEXECUTOR\b", "", n).strip()
+    n = re.sub(r"\bFIDUCIARY\b", "", n).strip()
     n = re.sub(r"\bJOHN DOE\b", "", n).strip()
     n = re.sub(r"\bJANE DOE\b", "", n).strip()
     n = re.sub(r"\s+", " ", n).strip(" ,.-")
@@ -258,8 +261,8 @@ def build_owner_name(row: dict) -> str:
 
 
 def build_mail_zip(row: dict) -> str:
-    z1 = clean_text(row.get("OWNER_ZIPCD1"))
-    z2 = clean_text(row.get("OWNER_ZIPCD2"))
+    z1 = clean_text(row.get("OWNER ZIPCD1") or row.get("OWNER_ZIPCD1"))
+    z2 = clean_text(row.get("OWNER ZIPCD2") or row.get("OWNER_ZIPCD2"))
     if z1 and z2:
         return f"{z1}-{z2}"
     if z1:
@@ -288,9 +291,8 @@ def name_variants(name: str) -> List[str]:
             variants.add(f"{first} {middle} {last}".strip())
             variants.add(f"{last}, {first} {middle}".strip())
 
-        if len(parts) >= 2:
-            variants.add(f"{parts[0]} {parts[-1]}")
-            variants.add(f"{parts[-1]} {parts[0]}")
+        variants.add(f"{parts[0]} {parts[-1]}")
+        variants.add(f"{parts[-1]} {parts[0]}")
 
     return [v.strip() for v in variants if v.strip()]
 
@@ -312,6 +314,7 @@ def safe_pick(row: dict, keys: List[str]) -> str:
     for key in keys:
         if key in row and clean_text(row.get(key)):
             return clean_text(row.get(key))
+
     upper_map = {str(k).upper(): k for k in row.keys()}
     for key in keys:
         if key.upper() in upper_map:
@@ -381,31 +384,7 @@ def score_record(record: LeadRecord) -> int:
     return min(score, 100)
 
 
-
-
-
-def looks_like_zip(content: bytes) -> bool:
-    return len(content) >= 4 and content[:2] == b"PK"
-
-
-def split_lines(text: str) -> List[str]:
-    return [line.rstrip("\r") for line in text.splitlines() if clean_text(line)]
-
-
-def choose_delimiter(sample_text: str) -> str:
-    candidates = ["|", "\t", ","]
-    counts = {d: sample_text.count(d) for d in candidates}
-    best = max(counts, key=counts.get)
-    return best if counts[best] > 0 else "|"
-
-
-def parse_delimited_text(raw_text: str) -> List[dict]:
-    lines = split_lines(raw_text)
-    if len(lines) < 2:
-        return []
-
-    sample = "\n".join(lines[:10])
-    delim = choose_deldef discover_cama_downloads() -> List[str]:
+def discover_cama_downloads() -> List[str]:
     logging.info("Discovering Summit CAMA downloads...")
     response = retry_request(CAMA_PAGE_URL)
     soup = BeautifulSoup(response.text, "lxml")
@@ -437,7 +416,31 @@ def parse_delimited_text(raw_text: str) -> List[dict]:
 
     logging.info("Found %s CAMA file links", len(deduped))
     save_debug_json("cama_links.json", deduped)
-    return dedupedimiter(sample)
+    return deduped
+
+
+def looks_like_zip(content: bytes) -> bool:
+    return len(content) >= 4 and content[:2] == b"PK"
+
+
+def split_lines(text: str) -> List[str]:
+    return [line.rstrip("\r") for line in text.splitlines() if clean_text(line)]
+
+
+def choose_delimiter(sample_text: str) -> str:
+    candidates = ["|", "\t", ","]
+    counts = {d: sample_text.count(d) for d in candidates}
+    best = max(counts, key=counts.get)
+    return best if counts[best] > 0 else "|"
+
+
+def parse_delimited_text(raw_text: str) -> List[dict]:
+    lines = split_lines(raw_text)
+    if len(lines) < 2:
+        return []
+
+    sample = "\n".join(lines[:10])
+    delim = choose_delimiter(sample)
 
     reader = csv.DictReader(io.StringIO("\n".join(lines)), delimiter=delim)
     rows = []
@@ -741,6 +744,9 @@ def clean_defendant_name(name: str) -> str:
     n = re.sub(r"\bET AL\b.*$", "", n, flags=re.IGNORECASE).strip()
     n = re.sub(r"\bUNKNOWN HEIRS OF\b", "", n, flags=re.IGNORECASE).strip()
     n = re.sub(r"\bUNKNOWN SPOUSE OF\b", "", n, flags=re.IGNORECASE).strip()
+    n = re.sub(r"\bUNKNOWN ADMINISTRATOR\b", "", n, flags=re.IGNORECASE).strip()
+    n = re.sub(r"\bEXECUTOR\b", "", n, flags=re.IGNORECASE).strip()
+    n = re.sub(r"\bFIDUCIARY\b", "", n, flags=re.IGNORECASE).strip()
     n = re.sub(r"\bJOHN DOE\b", "", n, flags=re.IGNORECASE).strip()
     n = re.sub(r"\bJANE DOE\b", "", n, flags=re.IGNORECASE).strip()
     n = re.sub(r"\s+", " ", n).strip(" ,.-")
