@@ -18,6 +18,7 @@ from playwright.async_api import async_playwright, TimeoutError as PlaywrightTim
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data"
 DASHBOARD_DIR = BASE_DIR / "dashboard"
+DEBUG_DIR = DATA_DIR / "debug"
 
 OUTPUT_JSON_PATHS = [
     DATA_DIR / "records.json",
@@ -29,6 +30,7 @@ LOOKBACK_DAYS = 90
 SOURCE_NAME = "Akron / Summit County, Ohio"
 
 CLERK_PORTAL_URL = "https://clerkweb.summitoh.net/"
+CLERK_CASE_SEARCH_URL = "https://clerkweb.summitoh.net/record-search"
 PROBATE_URL = "https://search.summitohioprobate.com/eservices/"
 CAMA_PAGE_URL = "https://fiscaloffice.summitoh.net/index.php/documents-a-forms/viewcategory/10-cama"
 
@@ -60,6 +62,7 @@ LEAD_TYPE_MAP = {
 }
 
 TARGET_DOC_TYPES = set(LEAD_TYPE_MAP.keys())
+TARGET_DOC_TYPES_SORTED = sorted(TARGET_DOC_TYPES, key=len, reverse=True)
 
 LIKELY_OWNER_KEYS = [
     "OWNER", "OWN1", "OWNER_NAME", "OWNERNAME", "OWNERNM", "NAME"
@@ -92,6 +95,21 @@ LIKELY_PID_KEYS = [
     "PARID", "PARCELID", "PARCEL_ID", "PARCEL", "PID", "PARCELNO", "PAR_NO"
 ]
 
+IGNORE_TEXT_FRAGMENTS = [
+    "skip to main content",
+    "home currently selected",
+    "click here",
+    "wcag",
+    "accessibility",
+    "civil protection orders",
+    "supreme court",
+    "department of taxation",
+    "marriage application",
+    "common pleas",
+    "domestic relations",
+    "the county of summit",
+]
+
 
 @dataclass
 class LeadRecord:
@@ -120,6 +138,7 @@ class LeadRecord:
 def ensure_dirs() -> None:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     DASHBOARD_DIR.mkdir(parents=True, exist_ok=True)
+    DEBUG_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def log_setup() -> None:
@@ -447,41 +466,6 @@ def build_parcel_index() -> Dict[str, dict]:
     return owner_index
 
 
-def valid_probate_label(text: str) -> bool:
-    text_u = clean_text(text).upper()
-    if not text_u:
-        return False
-
-    bad_contains = [
-        "SKIP TO MAIN CONTENT",
-        "HOME CURRENTLY SELECTED",
-        "CLICK HERE",
-        "WCAG",
-        "ACCESSIBILITY",
-        "OHIO SUPREME COURT",
-        "DEPARTMENT OF TAXATION",
-        "MARRIAGE",
-        "CLERK OF COURTS",
-        "COMMON PLEAS",
-        "DOMESTIC RELATIONS",
-        "THE COUNTY OF SUMMIT",
-        "CIVIL PROTECTION ORDERS",
-    ]
-    if any(bad in text_u for bad in bad_contains):
-        return False
-
-    good_contains = [
-        "ESTATE OF",
-        "IN THE MATTER OF",
-        "GUARDIANSHIP",
-        "DECEDENT",
-        "FIDUCIARY",
-        "PROBATE",
-        "ESTATE",
-    ]
-    return any(good in text_u for good in good_contains)
-
-
 def try_parse_date(text: str) -> Optional[str]:
     text = clean_text(text)
     if not text:
@@ -504,70 +488,122 @@ def try_parse_date(text: str) -> Optional[str]:
     return None
 
 
+def extract_doc_type(text: str) -> Optional[str]:
+    text_u = clean_text(text).upper()
+    for doc_type in TARGET_DOC_TYPES_SORTED:
+        if re.search(rf"\b{re.escape(doc_type)}\b", text_u):
+            return doc_type
+    return None
+
+
+def text_is_noise(text: str) -> bool:
+    t = clean_text(text).lower()
+    if not t:
+        return True
+    if len(t) < 4:
+        return True
+    return any(fragment in t for fragment in IGNORE_TEXT_FRAGMENTS)
+
+
+def save_debug_file(name: str, content: str) -> None:
+    try:
+        path = DEBUG_DIR / name
+        path.write_text(content, encoding="utf-8")
+    except Exception as exc:
+        logging.warning("Could not write debug file %s: %s", name, exc)
+
+
+def parse_candidate_text_to_record(text: str, href: str, base_url: str, fallback_doc_num: str) -> Optional[LeadRecord]:
+    text = clean_text(text)
+    if text_is_noise(text):
+        return None
+
+    doc_type = extract_doc_type(text)
+    if not doc_type:
+        return None
+
+    filed = try_parse_date(text) or datetime.now().date().isoformat()
+    cutoff = datetime.now().date() - timedelta(days=LOOKBACK_DAYS)
+    if datetime.fromisoformat(filed).date() < cutoff:
+        return None
+
+    amount_match = re.search(r"\$[\d,]+(?:\.\d{2})?", text)
+    amount = parse_amount(amount_match.group(0)) if amount_match else None
+
+    doc_num_match = re.search(r"\b\d{5,}\b", text)
+    doc_num = doc_num_match.group(0) if doc_num_match else fallback_doc_num
+
+    record = LeadRecord(
+        doc_num=doc_num,
+        doc_type=doc_type,
+        filed=filed,
+        cat=doc_type,
+        cat_label=LEAD_TYPE_MAP.get(doc_type, doc_type),
+        owner="",
+        grantee="",
+        amount=amount,
+        legal="",
+        clerk_url=requests.compat.urljoin(base_url, href) if href else base_url,
+    )
+    record.flags = category_flags(record.doc_type, record.owner)
+    record.score = score_record(record)
+    return record
+
+
 async def scrape_clerk_records() -> List[LeadRecord]:
     logging.info("Scraping clerk records...")
     records: List[LeadRecord] = []
-    cutoff = datetime.now().date() - timedelta(days=LOOKBACK_DAYS)
 
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
         page = await browser.new_page()
 
         try:
-            await page.goto(CLERK_PORTAL_URL, wait_until="domcontentloaded", timeout=90000)
-            await page.wait_for_timeout(3000)
-            html = await page.content()
-            soup = BeautifulSoup(html, "lxml")
+            urls_to_try = [CLERK_CASE_SEARCH_URL, CLERK_PORTAL_URL]
 
-            candidates = soup.find_all(["a", "tr", "li", "div", "span"])
-            for idx, node in enumerate(candidates):
-                text = clean_text(node.get_text(" "))
-                if not text:
-                    continue
+            for idx, url in enumerate(urls_to_try, start=1):
+                try:
+                    await page.goto(url, wait_until="domcontentloaded", timeout=90000)
+                    await page.wait_for_timeout(4000)
 
-                text_u = text.upper()
-                matched_type = None
-                for doc_type in TARGET_DOC_TYPES:
-                    if re.search(rf"\b{re.escape(doc_type)}\b", text_u):
-                        matched_type = doc_type
-                        break
+                    title = await page.title()
+                    html = await page.content()
+                    save_debug_file(f"clerk_page_{idx}.html", html)
+                    logging.info("Clerk page %s title: %s", idx, title)
 
-                if not matched_type:
-                    continue
+                    soup = BeautifulSoup(html, "lxml")
 
-                href = ""
-                if node.name == "a":
-                    href = clean_text(node.get("href"))
-                else:
-                    link = node.find("a", href=True)
-                    if link:
+                    # Scan table rows first
+                    rows = soup.find_all("tr")
+                    for i, row in enumerate(rows):
+                        text = clean_text(row.get_text(" "))
+                        link = row.find("a", href=True)
+                        href = clean_text(link.get("href")) if link else ""
+                        rec = parse_candidate_text_to_record(text, href, url, f"CLK-TR-{idx}-{i+1}")
+                        if rec:
+                            records.append(rec)
+
+                    # Then scan links
+                    links = soup.find_all("a", href=True)
+                    for i, link in enumerate(links):
+                        text = clean_text(link.get_text(" "))
                         href = clean_text(link.get("href"))
+                        rec = parse_candidate_text_to_record(text, href, url, f"CLK-A-{idx}-{i+1}")
+                        if rec:
+                            records.append(rec)
 
-                filed = try_parse_date(text) or datetime.now().date().isoformat()
-                if datetime.fromisoformat(filed).date() < cutoff:
-                    continue
+                    # Then scan blocks
+                    blocks = soup.find_all(["div", "li", "span"])
+                    for i, block in enumerate(blocks[:2500]):
+                        text = clean_text(block.get_text(" "))
+                        inner_link = block.find("a", href=True)
+                        href = clean_text(inner_link.get("href")) if inner_link else ""
+                        rec = parse_candidate_text_to_record(text, href, url, f"CLK-B-{idx}-{i+1}")
+                        if rec:
+                            records.append(rec)
 
-                doc_num_match = re.search(r"\b\d{4,}\b", text)
-                doc_num = doc_num_match.group(0) if doc_num_match else f"{matched_type}-{idx + 1}"
-
-                amount_match = re.search(r"\$[\d,]+(?:\.\d{2})?", text)
-                amount = parse_amount(amount_match.group(0)) if amount_match else None
-
-                record = LeadRecord(
-                    doc_num=doc_num,
-                    doc_type=matched_type,
-                    filed=filed,
-                    cat=matched_type,
-                    cat_label=LEAD_TYPE_MAP.get(matched_type, matched_type),
-                    owner="",
-                    grantee="",
-                    amount=amount,
-                    legal="",
-                    clerk_url=requests.compat.urljoin(CLERK_PORTAL_URL, href) if href else CLERK_PORTAL_URL,
-                )
-                record.flags = category_flags(record.doc_type, record.owner)
-                record.score = score_record(record)
-                records.append(record)
+                except Exception as inner_exc:
+                    logging.warning("Clerk attempt failed for %s: %s", url, inner_exc)
 
         except PlaywrightTimeoutError:
             logging.warning("Timeout while scraping clerk portal.")
@@ -588,10 +624,26 @@ async def scrape_clerk_records() -> List[LeadRecord]:
     return deduped
 
 
+def valid_probate_candidate(text: str) -> bool:
+    t = clean_text(text)
+    t_u = t.upper()
+    if not t or text_is_noise(t):
+        return False
+
+    good_contains = [
+        "ESTATE OF",
+        "IN THE MATTER OF",
+        "GUARDIANSHIP OF",
+        "DECEDENT",
+        "FIDUCIARY",
+        "ESTATE",
+    ]
+    return any(x in t_u for x in good_contains)
+
+
 async def scrape_probate_records() -> List[LeadRecord]:
     logging.info("Scraping probate records...")
     records: List[LeadRecord] = []
-    cutoff = datetime.now().date() - timedelta(days=LOOKBACK_DAYS)
 
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
@@ -599,30 +651,50 @@ async def scrape_probate_records() -> List[LeadRecord]:
 
         try:
             await page.goto(PROBATE_URL, wait_until="domcontentloaded", timeout=90000)
-            await page.wait_for_timeout(3000)
+            await page.wait_for_timeout(4000)
+
+            title = await page.title()
             html = await page.content()
+            save_debug_file("probate_page_1.html", html)
+            logging.info("Probate page title: %s", title)
+
             soup = BeautifulSoup(html, "lxml")
 
-            candidates = soup.find_all(["a", "tr", "li", "div", "span"])
-            for idx, node in enumerate(candidates):
-                text = clean_text(node.get_text(" "))
-                if not valid_probate_label(text):
+            rows = soup.find_all("tr")
+            for i, row in enumerate(rows):
+                text = clean_text(row.get_text(" "))
+                if not valid_probate_candidate(text):
                     continue
-
-                href = ""
-                if node.name == "a":
-                    href = clean_text(node.get("href"))
-                else:
-                    link = node.find("a", href=True)
-                    if link:
-                        href = clean_text(link.get("href"))
-
+                link = row.find("a", href=True)
+                href = clean_text(link.get("href")) if link else ""
                 filed = try_parse_date(text) or datetime.now().date().isoformat()
-                if datetime.fromisoformat(filed).date() < cutoff:
-                    continue
 
                 record = LeadRecord(
-                    doc_num=f"PRO-{idx + 1}",
+                    doc_num=f"PRO-TR-{i+1}",
+                    doc_type="PRO",
+                    filed=filed,
+                    cat="PRO",
+                    cat_label=LEAD_TYPE_MAP["PRO"],
+                    owner=text[:180],
+                    grantee="",
+                    amount=None,
+                    legal="",
+                    clerk_url=requests.compat.urljoin(PROBATE_URL, href) if href else PROBATE_URL,
+                )
+                record.flags = category_flags(record.doc_type, record.owner)
+                record.score = score_record(record)
+                records.append(record)
+
+            links = soup.find_all("a", href=True)
+            for i, link in enumerate(links):
+                text = clean_text(link.get_text(" "))
+                if not valid_probate_candidate(text):
+                    continue
+                href = clean_text(link.get("href"))
+                filed = try_parse_date(text) or datetime.now().date().isoformat()
+
+                record = LeadRecord(
+                    doc_num=f"PRO-A-{i+1}",
                     doc_type="PRO",
                     filed=filed,
                     cat="PRO",
