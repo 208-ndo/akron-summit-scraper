@@ -1,3 +1,4 @@
+import argparse
 import asyncio
 import csv
 import io
@@ -5,6 +6,7 @@ import json
 import logging
 import re
 import zipfile
+from collections import defaultdict
 from dataclasses import dataclass, asdict, field
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -20,11 +22,14 @@ DATA_DIR = BASE_DIR / "data"
 DASHBOARD_DIR = BASE_DIR / "dashboard"
 DEBUG_DIR = DATA_DIR / "debug"
 
-OUTPUT_JSON_PATHS = [
+DEFAULT_OUTPUT_JSON_PATHS = [
     DATA_DIR / "records.json",
     DASHBOARD_DIR / "records.json",
 ]
-OUTPUT_CSV_PATH = DATA_DIR / "ghl_export.csv"
+DEFAULT_OUTPUT_CSV_PATH = DATA_DIR / "ghl_export.csv"
+DEFAULT_ENRICHED_JSON_PATH = DATA_DIR / "records.enriched.json"
+DEFAULT_ENRICHED_CSV_PATH = DATA_DIR / "records.enriched.csv"
+DEFAULT_REPORT_PATH = DATA_DIR / "match_report.json"
 
 LOOKBACK_DAYS = 90
 SOURCE_NAME = "Akron / Summit County, Ohio"
@@ -36,7 +41,7 @@ CAMA_PAGE_URL = "https://fiscaloffice.summitoh.net/index.php/documents-a-forms/v
 
 HEADERS = {
     "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "Mozilla/5.0 (Windows NT 10.0; Win64; Win64; x64) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
         "Chrome/124.0.0.0 Safari/537.36"
     )
@@ -69,10 +74,10 @@ LIKELY_PROP_ADDR_KEYS = [
     "ADDRESS_1", "ADDRESS_2"
 ]
 LIKELY_PROP_CITY_KEYS = [
-    "SITE_CITY", "CITY", "SITECITY", "PROPERTY_CITY", "SCITY", "CITYNAME"
+    "SITE_CITY", "CITY", "SITECITY", "PROPERTY_CITY", "SCITY", "CITYNAME", "UDATE1"
 ]
 LIKELY_PROP_ZIP_KEYS = [
-    "SITE_ZIP", "ZIP", "SITEZIP", "PROPERTY_ZIP", "SZIP"
+    "SITE_ZIP", "ZIP", "SITEZIP", "PROPERTY_ZIP", "SZIP", "USER2", "ZIPCD"
 ]
 LIKELY_MAIL_ADDR_KEYS = [
     "ADDR_1", "MAILADR1", "MAIL_ADDR", "MAILADDRESS", "MADDR1", "ADDRESS1", "MAILADD1",
@@ -105,6 +110,15 @@ STATE_CODES = {
     "OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","DC"
 }
 
+CORP_WORDS = {
+    "LLC", "INC", "CORP", "CO", "COMPANY", "TRUST", "BANK", "ASSOCIATION", "NATIONAL",
+    "LTD", "LP", "PLC", "HOLDINGS", "FUNDING", "VENTURES", "RESTORATION", "SCHOOLS"
+}
+NOISE_NAME_WORDS = {
+    "AKA", "ET", "AL", "UNKNOWN", "HEIRS", "SPOUSE", "JOHN", "JANE", "DOE", "ADMINISTRATOR",
+    "EXECUTOR", "FIDUCIARY", "TRUSTEE"
+}
+
 
 @dataclass
 class LeadRecord:
@@ -128,6 +142,9 @@ class LeadRecord:
     clerk_url: str = ""
     flags: List[str] = field(default_factory=list)
     score: int = 0
+    match_method: str = "unmatched"
+    match_score: float = 0.0
+    with_address: int = 0
 
 
 def ensure_dirs() -> None:
@@ -191,11 +208,48 @@ def normalize_name(name: str) -> str:
     return name
 
 
+def normalize_person_name(name: str) -> str:
+    n = normalize_name(name)
+    if not n:
+        return ""
+    n = re.sub(r"\bAKA\b.*$", "", n).strip()
+    n = re.sub(r"\bET AL\b.*$", "", n).strip()
+    n = re.sub(r"\bUNKNOWN HEIRS OF\b", "", n).strip()
+    n = re.sub(r"\bUNKNOWN SPOUSE OF\b", "", n).strip()
+    n = re.sub(r"\bJOHN DOE\b", "", n).strip()
+    n = re.sub(r"\bJANE DOE\b", "", n).strip()
+    n = re.sub(r"\s+", " ", n).strip(" ,.-")
+    return n
+
+
+def tokens_from_name(name: str) -> List[str]:
+    n = normalize_person_name(name)
+    if not n:
+        return []
+    return [t for t in re.split(r"[ ,/&.\-]+", n) if t and t not in NOISE_NAME_WORDS]
+
+
+def likely_corporate_name(name: str) -> bool:
+    tokens = set(tokens_from_name(name))
+    return any(t in CORP_WORDS for t in tokens)
+
+
+def get_last_name(name: str) -> str:
+    toks = tokens_from_name(name)
+    return toks[-1] if toks else ""
+
+
+def get_first_name(name: str) -> str:
+    toks = tokens_from_name(name)
+    return toks[0] if toks else ""
+
+
 def build_owner_name(row: dict) -> str:
     owner1 = clean_text(row.get("OWNER1"))
     owner2 = clean_text(row.get("OWNER2"))
     if owner1 and owner2:
-        return f"{owner1} {owner2}".strip()
+        combined = f"{owner1} {owner2}".strip()
+        return re.sub(r"\s+", " ", combined)
     if owner1:
         return owner1
     if owner2:
@@ -214,7 +268,7 @@ def build_mail_zip(row: dict) -> str:
 
 
 def name_variants(name: str) -> List[str]:
-    raw = normalize_name(name)
+    raw = normalize_person_name(name)
     if not raw:
         return []
 
@@ -234,9 +288,9 @@ def name_variants(name: str) -> List[str]:
             variants.add(f"{first} {middle} {last}".strip())
             variants.add(f"{last}, {first} {middle}".strip())
 
-        if len(parts) >= 3:
-            variants.add(f"{parts[-1]} {parts[0]}")
+        if len(parts) >= 2:
             variants.add(f"{parts[0]} {parts[-1]}")
+            variants.add(f"{parts[-1]} {parts[0]}")
 
     return [v.strip() for v in variants if v.strip()]
 
@@ -435,7 +489,10 @@ def build_prop_address_from_row(row: dict) -> str:
 
     parts = [adrno, adradd, adrdir, adrstr, adrsuf, adrsuf2]
     address = " ".join(part for part in parts if part).strip()
-    return re.sub(r"\s+", " ", address)
+    if address:
+        return re.sub(r"\s+", " ", address)
+
+    return safe_pick(row, LIKELY_PROP_ADDR_KEYS)
 
 
 def build_prop_city_from_row(row: dict) -> str:
@@ -461,7 +518,18 @@ def build_prop_zip_from_row(row: dict) -> str:
     return m2.group(1) if m2 else ""
 
 
-def build_parcel_index() -> Dict[str, dict]:
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--records", default=str(DATA_DIR / "records.json"))
+    parser.add_argument("--parcels", default=str(DEBUG_DIR / "sc705_sc731_parcel_sample_rows.json"))
+    parser.add_argument("--owner-index", dest="owner_index", default=str(DEBUG_DIR / "owner_values_sample.json"))
+    parser.add_argument("--out-json", dest="out_json", default=str(DEFAULT_ENRICHED_JSON_PATH))
+    parser.add_argument("--out-csv", dest="out_csv", default=str(DEFAULT_ENRICHED_CSV_PATH))
+    parser.add_argument("--report", dest="report", default=str(DEFAULT_REPORT_PATH))
+    return parser.parse_args()
+
+
+def build_parcel_indexes() -> Tuple[Dict[str, dict], Dict[str, List[dict]], Dict[str, List[dict]]]:
     urls = discover_cama_downloads()
 
     own_rows: List[dict] = []
@@ -482,17 +550,17 @@ def build_parcel_index() -> Dict[str, dict]:
                     mail_rows.extend(rows)
                 elif "SC702" in upper:
                     legal_rows.extend(rows)
-                elif "SC705" in upper or "SC731" in upper:
+                elif "SC705" in upper or "SC731" in upper or "SC720" in upper:
                     parcel_rows.extend(rows)
 
             logging.info("Loaded CAMA source %s", url)
         except Exception as exc:
             logging.warning("Could not process CAMA file %s: %s", url, exc)
 
-    save_debug_json("sc700_owndat_sample_rows.json", own_rows[:5])
-    save_debug_json("sc701_maildat_sample_rows.json", mail_rows[:5])
-    save_debug_json("sc702_legdat_sample_rows.json", legal_rows[:5])
-    save_debug_json("sc705_sc731_parcel_sample_rows.json", parcel_rows[:5])
+    save_debug_json("sc700_owndat_sample_rows.json", own_rows[:25])
+    save_debug_json("sc701_maildat_sample_rows.json", mail_rows[:25])
+    save_debug_json("sc702_legdat_sample_rows.json", legal_rows[:25])
+    save_debug_json("sc705_sc731_parcel_sample_rows.json", parcel_rows[:25])
 
     parcel_by_id: Dict[str, dict] = {}
 
@@ -501,11 +569,12 @@ def build_parcel_index() -> Dict[str, dict]:
         if not pid:
             continue
         parcel_by_id.setdefault(pid, {})
-        parcel_by_id[pid].update({
+        existing = parcel_by_id[pid]
+        existing.update({
             "parcel_id": pid,
-            "prop_address": build_prop_address_from_row(row),
-            "prop_city": build_prop_city_from_row(row),
-            "prop_zip": build_prop_zip_from_row(row),
+            "prop_address": clean_text(existing.get("prop_address")) or build_prop_address_from_row(row),
+            "prop_city": clean_text(existing.get("prop_city")) or build_prop_city_from_row(row),
+            "prop_zip": clean_text(existing.get("prop_zip")) or build_prop_zip_from_row(row),
         })
 
     for row in own_rows:
@@ -513,22 +582,23 @@ def build_parcel_index() -> Dict[str, dict]:
         if not pid:
             continue
         parcel_by_id.setdefault(pid, {})
-        parcel_by_id[pid].update({
-            "parcel_id": pid,
-            "owner": build_owner_name(row),
-        })
+        owner_name = build_owner_name(row)
+        existing = parcel_by_id[pid]
+        if owner_name:
+            existing["owner"] = owner_name
 
     for row in mail_rows:
         pid = get_pid(row)
         if not pid:
             continue
         parcel_by_id.setdefault(pid, {})
-        parcel_by_id[pid].update({
+        existing = parcel_by_id[pid]
+        existing.update({
             "parcel_id": pid,
-            "mail_address": safe_pick(row, LIKELY_MAIL_ADDR_KEYS),
-            "mail_city": safe_pick(row, LIKELY_MAIL_CITY_KEYS),
-            "mail_state": normalize_state(safe_pick(row, LIKELY_MAIL_STATE_KEYS)),
-            "mail_zip": build_mail_zip(row),
+            "mail_address": clean_text(existing.get("mail_address")) or safe_pick(row, LIKELY_MAIL_ADDR_KEYS),
+            "mail_city": clean_text(existing.get("mail_city")) or safe_pick(row, LIKELY_MAIL_CITY_KEYS),
+            "mail_state": normalize_state(clean_text(existing.get("mail_state")) or safe_pick(row, LIKELY_MAIL_STATE_KEYS)),
+            "mail_zip": clean_text(existing.get("mail_zip")) or build_mail_zip(row),
         })
 
     for row in legal_rows:
@@ -536,28 +606,38 @@ def build_parcel_index() -> Dict[str, dict]:
         if not pid:
             continue
         parcel_by_id.setdefault(pid, {})
-        parcel_by_id[pid].update({
-            "parcel_id": pid,
-            "legal": safe_pick(row, LIKELY_LEGAL_KEYS),
-        })
+        existing = parcel_by_id[pid]
+        existing["legal"] = clean_text(existing.get("legal")) or safe_pick(row, LIKELY_LEGAL_KEYS)
 
     owner_index: Dict[str, dict] = {}
+    last_name_index: Dict[str, List[dict]] = defaultdict(list)
+    first_last_index: Dict[str, List[dict]] = defaultdict(list)
+
     for record in parcel_by_id.values():
         owner = clean_text(record.get("owner"))
         if not owner:
             continue
+
         for variant in name_variants(owner):
             owner_index.setdefault(variant, record)
 
-    save_debug_json("parcel_by_id_sample.json", list(parcel_by_id.values())[:25])
+        last_name = get_last_name(owner)
+        first_name = get_first_name(owner)
+        if last_name:
+            last_name_index[last_name].append(record)
+        if first_name and last_name:
+            first_last_index[f"{first_name} {last_name}"].append(record)
+
+    save_debug_json("parcel_by_id_sample.json", list(parcel_by_id.values())[:50])
     save_debug_json("owner_index_sample.json", list(owner_index.items())[:500])
     save_debug_json("owner_values_sample.json", list(owner_index.keys())[:2000])
+    save_debug_json("last_name_index_sample.json", {k: v[:3] for k, v in list(last_name_index.items())[:100]})
 
     logging.info(
         "Built parcel index with %s owner-name keys from %s parcel rows / %s owner rows / %s mail rows / %s legal rows",
         len(owner_index), len(parcel_rows), len(own_rows), len(mail_rows), len(legal_rows)
     )
-    return owner_index
+    return owner_index, last_name_index, first_last_index
 
 
 async def click_first_matching(page, selectors: List[str]) -> bool:
@@ -934,16 +1014,92 @@ async def scrape_probate_records() -> List[LeadRecord]:
     return deduped
 
 
-def enrich_with_parcel_data(records: List[LeadRecord], parcel_index: Dict[str, dict]) -> List[LeadRecord]:
+def better_record(candidate: dict) -> int:
+    score = 0
+    if clean_text(candidate.get("prop_address")):
+        score += 100
+    if clean_text(candidate.get("mail_address")):
+        score += 40
+    if clean_text(candidate.get("legal")):
+        score += 15
+    if clean_text(candidate.get("prop_city")):
+        score += 10
+    if clean_text(candidate.get("prop_zip")):
+        score += 10
+    return score
+
+
+def choose_best_candidate(candidates: List[dict]) -> Optional[dict]:
+    if not candidates:
+        return None
+    return sorted(candidates, key=better_record, reverse=True)[0]
+
+
+def fuzzy_match_record(
+    record: LeadRecord,
+    owner_index: Dict[str, dict],
+    last_name_index: Dict[str, List[dict]],
+    first_last_index: Dict[str, List[dict]]
+) -> Tuple[Optional[dict], str, float]:
+    owner = record.owner
+    owner_variants = name_variants(owner)
+
+    for variant in owner_variants:
+        if variant in owner_index:
+            return owner_index[variant], "exact_name_variant", 1.0
+
+    first_name = get_first_name(owner)
+    last_name = get_last_name(owner)
+
+    if first_name and last_name:
+        key = f"{first_name} {last_name}"
+        candidates = first_last_index.get(key, [])
+        best = choose_best_candidate(candidates)
+        if best:
+            return best, "first_last_fallback", 0.92
+
+    if last_name and not likely_corporate_name(owner):
+        candidates = last_name_index.get(last_name, [])
+        if len(candidates) == 1:
+            return candidates[0], "last_name_unique_fallback", 0.80
+
+        if len(candidates) > 1:
+            exactish = []
+            owner_tokens = set(tokens_from_name(owner))
+            for candidate in candidates:
+                candidate_tokens = set(tokens_from_name(clean_text(candidate.get("owner"))))
+                overlap = owner_tokens & candidate_tokens
+                if last_name in overlap and len(overlap) >= 2:
+                    exactish.append(candidate)
+
+            best = choose_best_candidate(exactish)
+            if best:
+                return best, "token_overlap_fallback", 0.86
+
+    return None, "unmatched", 0.0
+
+
+def enrich_with_parcel_data(
+    records: List[LeadRecord],
+    owner_index: Dict[str, dict],
+    last_name_index: Dict[str, List[dict]],
+    first_last_index: Dict[str, List[dict]]
+) -> Tuple[List[LeadRecord], dict]:
     enriched: List[LeadRecord] = []
+
+    report = {
+        "matched": 0,
+        "unmatched": 0,
+        "with_address": 0,
+        "match_methods": defaultdict(int),
+        "sample_unmatched": [],
+    }
 
     for record in records:
         try:
-            matched = None
-            for variant in name_variants(record.owner):
-                if variant in parcel_index:
-                    matched = parcel_index[variant]
-                    break
+            matched, method, match_score = fuzzy_match_record(
+                record, owner_index, last_name_index, first_last_index
+            )
 
             if matched:
                 record.prop_address = record.prop_address or clean_text(matched.get("prop_address"))
@@ -954,16 +1110,38 @@ def enrich_with_parcel_data(records: List[LeadRecord], parcel_index: Dict[str, d
                 record.mail_state = record.mail_state or normalize_state(clean_text(matched.get("mail_state")))
                 record.mail_zip = record.mail_zip or clean_text(matched.get("mail_zip"))
                 record.legal = record.legal or clean_text(matched.get("legal"))
+                record.match_method = method
+                record.match_score = match_score
+                report["matched"] += 1
+                report["match_methods"][method] += 1
+            else:
+                record.match_method = "unmatched"
+                record.match_score = 0.0
+                report["unmatched"] += 1
+                if len(report["sample_unmatched"]) < 25:
+                    report["sample_unmatched"].append({
+                        "doc_num": record.doc_num,
+                        "owner": record.owner,
+                        "legal": record.legal,
+                    })
 
             record.mail_state = normalize_state(record.mail_state)
+            record.with_address = 1 if clean_text(record.prop_address) else 0
+            if record.with_address:
+                report["with_address"] += 1
+
             record.flags = list(dict.fromkeys(record.flags + category_flags(record.doc_type, record.owner)))
             record.score = score_record(record)
             enriched.append(record)
         except Exception as exc:
             logging.warning("Failed to enrich record %s: %s", record.doc_num, exc)
+            record.match_method = "unmatched"
+            record.match_score = 0.0
+            record.with_address = 1 if clean_text(record.prop_address) else 0
             enriched.append(record)
 
-    return enriched
+    report["match_methods"] = dict(report["match_methods"])
+    return enriched, report
 
 
 def dedupe_records(records: List[LeadRecord]) -> List[LeadRecord]:
@@ -986,8 +1164,8 @@ def dedupe_records(records: List[LeadRecord]) -> List[LeadRecord]:
     return final
 
 
-def write_json(records: List[LeadRecord]) -> None:
-    payload = {
+def build_payload(records: List[LeadRecord]) -> dict:
+    return {
         "fetched_at": datetime.now(timezone.utc).isoformat(),
         "source": SOURCE_NAME,
         "date_range": {
@@ -999,7 +1177,22 @@ def write_json(records: List[LeadRecord]) -> None:
         "records": [asdict(record) for record in records],
     }
 
-    for path in OUTPUT_JSON_PATHS:
+
+def write_json_outputs(records: List[LeadRecord], extra_json_path: Optional[Path] = None) -> None:
+    payload = build_payload(records)
+
+    output_paths = list(DEFAULT_OUTPUT_JSON_PATHS)
+    if extra_json_path:
+        output_paths.append(extra_json_path)
+
+    seen = set()
+    deduped_paths = []
+    for path in output_paths:
+        if str(path) not in seen:
+            seen.add(str(path))
+            deduped_paths.append(path)
+
+    for path in deduped_paths:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
@@ -1014,8 +1207,9 @@ def split_name(full_name: str) -> Tuple[str, str]:
         return parts[0], ""
     return parts[0], " ".join(parts[1:])
 
-def write_ghl_csv(records: List[LeadRecord]) -> None:
-    OUTPUT_CSV_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+def write_csv(records: List[LeadRecord], csv_path: Path) -> None:
+    csv_path.parent.mkdir(parents=True, exist_ok=True)
 
     fieldnames = [
         "First Name",
@@ -1035,11 +1229,13 @@ def write_ghl_csv(records: List[LeadRecord]) -> None:
         "Amount/Debt Owed",
         "Seller Score",
         "Motivated Seller Flags",
+        "Match Method",
+        "Match Score",
         "Source",
         "Public Records URL",
     ]
 
-    with OUTPUT_CSV_PATH.open("w", newline="", encoding="utf-8") as handle:
+    with csv_path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames)
         writer.writeheader()
 
@@ -1063,30 +1259,50 @@ def write_ghl_csv(records: List[LeadRecord]) -> None:
                 "Amount/Debt Owed": record.amount if record.amount is not None else "",
                 "Seller Score": record.score,
                 "Motivated Seller Flags": "; ".join(record.flags),
+                "Match Method": record.match_method,
+                "Match Score": record.match_score,
                 "Source": SOURCE_NAME,
                 "Public Records URL": record.clerk_url,
             })
 
-    logging.info("Wrote GHL export CSV.")
+    logging.info("Wrote CSV: %s", csv_path)
+
+
+def write_report(report: dict, report_path: Path) -> None:
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report["generated_at"] = datetime.now(timezone.utc).isoformat()
+    report_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
+    logging.info("Wrote report: %s", report_path)
 
 
 async def main() -> None:
+    args = parse_args()
+
     ensure_dirs()
     log_setup()
 
+    out_json_path = Path(args.out_json)
+    out_csv_path = Path(args.out_csv)
+    report_path = Path(args.report)
+
     logging.info("Starting Summit County scraper run...")
 
-    parcel_index = build_parcel_index()
+    owner_index, last_name_index, first_last_index = build_parcel_indexes()
     clerk_records = await scrape_clerk_records()
     probate_records = await scrape_probate_records()
 
     all_records = clerk_records + probate_records
-    all_records = enrich_with_parcel_data(all_records, parcel_index)
+    all_records, report = enrich_with_parcel_data(
+        all_records, owner_index, last_name_index, first_last_index
+    )
     all_records = dedupe_records(all_records)
     all_records.sort(key=lambda record: (record.filed, record.score, record.doc_num), reverse=True)
 
-    write_json(all_records)
-    write_ghl_csv(all_records)
+    write_json_outputs(all_records, extra_json_path=out_json_path)
+    write_csv(all_records, DEFAULT_OUTPUT_CSV_PATH)
+    if out_csv_path != DEFAULT_OUTPUT_CSV_PATH:
+        write_csv(all_records, out_csv_path)
+    write_report(report, report_path)
 
     logging.info("Finished. Total records: %s", len(all_records))
 
