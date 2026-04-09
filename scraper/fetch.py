@@ -94,10 +94,9 @@ LIKELY_PID_KEYS = [
     "PAIRD", "PARID", "PARCELID", "PARCEL_ID", "PARCEL", "PID", "PARCELNO", "PAR_NO", "PAR_NUM"
 ]
 
-ACTION_WORDS = {
-    "action", "get docs", "docs", "document", "documents", "view", "open", "details", "search",
-    "case", "select", "division", "home", "welcome", "click here", "continue", "begin",
-    "date added", "party", "plaintiff", "defendant"
+BAD_EXACT_OWNERS = {
+    "Action", "Get Docs", "Date Added", "Party", "Plaintiff", "Defendant",
+    "Search", "Home", "Select Division", "Welcome"
 }
 
 
@@ -176,10 +175,6 @@ def normalize_name(name: str) -> str:
     name = re.sub(r"[^A-Z0-9,&.\- /']", " ", name)
     name = re.sub(r"\s+", " ", name).strip()
     return name
-
-
-def title_name(name: str) -> str:
-    return clean_text(name).title()
 
 
 def build_owner_name(row: dict) -> str:
@@ -568,19 +563,18 @@ def extract_case_number(text: str, fallback: str) -> str:
     return fallback
 
 
-def split_caption_party(caption: str) -> Tuple[str, str]:
-    caption_clean = clean_text(caption)
-    upper = caption_clean.upper()
+def split_caption(caption: str) -> Tuple[str, str]:
+    cap = clean_text(caption)
+    upper = cap.upper()
 
     separators = [" -VS- ", " VS. ", " VS ", " V. ", " V "]
     for sep in separators:
         if sep in upper:
-            parts = re.split(re.escape(sep), upper, maxsplit=1)
+            parts = re.split(re.escape(sep), cap, maxsplit=1, flags=re.IGNORECASE)
             if len(parts) == 2:
-                plaintiff = clean_text(parts[0]).title()
-                defendant = clean_text(parts[1]).title()
-                return defendant, plaintiff
-
+                plaintiff = clean_text(parts[0])
+                defendant = clean_text(parts[1])
+                return plaintiff, defendant
     return "", ""
 
 
@@ -589,28 +583,24 @@ def clean_defendant_name(name: str) -> str:
     if not n:
         return ""
 
-    n = re.sub(r"\bAka\b.*$", "", n, flags=re.IGNORECASE).strip()
-    n = re.sub(r"\bEt Al\b.*$", "", n, flags=re.IGNORECASE).strip()
-    n = re.sub(r"\bUnknown Heirs Of\b", "", n, flags=re.IGNORECASE).strip()
-    n = re.sub(r"\bJohn Doe\b", "", n, flags=re.IGNORECASE).strip()
-    n = re.sub(r"\bJane Doe\b", "", n, flags=re.IGNORECASE).strip()
+    n = re.sub(r"\bAKA\b.*$", "", n, flags=re.IGNORECASE).strip()
+    n = re.sub(r"\bET AL\b.*$", "", n, flags=re.IGNORECASE).strip()
+    n = re.sub(r"\bUNKNOWN HEIRS OF\b", "", n, flags=re.IGNORECASE).strip()
+    n = re.sub(r"\bUNKNOWN SPOUSE OF\b", "", n, flags=re.IGNORECASE).strip()
+    n = re.sub(r"\bJOHN DOE\b", "", n, flags=re.IGNORECASE).strip()
+    n = re.sub(r"\bJANE DOE\b", "", n, flags=re.IGNORECASE).strip()
     n = re.sub(r"\s+", " ", n).strip(" ,.-")
 
-    if not n:
+    if not n or n in BAD_EXACT_OWNERS:
         return ""
-
-    bad_exact = {"Date Added", "Action", "Get Docs", "Party", "Plaintiff", "Defendant"}
-    if n in bad_exact:
-        return ""
-
     return n
 
 
-def looks_like_person_or_entity(name: str) -> bool:
+def looks_like_good_owner(name: str) -> bool:
     n = clean_text(name)
     if not n:
         return False
-    if n.lower() in ACTION_WORDS:
+    if n in BAD_EXACT_OWNERS:
         return False
     if len(n) < 4:
         return False
@@ -618,21 +608,16 @@ def looks_like_person_or_entity(name: str) -> bool:
     return letters >= 4
 
 
-def extract_parties_from_cells(cells: List[str]) -> Tuple[str, str, str]:
+def extract_owner_and_grantee(cells: List[str]) -> Tuple[str, str, str]:
     row_text = clean_text(" ".join(cells))
 
-    for cell in cells:
-        owner, plaintiff = split_caption_party(cell)
-        owner = clean_defendant_name(owner)
+    candidates = cells + [row_text]
+    for candidate in candidates:
+        plaintiff, defendant = split_caption(candidate)
+        defendant = clean_defendant_name(defendant)
         plaintiff = clean_text(plaintiff)
-        if looks_like_person_or_entity(owner):
-            return owner, plaintiff, cell
-
-    owner, plaintiff = split_caption_party(row_text)
-    owner = clean_defendant_name(owner)
-    plaintiff = clean_text(plaintiff)
-    if looks_like_person_or_entity(owner):
-        return owner, plaintiff, row_text
+        if looks_like_good_owner(defendant):
+            return defendant.title(), plaintiff.title(), candidate
 
     return "", "", row_text
 
@@ -662,7 +647,7 @@ def parse_pending_civil_table(html: str, base_url: str, prefix: str) -> List[Lea
             if datetime.fromisoformat(filed).date() < cutoff:
                 continue
 
-            owner, plaintiff, source_caption = extract_parties_from_cells(cells)
+            owner, grantee, source_caption = extract_owner_and_grantee(cells)
             if not owner:
                 continue
 
@@ -680,8 +665,8 @@ def parse_pending_civil_table(html: str, base_url: str, prefix: str) -> List[Lea
                 filed=filed,
                 cat=doc_type,
                 cat_label=LEAD_TYPE_MAP.get(doc_type, doc_type),
-                owner=title_name(owner),
-                grantee=title_name(plaintiff),
+                owner=owner,
+                grantee=grantee,
                 amount=amount,
                 legal=clean_text(source_caption),
                 clerk_url=requests.compat.urljoin(base_url, href) if href else base_url,
@@ -703,7 +688,6 @@ async def scrape_pending_civil_records(page) -> List[LeadRecord]:
         await page.wait_for_timeout(4000)
         html1 = await page.content()
         save_debug_text("pending_civil_page_1.html", html1)
-
         records.extend(parse_pending_civil_table(html1, PENDING_CIVIL_URL, "PCF1"))
 
         clicked = await click_first_matching(page, [
@@ -1037,3 +1021,7 @@ async def main() -> None:
     write_ghl_csv(all_records)
 
     logging.info("Finished. Total records: %s", len(all_records))
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
