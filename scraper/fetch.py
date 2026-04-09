@@ -65,19 +65,19 @@ TARGET_DOC_TYPES = set(LEAD_TYPE_MAP.keys())
 TARGET_DOC_TYPES_SORTED = sorted(TARGET_DOC_TYPES, key=len, reverse=True)
 
 LIKELY_OWNER_KEYS = [
-    "OWNER", "OWN1", "OWNER_NAME", "OWNERNAME", "OWNERNM", "NAME"
+    "OWNER", "OWN1", "OWNER_NAME", "OWNERNAME", "OWNERNM", "NAME", "OWNNAM"
 ]
 LIKELY_PROP_ADDR_KEYS = [
-    "SITE_ADDR", "SITEADDR", "PROPERTY_ADDRESS", "PROPADDR", "ADDRESS", "LOCADDR"
+    "SITE_ADDR", "SITEADDR", "PROPERTY_ADDRESS", "PROPADDR", "ADDRESS", "LOCADDR", "SADDR"
 ]
 LIKELY_PROP_CITY_KEYS = [
-    "SITE_CITY", "CITY", "SITECITY", "PROPERTY_CITY"
+    "SITE_CITY", "CITY", "SITECITY", "PROPERTY_CITY", "SCITY"
 ]
 LIKELY_PROP_ZIP_KEYS = [
-    "SITE_ZIP", "ZIP", "SITEZIP", "PROPERTY_ZIP"
+    "SITE_ZIP", "ZIP", "SITEZIP", "PROPERTY_ZIP", "SZIP"
 ]
 LIKELY_MAIL_ADDR_KEYS = [
-    "ADDR_1", "MAILADR1", "MAIL_ADDR", "MAILADDRESS", "MADDR1", "ADDRESS1"
+    "ADDR_1", "MAILADR1", "MAIL_ADDR", "MAILADDRESS", "MADDR1", "ADDRESS1", "MAILADD1"
 ]
 LIKELY_MAIL_CITY_KEYS = [
     "MAILCITY", "CITY", "MCITY"
@@ -92,7 +92,7 @@ LIKELY_LEGAL_KEYS = [
     "LEGAL", "LEGAL_DESC", "LEGALDESCRIPTION", "LEGDESC"
 ]
 LIKELY_PID_KEYS = [
-    "PARID", "PARCELID", "PARCEL_ID", "PARCEL", "PID", "PARCELNO", "PAR_NO"
+    "PARID", "PARCELID", "PARCEL_ID", "PARCEL", "PID", "PARCELNO", "PAR_NO", "PAR_NUM"
 ]
 
 IGNORE_TEXT_FRAGMENTS = [
@@ -146,6 +146,20 @@ def log_setup() -> None:
         level=logging.INFO,
         format="%(asctime)s | %(levelname)s | %(message)s",
     )
+
+
+def save_debug_text(name: str, content: str) -> None:
+    try:
+        (DEBUG_DIR / name).write_text(content, encoding="utf-8")
+    except Exception as exc:
+        logging.warning("Could not write debug text %s: %s", name, exc)
+
+
+def save_debug_json(name: str, payload) -> None:
+    try:
+        (DEBUG_DIR / name).write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    except Exception as exc:
+        logging.warning("Could not write debug json %s: %s", name, exc)
 
 
 def clean_text(value: Optional[str]) -> str:
@@ -304,6 +318,7 @@ def discover_cama_downloads() -> List[str]:
             deduped.append(url)
 
     logging.info("Found %s CAMA file links", len(deduped))
+    save_debug_json("cama_links.json", deduped)
     return deduped
 
 
@@ -376,6 +391,13 @@ def read_any_cama_payload(content: bytes, source_name: str) -> Dict[str, List[di
     return datasets
 
 
+def debug_dataset_rows(label: str, rows: List[dict]) -> None:
+    sample = rows[:5]
+    keys = sorted({k for row in sample for k in row.keys()})
+    save_debug_json(f"{label}_sample_rows.json", sample)
+    save_debug_json(f"{label}_sample_keys.json", keys)
+
+
 def build_parcel_index() -> Dict[str, dict]:
     urls = discover_cama_downloads()
 
@@ -391,14 +413,19 @@ def build_parcel_index() -> Dict[str, dict]:
 
             for fname, rows in datasets.items():
                 upper = fname.upper()
+
                 if "SC700" in upper:
                     own_rows.extend(rows)
+                    debug_dataset_rows("sc700_owndat", rows)
                 elif "SC701" in upper:
                     mail_rows.extend(rows)
+                    debug_dataset_rows("sc701_maildat", rows)
                 elif "SC702" in upper:
                     legal_rows.extend(rows)
+                    debug_dataset_rows("sc702_legdat", rows)
                 elif "SC705" in upper or "SC731" in upper:
                     parcel_rows.extend(rows)
+                    debug_dataset_rows("sc705_sc731_parcel", rows)
 
             logging.info("Loaded CAMA source %s", url)
         except Exception as exc:
@@ -451,13 +478,21 @@ def build_parcel_index() -> Dict[str, dict]:
             "legal": safe_pick(row, LIKELY_LEGAL_KEYS),
         })
 
+    sample_parcel_records = list(parcel_by_id.values())[:10]
+    save_debug_json("parcel_by_id_sample.json", sample_parcel_records)
+
     owner_index: Dict[str, dict] = {}
+    owners_seen = []
     for record in parcel_by_id.values():
         owner = clean_text(record.get("owner"))
         if not owner:
             continue
+        owners_seen.append(owner)
         for variant in name_variants(owner):
             owner_index.setdefault(variant, record)
+
+    save_debug_json("owner_values_sample.json", owners_seen[:50])
+    save_debug_json("owner_index_sample.json", list(owner_index.items())[:20])
 
     logging.info(
         "Built parcel index with %s owner-name keys from %s parcel rows / %s owner rows / %s mail rows / %s legal rows",
@@ -503,14 +538,6 @@ def text_is_noise(text: str) -> bool:
     if len(t) < 4:
         return True
     return any(fragment in t for fragment in IGNORE_TEXT_FRAGMENTS)
-
-
-def save_debug_file(name: str, content: str) -> None:
-    try:
-        path = DEBUG_DIR / name
-        path.write_text(content, encoding="utf-8")
-    except Exception as exc:
-        logging.warning("Could not write debug file %s: %s", name, exc)
 
 
 def parse_candidate_text_to_record(text: str, href: str, base_url: str, fallback_doc_num: str) -> Optional[LeadRecord]:
@@ -568,12 +595,11 @@ async def scrape_clerk_records() -> List[LeadRecord]:
 
                     title = await page.title()
                     html = await page.content()
-                    save_debug_file(f"clerk_page_{idx}.html", html)
+                    save_debug_text(f"clerk_page_{idx}.html", html)
                     logging.info("Clerk page %s title: %s", idx, title)
 
                     soup = BeautifulSoup(html, "lxml")
 
-                    # Scan table rows first
                     rows = soup.find_all("tr")
                     for i, row in enumerate(rows):
                         text = clean_text(row.get_text(" "))
@@ -583,7 +609,6 @@ async def scrape_clerk_records() -> List[LeadRecord]:
                         if rec:
                             records.append(rec)
 
-                    # Then scan links
                     links = soup.find_all("a", href=True)
                     for i, link in enumerate(links):
                         text = clean_text(link.get_text(" "))
@@ -592,7 +617,6 @@ async def scrape_clerk_records() -> List[LeadRecord]:
                         if rec:
                             records.append(rec)
 
-                    # Then scan blocks
                     blocks = soup.find_all(["div", "li", "span"])
                     for i, block in enumerate(blocks[:2500]):
                         text = clean_text(block.get_text(" "))
@@ -655,7 +679,7 @@ async def scrape_probate_records() -> List[LeadRecord]:
 
             title = await page.title()
             html = await page.content()
-            save_debug_file("probate_page_1.html", html)
+            save_debug_text("probate_page_1.html", html)
             logging.info("Probate page title: %s", title)
 
             soup = BeautifulSoup(html, "lxml")
