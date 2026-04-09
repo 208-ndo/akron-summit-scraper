@@ -639,7 +639,7 @@ def build_parcel_indexes() -> Tuple[Dict[str, dict], Dict[str, List[dict]], Dict
 
     save_debug_json("parcel_by_id_sample.json", list(parcel_by_id.values())[:50])
     save_debug_json("owner_index_sample.json", list(owner_index.items())[:500])
-    save_debug_json("owner_values_sample.json", list(owner_index.keys())[:2000])
+    save_debug_json("owner_values_sample.json", list(owner_index.keys())[:1000])
     save_debug_json("last_name_index_sample.json", {k: v[:3] for k, v in list(last_name_index.items())[:100]})
 
     logging.info(
