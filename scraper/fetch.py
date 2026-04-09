@@ -61,9 +61,6 @@ LEAD_TYPE_MAP = {
     "RELLP": "Release Lis Pendens",
 }
 
-TARGET_DOC_TYPES = set(LEAD_TYPE_MAP.keys())
-TARGET_DOC_TYPES_SORTED = sorted(TARGET_DOC_TYPES, key=len, reverse=True)
-
 LIKELY_OWNER_KEYS = [
     "OWNER1", "OWNER2", "OWNER", "OWN1", "OWNER_NAME", "OWNERNAME", "OWNERNM", "NAME", "OWNNAM"
 ]
@@ -97,26 +94,10 @@ LIKELY_PID_KEYS = [
     "PAIRD", "PARID", "PARCELID", "PARCEL_ID", "PARCEL", "PID", "PARCELNO", "PAR_NO", "PAR_NUM"
 ]
 
-IGNORE_TEXT_FRAGMENTS = [
-    "skip to main content",
-    "home currently selected",
-    "click here",
-    "wcag",
-    "accessibility",
-    "civil protection orders",
-    "supreme court",
-    "department of taxation",
-    "marriage application",
-    "common pleas",
-    "domestic relations",
-    "the county of summit",
-    "public records search",
-    "important notices",
-    "welcome page",
-    "pending civil filings",
-    "select division",
-    "disclaimer screen",
-]
+ACTION_WORDS = {
+    "action", "get docs", "docs", "document", "documents", "view", "open", "details", "search",
+    "case", "select", "division", "home", "welcome", "click here", "continue", "begin"
+}
 
 
 @dataclass
@@ -421,13 +402,6 @@ def read_any_cama_payload(content: bytes, source_name: str) -> Dict[str, List[di
     return datasets
 
 
-def debug_dataset_rows(label: str, rows: List[dict]) -> None:
-    sample = rows[:5]
-    keys = sorted({k for row in sample for k in row.keys()})
-    save_debug_json(f"{label}_sample_rows.json", sample)
-    save_debug_json(f"{label}_sample_keys.json", keys)
-
-
 def build_parcel_index() -> Dict[str, dict]:
     urls = discover_cama_downloads()
 
@@ -443,19 +417,14 @@ def build_parcel_index() -> Dict[str, dict]:
 
             for fname, rows in datasets.items():
                 upper = fname.upper()
-
                 if "SC700" in upper:
                     own_rows.extend(rows)
-                    debug_dataset_rows("sc700_owndat", rows)
                 elif "SC701" in upper:
                     mail_rows.extend(rows)
-                    debug_dataset_rows("sc701_maildat", rows)
                 elif "SC702" in upper:
                     legal_rows.extend(rows)
-                    debug_dataset_rows("sc702_legdat", rows)
                 elif "SC705" in upper or "SC731" in upper:
                     parcel_rows.extend(rows)
-                    debug_dataset_rows("sc705_sc731_parcel", rows)
 
             logging.info("Loaded CAMA source %s", url)
         except Exception as exc:
@@ -545,28 +514,17 @@ def try_parse_date(text: str) -> Optional[str]:
     return None
 
 
-def click_first_matching(page, selectors: List[str]):
-    async def _inner():
-        for selector in selectors:
-            try:
-                locator = page.locator(selector).first
-                if await locator.count() > 0:
-                    await locator.click()
-                    await page.wait_for_timeout(2500)
-                    return True
-            except Exception:
-                continue
-        return False
-    return _inner()
-
-
-def text_is_noise(text: str) -> bool:
-    t = clean_text(text).lower()
-    if not t:
-        return True
-    if len(t) < 4:
-        return True
-    return any(fragment in t for fragment in IGNORE_TEXT_FRAGMENTS)
+async def click_first_matching(page, selectors: List[str]) -> bool:
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if await locator.count() > 0:
+                await locator.click()
+                await page.wait_for_timeout(2500)
+                return True
+        except Exception:
+            continue
+    return False
 
 
 def infer_doc_type_from_text(text: str) -> Optional[str]:
@@ -588,105 +546,127 @@ def infer_doc_type_from_text(text: str) -> Optional[str]:
         return "LN"
     if "NOTICE OF COMMENCEMENT" in t:
         return "NOC"
-
     return None
 
 
-def looks_like_party_text(text: str) -> bool:
-    t = clean_text(text)
+def looks_like_bad_owner(text: str) -> bool:
+    t = clean_text(text).lower()
     if not t:
-        return False
-    if len(t) < 4:
-        return False
-    if any(x in t.lower() for x in ["search", "court", "welcome", "division", "records", "select division"]):
-        return False
-    letters = sum(ch.isalpha() for ch in t)
-    return letters >= 4
+        return True
+    if t in ACTION_WORDS:
+        return True
+    if any(word in t for word in ACTION_WORDS):
+        return True
+    if len(t) <= 3:
+        return True
+    return False
 
 
-def extract_parties_from_text(text: str) -> Tuple[str, str]:
-    t = clean_text(text)
+def choose_owner_from_cells(cells: List[str], full_row_text: str) -> str:
+    # Prefer cells that are not dates, not action labels, not doc types, and contain letters.
+    for cell in cells:
+        c = clean_text(cell)
+        if not c:
+            continue
+        if looks_like_bad_owner(c):
+            continue
+        if try_parse_date(c):
+            continue
+        if infer_doc_type_from_text(c):
+            continue
+        if re.fullmatch(r"[$\d,.\- ]+", c):
+            continue
+        if sum(ch.isalpha() for ch in c) < 4:
+            continue
+        return c.title()
 
+    # Fallback: remove known junk from row text and try to salvage a name-like phrase.
+    text = clean_text(full_row_text)
+    for junk in ["Get Docs", "Action", "Docs", "Document", "View", "Open"]:
+        text = text.replace(junk, " ")
+    text = re.sub(r"\s+", " ", text).strip()
+
+    if looks_like_bad_owner(text):
+        return ""
+    if sum(ch.isalpha() for ch in text) < 4:
+        return ""
+
+    return text.title()
+
+
+def extract_case_number(text: str, fallback: str) -> str:
+    text_u = clean_text(text).upper()
     patterns = [
-        r"([A-Z0-9 ,.&'\-]+)\s+VS\.?\s+([A-Z0-9 ,.&'\-]+)",
-        r"([A-Z0-9 ,.&'\-]+)\s+V\.?\s+([A-Z0-9 ,.&'\-]+)",
-        r"PLAINTIFF[: ]+([A-Z0-9 ,.&'\-]+).*DEFENDANT[: ]+([A-Z0-9 ,.&'\-]+)",
-        r"DEFENDANT[: ]+([A-Z0-9 ,.&'\-]+)",
+        r"\b\d{2,4}[ -][A-Z]{1,6}[ -]\d{2,8}\b",
+        r"\b[A-Z]{1,6}[ -]\d{2,8}\b",
+        r"\b\d{6,}\b",
     ]
-
-    upper = t.upper()
     for pattern in patterns:
-        m = re.search(pattern, upper)
+        m = re.search(pattern, text_u)
         if m:
-            if len(m.groups()) >= 2:
-                return clean_text(m.group(2).title()), clean_text(m.group(1).title())
-            if len(m.groups()) == 1:
-                return clean_text(m.group(1).title()), ""
-
-    if " VS " in upper:
-        parts = upper.split(" VS ", 1)
-        if len(parts) == 2:
-            return clean_text(parts[1].title()), clean_text(parts[0].title())
-
-    return "", ""
+            return clean_text(m.group(0))
+    return fallback
 
 
 def parse_pending_civil_table(html: str, base_url: str, prefix: str) -> List[LeadRecord]:
     soup = BeautifulSoup(html, "lxml")
     records: List[LeadRecord] = []
 
-    rows = soup.find_all("tr")
-    for i, row in enumerate(rows):
-        text = clean_text(row.get_text(" "))
-        if text_is_noise(text):
-            continue
+    tables = soup.find_all("table")
+    debug_rows: List[List[str]] = []
 
-        doc_type = infer_doc_type_from_text(text)
-        if doc_type not in {"NOFC", "LP", "JUD", "LN", "LNMECH", "LNFED", "NOC"}:
-            continue
+    for table_idx, table in enumerate(tables, start=1):
+        rows = table.find_all("tr")
+        for row_idx, row in enumerate(rows, start=1):
+            cells = [clean_text(td.get_text(" ")) for td in row.find_all(["td", "th"])]
+            if not cells:
+                continue
 
-        filed = try_parse_date(text) or datetime.now().date().isoformat()
-        cutoff = datetime.now().date() - timedelta(days=LOOKBACK_DAYS)
-        if datetime.fromisoformat(filed).date() < cutoff:
-            continue
+            debug_rows.append(cells[:10])
 
-        link = row.find("a", href=True)
-        href = clean_text(link.get("href")) if link else ""
+            row_text = clean_text(" ".join(cells))
+            doc_type = infer_doc_type_from_text(row_text)
+            if doc_type not in {"NOFC", "LP", "JUD", "LN", "LNMECH", "LNFED", "NOC"}:
+                continue
 
-        owner, grantee = extract_parties_from_text(text)
+            filed = try_parse_date(row_text) or datetime.now().date().isoformat()
+            cutoff = datetime.now().date() - timedelta(days=LOOKBACK_DAYS)
+            if datetime.fromisoformat(filed).date() < cutoff:
+                continue
 
-        cells = [clean_text(td.get_text(" ")) for td in row.find_all(["td", "th"])]
-        if not owner:
-            for cell in cells:
-                if looks_like_party_text(cell) and infer_doc_type_from_text(cell) is None and not try_parse_date(cell):
-                    owner = cell.title()
-                    break
+            owner = choose_owner_from_cells(cells, row_text)
+            if not owner:
+                continue
+            if looks_like_bad_owner(owner):
+                continue
 
-        if not owner:
-            continue
+            amount_match = re.search(r"\$[\d,]+(?:\.\d{2})?", row_text)
+            amount = parse_amount(amount_match.group(0)) if amount_match else None
 
-        amount_match = re.search(r"\$[\d,]+(?:\.\d{2})?", text)
-        amount = parse_amount(amount_match.group(0)) if amount_match else None
+            href = ""
+            link = row.find("a", href=True)
+            if link:
+                href = clean_text(link.get("href"))
 
-        case_match = re.search(r"\b\d{2,4}[ -][A-Z]{1,5}[ -]\d{2,6}\b", text.upper())
-        doc_num = case_match.group(0) if case_match else f"{prefix}-TR-{i+1}"
+            doc_num = extract_case_number(row_text, f"{prefix}-T{table_idx}-R{row_idx}")
 
-        record = LeadRecord(
-            doc_num=doc_num,
-            doc_type=doc_type,
-            filed=filed,
-            cat=doc_type,
-            cat_label=LEAD_TYPE_MAP.get(doc_type, doc_type),
-            owner=owner,
-            grantee=grantee,
-            amount=amount,
-            legal="",
-            clerk_url=requests.compat.urljoin(base_url, href) if href else base_url,
-        )
-        record.flags = category_flags(record.doc_type, record.owner)
-        record.score = score_record(record)
-        records.append(record)
+            record = LeadRecord(
+                doc_num=doc_num,
+                doc_type=doc_type,
+                filed=filed,
+                cat=doc_type,
+                cat_label=LEAD_TYPE_MAP.get(doc_type, doc_type),
+                owner=owner,
+                grantee="",
+                amount=amount,
+                legal="",
+                clerk_url=requests.compat.urljoin(base_url, href) if href else base_url,
+            )
+            record.flags = category_flags(record.doc_type, record.owner)
+            record.score = score_record(record)
+            records.append(record)
 
+    save_debug_json(f"{prefix.lower()}_table_cells_sample.json", debug_rows[:25])
     return records
 
 
@@ -700,7 +680,7 @@ async def scrape_pending_civil_records(page) -> List[LeadRecord]:
         html1 = await page.content()
         save_debug_text("pending_civil_page_1.html", html1)
 
-        records.extend(parse_pending_civil_table(html1, PENDING_CIVIL_URL, "PCF"))
+        records.extend(parse_pending_civil_table(html1, PENDING_CIVIL_URL, "PCF1"))
 
         clicked = await click_first_matching(page, [
             "text=Search",
@@ -773,7 +753,7 @@ async def scrape_clerk_records() -> List[LeadRecord]:
     deduped: List[LeadRecord] = []
     seen = set()
     for record in records:
-        normalized_doc = re.sub(r"^(PCF2|PCF)-", "", clean_text(record.doc_num).upper())
+        normalized_doc = re.sub(r"^(PCF1|PCF2)-", "", clean_text(record.doc_num).upper())
         key = (
             normalized_doc,
             clean_text(record.doc_type).upper(),
@@ -792,9 +772,8 @@ async def scrape_clerk_records() -> List[LeadRecord]:
 def valid_probate_candidate(text: str) -> bool:
     t = clean_text(text)
     t_u = t.upper()
-    if not t or text_is_noise(t):
+    if not t:
         return False
-
     good_contains = [
         "ESTATE OF",
         "IN THE MATTER OF",
@@ -836,7 +815,6 @@ async def scrape_probate_records() -> List[LeadRecord]:
                 logging.info("Probate page 2 title: %s", await page.title())
 
                 soup = BeautifulSoup(await page.content(), "lxml")
-
                 rows = soup.find_all("tr")
                 for i, row in enumerate(rows):
                     text = clean_text(row.get_text(" "))
@@ -916,7 +894,7 @@ def dedupe_records(records: List[LeadRecord]) -> List[LeadRecord]:
     seen = set()
 
     for record in records:
-        normalized_doc = re.sub(r"^(PCF2|PCF)-", "", clean_text(record.doc_num).upper())
+        normalized_doc = re.sub(r"^(PCF1|PCF2)-", "", clean_text(record.doc_num).upper())
         key = (
             normalized_doc,
             clean_text(record.doc_type).upper(),
