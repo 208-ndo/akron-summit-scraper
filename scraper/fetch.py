@@ -1,54 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""
-fetch.py v10 - parcel matcher / enricher
-
-Purpose
--------
-Takes already-extracted lead records (records.json) and enriches them with:
-- parcel / APN
-- situs / property address
-- mailing address
-- owner fields
-- better state cleanup
-- match diagnostics
-
-Designed for the current state you described:
-- CAMA / parcel files working
-- owner index working
-- clerk extraction working
-- names extracted correctly
-- parcel/address matching still 0
-
-Inputs
-------
-1) records.json
-2) parcel/CAMA source (CSV or JSON)
-3) owner index source (JSON or CSV)
-
-Outputs
--------
-- records.enriched.json
-- records.enriched.csv
-- match_report.json
-
-Run
----
-python fetch.py \
-  --records records.json \
-  --parcels parcels.csv \
-  --owner-index owner_index.json \
-  --out-json records.enriched.json \
-  --out-csv records.enriched.csv
-
-Notes
------
-- Uses only standard library.
-- Safe to run repeatedly.
-- Built to maximize match rate from owner names + address fallbacks.
-"""
-
 from __future__ import annotations
 
 import argparse
@@ -63,13 +15,8 @@ from copy import deepcopy
 from difflib import SequenceMatcher
 from typing import Any, Dict, List, Optional, Tuple
 
-# ------------------------------------------------------------
-# CONFIG
-# ------------------------------------------------------------
-
 DEBUG = True
 
-# Common entity suffixes to reduce noise in owner matching
 OWNER_STOPWORDS = {
     "jr", "sr", "ii", "iii", "iv",
     "estate", "et", "al", "trust", "tr", "revocable", "living",
@@ -77,13 +24,11 @@ OWNER_STOPWORDS = {
     "bank", "association", "fka", "aka", "na"
 }
 
-# Junk values that should never survive as valid state codes
 BAD_STATE_VALUES = {
     "", "0", "00", "000", "1", "2", "3", "4", "5", "6", "7", "8", "9",
     "na", "n/a", "none", "null", "unknown", "-"
 }
 
-# Street suffix normalization
 STREET_ABBREV = {
     "street": "st", "st": "st",
     "avenue": "ave", "ave": "ave",
@@ -114,24 +59,16 @@ STATE_CODES = {
     "or","pa","ri","sc","sd","tn","tx","ut","vt","va","wa","wv","wi","wy","dc"
 }
 
-# Candidate keys to discover field mappings across parcel / owner files
 PARCEL_CANDIDATES = ["parcel", "parcel_id", "parcelid", "apn", "pin", "tax_id", "ppn"]
-OWNER_NAME_CANDIDATES = ["owner_name", "owner", "name", "owner1", "party_name", "taxpayer_name"]
-SITE_ADDR_CANDIDATES = [
-    "situs_address", "site_address", "property_address", "prop_address", "address", "location_address"
-]
-SITE_CITY_CANDIDATES = ["situs_city", "site_city", "property_city", "city"]
-SITE_STATE_CANDIDATES = ["situs_state", "site_state", "property_state", "state"]
-SITE_ZIP_CANDIDATES = ["situs_zip", "site_zip", "property_zip", "zip", "zipcode"]
+OWNER_NAME_CANDIDATES = ["owner_name", "owner", "name", "owner1", "party_name", "taxpayer_name", "lookup_name"]
+SITE_ADDR_CANDIDATES = ["situs_address", "site_address", "property_address", "prop_address", "address", "location_address"]
+SITE_CITY_CANDIDATES = ["situs_city", "site_city", "property_city", "city", "prop_city"]
+SITE_STATE_CANDIDATES = ["situs_state", "site_state", "property_state", "state", "prop_state"]
+SITE_ZIP_CANDIDATES = ["situs_zip", "site_zip", "property_zip", "zip", "zipcode", "prop_zip"]
 MAIL_ADDR_CANDIDATES = ["mailing_address", "mail_address", "owner_address", "taxpayer_address"]
 MAIL_CITY_CANDIDATES = ["mailing_city", "mail_city", "owner_city"]
 MAIL_STATE_CANDIDATES = ["mailing_state", "mail_state", "owner_state"]
 MAIL_ZIP_CANDIDATES = ["mailing_zip", "mail_zip", "owner_zip"]
-CASE_NAME_CANDIDATES = ["defendant_name", "name", "owner_name", "party_name"]
-
-# ------------------------------------------------------------
-# UTIL
-# ------------------------------------------------------------
 
 def debug(*args: Any) -> None:
     if DEBUG:
@@ -170,28 +107,52 @@ def dump_csv(path: str, rows: List[Dict[str, Any]]) -> None:
 
 def load_any_table(path: str) -> List[Dict[str, Any]]:
     ext = os.path.splitext(path)[1].lower()
-    if ext == ".json":
-        data = load_json(path)
+
+    def normalize_rows(data: Any) -> List[Dict[str, Any]]:
         if isinstance(data, list):
-            return data
+            if not data:
+                return []
+
+            if all(isinstance(x, dict) for x in data):
+                return data
+
+            out = []
+            for item in data:
+                if isinstance(item, (list, tuple)) and len(item) == 2 and isinstance(item[1], dict):
+                    row = dict(item[1])
+                    if "lookup_name" not in row:
+                        row["lookup_name"] = str(item[0])
+                    out.append(row)
+
+            if out:
+                return out
+
+            raise ValueError(f"List format not recognized in {path}")
+
         if isinstance(data, dict):
             for key in ("rows", "data", "records", "items"):
-                if isinstance(data.get(key), list):
-                    return data[key]
+                if key in data:
+                    return normalize_rows(data[key])
+
+            if data and all(isinstance(v, dict) for v in data.values()):
+                out = []
+                for k, v in data.items():
+                    row = dict(v)
+                    if "lookup_key" not in row:
+                        row["lookup_key"] = str(k)
+                    out.append(row)
+                return out
+
         raise ValueError(f"JSON not recognized as tabular list: {path}")
+
+    if ext == ".json":
+        data = load_json(path)
+        return normalize_rows(data)
+
     if ext == ".csv":
         return load_csv(path)
-    raise ValueError(f"Unsupported file type: {path}")
 
-def first_present(d: Dict[str, Any], keys: List[str]) -> Optional[str]:
-    lower_map = {str(k).strip().lower(): k for k in d.keys()}
-    for k in keys:
-        if k.lower() in lower_map:
-            real_key = lower_map[k.lower()]
-            val = d.get(real_key)
-            if val is not None and str(val).strip() != "":
-                return str(val).strip()
-    return None
+    raise ValueError(f"Unsupported file type: {path}")
 
 def first_key(d: Dict[str, Any], keys: List[str]) -> Optional[str]:
     lower_map = {str(k).strip().lower(): k for k in d.keys()}
@@ -214,12 +175,8 @@ def normalize_name(name: Any) -> str:
     s = clean_text(name).lower()
     if not s:
         return ""
-
-    # Remove punctuation but preserve spaces
     s = re.sub(r"[^a-z0-9\s]", " ", s)
     parts = [p for p in s.split() if p]
-
-    # remove stopwords
     filtered = [p for p in parts if p not in OWNER_STOPWORDS]
     return " ".join(filtered).strip()
 
@@ -227,12 +184,10 @@ def name_tokens(name: Any) -> Tuple[str, ...]:
     n = normalize_name(name)
     if not n:
         return tuple()
-    parts = [p for p in n.split() if len(p) > 1]
-    return tuple(parts)
+    return tuple(p for p in n.split() if len(p) > 1)
 
 def canonical_name_key(name: Any) -> str:
-    toks = sorted(name_tokens(name))
-    return " ".join(toks).strip()
+    return " ".join(sorted(name_tokens(name))).strip()
 
 def normalize_parcel(parcel: Any) -> str:
     s = clean_text(parcel).upper()
@@ -290,24 +245,19 @@ def normalize_street(addr: Any) -> str:
         else:
             out.append(p)
 
-    s = " ".join(out).strip()
-    s = re.sub(r"\s+", " ", s)
-    return s
+    return re.sub(r"\s+", " ", " ".join(out)).strip()
 
 def normalize_address(addr: Any, city: Any = "", state: Any = "", zip_code: Any = "") -> str:
     street = normalize_street(addr)
-    city = clean_text(city).lower()
-    city = re.sub(r"[^a-z0-9\s]", " ", city).strip()
+    city = re.sub(r"[^a-z0-9\s]", " ", clean_text(city).lower()).strip()
     st = normalize_state(state)
     zp = normalize_zip(zip_code)
-
     parts = [p for p in [street, city, st.lower() if st else "", zp] if p]
     return " | ".join(parts)
 
 def address_without_zip(addr: Any, city: Any = "", state: Any = "") -> str:
     street = normalize_street(addr)
-    city = clean_text(city).lower()
-    city = re.sub(r"[^a-z0-9\s]", " ", city).strip()
+    city = re.sub(r"[^a-z0-9\s]", " ", clean_text(city).lower()).strip()
     st = normalize_state(state)
     parts = [p for p in [street, city, st.lower() if st else ""] if p]
     return " | ".join(parts)
@@ -316,14 +266,6 @@ def similarity(a: str, b: str) -> float:
     if not a or not b:
         return 0.0
     return SequenceMatcher(None, a, b).ratio()
-
-def compact_join(*parts: Any) -> str:
-    vals = [clean_text(p) for p in parts if clean_text(p)]
-    return ", ".join(vals)
-
-# ------------------------------------------------------------
-# FIELD EXTRACTION
-# ------------------------------------------------------------
 
 def discover_fields(sample_row: Dict[str, Any], label: str) -> Dict[str, Optional[str]]:
     fields = {
@@ -344,21 +286,9 @@ def discover_fields(sample_row: Dict[str, Any], label: str) -> Dict[str, Optiona
 def getv(row: Dict[str, Any], k: Optional[str]) -> str:
     if not k:
         return ""
-    v = row.get(k)
-    return clean_text(v)
+    return clean_text(row.get(k))
 
-# ------------------------------------------------------------
-# INDEX BUILDERS
-# ------------------------------------------------------------
-
-def build_parcel_master(
-    parcels_rows: List[Dict[str, Any]],
-    owner_rows: List[Dict[str, Any]]
-) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
-    """
-    Create one unified parcel master with flexible field discovery.
-    Owner rows can add/override owner and mailing fields onto parcel rows.
-    """
+def build_parcel_master(parcels_rows: List[Dict[str, Any]], owner_rows: List[Dict[str, Any]]) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
     if not parcels_rows:
         raise ValueError("No parcel/CAMA rows loaded.")
     if not owner_rows:
@@ -371,7 +301,7 @@ def build_parcel_master(
         "mail_state": None, "mail_zip": None
     }
 
-    by_parcel_owner = {}
+    by_parcel_owner: Dict[str, Dict[str, Any]] = {}
     for row in owner_rows:
         parcel = normalize_parcel(getv(row, o_fields["parcel"]))
         if parcel:
@@ -436,9 +366,6 @@ def build_parcel_master(
 
             "site_house_num": normalize_house_num(clean_text(site_addr)),
             "mail_house_num": normalize_house_num(clean_text(mail_addr)),
-
-            "_parcel_source_row": row,
-            "_owner_source_row": o_row or {},
         }
 
         master.append(rec)
@@ -456,36 +383,24 @@ def build_indexes(master: List[Dict[str, Any]]) -> Dict[str, Any]:
     by_mail_addr_nz = defaultdict(list)
     by_house_num = defaultdict(list)
 
-    owner_name_keys = 0
-
     for row in master:
-        parcel = row["parcel"]
-        if parcel:
-            by_parcel[parcel] = row
-
+        if row["parcel"]:
+            by_parcel[row["parcel"]] = row
         if row["owner_name_norm"]:
             by_owner_norm[row["owner_name_norm"]].append(row)
-            owner_name_keys += 1
-
         if row["owner_name_key"]:
             by_owner_key[row["owner_name_key"]].append(row)
-
         if row["site_addr_norm"]:
             by_site_addr[row["site_addr_norm"]].append(row)
-
         if row["site_addr_nz"]:
             by_site_addr_nz[row["site_addr_nz"]].append(row)
-
         if row["mail_addr_norm"]:
             by_mail_addr[row["mail_addr_norm"]].append(row)
-
         if row["mail_addr_nz"]:
             by_mail_addr_nz[row["mail_addr_nz"]].append(row)
-
         if row["site_house_num"]:
             by_house_num[row["site_house_num"]].append(row)
 
-    debug(f"Owner-name keys indexed: {owner_name_keys}")
     return {
         "by_parcel": by_parcel,
         "by_owner_norm": by_owner_norm,
@@ -497,37 +412,15 @@ def build_indexes(master: List[Dict[str, Any]]) -> Dict[str, Any]:
         "by_house_num": by_house_num,
     }
 
-# ------------------------------------------------------------
-# RECORD HELPERS
-# ------------------------------------------------------------
-
 def extract_best_name(rec: Dict[str, Any]) -> str:
-    for key in [
-        "defendant_name", "name", "owner_name", "party_name",
-        "defendant", "case_name", "full_name"
-    ]:
+    for key in ["defendant_name", "name", "owner_name", "owner", "party_name", "defendant", "case_name", "full_name"]:
         val = rec.get(key)
         if val and clean_text(val):
             return clean_text(val)
-
-    defendants = rec.get("defendants")
-    if isinstance(defendants, list):
-        for d in defendants:
-            if isinstance(d, dict):
-                nm = d.get("name")
-                if nm and clean_text(nm):
-                    return clean_text(nm)
-            elif isinstance(d, str) and clean_text(d):
-                return clean_text(d)
-
     return ""
 
 def extract_candidate_addresses(rec: Dict[str, Any]) -> List[Tuple[str, str, str, str]]:
-    """
-    Returns a list of candidate tuples: (addr, city, state, zip)
-    """
     candidates = []
-
     direct_sets = [
         ("property_address", "property_city", "property_state", "property_zip"),
         ("site_address", "site_city", "site_state", "site_zip"),
@@ -539,33 +432,15 @@ def extract_candidate_addresses(rec: Dict[str, Any]) -> List[Tuple[str, str, str
 
     for a, c, s, z in direct_sets:
         addr = clean_text(rec.get(a))
-        city = clean_text(rec.get(c))
-        state = clean_text(rec.get(s))
-        zp = clean_text(rec.get(z))
         if addr:
-            candidates.append((addr, city, state, zp))
+            candidates.append((addr, clean_text(rec.get(c)), clean_text(rec.get(s)), clean_text(rec.get(z))))
 
-    # nested address structures
-    for key in ["addresses", "mailing_addresses", "property_addresses"]:
-        vals = rec.get(key)
-        if isinstance(vals, list):
-            for item in vals:
-                if isinstance(item, dict):
-                    addr = clean_text(item.get("address") or item.get("street"))
-                    city = clean_text(item.get("city"))
-                    state = clean_text(item.get("state"))
-                    zp = clean_text(item.get("zip") or item.get("zipcode"))
-                    if addr:
-                        candidates.append((addr, city, state, zp))
-
-    # de-dupe
     out = []
     seen = set()
     for c in candidates:
         if c not in seen:
             seen.add(c)
             out.append(c)
-
     return out
 
 def clean_record_states(rec: Dict[str, Any]) -> None:
@@ -575,61 +450,43 @@ def clean_record_states(rec: Dict[str, Any]) -> None:
 
 def apply_match(rec: Dict[str, Any], match_row: Dict[str, Any], method: str, score: float) -> Dict[str, Any]:
     out = deepcopy(rec)
-
     out["parcel"] = match_row.get("parcel", "") or out.get("parcel", "")
     out["property_address"] = match_row.get("site_addr", "") or out.get("property_address", "")
     out["property_city"] = match_row.get("site_city", "") or out.get("property_city", "")
     out["property_state"] = match_row.get("site_state", "") or out.get("property_state", "")
     out["property_zip"] = match_row.get("site_zip", "") or out.get("property_zip", "")
-
     out["mailing_address"] = match_row.get("mail_addr", "") or out.get("mailing_address", "")
     out["mailing_city"] = match_row.get("mail_city", "") or out.get("mailing_city", "")
     out["mailing_state"] = match_row.get("mail_state", "") or out.get("mailing_state", "")
     out["mailing_zip"] = match_row.get("mail_zip", "") or out.get("mailing_zip", "")
-
     out["matched_owner_name"] = match_row.get("owner_name", "")
     out["match_method"] = method
     out["match_score"] = round(score, 4)
-
     out["with_address"] = 1 if (out.get("property_address") or out.get("mailing_address")) else 0
-
     clean_record_states(out)
     return out
 
-# ------------------------------------------------------------
-# MATCH LOGIC
-# ------------------------------------------------------------
-
 def choose_best(rows: List[Dict[str, Any]], rec_name: str, rec_addrs: List[Tuple[str, str, str, str]]) -> Optional[Tuple[Dict[str, Any], float]]:
-    """
-    Rank multiple candidate parcel rows.
-    """
     if not rows:
         return None
 
     best = None
     best_score = -1.0
-
     rec_name_norm = normalize_name(rec_name)
     rec_name_key = canonical_name_key(rec_name)
-
     rec_addr_norms = [normalize_address(a, c, s, z) for a, c, s, z in rec_addrs if a]
     rec_addr_nz = [address_without_zip(a, c, s) for a, c, s, z in rec_addrs if a]
 
     for row in rows:
         score = 0.0
-
-        # name similarity
         owner_norm = row.get("owner_name_norm", "")
         owner_key = row.get("owner_name_key", "")
 
         if rec_name_norm and owner_norm:
             score += similarity(rec_name_norm, owner_norm) * 0.65
-
         if rec_name_key and owner_key and rec_name_key == owner_key:
             score += 0.25
 
-        # address similarity boosts
         for a in rec_addr_norms:
             if a and a == row.get("site_addr_norm"):
                 score += 0.60
@@ -642,7 +499,6 @@ def choose_best(rows: List[Dict[str, Any]], rec_name: str, rec_addrs: List[Tuple
             if a and a == row.get("mail_addr_nz"):
                 score += 0.38
 
-        # house number hint
         for a, _, _, _ in rec_addrs:
             hn = normalize_house_num(a)
             if hn and (hn == row.get("site_house_num") or hn == row.get("mail_house_num")):
@@ -657,19 +513,8 @@ def choose_best(rows: List[Dict[str, Any]], rec_name: str, rec_addrs: List[Tuple
     return best, best_score
 
 def match_record(rec: Dict[str, Any], indexes: Dict[str, Any]) -> Tuple[Optional[Dict[str, Any]], str, float]:
-    """
-    Matching strategy order:
-    1) direct parcel/APN
-    2) exact property/site address
-    3) exact mailing address
-    4) exact owner-name normalized
-    5) canonical token-set owner match
-    6) fuzzy owner match among same house number candidates
-    7) fuzzy owner match global (guarded)
-    """
     clean_record_states(rec)
 
-    # 1) direct parcel
     parcel = normalize_parcel(rec.get("parcel") or rec.get("apn") or rec.get("parcel_id") or rec.get("pin"))
     if parcel and parcel in indexes["by_parcel"]:
         return indexes["by_parcel"][parcel], "direct_parcel", 1.00
@@ -679,7 +524,6 @@ def match_record(rec: Dict[str, Any], indexes: Dict[str, Any]) -> Tuple[Optional
     rec_name_key = canonical_name_key(rec_name)
     rec_addrs = extract_candidate_addresses(rec)
 
-    # 2) exact property/site address
     for addr, city, state, zp in rec_addrs:
         a = normalize_address(addr, city, state, zp)
         if a and a in indexes["by_site_addr"]:
@@ -688,7 +532,6 @@ def match_record(rec: Dict[str, Any], indexes: Dict[str, Any]) -> Tuple[Optional
                 row, score = chosen
                 return row, "exact_site_address", min(1.0, max(score, 0.95))
 
-    # 3) exact mailing address
     for addr, city, state, zp in rec_addrs:
         a = normalize_address(addr, city, state, zp)
         if a and a in indexes["by_mail_addr"]:
@@ -697,7 +540,6 @@ def match_record(rec: Dict[str, Any], indexes: Dict[str, Any]) -> Tuple[Optional
                 row, score = chosen
                 return row, "exact_mail_address", min(1.0, max(score, 0.93))
 
-    # 4) exact owner-name normalized
     if rec_name_norm and rec_name_norm in indexes["by_owner_norm"]:
         chosen = choose_best(indexes["by_owner_norm"][rec_name_norm], rec_name, rec_addrs)
         if chosen:
@@ -705,7 +547,6 @@ def match_record(rec: Dict[str, Any], indexes: Dict[str, Any]) -> Tuple[Optional
             if score >= 0.45:
                 return row, "owner_norm_exact", min(1.0, max(score, 0.90))
 
-    # 5) canonical token-set owner match
     if rec_name_key and rec_name_key in indexes["by_owner_key"]:
         chosen = choose_best(indexes["by_owner_key"][rec_name_key], rec_name, rec_addrs)
         if chosen:
@@ -713,7 +554,6 @@ def match_record(rec: Dict[str, Any], indexes: Dict[str, Any]) -> Tuple[Optional
             if score >= 0.42:
                 return row, "owner_token_key", min(1.0, max(score, 0.88))
 
-    # 6) fuzzy owner match among same house number candidates
     house_candidates = []
     for addr, _, _, _ in rec_addrs:
         hn = normalize_house_num(addr)
@@ -726,11 +566,9 @@ def match_record(rec: Dict[str, Any], indexes: Dict[str, Any]) -> Tuple[Optional
             if score >= 0.62:
                 return row, "house_num_plus_name_fuzzy", score
 
-    # 7) guarded global fuzzy owner match
     if rec_name_norm:
         maybe = []
-        by_owner_norm = indexes["by_owner_norm"]
-        for owner_norm, rows in by_owner_norm.items():
+        for owner_norm, rows in indexes["by_owner_norm"].items():
             sim = similarity(rec_name_norm, owner_norm)
             if sim >= 0.88:
                 maybe.extend(rows)
@@ -743,10 +581,6 @@ def match_record(rec: Dict[str, Any], indexes: Dict[str, Any]) -> Tuple[Optional
                     return row, "global_owner_fuzzy", score
 
     return None, "unmatched", 0.0
-
-# ------------------------------------------------------------
-# MAIN ENRICHMENT
-# ------------------------------------------------------------
 
 def enrich_records(records: List[Dict[str, Any]], indexes: Dict[str, Any]) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
     enriched = []
@@ -774,14 +608,11 @@ def enrich_records(records: List[Dict[str, Any]], indexes: Dict[str, Any]) -> Tu
         if out.get("with_address") == 1:
             with_address += 1
 
-        # sanity flag if garbage states still slip through
-        bad_state = False
         for k in ["property_state", "mailing_state", "state", "mail_state"]:
             v = clean_text(out.get(k))
             if v and v.lower() in BAD_STATE_VALUES:
-                bad_state = True
-        if bad_state:
-            bad_state_rows += 1
+                bad_state_rows += 1
+                break
 
         method_counter[out.get("match_method", "unknown")] += 1
         enriched.append(out)
@@ -796,10 +627,6 @@ def enrich_records(records: List[Dict[str, Any]], indexes: Dict[str, Any]) -> Tu
         "match_methods": dict(method_counter),
     }
     return enriched, report
-
-# ------------------------------------------------------------
-# CLI
-# ------------------------------------------------------------
 
 def parse_args() -> argparse.Namespace:
     ap = argparse.ArgumentParser(description="fetch.py v10 parcel matcher")
