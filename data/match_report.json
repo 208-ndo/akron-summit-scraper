@@ -1,0 +1,38 @@
+{
+  "input_records": 36,
+  "output_records": 36,
+  "with_parcel": 0,
+  "with_address": 0,
+  "unmatched": 36,
+  "bad_state_rows_remaining": 0,
+  "match_methods": {
+    "unmatched": 36
+  },
+  "meta": {
+    "parcel_fields": {
+      "parcel": "parcel_id",
+      "owner_name": "owner",
+      "site_addr": "prop_address",
+      "site_city": "prop_city",
+      "site_state": null,
+      "site_zip": "prop_zip",
+      "mail_addr": "mail_address",
+      "mail_city": "mail_city",
+      "mail_state": "mail_state",
+      "mail_zip": "mail_zip"
+    },
+    "owner_fields": {
+      "parcel": "parcel_id",
+      "owner_name": "owner",
+      "site_addr": "prop_address",
+      "site_city": "prop_city",
+      "site_state": null,
+      "site_zip": "prop_zip",
+      "mail_addr": "mail_address",
+      "mail_city": "mail_city",
+      "mail_state": "mail_state",
+      "mail_zip": "mail_zip"
+    }
+  },
+  "parcel_master_rows": 10
+}
