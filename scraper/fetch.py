@@ -65,34 +65,34 @@ TARGET_DOC_TYPES = set(LEAD_TYPE_MAP.keys())
 TARGET_DOC_TYPES_SORTED = sorted(TARGET_DOC_TYPES, key=len, reverse=True)
 
 LIKELY_OWNER_KEYS = [
-    "OWNER", "OWN1", "OWNER_NAME", "OWNERNAME", "OWNERNM", "NAME", "OWNNAM"
+    "OWNER1", "OWNER2", "OWNER", "OWN1", "OWNER_NAME", "OWNERNAME", "OWNERNM", "NAME", "OWNNAM"
 ]
 LIKELY_PROP_ADDR_KEYS = [
-    "SITE_ADDR", "SITEADDR", "PROPERTY_ADDRESS", "PROPADDR", "ADDRESS", "LOCADDR", "SADDR"
+    "SITE_ADDR", "SITEADDR", "PROPERTY_ADDRESS", "PROPADDR", "ADDRESS", "LOCADDR", "SADDR", "ADDRESS_1", "ADDRESS_2"
 ]
 LIKELY_PROP_CITY_KEYS = [
-    "SITE_CITY", "CITY", "SITECITY", "PROPERTY_CITY", "SCITY"
+    "SITE_CITY", "CITY", "SITECITY", "PROPERTY_CITY", "SCITY", "CITYNAME"
 ]
 LIKELY_PROP_ZIP_KEYS = [
     "SITE_ZIP", "ZIP", "SITEZIP", "PROPERTY_ZIP", "SZIP"
 ]
 LIKELY_MAIL_ADDR_KEYS = [
-    "ADDR_1", "MAILADR1", "MAIL_ADDR", "MAILADDRESS", "MADDR1", "ADDRESS1", "MAILADD1"
+    "ADDR_1", "MAILADR1", "MAIL_ADDR", "MAILADDRESS", "MADDR1", "ADDRESS1", "MAILADD1", "ADDRESS_1", "ADDRESS_2"
 ]
 LIKELY_MAIL_CITY_KEYS = [
-    "MAILCITY", "CITY", "MCITY"
+    "MAILCITY", "CITY", "MCITY", "CITYNAME"
 ]
 LIKELY_MAIL_STATE_KEYS = [
-    "STATE", "MAILSTATE", "MSTATE"
+    "STATE", "MAILSTATE", "MSTATE", "STATECODE"
 ]
 LIKELY_MAIL_ZIP_KEYS = [
-    "MAILZIP", "ZIP", "MZIP"
+    "MAILZIP", "ZIP", "MZIP", "OWNER_ZIPCD1", "OWNER_ZIPCD2"
 ]
 LIKELY_LEGAL_KEYS = [
     "LEGAL", "LEGAL_DESC", "LEGALDESCRIPTION", "LEGDESC"
 ]
 LIKELY_PID_KEYS = [
-    "PARID", "PARCELID", "PARCEL_ID", "PARCEL", "PID", "PARCELNO", "PAR_NO", "PAR_NUM"
+    "PAIRD", "PARID", "PARCELID", "PARCEL_ID", "PARCEL", "PID", "PARCELNO", "PAR_NO", "PAR_NUM"
 ]
 
 IGNORE_TEXT_FRAGMENTS = [
@@ -186,6 +186,28 @@ def normalize_name(name: str) -> str:
     name = re.sub(r"[^A-Z0-9,&.\- ]", " ", name)
     name = re.sub(r"\s+", " ", name).strip()
     return name
+
+
+def build_owner_name(row: dict) -> str:
+    owner1 = clean_text(row.get("OWNER1"))
+    owner2 = clean_text(row.get("OWNER2"))
+    if owner1 and owner2:
+        return f"{owner1} {owner2}".strip()
+    if owner1:
+        return owner1
+    if owner2:
+        return owner2
+    return safe_pick(row, LIKELY_OWNER_KEYS)
+
+
+def build_mail_zip(row: dict) -> str:
+    z1 = clean_text(row.get("OWNER_ZIPCD1"))
+    z2 = clean_text(row.get("OWNER_ZIPCD2"))
+    if z1 and z2:
+        return f"{z1}-{z2}"
+    if z1:
+        return z1
+    return safe_pick(row, LIKELY_MAIL_ZIP_KEYS)
 
 
 def name_variants(name: str) -> List[str]:
@@ -452,7 +474,7 @@ def build_parcel_index() -> Dict[str, dict]:
         parcel_by_id.setdefault(pid, {})
         parcel_by_id[pid].update({
             "parcel_id": pid,
-            "owner": safe_pick(row, LIKELY_OWNER_KEYS),
+            "owner": build_owner_name(row),
         })
 
     for row in mail_rows:
@@ -465,7 +487,7 @@ def build_parcel_index() -> Dict[str, dict]:
             "mail_address": safe_pick(row, LIKELY_MAIL_ADDR_KEYS),
             "mail_city": safe_pick(row, LIKELY_MAIL_CITY_KEYS),
             "mail_state": safe_pick(row, LIKELY_MAIL_STATE_KEYS),
-            "mail_zip": safe_pick(row, LIKELY_MAIL_ZIP_KEYS),
+            "mail_zip": build_mail_zip(row),
         })
 
     for row in legal_rows:
