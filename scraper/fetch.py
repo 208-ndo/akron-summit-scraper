@@ -99,6 +99,12 @@ BAD_EXACT_OWNERS = {
     "Search", "Home", "Select Division", "Welcome"
 }
 
+STATE_CODES = {
+    "AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA",
+    "ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK",
+    "OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","DC"
+}
+
 
 @dataclass
 class LeadRecord:
@@ -155,6 +161,14 @@ def clean_text(value: Optional[str]) -> str:
     if value is None:
         return ""
     return re.sub(r"\s+", " ", str(value)).strip()
+
+
+def normalize_state(value: str) -> str:
+    v = clean_text(value).upper()
+    if not v or v in {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "00", "000", "-", "N/A", "NA", "NONE", "NULL"}:
+        return ""
+    v = re.sub(r"[^A-Z]", "", v)
+    return v if v in STATE_CODES else ""
 
 
 def retry_request(url: str, attempts: int = 3, timeout: int = 60) -> requests.Response:
@@ -214,6 +228,11 @@ def name_variants(name: str) -> List[str]:
         variants.add(f"{first} {last}")
         variants.add(f"{last} {first}")
         variants.add(f"{last}, {first}")
+
+        if len(parts) >= 3:
+            middle = " ".join(parts[1:-1])
+            variants.add(f"{first} {middle} {last}".strip())
+            variants.add(f"{last}, {first} {middle}".strip())
 
     return [v.strip() for v in variants if v.strip()]
 
@@ -402,6 +421,42 @@ def read_any_cama_payload(content: bytes, source_name: str) -> Dict[str, List[di
     return datasets
 
 
+def build_prop_address_from_row(row: dict) -> str:
+    adrno = clean_text(row.get("ADRNO"))
+    adradd = clean_text(row.get("ADRADD"))
+    adrdir = clean_text(row.get("ADRDIR"))
+    adrstr = clean_text(row.get("ADRSTR"))
+    adrsuf = clean_text(row.get("ADRSUF"))
+    adrsuf2 = clean_text(row.get("ADRSUF2"))
+
+    parts = [adrno, adradd, adrdir, adrstr, adrsuf, adrsuf2]
+    address = " ".join(part for part in parts if part).strip()
+    return re.sub(r"\s+", " ", address)
+
+
+def build_prop_city_from_row(row: dict) -> str:
+    return (
+        clean_text(row.get("UDATE1"))
+        or clean_text(row.get("CITY"))
+        or safe_pick(row, LIKELY_PROP_CITY_KEYS)
+    )
+
+
+def build_prop_zip_from_row(row: dict) -> str:
+    direct = clean_text(row.get("USER2"))
+    if re.fullmatch(r"\d{5}", direct):
+        return direct
+
+    zip_raw = clean_text(row.get("ZIPCD"))
+    m = re.search(r"(\d{5})", zip_raw)
+    if m:
+        return m.group(1)
+
+    fallback = safe_pick(row, LIKELY_PROP_ZIP_KEYS)
+    m2 = re.search(r"(\d{5})", fallback)
+    return m2.group(1) if m2 else ""
+
+
 def build_parcel_index() -> Dict[str, dict]:
     urls = discover_cama_downloads()
 
@@ -430,6 +485,11 @@ def build_parcel_index() -> Dict[str, dict]:
         except Exception as exc:
             logging.warning("Could not process CAMA file %s: %s", url, exc)
 
+    save_debug_json("sc700_owndat_sample_rows.json", own_rows[:5])
+    save_debug_json("sc701_maildat_sample_rows.json", mail_rows[:5])
+    save_debug_json("sc702_legdat_sample_rows.json", legal_rows[:5])
+    save_debug_json("sc705_sc731_parcel_sample_rows.json", parcel_rows[:5])
+
     parcel_by_id: Dict[str, dict] = {}
 
     for row in parcel_rows:
@@ -439,9 +499,9 @@ def build_parcel_index() -> Dict[str, dict]:
         parcel_by_id.setdefault(pid, {})
         parcel_by_id[pid].update({
             "parcel_id": pid,
-            "prop_address": safe_pick(row, LIKELY_PROP_ADDR_KEYS),
-            "prop_city": safe_pick(row, LIKELY_PROP_CITY_KEYS),
-            "prop_zip": safe_pick(row, LIKELY_PROP_ZIP_KEYS),
+            "prop_address": build_prop_address_from_row(row),
+            "prop_city": build_prop_city_from_row(row),
+            "prop_zip": build_prop_zip_from_row(row),
         })
 
     for row in own_rows:
@@ -463,7 +523,7 @@ def build_parcel_index() -> Dict[str, dict]:
             "parcel_id": pid,
             "mail_address": safe_pick(row, LIKELY_MAIL_ADDR_KEYS),
             "mail_city": safe_pick(row, LIKELY_MAIL_CITY_KEYS),
-            "mail_state": safe_pick(row, LIKELY_MAIL_STATE_KEYS),
+            "mail_state": normalize_state(safe_pick(row, LIKELY_MAIL_STATE_KEYS)),
             "mail_zip": build_mail_zip(row),
         })
 
@@ -484,6 +544,10 @@ def build_parcel_index() -> Dict[str, dict]:
             continue
         for variant in name_variants(owner):
             owner_index.setdefault(variant, record)
+
+    save_debug_json("parcel_by_id_sample.json", list(parcel_by_id.values())[:10])
+    save_debug_json("owner_index_sample.json", list(owner_index.items())[:20])
+    save_debug_json("owner_values_sample.json", list(owner_index.keys())[:50])
 
     logging.info(
         "Built parcel index with %s owner-name keys from %s parcel rows / %s owner rows / %s mail rows / %s legal rows",
@@ -883,10 +947,11 @@ def enrich_with_parcel_data(records: List[LeadRecord], parcel_index: Dict[str, d
                 record.prop_zip = record.prop_zip or clean_text(matched.get("prop_zip"))
                 record.mail_address = record.mail_address or clean_text(matched.get("mail_address"))
                 record.mail_city = record.mail_city or clean_text(matched.get("mail_city"))
-                record.mail_state = record.mail_state or clean_text(matched.get("mail_state"))
+                record.mail_state = record.mail_state or normalize_state(clean_text(matched.get("mail_state")))
                 record.mail_zip = record.mail_zip or clean_text(matched.get("mail_zip"))
                 record.legal = record.legal or clean_text(matched.get("legal"))
 
+            record.mail_state = normalize_state(record.mail_state)
             record.flags = list(dict.fromkeys(record.flags + category_flags(record.doc_type, record.owner)))
             record.score = score_record(record)
             enriched.append(record)
