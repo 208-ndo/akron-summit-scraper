@@ -1,38 +1,138 @@
 {
-  "input_records": 36,
-  "output_records": 36,
-  "with_parcel": 0,
-  "with_address": 0,
-  "unmatched": 36,
-  "bad_state_rows_remaining": 0,
+  "matched": 7,
+  "unmatched": 33,
+  "with_address": 7,
   "match_methods": {
-    "unmatched": 36
+    "exact_name_variant": 5,
+    "last_name_unique_fallback": 1,
+    "token_overlap_fallback": 1
   },
-  "meta": {
-    "parcel_fields": {
-      "parcel": "PARCEL",
-      "owner_name": null,
-      "site_addr": null,
-      "site_city": "CITY",
-      "site_state": null,
-      "site_zip": null,
-      "mail_addr": null,
-      "mail_city": null,
-      "mail_state": null,
-      "mail_zip": null
+  "sample_unmatched": [
+    {
+      "doc_num": "FARREY 04",
+      "owner": "Sharon Farrey",
+      "legal": "CAPITAL ONE NA -VS- SHARON FARREY"
     },
-    "owner_fields": {
-      "parcel": "parcel_id",
-      "owner_name": "owner",
-      "site_addr": "prop_address",
-      "site_city": "prop_city",
-      "site_state": null,
-      "site_zip": "prop_zip",
-      "mail_addr": "mail_address",
-      "mail_city": "mail_city",
-      "mail_state": "mail_state",
-      "mail_zip": "mail_zip"
+    {
+      "doc_num": "FORD 04",
+      "owner": "Caleb Ford",
+      "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- CALEB FORD"
+    },
+    {
+      "doc_num": "GRIFFIN 04",
+      "owner": "Star Griffin",
+      "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- STAR GRIFFIN"
+    },
+    {
+      "doc_num": "GRIFFITH 04",
+      "owner": "Jacquelynn M Griffith",
+      "legal": "CAPITAL ONE NA -VS- JACQUELYNN M GRIFFITH"
+    },
+    {
+      "doc_num": "HACHA 04",
+      "owner": "Joseph P Hacha",
+      "legal": "CAPITAL ONE NA -VS- JOSEPH P HACHA"
+    },
+    {
+      "doc_num": "HUGHES 04",
+      "owner": "Lundon R Hughes",
+      "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- LUNDON R HUGHES"
+    },
+    {
+      "doc_num": "PULLIN 04",
+      "owner": "Tracey Pullin",
+      "legal": "CAPITAL ONE NA -VS- TRACEY PULLIN"
+    },
+    {
+      "doc_num": "PRIM 04",
+      "owner": "Jerome D Prim",
+      "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- JEROME D PRIM"
+    },
+    {
+      "doc_num": "PFAHLER 04",
+      "owner": "Ashley L Pfahler",
+      "legal": "CAPITAL ONE NA -VS- ASHLEY L PFAHLER"
+    },
+    {
+      "doc_num": "PEARSON 04",
+      "owner": "Francisco M Pearson",
+      "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- FRANCISCO M PEARSON"
+    },
+    {
+      "doc_num": "PARMER 04",
+      "owner": "Carol A Parmer",
+      "legal": "CAPITAL ONE NA -VS- CAROL A PARMER"
+    },
+    {
+      "doc_num": "NEFFENGER 04",
+      "owner": "Gary P Neffenger",
+      "legal": "CAPITAL ONE NA -VS- GARY P NEFFENGER"
+    },
+    {
+      "doc_num": "MOUNTS 04",
+      "owner": "Bailey H Mounts",
+      "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- BAILEY H MOUNTS"
+    },
+    {
+      "doc_num": "MOHLER 04",
+      "owner": "Brandon L Mohler",
+      "legal": "CAPITAL ONE NA -VS- BRANDON L MOHLER"
+    },
+    {
+      "doc_num": "MILLER 04",
+      "owner": "Clifford J Miller",
+      "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- CLIFFORD J MILLER"
+    },
+    {
+      "doc_num": "MCKINNEY 04",
+      "owner": "Cathy Mckinney",
+      "legal": "CAPITAL ONE NA -VS- CATHY MCKINNEY"
+    },
+    {
+      "doc_num": "MCCALL 04",
+      "owner": "Dandrea J Mccall",
+      "legal": "CAPITAL ONE NA -VS- DANDREA J MCCALL"
+    },
+    {
+      "doc_num": "MACE 04",
+      "owner": "James E Mace",
+      "legal": "CAPITAL ONE NA -VS- JAMES E MACE"
+    },
+    {
+      "doc_num": "PCF1-T1-R23",
+      "owner": "Demetrius Marquel Lash",
+      "legal": "US BANK NATIONAL ASSOCIATION -VS- DEMETRIUS MARQUEL LASH AKA DEMETRIUS M L"
+    },
+    {
+      "doc_num": "FIDUC 04",
+      "owner": "Unknown Administrator, Executor Or Fiduc",
+      "legal": "TOWD POINT MORTGAGE TRUST 2019-3, U.S. B -VS- UNKNOWN ADMINISTRATOR, EXECUTOR OR FIDUC"
+    },
+    {
+      "doc_num": "CINALLI 04",
+      "owner": "Michael Cinalli",
+      "legal": "FIRST NATIONAL BANK OF OMAHA -VS- MICHAEL CINALLI"
+    },
+    {
+      "doc_num": "CAMPBELL 04",
+      "owner": "A'Nyah Lanee Campbell",
+      "legal": "AKRON PUBLIC SCHOOLS -VS- A'NYAH LANEE CAMPBELL"
+    },
+    {
+      "doc_num": "HORVAT 04",
+      "owner": "David Horvat",
+      "legal": "VILLAGE OF MORELAND HILLS -VS- DAVID HORVAT"
+    },
+    {
+      "doc_num": "BEAL 04",
+      "owner": "Donald Beal",
+      "legal": "MIDLAND FUNDING LLC -VS- DONALD BEAL"
+    },
+    {
+      "doc_num": "TALKINGTON 04",
+      "owner": "Marilyn Talkington",
+      "legal": "CAPITAL ONE, N.A. -VS- MARILYN TALKINGTON"
     }
-  },
-  "parcel_master_rows": 5
+  ],
+  "generated_at": "2026-04-09T20:58:19.458787+00:00"
 }

@@ -1,0 +1,3658 @@
+{
+  "THOMAS": [
+    {
+      "parcel_id": "0100001",
+      "prop_address": "168 SW 31ST ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "WAGNER THOMAS",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100764",
+      "prop_address": "1197 COVENTRY RD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BEICHLER THOMAS",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101307",
+      "prop_address": "621 WASHINGTON AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BOZSIK PAUL THOMAS",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "J": [
+    {
+      "parcel_id": "0100002",
+      "prop_address": "860 N SUMMIT ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ABBOTT DAVID J",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100003",
+      "prop_address": "860 N SUMMIT ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ABBOTT DAVID J",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100011",
+      "prop_address": "1366 BENTON ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "SIEGENTHALER DIANA J TRUSTEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "A": [
+    {
+      "parcel_id": "0100004",
+      "prop_address": "673 N AZALEA BLVD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BUNN DEBRA A",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100023",
+      "prop_address": "601 E FORD AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ANDERS BURDEEN A TRUSTEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100043",
+      "prop_address": "300 E LAKE AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "STULTS TIMOTHY A",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "III": [
+    {
+      "parcel_id": "0100005",
+      "prop_address": "BELCHER AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ENDRESS NED R III",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100510",
+      "prop_address": "109 9TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "DESCENT LOUIE ALPHONSE III",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100510T",
+      "prop_address": "109 9TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "DESCENT LOUIE ALPHONSE III",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "LLC": [
+    {
+      "parcel_id": "0100006",
+      "prop_address": "348 W STATE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "LMRK OWNER 1 LLC",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100012",
+      "prop_address": "288 & 290 5TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "PINEWICK GROUP LLC",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100029",
+      "prop_address": "194 E TUSCARAWAS AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "CRUZAN DREAM RENTALS LLC",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "M": [
+    {
+      "parcel_id": "0100007",
+      "prop_address": "CHARLES AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "CAMPBELL COLLEEN M",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100018",
+      "prop_address": "1692 WOOSTER RD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ADAMS THOMAS M",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100022",
+      "prop_address": "413 E TUSCARAWAS AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "STEWART JANET M",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "SUSAN": [
+    {
+      "parcel_id": "0100008",
+      "prop_address": "336 MORGAN ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "MITCHELL SUSAN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100407",
+      "prop_address": "306 E WASHINGTON AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "PRIBONIC SUSAN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100983",
+      "prop_address": "211 28TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BURDICKO SUSAN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "ANDREW": [
+    {
+      "parcel_id": "0100009",
+      "prop_address": "626 ORCHARD AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "OGLE DANE ANDREW",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101055",
+      "prop_address": "117 FERNWOOD AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "WILLIG ANDREW",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101474",
+      "prop_address": "617 E PARK AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "",
+      "owner": "STEFAN ANDREW JOHN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "ROY": [
+    {
+      "parcel_id": "0100010",
+      "prop_address": "252 19TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "PLETCHER ROY",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101623",
+      "prop_address": "536 W TUSCARAWAS AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ROSE ROY",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101623T",
+      "prop_address": "536 W TUSCARAWAS AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ROSE ROY",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "C": [
+    {
+      "parcel_id": "0100013",
+      "prop_address": "209 E PARK AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "MCCLOSKEY SCOTT C",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100014",
+      "prop_address": "E PARK AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "MCCLOSKEY SCOTT C",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100015",
+      "prop_address": "209 E PARK AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "MCCLOSKEY SCOTT C",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "LEE": [
+    {
+      "parcel_id": "0100017",
+      "prop_address": "79 YONKER ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "CASH AUSTIN RICHARD BRIAN LEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100645",
+      "prop_address": "138 NORMAN ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BARRON JOYCE LEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101189",
+      "prop_address": "106 TAYLOR RD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "JESSEN SHAUN LEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "LISA": [
+    {
+      "parcel_id": "0100021",
+      "prop_address": "68 ANTLES AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "GEORGE LISA",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100335",
+      "prop_address": "379 BIG BEND CIR",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "CHAPMAN LISA",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101179",
+      "prop_address": "215 YONKER ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "LAUGHLIN LISA",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "ASHLEY": [
+    {
+      "parcel_id": "0100024",
+      "prop_address": "742 E CASSELL AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "CRAIG ASHLEY TRUSTEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101214",
+      "prop_address": "349 LINCOLN AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BOLLINGER ASHLEY",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101215",
+      "prop_address": "LINCOLN AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BOLLINGER ASHLEY",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "S": [
+    {
+      "parcel_id": "0100025",
+      "prop_address": "873 WISTERIA DR",
+      "prop_city": "BARBERTON",
+      "prop_zip": "",
+      "owner": "SOMMER JENNIFER S",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100091",
+      "prop_address": "150 MACY AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "HAVASSY JAMES S",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100240",
+      "prop_address": "WOOSTER RD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "CEROSKY RONALD S",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "JANAN": [
+    {
+      "parcel_id": "0100026",
+      "prop_address": "221 29TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BELILES JANAN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "ALLEN": [
+    {
+      "parcel_id": "0100027",
+      "prop_address": "129 FRITZ ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ROMESBURG WILLIAM ALLEN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100028",
+      "prop_address": "129 FRITZ ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ROMESBURG WILLIAM ALLEN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101529",
+      "prop_address": "476 E BAIRD AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "KULIG JOHN ALLEN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "L": [
+    {
+      "parcel_id": "0100030",
+      "prop_address": "520 PRINCETON AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "HAYDEN CARRIE L",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100095",
+      "prop_address": "321 GLENN ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "MCGLONE KATHLEEN L",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100142",
+      "prop_address": "154 19TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "HABY CHARLES L",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "W": [
+    {
+      "parcel_id": "0100034",
+      "prop_address": "1170 BENTON ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "DILLON DONALD W",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100040",
+      "prop_address": "537 WASHINGTON AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BENNETT ANTON W",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100041",
+      "prop_address": "304 E LAKE AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "EBEY GEORGE W",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "BARRY": [
+    {
+      "parcel_id": "0100035",
+      "prop_address": "1102 BELLEVIEW AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BARNES BARRY",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100126",
+      "prop_address": "548 MIAMI AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BARNES BARRY",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0104031",
+      "prop_address": "303 E ROBINSON AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BARNES BARRY",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "T": [
+    {
+      "parcel_id": "0100037",
+      "prop_address": "321 VAN ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "FUNK DONALD T",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100759",
+      "prop_address": "1449 WILSONWAY DR",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "HEITIC MICHAEL T",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100797",
+      "prop_address": "30 27TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "MAGUIRE MICHAEL T",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "BARBERTON": [
+    {
+      "parcel_id": "0100038",
+      "prop_address": "898 ROBINSON AVE",
+      "prop_city": "E BARBERTON",
+      "prop_zip": "44203",
+      "owner": "CITY OF BARBERTON",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100109",
+      "prop_address": "347 STANLEY AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ALLEN CHAPEL A M E CHURCH OF BARBERTON",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100232",
+      "prop_address": "HOPOCAN AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "CITY OF BARBERTON",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "P": [
+    {
+      "parcel_id": "0100042",
+      "prop_address": "308 E LAKE AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "HILLYER RAYLAN P",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100096",
+      "prop_address": "460 W STATE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "MILLER KEITH P",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100098",
+      "prop_address": "460 W STATE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "MILLER KEITH P",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "LAURA": [
+    {
+      "parcel_id": "0100044",
+      "prop_address": "314 E LAKE AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "SPANGLER LAURA",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100676",
+      "prop_address": "344 SW 31ST ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "LUNA LAURA",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0102768",
+      "prop_address": "157 3RD ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "SUSTAR LAURA",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "D": [
+    {
+      "parcel_id": "0100046",
+      "prop_address": "444 17TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "SENDERAK JOHN D",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100119",
+      "prop_address": "404 WOOSTER RD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "NICHOLS QUADRE D",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100206",
+      "prop_address": "264 25TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "MYERS CHRISTOPHER D",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "IAN": [
+    {
+      "parcel_id": "0100047",
+      "prop_address": "1226 BENTON ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "SCOTT IAN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100048",
+      "prop_address": "BENTON ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "SCOTT IAN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0106330",
+      "prop_address": "228 E FORD AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "MOORE IAN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "R": [
+    {
+      "parcel_id": "0100049",
+      "prop_address": "188 ELSON AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "WILLIAMS WILLIE R",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100124",
+      "prop_address": "1471 ETTLE DR",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "MACKO AMY R",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100141",
+      "prop_address": "228 5TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "FORRER JUSTIN R",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "CHRISTOPHER": [
+    {
+      "parcel_id": "0100053",
+      "prop_address": "213 E FORD AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "AKERS CHRISTOPHER",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100462",
+      "prop_address": "526 WOOSTER RD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "GHASTER CHRISTOPHER",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100652",
+      "prop_address": "1504 RIES ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "HINES CHRISTOPHER",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "SEAN": [
+    {
+      "parcel_id": "0100054",
+      "prop_address": "488 GRANDVIEW AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "SAVAGE SEAN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0102546",
+      "prop_address": "1468 FORREST DR",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "KELLY SEAN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0107492",
+      "prop_address": "108 30TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "MARINO SEAN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "CO": [
+    {
+      "parcel_id": "0100055",
+      "prop_address": "PUBLIC UTILITY",
+      "prop_city": "",
+      "prop_zip": "",
+      "owner": "AKRON BARBERTON CLUSTER RAILWAY CO",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100152",
+      "prop_address": "591 W LAKE AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ZAMISKA CHARLES A CO TRUSTEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100152T",
+      "prop_address": "591 W LAKE AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ZAMISKA CHARLES A CO TRUSTEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "AMHA": [
+    {
+      "parcel_id": "0100057",
+      "prop_address": "410 PASADENA PL",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "AMHA",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100061",
+      "prop_address": "132 5TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "AMHA",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100062",
+      "prop_address": "102 SE 5TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "AMHA",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "DISTRICT": [
+    {
+      "parcel_id": "0100058",
+      "prop_address": "477 4TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BOARD OF EDUCATION OF THE BARBERTON CITY SCHOOL DISTRICT",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100059",
+      "prop_address": "NW 3RD ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BOARD OF EDUCATION OF THE BARBERTON CITY SCHOOL DISTRICT",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100060",
+      "prop_address": "NW 3RD ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BOARD OF EDUCATION OF THE BARBERTON CITY SCHOOL DISTRICT",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "INC": [
+    {
+      "parcel_id": "0100080",
+      "prop_address": "1031 LAMBERT ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "HANNECARD IMMO INC",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100223",
+      "prop_address": "64 ETLING AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "3M REAL ESTATE INC",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100308",
+      "prop_address": "HIGHLAND AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "PORTAGE SECURITIES INC",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "K": [
+    {
+      "parcel_id": "0100082",
+      "prop_address": "1197 NOBLE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "VINSON MARY K",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100083",
+      "prop_address": "1197 NOBLE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "VINSON MARY K",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100135",
+      "prop_address": "498 E HUSTON ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ROBINSON LORAINE K",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "AARON": [
+    {
+      "parcel_id": "0100084",
+      "prop_address": "563 HOPOCAN AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "THOMAS AARON",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101826",
+      "prop_address": "307 & 309 VAN ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "GALLINELLA AARON",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0103625",
+      "prop_address": "551 &553 PARKVIEW AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "DAVIS AARON",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "REEM": [
+    {
+      "parcel_id": "0100085",
+      "prop_address": "1291 WOOSTER RD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "QANDEEL REEM",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "6007659",
+      "prop_address": "464 HELENA DR",
+      "prop_city": "TALLMADGE",
+      "prop_zip": "44278",
+      "owner": "QANDEEL REEM",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "6702143",
+      "prop_address": "1291 WOOSTER RD",
+      "prop_city": "",
+      "prop_zip": "",
+      "owner": "QANDEEL REEM",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "TABERNACLE": [
+    {
+      "parcel_id": "0100086",
+      "prop_address": "GRANT AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "COMMUNITY GOSPEL TABERNACLE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100087",
+      "prop_address": "201 E STATE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "COMMUNITY GOSPEL TABERNACLE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100647",
+      "prop_address": "475 FRANK AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "LIBERTY TABERNACLE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "JR": [
+    {
+      "parcel_id": "0100089",
+      "prop_address": "154 MACY AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "GIOVANINI JOSEPH A JR",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100202",
+      "prop_address": "300 BELL ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "HEYDON LARRY L JR",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100203",
+      "prop_address": "BELL ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "HEYDON LARRY L JR",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "PETER": [
+    {
+      "parcel_id": "0100092",
+      "prop_address": "150 36TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ALEXANDER PETER",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101690",
+      "prop_address": "239 E TUSCARAWAS AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "PUDELSKI MITCHELL PETER",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0104741",
+      "prop_address": "114 SW 31ST ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "NEWMAN PETER",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "KONRAD": [
+    {
+      "parcel_id": "0100094",
+      "prop_address": "311 GLENN ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "LIGHTNER KONRAD",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0103978",
+      "prop_address": "423 NORTON AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "LIGHTNER KONRAD",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0405868",
+      "prop_address": "669 HEATHERLEIGH DR",
+      "prop_city": "AKRON",
+      "prop_zip": "44333",
+      "owner": "BINIENDA KONRAD TRUSTEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "ALAN": [
+    {
+      "parcel_id": "0100099",
+      "prop_address": "1418 WAYNE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "MEYERS JEFFREY ALAN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100844",
+      "prop_address": "1040 OAK AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BENSON JACK ALAN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101582",
+      "prop_address": "391 LINCOLN AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "STONE BRIAN ALAN TRUSTEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "RAY": [
+    {
+      "parcel_id": "0100101",
+      "prop_address": "1198 NOBLE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "FRANKS DALE RAY",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100870",
+      "prop_address": "E STATE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BERKLEY MARSHALL RAY",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101039",
+      "prop_address": "167 MACY AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "HOWDERSHELT DEVON RAY",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "DIANE": [
+    {
+      "parcel_id": "0100102",
+      "prop_address": "369 35TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "HARLAN DIANE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0104528",
+      "prop_address": "205 W WAY ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "HANEY DIANE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0105826",
+      "prop_address": "24 19TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "VAUGHN DIANE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "KATHLEEN": [
+    {
+      "parcel_id": "0100104",
+      "prop_address": "660 E FORD AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "MARINO KATHLEEN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0102703",
+      "prop_address": "1531 MAPLE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "TEAGUE KATHLEEN TRUSTEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0106336",
+      "prop_address": "536 LLOYD ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "KULCSAR KATHLEEN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "B": [
+    {
+      "parcel_id": "0100105",
+      "prop_address": "476 E STATE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "JUDGE WILLIAM B",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100168",
+      "prop_address": "180 26TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BLESSING WILLIAM B",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100267",
+      "prop_address": "604 E HUSTON ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "GARRETT LANCE B",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "DREW": [
+    {
+      "parcel_id": "0100106",
+      "prop_address": "523 E HOPOCAN AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "SKOCICH PHILIP DREW",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0109885",
+      "prop_address": "1031 W TUSCARAWAS AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "FUNARI DANIEL DREW",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0204310",
+      "prop_address": "415 ASHLAND AVE",
+      "prop_city": "CUYAHOGA FA",
+      "prop_zip": "44221",
+      "owner": "JACKSON DREW",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "ANN": [
+    {
+      "parcel_id": "0100111",
+      "prop_address": "229 27TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "SMITH BARBARA ANN TRUSTEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100183",
+      "prop_address": "1303 SOUTH AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "GULA MARY ANN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100184",
+      "prop_address": "SOUTH AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "GULA MARY ANN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "STEPHEN": [
+    {
+      "parcel_id": "0100112",
+      "prop_address": "610 CREEDMORE AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "",
+      "owner": "YOHO STEPHEN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100172",
+      "prop_address": "12 5TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ROBINETTE STEPHEN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100443",
+      "prop_address": "602 E TUSCARAWAS AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "SEIFERT MARK STEPHEN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "H": [
+    {
+      "parcel_id": "0100117",
+      "prop_address": "646 CRAWFORD AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BENNETT DANIEL H",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100338",
+      "prop_address": "374 SHENANDOAH BLVD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "UNDERWOOD MATTHEW H",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100451",
+      "prop_address": "756 ST CLAIR AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "LEHMAN KARL H",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "ROBERT": [
+    {
+      "parcel_id": "0100120",
+      "prop_address": "341 WASHINGTON AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "CUNDIFF ROBERT",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101483",
+      "prop_address": "103 NORWOOD ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "",
+      "owner": "GLIDDEN ROBERT",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0102026",
+      "prop_address": "1018 SHANNON AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BOLOIS ROBERT",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "RENEE": [
+    {
+      "parcel_id": "0100121",
+      "prop_address": "1027 SHANNON AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "SMITH ASHLEY RENEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101345",
+      "prop_address": "44 25TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BARCUS REBECCA RENEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0104169",
+      "prop_address": "ROBINSON AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "DEAN ASHLEY RENEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "MARK": [
+    {
+      "parcel_id": "0100127",
+      "prop_address": "145 19TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "SCULLEN MARK",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101497",
+      "prop_address": "568 SW 31ST ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "VASILOFF MARK",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101706",
+      "prop_address": "601 E TUSCARAWAS AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "CAETTA MARK TRUSTEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "N": [
+    {
+      "parcel_id": "0100129",
+      "prop_address": "731 E FORD AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "UNDERCOFFER DENNIS N",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100130",
+      "prop_address": "731 E FORD AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "UNDERCOFFER DENNIS N",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100663",
+      "prop_address": "368 E CASSELL AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "KOVACS MELINDA N",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "HOUPT": [
+    {
+      "parcel_id": "0100137",
+      "prop_address": "630 NEWTON AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "HOUPT JOHN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0117196",
+      "prop_address": "630 NEWTON AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "",
+      "owner": "HOUPT JOHN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "MATTHEW": [
+    {
+      "parcel_id": "0100143",
+      "prop_address": "82 BROWN ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "FLEMING MATTHEW",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100378",
+      "prop_address": "1426 WAYNE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "MIRTES SHANE MATTHEW",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101714",
+      "prop_address": "146 21ST ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "CADNUM MATTHEW",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "RICK": [
+    {
+      "parcel_id": "0100150",
+      "prop_address": "119 NORMAN ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "GILDERSLEEVE RICK",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0102743",
+      "prop_address": "202 SNYDER AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "HOOKER RICK",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0102744",
+      "prop_address": "202 SNYDER AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "HOOKER RICK",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "GEORGETTE": [
+    {
+      "parcel_id": "0100159",
+      "prop_address": "284 E PARK AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "NICHOLS GEORGETTE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100160",
+      "prop_address": "284 E PARK AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "NICHOLS GEORGETTE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "6401785",
+      "prop_address": "2111 PRESIDENTIAL PKWY",
+      "prop_city": "TWINSBURG",
+      "prop_zip": "44087",
+      "owner": "MILLER GEORGETTE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "MICHAEL": [
+    {
+      "parcel_id": "0100166",
+      "prop_address": "869 TAMARIND CIR",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "RICHARDSON JOSHUA MICHAEL",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100167",
+      "prop_address": "126 LOUISE CT",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "HEABERLIN MICHAEL",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100675",
+      "prop_address": "122 28TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "CAGGIATI MICHAEL",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "BUFFY": [
+    {
+      "parcel_id": "0100170",
+      "prop_address": "96 37TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "JAMES BUFFY",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "MAURICE": [
+    {
+      "parcel_id": "0100171",
+      "prop_address": "346 JOSEPH AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BISHOP MAURICE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0103078",
+      "prop_address": "JOSEPH AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BISHOP MAURICE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0106610",
+      "prop_address": "113 W STATE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "PRESTON MAURICE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "E": [
+    {
+      "parcel_id": "0100173",
+      "prop_address": "1516 NOBLE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "JETER KATHRYN E TRUSTEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100174",
+      "prop_address": "1516 NOBLE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "JETER KATHRYN E TRUSTEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100209",
+      "prop_address": "9TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "HILDRETH CALVIN E",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "TEMPLE": [
+    {
+      "parcel_id": "0100179",
+      "prop_address": "BELL ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "NEW LIVING WAY GOSPEL TEMPLE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0111843",
+      "prop_address": "470 & 472 BELL ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "NEW AND LIVING WAY GOSPEL TEMPLE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "4600350",
+      "prop_address": "4774 & 4794 S HAMETOWN RD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BARBERTON BAPTIST TEMPLE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "JADZIA": [
+    {
+      "parcel_id": "0100181",
+      "prop_address": "377 HILLSDALE AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "EDDY JADZIA",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100182",
+      "prop_address": "HILLSDALE AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "EDDY JADZIA",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "LILY": [
+    {
+      "parcel_id": "0100189",
+      "prop_address": "251 25TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "HO LILY",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0219132",
+      "prop_address": "3178 SAUNDERS ST",
+      "prop_city": "CUYAHOGA FA",
+      "prop_zip": "44221",
+      "owner": "CHANG LILY",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "1501853",
+      "prop_address": "COPLEY RD",
+      "prop_city": "COPLEY",
+      "prop_zip": "44321",
+      "owner": "LIAO LILY",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "KYLE": [
+    {
+      "parcel_id": "0100191",
+      "prop_address": "135 8TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "VASULKA KYLE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0102131",
+      "prop_address": "211 24TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "NASH KYLE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0102992",
+      "prop_address": "71 SW 31ST ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "MASSIE KYLE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "CORPORATION": [
+    {
+      "parcel_id": "0100204",
+      "prop_address": "310 BELL ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "SUMMIT HOUSING DEVELOPMENT CORPORATION",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100537",
+      "prop_address": "VAN BUREN AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BARBERTON COMMUNITY DEVELOPMENT CORPORATION",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100538",
+      "prop_address": "139 E TUSCARAWAS AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BARBERTON COMMUNITY DEVELOPMENT CORPORATION",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "JACK": [
+    {
+      "parcel_id": "0100212",
+      "prop_address": "726 HUDSON RUN RD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "MOSLEY DAVID JACK TRUSTEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100213",
+      "prop_address": "HUDSON RUN RD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "MOSLEY DAVID JACK TRUSTEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100214",
+      "prop_address": "726 HUDSON RUN RD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "MOSLEY DAVID JACK TRUSTEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "MARIE": [
+    {
+      "parcel_id": "0100215",
+      "prop_address": "637 ORCHARD AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "FRIEDLEIN HEATHER MARIE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100406",
+      "prop_address": "468 E BAIRD AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BACHMANN JEAN MARIE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100769",
+      "prop_address": "582 KELLER ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "WOKOJANCE JENNIFER MARIE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "ELLEN": [
+    {
+      "parcel_id": "0100221",
+      "prop_address": "53 VAN BUREN AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "PHELPS MARY ELLEN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0106931",
+      "prop_address": "1478 HAGEY DR",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "HAMPTON MARY ELLEN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0109072",
+      "prop_address": "216 24TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "SMITH MARY ELLEN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "GREGORY": [
+    {
+      "parcel_id": "0100224",
+      "prop_address": "180 36TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ANUSHOCK JOHN GREGORY",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0106264",
+      "prop_address": "24 22ND ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "HARDESTY GREGORY",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0108589",
+      "prop_address": "1173 LIBERTY AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "PELOT GREGORY",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "IDA": [
+    {
+      "parcel_id": "0100226",
+      "prop_address": "HOPOCAN AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "APELBAUM IDA",
+      "mail_address": "",
+      "mail_city": "805-984-2299 & NO RESPONSE",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "4800409",
+      "prop_address": "2946 W BOSTON MILLS RD",
+      "prop_city": "BRECKSVILLE",
+      "prop_zip": "44141",
+      "owner": "RYKALLA IDA",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "6708442",
+      "prop_address": "276 STEINER AVE",
+      "prop_city": "AKRON",
+      "prop_zip": "44311",
+      "owner": "MCDONALD IDA",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "CHURCH": [
+    {
+      "parcel_id": "0100227",
+      "prop_address": "471 JEFFERSON AVE",
+      "prop_city": "",
+      "prop_zip": "",
+      "owner": "OHIO CONFERENCE ASSOCIATION OF THE SEVENTH DAY ADVENTIST CHURCH",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100228",
+      "prop_address": "471 JEFFERSON AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "OHIO CONFERENCE ASSOCIATION OF THE SEVENTH DAY ADVENTIST CHURCH",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100229",
+      "prop_address": "471 JEFFERSON AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "OHIO CONFERENCE ASSOCIATION OF THE SEVENTH DAY ADVENTIST CHURCH",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "GANNON": [
+    {
+      "parcel_id": "0100231",
+      "prop_address": "205 14TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "QUINN GANNON",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100489",
+      "prop_address": "589 RUBBER ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "QUINN GANNON",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0107441",
+      "prop_address": "552 WOOSTER RD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "QUINN GANNON",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "LTD": [
+    {
+      "parcel_id": "0100234",
+      "prop_address": "135 NW 2ND REAR ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "IRENE ADLER LTD",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100234T",
+      "prop_address": "135 NW 2ND REAR ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "IRENE ADLER LTD",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100261",
+      "prop_address": "146 HERMANN ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "PAL REALTY MAINTENANCE LTD",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "DAVID": [
+    {
+      "parcel_id": "0100239",
+      "prop_address": "1222 WOOSTER RD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ROBINSON DAVID",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100955",
+      "prop_address": "691 ORCHARD AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "PISARCIK DAVID",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101049",
+      "prop_address": "123 ST JOHN ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "SMITH DAVID",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "TUSHAR": [
+    {
+      "parcel_id": "0100244",
+      "prop_address": "383 WUNDERLICH AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "SHAH TUSHAR",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0105182",
+      "prop_address": "388 -390 NEWELL ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "SHAH TUSHAR",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0105183",
+      "prop_address": "WUNDERLICH AVE",
+      "prop_city": "",
+      "prop_zip": "",
+      "owner": "SHAH TUSHAR",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "SR": [
+    {
+      "parcel_id": "0100246",
+      "prop_address": "1087 COLUMBUS AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ARMBRUSTER PAUL M SR",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100301",
+      "prop_address": "132 E STATE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "JONES MICHAEL DOUGLAS SR",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100535",
+      "prop_address": "470 W PARK AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "TALBERT JAMES SR",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "DORAINE": [
+    {
+      "parcel_id": "0100248",
+      "prop_address": "1476 FORREST DR",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ARMBRUSTER DORAINE TRUSTEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "JUSTIN": [
+    {
+      "parcel_id": "0100254",
+      "prop_address": "30 TAYLOR RD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "SMITH JUSTIN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101822",
+      "prop_address": "1037 W TUSCARAWAS AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BUNDAY JUSTIN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101823",
+      "prop_address": "W TUSCARAWAS AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BUNDAY JUSTIN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "EDDIE": [
+    {
+      "parcel_id": "0100255",
+      "prop_address": "GREEN ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "DUDENAS EDDIE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0111845",
+      "prop_address": "1265 AUBURN AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "TRUMAN EDDIE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0115849",
+      "prop_address": "500 W STATE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "DUDENAS EDDIE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "G": [
+    {
+      "parcel_id": "0100256",
+      "prop_address": "1345 GRAND BLVD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "KELLER WILLIAM G",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100258",
+      "prop_address": "679 HIGHLAND AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ARMBRUSTER KEVIN G",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100259",
+      "prop_address": "HIGHLAND AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ARMBRUSTER KEVIN G",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "KATHERYNE": [
+    {
+      "parcel_id": "0100264",
+      "prop_address": "1445 HARDEN DR",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "KLEMP KATHERYNE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "RYAN": [
+    {
+      "parcel_id": "0100269",
+      "prop_address": "1566 HARDEN DR",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "JAKUSZEWSKI RYAN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100698",
+      "prop_address": "528 PARKVIEW AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "HANCOCK RYAN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0102818",
+      "prop_address": "851 BRADY AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BURNETTE RYAN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "DRAGICA": [
+    {
+      "parcel_id": "0100273",
+      "prop_address": "651 FRANKLIN AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "GERBEZ DRAGICA",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100274",
+      "prop_address": "651 FRANKLIN AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "GERBEZ DRAGICA",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "2816626",
+      "prop_address": "1358 MAPLE GROVE LN",
+      "prop_city": "UNIONTOWN",
+      "prop_zip": "44685",
+      "owner": "NINKOVIC DRAGICA",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "PAO": [
+    {
+      "parcel_id": "0100288",
+      "prop_address": "321 WOOSTER RD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "VUE PAO",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100289",
+      "prop_address": "WOOSTER RD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "VUE PAO",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0113219",
+      "prop_address": "321 WOOSTER RD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "VUE PAO",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "RUTH": [
+    {
+      "parcel_id": "0100290",
+      "prop_address": "481 WASHINGTON AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ROBENSTINE RUTH",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100291",
+      "prop_address": "481 WASHINGTON AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ROBENSTINE RUTH",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0104205",
+      "prop_address": "1467 ETTLE DR",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "STEVENS ELIZABETH RUTH",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "SCOTT": [
+    {
+      "parcel_id": "0100293",
+      "prop_address": "654 FAIRVIEW AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "KEITH KYLE SCOTT",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100692",
+      "prop_address": "682 PAIGE AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "GRUBER SCOTT",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101419",
+      "prop_address": "219 15TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "HAYNES SCOTT",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "LOUISE": [
+    {
+      "parcel_id": "0100299",
+      "prop_address": "335 GEORGE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ASKEW LOUISE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100300",
+      "prop_address": "335 GEORGE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ASKEW LOUISE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100694",
+      "prop_address": "486 TAFT AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "JANECZEK ANITA LOUISE TRUSTEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "CHAD": [
+    {
+      "parcel_id": "0100326",
+      "prop_address": "1465 WAYNE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "MICHAELS CHAD",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101285",
+      "prop_address": "301 BELL ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "WAIBEL CHAD",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0103663",
+      "prop_address": "591 ORCHARD AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "",
+      "owner": "GENET CHAD",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "DANIEL": [
+    {
+      "parcel_id": "0100333",
+      "prop_address": "386 BIG BEND CIR",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "PICKERING DANIEL",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100930",
+      "prop_address": "184 22ND ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "SHEA DANIEL",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0102221",
+      "prop_address": "1401 CENTRAL AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "GLEISINGER DANIEL",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "ALDEN": [
+    {
+      "parcel_id": "0100337",
+      "prop_address": "369 BIG BEND CIR",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BUNCE NICHOLAS ALDEN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "EDWIN": [
+    {
+      "parcel_id": "0100343",
+      "prop_address": "1393 S AZALEA BLVD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "",
+      "owner": "ALMANZAR EDWIN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0214449",
+      "prop_address": "2417 MARCIA BLVD",
+      "prop_city": "CUYAHOGA FA",
+      "prop_zip": "44223",
+      "owner": "SMITH GARY EDWIN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0219531",
+      "prop_address": "1416 TEWKSBURY CIR",
+      "prop_city": "CUYAHOGA FA",
+      "prop_zip": "44221",
+      "owner": "MARINAS EDWIN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "MEREDITH": [
+    {
+      "parcel_id": "0100344",
+      "prop_address": "1395 S AZALEA BLVD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "",
+      "owner": "WOOLEY MEREDITH",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "1902954",
+      "prop_address": "3074 ELDERBERRY AVE",
+      "prop_city": "AKRON",
+      "prop_zip": "44319",
+      "owner": "HICKS NORMAN MEREDITH",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "1902955",
+      "prop_address": "ELDERBERRY AVE",
+      "prop_city": "AKRON",
+      "prop_zip": "44319",
+      "owner": "HICKS NORMAN MEREDITH",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "KELLI": [
+    {
+      "parcel_id": "0100348",
+      "prop_address": "536 AUSTIN DR",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "HARMON WYSS KELLI",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0205483",
+      "prop_address": "3327 ELMWOOD ST",
+      "prop_city": "CUYAHOGA FA",
+      "prop_zip": "",
+      "owner": "SUTTON KELLI",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "1903833",
+      "prop_address": "79 WEIL AVE",
+      "prop_city": "AKRON",
+      "prop_zip": "44319",
+      "owner": "HUGHES KELLI",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "JESSICA": [
+    {
+      "parcel_id": "0100349",
+      "prop_address": "536 AUSTIN DR",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "LIDDLE JESSICA",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101297",
+      "prop_address": "72 28TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "WELTON JESSICA",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0106178",
+      "prop_address": "1056 SPRING AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "SPRINGER JESSICA",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "WAYNE": [
+    {
+      "parcel_id": "0100351",
+      "prop_address": "536 AUSTIN DR",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "MICK VICTOR WAYNE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101666",
+      "prop_address": "311 3RD ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "SHAFFER DAVID WAYNE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0101666T",
+      "prop_address": "311 3RD ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "SHAFFER DAVID WAYNE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "F": [
+    {
+      "parcel_id": "0100371",
+      "prop_address": "374 5TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BILINOVICH THOMAS F TRUSTEE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100503",
+      "prop_address": "161 7TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BANKS JAMES F",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100666",
+      "prop_address": "153 E TUSCARAWAS AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "SAFRON MARY F",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "DELOISE": [
+    {
+      "parcel_id": "0100377",
+      "prop_address": "1150 BENTON ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "JENKINS DELOISE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "2301393",
+      "prop_address": "WEAVER RD",
+      "prop_city": "CLINTON",
+      "prop_zip": "44216",
+      "owner": "HALE DELOISE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "2301394",
+      "prop_address": "5967 WEAVER RD",
+      "prop_city": "CLINTON",
+      "prop_zip": "44216",
+      "owner": "HALE DELOISE",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "UNION": [
+    {
+      "parcel_id": "0100396",
+      "prop_address": "180 SW 2ND ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BABCOCK &WILCOX FEDERAL CREDIT UNION",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100488",
+      "prop_address": "186 2ND ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "NEW HORIZON FEDERAL CREDIT UNION",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0104806",
+      "prop_address": "198 2ND ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "NEW HORIZON FEDERAL CREDIT UNION",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "CHARLES": [
+    {
+      "parcel_id": "0100402",
+      "prop_address": "ELMWOOD AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "AZICH CHARLES",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100621",
+      "prop_address": "1502 NOBLE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "CUMMINGS CHARLES",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100622",
+      "prop_address": "1502 NOBLE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "CUMMINGS CHARLES",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  "COLLEEN": [
+    {
+      "parcel_id": "0100404",
+      "prop_address": "HUDSON RUN RD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "GOMBASKI COLLEEN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0100405",
+      "prop_address": "HUDSON RUN RD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "GOMBASKI COLLEEN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    },
+    {
+      "parcel_id": "0111427",
+      "prop_address": "1193 AUBURN AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "GOMBASKI COLLEEN",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ]
+}

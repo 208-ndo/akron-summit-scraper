@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-04-09T20:38:29.570819+00:00",
+  "fetched_at": "2026-04-09T20:58:19.453669+00:00",
   "source": "Akron / Summit County, Ohio",
   "date_range": {
     "from": "2026-01-09",
     "to": "2026-04-09"
   },
-  "total": 32,
-  "with_address": 5,
+  "total": 40,
+  "with_address": 7,
   "records": [
     {
       "doc_num": "TANNER 04",
@@ -31,7 +31,10 @@
         "Judgment lien",
         "New this week"
       ],
-      "score": 60
+      "score": 60,
+      "match_method": "exact_name_variant",
+      "match_score": 1.0,
+      "with_address": 1
     },
     {
       "doc_num": "NANASSY 04",
@@ -56,7 +59,10 @@
         "Pre-foreclosure",
         "New this week"
       ],
-      "score": 60
+      "score": 60,
+      "match_method": "exact_name_variant",
+      "match_score": 1.0,
+      "with_address": 1
     },
     {
       "doc_num": "TALKINGTON 04",
@@ -81,7 +87,66 @@
         "Judgment lien",
         "New this week"
       ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
+    },
+    {
+      "doc_num": "PULLIN 04",
+      "doc_type": "JUD",
+      "filed": "2026-04-09",
+      "cat": "JUD",
+      "cat_label": "Judgment",
+      "owner": "Tracey Pullin",
+      "grantee": "Capital One Na",
+      "amount": null,
+      "legal": "CAPITAL ONE NA -VS- TRACEY PULLIN",
+      "prop_address": "",
+      "prop_city": "",
+      "prop_state": "OH",
+      "prop_zip": "",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Judgment lien",
+        "New this week"
+      ],
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
+    },
+    {
+      "doc_num": "PRIM 04",
+      "doc_type": "JUD",
+      "filed": "2026-04-09",
+      "cat": "JUD",
+      "cat_label": "Judgment",
+      "owner": "Jerome D Prim",
+      "grantee": "Capital One Na Successor By Merger To Di",
+      "amount": null,
+      "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- JEROME D PRIM",
+      "prop_address": "",
+      "prop_city": "",
+      "prop_state": "OH",
+      "prop_zip": "",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Judgment lien",
+        "New this week"
+      ],
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     },
     {
       "doc_num": "PFAHLER 04",
@@ -106,7 +171,10 @@
         "Judgment lien",
         "New this week"
       ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     },
     {
       "doc_num": "PEARSON 04",
@@ -131,10 +199,13 @@
         "Judgment lien",
         "New this week"
       ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     },
     {
-      "doc_num": "PCF1-T1-R14",
+      "doc_num": "PCF1-T1-R23",
       "doc_type": "NOFC",
       "filed": "2026-04-09",
       "cat": "NOFC",
@@ -156,7 +227,10 @@
         "Pre-foreclosure",
         "New this week"
       ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     },
     {
       "doc_num": "PARMER 04",
@@ -181,7 +255,10 @@
         "Judgment lien",
         "New this week"
       ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     },
     {
       "doc_num": "NEFFENGER 04",
@@ -206,7 +283,10 @@
         "Judgment lien",
         "New this week"
       ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     },
     {
       "doc_num": "MOUNTS 04",
@@ -231,7 +311,10 @@
         "Judgment lien",
         "New this week"
       ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     },
     {
       "doc_num": "MOHLER 04",
@@ -256,7 +339,10 @@
         "Judgment lien",
         "New this week"
       ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     },
     {
       "doc_num": "MILLER 04",
@@ -281,7 +367,10 @@
         "Judgment lien",
         "New this week"
       ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     },
     {
       "doc_num": "MCKINNEY 04",
@@ -306,7 +395,10 @@
         "Judgment lien",
         "New this week"
       ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     },
     {
       "doc_num": "MCCALL 04",
@@ -331,7 +423,10 @@
         "Judgment lien",
         "New this week"
       ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     },
     {
       "doc_num": "MACE 04",
@@ -356,7 +451,38 @@
         "Judgment lien",
         "New this week"
       ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
+    },
+    {
+      "doc_num": "HUGHES 04",
+      "doc_type": "JUD",
+      "filed": "2026-04-09",
+      "cat": "JUD",
+      "cat_label": "Judgment",
+      "owner": "Lundon R Hughes",
+      "grantee": "Capital One Na Successor By Merger To Di",
+      "amount": null,
+      "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- LUNDON R HUGHES",
+      "prop_address": "",
+      "prop_city": "",
+      "prop_state": "OH",
+      "prop_zip": "",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Judgment lien",
+        "New this week"
+      ],
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     },
     {
       "doc_num": "HORVAT 04",
@@ -381,7 +507,122 @@
         "Judgment lien",
         "New this week"
       ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
+    },
+    {
+      "doc_num": "HACHA 04",
+      "doc_type": "JUD",
+      "filed": "2026-04-09",
+      "cat": "JUD",
+      "cat_label": "Judgment",
+      "owner": "Joseph P Hacha",
+      "grantee": "Capital One Na",
+      "amount": null,
+      "legal": "CAPITAL ONE NA -VS- JOSEPH P HACHA",
+      "prop_address": "",
+      "prop_city": "",
+      "prop_state": "OH",
+      "prop_zip": "",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Judgment lien",
+        "New this week"
+      ],
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
+    },
+    {
+      "doc_num": "GRIFFITH 04",
+      "doc_type": "JUD",
+      "filed": "2026-04-09",
+      "cat": "JUD",
+      "cat_label": "Judgment",
+      "owner": "Jacquelynn M Griffith",
+      "grantee": "Capital One Na",
+      "amount": null,
+      "legal": "CAPITAL ONE NA -VS- JACQUELYNN M GRIFFITH",
+      "prop_address": "",
+      "prop_city": "",
+      "prop_state": "OH",
+      "prop_zip": "",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Judgment lien",
+        "New this week"
+      ],
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
+    },
+    {
+      "doc_num": "GRIFFIN 04",
+      "doc_type": "JUD",
+      "filed": "2026-04-09",
+      "cat": "JUD",
+      "cat_label": "Judgment",
+      "owner": "Star Griffin",
+      "grantee": "Capital One Na Successor By Merger To Di",
+      "amount": null,
+      "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- STAR GRIFFIN",
+      "prop_address": "",
+      "prop_city": "",
+      "prop_state": "OH",
+      "prop_zip": "",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Judgment lien",
+        "New this week"
+      ],
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
+    },
+    {
+      "doc_num": "FORD 04",
+      "doc_type": "JUD",
+      "filed": "2026-04-09",
+      "cat": "JUD",
+      "cat_label": "Judgment",
+      "owner": "Caleb Ford",
+      "grantee": "Capital One Na Successor By Merger To Di",
+      "amount": null,
+      "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- CALEB FORD",
+      "prop_address": "",
+      "prop_city": "",
+      "prop_state": "OH",
+      "prop_zip": "",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Judgment lien",
+        "New this week"
+      ],
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     },
     {
       "doc_num": "FIDUC 04",
@@ -406,7 +647,38 @@
         "Pre-foreclosure",
         "New this week"
       ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
+    },
+    {
+      "doc_num": "FARREY 04",
+      "doc_type": "JUD",
+      "filed": "2026-04-09",
+      "cat": "JUD",
+      "cat_label": "Judgment",
+      "owner": "Sharon Farrey",
+      "grantee": "Capital One Na",
+      "amount": null,
+      "legal": "CAPITAL ONE NA -VS- SHARON FARREY",
+      "prop_address": "",
+      "prop_city": "",
+      "prop_state": "OH",
+      "prop_zip": "",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Judgment lien",
+        "New this week"
+      ],
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     },
     {
       "doc_num": "CINALLI 04",
@@ -431,7 +703,10 @@
         "Judgment lien",
         "New this week"
       ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     },
     {
       "doc_num": "CAMPBELL 04",
@@ -456,7 +731,10 @@
         "Judgment lien",
         "New this week"
       ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     },
     {
       "doc_num": "BEAL 04",
@@ -481,7 +759,10 @@
         "Judgment lien",
         "New this week"
       ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     },
     {
       "doc_num": "LLC 04",
@@ -493,10 +774,10 @@
       "grantee": "Pacific Asset Holding, Llc",
       "amount": null,
       "legal": "PACIFIC ASSET HOLDING, LLC -VS- VICTORY OH SOLUTIONS, LLC",
-      "prop_address": "VERMONT PL",
+      "prop_address": "1734 MANCHESTER RD",
       "prop_city": "AKRON",
       "prop_state": "OH",
-      "prop_zip": "44312",
+      "prop_zip": "44314",
       "mail_address": "",
       "mail_city": "",
       "mail_state": "",
@@ -507,7 +788,10 @@
         "LLC / corp owner",
         "New this week"
       ],
-      "score": 70
+      "score": 70,
+      "match_method": "exact_name_variant",
+      "match_score": 1.0,
+      "with_address": 1
     },
     {
       "doc_num": "LLC 04",
@@ -533,7 +817,66 @@
         "LLC / corp owner",
         "New this week"
       ],
-      "score": 65
+      "score": 65,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
+    },
+    {
+      "doc_num": "SCOTT 04",
+      "doc_type": "JUD",
+      "filed": "2026-04-08",
+      "cat": "JUD",
+      "cat_label": "Judgment",
+      "owner": "Dallas L Scott",
+      "grantee": "Seven Seventeen Credit Union Inc",
+      "amount": null,
+      "legal": "SEVEN SEVENTEEN CREDIT UNION INC -VS- DALLAS L SCOTT",
+      "prop_address": "7548 VALERIE LN",
+      "prop_city": "HUDSON",
+      "prop_state": "OH",
+      "prop_zip": "44236",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Judgment lien",
+        "New this week"
+      ],
+      "score": 60,
+      "match_method": "token_overlap_fallback",
+      "match_score": 0.86,
+      "with_address": 1
+    },
+    {
+      "doc_num": "NILES 04",
+      "doc_type": "NOFC",
+      "filed": "2026-04-08",
+      "cat": "NOFC",
+      "cat_label": "Pre-foreclosure",
+      "owner": "Sierra S. Niles",
+      "grantee": "U.S. Bank National Association",
+      "amount": null,
+      "legal": "U.S. BANK NATIONAL ASSOCIATION -VS- SIERRA S. NILES AKA SIERRA NILES",
+      "prop_address": "540 STONER RD",
+      "prop_city": "CLINTON",
+      "prop_state": "OH",
+      "prop_zip": "44216",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Pre-foreclosure",
+        "New this week"
+      ],
+      "score": 60,
+      "match_method": "last_name_unique_fallback",
+      "match_score": 0.8,
+      "with_address": 1
     },
     {
       "doc_num": "DELONG 04",
@@ -558,7 +901,10 @@
         "Pre-foreclosure",
         "New this week"
       ],
-      "score": 60
+      "score": 60,
+      "match_method": "exact_name_variant",
+      "match_score": 1.0,
+      "with_address": 1
     },
     {
       "doc_num": "BISHOP 04",
@@ -583,7 +929,10 @@
         "Judgment lien",
         "New this week"
       ],
-      "score": 60
+      "score": 60,
+      "match_method": "exact_name_variant",
+      "match_score": 1.0,
+      "with_address": 1
     },
     {
       "doc_num": "WOODS 04",
@@ -608,32 +957,10 @@
         "Pre-foreclosure",
         "New this week"
       ],
-      "score": 55
-    },
-    {
-      "doc_num": "SCOTT 04",
-      "doc_type": "JUD",
-      "filed": "2026-04-08",
-      "cat": "JUD",
-      "cat_label": "Judgment",
-      "owner": "Dallas L Scott",
-      "grantee": "Seven Seventeen Credit Union Inc",
-      "amount": null,
-      "legal": "SEVEN SEVENTEEN CREDIT UNION INC -VS- DALLAS L SCOTT",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_state": "OH",
-      "prop_zip": "",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "",
-      "mail_zip": "",
-      "clerk_url": "https://newcivilfilings.summitoh.net/",
-      "flags": [
-        "Judgment lien",
-        "New this week"
-      ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     },
     {
       "doc_num": "SCHIRF 04",
@@ -658,7 +985,10 @@
         "Pre-foreclosure",
         "New this week"
       ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     },
     {
       "doc_num": "RICE 04",
@@ -683,32 +1013,10 @@
         "Pre-foreclosure",
         "New this week"
       ],
-      "score": 55
-    },
-    {
-      "doc_num": "NILES 04",
-      "doc_type": "NOFC",
-      "filed": "2026-04-08",
-      "cat": "NOFC",
-      "cat_label": "Pre-foreclosure",
-      "owner": "Sierra S. Niles",
-      "grantee": "U.S. Bank National Association",
-      "amount": null,
-      "legal": "U.S. BANK NATIONAL ASSOCIATION -VS- SIERRA S. NILES AKA SIERRA NILES",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_state": "OH",
-      "prop_zip": "",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "",
-      "mail_zip": "",
-      "clerk_url": "https://newcivilfilings.summitoh.net/",
-      "flags": [
-        "Pre-foreclosure",
-        "New this week"
-      ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     },
     {
       "doc_num": "HODGE 04",
@@ -733,7 +1041,10 @@
         "Pre-foreclosure",
         "New this week"
       ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     },
     {
       "doc_num": "FERNANDEZ 04",
@@ -758,7 +1069,10 @@
         "Judgment lien",
         "New this week"
       ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     },
     {
       "doc_num": "BELL 04",
@@ -783,7 +1097,10 @@
         "Judgment lien",
         "New this week"
       ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     },
     {
       "doc_num": "BARCHALK 04",
@@ -808,7 +1125,10 @@
         "Judgment lien",
         "New this week"
       ],
-      "score": 55
+      "score": 55,
+      "match_method": "unmatched",
+      "match_score": 0.0,
+      "with_address": 0
     }
   ]
 }
