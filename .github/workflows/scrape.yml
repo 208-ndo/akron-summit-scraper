@@ -32,7 +32,7 @@ jobs:
 
       - name: Run scraper
         run: |
-          python scraper/fetch.py --records data/records.json --parcels data/debug/parcel_by_id_sample.json --owner-index data/debug/owner_values_sample.json --out-json data/records.enriched.json --out-csv data/records.enriched.csv --report data/match_report.json
+          python scraper/fetch.py --records data/records.json --parcels data/debug/parcel_by_id_sample.json --owner-index data/debug/owner_index_sample.json --out-json data/records.enriched.json --out-csv data/records.enriched.csv --report data/match_report.json
 
       - name: Commit updated data files
         run: |
