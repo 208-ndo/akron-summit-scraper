@@ -381,33 +381,7 @@ def score_record(record: LeadRecord) -> int:
     return min(score, 100)
 
 
-def discover_cama_downloads() -> List[str]:
-    logging.info("Discovering Summit CAMA downloads...")
-    response = retry_request(CAMA_PAGE_URL)
-    soup = BeautifulSoup(response.text, "lxml")
 
-    urls: List[str] = []
-    wanted_codes = ["SC700", "SC701", "SC702", "SC705", "SC720", "SC731"]
-
-    for link in soup.select("a[href]"):
-        href = clean_text(link.get("href"))
-        text = clean_text(link.get_text(" ")).upper()
-        blob = f"{href} {text}".upper()
-
-        if any(code in blob for code in wanted_codes):
-            full_url = requests.compat.urljoin(CAMA_PAGE_URL, href)
-            urls.append(full_url)
-
-    deduped = []
-    seen = set()
-    for url in urls:
-        if url not in seen:
-            seen.add(url)
-            deduped.append(url)
-
-    logging.info("Found %s CAMA file links", len(deduped))
-    save_debug_json("cama_links.json", deduped)
-    return deduped
 
 
 def looks_like_zip(content: bytes) -> bool:
@@ -431,7 +405,39 @@ def parse_delimited_text(raw_text: str) -> List[dict]:
         return []
 
     sample = "\n".join(lines[:10])
-    delim = choose_delimiter(sample)
+    delim = choose_deldef discover_cama_downloads() -> List[str]:
+    logging.info("Discovering Summit CAMA downloads...")
+    response = retry_request(CAMA_PAGE_URL)
+    soup = BeautifulSoup(response.text, "lxml")
+
+    wanted_codes = {"SC700", "SC701", "SC702", "SC705", "SC720", "SC731"}
+    urls: List[str] = []
+
+    for link in soup.select("a[href]"):
+        href = clean_text(link.get("href"))
+        text = clean_text(link.get_text(" ")).upper()
+        blob = f"{href} {text}".upper()
+
+        if not any(code in blob for code in wanted_codes):
+            continue
+
+        full_url = requests.compat.urljoin(CAMA_PAGE_URL, href)
+
+        if "/finish/" in full_url:
+            urls.append(full_url)
+        elif "/viewdownload/" in full_url:
+            urls.append(full_url.replace("/viewdownload/", "/finish/"))
+
+    deduped: List[str] = []
+    seen = set()
+    for url in urls:
+        if url not in seen:
+            seen.add(url)
+            deduped.append(url)
+
+    logging.info("Found %s CAMA file links", len(deduped))
+    save_debug_json("cama_links.json", deduped)
+    return dedupedimiter(sample)
 
     reader = csv.DictReader(io.StringIO("\n".join(lines)), delimiter=delim)
     rows = []
