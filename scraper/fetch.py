@@ -29,8 +29,9 @@ OUTPUT_CSV_PATH = DATA_DIR / "ghl_export.csv"
 LOOKBACK_DAYS = 90
 SOURCE_NAME = "Akron / Summit County, Ohio"
 
-CLERK_PORTAL_URL = "https://clerkweb.summitoh.net/"
-CLERK_CASE_SEARCH_URL = "https://clerkweb.summitoh.net/record-search"
+CLERK_HOME_URL = "https://clerkweb.summitoh.net/"
+CLERK_RECORDS_URL = "https://clerk.summitoh.net/RecordsSearch/Disclaimer.asp?toPage=SelectDivision.asp"
+PENDING_CIVIL_URL = "https://newcivilfilings.summitoh.net/"
 PROBATE_URL = "https://search.summitohioprobate.com/eservices/"
 CAMA_PAGE_URL = "https://fiscaloffice.summitoh.net/index.php/documents-a-forms/viewcategory/10-cama"
 
@@ -68,7 +69,8 @@ LIKELY_OWNER_KEYS = [
     "OWNER1", "OWNER2", "OWNER", "OWN1", "OWNER_NAME", "OWNERNAME", "OWNERNM", "NAME", "OWNNAM"
 ]
 LIKELY_PROP_ADDR_KEYS = [
-    "SITE_ADDR", "SITEADDR", "PROPERTY_ADDRESS", "PROPADDR", "ADDRESS", "LOCADDR", "SADDR", "ADDRESS_1", "ADDRESS_2"
+    "SITE_ADDR", "SITEADDR", "PROPERTY_ADDRESS", "PROPADDR", "ADDRESS", "LOCADDR", "SADDR",
+    "ADDRESS_1", "ADDRESS_2"
 ]
 LIKELY_PROP_CITY_KEYS = [
     "SITE_CITY", "CITY", "SITECITY", "PROPERTY_CITY", "SCITY", "CITYNAME"
@@ -77,7 +79,8 @@ LIKELY_PROP_ZIP_KEYS = [
     "SITE_ZIP", "ZIP", "SITEZIP", "PROPERTY_ZIP", "SZIP"
 ]
 LIKELY_MAIL_ADDR_KEYS = [
-    "ADDR_1", "MAILADR1", "MAIL_ADDR", "MAILADDRESS", "MADDR1", "ADDRESS1", "MAILADD1", "ADDRESS_1", "ADDRESS_2"
+    "ADDR_1", "MAILADR1", "MAIL_ADDR", "MAILADDRESS", "MADDR1", "ADDRESS1", "MAILADD1",
+    "ADDRESS_1", "ADDRESS_2"
 ]
 LIKELY_MAIL_CITY_KEYS = [
     "MAILCITY", "CITY", "MCITY", "CITYNAME"
@@ -108,6 +111,10 @@ IGNORE_TEXT_FRAGMENTS = [
     "common pleas",
     "domestic relations",
     "the county of summit",
+    "public records search",
+    "important notices",
+    "welcome page",
+    "pending civil filings",
 ]
 
 
@@ -562,12 +569,30 @@ def text_is_noise(text: str) -> bool:
     return any(fragment in t for fragment in IGNORE_TEXT_FRAGMENTS)
 
 
-def parse_candidate_text_to_record(text: str, href: str, base_url: str, fallback_doc_num: str) -> Optional[LeadRecord]:
+def looks_like_owner_name(text: str) -> bool:
+    t = clean_text(text)
+    if not t:
+        return False
+    if len(t) < 4:
+        return False
+    bad = ["welcome", "search", "records", "court", "county", "click", "home", "civil", "division"]
+    if any(b in t.lower() for b in bad):
+        return False
+    return True
+
+
+def parse_candidate_text_to_record(
+    text: str,
+    href: str,
+    base_url: str,
+    fallback_doc_num: str,
+    forced_doc_type: Optional[str] = None,
+) -> Optional[LeadRecord]:
     text = clean_text(text)
     if text_is_noise(text):
         return None
 
-    doc_type = extract_doc_type(text)
+    doc_type = forced_doc_type or extract_doc_type(text)
     if not doc_type:
         return None
 
@@ -599,6 +624,99 @@ def parse_candidate_text_to_record(text: str, href: str, base_url: str, fallback
     return record
 
 
+def infer_doc_type_from_text(text: str) -> Optional[str]:
+    t = clean_text(text).upper()
+    if any(x in t for x in ["LIS PENDENS", "LP "]):
+        return "LP"
+    if any(x in t for x in ["FORECLOS", "NOFC"]):
+        return "NOFC"
+    if any(x in t for x in ["JUDGMENT", "CCJ", "DRJUD"]):
+        return "JUD"
+    if any(x in t for x in ["TAX DEED", "TAXDEED"]):
+        return "TAXDEED"
+    if any(x in t for x in ["IRS LIEN", "FEDERAL LIEN", "TAX LIEN"]):
+        return "LNFED"
+    if "LIEN" in t:
+        return "LN"
+    if "NOTICE OF COMMENCEMENT" in t:
+        return "NOC"
+    return None
+
+
+async def click_first_matching(page, selectors: List[str]) -> bool:
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if await locator.count() > 0:
+                await locator.click()
+                await page.wait_for_timeout(2500)
+                return True
+        except Exception:
+            continue
+    return False
+
+
+def parse_records_tables(html: str, base_url: str, prefix: str) -> List[LeadRecord]:
+    soup = BeautifulSoup(html, "lxml")
+    records: List[LeadRecord] = []
+
+    rows = soup.find_all("tr")
+    for i, row in enumerate(rows):
+        text = clean_text(row.get_text(" "))
+        href = ""
+        link = row.find("a", href=True)
+        if link:
+            href = clean_text(link.get("href"))
+
+        forced_doc_type = infer_doc_type_from_text(text)
+        rec = parse_candidate_text_to_record(text, href, base_url, f"{prefix}-TR-{i+1}", forced_doc_type)
+        if rec:
+            records.append(rec)
+
+    links = soup.find_all("a", href=True)
+    for i, link in enumerate(links):
+        text = clean_text(link.get_text(" "))
+        href = clean_text(link.get("href"))
+        forced_doc_type = infer_doc_type_from_text(text)
+        rec = parse_candidate_text_to_record(text, href, base_url, f"{prefix}-A-{i+1}", forced_doc_type)
+        if rec:
+            records.append(rec)
+
+    return records
+
+
+async def scrape_pending_civil_records(page) -> List[LeadRecord]:
+    logging.info("Scraping pending civil filings...")
+    records: List[LeadRecord] = []
+
+    try:
+        await page.goto(PENDING_CIVIL_URL, wait_until="domcontentloaded", timeout=90000)
+        await page.wait_for_timeout(4000)
+        html = await page.content()
+        save_debug_text("pending_civil_page_1.html", html)
+
+        records.extend(parse_records_tables(html, PENDING_CIVIL_URL, "PCF"))
+
+        # Try a generic click-through if there's a search/start button.
+        clicked = await click_first_matching(page, [
+            "text=Search",
+            "text=Begin",
+            "text=Continue",
+            "input[type='submit']",
+            "button",
+            "a",
+        ])
+        if clicked:
+            html2 = await page.content()
+            save_debug_text("pending_civil_page_2.html", html2)
+            records.extend(parse_records_tables(html2, PENDING_CIVIL_URL, "PCF2"))
+
+    except Exception as exc:
+        logging.warning("Pending civil scrape failed: %s", exc)
+
+    return records
+
+
 async def scrape_clerk_records() -> List[LeadRecord]:
     logging.info("Scraping clerk records...")
     records: List[LeadRecord] = []
@@ -608,51 +726,51 @@ async def scrape_clerk_records() -> List[LeadRecord]:
         page = await browser.new_page()
 
         try:
-            urls_to_try = [CLERK_CASE_SEARCH_URL, CLERK_PORTAL_URL]
+            # Direct records search disclaimer page
+            await page.goto(CLERK_RECORDS_URL, wait_until="domcontentloaded", timeout=90000)
+            await page.wait_for_timeout(4000)
+            html1 = await page.content()
+            save_debug_text("clerk_records_page_1.html", html1)
+            logging.info("Clerk records page 1 title: %s", await page.title())
 
-            for idx, url in enumerate(urls_to_try, start=1):
-                try:
-                    await page.goto(url, wait_until="domcontentloaded", timeout=90000)
-                    await page.wait_for_timeout(4000)
+            records.extend(parse_records_tables(html1, CLERK_RECORDS_URL, "CLK1"))
 
-                    title = await page.title()
-                    html = await page.content()
-                    save_debug_text(f"clerk_page_{idx}.html", html)
-                    logging.info("Clerk page %s title: %s", idx, title)
+            # Try to advance past disclaimer/select division/search pages
+            clicked = await click_first_matching(page, [
+                "text=Click Here",
+                "text=Begin",
+                "text=Continue",
+                "text=Accept",
+                "text=Search",
+                "input[type='submit']",
+                "button",
+                "a",
+            ])
+            if clicked:
+                html2 = await page.content()
+                save_debug_text("clerk_records_page_2.html", html2)
+                logging.info("Clerk records page 2 title: %s", await page.title())
+                records.extend(parse_records_tables(html2, page.url, "CLK2"))
 
-                    soup = BeautifulSoup(html, "lxml")
+                clicked_again = await click_first_matching(page, [
+                    "text=Search",
+                    "text=Civil",
+                    "text=General",
+                    "input[type='submit']",
+                    "button",
+                    "a",
+                ])
+                if clicked_again:
+                    html3 = await page.content()
+                    save_debug_text("clerk_records_page_3.html", html3)
+                    logging.info("Clerk records page 3 title: %s", await page.title())
+                    records.extend(parse_records_tables(html3, page.url, "CLK3"))
 
-                    rows = soup.find_all("tr")
-                    for i, row in enumerate(rows):
-                        text = clean_text(row.get_text(" "))
-                        link = row.find("a", href=True)
-                        href = clean_text(link.get("href")) if link else ""
-                        rec = parse_candidate_text_to_record(text, href, url, f"CLK-TR-{idx}-{i+1}")
-                        if rec:
-                            records.append(rec)
-
-                    links = soup.find_all("a", href=True)
-                    for i, link in enumerate(links):
-                        text = clean_text(link.get_text(" "))
-                        href = clean_text(link.get("href"))
-                        rec = parse_candidate_text_to_record(text, href, url, f"CLK-A-{idx}-{i+1}")
-                        if rec:
-                            records.append(rec)
-
-                    blocks = soup.find_all(["div", "li", "span"])
-                    for i, block in enumerate(blocks[:2500]):
-                        text = clean_text(block.get_text(" "))
-                        inner_link = block.find("a", href=True)
-                        href = clean_text(inner_link.get("href")) if inner_link else ""
-                        rec = parse_candidate_text_to_record(text, href, url, f"CLK-B-{idx}-{i+1}")
-                        if rec:
-                            records.append(rec)
-
-                except Exception as inner_exc:
-                    logging.warning("Clerk attempt failed for %s: %s", url, inner_exc)
+            # Pending civil filings as second clerk source
+            records.extend(await scrape_pending_civil_records(page))
 
         except PlaywrightTimeoutError:
-            logging.warning("Timeout while scraping clerk portal.")
+            logging.warning("Timeout while scraping clerk records.")
         except Exception as exc:
             logging.warning("Clerk scrape failed: %s", exc)
         finally:
@@ -699,61 +817,76 @@ async def scrape_probate_records() -> List[LeadRecord]:
             await page.goto(PROBATE_URL, wait_until="domcontentloaded", timeout=90000)
             await page.wait_for_timeout(4000)
 
-            title = await page.title()
-            html = await page.content()
-            save_debug_text("probate_page_1.html", html)
-            logging.info("Probate page title: %s", title)
+            html1 = await page.content()
+            save_debug_text("probate_page_1.html", html1)
+            logging.info("Probate page 1 title: %s", await page.title())
 
-            soup = BeautifulSoup(html, "lxml")
+            # Click through the welcome page
+            clicked = await click_first_matching(page, [
+                "text=Click Here",
+                "text=Begin",
+                "text=Search",
+                "a.anchorButton",
+                "input[type='submit']",
+                "button",
+                "a",
+            ])
 
-            rows = soup.find_all("tr")
-            for i, row in enumerate(rows):
-                text = clean_text(row.get_text(" "))
-                if not valid_probate_candidate(text):
-                    continue
-                link = row.find("a", href=True)
-                href = clean_text(link.get("href")) if link else ""
-                filed = try_parse_date(text) or datetime.now().date().isoformat()
+            if clicked:
+                html2 = await page.content()
+                save_debug_text("probate_page_2.html", html2)
+                logging.info("Probate page 2 title: %s", await page.title())
 
-                record = LeadRecord(
-                    doc_num=f"PRO-TR-{i+1}",
-                    doc_type="PRO",
-                    filed=filed,
-                    cat="PRO",
-                    cat_label=LEAD_TYPE_MAP["PRO"],
-                    owner=text[:180],
-                    grantee="",
-                    amount=None,
-                    legal="",
-                    clerk_url=requests.compat.urljoin(PROBATE_URL, href) if href else PROBATE_URL,
-                )
-                record.flags = category_flags(record.doc_type, record.owner)
-                record.score = score_record(record)
-                records.append(record)
+                soup = BeautifulSoup(html2, "lxml")
 
-            links = soup.find_all("a", href=True)
-            for i, link in enumerate(links):
-                text = clean_text(link.get_text(" "))
-                if not valid_probate_candidate(text):
-                    continue
-                href = clean_text(link.get("href"))
-                filed = try_parse_date(text) or datetime.now().date().isoformat()
+                rows = soup.find_all("tr")
+                for i, row in enumerate(rows):
+                    text = clean_text(row.get_text(" "))
+                    if not valid_probate_candidate(text):
+                        continue
+                    link = row.find("a", href=True)
+                    href = clean_text(link.get("href")) if link else ""
+                    filed = try_parse_date(text) or datetime.now().date().isoformat()
 
-                record = LeadRecord(
-                    doc_num=f"PRO-A-{i+1}",
-                    doc_type="PRO",
-                    filed=filed,
-                    cat="PRO",
-                    cat_label=LEAD_TYPE_MAP["PRO"],
-                    owner=text[:180],
-                    grantee="",
-                    amount=None,
-                    legal="",
-                    clerk_url=requests.compat.urljoin(PROBATE_URL, href) if href else PROBATE_URL,
-                )
-                record.flags = category_flags(record.doc_type, record.owner)
-                record.score = score_record(record)
-                records.append(record)
+                    record = LeadRecord(
+                        doc_num=f"PRO-TR-{i+1}",
+                        doc_type="PRO",
+                        filed=filed,
+                        cat="PRO",
+                        cat_label=LEAD_TYPE_MAP["PRO"],
+                        owner=text[:180],
+                        grantee="",
+                        amount=None,
+                        legal="",
+                        clerk_url=requests.compat.urljoin(page.url, href) if href else page.url,
+                    )
+                    record.flags = category_flags(record.doc_type, record.owner)
+                    record.score = score_record(record)
+                    records.append(record)
+
+                links = soup.find_all("a", href=True)
+                for i, link in enumerate(links):
+                    text = clean_text(link.get_text(" "))
+                    if not valid_probate_candidate(text):
+                        continue
+                    href = clean_text(link.get("href"))
+                    filed = try_parse_date(text) or datetime.now().date().isoformat()
+
+                    record = LeadRecord(
+                        doc_num=f"PRO-A-{i+1}",
+                        doc_type="PRO",
+                        filed=filed,
+                        cat="PRO",
+                        cat_label=LEAD_TYPE_MAP["PRO"],
+                        owner=text[:180],
+                        grantee="",
+                        amount=None,
+                        legal="",
+                        clerk_url=requests.compat.urljoin(page.url, href) if href else page.url,
+                    )
+                    record.flags = category_flags(record.doc_type, record.owner)
+                    record.score = score_record(record)
+                    records.append(record)
 
         except Exception as exc:
             logging.warning("Probate scrape failed: %s", exc)
