@@ -10,16 +10,16 @@
   },
   "meta": {
     "parcel_fields": {
-      "parcel": "parcel_id",
-      "owner_name": "owner",
-      "site_addr": "prop_address",
-      "site_city": "prop_city",
+      "parcel": "PARCEL",
+      "owner_name": null,
+      "site_addr": null,
+      "site_city": "CITY",
       "site_state": null,
-      "site_zip": "prop_zip",
-      "mail_addr": "mail_address",
-      "mail_city": "mail_city",
-      "mail_state": "mail_state",
-      "mail_zip": "mail_zip"
+      "site_zip": null,
+      "mail_addr": null,
+      "mail_city": null,
+      "mail_state": null,
+      "mail_zip": null
     },
     "owner_fields": {
       "parcel": "parcel_id",
@@ -34,5 +34,5 @@
       "mail_zip": "mail_zip"
     }
   },
-  "parcel_master_rows": 10
+  "parcel_master_rows": 5
 }
