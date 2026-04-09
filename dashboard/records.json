@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-04-09T15:00:05.573404+00:00",
+  "fetched_at": "2026-04-09T19:26:24.497807+00:00",
   "source": "Akron / Summit County, Ohio",
   "date_range": {
     "from": "2026-01-09",
     "to": "2026-04-09"
   },
-  "total": 18,
+  "total": 22,
   "with_address": 0,
   "records": [
     {
@@ -54,6 +54,56 @@
       "clerk_url": "https://newcivilfilings.summitoh.net/",
       "flags": [
         "Judgment lien",
+        "New this week"
+      ],
+      "score": 55
+    },
+    {
+      "doc_num": "PCF1-T1-R2",
+      "doc_type": "NOFC",
+      "filed": "2026-04-09",
+      "cat": "NOFC",
+      "cat_label": "Pre-foreclosure",
+      "owner": "Demetrius Marquel Lash",
+      "grantee": "Us Bank National Association",
+      "amount": null,
+      "legal": "US BANK NATIONAL ASSOCIATION -VS- DEMETRIUS MARQUEL LASH AKA DEMETRIUS M L",
+      "prop_address": "",
+      "prop_city": "",
+      "prop_state": "OH",
+      "prop_zip": "",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Pre-foreclosure",
+        "New this week"
+      ],
+      "score": 55
+    },
+    {
+      "doc_num": "NANASSY 04",
+      "doc_type": "NOFC",
+      "filed": "2026-04-09",
+      "cat": "NOFC",
+      "cat_label": "Pre-foreclosure",
+      "owner": "Debra Nanassy",
+      "grantee": "Lakeview Loan Servicing Llc",
+      "amount": null,
+      "legal": "LAKEVIEW LOAN SERVICING LLC -VS- DEBRA NANASSY",
+      "prop_address": "",
+      "prop_city": "",
+      "prop_state": "OH",
+      "prop_zip": "",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "3",
+      "mail_zip": "",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Pre-foreclosure",
         "New this week"
       ],
       "score": 55
@@ -109,6 +159,56 @@
       "score": 55
     },
     {
+      "doc_num": "CINALLI 04",
+      "doc_type": "JUD",
+      "filed": "2026-04-09",
+      "cat": "JUD",
+      "cat_label": "Judgment",
+      "owner": "Michael Cinalli",
+      "grantee": "First National Bank Of Omaha",
+      "amount": null,
+      "legal": "FIRST NATIONAL BANK OF OMAHA -VS- MICHAEL CINALLI",
+      "prop_address": "",
+      "prop_city": "",
+      "prop_state": "OH",
+      "prop_zip": "",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Judgment lien",
+        "New this week"
+      ],
+      "score": 55
+    },
+    {
+      "doc_num": "CAMPBELL 04",
+      "doc_type": "JUD",
+      "filed": "2026-04-09",
+      "cat": "JUD",
+      "cat_label": "Judgment",
+      "owner": "A'Nyah Lanee Campbell",
+      "grantee": "Akron Public Schools",
+      "amount": null,
+      "legal": "AKRON PUBLIC SCHOOLS -VS- A'NYAH LANEE CAMPBELL",
+      "prop_address": "",
+      "prop_city": "",
+      "prop_state": "OH",
+      "prop_zip": "",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Judgment lien",
+        "New this week"
+      ],
+      "score": 55
+    },
+    {
       "doc_num": "BEAL 04",
       "doc_type": "JUD",
       "filed": "2026-04-09",
@@ -135,32 +235,6 @@
     },
     {
       "doc_num": "LLC 04",
-      "doc_type": "JUD",
-      "filed": "2026-04-08",
-      "cat": "JUD",
-      "cat_label": "Judgment",
-      "owner": "Trident Transportation Llc",
-      "grantee": "Itria Ventures Llc,",
-      "amount": null,
-      "legal": "ITRIA VENTURES LLC, -VS- TRIDENT TRANSPORTATION LLC",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_state": "OH",
-      "prop_zip": "",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "",
-      "mail_zip": "",
-      "clerk_url": "https://newcivilfilings.summitoh.net/",
-      "flags": [
-        "Judgment lien",
-        "LLC / corp owner",
-        "New this week"
-      ],
-      "score": 65
-    },
-    {
-      "doc_num": "LLC 04",
       "doc_type": "NOFC",
       "filed": "2026-04-08",
       "cat": "NOFC",
@@ -180,6 +254,32 @@
       "clerk_url": "https://newcivilfilings.summitoh.net/",
       "flags": [
         "Pre-foreclosure",
+        "LLC / corp owner",
+        "New this week"
+      ],
+      "score": 65
+    },
+    {
+      "doc_num": "LLC 04",
+      "doc_type": "JUD",
+      "filed": "2026-04-08",
+      "cat": "JUD",
+      "cat_label": "Judgment",
+      "owner": "Trident Transportation Llc",
+      "grantee": "Itria Ventures Llc,",
+      "amount": null,
+      "legal": "ITRIA VENTURES LLC, -VS- TRIDENT TRANSPORTATION LLC",
+      "prop_address": "",
+      "prop_city": "",
+      "prop_state": "OH",
+      "prop_zip": "",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Judgment lien",
         "LLC / corp owner",
         "New this week"
       ],

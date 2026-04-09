@@ -3,8 +3,71 @@
     "Action",
     "Case Name",
     "Date Added",
-    "Case Category Workers Compensation: 1 Foreclosure: 8 Judgment Lien: 10 Unfair Consumer Sales Act: 1 Breach of Contract: 4 Personal Injury: 4 Other Civil: 4 Refiled Case: 1 Negligence: 1 Cognovit Action: 1 Other Tort: 1 Medical Malpractice: 1 Select All",
+    "Case Category Foreclosure: 10 Personal Injury: 5 Workers Compensation: 2 Cognovit Action: 2 Breach of Contract: 6 Unfair Consumer Sales Act: 1 Judgment Lien: 11 Judgment Lien Juvenile Court: 1 Other Civil: 4 Refiled Case: 1 Negligence: 1 Select All",
     "Status"
+  ],
+  [
+    "Get Docs",
+    "US BANK NATIONAL ASSOCIATION -VS- DEMETRIUS MARQUEL LASH AKA DEMETRIUS M L",
+    "04/09/2026 03:14 PM",
+    "Foreclosure",
+    "Pending Review"
+  ],
+  [
+    "Get Docs",
+    "LEAH NICOLE BENNETT -VS- RACHEL WHEALAN",
+    "04/09/2026 02:31 PM",
+    "Personal Injury",
+    "Pending Review"
+  ],
+  [
+    "Get Docs",
+    "IZZATILLO KHOLDAROV -VS- KHINA MAYA RAI",
+    "04/09/2026 01:51 PM",
+    "Personal Injury",
+    "Pending Review"
+  ],
+  [
+    "Get Docs",
+    "RONNIE BOLYARD -VS- J.M.W. TRUCKING SERVICES, INC.",
+    "04/09/2026 01:45 PM",
+    "Personal Injury",
+    "Pending Review"
+  ],
+  [
+    "Get Docs",
+    "KIMBERLY R. NETTLE -VS- AMAZON.COM, INC.",
+    "04/09/2026 12:50 PM",
+    "Workers Compensation",
+    "Pending Review"
+  ],
+  [
+    "Get Docs",
+    "KEYBANK NATIONAL ASSOCIATION -VS- RIDGELINE DEVELOPMENT, LLC.",
+    "04/09/2026 12:50 PM",
+    "Cognovit Action",
+    "Pending Review"
+  ],
+  [
+    "Get Docs",
+    "LAKEVIEW LOAN SERVICING LLC -VS- DEBRA NANASSY",
+    "04/09/2026 12:21 PM",
+    "Foreclosure",
+    "Pending Review"
+  ],
+  [
+    "Get Docs",
+    "HUNTINGTON NATIONAL BANK -VS- MACKENZIE BEST",
+    "04/09/2026 12:00 PM",
+    "Breach of Contract",
+    "Pending Review"
+  ],
+  [
+    "Get Docs",
+    "AUTOVEST, L.L.C. -VS- EMILY S YANEZ",
+    "04/09/2026 11:26 AM",
+    "Breach of Contract",
+    "Pending Review"
   ],
   [
     "Get Docs",
@@ -18,20 +81,6 @@
     "TOWD POINT MORTGAGE TRUST 2019-3, U.S. B -VS- UNKNOWN ADMINISTRATOR, EXECUTOR OR FIDUC",
     "04/09/2026 10:50 AM",
     "Foreclosure",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
-    "VILLAGE OF MORELAND HILLS -VS- DAVID HORVAT",
-    "04/09/2026 10:45 AM",
-    "Judgment Lien",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
-    "CITY OF REMINDERVILLE -VS- JUSTIN TANNER",
-    "04/09/2026 10:41 AM",
-    "Judgment Lien",
     "Pending Review"
   ],
   [
@@ -57,45 +106,31 @@
   ],
   [
     "Get Docs",
-    "MIDLAND FUNDING LLC -VS- DONALD BEAL",
-    "04/09/2026 03:18 AM",
+    "FIRST NATIONAL BANK OF OMAHA -VS- MICHAEL CINALLI",
+    "04/09/2026 01:25 PM",
     "Judgment Lien",
-    "Pending Review"
+    "Filing Complete"
   ],
   [
     "Get Docs",
-    "CAPITAL ONE, N.A. -VS- MARILYN TALKINGTON",
-    "04/09/2026 01:05 AM",
-    "Judgment Lien",
-    "Pending Review"
+    "AKRON PUBLIC SCHOOLS -VS- A'NYAH LANEE CAMPBELL",
+    "04/09/2026 12:54 PM",
+    "Judgment Lien Juvenile Court",
+    "Filing Complete"
   ],
   [
     "Get Docs",
-    "SEVEN SEVENTEEN CREDIT UNION INC -VS- STEVEN M BARCHALK",
-    "04/08/2026 03:33 PM",
+    "VILLAGE OF MORELAND HILLS -VS- DAVID HORVAT",
+    "04/09/2026 10:45 AM",
     "Judgment Lien",
-    "Pending Review"
+    "Filing Complete"
   ],
   [
     "Get Docs",
-    "SEVEN SEVENTEEN CREDIT UNION INC -VS- TIMOTHY M BISHOP",
-    "04/08/2026 03:26 PM",
+    "CITY OF REMINDERVILLE -VS- JUSTIN TANNER",
+    "04/09/2026 10:41 AM",
     "Judgment Lien",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
-    "ITRIA VENTURES LLC, -VS- TRIDENT TRANSPORTATION LLC",
-    "04/08/2026 02:33 PM",
-    "Judgment Lien",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
-    "SEVEN SEVENTEEN CREDIT UNION INC -VS- DALLAS L SCOTT",
-    "04/08/2026 01:29 PM",
-    "Judgment Lien",
-    "Pending Review"
+    "Filing Complete"
   ],
   [
     "Get Docs",
@@ -120,58 +155,23 @@
   ],
   [
     "Get Docs",
+    "MIDLAND FUNDING LLC -VS- DONALD BEAL",
+    "04/09/2026 03:18 AM",
+    "Judgment Lien",
+    "Filing Complete"
+  ],
+  [
+    "Get Docs",
+    "CAPITAL ONE, N.A. -VS- MARILYN TALKINGTON",
+    "04/09/2026 01:05 AM",
+    "Judgment Lien",
+    "Filing Complete"
+  ],
+  [
+    "Get Docs",
     "DOUG P. KUZYK -VS- DAVID A. LESHON",
     "04/08/2026 06:33 PM",
     "Negligence",
-    "Filing Complete"
-  ],
-  [
-    "Get Docs",
-    "VELOCITY INVESTMENTS, LLC -VS- JOHN CONAWAY",
-    "04/08/2026 05:57 PM",
-    "Other Civil",
-    "Filing Complete"
-  ],
-  [
-    "Get Docs",
-    "VELOCITY INVESTMENTS, LLC ASSIGNEE OF LE -VS- PAUL FULLER",
-    "04/08/2026 05:52 PM",
-    "Other Civil",
-    "Filing Complete"
-  ],
-  [
-    "Get Docs",
-    "VELOCITY INVESTMENTS, LLC ASSIGNEE OF LE -VS- BRYAN SCHUMANN",
-    "04/08/2026 05:46 PM",
-    "Other Civil",
-    "Filing Complete"
-  ],
-  [
-    "Get Docs",
-    "U.S. BANK, NATIONAL ASSOCIATION -VS- UNKNOWN HEIRS OF BARBARA A SCHIRF",
-    "04/08/2026 05:19 PM",
-    "Foreclosure",
-    "Filing Complete"
-  ],
-  [
-    "Get Docs",
-    "GINA CHILDRESS -VS- GRANGE PROPERTY & CASUALTY INSURANCE CO.",
-    "04/08/2026 05:12 PM",
-    "Personal Injury",
-    "Filing Complete"
-  ],
-  [
-    "Get Docs",
-    "PACIFIC ASSET HOLDING, LLC -VS- VICTORY OH SOLUTIONS, LLC",
-    "04/08/2026 05:02 PM",
-    "Foreclosure",
-    "Filing Complete"
-  ],
-  [
-    "Get Docs",
-    "CAPITAL ONE, N.A. -VS- JAMES F DORSEY",
-    "04/08/2026 04:55 PM",
-    "Breach of Contract",
     "Filing Complete"
   ]
 ]
