@@ -3,105 +3,70 @@
     "Action",
     "Case Name",
     "Date Added",
-    "Case Category Judgment Lien: 21 Unfair Consumer Sales Act: 1 Negligence: 2 Other Civil: 3 Foreclosure: 15 Personal Injury: 6 Breach of Contract: 6 Cognovit Action: 1 Workers Compensation: 1 Other Tort: 1 Medical Malpractice: 1 Replevin: 1 Wrongful Death: 1 Select All",
+    "Case Category Workers Compensation: 1 Foreclosure: 8 Judgment Lien: 10 Unfair Consumer Sales Act: 1 Breach of Contract: 4 Personal Injury: 4 Other Civil: 4 Refiled Case: 1 Negligence: 1 Cognovit Action: 1 Other Tort: 1 Medical Malpractice: 1 Select All",
     "Status"
+  ],
+  [
+    "Get Docs",
+    "MELISA GIBB -VS- STEPHANIE MCCLOUD",
+    "04/09/2026 10:55 AM",
+    "Workers Compensation",
+    "Pending Review"
+  ],
+  [
+    "Get Docs",
+    "TOWD POINT MORTGAGE TRUST 2019-3, U.S. B -VS- UNKNOWN ADMINISTRATOR, EXECUTOR OR FIDUC",
+    "04/09/2026 10:50 AM",
+    "Foreclosure",
+    "Pending Review"
+  ],
+  [
+    "Get Docs",
+    "VILLAGE OF MORELAND HILLS -VS- DAVID HORVAT",
+    "04/09/2026 10:45 AM",
+    "Judgment Lien",
+    "Pending Review"
+  ],
+  [
+    "Get Docs",
+    "CITY OF REMINDERVILLE -VS- JUSTIN TANNER",
+    "04/09/2026 10:41 AM",
+    "Judgment Lien",
+    "Pending Review"
+  ],
+  [
+    "Get Docs",
+    "Brandon K Davis -VS- EVAN CROY",
+    "04/09/2026 10:39 AM",
+    "Unfair Consumer Sales Act",
+    "Pending Review"
+  ],
+  [
+    "Get Docs",
+    "KEYS TO LANDSCAPING, LLC -VS- MOSCARINO LANDSCAPE+DESIGN",
+    "04/09/2026 10:37 AM",
+    "Breach of Contract",
+    "Pending Review"
+  ],
+  [
+    "Get Docs",
+    "PROGRESSIVE PREFERRED INSURANCE COMPANY -VS- QUINN SIMMER",
+    "04/09/2026 10:03 AM",
+    "Personal Injury",
+    "Pending Review"
+  ],
+  [
+    "Get Docs",
+    "MIDLAND FUNDING LLC -VS- DONALD BEAL",
+    "04/09/2026 03:18 AM",
+    "Judgment Lien",
+    "Pending Review"
   ],
   [
     "Get Docs",
     "CAPITAL ONE, N.A. -VS- MARILYN TALKINGTON",
     "04/09/2026 01:05 AM",
     "Judgment Lien",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
-    "Brandon K Davis -VS- DEFINITIVE MOTORWERK",
-    "04/08/2026 09:52 PM",
-    "Unfair Consumer Sales Act",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
-    "DOUG P. KUZYK -VS- DAVID A. LESHON",
-    "04/08/2026 06:33 PM",
-    "Negligence",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
-    "VELOCITY INVESTMENTS, LLC -VS- JOHN CONAWAY",
-    "04/08/2026 05:57 PM",
-    "Other Civil",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
-    "VELOCITY INVESTMENTS, LLC ASSIGNEE OF LE -VS- PAUL FULLER",
-    "04/08/2026 05:52 PM",
-    "Other Civil",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
-    "VELOCITY INVESTMENTS, LLC ASSIGNEE OF LE -VS- BRYAN SCHUMANN",
-    "04/08/2026 05:46 PM",
-    "Other Civil",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
-    "U.S. BANK, NATIONAL ASSOCIATION -VS- UNKNOWN HEIRS OF BARBARA A SCHIRF",
-    "04/08/2026 05:19 PM",
-    "Foreclosure",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
-    "GINA CHILDRESS -VS- GRANGE PROPERTY & CASUALTY INSURANCE CO.",
-    "04/08/2026 05:12 PM",
-    "Personal Injury",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
-    "PACIFIC ASSET HOLDING, LLC -VS- VICTORY OH SOLUTIONS, LLC",
-    "04/08/2026 05:02 PM",
-    "Foreclosure",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
-    "CAPITAL ONE, N.A. -VS- JAMES F DORSEY",
-    "04/08/2026 04:55 PM",
-    "Breach of Contract",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
-    "ROBERT BARNETT, AS TRUSTEE OF THE RH 401 -VS- SCULPT FITNESS LLC",
-    "04/08/2026 04:26 PM",
-    "Cognovit Action",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
-    "R & R TRUCK SALES, INC. -VS- C N T TRUCKING \"LLC\"",
-    "04/08/2026 04:20 PM",
-    "Breach of Contract",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
-    "U.S. BANK NATIONAL ASSOCIATION -VS- SIERRA S. NILES AKA SIERRA NILES",
-    "04/08/2026 04:09 PM",
-    "Foreclosure",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
-    "THE HUNTINGTON NATIONAL BANK -VS- ANDREW DELONG",
-    "04/08/2026 03:42 PM",
-    "Foreclosure",
     "Pending Review"
   ],
   [
@@ -120,37 +85,9 @@
   ],
   [
     "Get Docs",
-    "THE HUNTINGTON NATIONAL BANK -VS- PATRICE RICE",
-    "04/08/2026 03:10 PM",
-    "Foreclosure",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
-    "THE HUNTINGTON NATIONAL BANK -VS- JON B WOODS",
-    "04/08/2026 02:45 PM",
-    "Foreclosure",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
     "ITRIA VENTURES LLC, -VS- TRIDENT TRANSPORTATION LLC",
     "04/08/2026 02:33 PM",
     "Judgment Lien",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
-    "MELISA GIBB -VS- STEPHANIE MCCLOUD",
-    "04/08/2026 02:29 PM",
-    "Workers Compensation",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
-    "THE HUNTINGTON NATIONAL BANK -VS- PHILLIP JOSEPH HODGE",
-    "04/08/2026 02:27 PM",
-    "Foreclosure",
     "Pending Review"
   ],
   [
@@ -162,16 +99,79 @@
   ],
   [
     "Get Docs",
-    "SEVEN SEVENTEEN CREDIT UNION INC -VS- MARJORIE E BELL",
-    "04/08/2026 01:18 PM",
-    "Judgment Lien",
-    "Pending Review"
+    "TRAVIS TOLBERT -VS- KRAFT HEINZ",
+    "04/09/2026 09:07 AM",
+    "Other Civil",
+    "Filing Complete"
   ],
   [
     "Get Docs",
-    "ROOFSMITH RESTORATION, INC. -VS- ROBERT FERNANDEZ",
-    "04/08/2026 10:43 AM",
-    "Judgment Lien",
-    "Pending Review"
+    "STEPHEN GIOVANNELLI -VS- NEO PROPERTY MANAGEMENT GROUP, LLC",
+    "04/09/2026 09:03 AM",
+    "Breach of Contract",
+    "Filing Complete"
+  ],
+  [
+    "Get Docs",
+    "JACLYN M. SEITZ -VS- RONALD R. HARTLINE",
+    "04/09/2026 08:46 AM",
+    "Refiled Case",
+    "Filing Complete"
+  ],
+  [
+    "Get Docs",
+    "DOUG P. KUZYK -VS- DAVID A. LESHON",
+    "04/08/2026 06:33 PM",
+    "Negligence",
+    "Filing Complete"
+  ],
+  [
+    "Get Docs",
+    "VELOCITY INVESTMENTS, LLC -VS- JOHN CONAWAY",
+    "04/08/2026 05:57 PM",
+    "Other Civil",
+    "Filing Complete"
+  ],
+  [
+    "Get Docs",
+    "VELOCITY INVESTMENTS, LLC ASSIGNEE OF LE -VS- PAUL FULLER",
+    "04/08/2026 05:52 PM",
+    "Other Civil",
+    "Filing Complete"
+  ],
+  [
+    "Get Docs",
+    "VELOCITY INVESTMENTS, LLC ASSIGNEE OF LE -VS- BRYAN SCHUMANN",
+    "04/08/2026 05:46 PM",
+    "Other Civil",
+    "Filing Complete"
+  ],
+  [
+    "Get Docs",
+    "U.S. BANK, NATIONAL ASSOCIATION -VS- UNKNOWN HEIRS OF BARBARA A SCHIRF",
+    "04/08/2026 05:19 PM",
+    "Foreclosure",
+    "Filing Complete"
+  ],
+  [
+    "Get Docs",
+    "GINA CHILDRESS -VS- GRANGE PROPERTY & CASUALTY INSURANCE CO.",
+    "04/08/2026 05:12 PM",
+    "Personal Injury",
+    "Filing Complete"
+  ],
+  [
+    "Get Docs",
+    "PACIFIC ASSET HOLDING, LLC -VS- VICTORY OH SOLUTIONS, LLC",
+    "04/08/2026 05:02 PM",
+    "Foreclosure",
+    "Filing Complete"
+  ],
+  [
+    "Get Docs",
+    "CAPITAL ONE, N.A. -VS- JAMES F DORSEY",
+    "04/08/2026 04:55 PM",
+    "Breach of Contract",
+    "Filing Complete"
   ]
 ]
