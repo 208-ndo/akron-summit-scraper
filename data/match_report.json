@@ -1,13 +1,73 @@
 {
-  "matched": 8,
-  "unmatched": 44,
-  "with_address": 8,
+  "matched": 11,
+  "unmatched": 56,
+  "with_address": 11,
   "match_methods": {
-    "exact_name_variant": 6,
-    "last_name_unique_fallback": 1,
+    "exact_name_variant": 8,
+    "last_name_unique_fallback": 2,
     "token_overlap_fallback": 1
   },
   "sample_unmatched": [
+    {
+      "doc_num": "SIPE 04",
+      "owner": "Martha Sipe",
+      "legal": "LVNV FUNDING LLC -VS- MARTHA SIPE"
+    },
+    {
+      "doc_num": "DOZIER 04",
+      "owner": "Michael E Dozier",
+      "legal": "CAPITAL ONE NA -VS- MICHAEL E DOZIER"
+    },
+    {
+      "doc_num": "DARDENNE 04",
+      "owner": "Melissa L Dardenne",
+      "legal": "CAPITAL ONE NA -VS- MELISSA L DARDENNE"
+    },
+    {
+      "doc_num": "CSASZAR 04",
+      "owner": "Megann N Csaszar",
+      "legal": "CAPITAL ONE NA -VS- MEGANN N CSASZAR"
+    },
+    {
+      "doc_num": "COLLINS 04",
+      "owner": "Beth Collins",
+      "legal": "CAPITAL ONE NA -VS- BETH COLLINS"
+    },
+    {
+      "doc_num": "COLE 04",
+      "owner": "Lois G Cole",
+      "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- LOIS G COLE"
+    },
+    {
+      "doc_num": "BROWN 04",
+      "owner": "Anjanise Brown",
+      "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- ANJANISE BROWN"
+    },
+    {
+      "doc_num": "BOSTIC 04",
+      "owner": "Dana M Bostic",
+      "legal": "CAPITAL ONE NA -VS- DANA M BOSTIC"
+    },
+    {
+      "doc_num": "BECTON 04",
+      "owner": "Alainah B Becton",
+      "legal": "CAPITAL ONE NA -VS- ALAINAH B BECTON"
+    },
+    {
+      "doc_num": "BARTON 04",
+      "owner": "William R Barton",
+      "legal": "CAPITAL ONE NA -VS- WILLIAM R BARTON"
+    },
+    {
+      "doc_num": "ESOLA 04",
+      "owner": "Tammi Burnett-Esola",
+      "legal": "PORTFOLIO RECOVERY ASSOCIATES, LLC -VS- TAMMI BURNETT-ESOLA"
+    },
+    {
+      "doc_num": "GRANT 04",
+      "owner": "Brenda Coleman Grant",
+      "legal": "CAPITAL ONE NA -VS- BRENDA COLEMAN GRANT"
+    },
     {
       "doc_num": "ASAMOAH 04",
       "owner": "Ishmael O Asamoah",
@@ -72,67 +132,7 @@
       "doc_num": "FORD 04",
       "owner": "Caleb Ford",
       "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- CALEB FORD"
-    },
-    {
-      "doc_num": "GRIFFIN 04",
-      "owner": "Star Griffin",
-      "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- STAR GRIFFIN"
-    },
-    {
-      "doc_num": "GRIFFITH 04",
-      "owner": "Jacquelynn M Griffith",
-      "legal": "CAPITAL ONE NA -VS- JACQUELYNN M GRIFFITH"
-    },
-    {
-      "doc_num": "HACHA 04",
-      "owner": "Joseph P Hacha",
-      "legal": "CAPITAL ONE NA -VS- JOSEPH P HACHA"
-    },
-    {
-      "doc_num": "HUGHES 04",
-      "owner": "Lundon R Hughes",
-      "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- LUNDON R HUGHES"
-    },
-    {
-      "doc_num": "PULLIN 04",
-      "owner": "Tracey Pullin",
-      "legal": "CAPITAL ONE NA -VS- TRACEY PULLIN"
-    },
-    {
-      "doc_num": "PRIM 04",
-      "owner": "Jerome D Prim",
-      "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- JEROME D PRIM"
-    },
-    {
-      "doc_num": "PFAHLER 04",
-      "owner": "Ashley L Pfahler",
-      "legal": "CAPITAL ONE NA -VS- ASHLEY L PFAHLER"
-    },
-    {
-      "doc_num": "PEARSON 04",
-      "owner": "Francisco M Pearson",
-      "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- FRANCISCO M PEARSON"
-    },
-    {
-      "doc_num": "PARMER 04",
-      "owner": "Carol A Parmer",
-      "legal": "CAPITAL ONE NA -VS- CAROL A PARMER"
-    },
-    {
-      "doc_num": "NEFFENGER 04",
-      "owner": "Gary P Neffenger",
-      "legal": "CAPITAL ONE NA -VS- GARY P NEFFENGER"
-    },
-    {
-      "doc_num": "MOUNTS 04",
-      "owner": "Bailey H Mounts",
-      "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- BAILEY H MOUNTS"
-    },
-    {
-      "doc_num": "MOHLER 04",
-      "owner": "Brandon L Mohler",
-      "legal": "CAPITAL ONE NA -VS- BRANDON L MOHLER"
     }
   ],
-  "generated_at": "2026-04-09T21:30:03.945203+00:00"
+  "generated_at": "2026-04-09T23:17:48.240330+00:00"
 }
