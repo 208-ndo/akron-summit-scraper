@@ -275,26 +275,99 @@ def name_variants(name: str) -> List[str]:
     if not raw:
         return []
 
-    raw_nocomma = raw.replace(",", " ")
-    parts = [p for p in raw_nocomma.split() if p]
-    variants = {raw}
+    def clean_token(tok: str) -> str:
+        tok = normalize_person_name(tok or "")
+        return tok.strip()
 
-    if len(parts) >= 2:
+    suffixes = {"JR", "SR", "II", "III", "IV", "V", "ETAL", "ET", "AL"}
+    joiner_noise = {"AND", "&", "OR"}
+
+    working = raw.replace(";", " ").replace("/", " ")
+    working = re.sub(r"\bAND\b|\bOR\b|&", " ", working)
+    working = re.sub(r"\s+", " ", working).strip()
+
+    variants = set()
+    variants.add(raw)
+    variants.add(working)
+    variants.add(working.replace(",", ""))
+
+    comma_parts = [clean_token(x) for x in raw.split(",") if clean_token(x)]
+
+    def add_person_variants(parts: List[str]) -> None:
+        if not parts:
+            return
+
+        parts = [p for p in parts if p and p not in joiner_noise]
+        if not parts:
+            return
+
+        while parts and parts[-1] in suffixes:
+            parts = parts[:-1]
+
+        if not parts:
+            return
+
+        full = " ".join(parts).strip()
+        if full:
+            variants.add(full)
+
+        if len(parts) == 1:
+            variants.add(parts[0])
+            return
+
         first = parts[0]
         last = parts[-1]
-        variants.add(f"{first} {last}")
-        variants.add(f"{last} {first}")
-        variants.add(f"{last}, {first}")
+        middle_parts = parts[1:-1]
+        middle = " ".join(middle_parts).strip()
 
-        if len(parts) >= 3:
-            middle = " ".join(parts[1:-1])
+        variants.add(f"{first} {last}".strip())
+        variants.add(f"{last} {first}".strip())
+        variants.add(f"{last}, {first}".strip())
+
+        if middle:
             variants.add(f"{first} {middle} {last}".strip())
             variants.add(f"{last}, {first} {middle}".strip())
+            variants.add(f"{last} {first} {middle}".strip())
 
-        variants.add(f"{parts[0]} {parts[-1]}")
-        variants.add(f"{parts[-1]} {parts[0]}")
+            middle_initials = " ".join(m[0] for m in middle_parts if m).strip()
+            if middle_initials:
+                variants.add(f"{first} {middle_initials} {last}".strip())
+                variants.add(f"{last}, {first} {middle_initials}".strip())
+                variants.add(f"{last} {first} {middle_initials}".strip())
 
-    return [v.strip() for v in variants if v.strip()]
+        variants.add(first)
+        variants.add(last)
+
+    if len(comma_parts) >= 2:
+        last = comma_parts[0]
+        remainder_tokens = []
+        for piece in comma_parts[1:]:
+            remainder_tokens.extend([t for t in piece.split() if t])
+        add_person_variants(remainder_tokens + [last])
+
+        first_piece = comma_parts[1]
+        first_tokens = [t for t in first_piece.split() if t]
+        if first_tokens:
+            first = first_tokens[0]
+            variants.add(f"{first} {last}".strip())
+            variants.add(f"{last} {first}".strip())
+            variants.add(f"{last}, {first}".strip())
+    else:
+        space_parts = [p for p in working.replace(",", " ").split() if p]
+        add_person_variants(space_parts)
+
+    final_variants = []
+    seen = set()
+    for v in variants:
+        v = normalize_person_name(v)
+        if not v:
+            continue
+        v = re.sub(r"\s+", " ", v).strip(" ,")
+        if v and v not in seen:
+            seen.add(v)
+            final_variants.append(v)
+
+    return final_variants
 
 
 def parse_amount(value: str) -> Optional[float]:
@@ -639,8 +712,51 @@ def build_parcel_indexes() -> Tuple[Dict[str, dict], Dict[str, List[dict]], Dict
 
     save_debug_json("parcel_by_id_sample.json", list(parcel_by_id.values())[:50])
     save_debug_json("owner_index_sample.json", list(owner_index.items())[:500])
-    save_debug_json("owner_values_sample.json", list(owner_index.keys())[:1000])
-    save_debug_json("last_name_index_sample.json", {k: v[:3] for k, v in list(last_name_index.items())[:100]})
+    save_debug_json("owner_values_sample.json", list(owner_index.keys())[:5000])
+    save_debug_json("last_name_index_sample.json", {k: v[:3] for k, v in list(last_name_index.items())[:300]})
+
+    target_last_names = [
+        "SIPE",
+        "DOZIER",
+        "DARDENNE",
+        "CSASZAR",
+        "COLLINS",
+        "COLE",
+        "BROWN",
+        "BOSTIC",
+        "BECTON",
+        "BARTON",
+        "ESOLA",
+        "GRANT",
+        "ASAMOAH",
+        "ARMSTEAD",
+        "ALI",
+        "KELLEY",
+        "HEYBURN",
+        "GRIFFITH",
+        "GREEN",
+        "FUSCO",
+        "FONTE",
+        "FENDER",
+        "ELEKES",
+        "FARREY",
+        "FORD",
+    ]
+
+    target_last_name_hits = {}
+    for lname in target_last_names:
+        hits = last_name_index.get(lname, [])
+        target_last_name_hits[lname] = [
+            {
+                "owner": clean_text(h.get("owner")),
+                "prop_address": clean_text(h.get("prop_address")),
+                "mail_address": clean_text(h.get("mail_address")),
+                "parcel_id": clean_text(h.get("parcel_id")),
+            }
+            for h in hits[:25]
+        ]
+
+    save_debug_json("target_last_name_hits.json", target_last_name_hits)
 
     logging.info(
         "Built parcel index with %s owner-name keys from %s parcel rows / %s owner rows / %s mail rows / %s legal rows",
