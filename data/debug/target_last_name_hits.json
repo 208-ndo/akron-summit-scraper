@@ -1,0 +1,685 @@
+{
+  "SIPE": [],
+  "DOZIER": [],
+  "DARDENNE": [],
+  "CSASZAR": [],
+  "COLLINS": [
+    {
+      "owner": "MAAG HOLLY A COLLINS",
+      "prop_address": "1568 WILSONWAY DR",
+      "mail_address": "",
+      "parcel_id": "0110085"
+    },
+    {
+      "owner": "CHLEBINA JENNIFER M COLLINS",
+      "prop_address": "3378 WILKINSON DR",
+      "mail_address": "",
+      "parcel_id": "0901780"
+    },
+    {
+      "owner": "GUNN JACQUELYN COLLINS",
+      "prop_address": "718 APACHE RUN",
+      "mail_address": "",
+      "parcel_id": "3302126"
+    },
+    {
+      "owner": "WALKER COLLINS",
+      "prop_address": "242 AVONDALE DR",
+      "mail_address": "",
+      "parcel_id": "6749700"
+    },
+    {
+      "owner": "POWE BILLY COLLINS",
+      "prop_address": "1044 GREENWOOD AVE",
+      "mail_address": "",
+      "parcel_id": "6838710"
+    }
+  ],
+  "COLE": [
+    {
+      "owner": "OSBORNE COLE",
+      "prop_address": "24 18TH ST",
+      "mail_address": "",
+      "parcel_id": "0100669"
+    },
+    {
+      "owner": "SOMMERS COLE",
+      "prop_address": "2420 25TH ST",
+      "mail_address": "",
+      "parcel_id": "0201033"
+    },
+    {
+      "owner": "MCDOUGAL COLE",
+      "prop_address": "419 PIERCE AVE",
+      "mail_address": "",
+      "parcel_id": "0207164"
+    },
+    {
+      "owner": "CUTLER MARK COLE TRUSTEE",
+      "prop_address": "2303 21ST ST",
+      "mail_address": "",
+      "parcel_id": "0208519"
+    },
+    {
+      "owner": "MOXIE TYLON COLE",
+      "prop_address": "2796 MULL AVE",
+      "mail_address": "",
+      "parcel_id": "1505063"
+    },
+    {
+      "owner": "BOWERS ROBERT COLE",
+      "prop_address": "4725 HAUGHTON CT",
+      "mail_address": "",
+      "parcel_id": "5618337"
+    },
+    {
+      "owner": "KUSZMAUL COLE",
+      "prop_address": "83 ELMWOOD DR",
+      "mail_address": "",
+      "parcel_id": "6004222"
+    },
+    {
+      "owner": "WOODS COLE",
+      "prop_address": "2200 NEWTON ST",
+      "mail_address": "",
+      "parcel_id": "6705059"
+    },
+    {
+      "owner": "DEVINNEY COLE",
+      "prop_address": "2906 TRENTON RD",
+      "mail_address": "",
+      "parcel_id": "6722297"
+    },
+    {
+      "owner": "COLLIER COLE",
+      "prop_address": "571 REYNOLDS AVE",
+      "mail_address": "",
+      "parcel_id": "6746711"
+    },
+    {
+      "owner": "BRINLEY ETHAN COLE",
+      "prop_address": "904 HUNT ST",
+      "mail_address": "",
+      "parcel_id": "6823713"
+    },
+    {
+      "owner": "GRIFFIN COLE",
+      "prop_address": "560 MALVERN RD",
+      "mail_address": "",
+      "parcel_id": "6847174"
+    },
+    {
+      "owner": "ROLLOFSON COLE",
+      "prop_address": "185 EASTHOLM AVE",
+      "mail_address": "",
+      "parcel_id": "6862277"
+    }
+  ],
+  "BROWN": [
+    {
+      "owner": "RAYMAN ROBERT BROWN TRUSTEE",
+      "prop_address": "2437 17TH ST",
+      "mail_address": "",
+      "parcel_id": "0208857"
+    },
+    {
+      "owner": "BROWN THOMAS F BROWN",
+      "prop_address": "570 CROSSINGS CIR",
+      "mail_address": "",
+      "parcel_id": "6009499"
+    },
+    {
+      "owner": "BEECHER OTIS BROWN",
+      "prop_address": "786 LEONARD ST",
+      "mail_address": "",
+      "parcel_id": "6706533"
+    },
+    {
+      "owner": "JOHNSON THEA BROWN",
+      "prop_address": "940 SNYDER ST",
+      "mail_address": "",
+      "parcel_id": "6815352"
+    },
+    {
+      "owner": "SMITH REBIE LAVERNE BROWN",
+      "prop_address": "888 & 890 HAMLIN ST",
+      "mail_address": "",
+      "parcel_id": "6820918"
+    },
+    {
+      "owner": "JOHNSON THEA BROWN",
+      "prop_address": "1654 IDLEWOOD AVE",
+      "mail_address": "",
+      "parcel_id": "6834037"
+    }
+  ],
+  "BOSTIC": [],
+  "BECTON": [],
+  "BARTON": [
+    {
+      "owner": "HAMILTON BARTON",
+      "prop_address": "400 MARK DR",
+      "mail_address": "",
+      "parcel_id": "6003358"
+    },
+    {
+      "owner": "SNYDER DARRYL BARTON",
+      "prop_address": "1136 TULIP ST",
+      "mail_address": "",
+      "parcel_id": "6833358"
+    }
+  ],
+  "ESOLA": [],
+  "GRANT": [
+    {
+      "owner": "BAGLEY GRANT",
+      "prop_address": "2064 STONE ST",
+      "mail_address": "",
+      "parcel_id": "0202377"
+    },
+    {
+      "owner": "WEINLAND GRANT",
+      "prop_address": "2029 LINDBERGH AVE",
+      "mail_address": "",
+      "parcel_id": "0207191"
+    },
+    {
+      "owner": "MARSH GRANT",
+      "prop_address": "218 LEHIGH AVE",
+      "mail_address": "",
+      "parcel_id": "0218030"
+    },
+    {
+      "owner": "MOSEMAN GRANT",
+      "prop_address": "836 ALBEMARLE AVE",
+      "mail_address": "",
+      "parcel_id": "0218979"
+    },
+    {
+      "owner": "BRAID GRANT",
+      "prop_address": "4132 BIG SPRUCE DR",
+      "mail_address": "",
+      "parcel_id": "0401210"
+    },
+    {
+      "owner": "WEBEL GRANT",
+      "prop_address": "2996 WOODCREST DR",
+      "mail_address": "",
+      "parcel_id": "0903496"
+    },
+    {
+      "owner": "TURNER GRANT",
+      "prop_address": "514 WESTON CT",
+      "mail_address": "",
+      "parcel_id": "1506805"
+    },
+    {
+      "owner": "PLEASANT GRANT",
+      "prop_address": "7578 BENDLETON DR",
+      "mail_address": "",
+      "parcel_id": "3007196"
+    },
+    {
+      "owner": "PELLIGRA GRANT",
+      "prop_address": "41 NANTUCKET DR",
+      "mail_address": "",
+      "parcel_id": "3200439"
+    },
+    {
+      "owner": "HUNSICKER GRANT",
+      "prop_address": "6573 WESTPOINT DR",
+      "mail_address": "",
+      "parcel_id": "3203630"
+    },
+    {
+      "owner": "KUHN CHRISTOPHER GRANT",
+      "prop_address": "381 BOSTON MILLS RD",
+      "mail_address": "",
+      "parcel_id": "3203730"
+    },
+    {
+      "owner": "MORRIS GRANT",
+      "prop_address": "8282 FAIRLANE DR",
+      "mail_address": "",
+      "parcel_id": "3300041"
+    },
+    {
+      "owner": "DAY GRANT",
+      "prop_address": "9084 PLEASANT VIEW DR",
+      "mail_address": "",
+      "parcel_id": "4000351"
+    },
+    {
+      "owner": "MURPHY R GRANT",
+      "prop_address": "7836 BRANDYWINE RD",
+      "mail_address": "",
+      "parcel_id": "4004399"
+    },
+    {
+      "owner": "WILK GRANT TRUSTEE",
+      "prop_address": "11236 FREDERICK LN",
+      "mail_address": "",
+      "parcel_id": "6407053"
+    },
+    {
+      "owner": "BACKUS GRANT",
+      "prop_address": "441 AUBURNDALE AVE",
+      "mail_address": "",
+      "parcel_id": "6726225"
+    },
+    {
+      "owner": "TURNER GRANT",
+      "prop_address": "1674 TONAWANDA AVE",
+      "mail_address": "",
+      "parcel_id": "6735853"
+    },
+    {
+      "owner": "PROVOST DONALD GRANT",
+      "prop_address": "100 N HAWKINS AVE",
+      "mail_address": "",
+      "parcel_id": "6826795"
+    }
+  ],
+  "ASAMOAH": [],
+  "ARMSTEAD": [],
+  "ALI": [
+    {
+      "owner": "ALHERIMI YASER ALI",
+      "prop_address": "656 WOOSTER RD",
+      "mail_address": "",
+      "parcel_id": "0109439"
+    },
+    {
+      "owner": "ELMULAIKI SALAHUDDIN ALI",
+      "prop_address": "3139 PRIOR DR",
+      "mail_address": "",
+      "parcel_id": "0207126"
+    },
+    {
+      "owner": "KANAWATI ALI",
+      "prop_address": "6070 IANWOOD CIR",
+      "mail_address": "",
+      "parcel_id": "1200552"
+    },
+    {
+      "owner": "SAIFANASSOUR ALI",
+      "prop_address": "3910 BOSWORTH DR",
+      "mail_address": "",
+      "parcel_id": "1507743"
+    },
+    {
+      "owner": "MIRHAIDARI ALI",
+      "prop_address": "1652 MELANIE DR",
+      "mail_address": "",
+      "parcel_id": "2807715"
+    },
+    {
+      "owner": "SALEHI EWAZ ALI",
+      "prop_address": "560 AMBERLEY DR",
+      "mail_address": "",
+      "parcel_id": "2815367"
+    },
+    {
+      "owner": "SHAKIR ALI",
+      "prop_address": "189 BRANDYWINE DR",
+      "mail_address": "",
+      "parcel_id": "3203164"
+    },
+    {
+      "owner": "NAJM RIHAM ALI",
+      "prop_address": "21 SALT CREEK RUN",
+      "mail_address": "",
+      "parcel_id": "3700646"
+    },
+    {
+      "owner": "NAJM RIHAM ALI",
+      "prop_address": "4595 PRESERVE CIR",
+      "mail_address": "",
+      "parcel_id": "3700663"
+    },
+    {
+      "owner": "NAJM RIHAM ALI",
+      "prop_address": "21 SALT CREEK RUN",
+      "mail_address": "",
+      "parcel_id": "3700730"
+    },
+    {
+      "owner": "NAJM RIHAM ALI",
+      "prop_address": "4595 PRESERVE CIR",
+      "mail_address": "",
+      "parcel_id": "3700776"
+    },
+    {
+      "owner": "ASSAR ALI",
+      "prop_address": "8082 AUGUSTA LN",
+      "mail_address": "",
+      "parcel_id": "4504293"
+    },
+    {
+      "owner": "ALHERIMI YASER ALI",
+      "prop_address": "3018 UNION ST",
+      "mail_address": "",
+      "parcel_id": "4604452"
+    },
+    {
+      "owner": "MILUSH ALI",
+      "prop_address": "134 DONOVAN AVE",
+      "mail_address": "",
+      "parcel_id": "5500886"
+    },
+    {
+      "owner": "MUHAMMAD FAIROZA ALI",
+      "prop_address": "1940 KING DR",
+      "mail_address": "",
+      "parcel_id": "5606116"
+    },
+    {
+      "owner": "HAJJAFAR ALI",
+      "prop_address": "70 BARTON DR",
+      "mail_address": "",
+      "parcel_id": "5800917"
+    },
+    {
+      "owner": "RIZVI ALI",
+      "prop_address": "2101 ETON ST",
+      "mail_address": "",
+      "parcel_id": "6200061"
+    },
+    {
+      "owner": "RIZVI ALI",
+      "prop_address": "2101 ETON ST",
+      "mail_address": "",
+      "parcel_id": "6204803"
+    },
+    {
+      "owner": "ALQADHI ALI",
+      "prop_address": "7764 OAK MEADOW DR",
+      "mail_address": "",
+      "parcel_id": "6205140"
+    },
+    {
+      "owner": "MIRHAIDARI ALI",
+      "prop_address": "457 BAIRD ST",
+      "mail_address": "",
+      "parcel_id": "6700220"
+    },
+    {
+      "owner": "MIRHAIDARI ALI",
+      "prop_address": "677 UPSON ST",
+      "mail_address": "",
+      "parcel_id": "6703479"
+    },
+    {
+      "owner": "ELMULAIKI SALAHUDDIN ALI",
+      "prop_address": "677 SCHILLER AVE",
+      "mail_address": "",
+      "parcel_id": "6707790"
+    },
+    {
+      "owner": "MIRHAIDARI ALI",
+      "prop_address": "15 W DALTON ST",
+      "mail_address": "",
+      "parcel_id": "6713178"
+    },
+    {
+      "owner": "MIRHAIDARI ALI",
+      "prop_address": "192 S ARLINGTON ST",
+      "mail_address": "",
+      "parcel_id": "6722081"
+    },
+    {
+      "owner": "MIRHAIDAIR ALI",
+      "prop_address": "1103 LAIRD ST",
+      "mail_address": "",
+      "parcel_id": "6724372"
+    }
+  ],
+  "KELLEY": [
+    {
+      "owner": "BLAIR SHANNON KELLEY",
+      "prop_address": "1711 GRANT AVE",
+      "mail_address": "",
+      "parcel_id": "0201460"
+    },
+    {
+      "owner": "GRIESMER KELLEY TRUSTEE",
+      "prop_address": "GRANGER RD",
+      "mail_address": "",
+      "parcel_id": "0401113"
+    },
+    {
+      "owner": "GRIESMER KELLEY TRUSTEE",
+      "prop_address": "3552 GRANGER RD",
+      "mail_address": "",
+      "parcel_id": "0401114"
+    },
+    {
+      "owner": "GRIESMER KELLEY TRUSTEE",
+      "prop_address": "GRANGER RD",
+      "mail_address": "",
+      "parcel_id": "0401115"
+    },
+    {
+      "owner": "GRIESMER KELLEY TRUSTEE",
+      "prop_address": "GRANGER GHENT RD",
+      "mail_address": "",
+      "parcel_id": "0401116"
+    },
+    {
+      "owner": "LLOYD KELLEY",
+      "prop_address": "3584 ELMHURST CIR",
+      "mail_address": "",
+      "parcel_id": "2815168"
+    },
+    {
+      "owner": "HOLLANDER KELLEY",
+      "prop_address": "771 NORTHBRIDGE CT",
+      "mail_address": "",
+      "parcel_id": "3311354"
+    },
+    {
+      "owner": "LAVELY H KELLEY",
+      "prop_address": "1855 HAMDEN LN",
+      "mail_address": "",
+      "parcel_id": "5617549"
+    },
+    {
+      "owner": "JOHNSON LYNDA M KELLEY",
+      "prop_address": "868 WINNEFELD WAY",
+      "mail_address": "",
+      "parcel_id": "6747414"
+    },
+    {
+      "owner": "ROSS KELLEY",
+      "prop_address": "1182 MOUNT VERNON AVE",
+      "mail_address": "",
+      "parcel_id": "6839215"
+    }
+  ],
+  "HEYBURN": [],
+  "GRIFFITH": [
+    {
+      "owner": "ALLEN GRIFFITH",
+      "prop_address": "2964 STEFFAN WOODS DR",
+      "mail_address": "",
+      "parcel_id": "6206015"
+    },
+    {
+      "owner": "MORRIS JANICE GRIFFITH",
+      "prop_address": "668 CORLEY ST",
+      "mail_address": "",
+      "parcel_id": "6738797"
+    }
+  ],
+  "GREEN": [
+    {
+      "owner": "CITY OF GREEN",
+      "prop_address": "WONDER LAKE DR",
+      "mail_address": "",
+      "parcel_id": "2800014"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "prop_address": "WONDER LAKE DR",
+      "mail_address": "",
+      "parcel_id": "2800015"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "prop_address": "2520 WISE RD",
+      "mail_address": "",
+      "parcel_id": "2800178"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "prop_address": "MASSILLON RD",
+      "mail_address": "",
+      "parcel_id": "2800251"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "prop_address": "4820 THURSBY RD",
+      "mail_address": "",
+      "parcel_id": "2800609"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "prop_address": "5290 MASSILLON RD",
+      "mail_address": "",
+      "parcel_id": "2800636"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "prop_address": "4777 MASSILLON RD",
+      "mail_address": "",
+      "parcel_id": "2800764"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "prop_address": "4875 S ARLINGTON RD",
+      "mail_address": "",
+      "parcel_id": "2801357"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "prop_address": "EVERHART DR",
+      "mail_address": "",
+      "parcel_id": "2801462"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "prop_address": "EVERHART DR",
+      "mail_address": "",
+      "parcel_id": "2801463"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "prop_address": "2639 WISE RD",
+      "mail_address": "",
+      "parcel_id": "2802143"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "prop_address": "1595 STEIN RD",
+      "mail_address": "",
+      "parcel_id": "2802504"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "prop_address": "1595 STEIN RD",
+      "mail_address": "",
+      "parcel_id": "2802505"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "prop_address": "3800 S ARLINGTON RD",
+      "mail_address": "",
+      "parcel_id": "2802587"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "prop_address": "1364 E TURKEYFOOT LK RD",
+      "mail_address": "",
+      "parcel_id": "2802613"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "prop_address": "4735 -4745 MASSILLON RD",
+      "mail_address": "",
+      "parcel_id": "2802662"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "prop_address": "1795 STEESE RD",
+      "mail_address": "",
+      "parcel_id": "2802856"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "prop_address": "3189 KREIGHBAUM RD",
+      "mail_address": "",
+      "parcel_id": "2804005"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "prop_address": "4745 MASSILLON RD",
+      "mail_address": "",
+      "parcel_id": "2804705"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "prop_address": "4735 MASSILLON RD",
+      "mail_address": "",
+      "parcel_id": "2804707"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "prop_address": "3220 MASSILLON RD",
+      "mail_address": "",
+      "parcel_id": "2804944"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "prop_address": "4310 & 4312 MASSILLON RD",
+      "mail_address": "",
+      "parcel_id": "2806304"
+    },
+    {
+      "owner": "CHAPEL IN GREEN",
+      "prop_address": "MASSILLON RD",
+      "mail_address": "",
+      "parcel_id": "2806681"
+    },
+    {
+      "owner": "CHAPEL IN GREEN",
+      "prop_address": "MASSILLON RD",
+      "mail_address": "",
+      "parcel_id": "2806683"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "prop_address": "COTTAGE GROVE RD",
+      "mail_address": "",
+      "parcel_id": "2807332"
+    }
+  ],
+  "FUSCO": [],
+  "FONTE": [],
+  "FENDER": [],
+  "ELEKES": [],
+  "FARREY": [],
+  "FORD": [
+    {
+      "owner": "SKILES JEFFREY FORD",
+      "prop_address": "2018 PARTRIDGE MEADOWS CT",
+      "mail_address": "",
+      "parcel_id": "3004350"
+    },
+    {
+      "owner": "OLINDO FORD",
+      "prop_address": "1915 BURLINGTON RD",
+      "mail_address": "",
+      "parcel_id": "6841230"
+    }
+  ]
+}
