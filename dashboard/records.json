@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-04-09T19:26:24.497807+00:00",
+  "fetched_at": "2026-04-09T19:37:11.528135+00:00",
   "source": "Akron / Summit County, Ohio",
   "date_range": {
     "from": "2026-01-09",
     "to": "2026-04-09"
   },
   "total": 22,
-  "with_address": 0,
+  "with_address": 5,
   "records": [
     {
       "doc_num": "TANNER 04",
@@ -18,20 +18,45 @@
       "grantee": "City Of Reminderville",
       "amount": null,
       "legal": "CITY OF REMINDERVILLE -VS- JUSTIN TANNER",
-      "prop_address": "",
-      "prop_city": "",
+      "prop_address": "3258 SHALE DR",
+      "prop_city": "TWINSBURG",
       "prop_state": "OH",
-      "prop_zip": "",
+      "prop_zip": "44087",
       "mail_address": "",
       "mail_city": "",
-      "mail_state": "3",
+      "mail_state": "",
       "mail_zip": "",
       "clerk_url": "https://newcivilfilings.summitoh.net/",
       "flags": [
         "Judgment lien",
         "New this week"
       ],
-      "score": 55
+      "score": 60
+    },
+    {
+      "doc_num": "NANASSY 04",
+      "doc_type": "NOFC",
+      "filed": "2026-04-09",
+      "cat": "NOFC",
+      "cat_label": "Pre-foreclosure",
+      "owner": "Debra Nanassy",
+      "grantee": "Lakeview Loan Servicing Llc",
+      "amount": null,
+      "legal": "LAKEVIEW LOAN SERVICING LLC -VS- DEBRA NANASSY",
+      "prop_address": "38 BERWYCK DR",
+      "prop_city": "AKRON",
+      "prop_state": "OH",
+      "prop_zip": "44312",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Pre-foreclosure",
+        "New this week"
+      ],
+      "score": 60
     },
     {
       "doc_num": "TALKINGTON 04",
@@ -75,31 +100,6 @@
       "mail_address": "",
       "mail_city": "",
       "mail_state": "",
-      "mail_zip": "",
-      "clerk_url": "https://newcivilfilings.summitoh.net/",
-      "flags": [
-        "Pre-foreclosure",
-        "New this week"
-      ],
-      "score": 55
-    },
-    {
-      "doc_num": "NANASSY 04",
-      "doc_type": "NOFC",
-      "filed": "2026-04-09",
-      "cat": "NOFC",
-      "cat_label": "Pre-foreclosure",
-      "owner": "Debra Nanassy",
-      "grantee": "Lakeview Loan Servicing Llc",
-      "amount": null,
-      "legal": "LAKEVIEW LOAN SERVICING LLC -VS- DEBRA NANASSY",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_state": "OH",
-      "prop_zip": "",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "3",
       "mail_zip": "",
       "clerk_url": "https://newcivilfilings.summitoh.net/",
       "flags": [
@@ -243,13 +243,13 @@
       "grantee": "Pacific Asset Holding, Llc",
       "amount": null,
       "legal": "PACIFIC ASSET HOLDING, LLC -VS- VICTORY OH SOLUTIONS, LLC",
-      "prop_address": "",
-      "prop_city": "",
+      "prop_address": "1734 MANCHESTER RD",
+      "prop_city": "AKRON",
       "prop_state": "OH",
-      "prop_zip": "",
+      "prop_zip": "44314",
       "mail_address": "",
       "mail_city": "",
-      "mail_state": "3",
+      "mail_state": "",
       "mail_zip": "",
       "clerk_url": "https://newcivilfilings.summitoh.net/",
       "flags": [
@@ -257,7 +257,7 @@
         "LLC / corp owner",
         "New this week"
       ],
-      "score": 65
+      "score": 70
     },
     {
       "doc_num": "LLC 04",
@@ -284,6 +284,56 @@
         "New this week"
       ],
       "score": 65
+    },
+    {
+      "doc_num": "DELONG 04",
+      "doc_type": "NOFC",
+      "filed": "2026-04-08",
+      "cat": "NOFC",
+      "cat_label": "Pre-foreclosure",
+      "owner": "Andrew Delong",
+      "grantee": "The Huntington National Bank",
+      "amount": null,
+      "legal": "THE HUNTINGTON NATIONAL BANK -VS- ANDREW DELONG",
+      "prop_address": "1597 REDWOOD AVE",
+      "prop_city": "AKRON",
+      "prop_state": "OH",
+      "prop_zip": "",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Pre-foreclosure",
+        "New this week"
+      ],
+      "score": 60
+    },
+    {
+      "doc_num": "BISHOP 04",
+      "doc_type": "JUD",
+      "filed": "2026-04-08",
+      "cat": "JUD",
+      "cat_label": "Judgment",
+      "owner": "Timothy M Bishop",
+      "grantee": "Seven Seventeen Credit Union Inc",
+      "amount": null,
+      "legal": "SEVEN SEVENTEEN CREDIT UNION INC -VS- TIMOTHY M BISHOP",
+      "prop_address": "2727 MC ELWAIN RD",
+      "prop_city": "AKRON",
+      "prop_state": "OH",
+      "prop_zip": "44312",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Judgment lien",
+        "New this week"
+      ],
+      "score": 60
     },
     {
       "doc_num": "WOODS 04",
@@ -452,56 +502,6 @@
       "mail_address": "",
       "mail_city": "",
       "mail_state": "",
-      "mail_zip": "",
-      "clerk_url": "https://newcivilfilings.summitoh.net/",
-      "flags": [
-        "Judgment lien",
-        "New this week"
-      ],
-      "score": 55
-    },
-    {
-      "doc_num": "DELONG 04",
-      "doc_type": "NOFC",
-      "filed": "2026-04-08",
-      "cat": "NOFC",
-      "cat_label": "Pre-foreclosure",
-      "owner": "Andrew Delong",
-      "grantee": "The Huntington National Bank",
-      "amount": null,
-      "legal": "THE HUNTINGTON NATIONAL BANK -VS- ANDREW DELONG",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_state": "OH",
-      "prop_zip": "",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "3",
-      "mail_zip": "",
-      "clerk_url": "https://newcivilfilings.summitoh.net/",
-      "flags": [
-        "Pre-foreclosure",
-        "New this week"
-      ],
-      "score": 55
-    },
-    {
-      "doc_num": "BISHOP 04",
-      "doc_type": "JUD",
-      "filed": "2026-04-08",
-      "cat": "JUD",
-      "cat_label": "Judgment",
-      "owner": "Timothy M Bishop",
-      "grantee": "Seven Seventeen Credit Union Inc",
-      "amount": null,
-      "legal": "SEVEN SEVENTEEN CREDIT UNION INC -VS- TIMOTHY M BISHOP",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_state": "OH",
-      "prop_zip": "",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "3",
       "mail_zip": "",
       "clerk_url": "https://newcivilfilings.summitoh.net/",
       "flags": [

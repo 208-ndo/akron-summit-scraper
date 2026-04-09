@@ -3,13 +3,13 @@
     "THOMAS, WAGNER",
     {
       "parcel_id": "0100001",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_zip": "",
+      "prop_address": "168 SW 31ST ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
       "owner": "WAGNER THOMAS",
       "mail_address": "",
       "mail_city": "",
-      "mail_state": "3",
+      "mail_state": "",
       "mail_zip": "",
       "legal": ""
     }
@@ -18,13 +18,13 @@
     "THOMAS WAGNER",
     {
       "parcel_id": "0100001",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_zip": "",
+      "prop_address": "168 SW 31ST ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
       "owner": "WAGNER THOMAS",
       "mail_address": "",
       "mail_city": "",
-      "mail_state": "3",
+      "mail_state": "",
       "mail_zip": "",
       "legal": ""
     }
@@ -33,13 +33,13 @@
     "WAGNER THOMAS",
     {
       "parcel_id": "0100001",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_zip": "",
+      "prop_address": "168 SW 31ST ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
       "owner": "WAGNER THOMAS",
       "mail_address": "",
       "mail_city": "",
-      "mail_state": "3",
+      "mail_state": "",
       "mail_zip": "",
       "legal": ""
     }
@@ -48,13 +48,13 @@
     "J, ABBOTT",
     {
       "parcel_id": "0100002",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_zip": "",
+      "prop_address": "860 N SUMMIT ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
       "owner": "ABBOTT DAVID J",
       "mail_address": "",
       "mail_city": "",
-      "mail_state": "3",
+      "mail_state": "",
       "mail_zip": "",
       "legal": ""
     }
@@ -63,13 +63,28 @@
     "ABBOTT DAVID J",
     {
       "parcel_id": "0100002",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_zip": "",
+      "prop_address": "860 N SUMMIT ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
       "owner": "ABBOTT DAVID J",
       "mail_address": "",
       "mail_city": "",
-      "mail_state": "3",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  [
+    "J, ABBOTT DAVID",
+    {
+      "parcel_id": "0100002",
+      "prop_address": "860 N SUMMIT ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ABBOTT DAVID J",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
       "mail_zip": "",
       "legal": ""
     }
@@ -78,13 +93,13 @@
     "ABBOTT J",
     {
       "parcel_id": "0100002",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_zip": "",
+      "prop_address": "860 N SUMMIT ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
       "owner": "ABBOTT DAVID J",
       "mail_address": "",
       "mail_city": "",
-      "mail_state": "3",
+      "mail_state": "",
       "mail_zip": "",
       "legal": ""
     }
@@ -93,28 +108,13 @@
     "J ABBOTT",
     {
       "parcel_id": "0100002",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_zip": "",
+      "prop_address": "860 N SUMMIT ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
       "owner": "ABBOTT DAVID J",
       "mail_address": "",
       "mail_city": "",
-      "mail_state": "3",
-      "mail_zip": "",
-      "legal": ""
-    }
-  ],
-  [
-    "BUNN DEBRA A",
-    {
-      "parcel_id": "0100004",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_zip": "",
-      "owner": "BUNN DEBRA A",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "3",
+      "mail_state": "",
       "mail_zip": "",
       "legal": ""
     }
@@ -123,13 +123,13 @@
     "A BUNN",
     {
       "parcel_id": "0100004",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_zip": "",
+      "prop_address": "673 N AZALEA BLVD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
       "owner": "BUNN DEBRA A",
       "mail_address": "",
       "mail_city": "",
-      "mail_state": "3",
+      "mail_state": "",
       "mail_zip": "",
       "legal": ""
     }
@@ -138,13 +138,13 @@
     "A, BUNN",
     {
       "parcel_id": "0100004",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_zip": "",
+      "prop_address": "673 N AZALEA BLVD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
       "owner": "BUNN DEBRA A",
       "mail_address": "",
       "mail_city": "",
-      "mail_state": "3",
+      "mail_state": "",
       "mail_zip": "",
       "legal": ""
     }
@@ -153,13 +153,43 @@
     "BUNN A",
     {
       "parcel_id": "0100004",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_zip": "",
+      "prop_address": "673 N AZALEA BLVD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
       "owner": "BUNN DEBRA A",
       "mail_address": "",
       "mail_city": "",
-      "mail_state": "3",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  [
+    "BUNN DEBRA A",
+    {
+      "parcel_id": "0100004",
+      "prop_address": "673 N AZALEA BLVD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BUNN DEBRA A",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  [
+    "A, BUNN DEBRA",
+    {
+      "parcel_id": "0100004",
+      "prop_address": "673 N AZALEA BLVD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "BUNN DEBRA A",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
       "mail_zip": "",
       "legal": ""
     }
@@ -168,43 +198,13 @@
     "ENDRESS III",
     {
       "parcel_id": "0100005",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_zip": "",
+      "prop_address": "BELCHER AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
       "owner": "ENDRESS NED R III",
       "mail_address": "",
       "mail_city": "",
-      "mail_state": "3",
-      "mail_zip": "",
-      "legal": ""
-    }
-  ],
-  [
-    "III, ENDRESS",
-    {
-      "parcel_id": "0100005",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_zip": "",
-      "owner": "ENDRESS NED R III",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "3",
-      "mail_zip": "",
-      "legal": ""
-    }
-  ],
-  [
-    "ENDRESS NED R III",
-    {
-      "parcel_id": "0100005",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_zip": "",
-      "owner": "ENDRESS NED R III",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "3",
+      "mail_state": "",
       "mail_zip": "",
       "legal": ""
     }
@@ -213,28 +213,58 @@
     "III ENDRESS",
     {
       "parcel_id": "0100005",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_zip": "",
+      "prop_address": "BELCHER AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
       "owner": "ENDRESS NED R III",
       "mail_address": "",
       "mail_city": "",
-      "mail_state": "3",
+      "mail_state": "",
       "mail_zip": "",
       "legal": ""
     }
   ],
   [
-    "LMRK OWNER 1 LLC",
+    "ENDRESS NED R III",
     {
-      "parcel_id": "0100006",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_zip": "",
-      "owner": "LMRK OWNER 1 LLC",
+      "parcel_id": "0100005",
+      "prop_address": "BELCHER AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ENDRESS NED R III",
       "mail_address": "",
       "mail_city": "",
-      "mail_state": "3",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  [
+    "III, ENDRESS",
+    {
+      "parcel_id": "0100005",
+      "prop_address": "BELCHER AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ENDRESS NED R III",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "legal": ""
+    }
+  ],
+  [
+    "III, ENDRESS NED R",
+    {
+      "parcel_id": "0100005",
+      "prop_address": "BELCHER AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "owner": "ENDRESS NED R III",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
       "mail_zip": "",
       "legal": ""
     }
@@ -243,13 +273,13 @@
     "LMRK LLC",
     {
       "parcel_id": "0100006",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_zip": "",
+      "prop_address": "348 W STATE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
       "owner": "LMRK OWNER 1 LLC",
       "mail_address": "",
       "mail_city": "",
-      "mail_state": "3",
+      "mail_state": "",
       "mail_zip": "",
       "legal": ""
     }
@@ -258,43 +288,13 @@
     "LLC, LMRK",
     {
       "parcel_id": "0100006",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_zip": "",
+      "prop_address": "348 W STATE ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
       "owner": "LMRK OWNER 1 LLC",
       "mail_address": "",
       "mail_city": "",
-      "mail_state": "3",
-      "mail_zip": "",
-      "legal": ""
-    }
-  ],
-  [
-    "LLC LMRK",
-    {
-      "parcel_id": "0100006",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_zip": "",
-      "owner": "LMRK OWNER 1 LLC",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "3",
-      "mail_zip": "",
-      "legal": ""
-    }
-  ],
-  [
-    "CAMPBELL M",
-    {
-      "parcel_id": "0100007",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_zip": "",
-      "owner": "CAMPBELL COLLEEN M",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "3",
+      "mail_state": "",
       "mail_zip": "",
       "legal": ""
     }
