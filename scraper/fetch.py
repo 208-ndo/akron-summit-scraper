@@ -247,6 +247,22 @@ def get_first_name(name: str) -> str:
     return toks[0] if toks else ""
 
 
+def get_first_initial(name: str) -> str:
+    first = get_first_name(name)
+    return first[:1] if first else ""
+
+
+def same_first_name_or_initial(name_a: str, name_b: str) -> bool:
+    first_a = get_first_name(name_a)
+    first_b = get_first_name(name_b)
+    if first_a and first_b and first_a == first_b:
+        return True
+
+    init_a = get_first_initial(name_a)
+    init_b = get_first_initial(name_b)
+    return bool(init_a and init_b and init_a == init_b)
+
+
 def build_owner_name(row: dict) -> str:
     owner1 = clean_text(row.get("OWNER1"))
     owner2 = clean_text(row.get("OWNER2"))
@@ -1178,31 +1194,41 @@ def fuzzy_match_record(
 
     first_name = get_first_name(owner)
     last_name = get_last_name(owner)
+    owner_tokens = set(tokens_from_name(owner))
 
     if first_name and last_name:
         key = f"{first_name} {last_name}"
         candidates = first_last_index.get(key, [])
         best = choose_best_candidate(candidates)
         if best:
-            return best, "first_last_fallback", 0.92
+            return best, "first_last_fallback", 0.95
 
     if last_name and not likely_corporate_name(owner):
         candidates = last_name_index.get(last_name, [])
-        if len(candidates) == 1:
-            return candidates[0], "last_name_unique_fallback", 0.80
 
-        if len(candidates) > 1:
-            exactish = []
-            owner_tokens = set(tokens_from_name(owner))
-            for candidate in candidates:
-                candidate_tokens = set(tokens_from_name(clean_text(candidate.get("owner"))))
-                overlap = owner_tokens & candidate_tokens
-                if last_name in overlap and len(overlap) >= 2:
-                    exactish.append(candidate)
+        strong_candidates = []
+        for candidate in candidates:
+            candidate_owner = clean_text(candidate.get("owner"))
+            candidate_tokens = set(tokens_from_name(candidate_owner))
+            overlap = owner_tokens & candidate_tokens
 
-            best = choose_best_candidate(exactish)
-            if best:
-                return best, "token_overlap_fallback", 0.86
+            if last_name not in overlap:
+                continue
+
+            if len(overlap) < 2:
+                continue
+
+            if not same_first_name_or_initial(owner, candidate_owner):
+                continue
+
+            strong_candidates.append(candidate)
+
+        best = choose_best_candidate(strong_candidates)
+        if best:
+            return best, "token_overlap_strict", 0.90
+
+        if candidates:
+            return None, "no_property_match", 0.0
 
     return None, "unmatched", 0.0
 
@@ -1221,6 +1247,7 @@ def enrich_with_parcel_data(
         "with_address": 0,
         "match_methods": defaultdict(int),
         "sample_unmatched": [],
+        "sample_no_property_match": [],
     }
 
     for record in records:
@@ -1243,15 +1270,25 @@ def enrich_with_parcel_data(
                 report["matched"] += 1
                 report["match_methods"][method] += 1
             else:
-                record.match_method = "unmatched"
+                record.match_method = method
                 record.match_score = 0.0
                 report["unmatched"] += 1
-                if len(report["sample_unmatched"]) < 25:
-                    report["sample_unmatched"].append({
-                        "doc_num": record.doc_num,
-                        "owner": record.owner,
-                        "legal": record.legal,
-                    })
+                report["match_methods"][method] += 1
+
+                if method == "no_property_match":
+                    if len(report["sample_no_property_match"]) < 25:
+                        report["sample_no_property_match"].append({
+                            "doc_num": record.doc_num,
+                            "owner": record.owner,
+                            "legal": record.legal,
+                        })
+                else:
+                    if len(report["sample_unmatched"]) < 25:
+                        report["sample_unmatched"].append({
+                            "doc_num": record.doc_num,
+                            "owner": record.owner,
+                            "legal": record.legal,
+                        })
 
             record.mail_state = normalize_state(record.mail_state)
             record.with_address = 1 if clean_text(record.prop_address) else 0
@@ -1259,6 +1296,10 @@ def enrich_with_parcel_data(
                 report["with_address"] += 1
 
             record.flags = list(dict.fromkeys(record.flags + category_flags(record.doc_type, record.owner)))
+            if record.match_method == "no_property_match":
+                if "No property match" not in record.flags:
+                    record.flags.append("No property match")
+
             record.score = score_record(record)
             enriched.append(record)
         except Exception as exc:
