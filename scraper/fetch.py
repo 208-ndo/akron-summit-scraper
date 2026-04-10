@@ -78,31 +78,42 @@ LIKELY_PROP_CITY_KEYS = [
     "SITE_CITY", "CITY", "SITECITY", "PROPERTY_CITY", "SCITY", "CITYNAME", "UDATE1"
 ]
 LIKELY_PROP_ZIP_KEYS = [
-    "SITE_ZIP", "ZIP", "SITEZIP", "PROPERTY_ZIP", "SZIP", "USER2", "ZIPCD"
+    "SITE_ZIP", "ZIP", "SITEZIP", "PROPERTY_ZIP", "SZIP", "USER2", "ZIPCD", "NOTE2"
 ]
 LIKELY_MAIL_ADDR_KEYS = [
-    "ADDR_1", "MAILADR1", "MAIL_ADDR", "MAILADDRESS", "MADDR1", "ADDRESS1", "MAILADD1",
+    "MAIL_ADR1", "ADDR_1", "MAILADR1", "MAIL_ADDR", "MAILADDRESS", "MADDR1", "ADDRESS1", "MAILADD1",
     "ADDRESS_1", "ADDRESS_2"
 ]
 LIKELY_MAIL_CITY_KEYS = [
-    "MAILCITY", "CITY", "MCITY", "CITYNAME"
+    "NOTE1", "MAILCITY", "CITY", "MCITY", "CITYNAME"
 ]
 LIKELY_MAIL_STATE_KEYS = [
     "STATE", "MAILSTATE", "MSTATE", "STATECODE"
 ]
 LIKELY_MAIL_ZIP_KEYS = [
-    "MAILZIP", "ZIP", "MZIP", "OWNER ZIPCD1", "OWNER ZIPCD2", "OWNER_ZIPCD1", "OWNER_ZIPCD2"
+    "MAIL_PTR", "MAILZIP", "ZIP", "MZIP", "OWNER ZIPCD1", "OWNER ZIPCD2", "OWNER_ZIPCD1", "OWNER_ZIPCD2"
 ]
 LIKELY_LEGAL_KEYS = [
     "LEGAL", "LEGAL_DESC", "LEGALDESCRIPTION", "LEGDESC"
 ]
 LIKELY_PID_KEYS = [
-    "PAIRD", "PARID", "PARCELID", "PARCEL_ID", "PARCEL", "PID", "PARCELNO", "PAR_NO", "PAR_NUM"
+    "PARID", "PARCEL", "PAIRD", "PARCELID", "PARCEL_ID", "PID", "PARCELNO", "PAR_NO", "PAR_NUM"
 ]
 
 BAD_EXACT_OWNERS = {
     "Action", "Get Docs", "Date Added", "Party", "Plaintiff", "Defendant",
-    "Search", "Home", "Select Division", "Welcome"
+    "Search", "Home", "Select Division", "Welcome",
+    # SC701 clerk/user codes that appear in MAIL_NAME1
+    "EOY ROLL", "LWALKER", "AWHITE", "NJARJABKA", "CL_NJARJABKA", "SCLB",
+}
+
+# SC701 STATE field contains numeric codes, not real state abbreviations
+# "3" = Ohio in Summit County CAMA — we always default to OH
+SC701_STATE_CODE_MAP = {
+    "3": "OH",
+    "0": "",
+    "1": "",
+    "2": "",
 }
 
 STATE_CODES = {
@@ -184,9 +195,23 @@ def clean_text(value: Optional[str]) -> str:
 
 
 def normalize_state(value: str) -> str:
+    """
+    Convert a raw STATE value to a 2-letter state code.
+    Summit County CAMA SC701 uses numeric codes (e.g. "3" = OH).
+    We map those first, then fall back to standard validation.
+    """
     v = clean_text(value).upper()
-    if not v or v in {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "00", "000", "-", "N/A", "NA", "NONE", "NULL"}:
+    if not v:
         return ""
+
+    # Summit County CAMA numeric state codes
+    if v in SC701_STATE_CODE_MAP:
+        return SC701_STATE_CODE_MAP[v]
+
+    # Strip anything that makes it obviously invalid
+    if v in {"0", "1", "2", "4", "5", "6", "7", "8", "9", "00", "000", "-", "N/A", "NA", "NONE", "NULL"}:
+        return ""
+
     v = re.sub(r"[^A-Z]", "", v)
     return v if v in STATE_CODES else ""
 
@@ -261,7 +286,6 @@ def same_first_name_or_initial(name_a: str, name_b: str) -> bool:
     first_b = get_first_name(name_b)
     if first_a and first_b and first_a == first_b:
         return True
-
     init_a = get_first_initial(name_a)
     init_b = get_first_initial(name_b)
     return bool(init_a and init_b and init_a == init_b)
@@ -300,13 +324,61 @@ def build_owner_name(row: dict) -> str:
 
 
 def build_mail_zip(row: dict) -> str:
+    # SC701: MAIL_PTR is the real ZIP code field
+    mail_ptr = clean_text(row.get("MAIL_PTR"))
+    if mail_ptr and re.fullmatch(r"\d{5}", mail_ptr):
+        return mail_ptr
+
+    # Try extended ZIP with dash
     z1 = clean_text(row.get("OWNER ZIPCD1") or row.get("OWNER_ZIPCD1"))
     z2 = clean_text(row.get("OWNER ZIPCD2") or row.get("OWNER_ZIPCD2"))
     if z1 and z2:
         return f"{z1}-{z2}"
     if z1:
         return z1
+
+    # Generic fallback
     return safe_pick(row, LIKELY_MAIL_ZIP_KEYS)
+
+
+def build_mail_city_sc701(row: dict) -> str:
+    """
+    In Summit County SC701 mail file:
+    NOTE1 = the actual mailing city (e.g. "BARBERTON", "COPLEY", "AKRON")
+    ZIP_1 = a 5-char TRUNCATED city code — NOT usable
+    CITY  = empty in these files
+    """
+    note1 = clean_text(row.get("NOTE1"))
+    if note1 and len(note1) > 2 and not re.fullmatch(r"\d+", note1):
+        return note1.title()
+
+    # Fallback to generic keys
+    for key in ["MAILCITY", "CITY", "MCITY"]:
+        val = clean_text(row.get(key))
+        if val and len(val) > 2 and not re.fullmatch(r"\d+", val):
+            return val.title()
+    return ""
+
+
+def build_mail_state_sc701(row: dict) -> str:
+    """
+    In Summit County SC701: STATE field = "3" (numeric code for Ohio).
+    We map it directly. Never trust the raw value as a state abbreviation.
+    """
+    raw = clean_text(row.get("STATE") or "")
+    mapped = SC701_STATE_CODE_MAP.get(raw)
+    if mapped is not None:
+        return mapped  # could be "OH" or ""
+
+    # If it somehow IS a real 2-letter state
+    cleaned = re.sub(r"[^A-Z]", "", raw.upper())
+    if cleaned in STATE_CODES:
+        return cleaned
+
+    # Default: if we have a mail address, it's almost certainly OH for Summit County
+    if clean_text(row.get("MAIL_ADR1")):
+        return "OH"
+    return ""
 
 
 def split_owner_chunks(name: str) -> List[str]:
@@ -651,6 +723,11 @@ def build_prop_address_from_row(row: dict) -> str:
 
 
 def build_prop_city_from_row(row: dict) -> str:
+    """
+    SC705 parcel file does NOT have a city column.
+    We try known fallback fields; the real city will come from
+    the SC701 mail file's NOTE1 field when PIDs match.
+    """
     return (
         clean_text(row.get("UDATE1"))
         or clean_text(row.get("CITY"))
@@ -659,8 +736,17 @@ def build_prop_city_from_row(row: dict) -> str:
 
 
 def build_prop_zip_from_row(row: dict) -> str:
+    """
+    SC705 parcel file: NOTE2 holds the property ZIP code.
+    """
+    # SC705: NOTE2 = ZIP code
+    note2 = clean_text(row.get("NOTE2"))
+    if note2 and re.fullmatch(r"\d{5}", note2):
+        return note2
+
+    # Legacy fallbacks
     direct = clean_text(row.get("USER2"))
-    if re.fullmatch(r"\d{5}", direct):
+    if direct and re.fullmatch(r"\d{5}", direct):
         return direct
 
     zip_raw = clean_text(row.get("ZIPCD"))
@@ -727,23 +813,55 @@ def add_owner_alias(record: dict, owner_name: str) -> None:
         record["owner"] = owner_name
 
 
+def is_sc701_clerk_code(value: str) -> bool:
+    """
+    SC701 MAIL_NAME1 contains clerk user codes, not real names.
+    Examples: "EOY ROLL", "LWALKER", "AWHITE", "NJARJABKA", "CL_NJARJABKA"
+    These are NOT property owner names — filter them out.
+    """
+    v = clean_text(value).upper()
+    if not v:
+        return True
+    # Known clerk codes
+    clerk_patterns = [
+        r"^EOY\s+ROLL$",
+        r"^CL_",
+        r"^[A-Z]+WALKER$",
+        r"^[A-Z]+WHITE$",
+        r"^[A-Z]+JARJABKA$",
+        r"^SCLB$",
+        r"^LMRK$",
+    ]
+    for pat in clerk_patterns:
+        if re.match(pat, v):
+            return True
+    # If it looks like a date (e.g. "29-AUG-2025"), skip it
+    if re.match(r"\d{1,2}-[A-Z]{3}-\d{4}", v):
+        return True
+    return False
+
+
 def extract_owner_aliases_from_row(row: dict) -> List[str]:
     aliases: List[str] = []
 
-    preferred_keys = [
-        "OWNER1", "OWNER2", "OWNER", "OWN1", "OWNER_NAME", "OWNERNAME", "OWNERNM",
-        "OWNER 1", "OWNER 2", "TAXPAYER", "TAXPAYER_NAME", "MAILNAME", "MAIL_NAME",
-        "NAME1", "NAME2"
-    ]
+    # SC701 rows: MAIL_NAME1 and MAIL_NAME2 are clerk codes/dates, NOT owner names
+    # Skip them — owner names come from SC700 own rows and SC705 parcel rows
+    is_mail_row = "MAIL_ADR1" in row or "MAIL_PTR" in row
 
-    for key in preferred_keys:
-        val = safe_pick(row, [key])
-        if val:
-            aliases.append(val)
+    if not is_mail_row:
+        preferred_keys = [
+            "OWNER1", "OWNER2", "OWNER", "OWN1", "OWNER_NAME", "OWNERNAME", "OWNERNM",
+            "OWNER 1", "OWNER 2", "TAXPAYER", "TAXPAYER_NAME", "MAILNAME", "MAIL_NAME",
+            "NAME1", "NAME2"
+        ]
+        for key in preferred_keys:
+            val = safe_pick(row, [key])
+            if val:
+                aliases.append(val)
 
-    combined = build_owner_name(row)
-    if combined:
-        aliases.append(combined)
+        combined = build_owner_name(row)
+        if combined:
+            aliases.append(combined)
 
     deduped: List[str] = []
     seen = set()
@@ -753,6 +871,10 @@ def extract_owner_aliases_from_row(row: dict) -> List[str]:
         if not alias:
             continue
         if alias in BAD_EXACT_OWNERS:
+            continue
+
+        # Skip SC701 clerk codes
+        if is_sc701_clerk_code(alias):
             continue
 
         alias_u = normalize_name(alias)
@@ -825,6 +947,9 @@ def build_parcel_indexes() -> Tuple[Dict[str, List[dict]], Dict[str, List[dict]]
 
     parcel_by_id: Dict[str, dict] = {}
 
+    # -----------------------------------------------------------------------
+    # Step 1: Load SC705/SC731 parcel rows (property address + ZIP from NOTE2)
+    # -----------------------------------------------------------------------
     for row in parcel_rows:
         pid = get_pid(row)
         if not pid:
@@ -840,6 +965,9 @@ def build_parcel_indexes() -> Tuple[Dict[str, List[dict]], Dict[str, List[dict]]
         for alias in extract_owner_aliases_from_row(row):
             add_owner_alias(existing, alias)
 
+    # -----------------------------------------------------------------------
+    # Step 2: Load SC700 owner rows (owner name data)
+    # -----------------------------------------------------------------------
     for row in own_rows:
         pid = get_pid(row)
         if not pid:
@@ -849,22 +977,53 @@ def build_parcel_indexes() -> Tuple[Dict[str, List[dict]], Dict[str, List[dict]]
         for alias in extract_owner_aliases_from_row(row):
             add_owner_alias(existing, alias)
 
+    # -----------------------------------------------------------------------
+    # Step 3: Load SC701 mail rows
+    # Summit County SC701 column mapping (CONFIRMED from debug sample):
+    #   PARID       = parcel ID (join key)
+    #   MAIL_ADR1   = mailing street address  ✅
+    #   NOTE1       = mailing city (e.g. "BARBERTON", "COPLEY", "AKRON")  ✅
+    #   MAIL_PTR    = mailing ZIP code (e.g. "44203")  ✅
+    #   STATE       = "3" = numeric code for Ohio — NOT a real state abbrev
+    #   MAIL_NAME1  = clerk/user code (e.g. "EOY ROLL", "LWALKER") — NOT owner name
+    #   MAIL_NAME2  = date of change — NOT owner name
+    #   ZIP_1       = 5-char truncated city code — NOT usable
+    #
+    # Also: when prop_city is missing from SC705, NOTE1 from SC701 often
+    # matches the property city for owner-occupied properties.
+    # -----------------------------------------------------------------------
     for row in mail_rows:
         pid = get_pid(row)
         if not pid:
             continue
         parcel_by_id.setdefault(pid, {"parcel_id": pid, "owner_aliases": []})
         existing = parcel_by_id[pid]
-        existing.update({
-            "parcel_id": pid,
-            "mail_address": clean_text(existing.get("mail_address")) or safe_pick(row, LIKELY_MAIL_ADDR_KEYS),
-            "mail_city": clean_text(existing.get("mail_city")) or safe_pick(row, LIKELY_MAIL_CITY_KEYS),
-            "mail_state": normalize_state(clean_text(existing.get("mail_state")) or safe_pick(row, LIKELY_MAIL_STATE_KEYS)),
-            "mail_zip": clean_text(existing.get("mail_zip")) or build_mail_zip(row),
-        })
-        for alias in extract_owner_aliases_from_row(row):
-            add_owner_alias(existing, alias)
 
+        mail_street = clean_text(row.get("MAIL_ADR1")) or safe_pick(row, ["MAIL_ADR1", "MAIL_ADDR", "MAILADR1"])
+        mail_city   = build_mail_city_sc701(row)
+        mail_zip    = build_mail_zip(row)
+        mail_state  = build_mail_state_sc701(row)
+
+        # Only update if not already set (first record wins per parcel)
+        if not clean_text(existing.get("mail_address")) and mail_street:
+            existing["mail_address"] = mail_street
+        if not clean_text(existing.get("mail_city")) and mail_city:
+            existing["mail_city"] = mail_city
+        if not clean_text(existing.get("mail_zip")) and mail_zip:
+            existing["mail_zip"] = mail_zip
+        if not clean_text(existing.get("mail_state")) and mail_state:
+            existing["mail_state"] = mail_state
+
+        # If prop_city is still blank, use mail city as a proxy
+        # (works well for owner-occupied homes where mail = property address)
+        if not clean_text(existing.get("prop_city")) and mail_city:
+            existing["prop_city"] = mail_city
+
+        # SC701 MAIL_NAME1 is a clerk code, not an owner — skip alias extraction
+
+    # -----------------------------------------------------------------------
+    # Step 4: Load SC702 legal rows
+    # -----------------------------------------------------------------------
     for row in legal_rows:
         pid = get_pid(row)
         if not pid:
@@ -875,6 +1034,9 @@ def build_parcel_indexes() -> Tuple[Dict[str, List[dict]], Dict[str, List[dict]]
         for alias in extract_owner_aliases_from_row(row):
             add_owner_alias(existing, alias)
 
+    # -----------------------------------------------------------------------
+    # Step 5: Build lookup indexes from assembled parcel data
+    # -----------------------------------------------------------------------
     owner_index: Dict[str, List[dict]] = defaultdict(list)
     last_name_index: Dict[str, List[dict]] = defaultdict(list)
     first_last_index: Dict[str, List[dict]] = defaultdict(list)
@@ -940,6 +1102,7 @@ def build_parcel_indexes() -> Tuple[Dict[str, List[dict]], Dict[str, List[dict]]
     save_debug_json("owner_values_sample.json", list(owner_index.keys())[:5000])
     save_debug_json("last_name_index_sample.json", {k: v[:3] for k, v in list(last_name_index.items())[:300]})
 
+    # Debug: show a sample of what we built for specific target names
     target_last_names = [
         "SIPE", "DARDENNE", "CSASZAR", "BOSTIC", "BECTON", "ESOLA", "ASAMOAH",
         "ARMSTEAD", "FUSCO", "FENDER", "ELEKES", "FARREY", "HACHA", "PULLIN",
@@ -957,7 +1120,12 @@ def build_parcel_indexes() -> Tuple[Dict[str, List[dict]], Dict[str, List[dict]]
                 "owner": clean_text(h.get("owner")),
                 "owner_aliases": h.get("owner_aliases", [])[:8],
                 "prop_address": clean_text(h.get("prop_address")),
+                "prop_city": clean_text(h.get("prop_city")),
+                "prop_zip": clean_text(h.get("prop_zip")),
                 "mail_address": clean_text(h.get("mail_address")),
+                "mail_city": clean_text(h.get("mail_city")),
+                "mail_state": clean_text(h.get("mail_state")),
+                "mail_zip": clean_text(h.get("mail_zip")),
                 "parcel_id": clean_text(h.get("parcel_id")),
             }
             for h in hits[:25]
@@ -966,7 +1134,7 @@ def build_parcel_indexes() -> Tuple[Dict[str, List[dict]], Dict[str, List[dict]]
     save_debug_json("target_last_name_hits.json", target_last_name_hits)
 
     logging.info(
-        "Built parcel index with %s owner-name keys from %s parcel rows / %s owner rows / %s mail rows / %s legal rows",
+        "Built parcel index: %s owner-name keys | %s parcels | %s owner rows | %s mail rows | %s legal rows",
         len(owner_index), len(parcel_rows), len(own_rows), len(mail_rows), len(legal_rows)
     )
     return owner_index, last_name_index, first_last_index
@@ -1355,6 +1523,10 @@ def better_record(candidate: dict) -> int:
         score += 100
     if clean_text(candidate.get("mail_address")):
         score += 40
+    if clean_text(candidate.get("mail_zip")):
+        score += 20
+    if clean_text(candidate.get("mail_city")):
+        score += 15
     if clean_text(candidate.get("legal")):
         score += 15
     if clean_text(candidate.get("prop_city")):
@@ -1579,6 +1751,7 @@ def enrich_with_parcel_data(
         "matched": 0,
         "unmatched": 0,
         "with_address": 0,
+        "with_mail_address": 0,
         "match_methods": defaultdict(int),
         "sample_unmatched": [],
         "sample_no_property_match": [],
@@ -1592,13 +1765,17 @@ def enrich_with_parcel_data(
 
             if matched:
                 record.prop_address = record.prop_address or clean_text(matched.get("prop_address"))
-                record.prop_city = record.prop_city or clean_text(matched.get("prop_city"))
-                record.prop_zip = record.prop_zip or clean_text(matched.get("prop_zip"))
+                record.prop_city    = record.prop_city    or clean_text(matched.get("prop_city"))
+                record.prop_zip     = record.prop_zip     or clean_text(matched.get("prop_zip"))
                 record.mail_address = record.mail_address or clean_text(matched.get("mail_address"))
-                record.mail_city = record.mail_city or clean_text(matched.get("mail_city"))
-                record.mail_state = record.mail_state or normalize_state(clean_text(matched.get("mail_state")))
-                record.mail_zip = record.mail_zip or clean_text(matched.get("mail_zip"))
-                record.legal = record.legal or clean_text(matched.get("legal"))
+                record.mail_city    = record.mail_city    or clean_text(matched.get("mail_city"))
+                record.mail_zip     = record.mail_zip     or clean_text(matched.get("mail_zip"))
+                record.legal        = record.legal        or clean_text(matched.get("legal"))
+
+                # Mail state: use matched value, map SC701 codes, default OH
+                raw_mail_state = clean_text(matched.get("mail_state"))
+                record.mail_state = record.mail_state or normalize_state(raw_mail_state) or "OH"
+
                 record.match_method = method
                 record.match_score = match_score
                 report["matched"] += 1
@@ -1624,10 +1801,13 @@ def enrich_with_parcel_data(
                             "legal": record.legal,
                         })
 
-            record.mail_state = normalize_state(record.mail_state)
+            # Final cleanup
+            record.mail_state = normalize_state(record.mail_state) or ("OH" if record.mail_address else "")
             record.with_address = 1 if clean_text(record.prop_address) else 0
             if record.with_address:
                 report["with_address"] += 1
+            if clean_text(record.mail_address):
+                report["with_mail_address"] += 1
 
             record.flags = list(dict.fromkeys(record.flags + category_flags(record.doc_type, record.owner)))
             if record.match_method == "no_property_match":
@@ -1677,6 +1857,7 @@ def build_payload(records: List[LeadRecord]) -> dict:
         },
         "total": len(records),
         "with_address": sum(1 for record in records if clean_text(record.prop_address)),
+        "with_mail_address": sum(1 for record in records if clean_text(record.mail_address)),
         "records": [asdict(record) for record in records],
     }
 
@@ -1807,7 +1988,12 @@ async def main() -> None:
         write_csv(all_records, out_csv_path)
     write_report(report, report_path)
 
-    logging.info("Finished. Total records: %s", len(all_records))
+    logging.info(
+        "Finished. Total: %s | With prop address: %s | With mail address: %s",
+        len(all_records),
+        sum(1 for r in all_records if r.prop_address),
+        sum(1 for r in all_records if r.mail_address),
+    )
 
 
 if __name__ == "__main__":
