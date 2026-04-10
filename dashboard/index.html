@@ -1,20 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Akron Summit – Motivated Seller Intelligence</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akron Summit – Motivated Seller Intelligence</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0d1117;color:#e6edf3;min-height:100vh}
+.top-bar{background:#161b22;border-bottom:1px solid #30363d;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.top-bar h1{font-size:13px;font-weight:500;color:#7d8590;letter-spacing:.08em;text-transform:uppercase}
+.top-bar .date{font-size:12px;color:#484f58}
+.tabs{background:#161b22;border-bottom:1px solid #30363d;padding:0 24px;display:flex;gap:0;overflow-x:auto}
+.tab{padding:12px 16px;font-size:13px;color:#7d8590;cursor:pointer;border-bottom:2px solid transparent;display:flex;gap:8px;align-items:center;white-space:nowrap}
+.tab.active{color:#e6edf3;border-bottom-color:#388bfd}
+.tab .badge{background:#21262d;color:#7d8590;border-radius:10px;padding:1px 8px;font-size:11px}
+.tab.active .badge{background:#388bfd22;color:#388bfd}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;padding:20px 24px}
+.stat-card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;position:relative;overflow:hidden}
+.stat-card .label{font-size:11px;color:#7d8590;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.stat-card .value{font-size:26px;font-weight:600;color:#e6edf3}
+.stat-card .sub{font-size:11px;color:#484f58;margin-top:4px}
+.stat-card .accent{position:absolute;top:0;left:0;width:3px;height:100%}
+.controls{padding:0 24px 16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.controls input{background:#161b22;border:1px solid #30363d;border-radius:6px;padding:7px 12px;color:#e6edf3;font-size:13px;width:220px;outline:none}
+.controls input:focus{border-color:#388bfd}
+.controls select{background:#161b22;border:1px solid #30363d;border-radius:6px;padding:7px 12px;color:#e6edf3;font-size:13px;outline:none}
+.btn-csv{background:#388bfd;border:none;border-radius:6px;padding:7px 16px;color:#fff;font-size:13px;cursor:pointer;font-weight:500}
+.btn-csv:hover{background:#58a6ff}
+.btn-clear{background:transparent;border:1px solid #30363d;border-radius:6px;padding:7px 12px;color:#7d8590;font-size:13px;cursor:pointer}
+.record-count{margin-left:auto;font-size:12px;color:#7d8590}
+.table-wrap{padding:0 24px 24px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:700px}
+th{color:#7d8590;font-weight:500;text-transform:uppercase;font-size:11px;letter-spacing:.06em;padding:8px 12px;text-align:left;border-bottom:1px solid #30363d}
+td{padding:10px 12px;border-bottom:1px solid #21262d;vertical-align:middle}
+tr:hover td{background:#161b22}
+.score-badge{display:inline-flex;width:32px;height:32px;border-radius:6px;align-items:center;justify-content:center;font-weight:600;font-size:13px}
+.score-high{background:#388bfd22;color:#388bfd}
+.score-med{background:#d2992244;color:#d29922}
+.score-low{background:#30363d;color:#7d8590}
+.flag-pill{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;margin:2px}
+.flag-lp{background:#da363322;color:#ff7b72}
+.flag-fc{background:#d2992222;color:#d29922}
+.flag-tax{background:#388bfd22;color:#388bfd}
+.flag-lien{background:#8957e522;color:#bc8cff}
+.flag-prob{background:#2ea04322;color:#56d364}
+.flag-llc{background:#30363d;color:#7d8590}
+.flag-new{background:#17803422;color:#56d364}
+.owner-name{font-weight:500;color:#e6edf3;font-size:13px}
+.prop-addr{font-size:11px;color:#7d8590;margin-top:2px}
+.no-data{text-align:center;padding:60px;color:#484f58}
+</style>
 </head>
 <body>
-  <h1>Dashboard loading...</h1>
-  <script>
-    fetch('records.json')
-      .then(r => r.json())
-      .then(data => {
-        document.body.innerHTML = `<h1>Total Records: ${data.total}</h1><pre>${JSON.stringify(data, null, 2)}</pre>`;
-      })
-      .catch(e => {
-        document.body.innerHTML = '<h1>No data yet or records.json not found.</h1>';
-      });
-  </script>
+<div class="top-bar">
+  <h1>⚡ Akron Summit County &bull; Motivated Seller Intelligence</h1>
+  <span class="date" id="date-range">Loading...</span>
+</div>
+<div class="tabs">
+  <div class="tab active" data-tab="all">All Leads <span class="badge" id="tab-all">0</span></div>
+  <div class="tab" data-tab="clerk">Clerk Records <span class="badge" id="tab-clerk">0</span></div>
+  <div class="tab" data-tab="tax">Tax Delinquent <span class="badge" id="tab-tax">0</span></div>
+  <div class="tab" data-tab="lp">Lis Pendens <span class="badge" id="tab-lp">0</span></div>
+</div>
+<div class="stat-grid">
+  <div class="stat-card"><div class="accent" style="background:#388bfd"></div><div class="label">Total Records</div><div class="value" id="stat-total">—</div><div class="sub">all lead types</div></div>
+  <div class="stat-card"><div class="accent" style="background:#d29922"></div><div class="label">Score ≥75</div><div class="value" id="stat-high">—</div><div class="sub">high priority</div></div>
+  <div class="stat-card"><div class="accent" style="background:#da3633"></div><div class="label">Lis Pendens</div><div class="value" id="stat-lp">—</div><div class="sub">pre-foreclosure</div></div>
+  <div class="stat-card"><div class="accent" style="background:#bc8cff"></div><div class="label">Liens / Judgments</div><div class="value" id="stat-liens">—</div><div class="sub">financial distress</div></div>
+  <div class="stat-card"><div class="accent" style="background:#56d364"></div><div class="label">With Address</div><div class="value" id="stat-addr">—</div><div class="sub">address matched</div></div>
+  <div class="stat-card"><div class="accent" style="background:#ff7b72"></div><div class="label">New This Week</div><div class="value" id="stat-new">—</div><div class="sub">filed recently</div></div>
+</div>
+<div class="controls">
+  <input type="text" id="search" placeholder="Search owner, address, doc number...">
+  <select id="filter-score">
+    <option value="0">All Scores</option>
+    <option value="75">High (≥75)</option>
+    <option value="60">Medium (≥60)</option>
+    <option value="30">Low (≥30)</option>
+  </select>
+  <select id="filter-flag">
+    <option value="">All Flags</option>
+    <option value="Lis pendens">Lis Pendens</option>
+    <option value="Pre-foreclosure">Pre-foreclosure</option>
+    <option value="Tax lien">Tax Lien</option>
+    <option value="Judgment lien">Judgment Lien</option>
+    <option value="Mechanic lien">Mechanic Lien</option>
+    <option value="Probate / estate">Probate</option>
+    <option value="LLC / corp owner">LLC / Corp</option>
+    <option value="New this week">New This Week</option>
+  </select>
+  <select id="filter-addr">
+    <option value="">Address: All</option>
+    <option value="yes">Has Address</option>
+    <option value="no">No Address</option>
+  </select>
+  <button class="btn-csv" id="btn-csv">↓ GHL CSV</button>
+  <button class="btn-clear" id="btn-clear">✕ Clear</button>
+  <span class="record-count" id="rec-count">0 records</span>
+</div>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Score</th>
+        <th>Owner / Property</th>
+        <th>Doc Type</th>
+        <th>Filed</th>
+        <th>Amount</th>
+        <th>Doc #</th>
+        <th>Flags</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <div class="no-data" id="no-data" style="display:none">
+    <div style="font-size:32px;margin-bottom:12px">📋</div>
+    <div style="color:#7d8590;font-size:14px">No records match your filters</div>
+  </div>
+  <div class="no-data" id="loading-state">
+    <div style="color:#7d8590;font-size:14px">Loading records...</div>
+  </div>
+</div>
+<script>
+var allRecords=[];var activeTab='all';
+function flagClass(f){
+  f=f.toLowerCase();
+  if(f.includes('lis')||f.includes('pendens'))return'flag-lp';
+  if(f.includes('foreclos'))return'flag-fc';
+  if(f.includes('tax'))return'flag-tax';
+  if(f.includes('lien')||f.includes('judgment'))return'flag-lien';
+  if(f.includes('probate'))return'flag-prob';
+  if(f.includes('llc')||f.includes('corp'))return'flag-llc';
+  if(f.includes('new'))return'flag-new';
+  return'flag-llc';
+}
+function scoreClass(s){return s>=75?'score-high':s>=60?'score-med':'score-low';}
+function fmt(v){return v?'$'+parseFloat(v).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}):'—';}
+function render(records){
+  var tbody=document.getElementById('tbody');
+  var noData=document.getElementById('no-data');
+  document.getElementById('loading-state').style.display='none';
+  if(!records.length){tbody.innerHTML='';noData.style.display='block';return;}
+  noData.style.display='none';
+  tbody.innerHTML=records.map(function(r){
+    var flags=(r.flags||[]).map(function(f){return'<span class="flag-pill '+flagClass(f)+'">'+f+'</span>';}).join('');
+    var addr=r.prop_address?'<div class="prop-addr">'+r.prop_address+(r.prop_city?', '+r.prop_city:'')+'</div>':'<div class="prop-addr" style="color:#484f58">No address matched</div>';
+    var link=r.clerk_url?'<a href="'+r.clerk_url+'" target="_blank" style="color:#388bfd;font-size:12px;text-decoration:none">View ↗</a>':'—';
+    var amt=r.amount&&parseFloat(r.amount)>10000?'#d29922':'#e6edf3';
+    return'<tr><td><span class="score-badge '+scoreClass(r.score||0)+'">'+(r.score||0)+'</span></td><td><div class="owner-name">'+(r.owner||'Unknown Owner')+'</div>'+addr+'</td><td style="color:#7d8590;font-size:12px">'+(r.doc_type||r.cat_label||'—')+'</td><td style="color:#7d8590;font-size:12px;white-space:nowrap">'+(r.filed||'—')+'</td><td style="font-weight:500;color:'+amt+'">'+fmt(r.amount)+'</td><td style="font-size:11px;color:#484f58">'+(r.doc_num||'—')+'</td><td>'+(flags||'<span style="color:#484f58;font-size:11px">none</span>')+'</td><td>'+link+'</td></tr>';
+  }).join('');
+}
+function getFiltered(){
+  var q=document.getElementById('search').value.toLowerCase();
+  var minScore=parseInt(document.getElementById('filter-score').value)||0;
+  var flagF=document.getElementById('filter-flag').value;
+  var addrF=document.getElementById('filter-addr').value;
+  return allRecords.filter(function(r){
+    if(activeTab==='tax'&&!(r.flags||[]).some(function(f){return f.toLowerCase().includes('tax');}))return false;
+    if(activeTab==='lp'&&!(r.flags||[]).some(function(f){return f.toLowerCase().includes('lis')||f.toLowerCase().includes('pendens');}))return false;
+    if(activeTab==='clerk'&&!r.doc_type)return false;
+    if((r.score||0)<minScore)return false;
+    if(flagF&&!(r.flags||[]).some(function(f){return f===flagF;}))return false;
+    if(addrF==='yes'&&!r.prop_address)return false;
+    if(addrF==='no'&&r.prop_address)return false;
+    if(q){var s=((r.owner||'')+' '+(r.prop_address||'')+' '+(r.doc_num||'')+' '+(r.doc_type||'')).toLowerCase();if(!s.includes(q))return false;}
+    return true;
+  });
+}
+function update(){
+  var recs=getFiltered();
+  document.getElementById('rec-count').textContent=recs.length.toLocaleString()+' records';
+  render(recs);
+}
+function setStats(records){
+  document.getElementById('stat-total').textContent=records.length.toLocaleString();
+  document.getElementById('stat-high').textContent=records.filter(function(r){return(r.score||0)>=75;}).length.toLocaleString();
+  document.getElementById('stat-lp').textContent=records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('lis');});}).length.toLocaleString();
+  document.getElementById('stat-liens').textContent=records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('lien')||f.toLowerCase().includes('judgment');});}).length.toLocaleString();
+  document.getElementById('stat-addr').textContent=records.filter(function(r){return r.prop_address;}).length.toLocaleString();
+  document.getElementById('stat-new').textContent=records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('new');});}).length.toLocaleString();
+  document.getElementById('tab-all').textContent=records.length.toLocaleString();
+  document.getElementById('tab-clerk').textContent=records.filter(function(r){return r.doc_type;}).length.toLocaleString();
+  document.getElementById('tab-tax').textContent=records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('tax');});}).length.toLocaleString();
+  document.getElementById('tab-lp').textContent=records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('lis');});}).length.toLocaleString();
+}
+function exportCSV(){
+  var recs=getFiltered();
+  var rows=[['First Name','Last Name','Mailing Address','Mailing City','Mailing State','Mailing Zip','Property Address','Property City','Property State','Property Zip','Lead Type','Document Type','Date Filed','Document Number','Amount/Debt Owed','Seller Score','Motivated Seller Flags','Source','Public Records URL']];
+  recs.forEach(function(r){
+    var parts=(r.owner||'').split(' ');
+    rows.push([parts[0]||'',parts.slice(1).join(' ')||'',r.mail_address||'',r.mail_city||'',r.mail_state||'',r.mail_zip||'',r.prop_address||'',r.prop_city||'',r.prop_state||'',r.prop_zip||'',r.cat_label||r.cat||'',r.doc_type||'',r.filed||'',r.doc_num||'',r.amount||'',r.score||0,(r.flags||[]).join('; '),r.source||'Summit County Clerk',r.clerk_url||'']);
+  });
+  var csv=rows.map(function(r){return r.map(function(v){return'"'+String(v).replace(/"/g,'""')+'"';}).join(',');}).join('\n');
+  var a=document.createElement('a');
+  a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv);
+  a.download='ghl_leads_akron.csv';
+  a.click();
+}
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+    activeTab=t.dataset.tab;
+    update();
+  });
+});
+document.getElementById('search').addEventListener('input',update);
+document.getElementById('filter-score').addEventListener('change',update);
+document.getElementById('filter-flag').addEventListener('change',update);
+document.getElementById('filter-addr').addEventListener('change',update);
+document.getElementById('btn-clear').addEventListener('click',function(){
+  document.getElementById('search').value='';
+  document.getElementById('filter-score').value='0';
+  document.getElementById('filter-flag').value='';
+  document.getElementById('filter-addr').value='';
+  update();
+});
+document.getElementById('btn-csv').addEventListener('click',exportCSV);
+
+fetch('dashboard/records.json')
+  .then(function(r){return r.json();})
+  .then(function(data){
+    allRecords=data.records||[];
+    var dr=data.date_range||{};
+    document.getElementById('date-range').textContent=(dr.from||'')+(dr.to?' → '+dr.to:'')+' · Updated '+(data.fetched_at?new Date(data.fetched_at).toLocaleDateString():'—');
+    setStats(allRecords);
+    update();
+  })
+  .catch(function(){
+    document.getElementById('loading-state').innerHTML='<div style="color:#da3633;font-size:14px">⚠ Could not load records.json</div><div style="margin-top:8px;font-size:12px;color:#484f58">Check that dashboard/records.json exists in your repo</div>';
+  });
+</script>
 </body>
 </html>
