@@ -546,62 +546,132 @@ def normalize_address_key(address: str) -> str:
     return re.sub(r"\s+", " ", addr).strip()
 
 
-def scrape_tax_delinquent_parcels() -> set:
+def scrape_tax_delinquent_parcels() -> Dict[str, dict]:
     """
-    Scrape Summit County's tax certificate lien / delinquent tax list.
-    Returns a set of parcel IDs that have delinquent taxes.
-    We pull from the fiscal office delinquent tax search page and
-    also check the tax certificate liens page for parcel numbers.
+    Scrape the Akron Legal News delinquent tax list — the official published
+    legal notice for ALL Summit County delinquent parcels.
+
+    URL structure:
+      Index: https://www.akronlegalnews.com/notices/delinquent_taxes
+      Detail: https://www.akronlegalnews.com/notices/delinquent_taxes_detail/{id}
+
+    Each detail page contains entries like:
+      6800261 784.14 GOMEZ ANA THE VANDALLIA HEIGHTS ALLOTMENT LOTS 11-12...
+      [parcel_id] [amount_owed] [owner_name] [legal_description]
+
+    Returns dict of parcel_id -> {owner, amount_owed, legal}
     """
-    delinquent_pids: set = set()
-    urls_to_try = [
-        "https://fiscaloffice.summitoh.net/index.php/tax-certificate-liens",
-        "https://fiscaloffice.summitoh.net/index.php/delinquent-tax-payment-plan",
-    ]
-    parcel_pattern = re.compile(r"\b(\d{7,10})\b")
+    DELINQUENT_INDEX_URL = "https://www.akronlegalnews.com/notices/delinquent_taxes"
+    delinquent_parcels: Dict[str, dict] = {}
 
-    for url in urls_to_try:
-        try:
-            resp = retry_request(url, timeout=30)
-            soup = BeautifulSoup(resp.text, "lxml")
-            text = soup.get_text(" ")
-            # Look for parcel IDs (7-10 digit numbers) in the page
-            for match in parcel_pattern.finditer(text):
-                pid = match.group(1).zfill(7)
-                delinquent_pids.add(pid)
-        except Exception as exc:
-            logging.warning("Could not scrape delinquent tax page %s: %s", url, exc)
+    # Parcel entry pattern: 7-digit parcel ID, dollar amount, then owner + legal
+    # Example: "6800261 784.14 GOMEZ ANA THE VANDALLIA HEIGHTS..."
+    entry_pattern = re.compile(
+        r"\b(\d{7})\s+([\d,]+\.?\d*)\s+([A-Z][A-Z\s\.\,\&\']{3,60}?)\s+((?:LOT|TR|BLK|SEC|LOTS|ALLOTMENT|SUB|PARCEL|LOTS|PART)\s+.{5,80}?)(?=\s*[•\n]|\s*\d{7}|$)",
+        re.IGNORECASE
+    )
+    # Simpler fallback — just grab parcel IDs and amounts
+    simple_pattern = re.compile(r"\b(\d{7})\s+([\d,]+\.?\d*)\s+([^\n•]{10,120}?)(?=\s*[•\n]|\s*\d{7}|$)")
 
-    # Also try to get the published delinquent list from CAMA page
     try:
-        resp = retry_request(CAMA_PAGE_URL, timeout=30)
+        # Step 1: Get the index page to find all section detail URLs
+        logging.info("Scraping Akron Legal News delinquent tax index...")
+        resp = retry_request(DELINQUENT_INDEX_URL, timeout=30)
         soup = BeautifulSoup(resp.text, "lxml")
-        # Look for any delinquent/tax lien download links
-        for link in soup.select("a[href]"):
-            href = clean_text(link.get("href", "")).upper()
-            text = clean_text(link.get_text(" ")).upper()
-            if any(x in href + text for x in ["DELIN", "TAX CERT", "LIEN LIST", "TAXCERT"]):
-                full_url = requests.compat.urljoin(CAMA_PAGE_URL, link.get("href"))
-                try:
-                    resp2 = retry_request(full_url, timeout=30)
-                    content = resp2.text
-                    for match in parcel_pattern.finditer(content):
-                        delinquent_pids.add(match.group(1).zfill(7))
-                except Exception:
-                    pass
-    except Exception as exc:
-        logging.warning("Could not check CAMA page for delinquent links: %s", exc)
 
-    logging.info("Found %s potentially delinquent parcel IDs", len(delinquent_pids))
-    save_debug_json("delinquent_parcel_ids.json", list(delinquent_pids)[:200])
-    return delinquent_pids
+        # Find all detail page links
+        detail_links = []
+        for link in soup.select("a[href]"):
+            href = clean_text(link.get("href", ""))
+            if "delinquent_taxes_detail" in href:
+                full_url = requests.compat.urljoin(DELINQUENT_INDEX_URL, href)
+                if full_url not in detail_links:
+                    detail_links.append(full_url)
+
+        logging.info("Found %s delinquent tax section pages to scrape", len(detail_links))
+
+        # Step 2: Scrape each detail page
+        for i, url in enumerate(detail_links):
+            try:
+                resp2 = retry_request(url, timeout=45)
+                soup2 = BeautifulSoup(resp2.text, "lxml")
+                # Get the raw text content of the page
+                raw_text = soup2.get_text(" ")
+
+                # Parse entries using the bullet separator pattern
+                # Entries are separated by " • " in the page
+                # Format: "PARCELID AMOUNT OWNER LEGAL • PARCELID AMOUNT..."
+                entries = re.split(r"\s*[•·]\s*", raw_text)
+
+                for entry in entries:
+                    entry = clean_text(entry)
+                    if not entry:
+                        continue
+
+                    # Match: 7-digit parcel ID at start, then amount, then rest
+                    m = re.match(r"^(\d{7})\s+([\d,]+\.?\d*)\s+(.+)$", entry, re.DOTALL)
+                    if not m:
+                        continue
+
+                    pid = m.group(1)
+                    try:
+                        amount_owed = float(m.group(2).replace(",", ""))
+                    except ValueError:
+                        amount_owed = 0.0
+                    rest = clean_text(m.group(3))
+
+                    # Split owner from legal description
+                    # Owner is typically all caps name before the legal keywords
+                    legal_keywords = ["LOT ", "TR ", "BLK ", "SEC ", "LOTS ", "ALLOTMENT",
+                                      "SUB ", "PARCEL ", "PART ", "COND ", "UNIT "]
+                    owner_part = rest
+                    legal_part = ""
+
+                    # Find where the legal description starts
+                    earliest = len(rest)
+                    for kw in legal_keywords:
+                        idx = rest.upper().find(kw)
+                        if idx > 0 and idx < earliest:
+                            earliest = idx
+
+                    if earliest < len(rest):
+                        owner_part = clean_text(rest[:earliest])
+                        legal_part = clean_text(rest[earliest:])
+
+                    # Clean up owner — remove trailing asterisks and noise
+                    owner_part = re.sub(r"\*+$", "", owner_part).strip()
+                    owner_part = clean_text(owner_part)
+
+                    if pid and owner_part and len(owner_part) >= 3:
+                        delinquent_parcels[pid] = {
+                            "parcel_id": pid,
+                            "owner": owner_part,
+                            "amount_owed": amount_owed,
+                            "legal": legal_part[:200],
+                            "source_url": url,
+                        }
+
+                if (i + 1) % 10 == 0:
+                    logging.info("Scraped %s/%s delinquent tax sections, found %s parcels so far",
+                                 i + 1, len(detail_links), len(delinquent_parcels))
+
+            except Exception as exc:
+                logging.warning("Could not scrape delinquent section %s: %s", url, exc)
+                continue
+
+    except Exception as exc:
+        logging.warning("Could not scrape Akron Legal News delinquent list: %s", exc)
+
+    logging.info("Scraped %s delinquent parcels from Akron Legal News", len(delinquent_parcels))
+    save_debug_json("delinquent_parcels.json", list(delinquent_parcels.values())[:100])
+    return delinquent_parcels
 
 
 def build_distress_index(
     records: List[LeadRecord],
     vacant_addresses: List[str],
     vacant_land_pids: set,
-    delinquent_pids: set,
+    delinquent_parcels: Dict[str, dict],
 ) -> Dict[str, List[str]]:
     """
     Build address -> distress sources index.
@@ -645,45 +715,50 @@ def build_distress_index(
 def build_delinquent_address_index(
     parcel_rows: List[dict],
     mail_by_pid: Dict[str, dict],
-    delinquent_pids: set,
-) -> Dict[str, bool]:
+    delinquent_parcels: Dict[str, dict],
+) -> Dict[str, dict]:
     """
-    Build a lookup of normalized address -> is_delinquent.
-    We join delinquent parcel IDs back to their addresses using parcel data.
+    Join delinquent parcel IDs from Akron Legal News back to property addresses
+    using the CAMA parcel data. Returns address key -> delinquent parcel info.
+    This lets us flag court filing leads that are ALSO tax delinquent.
     """
-    delinquent_addresses: Dict[str, bool] = {}
-    if not delinquent_pids:
+    delinquent_addresses: Dict[str, dict] = {}
+    if not delinquent_parcels:
         return delinquent_addresses
+
+    delinquent_pid_set = set(delinquent_parcels.keys())
 
     for row in parcel_rows:
         pid = get_pid(row)
         if not pid:
             continue
-        # Check both raw pid and zero-padded version
-        if pid not in delinquent_pids and pid.zfill(7) not in delinquent_pids:
+        if pid not in delinquent_pid_set:
             continue
+
         addr = build_prop_address_from_row(row)
         if addr:
             key = normalize_address_key(addr)
             if key:
-                delinquent_addresses[key] = True
+                parcel_info = delinquent_parcels[pid].copy()
+                parcel_info["prop_address"] = addr
+                parcel_info["prop_zip"] = build_prop_zip_from_row(row)
+                delinquent_addresses[key] = parcel_info
 
-    logging.info("Mapped %s delinquent addresses from parcel data", len(delinquent_addresses))
+    logging.info("Mapped %s delinquent addresses from %s delinquent parcels",
+                 len(delinquent_addresses), len(delinquent_parcels))
+    save_debug_json("delinquent_addresses.json", list(delinquent_addresses.values())[:50])
     return delinquent_addresses
 
 
 def apply_distress_stacking(
     records: List[LeadRecord],
     distress_index: Dict[str, List[str]],
-    delinquent_addresses: Dict[str, bool],
+    delinquent_addresses: Dict[str, dict],
 ) -> List[LeadRecord]:
     """
-    Apply distress stack scores. Also cross-references tax delinquent lookup.
-    A property is Hot Stack if it has 2+ distress sources — e.g.:
-      - Foreclosure + Judgment lien
-      - Foreclosure + Vacant land
-      - Judgment + Tax delinquent
-      - Any filing + vacant building registry
+    Apply distress stack scores and cross-reference tax delinquent data.
+    If a property appears in the delinquent list AND has a court filing,
+    it gets the hot stack treatment with tax delinquent amount flagged.
     """
     for record in records:
         if not record.prop_address:
@@ -691,12 +766,16 @@ def apply_distress_stacking(
         key = normalize_address_key(record.prop_address)
         sources = list(distress_index.get(key, []))
 
-        # Check tax delinquent cross-reference
-        if delinquent_addresses.get(key):
+        # Cross-reference: is this address also tax delinquent?
+        delinquent_info = delinquent_addresses.get(key)
+        if delinquent_info:
             if "tax_delinquent" not in sources:
                 sources.append("tax_delinquent")
-                if "Tax delinquent" not in record.flags:
-                    record.flags.append("Tax delinquent")
+            if "Tax delinquent" not in record.flags:
+                record.flags.append("Tax delinquent")
+            # Add the amount owed if we don't already have one
+            if record.amount is None and delinquent_info.get("amount_owed"):
+                record.amount = delinquent_info["amount_owed"]
 
         record.distress_sources = list(set(sources))
 
@@ -1571,8 +1650,8 @@ async def main() -> None:
     # 3. Scrape Akron vacant building registry
     vacant_addresses = scrape_vacant_building_addresses()
 
-    # 4. Scrape tax delinquent parcel list
-    delinquent_pids = scrape_tax_delinquent_parcels()
+    # 4. Scrape tax delinquent parcel list from Akron Legal News
+    delinquent_parcels = scrape_tax_delinquent_parcels()
 
     # 5. Enrich with parcel data
     all_records = clerk_records + probate_records
@@ -1585,11 +1664,11 @@ async def main() -> None:
     )
     logging.info("Vacant land parcel IDs for cross-reference: %s", len(vacant_land_pids))
 
-    # 7. Build delinquent address lookup
-    delinquent_addresses = build_delinquent_address_index(parcel_rows, mail_by_pid, delinquent_pids)
+    # 7. Build delinquent address lookup — joins Akron Legal News data to CAMA addresses
+    delinquent_addresses = build_delinquent_address_index(parcel_rows, mail_by_pid, delinquent_parcels)
 
     # 8. Apply distress stacking — cross-references court filings, vacant land, tax delinquent
-    distress_index = build_distress_index(all_records, vacant_addresses, vacant_land_pids, delinquent_pids)
+    distress_index = build_distress_index(all_records, vacant_addresses, vacant_land_pids, delinquent_parcels)
     all_records = apply_distress_stacking(all_records, distress_index, delinquent_addresses)
 
     # 9. Build tax delinquent records list for dashboard tab
