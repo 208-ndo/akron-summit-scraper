@@ -10,7 +10,7 @@ from collections import defaultdict
 from dataclasses import dataclass, asdict, field
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple, Set
+from typing import Dict, List, Optional, Tuple
 
 import requests
 from bs4 import BeautifulSoup
@@ -730,33 +730,62 @@ def add_owner_alias(record: dict, owner_name: str) -> None:
 def extract_owner_aliases_from_row(row: dict) -> List[str]:
     aliases: List[str] = []
 
-    combined = build_owner_name(row)
-    if combined:
-        aliases.append(combined)
+    preferred_keys = [
+        "OWNER1", "OWNER2", "OWNER", "OWN1", "OWNER_NAME", "OWNERNAME", "OWNERNM",
+        "OWNER 1", "OWNER 2", "TAXPAYER", "TAXPAYER_NAME", "MAILNAME", "MAIL_NAME",
+        "NAME1", "NAME2"
+    ]
 
-    for key in LIKELY_OWNER_KEYS:
+    for key in preferred_keys:
         val = safe_pick(row, [key])
         if val:
             aliases.append(val)
 
-    upper_map = {str(k).upper(): k for k in row.keys()}
-    for upper_key, real_key in upper_map.items():
-        if "OWNER" in upper_key or "NAME" in upper_key or "TAXPAYER" in upper_key:
-            val = clean_text(row.get(real_key))
-            if val and len(val) >= 4:
-                aliases.append(val)
+    combined = build_owner_name(row)
+    if combined:
+        aliases.append(combined)
 
     deduped: List[str] = []
     seen = set()
+
     for alias in aliases:
         alias = clean_text(alias)
         if not alias:
             continue
         if alias in BAD_EXACT_OWNERS:
             continue
-        if alias not in seen:
-            seen.add(alias)
-            deduped.append(alias)
+
+        alias_u = normalize_name(alias)
+
+        if re.fullmatch(r"\d{1,2}-[A-Z]{3}-\d{4}", alias_u):
+            continue
+        if re.fullmatch(r"\d{5}", alias_u):
+            continue
+        if re.fullmatch(r"[A-Z0-9_]+", alias_u) and "_" in alias_u:
+            continue
+        if len(alias_u) < 4:
+            continue
+
+        toks = tokens_from_name(alias_u)
+        if not toks:
+            continue
+
+        if len(toks) == 1:
+            one = toks[0]
+            if one in {
+                "AKRON", "BARBERTON", "STOW", "HUDSON", "TWINSBURG", "TALLMADGE",
+                "CUYAHOGA", "FALLS", "MUNROE", "SPRINGFIELD", "NORTHFIELD",
+                "WILSONWAY", "COLE", "BROWN", "FORD", "GREEN", "GRIFFITH",
+                "HUGHES", "MILLER", "BARTON", "KELLEY"
+            }:
+                continue
+
+        if not likely_corporate_name(alias_u) and len(toks) < 2:
+            continue
+
+        if alias_u not in seen:
+            seen.add(alias_u)
+            deduped.append(alias_u)
 
     return deduped
 
