@@ -392,7 +392,7 @@ function getFiltered() {
   var addrF = document.getElementById('filter-addr').value;
 
   return allRecords.filter(function(r) {
-    if (activeTab === 'tax' && !(r.flags||[]).some(function(f){return f.toLowerCase().includes('tax');})) return false;
+    if (activeTab === 'tax' && !((r.flags||[]).some(function(f){return f.toLowerCase().includes('tax');}) || r.cat === 'TAX' || r.doc_type === 'TAX')) return false;
     if (activeTab === 'lp' && !(r.flags||[]).some(function(f){return f.toLowerCase().includes('lis')||f.toLowerCase().includes('pendens');})) return false;
     if (activeTab === 'clerk' && !r.doc_type) return false;
     if (activeTab === 'hotstack' && !r.hot_stack) return false;
@@ -451,7 +451,7 @@ function setStats(records, vacantCount, hotCount) {
 
   document.getElementById('tab-all').textContent = records.length.toLocaleString();
   document.getElementById('tab-clerk').textContent = records.filter(function(r){return r.doc_type;}).length.toLocaleString();
-  document.getElementById('tab-tax').textContent = records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('tax');});}).length.toLocaleString();
+  document.getElementById('tab-tax').textContent = records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('tax');}) || r.cat === 'TAX';}).length.toLocaleString();
   document.getElementById('tab-lp').textContent = records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('lis');});}).length.toLocaleString();
   document.getElementById('tab-hot').textContent = hotCount.toLocaleString();
   document.getElementById('tab-vacant').textContent = vacantCount.toLocaleString();
