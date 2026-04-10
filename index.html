@@ -96,6 +96,7 @@ tr:hover td{background:var(--surface)}
 .flag-stack{background:var(--gold-dim);color:var(--gold)}
 .flag-noprop{background:var(--surface2);color:var(--text3)}
 .flag-absentee{background:#2d1f50;color:#c792f0}
+.flag-phone{background:var(--green-dim);color:var(--green)}
 .owner-name{font-weight:600;color:var(--text);font-size:13px}
 .prop-addr{font-size:11px;color:var(--text2);margin-top:2px;font-family:'IBM Plex Mono',monospace}
 .no-match{font-size:11px;color:var(--text3);margin-top:2px;font-family:'IBM Plex Mono',monospace}
@@ -151,6 +152,7 @@ tr:hover td{background:var(--surface)}
   <div class="stat-card c-orange"><div class="label">New This Week</div><div class="value" id="stat-new">—</div><div class="sub">filed recently</div></div>
   <div class="stat-card c-gold"><div class="label">Vacant Land</div><div class="value" id="stat-vacant">—</div><div class="sub">infill lots ≤ 2 acres</div></div>
   <div class="stat-card c-purple"><div class="label">🏠 Absentee Owners</div><div class="value" id="stat-absentee">—</div><div class="sub">mail ≠ property address</div></div>
+  <div class="stat-card c-green"><div class="label">📞 Skip Traced</div><div class="value" id="stat-traced">—</div><div class="sub">phones found</div></div>
 </div>
 
 <!-- HOT STACK BANNER -->
@@ -183,6 +185,7 @@ tr:hover td{background:var(--surface)}
     <option value="🔥 Hot Stack">🔥 Hot Stack</option>
     <option value="Vacant land">Vacant Land</option>
     <option value="Absentee owner">🏠 Absentee Owner</option>
+    <option value="Phone found">📞 Phone Found</option>
     <option value="New this week">New This Week</option>
   </select>
   <select id="filter-addr">
@@ -218,6 +221,7 @@ tr:hover td{background:var(--surface)}
         <th>Amount</th>
         <th>Doc #</th>
         <th>Flags</th>
+        <th>Phone</th>
         <th>Link</th>
       </tr>
     </thead>
@@ -266,6 +270,7 @@ function flagClass(f) {
   f = (f || '').toLowerCase();
   if (f.includes('hot stack') || f.includes('🔥')) return 'flag-hot';
   if (f.includes('absentee')) return 'flag-absentee';
+  if (f.includes('phone')) return 'flag-phone';
   if (f.includes('lis') || f.includes('pendens')) return 'flag-lp';
   if (f.includes('foreclos') || f.includes('pre-fore')) return 'flag-fc';
   if (f.includes('tax')) return 'flag-tax';
@@ -326,6 +331,12 @@ function renderLeads(records) {
 
     var acresBit = r.acres ? '<span class="acres-badge">' + r.acres + ' ac</span>' : '';
     var vacantBit = r.is_vacant_land ? '<span class="flag-pill flag-vacant" style="font-size:9px">VACANT LOT</span>' : '';
+    var phonesBit = '';
+    if (r.phones && r.phones.length > 0) {
+      phonesBit = '<div style="margin-top:4px">' + r.phones.map(function(p) {
+        return '<a href="tel:' + p + '" style="font-family:\'IBM Plex Mono\',monospace;font-size:10px;color:var(--green);text-decoration:none;margin-right:8px">📞 ' + p + '</a>';
+      }).join('') + '</div>';
+    }
 
     return '<tr>' +
       '<td><span class="score-badge ' + scoreClass(r.score||0, r.hot_stack) + '">' + (r.score||0) + '</span></td>' +
@@ -335,6 +346,7 @@ function renderLeads(records) {
       '<td style="font-weight:500;color:var(--text2);font-family:\'IBM Plex Mono\',monospace;font-size:11px">' + fmt(r.amount) + '</td>' +
       '<td style="font-size:10px;color:var(--text3);font-family:\'IBM Plex Mono\',monospace">' + (r.doc_num||'—') + '</td>' +
       '<td>' + (flags||'<span style="color:var(--text3);font-size:10px">—</span>') + acresBit + vacantBit + '</td>' +
+      '<td>' + (phonesBit || '<span style="color:var(--text3);font-size:10px">—</span>') + '</td>' +
       '<td>' + link + '</td>' +
     '</tr>';
   }).join('');
@@ -428,6 +440,7 @@ function setStats(records, vacantCount, hotCount) {
   document.getElementById('stat-new').textContent = records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('new this');});}).length.toLocaleString();
   document.getElementById('stat-vacant').textContent = vacantCount.toLocaleString();
   document.getElementById('stat-absentee').textContent = records.filter(function(r){return r.is_absentee;}).length.toLocaleString();
+  document.getElementById('stat-traced').textContent = records.filter(function(r){return r.phones && r.phones.length > 0;}).length.toLocaleString();
 
   document.getElementById('tab-all').textContent = records.length.toLocaleString();
   document.getElementById('tab-clerk').textContent = records.filter(function(r){return r.doc_type;}).length.toLocaleString();
