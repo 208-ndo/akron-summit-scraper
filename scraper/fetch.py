@@ -122,7 +122,8 @@ NOISE_NAME_WORDS = {
 # Distress stacking — points per source type
 DISTRESS_SOURCE_POINTS = {
     "foreclosure":30,"lis_pendens":30,"judgment":20,"lien":15,
-    "tax_delinquent":25,"vacant_building":30,"probate":20,"mechanic_lien":15,
+    "tax_delinquent":25,"vacant_building":30,"vacant_land":25,
+    "probate":20,"mechanic_lien":15,
 }
 STACK_BONUS = {2:15, 3:25, 4:40}
 
@@ -545,8 +546,74 @@ def normalize_address_key(address: str) -> str:
     return re.sub(r"\s+", " ", addr).strip()
 
 
-def build_distress_index(records: List[LeadRecord], vacant_addresses: List[str]) -> Dict[str, List[str]]:
+def scrape_tax_delinquent_parcels() -> set:
+    """
+    Scrape Summit County's tax certificate lien / delinquent tax list.
+    Returns a set of parcel IDs that have delinquent taxes.
+    We pull from the fiscal office delinquent tax search page and
+    also check the tax certificate liens page for parcel numbers.
+    """
+    delinquent_pids: set = set()
+    urls_to_try = [
+        "https://fiscaloffice.summitoh.net/index.php/tax-certificate-liens",
+        "https://fiscaloffice.summitoh.net/index.php/delinquent-tax-payment-plan",
+    ]
+    parcel_pattern = re.compile(r"\b(\d{7,10})\b")
+
+    for url in urls_to_try:
+        try:
+            resp = retry_request(url, timeout=30)
+            soup = BeautifulSoup(resp.text, "lxml")
+            text = soup.get_text(" ")
+            # Look for parcel IDs (7-10 digit numbers) in the page
+            for match in parcel_pattern.finditer(text):
+                pid = match.group(1).zfill(7)
+                delinquent_pids.add(pid)
+        except Exception as exc:
+            logging.warning("Could not scrape delinquent tax page %s: %s", url, exc)
+
+    # Also try to get the published delinquent list from CAMA page
+    try:
+        resp = retry_request(CAMA_PAGE_URL, timeout=30)
+        soup = BeautifulSoup(resp.text, "lxml")
+        # Look for any delinquent/tax lien download links
+        for link in soup.select("a[href]"):
+            href = clean_text(link.get("href", "")).upper()
+            text = clean_text(link.get_text(" ")).upper()
+            if any(x in href + text for x in ["DELIN", "TAX CERT", "LIEN LIST", "TAXCERT"]):
+                full_url = requests.compat.urljoin(CAMA_PAGE_URL, link.get("href"))
+                try:
+                    resp2 = retry_request(full_url, timeout=30)
+                    content = resp2.text
+                    for match in parcel_pattern.finditer(content):
+                        delinquent_pids.add(match.group(1).zfill(7))
+                except Exception:
+                    pass
+    except Exception as exc:
+        logging.warning("Could not check CAMA page for delinquent links: %s", exc)
+
+    logging.info("Found %s potentially delinquent parcel IDs", len(delinquent_pids))
+    save_debug_json("delinquent_parcel_ids.json", list(delinquent_pids)[:200])
+    return delinquent_pids
+
+
+def build_distress_index(
+    records: List[LeadRecord],
+    vacant_addresses: List[str],
+    vacant_land_pids: set,
+    delinquent_pids: set,
+) -> Dict[str, List[str]]:
+    """
+    Build address -> distress sources index.
+    Sources:
+      - Court filings (foreclosure, judgment, lien, etc.)
+      - Akron vacant building board addresses
+      - Vacant land parcel cross-reference (parcel ID match)
+      - Tax delinquent parcel list
+    """
     index: Dict[str, List[str]] = defaultdict(list)
+
+    # 1. Index court filing records by address
     for record in records:
         if not record.prop_address: continue
         key = normalize_address_key(record.prop_address)
@@ -554,25 +621,96 @@ def build_distress_index(records: List[LeadRecord], vacant_addresses: List[str])
         source = classify_distress_source(record.doc_type)
         if source and source not in index[key]:
             index[key].append(source)
+
+        # 2. Cross-reference: if this lead's parcel is on the vacant land list
+        #    that means a court filing hit a VACANT LAND parcel = hot stack
+        if record.luc in VACANT_LAND_LUCS:
+            if "vacant_land" not in index[key]:
+                index[key].append("vacant_land")
+
+        # 3. Cross-reference: tax delinquent parcel list
+        # We match by parcel_id stored on the record after enrichment
+        # (parcel_id comes from match — stored as match_method context)
+        # We use prop_zip + address combo since we don't store parcel_id on LeadRecord directly
+
+    # 4. Index vacant building board addresses
     for addr in vacant_addresses:
         key = normalize_address_key(addr)
         if key and "vacant_building" not in index[key]:
             index[key].append("vacant_building")
+
     return dict(index)
 
 
-def apply_distress_stacking(records: List[LeadRecord], distress_index: Dict[str, List[str]]) -> List[LeadRecord]:
+def build_delinquent_address_index(
+    parcel_rows: List[dict],
+    mail_by_pid: Dict[str, dict],
+    delinquent_pids: set,
+) -> Dict[str, bool]:
+    """
+    Build a lookup of normalized address -> is_delinquent.
+    We join delinquent parcel IDs back to their addresses using parcel data.
+    """
+    delinquent_addresses: Dict[str, bool] = {}
+    if not delinquent_pids:
+        return delinquent_addresses
+
+    for row in parcel_rows:
+        pid = get_pid(row)
+        if not pid:
+            continue
+        # Check both raw pid and zero-padded version
+        if pid not in delinquent_pids and pid.zfill(7) not in delinquent_pids:
+            continue
+        addr = build_prop_address_from_row(row)
+        if addr:
+            key = normalize_address_key(addr)
+            if key:
+                delinquent_addresses[key] = True
+
+    logging.info("Mapped %s delinquent addresses from parcel data", len(delinquent_addresses))
+    return delinquent_addresses
+
+
+def apply_distress_stacking(
+    records: List[LeadRecord],
+    distress_index: Dict[str, List[str]],
+    delinquent_addresses: Dict[str, bool],
+) -> List[LeadRecord]:
+    """
+    Apply distress stack scores. Also cross-references tax delinquent lookup.
+    A property is Hot Stack if it has 2+ distress sources — e.g.:
+      - Foreclosure + Judgment lien
+      - Foreclosure + Vacant land
+      - Judgment + Tax delinquent
+      - Any filing + vacant building registry
+    """
     for record in records:
-        if not record.prop_address: continue
+        if not record.prop_address:
+            continue
         key = normalize_address_key(record.prop_address)
-        sources = distress_index.get(key, [])
+        sources = list(distress_index.get(key, []))
+
+        # Check tax delinquent cross-reference
+        if delinquent_addresses.get(key):
+            if "tax_delinquent" not in sources:
+                sources.append("tax_delinquent")
+                if "Tax delinquent" not in record.flags:
+                    record.flags.append("Tax delinquent")
+
         record.distress_sources = list(set(sources))
+
+        # Apply flags for each source
         for source in record.distress_sources:
-            if source == "tax_delinquent" and "Tax delinquent" not in record.flags:
-                record.flags.append("Tax delinquent")
             if source == "vacant_building" and "Vacant building" not in record.flags:
                 record.flags.append("Vacant building")
+            if source == "vacant_land" and "Vacant land parcel" not in record.flags:
+                record.flags.append("Vacant land parcel")
+            if source == "tax_delinquent" and "Tax delinquent" not in record.flags:
+                record.flags.append("Tax delinquent")
+
         record.score = score_record(record)
+
     return records
 
 
@@ -1433,23 +1571,41 @@ async def main() -> None:
     # 3. Scrape Akron vacant building registry
     vacant_addresses = scrape_vacant_building_addresses()
 
-    # 4. Enrich with parcel data
+    # 4. Scrape tax delinquent parcel list
+    delinquent_pids = scrape_tax_delinquent_parcels()
+
+    # 5. Enrich with parcel data
     all_records = clerk_records + probate_records
     all_records, report = enrich_with_parcel_data(all_records, owner_index, last_name_index, first_last_index)
 
-    # 5. Apply distress stacking — the hot stack system
-    distress_index = build_distress_index(all_records, vacant_addresses)
-    all_records = apply_distress_stacking(all_records, distress_index)
+    # 6. Build vacant land parcel ID set for cross-reference
+    vacant_land_pids = set(
+        get_pid(row) for row in parcel_rows
+        if clean_text(row.get("LUC")) in VACANT_LAND_LUCS and get_pid(row)
+    )
+    logging.info("Vacant land parcel IDs for cross-reference: %s", len(vacant_land_pids))
 
-    # 6. Dedupe and sort: hot stack first, then distress count, then score
+    # 7. Build delinquent address lookup
+    delinquent_addresses = build_delinquent_address_index(parcel_rows, mail_by_pid, delinquent_pids)
+
+    # 8. Apply distress stacking — cross-references court filings, vacant land, tax delinquent
+    distress_index = build_distress_index(all_records, vacant_addresses, vacant_land_pids, delinquent_pids)
+    all_records = apply_distress_stacking(all_records, distress_index, delinquent_addresses)
+
+    # 9. Build tax delinquent records list for dashboard tab
+    #    Any record flagged as tax delinquent goes into the tab
+    tax_delinquent_records = [r for r in all_records if "Tax delinquent" in r.flags]
+    logging.info("Tax delinquent leads: %s", len(tax_delinquent_records))
+
+    # 10. Dedupe and sort: hot stack first, then distress count, then score
     all_records = dedupe_records(all_records)
     all_records.sort(key=lambda r: (r.hot_stack, r.distress_count, r.score, r.filed), reverse=True)
 
-    # 7. Build vacant land list
+    # 11. Build vacant land list
     vacant_land = build_vacant_land_list(parcel_rows, mail_by_pid)
     vacant_land.sort(key=lambda r: r.score, reverse=True)
 
-    # 8. Write all outputs
+    # 12. Write all outputs
     write_json_outputs(all_records, extra_json_path=Path(args.out_json))
     write_csv(all_records, DEFAULT_OUTPUT_CSV_PATH)
     if Path(args.out_csv) != DEFAULT_OUTPUT_CSV_PATH:
@@ -1459,12 +1615,13 @@ async def main() -> None:
     write_hot_stack_json(all_records)
 
     hot_count = sum(1 for r in all_records if r.hot_stack)
+    tax_count = sum(1 for r in all_records if "Tax delinquent" in r.flags)
     logging.info(
-        "Finished. Total: %s | With prop address: %s | With mail address: %s | 🔥 Hot Stack: %s | Vacant lots: %s",
+        "Finished. Total: %s | Prop address: %s | Mail address: %s | 🔥 Hot Stack: %s | 💰 Tax Delinquent: %s | Vacant lots: %s",
         len(all_records),
         sum(1 for r in all_records if r.prop_address),
         sum(1 for r in all_records if r.mail_address),
-        hot_count, len(vacant_land),
+        hot_count, tax_count, len(vacant_land),
     )
 
 
