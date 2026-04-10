@@ -1,14 +1,14 @@
 {
-  "matched": 20,
-  "unmatched": 42,
-  "with_address": 20,
-  "with_mail_address": 20,
+  "matched": 19,
+  "unmatched": 41,
+  "with_address": 19,
+  "with_mail_address": 19,
   "match_methods": {
     "exact_name_variant": 16,
     "unmatched": 29,
-    "no_property_match": 13,
+    "no_property_match": 12,
     "last_name_unique_fallback": 2,
-    "last_name_initial_fallback": 2
+    "last_name_initial_fallback": 1
   },
   "sample_unmatched": [
     {
@@ -160,11 +160,7 @@
     {
       "doc_num": "CAMPBELL 04",
       "owner": "A'Nyah Lanee Campbell"
-    },
-    {
-      "doc_num": "SCOTT 04",
-      "owner": "Dallas L Scott"
     }
   ],
-  "generated_at": "2026-04-10T14:49:43.158288+00:00"
+  "generated_at": "2026-04-10T15:15:03.358548+00:00"
 }

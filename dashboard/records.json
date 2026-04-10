@@ -1,15 +1,55 @@
 {
-  "fetched_at": "2026-04-10T14:49:43.148710+00:00",
+  "fetched_at": "2026-04-10T15:15:03.348345+00:00",
   "source": "Akron / Summit County, Ohio",
   "date_range": {
     "from": "2026-01-10",
     "to": "2026-04-10"
   },
-  "total": 62,
-  "with_address": 20,
-  "with_mail_address": 20,
-  "hot_stack_count": 0,
+  "total": 60,
+  "with_address": 19,
+  "with_mail_address": 19,
+  "hot_stack_count": 1,
   "records": [
+    {
+      "doc_num": "BOUGAMRA 04",
+      "doc_type": "JUD",
+      "filed": "2026-04-09",
+      "cat": "JUD",
+      "cat_label": "Judgment",
+      "owner": "Erika D Bougamra",
+      "grantee": "Td Bank Usa, N.A.",
+      "amount": null,
+      "legal": "TD BANK USA, N.A. -VS- ERIKA D BOUGAMRA",
+      "prop_address": "767 WORK DR",
+      "prop_city": "AKRON",
+      "prop_state": "OH",
+      "prop_zip": "44320",
+      "mail_address": "763 WORK DR",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44320",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Judgment lien",
+        "New this week",
+        "Vacant land",
+        "Vacant land parcel",
+        "\ud83d\udd25 Hot Stack"
+      ],
+      "score": 70,
+      "match_method": "exact_name_variant",
+      "match_score": 1.0,
+      "with_address": 1,
+      "distress_sources": [
+        "vacant_land",
+        "judgment"
+      ],
+      "distress_count": 2,
+      "hot_stack": true,
+      "luc": "500",
+      "acres": "",
+      "is_vacant_land": true
+    },
     {
       "doc_num": "BYE 04",
       "doc_type": "NOFC",
@@ -189,43 +229,6 @@
       "luc": "510",
       "acres": "1.4000",
       "is_vacant_land": false
-    },
-    {
-      "doc_num": "BOUGAMRA 04",
-      "doc_type": "JUD",
-      "filed": "2026-04-09",
-      "cat": "JUD",
-      "cat_label": "Judgment",
-      "owner": "Erika D Bougamra",
-      "grantee": "Td Bank Usa, N.A.",
-      "amount": null,
-      "legal": "TD BANK USA, N.A. -VS- ERIKA D BOUGAMRA",
-      "prop_address": "767 WORK DR",
-      "prop_city": "AKRON",
-      "prop_state": "OH",
-      "prop_zip": "44320",
-      "mail_address": "763 WORK DR",
-      "mail_city": "Akron",
-      "mail_state": "OH",
-      "mail_zip": "44320",
-      "clerk_url": "https://newcivilfilings.summitoh.net/",
-      "flags": [
-        "Judgment lien",
-        "New this week",
-        "Vacant land"
-      ],
-      "score": 55,
-      "match_method": "exact_name_variant",
-      "match_score": 1.0,
-      "with_address": 1,
-      "distress_sources": [
-        "judgment"
-      ],
-      "distress_count": 1,
-      "hot_stack": false,
-      "luc": "500",
-      "acres": "",
-      "is_vacant_land": true
     },
     {
       "doc_num": "DOZIER 04",
@@ -729,42 +732,6 @@
       "hot_stack": false,
       "luc": "510",
       "acres": ".1500",
-      "is_vacant_land": false
-    },
-    {
-      "doc_num": "BELL 04",
-      "doc_type": "JUD",
-      "filed": "2026-04-08",
-      "cat": "JUD",
-      "cat_label": "Judgment",
-      "owner": "Marjorie E Bell",
-      "grantee": "Seven Seventeen Credit Union Inc",
-      "amount": null,
-      "legal": "SEVEN SEVENTEEN CREDIT UNION INC -VS- MARJORIE E BELL",
-      "prop_address": "3114 REIMER RD",
-      "prop_city": "BARBERTON",
-      "prop_state": "OH",
-      "prop_zip": "44203",
-      "mail_address": "3114 REIMER RD",
-      "mail_city": "Barberton",
-      "mail_state": "OH",
-      "mail_zip": "44203",
-      "clerk_url": "https://newcivilfilings.summitoh.net/",
-      "flags": [
-        "Judgment lien",
-        "New this week"
-      ],
-      "score": 55,
-      "match_method": "last_name_initial_fallback",
-      "match_score": 0.84,
-      "with_address": 1,
-      "distress_sources": [
-        "judgment"
-      ],
-      "distress_count": 1,
-      "hot_stack": false,
-      "luc": "510",
-      "acres": "",
       "is_vacant_land": false
     },
     {
@@ -2209,43 +2176,6 @@
       ],
       "score": 50,
       "match_method": "unmatched",
-      "match_score": 0.0,
-      "with_address": 0,
-      "distress_sources": [
-        "judgment"
-      ],
-      "distress_count": 1,
-      "hot_stack": false,
-      "luc": "",
-      "acres": "",
-      "is_vacant_land": false
-    },
-    {
-      "doc_num": "SCOTT 04",
-      "doc_type": "JUD",
-      "filed": "2026-04-08",
-      "cat": "JUD",
-      "cat_label": "Judgment",
-      "owner": "Dallas L Scott",
-      "grantee": "Seven Seventeen Credit Union Inc",
-      "amount": null,
-      "legal": "SEVEN SEVENTEEN CREDIT UNION INC -VS- DALLAS L SCOTT",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_state": "OH",
-      "prop_zip": "",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "",
-      "mail_zip": "",
-      "clerk_url": "https://newcivilfilings.summitoh.net/",
-      "flags": [
-        "Judgment lien",
-        "New this week",
-        "No property match"
-      ],
-      "score": 50,
-      "match_method": "no_property_match",
       "match_score": 0.0,
       "with_address": 0,
       "distress_sources": [
