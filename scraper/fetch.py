@@ -10,7 +10,7 @@ from collections import defaultdict
 from dataclasses import dataclass, asdict, field
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Set
 
 import requests
 from bs4 import BeautifulSoup
@@ -67,7 +67,8 @@ LEAD_TYPE_MAP = {
 }
 
 LIKELY_OWNER_KEYS = [
-    "OWNER1", "OWNER2", "OWNER", "OWN1", "OWNER_NAME", "OWNERNAME", "OWNERNM", "NAME", "OWNNAM"
+    "OWNER1", "OWNER2", "OWNER", "OWN1", "OWNER_NAME", "OWNERNAME", "OWNERNM", "NAME", "OWNNAM",
+    "OWNER 1", "OWNER 2", "TAXPAYER", "TAXPAYER_NAME", "MAILNAME", "MAIL_NAME", "NAME1", "NAME2"
 ]
 LIKELY_PROP_ADDR_KEYS = [
     "SITE_ADDR", "SITEADDR", "PROPERTY_ADDRESS", "PROPADDR", "ADDRESS", "LOCADDR", "SADDR",
@@ -113,7 +114,7 @@ STATE_CODES = {
 CORP_WORDS = {
     "LLC", "INC", "CORP", "CO", "COMPANY", "TRUST", "BANK", "ASSOCIATION", "NATIONAL",
     "LTD", "LP", "PLC", "HOLDINGS", "FUNDING", "VENTURES", "RESTORATION", "SCHOOLS",
-    "UNION", "MORTGAGE", "RECOVERY", "ACADEMY", "BOARD"
+    "UNION", "MORTGAGE", "RECOVERY", "BOARD", "SERVICING"
 }
 NOISE_NAME_WORDS = {
     "AKA", "ET", "AL", "UNKNOWN", "HEIRS", "SPOUSE", "JOHN", "JANE", "DOE", "ADMINISTRATOR",
@@ -286,8 +287,8 @@ def last_names_compatible(a: str, b: str) -> bool:
 
 
 def build_owner_name(row: dict) -> str:
-    owner1 = clean_text(row.get("OWNER1"))
-    owner2 = clean_text(row.get("OWNER2"))
+    owner1 = clean_text(row.get("OWNER1") or row.get("OWNER 1"))
+    owner2 = clean_text(row.get("OWNER2") or row.get("OWNER 2"))
     if owner1 and owner2:
         combined = f"{owner1} {owner2}".strip()
         return re.sub(r"\s+", " ", combined)
@@ -684,9 +685,19 @@ def parse_args() -> argparse.Namespace:
 
 
 def normalize_candidate_record(record: dict) -> dict:
+    aliases = record.get("owner_aliases") or []
+    clean_aliases = []
+    seen = set()
+    for alias in aliases:
+        a = clean_text(alias)
+        if a and a not in seen:
+            seen.add(a)
+            clean_aliases.append(a)
+
     return {
         "parcel_id": clean_text(record.get("parcel_id")),
         "owner": clean_text(record.get("owner")),
+        "owner_aliases": clean_aliases,
         "prop_address": clean_text(record.get("prop_address")),
         "prop_city": clean_text(record.get("prop_city")),
         "prop_zip": clean_text(record.get("prop_zip")),
@@ -703,6 +714,51 @@ def add_candidate(index: Dict[str, List[dict]], key: str, record: dict) -> None:
     if not k:
         return
     index[k].append(record)
+
+
+def add_owner_alias(record: dict, owner_name: str) -> None:
+    owner_name = clean_text(owner_name)
+    if not owner_name:
+        return
+    record.setdefault("owner_aliases", [])
+    if owner_name not in record["owner_aliases"]:
+        record["owner_aliases"].append(owner_name)
+    if not clean_text(record.get("owner")):
+        record["owner"] = owner_name
+
+
+def extract_owner_aliases_from_row(row: dict) -> List[str]:
+    aliases: List[str] = []
+
+    combined = build_owner_name(row)
+    if combined:
+        aliases.append(combined)
+
+    for key in LIKELY_OWNER_KEYS:
+        val = safe_pick(row, [key])
+        if val:
+            aliases.append(val)
+
+    upper_map = {str(k).upper(): k for k in row.keys()}
+    for upper_key, real_key in upper_map.items():
+        if "OWNER" in upper_key or "NAME" in upper_key or "TAXPAYER" in upper_key:
+            val = clean_text(row.get(real_key))
+            if val and len(val) >= 4:
+                aliases.append(val)
+
+    deduped: List[str] = []
+    seen = set()
+    for alias in aliases:
+        alias = clean_text(alias)
+        if not alias:
+            continue
+        if alias in BAD_EXACT_OWNERS:
+            continue
+        if alias not in seen:
+            seen.add(alias)
+            deduped.append(alias)
+
+    return deduped
 
 
 def build_parcel_indexes() -> Tuple[Dict[str, List[dict]], Dict[str, List[dict]], Dict[str, List[dict]]]:
@@ -744,7 +800,7 @@ def build_parcel_indexes() -> Tuple[Dict[str, List[dict]], Dict[str, List[dict]]
         pid = get_pid(row)
         if not pid:
             continue
-        parcel_by_id.setdefault(pid, {})
+        parcel_by_id.setdefault(pid, {"parcel_id": pid, "owner_aliases": []})
         existing = parcel_by_id[pid]
         existing.update({
             "parcel_id": pid,
@@ -752,22 +808,23 @@ def build_parcel_indexes() -> Tuple[Dict[str, List[dict]], Dict[str, List[dict]]
             "prop_city": clean_text(existing.get("prop_city")) or build_prop_city_from_row(row),
             "prop_zip": clean_text(existing.get("prop_zip")) or build_prop_zip_from_row(row),
         })
+        for alias in extract_owner_aliases_from_row(row):
+            add_owner_alias(existing, alias)
 
     for row in own_rows:
         pid = get_pid(row)
         if not pid:
             continue
-        parcel_by_id.setdefault(pid, {})
-        owner_name = build_owner_name(row)
+        parcel_by_id.setdefault(pid, {"parcel_id": pid, "owner_aliases": []})
         existing = parcel_by_id[pid]
-        if owner_name:
-            existing["owner"] = owner_name
+        for alias in extract_owner_aliases_from_row(row):
+            add_owner_alias(existing, alias)
 
     for row in mail_rows:
         pid = get_pid(row)
         if not pid:
             continue
-        parcel_by_id.setdefault(pid, {})
+        parcel_by_id.setdefault(pid, {"parcel_id": pid, "owner_aliases": []})
         existing = parcel_by_id[pid]
         existing.update({
             "parcel_id": pid,
@@ -776,14 +833,18 @@ def build_parcel_indexes() -> Tuple[Dict[str, List[dict]], Dict[str, List[dict]]
             "mail_state": normalize_state(clean_text(existing.get("mail_state")) or safe_pick(row, LIKELY_MAIL_STATE_KEYS)),
             "mail_zip": clean_text(existing.get("mail_zip")) or build_mail_zip(row),
         })
+        for alias in extract_owner_aliases_from_row(row):
+            add_owner_alias(existing, alias)
 
     for row in legal_rows:
         pid = get_pid(row)
         if not pid:
             continue
-        parcel_by_id.setdefault(pid, {})
+        parcel_by_id.setdefault(pid, {"parcel_id": pid, "owner_aliases": []})
         existing = parcel_by_id[pid]
         existing["legal"] = clean_text(existing.get("legal")) or safe_pick(row, LIKELY_LEGAL_KEYS)
+        for alias in extract_owner_aliases_from_row(row):
+            add_owner_alias(existing, alias)
 
     owner_index: Dict[str, List[dict]] = defaultdict(list)
     last_name_index: Dict[str, List[dict]] = defaultdict(list)
@@ -796,50 +857,54 @@ def build_parcel_indexes() -> Tuple[Dict[str, List[dict]], Dict[str, List[dict]]
 
     for raw_record in parcel_by_id.values():
         record = normalize_candidate_record(raw_record)
-        owner = clean_text(record.get("owner"))
-        if not owner:
+        all_aliases = list(record.get("owner_aliases") or [])
+        if clean_text(record.get("owner")) and clean_text(record.get("owner")) not in all_aliases:
+            all_aliases.append(clean_text(record.get("owner")))
+
+        if not all_aliases:
             continue
 
         normalized_records.append(record)
-        owner_is_corp = likely_corporate_name(owner)
 
-        chunk_names = split_owner_chunks(owner)
-        if not chunk_names:
-            chunk_names = [owner]
+        for alias_name in all_aliases:
+            owner_is_corp = likely_corporate_name(alias_name)
+            chunk_names = split_owner_chunks(alias_name)
+            if not chunk_names:
+                chunk_names = [alias_name]
 
-        for chunk in chunk_names:
-            chunk_variants = name_variants(chunk)
-            if not chunk_variants:
-                chunk_variants = [normalize_person_name(chunk)]
+            for chunk in chunk_names:
+                chunk_variants = name_variants(chunk)
+                if not chunk_variants:
+                    chunk_variants = [normalize_person_name(chunk)]
 
-            for variant in chunk_variants:
-                toks = tokens_from_name(variant)
-                if not owner_is_corp and len(toks) < 2:
-                    continue
-                pid = record.get("parcel_id") or ""
-                if pid and pid in seen_pid_for_owner_key[variant]:
-                    continue
-                if pid:
-                    seen_pid_for_owner_key[variant].add(pid)
-                add_candidate(owner_index, variant, record)
-
-            last_name = get_last_name(chunk)
-            first_name = get_first_name(chunk)
-
-            if last_name:
-                pid = record.get("parcel_id") or ""
-                if not pid or pid not in seen_pid_for_last[last_name]:
+                for variant in chunk_variants:
+                    toks = tokens_from_name(variant)
+                    if not owner_is_corp and len(toks) < 2:
+                        continue
+                    pid = record.get("parcel_id") or ""
+                    if pid and pid in seen_pid_for_owner_key[variant]:
+                        continue
                     if pid:
-                        seen_pid_for_last[last_name].add(pid)
-                    last_name_index[last_name].append(record)
+                        seen_pid_for_owner_key[variant].add(pid)
+                    add_candidate(owner_index, variant, record)
 
-            if first_name and last_name:
-                fl_key = f"{first_name} {last_name}"
-                pid = record.get("parcel_id") or ""
-                if not pid or pid not in seen_pid_for_first_last[fl_key]:
-                    if pid:
-                        seen_pid_for_first_last[fl_key].add(pid)
-                    first_last_index[fl_key].append(record)
+                last_name = get_last_name(chunk)
+                first_name = get_first_name(chunk)
+
+                if last_name:
+                    pid = record.get("parcel_id") or ""
+                    if not pid or pid not in seen_pid_for_last[last_name]:
+                        if pid:
+                            seen_pid_for_last[last_name].add(pid)
+                        last_name_index[last_name].append(record)
+
+                if first_name and last_name:
+                    fl_key = f"{first_name} {last_name}"
+                    pid = record.get("parcel_id") or ""
+                    if not pid or pid not in seen_pid_for_first_last[fl_key]:
+                        if pid:
+                            seen_pid_for_first_last[fl_key].add(pid)
+                        first_last_index[fl_key].append(record)
 
     save_debug_json("parcel_by_id_sample.json", normalized_records[:50])
     save_debug_json("owner_index_sample.json", {k: v[:3] for k, v in list(owner_index.items())[:300]})
@@ -847,44 +912,12 @@ def build_parcel_indexes() -> Tuple[Dict[str, List[dict]], Dict[str, List[dict]]
     save_debug_json("last_name_index_sample.json", {k: v[:3] for k, v in list(last_name_index.items())[:300]})
 
     target_last_names = [
-        "SIPE",
-        "DOZIER",
-        "DARDENNE",
-        "CSASZAR",
-        "COLLINS",
-        "COLE",
-        "BROWN",
-        "BOSTIC",
-        "BECTON",
-        "BARTON",
-        "ESOLA",
-        "GRANT",
-        "ASAMOAH",
-        "ARMSTEAD",
-        "ALI",
-        "KELLEY",
-        "HEYBURN",
-        "GRIFFITH",
-        "GREEN",
-        "FUSCO",
-        "FONTE",
-        "FENDER",
-        "ELEKES",
-        "FARREY",
-        "FORD",
-        "RICE",
-        "SCOTT",
-        "BELL",
-        "FERNANDEZ",
-        "KANDIKO",
-        "PFAHLER",
-        "PRIM",
-        "PEARSON",
-        "PARMER",
-        "NEFFENGER",
-        "MOUNTS",
-        "MOHLER",
-        "MCCALL",
+        "SIPE", "DARDENNE", "CSASZAR", "BOSTIC", "BECTON", "ESOLA", "ASAMOAH",
+        "ARMSTEAD", "FUSCO", "FENDER", "ELEKES", "FARREY", "HACHA", "PULLIN",
+        "PRIM", "PFAHLER", "PEARSON", "PARMER", "NEFFENGER", "MOUNTS", "MOHLER",
+        "MCCALL", "COLLINS", "COLE", "BROWN", "BARTON", "ALI", "KELLEY",
+        "GRIFFITH", "GREEN", "FORD", "HUGHES", "MILLER", "MCKINNEY",
+        "CAMPBELL", "RICE", "SCOTT", "FERNANDEZ", "KANDIKO", "CINALLI"
     ]
 
     target_last_name_hits = {}
@@ -893,6 +926,7 @@ def build_parcel_indexes() -> Tuple[Dict[str, List[dict]], Dict[str, List[dict]]
         target_last_name_hits[lname] = [
             {
                 "owner": clean_text(h.get("owner")),
+                "owner_aliases": h.get("owner_aliases", [])[:8],
                 "prop_address": clean_text(h.get("prop_address")),
                 "mail_address": clean_text(h.get("mail_address")),
                 "parcel_id": clean_text(h.get("parcel_id")),
@@ -1301,39 +1335,47 @@ def better_record(candidate: dict) -> int:
     return score
 
 
+def alias_list(candidate: dict) -> List[str]:
+    aliases = list(candidate.get("owner_aliases") or [])
+    owner = clean_text(candidate.get("owner"))
+    if owner and owner not in aliases:
+        aliases.append(owner)
+    return aliases
+
+
 def candidate_match_score(record_owner: str, candidate: dict) -> float:
-    cand_owner = clean_text(candidate.get("owner"))
-    if not cand_owner:
-        return 0.0
+    best = 0.0
+    for cand_owner in alias_list(candidate):
+        record_tokens = set(tokens_from_name(record_owner))
+        cand_tokens = set(tokens_from_name(cand_owner))
 
-    record_tokens = set(tokens_from_name(record_owner))
-    cand_tokens = set(tokens_from_name(cand_owner))
+        if not record_tokens or not cand_tokens:
+            continue
 
-    if not record_tokens or not cand_tokens:
-        return 0.0
+        overlap = len(record_tokens & cand_tokens)
+        score = overlap * 10.0
 
-    overlap = len(record_tokens & cand_tokens)
-    score = overlap * 10.0
+        record_first = get_first_name(record_owner)
+        cand_first = get_first_name(cand_owner)
+        record_last = get_last_name(record_owner)
+        cand_last = get_last_name(cand_owner)
 
-    record_first = get_first_name(record_owner)
-    cand_first = get_first_name(cand_owner)
-    record_last = get_last_name(record_owner)
-    cand_last = get_last_name(cand_owner)
+        if record_last and cand_last and last_names_compatible(record_last, cand_last):
+            score += 25.0
 
-    if record_last and cand_last and last_names_compatible(record_last, cand_last):
-        score += 25.0
+        if record_first and cand_first and record_first == cand_first:
+            score += 18.0
+        elif same_first_name_or_initial(record_owner, cand_owner):
+            score += 10.0
 
-    if record_first and cand_first and record_first == cand_first:
-        score += 18.0
-    elif same_first_name_or_initial(record_owner, cand_owner):
-        score += 10.0
+        if clean_text(candidate.get("prop_address")):
+            score += 8.0
+        if clean_text(candidate.get("mail_address")):
+            score += 4.0
 
-    if clean_text(candidate.get("prop_address")):
-        score += 8.0
-    if clean_text(candidate.get("mail_address")):
-        score += 4.0
-
-    return score
+        if score > best:
+            best = score
+    return best
 
 
 def choose_best_candidate(candidates: List[dict], record_owner: str = "") -> Optional[dict]:
@@ -1398,7 +1440,6 @@ def fuzzy_match_record(
     owner_variants = name_variants(owner)
     owner_is_corp = likely_corporate_name(owner)
 
-    # 1) exact owner variant -> best of all matching parcel candidates
     for variant in owner_variants:
         if not owner_is_corp and len(tokens_from_name(variant)) < 2:
             continue
@@ -1407,7 +1448,6 @@ def fuzzy_match_record(
         if best:
             return best, "exact_name_variant", 1.0
 
-    # 2) first+last fallback
     first_name = get_first_name(owner)
     last_name = get_last_name(owner)
     owner_tokens = set(tokens_from_name(owner))
@@ -1419,7 +1459,6 @@ def fuzzy_match_record(
         if best:
             return best, "first_last_fallback", 0.95
 
-    # 3) reverse-name lookup
     if first_name and last_name:
         reverse_key = f"{last_name} {first_name}"
         candidates = owner_index.get(reverse_key, [])
@@ -1427,24 +1466,32 @@ def fuzzy_match_record(
         if best:
             return best, "last_first_variant", 0.94
 
-    # 4) strict token overlap on shared last name
     if last_name and not owner_is_corp:
         candidates = last_name_index.get(last_name, [])
 
         strong_candidates = []
         for candidate in candidates:
-            candidate_owner = clean_text(candidate.get("owner"))
-            candidate_tokens = set(tokens_from_name(candidate_owner))
-            overlap = owner_tokens & candidate_tokens
+            best_alias = ""
+            best_alias_score = -1
+            for candidate_owner in alias_list(candidate):
+                candidate_tokens = set(tokens_from_name(candidate_owner))
+                overlap = owner_tokens & candidate_tokens
+                cand_last = get_last_name(candidate_owner)
+                if not last_names_compatible(last_name, cand_last):
+                    continue
+                alias_score = len(overlap)
+                if alias_score > best_alias_score:
+                    best_alias_score = alias_score
+                    best_alias = candidate_owner
 
-            cand_last = get_last_name(candidate_owner)
-            if not last_names_compatible(last_name, cand_last):
+            if not best_alias:
                 continue
 
+            overlap = owner_tokens & set(tokens_from_name(best_alias))
             if len(overlap) < 2:
                 continue
 
-            if not same_first_name_or_initial(owner, candidate_owner):
+            if not same_first_name_or_initial(owner, best_alias):
                 continue
 
             strong_candidates.append(candidate)
@@ -1453,15 +1500,19 @@ def fuzzy_match_record(
         if best:
             return best, "token_overlap_strict", 0.90
 
-        # 5) unique last-name fallback when exactly one parcel candidate has that last name
         unique_candidates = []
         seen = set()
         for candidate in candidates:
-            candidate_owner = clean_text(candidate.get("owner"))
-            cand_last = get_last_name(candidate_owner)
-            if not last_names_compatible(last_name, cand_last):
+            compatible = False
+            for candidate_owner in alias_list(candidate):
+                cand_last = get_last_name(candidate_owner)
+                if last_names_compatible(last_name, cand_last):
+                    compatible = True
+                    break
+            if not compatible:
                 continue
-            key = clean_text(candidate.get("parcel_id")) or f"{candidate_owner}|{clean_text(candidate.get('prop_address'))}"
+
+            key = clean_text(candidate.get("parcel_id")) or f"{clean_text(candidate.get('owner'))}|{clean_text(candidate.get('prop_address'))}"
             if key in seen:
                 continue
             seen.add(key)
@@ -1470,12 +1521,12 @@ def fuzzy_match_record(
         if len(unique_candidates) == 1:
             return unique_candidates[0], "last_name_unique_fallback", 0.82
 
-        # 6) best-scored last-name candidate with first-name initial agreement
         initial_candidates = []
         for candidate in unique_candidates:
-            candidate_owner = clean_text(candidate.get("owner"))
-            if same_first_name_or_initial(owner, candidate_owner):
-                initial_candidates.append(candidate)
+            for candidate_owner in alias_list(candidate):
+                if same_first_name_or_initial(owner, candidate_owner):
+                    initial_candidates.append(candidate)
+                    break
 
         best = unique_best_by_score(initial_candidates, owner, min_gap=8.0)
         if best:
