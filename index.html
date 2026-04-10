@@ -5,72 +5,163 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Akron Summit – Motivated Seller Intelligence</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0d1117;color:#e6edf3;min-height:100vh}
-.top-bar{background:#161b22;border-bottom:1px solid #30363d;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-.top-bar h1{font-size:13px;font-weight:500;color:#7d8590;letter-spacing:.08em;text-transform:uppercase}
-.top-bar .date{font-size:12px;color:#484f58}
-.tabs{background:#161b22;border-bottom:1px solid #30363d;padding:0 24px;display:flex;gap:0;overflow-x:auto}
-.tab{padding:12px 16px;font-size:13px;color:#7d8590;cursor:pointer;border-bottom:2px solid transparent;display:flex;gap:8px;align-items:center;white-space:nowrap}
-.tab.active{color:#e6edf3;border-bottom-color:#388bfd}
-.tab .badge{background:#21262d;color:#7d8590;border-radius:10px;padding:1px 8px;font-size:11px}
-.tab.active .badge{background:#388bfd22;color:#388bfd}
-.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;padding:20px 24px}
-.stat-card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;position:relative;overflow:hidden}
-.stat-card .label{font-size:11px;color:#7d8590;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
-.stat-card .value{font-size:26px;font-weight:600;color:#e6edf3}
-.stat-card .sub{font-size:11px;color:#484f58;margin-top:4px}
-.stat-card .accent{position:absolute;top:0;left:0;width:3px;height:100%}
-.controls{padding:0 24px 16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.controls input{background:#161b22;border:1px solid #30363d;border-radius:6px;padding:7px 12px;color:#e6edf3;font-size:13px;width:220px;outline:none}
-.controls input:focus{border-color:#388bfd}
-.controls select{background:#161b22;border:1px solid #30363d;border-radius:6px;padding:7px 12px;color:#e6edf3;font-size:13px;outline:none}
-.btn-csv{background:#388bfd;border:none;border-radius:6px;padding:7px 16px;color:#fff;font-size:13px;cursor:pointer;font-weight:500}
-.btn-csv:hover{background:#58a6ff}
-.btn-clear{background:transparent;border:1px solid #30363d;border-radius:6px;padding:7px 12px;color:#7d8590;font-size:13px;cursor:pointer}
-.record-count{margin-left:auto;font-size:12px;color:#7d8590}
-.table-wrap{padding:0 24px 24px;overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:13px;min-width:700px}
-th{color:#7d8590;font-weight:500;text-transform:uppercase;font-size:11px;letter-spacing:.06em;padding:8px 12px;text-align:left;border-bottom:1px solid #30363d}
-td{padding:10px 12px;border-bottom:1px solid #21262d;vertical-align:middle}
-tr:hover td{background:#161b22}
-.score-badge{display:inline-flex;width:32px;height:32px;border-radius:6px;align-items:center;justify-content:center;font-weight:600;font-size:13px}
-.score-high{background:#388bfd22;color:#388bfd}
-.score-med{background:#d2992244;color:#d29922}
-.score-low{background:#30363d;color:#7d8590}
-.flag-pill{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;margin:2px}
-.flag-lp{background:#da363322;color:#ff7b72}
-.flag-fc{background:#d2992222;color:#d29922}
-.flag-tax{background:#388bfd22;color:#388bfd}
-.flag-lien{background:#8957e522;color:#bc8cff}
-.flag-prob{background:#2ea04322;color:#56d364}
-.flag-llc{background:#30363d;color:#7d8590}
-.flag-new{background:#17803422;color:#56d364}
-.owner-name{font-weight:500;color:#e6edf3;font-size:13px}
-.prop-addr{font-size:11px;color:#7d8590;margin-top:2px}
-.no-data{text-align:center;padding:60px;color:#484f58}
+:root{
+  --bg:#0a0c10;--surface:#111318;--surface2:#181c24;--border:#1e2330;--border2:#252d3d;
+  --text:#dde4f0;--text2:#7a8599;--text3:#3d4a5c;
+  --blue:#3d8ef8;--blue-dim:#1a3660;
+  --orange:#f0932b;--orange-dim:#4a2e0e;
+  --red:#e05252;--red-dim:#3d1616;
+  --purple:#9b72f0;--purple-dim:#2d1f50;
+  --green:#3ecf78;--green-dim:#0e3320;
+  --gold:#e6b84a;--gold-dim:#3d2e0a;
+  --teal:#2dd4bf;--teal-dim:#0a3330;
+  --fire:#ff6b2b;--fire-dim:#3d1a08;
+}
+body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:13px}
+
+/* TOP BAR */
+.top-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:11px 24px;display:flex;justify-content:space-between;align-items:center;gap:8px;position:sticky;top:0;z-index:100}
+.top-bar-left{display:flex;align-items:center;gap:10px}
+.logo-icon{font-size:16px}
+.top-bar h1{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;color:var(--text2);letter-spacing:.12em;text-transform:uppercase}
+.top-bar .date{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3)}
+.live-dot{width:6px;height:6px;background:var(--green);border-radius:50%;display:inline-block;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* TABS */
+.tabs{background:var(--surface);border-bottom:1px solid var(--border);padding:0 24px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{padding:11px 16px;font-size:12px;font-weight:500;color:var(--text3);cursor:pointer;border-bottom:2px solid transparent;display:flex;gap:7px;align-items:center;white-space:nowrap;transition:color .15s;letter-spacing:.02em}
+.tab:hover{color:var(--text2)}
+.tab.active{color:var(--text);border-bottom-color:var(--blue)}
+.tab.tab-hot.active{border-bottom-color:var(--fire)}
+.tab.tab-vacant.active{border-bottom-color:var(--green)}
+.tab .badge{border-radius:3px;padding:1px 6px;font-size:10px;font-family:'IBM Plex Mono',monospace;font-weight:500}
+.tab .badge{background:var(--surface2);color:var(--text3)}
+.tab.active .badge{background:var(--blue-dim);color:var(--blue)}
+.tab.tab-hot.active .badge{background:var(--fire-dim);color:var(--fire)}
+.tab.tab-vacant.active .badge{background:var(--green-dim);color:var(--green)}
+
+/* STAT GRID */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1px;background:var(--border);border-bottom:1px solid var(--border)}
+.stat-card{background:var(--surface);padding:16px 20px;position:relative;overflow:hidden;cursor:default}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.stat-card.c-blue::before{background:var(--blue)}
+.stat-card.c-gold::before{background:var(--gold)}
+.stat-card.c-red::before{background:var(--red)}
+.stat-card.c-purple::before{background:var(--purple)}
+.stat-card.c-green::before{background:var(--green)}
+.stat-card.c-orange::before{background:var(--orange)}
+.stat-card.c-fire::before{background:var(--fire)}
+.stat-card.c-teal::before{background:var(--teal)}
+.stat-card .label{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;font-weight:500}
+.stat-card .value{font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--text);line-height:1}
+.stat-card .sub{font-size:10px;color:var(--text3);margin-top:5px}
+
+/* CONTROLS */
+.controls{padding:12px 24px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--surface);border-bottom:1px solid var(--border)}
+.controls input{background:var(--surface2);border:1px solid var(--border2);border-radius:4px;padding:6px 11px;color:var(--text);font-size:12px;width:220px;outline:none;font-family:'IBM Plex Sans',sans-serif}
+.controls input:focus{border-color:var(--blue)}
+.controls input::placeholder{color:var(--text3)}
+.controls select{background:var(--surface2);border:1px solid var(--border2);border-radius:4px;padding:6px 11px;color:var(--text);font-size:12px;outline:none;font-family:'IBM Plex Sans',sans-serif;cursor:pointer}
+.btn-csv{background:var(--blue);border:none;border-radius:4px;padding:6px 14px;color:#fff;font-size:12px;cursor:pointer;font-weight:600;font-family:'IBM Plex Sans',sans-serif;letter-spacing:.02em}
+.btn-csv:hover{filter:brightness(1.15)}
+.btn-clear{background:transparent;border:1px solid var(--border2);border-radius:4px;padding:6px 11px;color:var(--text3);font-size:12px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif}
+.btn-clear:hover{border-color:var(--text3);color:var(--text2)}
+.record-count{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text3)}
+
+/* TABLE */
+.table-wrap{padding:0 24px 40px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:760px}
+th{color:var(--text3);font-weight:500;text-transform:uppercase;font-size:9px;letter-spacing:.1em;padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:middle}
+tr:hover td{background:var(--surface)}
+.score-badge{display:inline-flex;width:34px;height:34px;border-radius:5px;align-items:center;justify-content:center;font-weight:700;font-size:13px;font-family:'IBM Plex Mono',monospace}
+.score-fire{background:var(--fire-dim);color:var(--fire);box-shadow:0 0 8px var(--fire-dim)}
+.score-high{background:var(--blue-dim);color:var(--blue)}
+.score-med{background:var(--gold-dim);color:var(--gold)}
+.score-low{background:var(--surface2);color:var(--text3)}
+.flag-pill{display:inline-block;padding:2px 7px;border-radius:3px;font-size:10px;font-weight:600;margin:2px 2px 2px 0;letter-spacing:.02em;font-family:'IBM Plex Mono',monospace}
+.flag-lp{background:var(--red-dim);color:var(--red)}
+.flag-fc{background:var(--orange-dim);color:var(--orange)}
+.flag-tax{background:var(--blue-dim);color:var(--blue)}
+.flag-lien{background:var(--purple-dim);color:var(--purple)}
+.flag-prob{background:var(--green-dim);color:var(--green)}
+.flag-llc{background:var(--surface2);color:var(--text3)}
+.flag-new{background:var(--green-dim);color:var(--green)}
+.flag-hot{background:var(--fire-dim);color:var(--fire)}
+.flag-vacant{background:var(--teal-dim);color:var(--teal)}
+.flag-stack{background:var(--gold-dim);color:var(--gold)}
+.flag-noprop{background:var(--surface2);color:var(--text3)}
+.owner-name{font-weight:600;color:var(--text);font-size:13px}
+.prop-addr{font-size:11px;color:var(--text2);margin-top:2px;font-family:'IBM Plex Mono',monospace}
+.no-match{font-size:11px;color:var(--text3);margin-top:2px;font-family:'IBM Plex Mono',monospace}
+.distress-bar{display:flex;gap:4px;margin-top:4px;flex-wrap:wrap}
+.ds-chip{font-size:9px;font-family:'IBM Plex Mono',monospace;padding:1px 5px;border-radius:2px;background:var(--surface2);color:var(--text3);text-transform:uppercase;letter-spacing:.05em}
+.no-data{text-align:center;padding:60px;color:var(--text3)}
+.loading-state{text-align:center;padding:60px;color:var(--text3)}
+.acres-badge{font-size:9px;font-family:'IBM Plex Mono',monospace;color:var(--text3);margin-left:6px}
+
+/* HOT STACK HEADER */
+.hot-header{background:linear-gradient(90deg,var(--fire-dim),transparent);border-bottom:1px solid var(--fire-dim);padding:10px 24px;display:none;align-items:center;gap:10px}
+.hot-header.visible{display:flex}
+.hot-header-text{font-size:12px;color:var(--fire);font-weight:600;letter-spacing:.04em}
+.hot-header-sub{font-size:11px;color:var(--text3)}
+
+/* VACANT LAND TABLE additions */
+.luc-badge{font-family:'IBM Plex Mono',monospace;font-size:10px;padding:1px 6px;border-radius:3px;background:var(--teal-dim);color:var(--teal)}
+.parcel-id{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3)}
+
+/* SECTION label */
+.tab-section{display:none}
+.tab-section.active{display:block}
 </style>
 </head>
 <body>
+
 <div class="top-bar">
-  <h1>⚡ Akron Summit County &bull; Motivated Seller Intelligence</h1>
+  <div class="top-bar-left">
+    <span class="logo-icon">⚡</span>
+    <h1>Akron Summit County &bull; Motivated Seller Intelligence</h1>
+    <span class="live-dot"></span>
+  </div>
   <span class="date" id="date-range">Loading...</span>
 </div>
+
 <div class="tabs">
   <div class="tab active" data-tab="all">All Leads <span class="badge" id="tab-all">0</span></div>
   <div class="tab" data-tab="clerk">Clerk Records <span class="badge" id="tab-clerk">0</span></div>
   <div class="tab" data-tab="tax">Tax Delinquent <span class="badge" id="tab-tax">0</span></div>
   <div class="tab" data-tab="lp">Lis Pendens <span class="badge" id="tab-lp">0</span></div>
+  <div class="tab tab-hot" data-tab="hotstack">🔥 Hot Stack <span class="badge" id="tab-hot">0</span></div>
+  <div class="tab tab-vacant" data-tab="vacant">🌱 Vacant Land <span class="badge" id="tab-vacant">0</span></div>
 </div>
-<div class="stat-grid">
-  <div class="stat-card"><div class="accent" style="background:#388bfd"></div><div class="label">Total Records</div><div class="value" id="stat-total">—</div><div class="sub">all lead types</div></div>
-  <div class="stat-card"><div class="accent" style="background:#d29922"></div><div class="label">Score ≥75</div><div class="value" id="stat-high">—</div><div class="sub">high priority</div></div>
-  <div class="stat-card"><div class="accent" style="background:#da3633"></div><div class="label">Lis Pendens</div><div class="value" id="stat-lp">—</div><div class="sub">pre-foreclosure</div></div>
-  <div class="stat-card"><div class="accent" style="background:#bc8cff"></div><div class="label">Liens / Judgments</div><div class="value" id="stat-liens">—</div><div class="sub">financial distress</div></div>
-  <div class="stat-card"><div class="accent" style="background:#56d364"></div><div class="label">With Address</div><div class="value" id="stat-addr">—</div><div class="sub">address matched</div></div>
-  <div class="stat-card"><div class="accent" style="background:#ff7b72"></div><div class="label">New This Week</div><div class="value" id="stat-new">—</div><div class="sub">filed recently</div></div>
+
+<!-- STAT GRID — leads view -->
+<div class="stat-grid" id="stats-leads">
+  <div class="stat-card c-blue"><div class="label">Total Records</div><div class="value" id="stat-total">—</div><div class="sub">all lead types</div></div>
+  <div class="stat-card c-fire"><div class="label">🔥 Hot Stack</div><div class="value" id="stat-hot">—</div><div class="sub">2+ distress sources</div></div>
+  <div class="stat-card c-red"><div class="label">Lis Pendens</div><div class="value" id="stat-lp">—</div><div class="sub">pre-foreclosure</div></div>
+  <div class="stat-card c-purple"><div class="label">Liens / Judgments</div><div class="value" id="stat-liens">—</div><div class="sub">financial distress</div></div>
+  <div class="stat-card c-green"><div class="label">With Address</div><div class="value" id="stat-addr">—</div><div class="sub">address matched</div></div>
+  <div class="stat-card c-teal"><div class="label">Mail Address</div><div class="value" id="stat-mail">—</div><div class="sub">mailing matched</div></div>
+  <div class="stat-card c-orange"><div class="label">New This Week</div><div class="value" id="stat-new">—</div><div class="sub">filed recently</div></div>
+  <div class="stat-card c-gold"><div class="label">Vacant Land</div><div class="value" id="stat-vacant">—</div><div class="sub">infill lots ≤ 2 acres</div></div>
 </div>
-<div class="controls">
+
+<!-- HOT STACK BANNER -->
+<div class="hot-header" id="hot-header">
+  <span style="font-size:20px">🔥</span>
+  <div>
+    <div class="hot-header-text">HOT STACK — HIGH PRIORITY</div>
+    <div class="hot-header-sub">These properties appear in 2+ distress sources. Drive these first.</div>
+  </div>
+</div>
+
+<!-- CONTROLS -->
+<div class="controls" id="controls-main">
   <input type="text" id="search" placeholder="Search owner, address, doc number...">
   <select id="filter-score">
     <option value="0">All Scores</option>
@@ -87,6 +178,8 @@ tr:hover td{background:#161b22}
     <option value="Mechanic lien">Mechanic Lien</option>
     <option value="Probate / estate">Probate</option>
     <option value="LLC / corp owner">LLC / Corp</option>
+    <option value="🔥 Hot Stack">🔥 Hot Stack</option>
+    <option value="Vacant land">Vacant Land</option>
     <option value="New this week">New This Week</option>
   </select>
   <select id="filter-addr">
@@ -98,7 +191,20 @@ tr:hover td{background:#161b22}
   <button class="btn-clear" id="btn-clear">✕ Clear</button>
   <span class="record-count" id="rec-count">0 records</span>
 </div>
-<div class="table-wrap">
+
+<!-- VACANT LAND CONTROLS -->
+<div class="controls" id="controls-vacant" style="display:none">
+  <input type="text" id="search-vacant" placeholder="Search address, owner, parcel ID...">
+  <select id="filter-vacant-city">
+    <option value="">All Cities</option>
+  </select>
+  <button class="btn-csv" id="btn-csv-vacant">↓ Export Vacant CSV</button>
+  <button class="btn-clear" id="btn-clear-vacant">✕ Clear</button>
+  <span class="record-count" id="rec-count-vacant">0 lots</span>
+</div>
+
+<!-- LEADS TABLE -->
+<div class="table-wrap" id="table-leads">
   <table>
     <thead>
       <tr>
@@ -116,120 +222,357 @@ tr:hover td{background:#161b22}
   </table>
   <div class="no-data" id="no-data" style="display:none">
     <div style="font-size:32px;margin-bottom:12px">📋</div>
-    <div style="color:#7d8590;font-size:14px">No records match your filters</div>
+    <div style="color:var(--text3);font-size:14px">No records match your filters</div>
   </div>
-  <div class="no-data" id="loading-state">
-    <div style="color:#7d8590;font-size:14px">Loading records...</div>
+  <div class="loading-state" id="loading-state">
+    <div style="color:var(--text3);font-size:14px">Loading records...</div>
   </div>
 </div>
+
+<!-- VACANT LAND TABLE -->
+<div class="table-wrap" id="table-vacant" style="display:none">
+  <table>
+    <thead>
+      <tr>
+        <th>Parcel ID</th>
+        <th>Property Address</th>
+        <th>Owner / Mail Address</th>
+        <th>LUC</th>
+        <th>Acres</th>
+        <th>City</th>
+        <th>ZIP</th>
+      </tr>
+    </thead>
+    <tbody id="tbody-vacant"></tbody>
+  </table>
+  <div class="no-data" id="no-data-vacant" style="display:none">
+    <div style="font-size:32px;margin-bottom:12px">🌱</div>
+    <div style="color:var(--text3);font-size:14px">No vacant lots match your filters</div>
+  </div>
+  <div class="loading-state" id="loading-vacant">
+    <div style="color:var(--text3);font-size:14px">Loading vacant land data...</div>
+  </div>
+</div>
+
 <script>
-var allRecords=[];var activeTab='all';
-function flagClass(f){
-  f=f.toLowerCase();
-  if(f.includes('lis')||f.includes('pendens'))return'flag-lp';
-  if(f.includes('foreclos'))return'flag-fc';
-  if(f.includes('tax'))return'flag-tax';
-  if(f.includes('lien')||f.includes('judgment'))return'flag-lien';
-  if(f.includes('probate'))return'flag-prob';
-  if(f.includes('llc')||f.includes('corp'))return'flag-llc';
-  if(f.includes('new'))return'flag-new';
-  return'flag-llc';
+var allRecords = [];
+var allVacant = [];
+var activeTab = 'all';
+
+function flagClass(f) {
+  f = (f || '').toLowerCase();
+  if (f.includes('hot stack') || f.includes('🔥')) return 'flag-hot';
+  if (f.includes('lis') || f.includes('pendens')) return 'flag-lp';
+  if (f.includes('foreclos') || f.includes('pre-fore')) return 'flag-fc';
+  if (f.includes('tax')) return 'flag-tax';
+  if (f.includes('lien') || f.includes('judgment')) return 'flag-lien';
+  if (f.includes('probate')) return 'flag-prob';
+  if (f.includes('llc') || f.includes('corp')) return 'flag-llc';
+  if (f.includes('new this')) return 'flag-new';
+  if (f.includes('vacant')) return 'flag-vacant';
+  if (f.includes('stack') || f.includes('distress')) return 'flag-stack';
+  if (f.includes('no property')) return 'flag-noprop';
+  return 'flag-llc';
 }
-function scoreClass(s){return s>=75?'score-high':s>=60?'score-med':'score-low';}
-function fmt(v){return v?'$'+parseFloat(v).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}):'—';}
-function render(records){
-  var tbody=document.getElementById('tbody');
-  var noData=document.getElementById('no-data');
-  document.getElementById('loading-state').style.display='none';
-  if(!records.length){tbody.innerHTML='';noData.style.display='block';return;}
-  noData.style.display='none';
-  tbody.innerHTML=records.map(function(r){
-    var flags=(r.flags||[]).map(function(f){return'<span class="flag-pill '+flagClass(f)+'">'+f+'</span>';}).join('');
-    var addr=r.prop_address?'<div class="prop-addr">'+r.prop_address+(r.prop_city?', '+r.prop_city:'')+'</div>':'<div class="prop-addr" style="color:#484f58">No address matched</div>';
-    var link=r.clerk_url?'<a href="'+r.clerk_url+'" target="_blank" style="color:#388bfd;font-size:12px;text-decoration:none">View ↗</a>':'—';
-    var amt=r.amount&&parseFloat(r.amount)>10000?'#d29922':'#e6edf3';
-    return'<tr><td><span class="score-badge '+scoreClass(r.score||0)+'">'+(r.score||0)+'</span></td><td><div class="owner-name">'+(r.owner||'Unknown Owner')+'</div>'+addr+'</td><td style="color:#7d8590;font-size:12px">'+(r.doc_type||r.cat_label||'—')+'</td><td style="color:#7d8590;font-size:12px;white-space:nowrap">'+(r.filed||'—')+'</td><td style="font-weight:500;color:'+amt+'">'+fmt(r.amount)+'</td><td style="font-size:11px;color:#484f58">'+(r.doc_num||'—')+'</td><td>'+(flags||'<span style="color:#484f58;font-size:11px">none</span>')+'</td><td>'+link+'</td></tr>';
+
+function scoreClass(s, hot) {
+  if (hot) return 'score-fire';
+  return s >= 75 ? 'score-high' : s >= 60 ? 'score-med' : 'score-low';
+}
+
+function fmt(v) {
+  return v ? '$' + parseFloat(v).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2}) : '—';
+}
+
+function dsLabel(s) {
+  var map = {
+    'foreclosure':'FORECL','lis_pendens':'LIS PEND','judgment':'JUDG',
+    'lien':'LIEN','mechanic_lien':'MECH','tax_delinquent':'TAX DELN',
+    'probate':'PROBATE','vacant_building':'VACANT BLD'
+  };
+  return map[s] || s.toUpperCase();
+}
+
+function renderLeads(records) {
+  var tbody = document.getElementById('tbody');
+  var noData = document.getElementById('no-data');
+  document.getElementById('loading-state').style.display = 'none';
+  if (!records.length) { tbody.innerHTML = ''; noData.style.display = 'block'; return; }
+  noData.style.display = 'none';
+
+  tbody.innerHTML = records.map(function(r) {
+    var flags = (r.flags || []).map(function(f) {
+      return '<span class="flag-pill ' + flagClass(f) + '">' + f + '</span>';
+    }).join('');
+
+    var addrLine = r.prop_address
+      ? '<div class="prop-addr">' + r.prop_address + (r.prop_city ? ', ' + r.prop_city : '') + '</div>'
+      : '<div class="no-match">No address matched</div>';
+
+    var distressSources = (r.distress_sources || []);
+    var dsBar = distressSources.length > 0
+      ? '<div class="distress-bar">' + distressSources.map(function(s){
+          return '<span class="ds-chip">' + dsLabel(s) + '</span>';
+        }).join('') + '</div>'
+      : '';
+
+    var link = r.clerk_url
+      ? '<a href="' + r.clerk_url + '" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;font-family:\'IBM Plex Mono\',monospace">View ↗</a>'
+      : '—';
+
+    var acresBit = r.acres ? '<span class="acres-badge">' + r.acres + ' ac</span>' : '';
+    var vacantBit = r.is_vacant_land ? '<span class="flag-pill flag-vacant" style="font-size:9px">VACANT LOT</span>' : '';
+
+    return '<tr>' +
+      '<td><span class="score-badge ' + scoreClass(r.score||0, r.hot_stack) + '">' + (r.score||0) + '</span></td>' +
+      '<td><div class="owner-name">' + (r.owner||'Unknown') + '</div>' + addrLine + dsBar + '</td>' +
+      '<td style="color:var(--text2);font-family:\'IBM Plex Mono\',monospace;font-size:11px">' + (r.doc_type||'—') + '</td>' +
+      '<td style="color:var(--text2);font-family:\'IBM Plex Mono\',monospace;font-size:11px;white-space:nowrap">' + (r.filed||'—') + '</td>' +
+      '<td style="font-weight:500;color:var(--text2);font-family:\'IBM Plex Mono\',monospace;font-size:11px">' + fmt(r.amount) + '</td>' +
+      '<td style="font-size:10px;color:var(--text3);font-family:\'IBM Plex Mono\',monospace">' + (r.doc_num||'—') + '</td>' +
+      '<td>' + (flags||'<span style="color:var(--text3);font-size:10px">—</span>') + acresBit + vacantBit + '</td>' +
+      '<td>' + link + '</td>' +
+    '</tr>';
   }).join('');
 }
-function getFiltered(){
-  var q=document.getElementById('search').value.toLowerCase();
-  var minScore=parseInt(document.getElementById('filter-score').value)||0;
-  var flagF=document.getElementById('filter-flag').value;
-  var addrF=document.getElementById('filter-addr').value;
-  return allRecords.filter(function(r){
-    if(activeTab==='tax'&&!(r.flags||[]).some(function(f){return f.toLowerCase().includes('tax');}))return false;
-    if(activeTab==='lp'&&!(r.flags||[]).some(function(f){return f.toLowerCase().includes('lis')||f.toLowerCase().includes('pendens');}))return false;
-    if(activeTab==='clerk'&&!r.doc_type)return false;
-    if((r.score||0)<minScore)return false;
-    if(flagF&&!(r.flags||[]).some(function(f){return f===flagF;}))return false;
-    if(addrF==='yes'&&!r.prop_address)return false;
-    if(addrF==='no'&&r.prop_address)return false;
-    if(q){var s=((r.owner||'')+' '+(r.prop_address||'')+' '+(r.doc_num||'')+' '+(r.doc_type||'')).toLowerCase();if(!s.includes(q))return false;}
+
+function renderVacant(records) {
+  var tbody = document.getElementById('tbody-vacant');
+  var noData = document.getElementById('no-data-vacant');
+  document.getElementById('loading-vacant').style.display = 'none';
+  if (!records.length) { tbody.innerHTML = ''; noData.style.display = 'block'; return; }
+  noData.style.display = 'none';
+
+  tbody.innerHTML = records.map(function(r) {
+    var acresDisplay = r.acres ? parseFloat(r.acres).toFixed(2) + ' ac' : '—';
+    var ownerLine = r.owner ? '<div class="owner-name" style="font-size:12px">' + r.owner + '</div>' : '';
+    var mailLine = r.mail_address
+      ? '<div class="prop-addr">' + r.mail_address + (r.mail_city ? ', ' + r.mail_city : '') + '</div>'
+      : '<div class="no-match">No mail address</div>';
+
+    return '<tr>' +
+      '<td><span class="parcel-id">' + (r.parcel_id||'—') + '</span></td>' +
+      '<td><div class="prop-addr" style="font-size:12px;color:var(--text)">' + (r.prop_address||'—') + '</div></td>' +
+      '<td>' + ownerLine + mailLine + '</td>' +
+      '<td><span class="luc-badge">' + (r.luc||'—') + '</span></td>' +
+      '<td style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;color:var(--text2)">' + acresDisplay + '</td>' +
+      '<td style="font-size:12px;color:var(--text2)">' + (r.prop_city||r.mail_city||'—') + '</td>' +
+      '<td style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;color:var(--text3)">' + (r.prop_zip||r.mail_zip||'—') + '</td>' +
+    '</tr>';
+  }).join('');
+}
+
+function getFiltered() {
+  var q = document.getElementById('search').value.toLowerCase();
+  var minScore = parseInt(document.getElementById('filter-score').value) || 0;
+  var flagF = document.getElementById('filter-flag').value;
+  var addrF = document.getElementById('filter-addr').value;
+
+  return allRecords.filter(function(r) {
+    if (activeTab === 'tax' && !(r.flags||[]).some(function(f){return f.toLowerCase().includes('tax');})) return false;
+    if (activeTab === 'lp' && !(r.flags||[]).some(function(f){return f.toLowerCase().includes('lis')||f.toLowerCase().includes('pendens');})) return false;
+    if (activeTab === 'clerk' && !r.doc_type) return false;
+    if (activeTab === 'hotstack' && !r.hot_stack) return false;
+    if ((r.score||0) < minScore) return false;
+    if (flagF && !(r.flags||[]).some(function(f){return f === flagF;})) return false;
+    if (addrF === 'yes' && !r.prop_address) return false;
+    if (addrF === 'no' && r.prop_address) return false;
+    if (q) {
+      var s = ((r.owner||'') + ' ' + (r.prop_address||'') + ' ' + (r.doc_num||'') + ' ' + (r.doc_type||'') + ' ' + (r.mail_address||'')).toLowerCase();
+      if (!s.includes(q)) return false;
+    }
     return true;
   });
 }
-function update(){
-  var recs=getFiltered();
-  document.getElementById('rec-count').textContent=recs.length.toLocaleString()+' records';
-  render(recs);
-}
-function setStats(records){
-  document.getElementById('stat-total').textContent=records.length.toLocaleString();
-  document.getElementById('stat-high').textContent=records.filter(function(r){return(r.score||0)>=75;}).length.toLocaleString();
-  document.getElementById('stat-lp').textContent=records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('lis');});}).length.toLocaleString();
-  document.getElementById('stat-liens').textContent=records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('lien')||f.toLowerCase().includes('judgment');});}).length.toLocaleString();
-  document.getElementById('stat-addr').textContent=records.filter(function(r){return r.prop_address;}).length.toLocaleString();
-  document.getElementById('stat-new').textContent=records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('new');});}).length.toLocaleString();
-  document.getElementById('tab-all').textContent=records.length.toLocaleString();
-  document.getElementById('tab-clerk').textContent=records.filter(function(r){return r.doc_type;}).length.toLocaleString();
-  document.getElementById('tab-tax').textContent=records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('tax');});}).length.toLocaleString();
-  document.getElementById('tab-lp').textContent=records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('lis');});}).length.toLocaleString();
-}
-function exportCSV(){
-  var recs=getFiltered();
-  var rows=[['First Name','Last Name','Mailing Address','Mailing City','Mailing State','Mailing Zip','Property Address','Property City','Property State','Property Zip','Lead Type','Document Type','Date Filed','Document Number','Amount/Debt Owed','Seller Score','Motivated Seller Flags','Source','Public Records URL']];
-  recs.forEach(function(r){
-    var parts=(r.owner||'').split(' ');
-    rows.push([parts[0]||'',parts.slice(1).join(' ')||'',r.mail_address||'',r.mail_city||'',r.mail_state||'',r.mail_zip||'',r.prop_address||'',r.prop_city||'',r.prop_state||'',r.prop_zip||'',r.cat_label||r.cat||'',r.doc_type||'',r.filed||'',r.doc_num||'',r.amount||'',r.score||0,(r.flags||[]).join('; '),r.source||'Summit County Clerk',r.clerk_url||'']);
+
+function getFilteredVacant() {
+  var q = document.getElementById('search-vacant').value.toLowerCase();
+  var cityF = document.getElementById('filter-vacant-city').value;
+
+  return allVacant.filter(function(r) {
+    if (cityF) {
+      var city = (r.prop_city || r.mail_city || '').toLowerCase();
+      if (!city.includes(cityF.toLowerCase())) return false;
+    }
+    if (q) {
+      var s = ((r.prop_address||'') + ' ' + (r.owner||'') + ' ' + (r.parcel_id||'') + ' ' + (r.mail_address||'')).toLowerCase();
+      if (!s.includes(q)) return false;
+    }
+    return true;
   });
-  var csv=rows.map(function(r){return r.map(function(v){return'"'+String(v).replace(/"/g,'""')+'"';}).join(',');}).join('\n');
-  var a=document.createElement('a');
-  a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv);
-  a.download='ghl_leads_akron.csv';
+}
+
+function update() {
+  if (activeTab === 'vacant') {
+    var vrecs = getFilteredVacant();
+    document.getElementById('rec-count-vacant').textContent = vrecs.length.toLocaleString() + ' lots';
+    renderVacant(vrecs);
+  } else {
+    var recs = getFiltered();
+    document.getElementById('rec-count').textContent = recs.length.toLocaleString() + ' records';
+    renderLeads(recs);
+  }
+}
+
+function setStats(records, vacantCount, hotCount) {
+  document.getElementById('stat-total').textContent = records.length.toLocaleString();
+  document.getElementById('stat-hot').textContent = hotCount.toLocaleString();
+  document.getElementById('stat-lp').textContent = records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('lis');});}).length.toLocaleString();
+  document.getElementById('stat-liens').textContent = records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('lien')||f.toLowerCase().includes('judgment');});}).length.toLocaleString();
+  document.getElementById('stat-addr').textContent = records.filter(function(r){return r.prop_address;}).length.toLocaleString();
+  document.getElementById('stat-mail').textContent = records.filter(function(r){return r.mail_address;}).length.toLocaleString();
+  document.getElementById('stat-new').textContent = records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('new this');});}).length.toLocaleString();
+  document.getElementById('stat-vacant').textContent = vacantCount.toLocaleString();
+
+  document.getElementById('tab-all').textContent = records.length.toLocaleString();
+  document.getElementById('tab-clerk').textContent = records.filter(function(r){return r.doc_type;}).length.toLocaleString();
+  document.getElementById('tab-tax').textContent = records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('tax');});}).length.toLocaleString();
+  document.getElementById('tab-lp').textContent = records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('lis');});}).length.toLocaleString();
+  document.getElementById('tab-hot').textContent = hotCount.toLocaleString();
+  document.getElementById('tab-vacant').textContent = vacantCount.toLocaleString();
+}
+
+function buildCityFilter(records) {
+  var cities = {};
+  records.forEach(function(r) {
+    var city = r.prop_city || r.mail_city;
+    if (city) cities[city] = true;
+  });
+  var sel = document.getElementById('filter-vacant-city');
+  Object.keys(cities).sort().forEach(function(city) {
+    var opt = document.createElement('option');
+    opt.value = city;
+    opt.textContent = city;
+    sel.appendChild(opt);
+  });
+}
+
+function exportCSV() {
+  var recs = getFiltered();
+  var rows = [['First Name','Last Name','Mailing Address','Mailing City','Mailing State','Mailing Zip',
+    'Property Address','Property City','Property State','Property Zip','Lead Type','Document Type',
+    'Date Filed','Document Number','Amount/Debt Owed','Seller Score','Motivated Seller Flags',
+    'Distress Sources','Distress Count','Hot Stack','Vacant Land','LUC Code','Acres','Source','Public Records URL']];
+  recs.forEach(function(r) {
+    var parts = (r.owner||'').split(' ');
+    rows.push([
+      parts[0]||'', parts.slice(1).join(' ')||'',
+      r.mail_address||'', r.mail_city||'', r.mail_state||'', r.mail_zip||'',
+      r.prop_address||'', r.prop_city||'', r.prop_state||'', r.prop_zip||'',
+      r.cat_label||r.cat||'', r.doc_type||'', r.filed||'', r.doc_num||'',
+      r.amount||'', r.score||0,
+      (r.flags||[]).join('; '),
+      (r.distress_sources||[]).join('; '),
+      r.distress_count||0,
+      r.hot_stack ? 'YES' : '',
+      r.is_vacant_land ? 'YES' : '',
+      r.luc||'', r.acres||'',
+      'Summit County Clerk', r.clerk_url||''
+    ]);
+  });
+  downloadCSV(rows, 'ghl_leads_akron.csv');
+}
+
+function exportVacantCSV() {
+  var recs = getFilteredVacant();
+  var rows = [['Parcel ID','Property Address','Property City','Property ZIP','Owner','Mailing Address','Mailing City','Mailing State','Mailing ZIP','LUC Code','Acres']];
+  recs.forEach(function(r) {
+    rows.push([r.parcel_id||'', r.prop_address||'', r.prop_city||'', r.prop_zip||'',
+      r.owner||'', r.mail_address||'', r.mail_city||'', r.mail_state||'', r.mail_zip||'',
+      r.luc||'', r.acres||'']);
+  });
+  downloadCSV(rows, 'vacant_land_akron.csv');
+}
+
+function downloadCSV(rows, filename) {
+  var csv = rows.map(function(r) {
+    return r.map(function(v) { return '"' + String(v).replace(/"/g,'""') + '"'; }).join(',');
+  }).join('\n');
+  var a = document.createElement('a');
+  a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+  a.download = filename;
   a.click();
 }
-document.querySelectorAll('.tab').forEach(function(t){
-  t.addEventListener('click',function(){
+
+function switchTab(tabName) {
+  activeTab = tabName;
+  var isVacant = tabName === 'vacant';
+  var isHot = tabName === 'hotstack';
+
+  // Show/hide appropriate UI sections
+  document.getElementById('controls-main').style.display = isVacant ? 'none' : 'flex';
+  document.getElementById('controls-vacant').style.display = isVacant ? 'flex' : 'none';
+  document.getElementById('table-leads').style.display = isVacant ? 'none' : 'block';
+  document.getElementById('table-vacant').style.display = isVacant ? 'block' : 'none';
+
+  // Hot stack banner
+  var hotHeader = document.getElementById('hot-header');
+  if (isHot) hotHeader.classList.add('visible');
+  else hotHeader.classList.remove('visible');
+
+  update();
+}
+
+// Tab click handlers
+document.querySelectorAll('.tab').forEach(function(t) {
+  t.addEventListener('click', function() {
     document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
     t.classList.add('active');
-    activeTab=t.dataset.tab;
-    update();
+    switchTab(t.dataset.tab);
   });
 });
-document.getElementById('search').addEventListener('input',update);
-document.getElementById('filter-score').addEventListener('change',update);
-document.getElementById('filter-flag').addEventListener('change',update);
-document.getElementById('filter-addr').addEventListener('change',update);
-document.getElementById('btn-clear').addEventListener('click',function(){
-  document.getElementById('search').value='';
-  document.getElementById('filter-score').value='0';
-  document.getElementById('filter-flag').value='';
-  document.getElementById('filter-addr').value='';
+
+document.getElementById('search').addEventListener('input', update);
+document.getElementById('filter-score').addEventListener('change', update);
+document.getElementById('filter-flag').addEventListener('change', update);
+document.getElementById('filter-addr').addEventListener('change', update);
+document.getElementById('search-vacant').addEventListener('input', update);
+document.getElementById('filter-vacant-city').addEventListener('change', update);
+document.getElementById('btn-csv').addEventListener('click', exportCSV);
+document.getElementById('btn-csv-vacant').addEventListener('click', exportVacantCSV);
+
+document.getElementById('btn-clear').addEventListener('click', function() {
+  document.getElementById('search').value = '';
+  document.getElementById('filter-score').value = '0';
+  document.getElementById('filter-flag').value = '';
+  document.getElementById('filter-addr').value = '';
   update();
 });
-document.getElementById('btn-csv').addEventListener('click',exportCSV);
+document.getElementById('btn-clear-vacant').addEventListener('click', function() {
+  document.getElementById('search-vacant').value = '';
+  document.getElementById('filter-vacant-city').value = '';
+  update();
+});
 
+// Load main records
 fetch('dashboard/records.json')
   .then(function(r){return r.json();})
-  .then(function(data){
-    allRecords=data.records||[];
-    var dr=data.date_range||{};
-    document.getElementById('date-range').textContent=(dr.from||'')+(dr.to?' → '+dr.to:'')+' · Updated '+(data.fetched_at?new Date(data.fetched_at).toLocaleDateString():'—');
-    setStats(allRecords);
-    update();
+  .then(function(data) {
+    allRecords = data.records || [];
+    var dr = data.date_range || {};
+    var hotCount = data.hot_stack_count || allRecords.filter(function(r){return r.hot_stack;}).length;
+    document.getElementById('date-range').textContent =
+      (dr.from||'') + (dr.to?' → '+dr.to:'') + ' · Updated ' + (data.fetched_at ? new Date(data.fetched_at).toLocaleDateString() : '—');
+
+    // Load vacant land
+    fetch('dashboard/vacant_land.json')
+      .then(function(r){return r.json();})
+      .then(function(vdata) {
+        allVacant = vdata.records || [];
+        buildCityFilter(allVacant);
+        setStats(allRecords, allVacant.length, hotCount);
+        update();
+      })
+      .catch(function() {
+        allVacant = [];
+        setStats(allRecords, 0, hotCount);
+        update();
+      });
   })
-  .catch(function(){
-    document.getElementById('loading-state').innerHTML='<div style="color:#da3633;font-size:14px">⚠ Could not load records.json</div><div style="margin-top:8px;font-size:12px;color:#484f58">Check that dashboard/records.json exists in your repo</div>';
+  .catch(function() {
+    document.getElementById('loading-state').innerHTML =
+      '<div style="color:var(--red);font-size:14px">⚠ Could not load records.json</div>' +
+      '<div style="margin-top:8px;font-size:12px;color:var(--text3)">Check that dashboard/records.json exists in your repo</div>';
   });
 </script>
 </body>
