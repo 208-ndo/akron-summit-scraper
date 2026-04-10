@@ -71,16 +71,27 @@ LEAD_TYPE_MAP = {
     "TAXDELINQ":"Tax Delinquent",
     "VACANT":   "Vacant Property",
     "VACLAND":  "Vacant Land",
+    "TAX":      "Tax Delinquent",
 }
 
 # Summit County LUC codes — Land Use Classification
 VACANT_LAND_LUCS = {"500", "501", "502", "503"}
+
+# Residential LUCs: single family, multi-family, condos, mobile homes
 RESIDENTIAL_LUCS = {
-    "510","511","512","513","514","515",
-    "520","521","522","523",
-    "530","531","532","533",
-    "540","550","560",
+    "510", "511", "512", "513", "514", "515",   # single family
+    "520", "521", "522", "523",                   # 2-3 family
+    "530", "531", "532", "533",                   # 4+ family / apartment
+    "540",                                         # condo
+    "550",                                         # mobile home
+    "560",                                         # rural residential
 }
+
+# Vacant home LUCs — these are structures marked as vacant/abandoned in CAMA
+VACANT_HOME_LUCS = {
+    "510", "511", "512",   # single family — will cross-reference Akron vacant board
+}
+
 MAX_INFILL_ACRES = 2.0
 
 LIKELY_OWNER_KEYS = [
@@ -124,9 +135,67 @@ NOISE_NAME_WORDS = {
 DISTRESS_SOURCE_POINTS = {
     "foreclosure":30,"lis_pendens":30,"judgment":20,"lien":15,
     "tax_delinquent":25,"vacant_building":30,"vacant_land":25,
+    "vacant_home":35,   # vacant residential = high priority
     "probate":20,"mechanic_lien":15,
 }
 STACK_BONUS = {2:15, 3:25, 4:40}
+
+# -----------------------------------------------------------------------
+# SKIP TRACE FILTERING RULES
+# -----------------------------------------------------------------------
+# Only skip-trace leads that meet ALL of these criteria:
+#   1. Is a RESIDENTIAL property (LUC 510-560) OR a Vacant Home
+#   2. Has a property address
+#   3. Not already skip-traced
+#   4. Meets at least ONE of:
+#      a. Hot Stack (2+ distress sources)
+#      b. Pre-foreclosure or Lis Pendens
+#      c. Tax Delinquent + Absentee Owner
+#      d. Vacant Home (on Akron vacant building board)
+#      e. Probate
+
+SKIP_TRACE_DOC_TYPES = {"LP", "NOFC", "JUD", "CCJ", "DRJUD", "PRO", "TAXDEED", "TAXDELINQ", "TAX"}
+
+def should_skip_trace(record) -> bool:
+    """
+    Returns True only for HIGH-PRIORITY RESIDENTIAL leads.
+    
+    Rules:
+    - Must be residential LUC (510-560) OR a vacant home on the board
+    - Must have a property address
+    - Must meet at least one priority trigger
+    
+    This keeps skip-trace volume manageable (~50-300 leads vs 3,600+).
+    """
+    if not record.prop_address:
+        return False
+
+    # Vacant land (500-503) is EXCLUDED unless it has a foreclosure/tax delinquent
+    # In that case it's already a court filing lead and won't come through here
+    is_residential = record.luc in RESIDENTIAL_LUCS
+    is_vacant_home = "Vacant home" in record.flags
+    is_vacant_land_only = record.luc in VACANT_LAND_LUCS and not record.hot_stack
+
+    if is_vacant_land_only:
+        return False
+
+    if not is_residential and not is_vacant_home:
+        # Allow court filing leads even without confirmed LUC (may be unmatched)
+        is_court_filing = record.doc_type in SKIP_TRACE_DOC_TYPES
+        if not is_court_filing:
+            return False
+
+    # Priority triggers — must meet at least one
+    triggers = [
+        record.hot_stack,
+        record.doc_type in {"LP", "NOFC"},                           # foreclosure
+        record.doc_type in {"JUD", "CCJ", "DRJUD"},                  # judgment
+        record.doc_type == "PRO",                                     # probate
+        record.doc_type in {"TAX", "TAXDELINQ", "TAXDEED"} and record.is_absentee,  # tax + absentee
+        is_vacant_home,                                               # on vacant home board
+        "Tax delinquent" in record.flags and record.is_absentee,
+    ]
+    return any(triggers)
 
 
 @dataclass
@@ -160,6 +229,7 @@ class LeadRecord:
     luc: str = ""
     acres: str = ""
     is_vacant_land: bool = False
+    is_vacant_home: bool = False
     is_absentee: bool = False
     phones: list = field(default_factory=list)
     phone_types: list = field(default_factory=list)
@@ -454,7 +524,7 @@ def category_flags(doc_type: str, owner: str = "") -> List[str]:
     if dt == "LP":                                      flags.append("Lis pendens")
     if dt == "NOFC":                                    flags.append("Pre-foreclosure")
     if dt in {"JUD","CCJ","DRJUD"}:                    flags.append("Judgment lien")
-    if dt in {"TAXDEED","LNCORPTX","LNIRS","LNFED","TAXDELINQ"}: flags.append("Tax lien")
+    if dt in {"TAXDEED","LNCORPTX","LNIRS","LNFED","TAXDELINQ","TAX"}: flags.append("Tax lien")
     if dt == "LNMECH":                                  flags.append("Mechanic lien")
     if dt == "PRO":                                     flags.append("Probate / estate")
     if dt in {"VACANT","VACLAND"}:                     flags.append("Vacant property")
@@ -470,7 +540,7 @@ def classify_distress_source(doc_type: str) -> Optional[str]:
     if dt in {"JUD","CCJ","DRJUD"}:        return "judgment"
     if dt in {"LN","LNHOA","LNFED","LNIRS","LNCORPTX","MEDLN"}: return "lien"
     if dt == "LNMECH":                      return "mechanic_lien"
-    if dt in {"TAXDEED","TAXDELINQ"}:       return "tax_delinquent"
+    if dt in {"TAXDEED","TAXDELINQ","TAX"}: return "tax_delinquent"
     if dt == "PRO":                         return "probate"
     if dt in {"VACANT","VACLAND"}:          return "vacant_building"
     return None
@@ -487,6 +557,7 @@ def score_record(record: LeadRecord) -> int:
     if "mechanic lien" in lower_flags:      flag_score += 10
     if "probate / estate" in lower_flags:   flag_score += 15
     if "vacant property" in lower_flags:    flag_score += 20
+    if "vacant home" in lower_flags:        flag_score += 25   # bonus for vacant residential
     if "absentee owner" in lower_flags:     flag_score += 10
     score += min(flag_score, 50)
     if "lis pendens" in lower_flags and "pre-foreclosure" in lower_flags:
@@ -521,6 +592,11 @@ def score_record(record: LeadRecord) -> int:
 # VACANT BUILDING BOARD SCRAPER
 # -----------------------------------------------------------------------
 def scrape_vacant_building_addresses() -> List[str]:
+    """
+    Scrape the Akron Vacant Building Board — these are RESIDENTIAL homes
+    that are officially registered as vacant/abandoned. Very high priority.
+    Returns a list of normalized address strings.
+    """
     addresses: List[str] = []
     try:
         resp = retry_request(VACANT_BUILDING_URL, timeout=30)
@@ -556,36 +632,30 @@ def normalize_address_key(address: str) -> str:
 def is_absentee_owner(prop_address: str, mail_address: str) -> bool:
     """
     Returns True if the mailing address is different from the property address.
-    This means the owner does NOT live at the property — absentee owner.
+    Absentee = owner doesn't live at the property (investor, out-of-state, LLC, etc).
 
     Rules:
-    - Both addresses must be non-empty to compare
-    - We normalize both (strip unit numbers, directionals, punctuation)
-    - If the street number + street name differ → absentee
-    - If mail address is in a completely different zip → definitely absentee
-    - PO Boxes are always absentee
+    - PO Boxes = always absentee
+    - Normalize both addresses (strip directionals, punctuation)
+    - Compare street number + first street word
+    - Different = absentee
     """
     if not prop_address or not mail_address:
         return False
 
-    # PO Box = always absentee
     mail_upper = mail_address.upper()
     if re.search(r"\bP\.?\s*O\.?\s*BOX\b", mail_upper):
         return True
 
-    # Normalize both addresses for comparison
     prop_key = normalize_address_key(prop_address)
     mail_key = normalize_address_key(mail_address)
 
     if not prop_key or not mail_key:
         return False
 
-    # If identical → owner-occupied
     if prop_key == mail_key:
         return False
 
-    # Extract just the street number + first street name word for fuzzy compare
-    # e.g. "1363 CARNEGIE AVE AKRON" → "1363 CARNEGIE"
     def street_core(addr: str) -> str:
         parts = addr.split()
         if len(parts) >= 2:
@@ -595,48 +665,30 @@ def is_absentee_owner(prop_address: str, mail_address: str) -> bool:
     prop_core = street_core(prop_key)
     mail_core = street_core(mail_key)
 
-    # If cores match, it's close enough to be same address (unit number diff etc)
     if prop_core == mail_core:
         return False
 
-    # Different address = absentee owner
     return True
 
 
 def scrape_tax_delinquent_parcels() -> Dict[str, dict]:
     """
-    Scrape the Akron Legal News delinquent tax list — the official published
-    legal notice for ALL Summit County delinquent parcels.
+    Scrape the Akron Legal News delinquent tax list.
+    Returns dict of parcel_id -> {owner, amount_owed, legal, source_url}
 
-    URL structure:
-      Index: https://www.akronlegalnews.com/notices/delinquent_taxes
-      Detail: https://www.akronlegalnews.com/notices/delinquent_taxes_detail/{id}
-
-    Each detail page contains entries like:
-      6800261 784.14 GOMEZ ANA THE VANDALLIA HEIGHTS ALLOTMENT LOTS 11-12...
-      [parcel_id] [amount_owed] [owner_name] [legal_description]
-
-    Returns dict of parcel_id -> {owner, amount_owed, legal}
+    Improvement over previous version:
+    - Better entry splitting on bullet separators
+    - More robust owner/legal parsing
+    - Handles multi-line entries
     """
     DELINQUENT_INDEX_URL = "https://www.akronlegalnews.com/notices/delinquent_taxes"
     delinquent_parcels: Dict[str, dict] = {}
 
-    # Parcel entry pattern: 7-digit parcel ID, dollar amount, then owner + legal
-    # Example: "6800261 784.14 GOMEZ ANA THE VANDALLIA HEIGHTS..."
-    entry_pattern = re.compile(
-        r"\b(\d{7})\s+([\d,]+\.?\d*)\s+([A-Z][A-Z\s\.\,\&\']{3,60}?)\s+((?:LOT|TR|BLK|SEC|LOTS|ALLOTMENT|SUB|PARCEL|LOTS|PART)\s+.{5,80}?)(?=\s*[•\n]|\s*\d{7}|$)",
-        re.IGNORECASE
-    )
-    # Simpler fallback — just grab parcel IDs and amounts
-    simple_pattern = re.compile(r"\b(\d{7})\s+([\d,]+\.?\d*)\s+([^\n•]{10,120}?)(?=\s*[•\n]|\s*\d{7}|$)")
-
     try:
-        # Step 1: Get the index page to find all section detail URLs
         logging.info("Scraping Akron Legal News delinquent tax index...")
         resp = retry_request(DELINQUENT_INDEX_URL, timeout=30)
         soup = BeautifulSoup(resp.text, "lxml")
 
-        # Find all detail page links
         detail_links = []
         for link in soup.select("a[href]"):
             href = clean_text(link.get("href", ""))
@@ -647,17 +699,12 @@ def scrape_tax_delinquent_parcels() -> Dict[str, dict]:
 
         logging.info("Found %s delinquent tax section pages to scrape", len(detail_links))
 
-        # Step 2: Scrape each detail page
         for i, url in enumerate(detail_links):
             try:
                 resp2 = retry_request(url, timeout=45)
                 soup2 = BeautifulSoup(resp2.text, "lxml")
-                # Get the raw text content of the page
                 raw_text = soup2.get_text(" ")
 
-                # Parse entries using the bullet separator pattern
-                # Entries are separated by " • " in the page
-                # Format: "PARCELID AMOUNT OWNER LEGAL • PARCELID AMOUNT..."
                 entries = re.split(r"\s*[•·]\s*", raw_text)
 
                 for entry in entries:
@@ -665,7 +712,6 @@ def scrape_tax_delinquent_parcels() -> Dict[str, dict]:
                     if not entry:
                         continue
 
-                    # Match: 7-digit parcel ID at start, then amount, then rest
                     m = re.match(r"^(\d{7})\s+([\d,]+\.?\d*)\s+(.+)$", entry, re.DOTALL)
                     if not m:
                         continue
@@ -677,14 +723,11 @@ def scrape_tax_delinquent_parcels() -> Dict[str, dict]:
                         amount_owed = 0.0
                     rest = clean_text(m.group(3))
 
-                    # Split owner from legal description
-                    # Owner is typically all caps name before the legal keywords
                     legal_keywords = ["LOT ", "TR ", "BLK ", "SEC ", "LOTS ", "ALLOTMENT",
                                       "SUB ", "PARCEL ", "PART ", "COND ", "UNIT "]
                     owner_part = rest
                     legal_part = ""
 
-                    # Find where the legal description starts
                     earliest = len(rest)
                     for kw in legal_keywords:
                         idx = rest.upper().find(kw)
@@ -695,7 +738,6 @@ def scrape_tax_delinquent_parcels() -> Dict[str, dict]:
                         owner_part = clean_text(rest[:earliest])
                         legal_part = clean_text(rest[earliest:])
 
-                    # Clean up owner — remove trailing asterisks and noise
                     owner_part = re.sub(r"\*+$", "", owner_part).strip()
                     owner_part = clean_text(owner_part)
 
@@ -734,13 +776,12 @@ def build_distress_index(
     Build address -> distress sources index.
     Sources:
       - Court filings (foreclosure, judgment, lien, etc.)
-      - Akron vacant building board addresses
-      - Vacant land parcel cross-reference (parcel ID match)
+      - Akron vacant building board addresses  (vacant_home)
+      - Vacant land parcel cross-reference
       - Tax delinquent parcel list
     """
     index: Dict[str, List[str]] = defaultdict(list)
 
-    # 1. Index court filing records by address
     for record in records:
         if not record.prop_address: continue
         key = normalize_address_key(record.prop_address)
@@ -748,23 +789,15 @@ def build_distress_index(
         source = classify_distress_source(record.doc_type)
         if source and source not in index[key]:
             index[key].append(source)
-
-        # 2. Cross-reference: if this lead's parcel is on the vacant land list
-        #    that means a court filing hit a VACANT LAND parcel = hot stack
         if record.luc in VACANT_LAND_LUCS:
             if "vacant_land" not in index[key]:
                 index[key].append("vacant_land")
 
-        # 3. Cross-reference: tax delinquent parcel list
-        # We match by parcel_id stored on the record after enrichment
-        # (parcel_id comes from match — stored as match_method context)
-        # We use prop_zip + address combo since we don't store parcel_id on LeadRecord directly
-
-    # 4. Index vacant building board addresses
+    # Vacant building board addresses → vacant_home (not vacant_land)
     for addr in vacant_addresses:
         key = normalize_address_key(addr)
-        if key and "vacant_building" not in index[key]:
-            index[key].append("vacant_building")
+        if key and "vacant_home" not in index[key]:
+            index[key].append("vacant_home")
 
     return dict(index)
 
@@ -775,9 +808,10 @@ def build_delinquent_address_index(
     delinquent_parcels: Dict[str, dict],
 ) -> Dict[str, dict]:
     """
-    Join delinquent parcel IDs from Akron Legal News back to property addresses
-    using the CAMA parcel data. Returns address key -> delinquent parcel info.
-    This lets us flag court filing leads that are ALSO tax delinquent.
+    Join delinquent parcel IDs → property addresses via CAMA parcel data.
+    Returns address key -> delinquent parcel info.
+    
+    Improvement: now also tags whether the delinquent parcel is residential.
     """
     delinquent_addresses: Dict[str, dict] = {}
     if not delinquent_parcels:
@@ -787,9 +821,7 @@ def build_delinquent_address_index(
 
     for row in parcel_rows:
         pid = get_pid(row)
-        if not pid:
-            continue
-        if pid not in delinquent_pid_set:
+        if not pid or pid not in delinquent_pid_set:
             continue
 
         addr = build_prop_address_from_row(row)
@@ -799,6 +831,10 @@ def build_delinquent_address_index(
                 parcel_info = delinquent_parcels[pid].copy()
                 parcel_info["prop_address"] = addr
                 parcel_info["prop_zip"] = build_prop_zip_from_row(row)
+                luc = clean_text(row.get("LUC", ""))
+                parcel_info["luc"] = luc
+                parcel_info["is_residential"] = luc in RESIDENTIAL_LUCS
+                parcel_info["is_vacant_land"] = luc in VACANT_LAND_LUCS
                 delinquent_addresses[key] = parcel_info
 
     logging.info("Mapped %s delinquent addresses from %s delinquent parcels",
@@ -811,11 +847,11 @@ def apply_distress_stacking(
     records: List[LeadRecord],
     distress_index: Dict[str, List[str]],
     delinquent_addresses: Dict[str, dict],
+    vacant_home_keys: set,
 ) -> List[LeadRecord]:
     """
-    Apply distress stack scores and cross-reference tax delinquent data.
-    If a property appears in the delinquent list AND has a court filing,
-    it gets the hot stack treatment with tax delinquent amount flagged.
+    Apply distress stack scores and cross-reference all data sources.
+    Now also detects vacant homes (residential properties on the Akron board).
     """
     for record in records:
         if not record.prop_address:
@@ -830,16 +866,23 @@ def apply_distress_stacking(
                 sources.append("tax_delinquent")
             if "Tax delinquent" not in record.flags:
                 record.flags.append("Tax delinquent")
-            # Add the amount owed if we don't already have one
             if record.amount is None and delinquent_info.get("amount_owed"):
                 record.amount = delinquent_info["amount_owed"]
 
+        # Cross-reference: is this a vacant HOME (on Akron board + residential LUC)?
+        is_vacant_home = key in vacant_home_keys and record.luc in (RESIDENTIAL_LUCS | VACANT_HOME_LUCS)
+        if is_vacant_home:
+            record.is_vacant_home = True
+            if "vacant_home" not in sources:
+                sources.append("vacant_home")
+            if "Vacant home" not in record.flags:
+                record.flags.append("Vacant home")
+
         record.distress_sources = list(set(sources))
 
-        # Apply flags for each source
         for source in record.distress_sources:
-            if source == "vacant_building" and "Vacant building" not in record.flags:
-                record.flags.append("Vacant building")
+            if source == "vacant_home" and "Vacant home" not in record.flags:
+                record.flags.append("Vacant home")
             if source == "vacant_land" and "Vacant land parcel" not in record.flags:
                 record.flags.append("Vacant land parcel")
             if source == "tax_delinquent" and "Tax delinquent" not in record.flags:
@@ -851,17 +894,43 @@ def apply_distress_stacking(
 
 
 # -----------------------------------------------------------------------
-# VACANT LAND LIST
+# VACANT LAND LIST — only included if ALSO in foreclosure or tax delinquent
 # -----------------------------------------------------------------------
-def build_vacant_land_list(parcel_rows: List[dict], mail_by_pid: Dict[str, dict]) -> List[VacantLandRecord]:
+def build_vacant_land_list(
+    parcel_rows: List[dict],
+    mail_by_pid: Dict[str, dict],
+    delinquent_pid_set: set,
+    foreclosure_pids: set,
+) -> List[VacantLandRecord]:
+    """
+    Build list of vacant infill lots (≤ 2 acres).
+    
+    KEY CHANGE: Now only includes vacant land that is ALSO:
+    - In foreclosure/lis pendens (court filing exists), OR
+    - Tax delinquent (on Akron Legal News list)
+    
+    This cuts the 27k+ result set to a manageable distressed-only list.
+    """
     vacant: List[VacantLandRecord] = []
     seen_pids: set = set()
+    skipped_no_distress = 0
+
     for row in parcel_rows:
         luc = clean_text(row.get("LUC"))
         acres_raw = clean_text(row.get("ACRES"))
-        if not is_infill_lot(luc, acres_raw): continue
+        if not is_infill_lot(luc, acres_raw):
+            continue
         pid = get_pid(row)
-        if not pid or pid in seen_pids: continue
+        if not pid or pid in seen_pids:
+            continue
+
+        # NEW: Only include if ALSO distressed (foreclosure OR tax delinquent)
+        is_foreclosure = pid in foreclosure_pids
+        is_tax_delinquent = pid in delinquent_pid_set
+        if not is_foreclosure and not is_tax_delinquent:
+            skipped_no_distress += 1
+            continue
+
         seen_pids.add(pid)
         prop_address = build_prop_address_from_row(row)
         prop_zip = build_prop_zip_from_row(row)
@@ -871,18 +940,151 @@ def build_vacant_land_list(parcel_rows: List[dict], mail_by_pid: Dict[str, dict]
         mail_zip    = build_mail_zip(mail_row) if mail_row else ""
         mail_state  = build_mail_state_sc701(mail_row) if mail_row else ""
         owner       = build_owner_name(mail_row) if mail_row else ""
-        if not prop_address and not mail_street: continue
+        if not prop_address and not mail_street:
+            continue
+
+        distress_sources = []
+        flags = ["Vacant land", "Infill lot"]
+        if is_foreclosure:
+            distress_sources.append("foreclosure")
+            flags.append("🔥 In foreclosure")
+        if is_tax_delinquent:
+            distress_sources.append("tax_delinquent")
+            flags.append("Tax delinquent")
+
         rec = VacantLandRecord(
             parcel_id=pid, prop_address=prop_address, prop_city=mail_city,
             prop_state="OH", prop_zip=prop_zip, owner=owner,
             mail_address=mail_street, mail_city=mail_city,
             mail_state=mail_state or "OH", mail_zip=mail_zip,
             luc=luc, acres=acres_raw,
-            flags=["Vacant land", "Infill lot"], score=40,
+            flags=flags,
+            score=50 if (is_foreclosure and is_tax_delinquent) else 45,
+            distress_sources=distress_sources,
+            distress_count=len(distress_sources),
         )
         vacant.append(rec)
-    logging.info("Found %s vacant infill lots (<= 2 acres)", len(vacant))
+
+    logging.info(
+        "Found %s distressed vacant infill lots (≤2 acres) | Skipped %s non-distressed",
+        len(vacant), skipped_no_distress
+    )
     return vacant
+
+
+# -----------------------------------------------------------------------
+# VACANT HOME LIST — residential properties on Akron vacant building board
+# -----------------------------------------------------------------------
+def build_vacant_home_list(
+    vacant_addresses: List[str],
+    parcel_rows: List[dict],
+    mail_by_pid: Dict[str, dict],
+    delinquent_pid_set: set,
+) -> List[LeadRecord]:
+    """
+    NEW: Build a list of VACANT HOMES — residential properties (LUC 510-560)
+    that appear on the Akron Vacant Building Board.
+
+    These are actual houses/structures sitting empty — different from vacant land.
+    Very high value leads for investors.
+
+    Cross-references CAMA parcel data to get owner + mailing address.
+    """
+    vacant_home_records: List[LeadRecord] = []
+    seen_pids: set = set()
+
+    # Build address -> pid lookup from parcel rows
+    addr_to_pid: Dict[str, str] = {}
+    pid_to_row: Dict[str, dict] = {}
+    for row in parcel_rows:
+        pid = get_pid(row)
+        if not pid:
+            continue
+        pid_to_row[pid] = row
+        luc = clean_text(row.get("LUC", ""))
+        if luc not in RESIDENTIAL_LUCS:
+            continue
+        addr = build_prop_address_from_row(row)
+        if addr:
+            key = normalize_address_key(addr)
+            if key:
+                addr_to_pid[key] = pid
+
+    matched = 0
+    for vacant_addr in vacant_addresses:
+        key = normalize_address_key(vacant_addr)
+        pid = addr_to_pid.get(key)
+        if not pid or pid in seen_pids:
+            continue
+        seen_pids.add(pid)
+
+        row = pid_to_row.get(pid, {})
+        luc = clean_text(row.get("LUC", ""))
+        if luc not in RESIDENTIAL_LUCS:
+            continue
+
+        prop_address = build_prop_address_from_row(row)
+        prop_city = build_prop_city_from_row(row)
+        prop_zip = build_prop_zip_from_row(row)
+        acres = clean_text(row.get("ACRES", ""))
+
+        mail_row = mail_by_pid.get(pid, {})
+        mail_address = clean_text(mail_row.get("MAIL_ADR1", "")) if mail_row else ""
+        mail_city = build_mail_city_sc701(mail_row) if mail_row else ""
+        mail_zip = build_mail_zip(mail_row) if mail_row else ""
+        mail_state = build_mail_state_sc701(mail_row) if mail_row else "OH"
+        owner = build_owner_name(mail_row) if mail_row else ""
+
+        is_absentee = is_absentee_owner(prop_address, mail_address)
+        is_tax_delinquent = pid in delinquent_pid_set
+
+        flags = ["Vacant home", "Residential"]
+        distress_sources = ["vacant_home"]
+        if is_absentee:
+            flags.append("Absentee owner")
+        if is_tax_delinquent:
+            flags.append("Tax delinquent")
+            distress_sources.append("tax_delinquent")
+
+        record = LeadRecord(
+            doc_num=f"VHOME-{pid}",
+            doc_type="VACANT",
+            filed=datetime.now().date().isoformat(),
+            cat="VACANT",
+            cat_label="Vacant Home",
+            owner=owner.title() if owner else "",
+            prop_address=prop_address,
+            prop_city=prop_city,
+            prop_state="OH",
+            prop_zip=prop_zip,
+            mail_address=mail_address,
+            mail_city=mail_city,
+            mail_state=mail_state,
+            mail_zip=mail_zip,
+            clerk_url=VACANT_BUILDING_URL,
+            flags=flags,
+            distress_sources=distress_sources,
+            distress_count=len(distress_sources),
+            luc=luc,
+            acres=acres,
+            is_vacant_land=False,
+            is_vacant_home=True,
+            is_absentee=is_absentee,
+            with_address=1 if prop_address else 0,
+            match_method="vacant_home_board",
+            match_score=1.0,
+        )
+        record.score = score_record(record)
+        record.hot_stack = record.distress_count >= 2
+
+        vacant_home_records.append(record)
+        matched += 1
+
+    logging.info(
+        "Built %s vacant home leads from Akron board (matched to CAMA residential parcels)",
+        matched
+    )
+    return vacant_home_records
 
 
 # -----------------------------------------------------------------------
@@ -1551,7 +1753,6 @@ def enrich_with_parcel_data(records, owner_index, last_name_index, first_last_in
             record.mail_state   = normalize_state(record.mail_state) or ("OH" if record.mail_address else "")
             record.with_address = 1 if clean_text(record.prop_address) else 0
 
-            # Absentee owner detection — mail address differs from property address
             record.is_absentee = is_absentee_owner(record.prop_address, record.mail_address)
             if record.is_absentee and "Absentee owner" not in record.flags:
                 record.flags.append("Absentee owner")
@@ -1597,6 +1798,7 @@ def build_payload(records: List[LeadRecord]) -> dict:
         "with_address": sum(1 for r in records if clean_text(r.prop_address)),
         "with_mail_address": sum(1 for r in records if clean_text(r.mail_address)),
         "hot_stack_count": len(hot),
+        "vacant_home_count": sum(1 for r in records if r.is_vacant_home),
         "records": [asdict(r) for r in records],
     }
 
@@ -1619,7 +1821,7 @@ def write_vacant_land_json(vacant: List[VacantLandRecord]) -> None:
         "fetched_at": datetime.now(timezone.utc).isoformat(),
         "source": SOURCE_NAME,
         "total": len(vacant),
-        "description": "Vacant infill lots <= 2 acres in Summit County",
+        "description": "Distressed vacant infill lots ≤ 2 acres — in foreclosure or tax delinquent only",
         "records": [asdict(r) for r in vacant],
     }
     for path in [DEFAULT_VACANT_JSON_PATH, DASHBOARD_DIR / "vacant_land.json"]:
@@ -1634,13 +1836,32 @@ def write_hot_stack_json(records: List[LeadRecord]) -> None:
         "fetched_at": datetime.now(timezone.utc).isoformat(),
         "source": SOURCE_NAME,
         "total": len(hot),
-        "description": "Properties appearing in 2+ distress sources — highest priority leads",
+        "description": "Properties in 2+ distress sources — highest priority leads",
         "records": [asdict(r) for r in hot],
     }
     for path in [DEFAULT_STACK_JSON_PATH, DASHBOARD_DIR / "hot_stack.json"]:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
     logging.info("Wrote hot stack JSON: %s records", len(hot))
+
+
+def write_vacant_home_json(records: List[LeadRecord]) -> None:
+    """Write standalone vacant home leads to their own JSON for the dashboard tab."""
+    vacant_homes = sorted(
+        [r for r in records if r.is_vacant_home],
+        key=lambda r: (r.hot_stack, r.score), reverse=True
+    )
+    payload = {
+        "fetched_at": datetime.now(timezone.utc).isoformat(),
+        "source": SOURCE_NAME,
+        "total": len(vacant_homes),
+        "description": "Vacant residential homes from Akron Vacant Building Board",
+        "records": [asdict(r) for r in vacant_homes],
+    }
+    for path in [DATA_DIR / "vacant_homes.json", DASHBOARD_DIR / "vacant_homes.json"]:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    logging.info("Wrote vacant homes JSON: %s records", len(vacant_homes))
 
 
 def split_name(full_name: str) -> Tuple[str, str]:
@@ -1657,7 +1878,9 @@ def write_csv(records: List[LeadRecord], csv_path: Path) -> None:
         "Property Address","Property City","Property State","Property Zip",
         "Lead Type","Document Type","Date Filed","Document Number","Amount/Debt Owed",
         "Seller Score","Motivated Seller Flags","Distress Sources","Distress Count","Hot Stack",
-        "Vacant Land","Absentee Owner","Phone 1","Phone 1 Type","Phone 2","Phone 2 Type","Phone 3","Phone 3 Type","Email","Skip Trace Source","LUC Code","Acres","Match Method","Match Score","Source","Public Records URL",
+        "Vacant Land","Vacant Home","Absentee Owner",
+        "Phone 1","Phone 1 Type","Phone 2","Phone 2 Type","Phone 3","Phone 3 Type",
+        "Email","Skip Trace Source","LUC Code","Acres","Match Method","Match Score","Source","Public Records URL",
     ]
     with csv_path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames)
@@ -1679,6 +1902,7 @@ def write_csv(records: List[LeadRecord], csv_path: Path) -> None:
                 "Distress Count":record.distress_count,
                 "Hot Stack":"YES" if record.hot_stack else "",
                 "Vacant Land":"YES" if record.is_vacant_land else "",
+                "Vacant Home":"YES" if record.is_vacant_home else "",
                 "Absentee Owner":"YES" if record.is_absentee else "",
                 "Phone 1":record.phones[0] if len(record.phones) > 0 else "",
                 "Phone 1 Type":record.phone_types[0] if len(record.phone_types) > 0 else "",
@@ -1709,16 +1933,15 @@ def build_tax_delinquent_leads(
     vacant_land_pids: set,
 ) -> List[LeadRecord]:
     """
-    Build standalone LeadRecord entries directly from the Akron Legal News
-    delinquent tax data. These are properties that OWE back taxes — regardless
-    of whether they have a court filing. This is what fills the Tax Delinquent tab.
-
-    We join parcel IDs from Akron Legal News → CAMA parcel data → mail address.
+    Build RESIDENTIAL-ONLY tax delinquent leads from Akron Legal News.
+    
+    KEY CHANGE: Now filters to RESIDENTIAL LUCs only (510-560).
+    Vacant land (500-503) is handled separately in the vacant land list.
+    This cuts ~3,600 records down to ~500-800 residential properties.
     """
     leads: List[LeadRecord] = []
-    delinquent_pid_set = set(delinquent_parcels.keys())
+    skipped_non_residential = 0
 
-    # Build a quick pid → parcel row lookup
     pid_to_row: Dict[str, dict] = {}
     for row in parcel_rows:
         pid = get_pid(row)
@@ -1730,13 +1953,18 @@ def build_tax_delinquent_leads(
         if not row:
             continue
 
+        # NEW: Only residential properties for the tax delinquent leads tab
+        luc = clean_text(row.get("LUC", ""))
+        if luc not in RESIDENTIAL_LUCS:
+            skipped_non_residential += 1
+            continue
+
         prop_address = build_prop_address_from_row(row)
         prop_city = build_prop_city_from_row(row)
         prop_zip = build_prop_zip_from_row(row)
         if not prop_address:
             continue
 
-        # Get mail address from mail index
         mail_row = mail_by_pid.get(pid, {})
         mail_address = clean_text(mail_row.get("MAIL_ADR1", ""))
         mail_city = clean_text(mail_row.get("NOTE1", "")).title()
@@ -1745,22 +1973,16 @@ def build_tax_delinquent_leads(
 
         owner = delin_info.get("owner", "")
         amount_owed = delin_info.get("amount_owed", 0.0)
-        luc = clean_text(row.get("LUC", ""))
         acres = clean_text(row.get("ACRES", ""))
-        is_vacant = luc in VACANT_LAND_LUCS
         is_absentee = is_absentee_owner(prop_address, mail_address)
 
-        flags = ["Tax delinquent"]
-        if is_vacant:
-            flags.append("Vacant land")
+        flags = ["Tax delinquent", "Residential"]
         if is_absentee:
             flags.append("Absentee owner")
         if amount_owed and amount_owed > 10000:
             flags.append("High tax debt")
 
         distress_sources = ["tax_delinquent"]
-        if is_vacant:
-            distress_sources.append("vacant_land")
 
         record = LeadRecord(
             doc_num=f"TAX-{pid}",
@@ -1784,23 +2006,29 @@ def build_tax_delinquent_leads(
             distress_count=len(distress_sources),
             luc=luc,
             acres=acres,
-            is_vacant_land=is_vacant,
+            is_vacant_land=False,
             is_absentee=is_absentee,
             with_address=1,
             match_method="tax_delinquent_direct",
             match_score=1.0,
         )
         record.score = score_record(record)
-        record.hot_stack = record.distress_count >= 2
         leads.append(record)
 
-    logging.info("Built %s standalone tax delinquent leads", len(leads))
+    logging.info(
+        "Built %s residential tax delinquent leads | Skipped %s non-residential parcels",
+        len(leads), skipped_non_residential
+    )
     return leads
+
+
+# -----------------------------------------------------------------------
+# SKIP TRACING — RESIDENTIAL PRIORITY ONLY
+# -----------------------------------------------------------------------
 async def skip_trace_one(page, first: str, last: str, city: str, state: str = "OH") -> dict:
     """
-    Try to find phone numbers for one person using free public people search sites.
-    Tries sources in order: TruePeopleSearch → FastPeopleSearch → CyberBackgroundChecks.
-    Returns dict with phones, emails, source used.
+    Find phone numbers for one person using free public people search sites.
+    Sources: TruePeopleSearch → FastPeopleSearch → CyberBackgroundChecks.
     """
     result = {"phones": [], "emails": [], "source": None, "skip_traced": False}
     phone_pattern = re.compile(r"\(?\d{3}\)?[\s\-\.]\d{3}[\s\-\.]\d{4}")
@@ -1812,21 +2040,18 @@ async def skip_trace_one(page, first: str, last: str, city: str, state: str = "O
         {
             "name": "TruePeopleSearch",
             "url": f"https://www.truepeoplesearch.com/results?name={first}+{last}&citystatezip={city}+{state}",
-            "result_selector": "div.card-summary",
             "phone_selector": "span[itemprop='telephone']",
             "email_selector": "a[href^='mailto']",
         },
         {
             "name": "FastPeopleSearch",
             "url": f"https://www.fastpeoplesearch.com/name/{name_slug}_{city_slug}-{state.lower()}",
-            "result_selector": "div.card-block",
             "phone_selector": "a[href^='tel']",
             "email_selector": "a[href^='mailto']",
         },
         {
             "name": "CyberBackgroundChecks",
             "url": f"https://www.cyberbackgroundchecks.com/people/{first}/{last}/{state.lower()}",
-            "result_selector": "div.person-item",
             "phone_selector": "span.phone",
             "email_selector": "span.email",
         },
@@ -1835,13 +2060,11 @@ async def skip_trace_one(page, first: str, last: str, city: str, state: str = "O
     for source in sources:
         try:
             await page.goto(source["url"], wait_until="domcontentloaded", timeout=30000)
-            # Random human-like delay 3-7 seconds
             await page.wait_for_timeout(random.randint(3000, 7000))
 
             content = await page.content()
             soup = BeautifulSoup(content, "lxml")
 
-            # Check if we got blocked
             page_text = soup.get_text(" ").lower()
             if any(x in page_text for x in ["access denied", "blocked", "captcha", "robot", "unusual traffic"]):
                 logging.warning("Skip trace blocked on %s", source["name"])
@@ -1852,7 +2075,6 @@ async def skip_trace_one(page, first: str, last: str, city: str, state: str = "O
             emails = []
 
             def classify_phone(num: str, context: str = "") -> str:
-                """Return 'mobile', 'landline', or 'unknown' based on context clues."""
                 ctx = context.lower()
                 if any(x in ctx for x in ["mobile", "cell", "wireless", "smartphone"]):
                     return "mobile"
@@ -1861,7 +2083,6 @@ async def skip_trace_one(page, first: str, last: str, city: str, state: str = "O
                 return "unknown"
 
             def normalize_phone(raw: str) -> str:
-                """Normalize to (XXX) XXX-XXXX format."""
                 digits = re.sub(r"\D", "", raw)
                 if len(digits) == 11 and digits.startswith("1"):
                     digits = digits[1:]
@@ -1869,13 +2090,11 @@ async def skip_trace_one(page, first: str, last: str, city: str, state: str = "O
                     return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}"
                 return raw.strip()
 
-            # Try structured selectors first
             for el in soup.select(source["phone_selector"]):
                 raw = clean_text(el.get_text(" ") or el.get("href", "")).replace("tel:", "").strip()
                 if not phone_pattern.search(raw):
                     continue
                 num = normalize_phone(raw)
-                # Get surrounding context for mobile/landline classification
                 parent_text = ""
                 try:
                     parent = el.find_parent(["div", "li", "span", "p"])
@@ -1889,10 +2108,8 @@ async def skip_trace_one(page, first: str, last: str, city: str, state: str = "O
                 else:
                     landline_phones.append(num)
 
-            # Try to find type labels near phone numbers in page text
             if not mobile_phones and not landline_phones:
                 full_text = soup.get_text(" ")
-                # Look for labeled phone blocks: "Mobile: (330) 555-1234"
                 for m in re.finditer(
                     r"(mobile|cell|wireless|landline|home|work)[:\s]+(\(?\d{3}\)?[\s\-\.]\d{3}[\s\-\.]\d{4})",
                     full_text, re.IGNORECASE
@@ -1904,7 +2121,6 @@ async def skip_trace_one(page, first: str, last: str, city: str, state: str = "O
                     else:
                         landline_phones.append(num)
 
-            # Pure regex fallback — grab any phone number, treat as unknown (goes to landline bucket)
             if not mobile_phones and not landline_phones:
                 for match in phone_pattern.finditer(soup.get_text(" ")):
                     digits = re.sub(r"\D", "", match.group())
@@ -1913,7 +2129,6 @@ async def skip_trace_one(page, first: str, last: str, city: str, state: str = "O
                         if len(landline_phones) >= 4:
                             break
 
-            # Email extraction
             for el in soup.select(source["email_selector"]):
                 href = el.get("href", "").replace("mailto:", "").strip()
                 text = clean_text(el.get_text(" "))
@@ -1921,11 +2136,8 @@ async def skip_trace_one(page, first: str, last: str, city: str, state: str = "O
                 if "@" in email and "." in email:
                     emails.append(email)
 
-            # Dedupe each list
             mobile_phones = list(dict.fromkeys(mobile_phones))
             landline_phones = list(dict.fromkeys(landline_phones))
-
-            # Combine: mobile first, then landline, max 3 total
             all_phones = (mobile_phones + landline_phones)[:3]
 
             if all_phones:
@@ -1939,8 +2151,7 @@ async def skip_trace_one(page, first: str, last: str, city: str, state: str = "O
                 result["skip_traced"] = True
                 logging.info(
                     "Skip traced %s %s via %s → %s mobile, %s landline",
-                    first, last, source["name"],
-                    len(mobile_phones), len(landline_phones)
+                    first, last, source["name"], len(mobile_phones), len(landline_phones)
                 )
                 return result
 
@@ -1953,27 +2164,42 @@ async def skip_trace_one(page, first: str, last: str, city: str, state: str = "O
 
     return result
 
+
 async def skip_trace_leads(records: List[LeadRecord]) -> List[LeadRecord]:
     """
-    Run free skip tracing on priority leads only:
-    - Hot Stack OR Absentee Owner
-    - Must have a property address (so we know who/where)
-    - Not already skip traced
-
-    Uses a single shared browser session with human-like delays.
+    Skip trace ONLY high-priority residential leads.
+    
+    Filter criteria (must meet ALL):
+    - Residential LUC (510-560) OR vacant home OR court filing
+    - Has property address
+    - Not already traced
+    - Meets at least one priority trigger (see should_skip_trace)
+    
+    This replaces the old "trace everything with an address" approach
+    that sent 3,635 leads through — cutting to ~50-300 max.
     """
-    priority = [r for r in records if r.prop_address and not r.phones]
+    eligible = [r for r in records if not r.phones and should_skip_trace(r)]
 
-    if not priority:
-        logging.info("No leads to skip trace — all already have phones or no address")
+    # Safety cap: never skip-trace more than 500 in one run
+    MAX_SKIP_TRACE = 500
+    if len(eligible) > MAX_SKIP_TRACE:
+        # Prioritize by score
+        eligible.sort(key=lambda r: (r.hot_stack, r.distress_count, r.score), reverse=True)
+        eligible = eligible[:MAX_SKIP_TRACE]
+        logging.info("Capped skip trace at %s leads (from %s eligible)", MAX_SKIP_TRACE, len(eligible))
+
+    if not eligible:
+        logging.info("No eligible leads for skip tracing")
         return records
 
-    logging.info("Skip tracing %s leads with address (skipping %s already traced)...",
-                 len(priority), sum(1 for r in records if r.phones))
+    logging.info(
+        "Skip tracing %s residential/priority leads (filtered from %s total with address)",
+        len(eligible),
+        sum(1 for r in records if r.prop_address and not r.phones)
+    )
     traced = 0
 
     async with async_playwright() as p:
-        # Launch with stealth settings to avoid bot detection
         browser = await p.chromium.launch(
             headless=True,
             args=[
@@ -1987,18 +2213,22 @@ async def skip_trace_leads(records: List[LeadRecord]) -> List[LeadRecord]:
             viewport={"width": 1366, "height": 768},
             locale="en-US",
         )
-        # Hide webdriver flag
         await context.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
         page = await context.new_page()
 
-        for record in priority:
+        for record in eligible:
             try:
-                # Parse first/last name
                 name_parts = (record.owner or "").split()
                 if len(name_parts) < 2:
                     continue
                 first = name_parts[0]
                 last = name_parts[-1]
+
+                # Skip obvious corporate/LLC owners — no person to trace
+                if likely_corporate_name(record.owner):
+                    logging.debug("Skipping corporate owner for skip trace: %s", record.owner)
+                    continue
+
                 city = record.prop_city or record.mail_city or "Akron"
 
                 skip_result = await skip_trace_one(page, first, last, city)
@@ -2012,7 +2242,7 @@ async def skip_trace_leads(records: List[LeadRecord]) -> List[LeadRecord]:
                         record.flags.append("Phone found")
                     traced += 1
 
-                # Polite delay between leads — 5-12 seconds
+                # Polite delay between leads
                 await page.wait_for_timeout(random.randint(5000, 12000))
 
             except Exception as exc:
@@ -2021,7 +2251,7 @@ async def skip_trace_leads(records: List[LeadRecord]) -> List[LeadRecord]:
 
         await browser.close()
 
-    logging.info("Skip traced %s/%s leads with address", traced, len(priority))
+    logging.info("Skip traced %s/%s eligible leads", traced, len(eligible))
     return records
 
 
@@ -2034,63 +2264,110 @@ async def main() -> None:
     log_setup()
     logging.info("Starting Summit County scraper run...")
 
-    # 1. Build parcel indexes
+    # 1. Build parcel indexes from CAMA
     owner_index, last_name_index, first_last_index, parcel_rows, mail_by_pid = build_parcel_indexes()
 
-    # 2. Scrape court records
+    # 2. Scrape court records (clerk + probate)
     clerk_records   = await scrape_clerk_records()
     probate_records = await scrape_probate_records()
 
-    # 3. Scrape Akron vacant building registry
+    # 3. Scrape Akron vacant building registry (residential homes only)
     vacant_addresses = scrape_vacant_building_addresses()
 
-    # 4. Scrape tax delinquent parcel list from Akron Legal News
+    # 4. Scrape tax delinquent list from Akron Legal News
     delinquent_parcels = scrape_tax_delinquent_parcels()
+    delinquent_pid_set = set(delinquent_parcels.keys())
 
-    # 5. Enrich with parcel data
+    # 5. Build set of foreclosure parcel IDs (for vacant land cross-reference)
+    #    We need to enrich records first to get parcel IDs, so we do this after enrichment
     all_records = clerk_records + probate_records
     all_records, report = enrich_with_parcel_data(all_records, owner_index, last_name_index, first_last_index)
 
-    # 6. Build vacant land parcel ID set for cross-reference
+    # 6. Build parcel ID sets for cross-referencing
     vacant_land_pids = set(
         get_pid(row) for row in parcel_rows
         if clean_text(row.get("LUC")) in VACANT_LAND_LUCS and get_pid(row)
     )
-    logging.info("Vacant land parcel IDs for cross-reference: %s", len(vacant_land_pids))
+    # Extract parcel IDs from foreclosure/LP court records (after enrichment via match)
+    # We use doc_type to identify foreclosure leads and their prop_address → pid lookup
+    pid_to_row_quick: Dict[str, dict] = {}
+    for row in parcel_rows:
+        pid = get_pid(row)
+        if pid:
+            pid_to_row_quick[pid] = row
 
-    # 7. Build delinquent address lookup — joins Akron Legal News data to CAMA addresses
+    # Build address→pid map for foreclosure cross-ref
+    addr_to_pid_map: Dict[str, str] = {}
+    for row in parcel_rows:
+        pid = get_pid(row)
+        if not pid: continue
+        addr = build_prop_address_from_row(row)
+        if addr:
+            addr_to_pid_map[normalize_address_key(addr)] = pid
+
+    foreclosure_pids: set = set()
+    for record in all_records:
+        if record.doc_type in {"LP", "NOFC", "TAXDEED"} and record.prop_address:
+            key = normalize_address_key(record.prop_address)
+            pid = addr_to_pid_map.get(key)
+            if pid:
+                foreclosure_pids.add(pid)
+
+    logging.info("Vacant land parcel IDs: %s | Foreclosure pids: %s", len(vacant_land_pids), len(foreclosure_pids))
+
+    # 7. Build delinquent address lookup
     delinquent_addresses = build_delinquent_address_index(parcel_rows, mail_by_pid, delinquent_parcels)
 
-    # 8. Apply distress stacking — cross-references court filings, vacant land, tax delinquent
-    distress_index = build_distress_index(all_records, vacant_addresses, vacant_land_pids, delinquent_parcels)
-    all_records = apply_distress_stacking(all_records, distress_index, delinquent_addresses)
+    # 8. Build vacant home key set (addresses on Akron board matching residential LUCs)
+    #    Used by apply_distress_stacking to flag records as vacant_home
+    addr_to_pid_res: Dict[str, str] = {}
+    for row in parcel_rows:
+        pid = get_pid(row)
+        if not pid: continue
+        luc = clean_text(row.get("LUC", ""))
+        if luc not in RESIDENTIAL_LUCS: continue
+        addr = build_prop_address_from_row(row)
+        if addr:
+            addr_to_pid_res[normalize_address_key(addr)] = pid
 
-    # 8b. Build standalone tax delinquent leads from Akron Legal News
-    #     These fill the Tax Delinquent tab directly — not just cross-reference
+    vacant_home_keys = set()
+    for addr in vacant_addresses:
+        key = normalize_address_key(addr)
+        if key in addr_to_pid_res:
+            vacant_home_keys.add(key)
+
+    logging.info("Vacant home addresses matched to residential parcels: %s", len(vacant_home_keys))
+
+    # 9. Apply distress stacking
+    distress_index = build_distress_index(all_records, vacant_addresses, vacant_land_pids, delinquent_parcels)
+    all_records = apply_distress_stacking(all_records, distress_index, delinquent_addresses, vacant_home_keys)
+
+    # 10. Build standalone tax delinquent leads — RESIDENTIAL ONLY
     tax_delin_leads = build_tax_delinquent_leads(
         delinquent_parcels, parcel_rows, mail_by_pid, vacant_land_pids
     )
-    # Merge into all_records — dedupe will handle any overlap with court filing leads
     all_records = all_records + tax_delin_leads
-    logging.info("Total records after adding tax delinquent leads: %s", len(all_records))
+    logging.info("Total records after adding residential tax delinquent leads: %s", len(all_records))
 
-    # 9. Skip trace priority leads (Hot Stack + Absentee) — free via public people search
+    # 11. Build standalone vacant home leads (from Akron board matched to CAMA)
+    vacant_home_leads = build_vacant_home_list(
+        vacant_addresses, parcel_rows, mail_by_pid, delinquent_pid_set
+    )
+    all_records = all_records + vacant_home_leads
+    logging.info("Total records after adding vacant home leads: %s", len(all_records))
+
+    # 12. Skip trace — RESIDENTIAL PRIORITY ONLY (not all 3,635 leads)
     all_records = await skip_trace_leads(all_records)
 
-    # 10. Build tax delinquent records list for dashboard tab
-    #    Any record flagged as tax delinquent goes into the tab
-    tax_delinquent_records = [r for r in all_records if "Tax delinquent" in r.flags]
-    logging.info("Tax delinquent leads: %s", len(tax_delinquent_records))
-
-    # 10. Dedupe and sort: hot stack first, then distress count, then score
+    # 13. Dedupe and sort: hot stack first, then distress count, then score
     all_records = dedupe_records(all_records)
     all_records.sort(key=lambda r: (r.hot_stack, r.distress_count, r.score, r.filed), reverse=True)
 
-    # 11. Build vacant land list
-    vacant_land = build_vacant_land_list(parcel_rows, mail_by_pid)
+    # 14. Build vacant land list — DISTRESSED ONLY (foreclosure or tax delinquent)
+    vacant_land = build_vacant_land_list(parcel_rows, mail_by_pid, delinquent_pid_set, foreclosure_pids)
     vacant_land.sort(key=lambda r: r.score, reverse=True)
 
-    # 12. Write all outputs
+    # 15. Write all outputs
     write_json_outputs(all_records, extra_json_path=Path(args.out_json))
     write_csv(all_records, DEFAULT_OUTPUT_CSV_PATH)
     if Path(args.out_csv) != DEFAULT_OUTPUT_CSV_PATH:
@@ -2098,17 +2375,23 @@ async def main() -> None:
     write_report(report, Path(args.report))
     write_vacant_land_json(vacant_land)
     write_hot_stack_json(all_records)
+    write_vacant_home_json(all_records)
 
-    hot_count = sum(1 for r in all_records if r.hot_stack)
-    tax_count = sum(1 for r in all_records if "Tax delinquent" in r.flags)
-    absentee_count = sum(1 for r in all_records if r.is_absentee)
-    traced_count = sum(1 for r in all_records if r.phones)
+    hot_count       = sum(1 for r in all_records if r.hot_stack)
+    tax_count       = sum(1 for r in all_records if "Tax delinquent" in r.flags)
+    absentee_count  = sum(1 for r in all_records if r.is_absentee)
+    vacant_home_cnt = sum(1 for r in all_records if r.is_vacant_home)
+    traced_count    = sum(1 for r in all_records if r.phones)
+
     logging.info(
-        "Finished. Total: %s | Prop: %s | Mail: %s | 🔥 Hot Stack: %s | 💰 Tax Deln: %s | 🏠 Absentee: %s | 📞 Skip Traced: %s | Vacant: %s",
+        "Finished. Total: %s | Prop: %s | Mail: %s | 🔥 Hot Stack: %s | "
+        "💰 Tax Deln (residential): %s | 🏠 Vacant Homes: %s | "
+        "📭 Absentee: %s | 📞 Skip Traced: %s | 🌿 Vacant Land (distressed): %s",
         len(all_records),
         sum(1 for r in all_records if r.prop_address),
         sum(1 for r in all_records if r.mail_address),
-        hot_count, tax_count, absentee_count, traced_count, len(vacant_land),
+        hot_count, tax_count, vacant_home_cnt,
+        absentee_count, traced_count, len(vacant_land),
     )
 
 
