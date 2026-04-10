@@ -1,11 +1,12 @@
 {
-  "matched": 24,
-  "unmatched": 44,
-  "with_address": 24,
+  "matched": 20,
+  "unmatched": 43,
+  "with_address": 20,
+  "with_mail_address": 20,
   "match_methods": {
+    "exact_name_variant": 16,
     "unmatched": 29,
-    "exact_name_variant": 20,
-    "no_property_match": 15,
+    "no_property_match": 14,
     "last_name_unique_fallback": 2,
     "last_name_initial_fallback": 2
   },
@@ -126,14 +127,14 @@
       "legal": "CAPITAL ONE NA -VS- DANDREA J MCCALL"
     },
     {
-      "doc_num": "FIDUC 04",
-      "owner": "Or Fiduc",
-      "legal": "TOWD POINT MORTGAGE TRUST 2019-3, U.S. B -VS- UNKNOWN ADMINISTRATOR, EXECUTOR OR FIDUC"
-    },
-    {
       "doc_num": "CINALLI 04",
       "owner": "Michael Cinalli",
       "legal": "FIRST NATIONAL BANK OF OMAHA -VS- MICHAEL CINALLI"
+    },
+    {
+      "doc_num": "FIDUC 04",
+      "owner": "Or Fiduc",
+      "legal": "TOWD POINT MORTGAGE TRUST 2019-3, U.S. B -VS- UNKNOWN ADMINISTRATOR, EXECUTOR OR FIDUC"
     }
   ],
   "sample_no_property_match": [
@@ -198,11 +199,6 @@
       "legal": "AKRON PUBLIC SCHOOLS -VS- A'NYAH LANEE CAMPBELL"
     },
     {
-      "doc_num": "RICE 04",
-      "owner": "Patrice Rice",
-      "legal": "THE HUNTINGTON NATIONAL BANK -VS- PATRICE RICE"
-    },
-    {
       "doc_num": "SCOTT 04",
       "owner": "Dallas L Scott",
       "legal": "SEVEN SEVENTEEN CREDIT UNION INC -VS- DALLAS L SCOTT"
@@ -213,5 +209,5 @@
       "legal": "ROOFSMITH RESTORATION, INC. -VS- ROBERT FERNANDEZ"
     }
   ],
-  "generated_at": "2026-04-10T10:42:25.559708+00:00"
+  "generated_at": "2026-04-10T14:10:48.005983+00:00"
 }

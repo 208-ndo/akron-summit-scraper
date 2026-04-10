@@ -3,14 +3,35 @@
     "Action",
     "Case Name",
     "Date Added",
-    "Case Category Other Civil: 7 Judgment Lien: 57 Breach of Contract: 7 Foreclosure: 10 Personal Injury: 5 Workers Compensation: 2 Cognovit Action: 2 Unfair Consumer Sales Act: 1 Judgment Lien Juvenile Court: 1 Refiled Case: 1 Negligence: 1 Select All",
+    "Case Category Personal Injury: 5 Foreclosure: 5 Workers Compensation: 3 Judgment Lien: 57 Breach of Contract: 4 Other Civil: 2 Judgment Lien Juvenile Court: 1 Cognovit Action: 1 Unfair Consumer Sales Act: 1 Select All",
     "Status"
   ],
   [
     "Get Docs",
-    "MATTHEW DAVID NICHOLS -VS- ALTERCARE OF CUYAHOGA FALLS CENTER FOR R",
-    "04/10/2026 03:48 AM",
-    "Other Civil",
+    "DAMETRA S EMBRY -VS- ALLSTATE FIRE AND CASUALTY INSURANCE CO",
+    "04/10/2026 09:56 AM",
+    "Personal Injury",
+    "Pending Review"
+  ],
+  [
+    "Get Docs",
+    "KRISTEN M. SCALISE -VS- UNKNOWN HEIRS OF TRACY BYE",
+    "04/10/2026 09:43 AM",
+    "Foreclosure",
+    "Pending Review"
+  ],
+  [
+    "Get Docs",
+    "KRISTEN M. SCALISE -VS- UNKNOWN HEIRS OF JOSEPH L. BLAKE",
+    "04/10/2026 09:33 AM",
+    "Foreclosure",
+    "Pending Review"
+  ],
+  [
+    "Get Docs",
+    "CHRISTOPHER W. ROOKE -VS- RS RESOURCES INC.",
+    "04/10/2026 09:05 AM",
+    "Workers Compensation",
     "Pending Review"
   ],
   [
@@ -150,27 +171,6 @@
     "Get Docs",
     "CAPITAL ONE NA -VS- CHARLES J KEMPPEL",
     "04/09/2026 05:19 PM",
-    "Judgment Lien",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
-    "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- MALIA KELLEY",
-    "04/09/2026 05:16 PM",
-    "Judgment Lien",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
-    "CAPITAL ONE NA -VS- FREDERICK R HEYBURN",
-    "04/09/2026 05:15 PM",
-    "Judgment Lien",
-    "Pending Review"
-  ],
-  [
-    "Get Docs",
-    "CAPITAL ONE NA -VS- JACQUELYNN GRIFFITH",
-    "04/09/2026 05:11 PM",
     "Judgment Lien",
     "Pending Review"
   ]
