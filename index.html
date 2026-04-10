@@ -95,6 +95,7 @@ tr:hover td{background:var(--surface)}
 .flag-vacant{background:var(--teal-dim);color:var(--teal)}
 .flag-stack{background:var(--gold-dim);color:var(--gold)}
 .flag-noprop{background:var(--surface2);color:var(--text3)}
+.flag-absentee{background:#2d1f50;color:#c792f0}
 .owner-name{font-weight:600;color:var(--text);font-size:13px}
 .prop-addr{font-size:11px;color:var(--text2);margin-top:2px;font-family:'IBM Plex Mono',monospace}
 .no-match{font-size:11px;color:var(--text3);margin-top:2px;font-family:'IBM Plex Mono',monospace}
@@ -149,6 +150,7 @@ tr:hover td{background:var(--surface)}
   <div class="stat-card c-teal"><div class="label">Mail Address</div><div class="value" id="stat-mail">—</div><div class="sub">mailing matched</div></div>
   <div class="stat-card c-orange"><div class="label">New This Week</div><div class="value" id="stat-new">—</div><div class="sub">filed recently</div></div>
   <div class="stat-card c-gold"><div class="label">Vacant Land</div><div class="value" id="stat-vacant">—</div><div class="sub">infill lots ≤ 2 acres</div></div>
+  <div class="stat-card c-purple"><div class="label">🏠 Absentee Owners</div><div class="value" id="stat-absentee">—</div><div class="sub">mail ≠ property address</div></div>
 </div>
 
 <!-- HOT STACK BANNER -->
@@ -180,6 +182,7 @@ tr:hover td{background:var(--surface)}
     <option value="LLC / corp owner">LLC / Corp</option>
     <option value="🔥 Hot Stack">🔥 Hot Stack</option>
     <option value="Vacant land">Vacant Land</option>
+    <option value="Absentee owner">🏠 Absentee Owner</option>
     <option value="New this week">New This Week</option>
   </select>
   <select id="filter-addr">
@@ -262,6 +265,7 @@ var activeTab = 'all';
 function flagClass(f) {
   f = (f || '').toLowerCase();
   if (f.includes('hot stack') || f.includes('🔥')) return 'flag-hot';
+  if (f.includes('absentee')) return 'flag-absentee';
   if (f.includes('lis') || f.includes('pendens')) return 'flag-lp';
   if (f.includes('foreclos') || f.includes('pre-fore')) return 'flag-fc';
   if (f.includes('tax')) return 'flag-tax';
@@ -423,6 +427,7 @@ function setStats(records, vacantCount, hotCount) {
   document.getElementById('stat-mail').textContent = records.filter(function(r){return r.mail_address;}).length.toLocaleString();
   document.getElementById('stat-new').textContent = records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('new this');});}).length.toLocaleString();
   document.getElementById('stat-vacant').textContent = vacantCount.toLocaleString();
+  document.getElementById('stat-absentee').textContent = records.filter(function(r){return r.is_absentee;}).length.toLocaleString();
 
   document.getElementById('tab-all').textContent = records.length.toLocaleString();
   document.getElementById('tab-clerk').textContent = records.filter(function(r){return r.doc_type;}).length.toLocaleString();
