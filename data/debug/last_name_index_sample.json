@@ -13,7 +13,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0100764",
@@ -28,7 +30,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44303",
-      "legal": ""
+      "legal": "",
+      "luc": "400",
+      "acres": ".0700"
     },
     {
       "parcel_id": "0101307",
@@ -43,7 +47,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "J": [
@@ -60,7 +66,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100003",
@@ -75,7 +83,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0100011",
@@ -90,7 +100,9 @@
       "mail_city": "Canal Fulton",
       "mail_state": "OH",
       "mail_zip": "44614",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "A": [
@@ -107,7 +119,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100023",
@@ -122,7 +136,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100043",
@@ -137,7 +153,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "III": [
@@ -154,7 +172,9 @@
       "mail_city": "New Albany",
       "mail_state": "OH",
       "mail_zip": "43054",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0100510",
@@ -169,7 +189,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "447",
+      "acres": ""
     },
     {
       "parcel_id": "0100510T",
@@ -184,7 +206,9 @@
       "mail_city": "Barberton",
       "mail_state": "",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "720",
+      "acres": ""
     }
   ],
   "LLC": [
@@ -201,7 +225,9 @@
       "mail_city": "Portsmouth",
       "mail_state": "OH",
       "mail_zip": "03802",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100012",
@@ -216,7 +242,9 @@
       "mail_city": "Sidney",
       "mail_state": "OH",
       "mail_zip": "45365",
-      "legal": ""
+      "legal": "",
+      "luc": "401",
+      "acres": ""
     },
     {
       "parcel_id": "0100029",
@@ -231,7 +259,9 @@
       "mail_city": "Oviedo",
       "mail_state": "OH",
       "mail_zip": "32765",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "M": [
@@ -248,7 +278,9 @@
       "mail_city": "Copley",
       "mail_state": "OH",
       "mail_zip": "44321",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ".1700"
     },
     {
       "parcel_id": "0100018",
@@ -263,7 +295,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100022",
@@ -278,7 +312,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "SUSAN": [
@@ -295,7 +331,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100407",
@@ -310,7 +348,9 @@
       "mail_city": "Norton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100983",
@@ -325,7 +365,9 @@
       "mail_city": "Clinton",
       "mail_state": "OH",
       "mail_zip": "44216",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "ANDREW": [
@@ -342,7 +384,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101055",
@@ -357,7 +401,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101474",
@@ -372,7 +418,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "ROY": [
@@ -389,7 +437,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101623",
@@ -404,7 +454,9 @@
       "mail_city": "Bastrop",
       "mail_state": "OH",
       "mail_zip": "78602",
-      "legal": ""
+      "legal": "",
+      "luc": "499",
+      "acres": ""
     },
     {
       "parcel_id": "0101623T",
@@ -419,7 +471,9 @@
       "mail_city": "Bastrop",
       "mail_state": "",
       "mail_zip": "78602",
-      "legal": ""
+      "legal": "",
+      "luc": "720",
+      "acres": ""
     }
   ],
   "C": [
@@ -436,7 +490,9 @@
       "mail_city": "Missouri City",
       "mail_state": "OH",
       "mail_zip": "77459",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100014",
@@ -451,7 +507,9 @@
       "mail_city": "Missouri City",
       "mail_state": "OH",
       "mail_zip": "77459",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0100015",
@@ -466,7 +524,9 @@
       "mail_city": "Missouri City",
       "mail_state": "OH",
       "mail_zip": "77459",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "LEE": [
@@ -483,7 +543,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".1200"
     },
     {
       "parcel_id": "0100645",
@@ -498,7 +560,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101189",
@@ -513,7 +577,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "LISA": [
@@ -530,7 +596,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100335",
@@ -545,7 +613,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101179",
@@ -560,7 +630,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "ASHLEY": [
@@ -577,7 +649,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101214",
@@ -592,7 +666,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101215",
@@ -607,7 +683,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "S": [
@@ -624,7 +702,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100091",
@@ -639,7 +719,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100240",
@@ -654,7 +736,9 @@
       "mail_city": "Uniontown",
       "mail_state": "OH",
       "mail_zip": "44685",
-      "legal": ""
+      "legal": "",
+      "luc": "400",
+      "acres": ".1500"
     }
   ],
   "JANAN": [
@@ -671,7 +755,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "ALLEN": [
@@ -688,7 +774,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0100028",
@@ -703,7 +791,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101529",
@@ -718,7 +808,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".2500"
     }
   ],
   "L": [
@@ -735,7 +827,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100095",
@@ -750,7 +844,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44313",
-      "legal": ""
+      "legal": "",
+      "luc": "520",
+      "acres": ""
     },
     {
       "parcel_id": "0100142",
@@ -765,7 +861,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "W": [
@@ -782,7 +880,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100040",
@@ -797,7 +897,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100041",
@@ -812,7 +914,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "BARRY": [
@@ -829,7 +933,9 @@
       "mail_city": "Doylestown",
       "mail_state": "OH",
       "mail_zip": "44230",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100126",
@@ -844,7 +950,9 @@
       "mail_city": "Doylestown",
       "mail_state": "OH",
       "mail_zip": "44230",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0104031",
@@ -859,7 +967,9 @@
       "mail_city": "Doylestown",
       "mail_state": "OH",
       "mail_zip": "44230",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "T": [
@@ -876,7 +986,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100759",
@@ -891,7 +1003,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100797",
@@ -906,7 +1020,9 @@
       "mail_city": "Clinton",
       "mail_state": "OH",
       "mail_zip": "44216",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "BARBERTON": [
@@ -923,7 +1039,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "640",
+      "acres": ""
     },
     {
       "parcel_id": "0100109",
@@ -938,7 +1056,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     },
     {
       "parcel_id": "0100232",
@@ -953,7 +1073,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "640",
+      "acres": ""
     }
   ],
   "P": [
@@ -970,7 +1092,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100096",
@@ -985,7 +1109,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".1300"
     },
     {
       "parcel_id": "0100098",
@@ -1000,7 +1126,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "LAURA": [
@@ -1017,7 +1145,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100676",
@@ -1032,7 +1162,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102768",
@@ -1047,7 +1179,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "D": [
@@ -1064,7 +1198,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100119",
@@ -1079,7 +1215,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "530",
+      "acres": ""
     },
     {
       "parcel_id": "0100206",
@@ -1094,7 +1232,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "IAN": [
@@ -1111,7 +1251,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100048",
@@ -1126,7 +1268,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0106330",
@@ -1141,7 +1285,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "R": [
@@ -1158,7 +1304,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44321",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100124",
@@ -1173,7 +1321,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100141",
@@ -1188,7 +1338,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "CHRISTOPHER": [
@@ -1205,7 +1357,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100462",
@@ -1220,7 +1374,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100652",
@@ -1235,7 +1391,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "SEAN": [
@@ -1252,7 +1410,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102546",
@@ -1267,7 +1427,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0107492",
@@ -1282,7 +1444,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "CO": [
@@ -1299,7 +1463,9 @@
       "mail_city": "Brewster",
       "mail_state": "OH",
       "mail_zip": "44613",
-      "legal": ""
+      "legal": "",
+      "luc": "840",
+      "acres": ""
     },
     {
       "parcel_id": "0100152",
@@ -1314,7 +1480,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100152T",
@@ -1329,7 +1497,9 @@
       "mail_city": "Barberton",
       "mail_state": "",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "720",
+      "acres": ""
     }
   ],
   "EDUCATION": [
@@ -1348,7 +1518,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "650",
+      "acres": "11.3700"
     },
     {
       "parcel_id": "0100059",
@@ -1365,7 +1537,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "650",
+      "acres": ""
     },
     {
       "parcel_id": "0100060",
@@ -1382,7 +1556,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "650",
+      "acres": ""
     }
   ],
   "DISTRICT": [
@@ -1401,7 +1577,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "650",
+      "acres": "11.3700"
     },
     {
       "parcel_id": "0100059",
@@ -1418,7 +1596,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "650",
+      "acres": ""
     },
     {
       "parcel_id": "0100060",
@@ -1435,7 +1615,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "650",
+      "acres": ""
     }
   ],
   "INC": [
@@ -1452,7 +1634,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "399",
+      "acres": "1.7000"
     },
     {
       "parcel_id": "0100223",
@@ -1467,7 +1651,9 @@
       "mail_city": "Norton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100308",
@@ -1482,7 +1668,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44313",
-      "legal": ""
+      "legal": "",
+      "luc": "300",
+      "acres": "1.3100"
     }
   ],
   "K": [
@@ -1499,7 +1687,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "599",
+      "acres": ""
     },
     {
       "parcel_id": "0100083",
@@ -1514,7 +1704,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100135",
@@ -1529,7 +1721,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "AARON": [
@@ -1546,7 +1740,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44305",
-      "legal": ""
+      "legal": "",
+      "luc": "520",
+      "acres": ""
     },
     {
       "parcel_id": "0101826",
@@ -1561,7 +1757,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0103625",
@@ -1576,7 +1774,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "520",
+      "acres": ""
     }
   ],
   "REEM": [
@@ -1593,7 +1793,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44310",
-      "legal": ""
+      "legal": "",
+      "luc": "499",
+      "acres": ""
     },
     {
       "parcel_id": "6007659",
@@ -1608,7 +1810,9 @@
       "mail_city": "Tallmadge",
       "mail_state": "OH",
       "mail_zip": "44278",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "6702143",
@@ -1623,7 +1827,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44310",
-      "legal": ""
+      "legal": "",
+      "luc": "454",
+      "acres": ""
     }
   ],
   "TABERNACLE": [
@@ -1640,7 +1846,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": "1.3100"
     },
     {
       "parcel_id": "0100087",
@@ -1655,7 +1863,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ".6000"
     },
     {
       "parcel_id": "0100647",
@@ -1670,7 +1880,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     }
   ],
   "JR": [
@@ -1687,7 +1899,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100202",
@@ -1702,7 +1916,9 @@
       "mail_city": "North Royalton",
       "mail_state": "OH",
       "mail_zip": "44133",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100203",
@@ -1717,7 +1933,9 @@
       "mail_city": "North Royalton",
       "mail_state": "OH",
       "mail_zip": "44133",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "PETER": [
@@ -1734,7 +1952,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101690",
@@ -1749,7 +1969,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "520",
+      "acres": ""
     },
     {
       "parcel_id": "0104741",
@@ -1764,7 +1986,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "KONRAD": [
@@ -1781,7 +2005,9 @@
       "mail_city": "Sioux Falls",
       "mail_state": "OH",
       "mail_zip": "57108",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0103978",
@@ -1796,7 +2022,9 @@
       "mail_city": "Sioux Falls",
       "mail_state": "OH",
       "mail_zip": "57108",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0405868",
@@ -1811,7 +2039,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44333",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": "1.5000"
     }
   ],
   "ALAN": [
@@ -1828,7 +2058,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100844",
@@ -1843,7 +2075,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101582",
@@ -1858,7 +2092,9 @@
       "mail_city": "Wadsworth",
       "mail_state": "OH",
       "mail_zip": "44281",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "RAY": [
@@ -1875,7 +2111,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100870",
@@ -1890,7 +2128,9 @@
       "mail_city": "Arlington",
       "mail_state": "OH",
       "mail_zip": "76018",
-      "legal": ""
+      "legal": "",
+      "luc": "300",
+      "acres": ".1000"
     },
     {
       "parcel_id": "0100875",
@@ -1906,7 +2146,9 @@
       "mail_city": "Arlington",
       "mail_state": "OH",
       "mail_zip": "76018",
-      "legal": ""
+      "legal": "",
+      "luc": "300",
+      "acres": ".2800"
     }
   ],
   "DIANE": [
@@ -1923,7 +2165,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0104528",
@@ -1938,7 +2182,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0105826",
@@ -1953,7 +2199,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "KATHLEEN": [
@@ -1970,7 +2218,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102703",
@@ -1985,7 +2235,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0106336",
@@ -2000,7 +2252,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "B": [
@@ -2017,7 +2271,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100168",
@@ -2032,7 +2288,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100267",
@@ -2047,7 +2305,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".2000"
     }
   ],
   "DREW": [
@@ -2064,7 +2324,9 @@
       "mail_city": "Albany",
       "mail_state": "OH",
       "mail_zip": "45710",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0109885",
@@ -2079,7 +2341,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0204310",
@@ -2094,7 +2358,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "ANN": [
@@ -2111,7 +2377,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100183",
@@ -2126,7 +2394,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100184",
@@ -2141,7 +2411,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "STEPHEN": [
@@ -2158,7 +2430,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100172",
@@ -2173,7 +2447,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100443",
@@ -2188,7 +2464,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "H": [
@@ -2205,7 +2483,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100338",
@@ -2220,7 +2500,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100451",
@@ -2235,7 +2517,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "ROBERT": [
@@ -2252,7 +2536,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "520",
+      "acres": ""
     },
     {
       "parcel_id": "0101483",
@@ -2267,7 +2553,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102026",
@@ -2282,7 +2570,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "RENEE": [
@@ -2299,7 +2589,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101345",
@@ -2314,7 +2606,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0104169",
@@ -2329,7 +2623,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "MARK": [
@@ -2346,7 +2642,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101497",
@@ -2361,7 +2659,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101706",
@@ -2376,7 +2676,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "N": [
@@ -2393,7 +2695,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100130",
@@ -2408,7 +2712,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0100663",
@@ -2423,7 +2729,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "MATTHEW": [
@@ -2440,7 +2748,9 @@
       "mail_city": "The Woodlands",
       "mail_state": "OH",
       "mail_zip": "77354",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100378",
@@ -2455,7 +2765,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101714",
@@ -2470,7 +2782,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "RICK": [
@@ -2487,7 +2801,9 @@
       "mail_city": "North Bend",
       "mail_state": "OH",
       "mail_zip": "98405",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101438",
@@ -2502,7 +2818,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "499",
+      "acres": ""
     },
     {
       "parcel_id": "0101439",
@@ -2517,7 +2835,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "400",
+      "acres": ""
     }
   ],
   "E": [
@@ -2534,7 +2854,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100173",
@@ -2549,7 +2871,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0100174",
@@ -2564,7 +2888,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "GEORGETTE": [
@@ -2581,7 +2907,9 @@
       "mail_city": "Doylestown",
       "mail_state": "OH",
       "mail_zip": "44230",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100160",
@@ -2596,7 +2924,9 @@
       "mail_city": "Doylestown",
       "mail_state": "OH",
       "mail_zip": "44230",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "6401785",
@@ -2611,7 +2941,9 @@
       "mail_city": "Twinsburg",
       "mail_state": "OH",
       "mail_zip": "44087",
-      "legal": ""
+      "legal": "",
+      "luc": "550",
+      "acres": ""
     }
   ],
   "MICHAEL": [
@@ -2628,7 +2960,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100167",
@@ -2643,7 +2977,9 @@
       "mail_city": "North Lawrence",
       "mail_state": "OH",
       "mail_zip": "44666",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100675",
@@ -2658,7 +2994,9 @@
       "mail_city": "Wadsworth",
       "mail_state": "OH",
       "mail_zip": "44281",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "BUFFY": [
@@ -2675,7 +3013,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44301",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "MAURICE": [
@@ -2692,7 +3032,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0103078",
@@ -2707,7 +3049,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0106610",
@@ -2722,7 +3066,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "TEMPLE": [
@@ -2739,7 +3085,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     },
     {
       "parcel_id": "0111843",
@@ -2755,7 +3103,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     },
     {
       "parcel_id": "4600350",
@@ -2770,7 +3120,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": "2.9800"
     }
   ],
   "JADZIA": [
@@ -2787,7 +3139,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".2700"
     },
     {
       "parcel_id": "0100182",
@@ -2802,7 +3156,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "LILY": [
@@ -2819,7 +3175,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0219132",
@@ -2834,7 +3192,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "1501853",
@@ -2849,7 +3209,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44320",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "KYLE": [
@@ -2866,7 +3228,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44223",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102131",
@@ -2881,7 +3245,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102992",
@@ -2896,7 +3262,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "520",
+      "acres": ".3100"
     }
   ],
   "CORPORATION": [
@@ -2913,7 +3281,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "680",
+      "acres": ""
     },
     {
       "parcel_id": "0100537",
@@ -2929,7 +3299,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "456",
+      "acres": ""
     },
     {
       "parcel_id": "0100538",
@@ -2945,7 +3317,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "456",
+      "acres": ""
     }
   ],
   "JACK": [
@@ -2962,7 +3336,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ".0500"
     },
     {
       "parcel_id": "0100213",
@@ -2977,7 +3353,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ".1400"
     },
     {
       "parcel_id": "0100214",
@@ -2992,7 +3370,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".1100"
     }
   ],
   "MARIE": [
@@ -3009,7 +3389,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100406",
@@ -3024,7 +3406,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".2500"
     },
     {
       "parcel_id": "0100769",
@@ -3039,7 +3423,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "ELLEN": [
@@ -3056,7 +3442,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0106931",
@@ -3071,7 +3459,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0109072",
@@ -3086,7 +3476,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "GREGORY": [
@@ -3103,7 +3495,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0106264",
@@ -3118,7 +3512,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".2800"
     },
     {
       "parcel_id": "0108589",
@@ -3133,7 +3529,9 @@
       "mail_city": "Seville",
       "mail_state": "OH",
       "mail_zip": "44273",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "IDA": [
@@ -3150,7 +3548,9 @@
       "mail_city": "Agoura Hills",
       "mail_state": "OH",
       "mail_zip": "91301",
-      "legal": ""
+      "legal": "",
+      "luc": "456",
+      "acres": ""
     },
     {
       "parcel_id": "4800409",
@@ -3165,7 +3565,9 @@
       "mail_city": "Brecksville",
       "mail_state": "OH",
       "mail_zip": "44141",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": "3.3300"
     },
     {
       "parcel_id": "6708442",
@@ -3180,7 +3582,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44311",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "ASSOCIATION": [
@@ -3199,7 +3603,9 @@
       "mail_city": "Norton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     },
     {
       "parcel_id": "0100228",
@@ -3216,7 +3622,9 @@
       "mail_city": "Norton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     },
     {
       "parcel_id": "0100229",
@@ -3233,7 +3641,9 @@
       "mail_city": "Norton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     }
   ],
   "CHURCH": [
@@ -3252,7 +3662,9 @@
       "mail_city": "Norton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     },
     {
       "parcel_id": "0100228",
@@ -3269,7 +3681,9 @@
       "mail_city": "Norton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     },
     {
       "parcel_id": "0100229",
@@ -3286,7 +3700,9 @@
       "mail_city": "Norton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     }
   ],
   "GANNON": [
@@ -3303,7 +3719,9 @@
       "mail_city": "Wadsworth",
       "mail_state": "OH",
       "mail_zip": "44281",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100489",
@@ -3318,7 +3736,9 @@
       "mail_city": "El Segundo",
       "mail_state": "OH",
       "mail_zip": "90245",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0107441",
@@ -3333,7 +3753,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "520",
+      "acres": ""
     }
   ],
   "LTD": [
@@ -3350,7 +3772,9 @@
       "mail_city": "Clinton",
       "mail_state": "OH",
       "mail_zip": "44216",
-      "legal": ""
+      "legal": "",
+      "luc": "499",
+      "acres": ""
     },
     {
       "parcel_id": "0100234T",
@@ -3365,7 +3789,9 @@
       "mail_city": "Clinton",
       "mail_state": "",
       "mail_zip": "44216",
-      "legal": ""
+      "legal": "",
+      "luc": "720",
+      "acres": ""
     },
     {
       "parcel_id": "0100261",
@@ -3380,7 +3806,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "DAVID": [
@@ -3397,7 +3825,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".1500"
     },
     {
       "parcel_id": "0100955",
@@ -3412,7 +3842,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101049",
@@ -3427,7 +3859,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "TUSHAR": [
@@ -3444,7 +3878,9 @@
       "mail_city": "Danville",
       "mail_state": "OH",
       "mail_zip": "17822",
-      "legal": ""
+      "legal": "",
+      "luc": "300",
+      "acres": ""
     },
     {
       "parcel_id": "0105182",
@@ -3459,7 +3895,9 @@
       "mail_city": "Danville",
       "mail_state": "OH",
       "mail_zip": "17822",
-      "legal": ""
+      "legal": "",
+      "luc": "399",
+      "acres": ""
     },
     {
       "parcel_id": "0105183",
@@ -3474,7 +3912,9 @@
       "mail_city": "Danville",
       "mail_state": "OH",
       "mail_zip": "17822",
-      "legal": ""
+      "legal": "",
+      "luc": "300",
+      "acres": ""
     }
   ],
   "SR": [
@@ -3491,7 +3931,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100301",
@@ -3506,7 +3948,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100535",
@@ -3521,7 +3965,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     }
   ],
   "DORAINE": [
@@ -3538,7 +3984,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "JUSTIN": [
@@ -3555,7 +4003,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101822",
@@ -3570,7 +4020,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101823",
@@ -3585,7 +4037,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "EDDIE": [
@@ -3602,7 +4056,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0111845",
@@ -3617,7 +4073,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0115849",
@@ -3632,7 +4090,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "G": [
@@ -3649,7 +4109,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44319",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100258",
@@ -3664,7 +4126,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100259",
@@ -3679,7 +4143,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": "1.0000"
     }
   ],
   "KATHERYNE": [
@@ -3696,7 +4162,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "RYAN": [
@@ -3713,7 +4181,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100698",
@@ -3728,7 +4198,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102818",
@@ -3743,7 +4215,9 @@
       "mail_city": "Wadsworth",
       "mail_state": "OH",
       "mail_zip": "44281",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "DRAGICA": [
@@ -3760,7 +4234,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0100274",
@@ -3775,7 +4251,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "2816626",
@@ -3790,7 +4268,9 @@
       "mail_city": "Uniontown",
       "mail_state": "",
       "mail_zip": "44685",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "PAO": [
@@ -3807,7 +4287,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ".2300"
     },
     {
       "parcel_id": "0100289",
@@ -3822,7 +4304,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     },
     {
       "parcel_id": "0113219",
@@ -3837,7 +4321,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     }
   ],
   "RUTH": [
@@ -3854,7 +4340,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100291",
@@ -3869,7 +4357,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0104205",
@@ -3884,7 +4374,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "SCOTT": [
@@ -3901,7 +4393,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100692",
@@ -3916,7 +4410,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0101419",
@@ -3931,7 +4427,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "LOUISE": [
@@ -3948,7 +4446,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100300",
@@ -3963,7 +4463,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0100694",
@@ -3978,7 +4480,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "599",
+      "acres": ""
     }
   ],
   "CHAD": [
@@ -3995,7 +4499,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0101285",
@@ -4010,7 +4516,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44333",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0103663",
@@ -4025,7 +4533,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "DANIEL": [
@@ -4042,7 +4552,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100930",
@@ -4057,7 +4569,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102221",
@@ -4072,7 +4586,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "ALDEN": [
@@ -4089,7 +4605,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "EDWIN": [
@@ -4106,7 +4624,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "550",
+      "acres": ""
     },
     {
       "parcel_id": "0214449",
@@ -4121,7 +4641,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44223",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0219531",
@@ -4136,7 +4658,9 @@
       "mail_city": "Dewitt",
       "mail_state": "OH",
       "mail_zip": "48820",
-      "legal": ""
+      "legal": "",
+      "luc": "550",
+      "acres": ""
     }
   ],
   "MEREDITH": [
@@ -4153,7 +4677,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "550",
+      "acres": ""
     },
     {
       "parcel_id": "1902954",
@@ -4168,7 +4694,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44319",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "1902955",
@@ -4183,7 +4711,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44319",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "KELLI": [
@@ -4200,7 +4730,9 @@
       "mail_city": "Canton",
       "mail_state": "OH",
       "mail_zip": "44718",
-      "legal": ""
+      "legal": "",
+      "luc": "550",
+      "acres": ""
     },
     {
       "parcel_id": "0205483",
@@ -4215,7 +4747,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "1903833",
@@ -4230,7 +4764,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44319",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "JESSICA": [
@@ -4247,7 +4783,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "550",
+      "acres": ""
     },
     {
       "parcel_id": "0101297",
@@ -4262,7 +4800,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0106178",
@@ -4277,7 +4817,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "WAYNE": [
@@ -4294,7 +4836,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "550",
+      "acres": ""
     },
     {
       "parcel_id": "0101666",
@@ -4309,7 +4853,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".0100"
     },
     {
       "parcel_id": "0101666T",
@@ -4324,7 +4870,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "720",
+      "acres": ".0100"
     }
   ],
   "F": [
@@ -4341,7 +4889,9 @@
       "mail_city": "Doylestown",
       "mail_state": "OH",
       "mail_zip": "44230",
-      "legal": ""
+      "legal": "",
+      "luc": "330",
+      "acres": "21.5300"
     },
     {
       "parcel_id": "0100503",
@@ -4356,7 +4906,9 @@
       "mail_city": "Oakland",
       "mail_state": "OH",
       "mail_zip": "94605",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100666",
@@ -4371,7 +4923,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "DELOISE": [
@@ -4388,7 +4942,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "2301393",
@@ -4403,7 +4959,9 @@
       "mail_city": "Clinton",
       "mail_state": "OH",
       "mail_zip": "44216",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "2301394",
@@ -4418,7 +4976,9 @@
       "mail_city": "Clinton",
       "mail_state": "OH",
       "mail_zip": "44216",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "BABCOCK": [
@@ -4437,7 +4997,9 @@
       "mail_city": "Nashville",
       "mail_state": "OH",
       "mail_zip": "37203",
-      "legal": ""
+      "legal": "",
+      "luc": "456",
+      "acres": ""
     },
     {
       "parcel_id": "0100385T",
@@ -4454,7 +5016,9 @@
       "mail_city": "Nashville",
       "mail_state": "",
       "mail_zip": "37203",
-      "legal": ""
+      "legal": "",
+      "luc": "720",
+      "acres": ""
     },
     {
       "parcel_id": "0100386",
@@ -4471,7 +5035,9 @@
       "mail_city": "Nashville",
       "mail_state": "OH",
       "mail_zip": "37203",
-      "legal": ""
+      "legal": "",
+      "luc": "300",
+      "acres": ""
     }
   ],
   "OPERATIONS": [
@@ -4490,7 +5056,9 @@
       "mail_city": "Nashville",
       "mail_state": "OH",
       "mail_zip": "37203",
-      "legal": ""
+      "legal": "",
+      "luc": "456",
+      "acres": ""
     },
     {
       "parcel_id": "0100385T",
@@ -4507,7 +5075,9 @@
       "mail_city": "Nashville",
       "mail_state": "",
       "mail_zip": "37203",
-      "legal": ""
+      "legal": "",
+      "luc": "720",
+      "acres": ""
     },
     {
       "parcel_id": "0100386",
@@ -4524,7 +5094,9 @@
       "mail_city": "Nashville",
       "mail_state": "OH",
       "mail_zip": "37203",
-      "legal": ""
+      "legal": "",
+      "luc": "300",
+      "acres": ""
     }
   ],
   "UNION": [
@@ -4541,7 +5113,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "445",
+      "acres": ""
     },
     {
       "parcel_id": "0100488",
@@ -4556,7 +5130,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0104806",
@@ -4571,7 +5147,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "CHARLES": [
@@ -4588,7 +5166,9 @@
       "mail_city": "Freedom",
       "mail_state": "OH",
       "mail_zip": "15042",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ".1000"
     },
     {
       "parcel_id": "0100621",
@@ -4603,7 +5183,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0100622",
@@ -4618,7 +5200,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "COLLEEN": [
@@ -4635,7 +5219,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0100405",
@@ -4650,7 +5236,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0111427",
@@ -4665,7 +5253,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "JULIUS": [
@@ -4682,7 +5272,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "429",
+      "acres": ""
     },
     {
       "parcel_id": "0100416",
@@ -4697,7 +5289,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "400",
+      "acres": ""
     },
     {
       "parcel_id": "0114998",
@@ -4712,7 +5306,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "LYN": [
@@ -4729,7 +5325,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0104478",
@@ -4744,7 +5342,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0110395",
@@ -4759,7 +5359,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "COUNTY": [
@@ -4776,7 +5378,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44320",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0106287",
@@ -4792,7 +5396,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44320",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0108613",
@@ -4808,7 +5414,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44320",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "MICHELLE": [
@@ -4825,7 +5433,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100425",
@@ -4840,7 +5450,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0104557",
@@ -4855,7 +5467,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "KATHRYN": [
@@ -4872,7 +5486,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0104360",
@@ -4887,7 +5503,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0108574",
@@ -4902,7 +5520,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "WILLIAM": [
@@ -4919,7 +5539,9 @@
       "mail_city": "Doylestown",
       "mail_state": "OH",
       "mail_zip": "44230",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101110",
@@ -4934,7 +5556,9 @@
       "mail_city": "Canton",
       "mail_state": "OH",
       "mail_zip": "48188",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101110T",
@@ -4949,7 +5573,9 @@
       "mail_city": "Canton",
       "mail_state": "",
       "mail_zip": "48188",
-      "legal": ""
+      "legal": "",
+      "luc": "720",
+      "acres": ""
     }
   ],
   "RACHAEL": [
@@ -4966,7 +5592,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0202391",
@@ -4981,7 +5609,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0202392",
@@ -4996,7 +5626,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "SUZANNE": [
@@ -5013,7 +5645,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0100446",
@@ -5028,7 +5662,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0206635",
@@ -5043,7 +5679,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "JAMES": [
@@ -5060,7 +5698,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100651",
@@ -5075,7 +5715,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100655",
@@ -5090,7 +5732,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "MELANIE": [
@@ -5107,7 +5751,9 @@
       "mail_city": "Massillon",
       "mail_state": "OH",
       "mail_zip": "44646",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0104398",
@@ -5122,7 +5768,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44312",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0104398T",
@@ -5137,7 +5785,9 @@
       "mail_city": "Akron",
       "mail_state": "",
       "mail_zip": "44312",
-      "legal": ""
+      "legal": "",
+      "luc": "720",
+      "acres": ""
     }
   ],
   "LYNN": [
@@ -5154,7 +5804,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100637",
@@ -5169,7 +5821,9 @@
       "mail_city": "Charlotte",
       "mail_state": "OH",
       "mail_zip": "28204",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0100638",
@@ -5184,7 +5838,9 @@
       "mail_city": "Charlotte",
       "mail_state": "OH",
       "mail_zip": "28204",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "BRIANNA": [
@@ -5201,7 +5857,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "520",
+      "acres": ""
     },
     {
       "parcel_id": "0108657",
@@ -5216,7 +5874,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0204627",
@@ -5231,7 +5891,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "RICHARD": [
@@ -5248,7 +5910,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100788",
@@ -5263,7 +5927,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101521",
@@ -5278,7 +5944,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "599",
+      "acres": ""
     }
   ],
   "ELFEGO": [
@@ -5295,7 +5963,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "530",
+      "acres": ""
     }
   ],
   "JOSHUA": [
@@ -5312,7 +5982,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44319",
-      "legal": ""
+      "legal": "",
+      "luc": "520",
+      "acres": ""
     },
     {
       "parcel_id": "0101111",
@@ -5327,7 +5999,9 @@
       "mail_city": "Clinton",
       "mail_state": "OH",
       "mail_zip": "44216",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101277",
@@ -5342,7 +6016,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "PROPERTIES": [
@@ -5359,7 +6035,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44312",
-      "legal": ""
+      "legal": "",
+      "luc": "401",
+      "acres": ""
     },
     {
       "parcel_id": "0104076",
@@ -5374,7 +6052,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44312",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0112063",
@@ -5389,7 +6069,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44312",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "JERUSHA": [
@@ -5406,7 +6088,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44320",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "CORP": [
@@ -5425,7 +6109,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     },
     {
       "parcel_id": "0100509",
@@ -5442,7 +6128,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     },
     {
       "parcel_id": "0100514",
@@ -5457,7 +6145,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44319",
-      "legal": ""
+      "legal": "",
+      "luc": "520",
+      "acres": ""
     }
   ],
   "GOD": [
@@ -5474,7 +6164,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100559",
@@ -5489,7 +6181,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     },
     {
       "parcel_id": "0100561",
@@ -5504,7 +6198,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     }
   ],
   "LEEANN": [
@@ -5521,7 +6217,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0201974",
@@ -5536,7 +6234,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44223",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0213225",
@@ -5551,7 +6251,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "DEVELOPMENT": [
@@ -5569,7 +6271,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "456",
+      "acres": ""
     },
     {
       "parcel_id": "0100538",
@@ -5585,7 +6289,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "456",
+      "acres": ""
     },
     {
       "parcel_id": "0100539",
@@ -5601,7 +6307,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "447",
+      "acres": ""
     }
   ],
   "DALLAS": [
@@ -5618,7 +6326,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101836",
@@ -5633,7 +6343,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "4609125",
@@ -5648,7 +6360,9 @@
       "mail_city": "Barberton",
       "mail_state": "",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "BRIAN": [
@@ -5665,7 +6379,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44321",
-      "legal": ""
+      "legal": "",
+      "luc": "456",
+      "acres": ""
     },
     {
       "parcel_id": "0102069",
@@ -5680,7 +6396,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".3800"
     },
     {
       "parcel_id": "0102732",
@@ -5695,7 +6413,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "ELIZABETH": [
@@ -5712,7 +6432,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102786",
@@ -5727,7 +6449,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102787",
@@ -5742,7 +6466,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "MINISTRIES": [
@@ -5759,7 +6485,9 @@
       "mail_city": "Hudson",
       "mail_state": "OH",
       "mail_zip": "44236",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     },
     {
       "parcel_id": "0100612",
@@ -5774,7 +6502,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     },
     {
       "parcel_id": "0100947",
@@ -5789,7 +6519,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     }
   ],
   "JANINE": [
@@ -5806,7 +6538,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "520",
+      "acres": ""
     },
     {
       "parcel_id": "0107518",
@@ -5821,7 +6555,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0211433",
@@ -5836,7 +6572,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".1800"
     }
   ],
   "ORDER": [
@@ -5854,7 +6592,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "680",
+      "acres": ""
     },
     {
       "parcel_id": "0203608",
@@ -5870,7 +6610,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "680",
+      "acres": ""
     },
     {
       "parcel_id": "2302902",
@@ -5887,7 +6629,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44319",
-      "legal": ""
+      "legal": "",
+      "luc": "680",
+      "acres": "2.9200"
     }
   ],
   "MOOSE": [
@@ -5905,7 +6649,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "680",
+      "acres": ""
     },
     {
       "parcel_id": "3501182",
@@ -5921,7 +6667,9 @@
       "mail_city": "Peninsula",
       "mail_state": "OH",
       "mail_zip": "44264",
-      "legal": ""
+      "legal": "",
+      "luc": "680",
+      "acres": "1.9500"
     },
     {
       "parcel_id": "3501344",
@@ -5937,7 +6685,9 @@
       "mail_city": "Peninsula",
       "mail_state": "OH",
       "mail_zip": "44264",
-      "legal": ""
+      "legal": "",
+      "luc": "680",
+      "acres": "1.8900"
     }
   ],
   "LIBRARY": [
@@ -5954,7 +6704,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "640",
+      "acres": ""
     },
     {
       "parcel_id": "0100602",
@@ -5969,7 +6721,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "640",
+      "acres": ""
     },
     {
       "parcel_id": "0103518",
@@ -5984,7 +6738,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "640",
+      "acres": ""
     }
   ],
   "ERIN": [
@@ -6001,7 +6757,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "400",
+      "acres": ""
     },
     {
       "parcel_id": "0100608T",
@@ -6016,7 +6774,9 @@
       "mail_city": "Barberton",
       "mail_state": "",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "720",
+      "acres": ""
     },
     {
       "parcel_id": "0102897",
@@ -6031,7 +6791,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "499",
+      "acres": ""
     }
   ],
   "JEFFREY": [
@@ -6048,7 +6810,9 @@
       "mail_city": "Carroll",
       "mail_state": "OH",
       "mail_zip": "43112",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     },
     {
       "parcel_id": "0101069",
@@ -6063,7 +6827,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44319",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102860",
@@ -6078,7 +6844,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "ALEKSANDAR": [
@@ -6095,7 +6863,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0103627",
@@ -6110,7 +6880,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0209642",
@@ -6125,7 +6897,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "NICOLE": [
@@ -6142,7 +6916,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100871",
@@ -6157,7 +6933,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100926",
@@ -6172,7 +6950,9 @@
       "mail_city": "Norton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "KEILI": [
@@ -6189,7 +6969,9 @@
       "mail_city": "Clinton",
       "mail_state": "OH",
       "mail_zip": "44216",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "ERIC": [
@@ -6206,7 +6988,9 @@
       "mail_city": "Northfield",
       "mail_state": "OH",
       "mail_zip": "44067",
-      "legal": ""
+      "legal": "",
+      "luc": "520",
+      "acres": ""
     },
     {
       "parcel_id": "0102525",
@@ -6221,7 +7005,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0105131",
@@ -6236,7 +7022,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "EDWARD": [
@@ -6253,7 +7041,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100632",
@@ -6268,7 +7058,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0100826",
@@ -6283,7 +7075,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "SHAWN": [
@@ -6300,7 +7094,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0107712",
@@ -6315,7 +7111,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0107713",
@@ -6330,7 +7128,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "ANTHONY": [
@@ -6347,7 +7147,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0100949",
@@ -6362,7 +7164,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101127",
@@ -6377,7 +7181,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "HEIKE": [
@@ -6394,7 +7200,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "6845290",
@@ -6409,7 +7217,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44305",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "PERRY": [
@@ -6426,7 +7236,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0105694",
@@ -6441,7 +7253,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0106062",
@@ -6456,7 +7270,9 @@
       "mail_city": "Lancaster",
       "mail_state": "OH",
       "mail_zip": "43130",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "SHARON": [
@@ -6473,7 +7289,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102802",
@@ -6488,7 +7306,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0104034",
@@ -6503,7 +7323,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "Z": [
@@ -6520,7 +7342,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102384",
@@ -6535,7 +7359,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0103019",
@@ -6552,7 +7378,9 @@
       "mail_city": "Las Vegas",
       "mail_state": "OH",
       "mail_zip": "89148",
-      "legal": ""
+      "legal": "",
+      "luc": "429",
+      "acres": ".1800"
     }
   ],
   "COLE": [
@@ -6569,7 +7397,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0201033",
@@ -6584,7 +7414,9 @@
       "mail_city": "Westerville",
       "mail_state": "OH",
       "mail_zip": "43082",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0207164",
@@ -6599,7 +7431,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "AMANDA": [
@@ -6616,7 +7450,9 @@
       "mail_city": "Wadsworth",
       "mail_state": "OH",
       "mail_zip": "44282",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0103185",
@@ -6631,7 +7467,9 @@
       "mail_city": "Westerville",
       "mail_state": "OH",
       "mail_zip": "43082",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0103223",
@@ -6646,7 +7484,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "II": [
@@ -6663,7 +7503,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100837",
@@ -6678,7 +7520,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101454",
@@ -6693,7 +7537,9 @@
       "mail_city": "Northfield",
       "mail_state": "OH",
       "mail_zip": "44067",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "KEVIN": [
@@ -6710,7 +7556,9 @@
       "mail_city": "Mogadore",
       "mail_state": "OH",
       "mail_zip": "44260",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101325",
@@ -6725,7 +7573,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102294",
@@ -6740,7 +7590,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "TIMOTHY": [
@@ -6757,7 +7609,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101063",
@@ -6772,7 +7626,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101428",
@@ -6787,7 +7643,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "HOLLIDAY": [
@@ -6804,7 +7662,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "MARTHA": [
@@ -6821,7 +7681,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0108542",
@@ -6836,7 +7698,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0109927",
@@ -6851,7 +7715,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "ANTONIETTA": [
@@ -6868,7 +7734,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "5000331",
@@ -6883,7 +7751,9 @@
       "mail_city": "Richfield",
       "mail_state": "OH",
       "mail_zip": "44286",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": "3.6200"
     }
   ],
   "BENJAMIN": [
@@ -6900,7 +7770,9 @@
       "mail_city": "Dublin",
       "mail_state": "OH",
       "mail_zip": "94568",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".1300"
     },
     {
       "parcel_id": "0101868",
@@ -6915,7 +7787,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0103786",
@@ -6930,7 +7804,9 @@
       "mail_city": "Tulsa",
       "mail_state": "OH",
       "mail_zip": "74145",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "KELLIE": [
@@ -6947,7 +7823,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".2500"
     },
     {
       "parcel_id": "0103347",
@@ -6962,7 +7840,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "1903632",
@@ -6977,7 +7857,9 @@
       "mail_city": "New Franklin",
       "mail_state": "OH",
       "mail_zip": "44216",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ".0400"
     }
   ],
   "I": [
@@ -6994,7 +7876,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100746",
@@ -7009,7 +7893,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100913",
@@ -7024,7 +7910,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "JARED": [
@@ -7041,7 +7929,9 @@
       "mail_city": "Westerville",
       "mail_state": "OH",
       "mail_zip": "43082",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0107782",
@@ -7056,7 +7946,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0108095",
@@ -7071,7 +7963,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "U": [
@@ -7088,7 +7982,9 @@
       "mail_city": "Morehead City",
       "mail_state": "OH",
       "mail_zip": "28557",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0202684",
@@ -7103,7 +7999,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0211351",
@@ -7118,7 +8016,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44223",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "GERARDO": [
@@ -7135,7 +8035,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0100724T",
@@ -7150,7 +8052,9 @@
       "mail_city": "Barberton",
       "mail_state": "",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "720",
+      "acres": ""
     },
     {
       "parcel_id": "0104996",
@@ -7165,7 +8069,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "NEWLAND": [
@@ -7182,7 +8088,9 @@
       "mail_city": "Canton",
       "mail_state": "OH",
       "mail_zip": "44711",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100730",
@@ -7197,7 +8105,9 @@
       "mail_city": "Canton",
       "mail_state": "OH",
       "mail_zip": "44711",
-      "legal": ""
+      "legal": "",
+      "luc": "456",
+      "acres": ""
     },
     {
       "parcel_id": "0100731",
@@ -7212,7 +8122,9 @@
       "mail_city": "Canton",
       "mail_state": "OH",
       "mail_zip": "44711",
-      "legal": ""
+      "legal": "",
+      "luc": "456",
+      "acres": ""
     }
   ],
   "TROY": [
@@ -7229,7 +8141,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100737",
@@ -7244,7 +8158,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0103091",
@@ -7259,7 +8175,9 @@
       "mail_city": "Wadsworth",
       "mail_state": "OH",
       "mail_zip": "44281",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "MOHSEN": [
@@ -7276,7 +8194,9 @@
       "mail_city": "Franklin",
       "mail_state": "OH",
       "mail_zip": "37067",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "AUTHORITY": [
@@ -7293,7 +8213,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44307",
-      "legal": ""
+      "legal": "",
+      "luc": "640",
+      "acres": ".2100"
     },
     {
       "parcel_id": "0101143",
@@ -7308,7 +8230,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44307",
-      "legal": ""
+      "legal": "",
+      "luc": "680",
+      "acres": "2.0000"
     },
     {
       "parcel_id": "0102035",
@@ -7323,7 +8247,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44307",
-      "legal": ""
+      "legal": "",
+      "luc": "640",
+      "acres": ".1400"
     }
   ],
   "DEAN": [
@@ -7340,7 +8266,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0104041",
@@ -7355,7 +8283,9 @@
       "mail_city": "Clinton",
       "mail_state": "OH",
       "mail_zip": "44216",
-      "legal": ""
+      "legal": "",
+      "luc": "454",
+      "acres": ""
     },
     {
       "parcel_id": "0104042",
@@ -7370,7 +8300,9 @@
       "mail_city": "Clinton",
       "mail_state": "OH",
       "mail_zip": "44216",
-      "legal": ""
+      "legal": "",
+      "luc": "400",
+      "acres": ""
     }
   ],
   "GARY": [
@@ -7387,7 +8319,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100950",
@@ -7402,7 +8336,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ".1300"
     },
     {
       "parcel_id": "0100951",
@@ -7417,7 +8353,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ".1300"
     }
   ],
   "EXCELLENCE": [
@@ -7434,7 +8372,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0105392",
@@ -7449,7 +8389,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0107859",
@@ -7464,7 +8406,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44302",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "MEGAN": [
@@ -7481,7 +8425,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44314",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0107747",
@@ -7496,7 +8442,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0110702",
@@ -7511,7 +8459,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "DONALD": [
@@ -7528,7 +8478,9 @@
       "mail_city": "Uniontown",
       "mail_state": "OH",
       "mail_zip": "44685",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101515",
@@ -7543,7 +8495,9 @@
       "mail_city": "Uniontown",
       "mail_state": "OH",
       "mail_zip": "44685",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0103762",
@@ -7558,7 +8512,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "JOETTA": [
@@ -7575,7 +8531,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "PAUL": [
@@ -7592,7 +8550,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0104177",
@@ -7607,7 +8567,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0104776",
@@ -7622,7 +8584,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".3300"
     }
   ],
   "CHRISTINE": [
@@ -7639,7 +8603,9 @@
       "mail_city": "Wadsworth",
       "mail_state": "OH",
       "mail_zip": "44281",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102848",
@@ -7654,7 +8620,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0104251",
@@ -7669,7 +8637,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "KELLY": [
@@ -7686,7 +8656,9 @@
       "mail_city": "Stow",
       "mail_state": "OH",
       "mail_zip": "44224",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102911",
@@ -7701,7 +8673,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0103462",
@@ -7716,7 +8690,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "TIGMANSHU": [
@@ -7733,7 +8709,9 @@
       "mail_city": "Cedar Grove",
       "mail_state": "OH",
       "mail_zip": "07009",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "6815700",
@@ -7748,7 +8726,9 @@
       "mail_city": "Cedar Grove",
       "mail_state": "OH",
       "mail_zip": "07009",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "DENISE": [
@@ -7765,7 +8745,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102275",
@@ -7780,7 +8762,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0108645",
@@ -7795,7 +8779,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "3": [
@@ -7813,7 +8799,9 @@
       "mail_city": "Wilmington",
       "mail_state": "OH",
       "mail_zip": "19802",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "4505437",
@@ -7828,7 +8816,9 @@
       "mail_city": "Cleveland",
       "mail_state": "OH",
       "mail_zip": "44113",
-      "legal": ""
+      "legal": "",
+      "luc": "550",
+      "acres": ""
     },
     {
       "parcel_id": "6704362",
@@ -7843,7 +8833,9 @@
       "mail_city": "Warren",
       "mail_state": "OH",
       "mail_zip": "44483",
-      "legal": ""
+      "legal": "",
+      "luc": "530",
+      "acres": ""
     }
   ],
   "ELAINE": [
@@ -7860,7 +8852,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0114488",
@@ -7875,7 +8869,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0201327",
@@ -7890,7 +8886,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "JACOB": [
@@ -7907,7 +8905,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101385",
@@ -7922,7 +8922,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101619",
@@ -7937,7 +8939,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "TERRY": [
@@ -7954,7 +8958,9 @@
       "mail_city": "Doylestown",
       "mail_state": "OH",
       "mail_zip": "44230",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0109613",
@@ -7969,7 +8975,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0200876",
@@ -7984,7 +8992,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".1100"
     }
   ],
   "BRYAN": [
@@ -8001,7 +9011,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101388",
@@ -8016,7 +9028,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": "1.8100"
     },
     {
       "parcel_id": "0102390",
@@ -8031,7 +9045,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "DARREN": [
@@ -8048,7 +9064,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100828",
@@ -8063,7 +9081,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "599",
+      "acres": ""
     },
     {
       "parcel_id": "2807559",
@@ -8078,7 +9098,9 @@
       "mail_city": "Uniontown",
       "mail_state": "OH",
       "mail_zip": "44685",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "TREVOR": [
@@ -8095,7 +9117,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0112366",
@@ -8110,7 +9134,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0209688",
@@ -8125,7 +9151,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44223",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".4200"
     }
   ],
   "STOVER": [
@@ -8142,7 +9170,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "HARLEE": [
@@ -8159,7 +9189,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0100843",
@@ -8174,7 +9206,9 @@
       "mail_city": "Uniontown",
       "mail_state": "OH",
       "mail_zip": "44685",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "2400092",
@@ -8189,7 +9223,9 @@
       "mail_city": "Clinton",
       "mail_state": "OH",
       "mail_zip": "44216",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".8600"
     }
   ],
   "BETH": [
@@ -8206,7 +9242,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0114429",
@@ -8221,7 +9259,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0114482",
@@ -8236,7 +9276,9 @@
       "mail_city": "Brecksville",
       "mail_state": "OH",
       "mail_zip": "44141",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "MARY": [
@@ -8253,7 +9295,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "620",
+      "acres": ""
     },
     {
       "parcel_id": "0100944",
@@ -8268,7 +9312,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100945",
@@ -8283,7 +9329,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "GERALD": [
@@ -8300,7 +9348,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0103874",
@@ -8315,7 +9365,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44319",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0107584",
@@ -8330,7 +9382,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "STEPHANNIE": [
@@ -8348,7 +9402,9 @@
       "mail_city": "Arlington",
       "mail_state": "OH",
       "mail_zip": "76018",
-      "legal": ""
+      "legal": "",
+      "luc": "300",
+      "acres": ".2800"
     }
   ],
   "JOSEPHINE": [
@@ -8366,7 +9422,9 @@
       "mail_city": "Arlington",
       "mail_state": "OH",
       "mail_zip": "76018",
-      "legal": ""
+      "legal": "",
+      "luc": "300",
+      "acres": ".2800"
     },
     {
       "parcel_id": "0208616",
@@ -8381,7 +9439,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0210160",
@@ -8396,7 +9456,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44223",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "CAROL": [
@@ -8413,7 +9475,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100877",
@@ -8428,7 +9492,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0100878",
@@ -8443,7 +9509,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "COMPANY": [
@@ -8460,7 +9528,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "300",
+      "acres": "1.9500"
     },
     {
       "parcel_id": "0101103",
@@ -8475,7 +9545,9 @@
       "mail_city": "Richmond",
       "mail_state": "OH",
       "mail_zip": "23261",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0103066",
@@ -8490,7 +9562,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "429",
+      "acres": ""
     }
   ],
   "TAYLOR": [
@@ -8507,7 +9581,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0101883",
@@ -8522,7 +9598,9 @@
       "mail_city": "Phoenix",
       "mail_state": "OH",
       "mail_zip": "85085",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0103611",
@@ -8537,7 +9615,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "MILDRED": [
@@ -8554,7 +9634,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "1700168",
@@ -8569,7 +9651,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44321",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "1700500",
@@ -8584,7 +9668,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44321",
-      "legal": ""
+      "legal": "",
+      "luc": "550",
+      "acres": ""
     }
   ],
   "KALEY": [
@@ -8601,7 +9687,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "6707147",
@@ -8616,7 +9704,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44313",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "ZAVIER": [
@@ -8633,7 +9723,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "KIMBERLY": [
@@ -8650,7 +9742,9 @@
       "mail_city": "Clinton",
       "mail_state": "OH",
       "mail_zip": "44216",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0101696",
@@ -8665,7 +9759,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102858",
@@ -8681,7 +9777,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "JASON": [
@@ -8698,7 +9796,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101158",
@@ -8713,7 +9813,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101639",
@@ -8728,7 +9830,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44333",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "LESLIE": [
@@ -8745,7 +9849,9 @@
       "mail_city": "Mission Hills",
       "mail_state": "OH",
       "mail_zip": "91345",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0100969T",
@@ -8760,7 +9866,9 @@
       "mail_city": "Mission Hills",
       "mail_state": "OH",
       "mail_zip": "91345",
-      "legal": ""
+      "legal": "",
+      "luc": "720",
+      "acres": ""
     },
     {
       "parcel_id": "0200908",
@@ -8775,7 +9883,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".1800"
     }
   ],
   "BRADLEY": [
@@ -8792,7 +9902,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0105857",
@@ -8807,7 +9919,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0209172",
@@ -8822,7 +9936,9 @@
       "mail_city": "Pleasant Grove",
       "mail_state": "OH",
       "mail_zip": "84062",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "ALEX": [
@@ -8839,7 +9955,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101312",
@@ -8854,7 +9972,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0107513",
@@ -8869,7 +9989,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "SCH": [
@@ -8888,7 +10010,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": "1.2700"
     },
     {
       "parcel_id": "0500018",
@@ -8904,7 +10028,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44321",
-      "legal": ""
+      "legal": "",
+      "luc": "650",
+      "acres": "9.0200"
     },
     {
       "parcel_id": "0900628",
@@ -8920,7 +10046,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44333",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ".8500"
     }
   ],
   "ST": [
@@ -8939,7 +10067,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": "1.6400"
     }
   ],
   "CH": [
@@ -8958,7 +10088,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": "1.6400"
     },
     {
       "parcel_id": "1300593",
@@ -8973,7 +10105,9 @@
       "mail_city": "",
       "mail_state": "OH",
       "mail_zip": "",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": "2.4300"
     },
     {
       "parcel_id": "2701350",
@@ -8988,7 +10122,9 @@
       "mail_city": "Clinton",
       "mail_state": "OH",
       "mail_zip": "44216",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     }
   ],
   "SUE": [
@@ -9005,7 +10141,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0101010",
@@ -9020,7 +10158,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101011",
@@ -9035,7 +10175,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "599",
+      "acres": ""
     }
   ],
   "JOSEPH": [
@@ -9052,7 +10194,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".1000"
     },
     {
       "parcel_id": "0101041",
@@ -9067,7 +10211,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44301",
-      "legal": ""
+      "legal": "",
+      "luc": "429",
+      "acres": ".4200"
     },
     {
       "parcel_id": "0101042",
@@ -9082,7 +10228,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44301",
-      "legal": ""
+      "legal": "",
+      "luc": "400",
+      "acres": ".7900"
     }
   ],
   "ADAM": [
@@ -9099,7 +10247,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0103270",
@@ -9114,7 +10264,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0106994",
@@ -9129,7 +10281,9 @@
       "mail_city": "Canal Fulton",
       "mail_state": "OH",
       "mail_zip": "44614",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "TAMMY": [
@@ -9146,7 +10300,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0200258",
@@ -9161,7 +10317,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44223",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0200259",
@@ -9176,7 +10334,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44223",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "JACQUELINE": [
@@ -9193,7 +10353,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0104164",
@@ -9208,7 +10370,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0104165",
@@ -9223,7 +10387,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "RENAE": [
@@ -9240,7 +10406,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0107525",
@@ -9255,7 +10423,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0217379",
@@ -9270,7 +10440,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44223",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "TRACIE": [
@@ -9287,7 +10459,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "4100982",
@@ -9302,7 +10476,9 @@
       "mail_city": "Cleveland",
       "mail_state": "OH",
       "mail_zip": "44130",
-      "legal": ""
+      "legal": "",
+      "luc": "599",
+      "acres": ""
     },
     {
       "parcel_id": "4100984",
@@ -9317,7 +10493,9 @@
       "mail_city": "Cleveland",
       "mail_state": "OH",
       "mail_zip": "44130",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "GEORGE": [
@@ -9334,7 +10512,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0101402",
@@ -9349,7 +10529,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101681",
@@ -9364,7 +10546,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "CHRIST": [
@@ -9381,7 +10565,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "429",
+      "acres": ""
     },
     {
       "parcel_id": "0101092",
@@ -9396,7 +10582,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "456",
+      "acres": ""
     },
     {
       "parcel_id": "0101093",
@@ -9411,7 +10599,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "456",
+      "acres": ""
     }
   ],
   "LOUIS": [
@@ -9428,7 +10618,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0111550",
@@ -9443,7 +10635,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0112846",
@@ -9458,7 +10652,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "HELEN": [
@@ -9475,7 +10671,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0114373",
@@ -9490,7 +10688,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0200455",
@@ -9505,7 +10705,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "425",
+      "acres": ""
     }
   ],
   "V": [
@@ -9522,7 +10724,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0101112T",
@@ -9537,7 +10741,9 @@
       "mail_city": "Barberton",
       "mail_state": "",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "720",
+      "acres": ""
     },
     {
       "parcel_id": "0101310",
@@ -9552,7 +10758,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "PAULINE": [
@@ -9569,7 +10777,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0106549",
@@ -9584,7 +10794,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0108053",
@@ -9599,7 +10811,9 @@
       "mail_city": "Medina",
       "mail_state": "OH",
       "mail_zip": "44256",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "BRAXTON": [
@@ -9616,7 +10830,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "CITY": [
@@ -9635,7 +10851,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "640",
+      "acres": "23.7100"
     },
     {
       "parcel_id": "0102083",
@@ -9652,7 +10870,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "650",
+      "acres": "4.1000"
     },
     {
       "parcel_id": "0102100",
@@ -9669,7 +10889,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "650",
+      "acres": ".0800"
     }
   ],
   "FRANKLIN": [
@@ -9686,7 +10908,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0105097",
@@ -9701,7 +10925,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0111209",
@@ -9716,7 +10942,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "SHERMAN": [
@@ -9733,7 +10961,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "3007338",
@@ -9748,7 +10978,9 @@
       "mail_city": "Hudson",
       "mail_state": "OH",
       "mail_zip": "44236",
-      "legal": ""
+      "legal": "",
+      "luc": "100",
+      "acres": "60.8800"
     },
     {
       "parcel_id": "5500389",
@@ -9763,7 +10995,9 @@
       "mail_city": "Mogadore",
       "mail_state": "OH",
       "mail_zip": "44260",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "JUDITH": [
@@ -9780,7 +11014,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0109536",
@@ -9795,7 +11031,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0109983",
@@ -9810,7 +11048,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "EUGENE": [
@@ -9827,7 +11067,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0105419",
@@ -9842,7 +11084,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0110805",
@@ -9857,7 +11101,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "NORBERT": [
@@ -9874,7 +11120,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "4505202",
@@ -9889,7 +11137,9 @@
       "mail_city": "Northfield",
       "mail_state": "OH",
       "mail_zip": "44067",
-      "legal": ""
+      "legal": "",
+      "luc": "550",
+      "acres": ""
     }
   ],
   "JERED": [
@@ -9906,7 +11156,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0211639",
@@ -9921,7 +11173,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44223",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "5100788",
@@ -9936,7 +11190,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44312",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "CHRUCH": [
@@ -9953,7 +11209,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     },
     {
       "parcel_id": "2809994",
@@ -9968,7 +11226,9 @@
       "mail_city": "Green",
       "mail_state": "OH",
       "mail_zip": "44232",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": "1.4200"
     },
     {
       "parcel_id": "2813641",
@@ -9983,7 +11243,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44319",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     }
   ],
   "BRODERICK": [
@@ -10000,7 +11262,9 @@
       "mail_city": "Wadsworth",
       "mail_state": "OH",
       "mail_zip": "44281",
-      "legal": ""
+      "legal": "",
+      "luc": "520",
+      "acres": ""
     }
   ],
   "JOYCE": [
@@ -10017,7 +11281,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0104857",
@@ -10032,7 +11298,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0104858",
@@ -10047,7 +11315,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "OHIO": [
@@ -10064,7 +11334,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44306",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0102151",
@@ -10079,7 +11351,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "640",
+      "acres": ""
     },
     {
       "parcel_id": "0102472",
@@ -10096,7 +11370,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44308",
-      "legal": ""
+      "legal": "",
+      "luc": "680",
+      "acres": ""
     }
   ],
   "ROGER": [
@@ -10113,7 +11389,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0101222",
@@ -10128,7 +11406,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101223",
@@ -10143,7 +11423,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "CLOYD": [
@@ -10160,7 +11442,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "KENNEDY": [
@@ -10177,7 +11461,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "2700335",
@@ -10192,7 +11478,9 @@
       "mail_city": "Clinton",
       "mail_state": "OH",
       "mail_zip": "44216",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "4004289",
@@ -10207,7 +11495,9 @@
       "mail_city": "Northfield",
       "mail_state": "",
       "mail_zip": "44067",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "REAL": [
@@ -10224,7 +11514,9 @@
       "mail_city": "Worcester",
       "mail_state": "OH",
       "mail_zip": "01607",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0113451",
@@ -10241,7 +11533,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "399",
+      "acres": "1.5000"
     },
     {
       "parcel_id": "0113521",
@@ -10258,7 +11552,9 @@
       "mail_city": "Richfield",
       "mail_state": "OH",
       "mail_zip": "44286",
-      "legal": ""
+      "legal": "",
+      "luc": "400",
+      "acres": ".8000"
     }
   ],
   "TRUST": [
@@ -10275,7 +11571,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44319",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102908",
@@ -10290,7 +11588,9 @@
       "mail_city": "Coppell",
       "mail_state": "OH",
       "mail_zip": "75019",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0103829",
@@ -10305,7 +11605,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44319",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "MARGARET": [
@@ -10322,7 +11624,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0108670",
@@ -10337,7 +11641,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0115970",
@@ -10352,7 +11658,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "LIA": [
@@ -10369,7 +11677,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "3006591",
@@ -10384,7 +11694,9 @@
       "mail_city": "Hudson",
       "mail_state": "OH",
       "mail_zip": "44236",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "3203807",
@@ -10399,7 +11711,9 @@
       "mail_city": "Hudson",
       "mail_state": "OH",
       "mail_zip": "44236",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "CHANCE": [
@@ -10416,7 +11730,9 @@
       "mail_city": "Troy",
       "mail_state": "OH",
       "mail_zip": "48007",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0902017",
@@ -10431,7 +11747,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44333",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "4504014",
@@ -10446,7 +11764,9 @@
       "mail_city": "Northfield",
       "mail_state": "OH",
       "mail_zip": "44067",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "REBECCA": [
@@ -10463,7 +11783,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102038",
@@ -10478,7 +11800,9 @@
       "mail_city": "Philadelphia",
       "mail_state": "OH",
       "mail_zip": "19106",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102511",
@@ -10493,7 +11817,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "ANNE": [
@@ -10510,7 +11836,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101910",
@@ -10525,7 +11853,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102411",
@@ -10540,7 +11870,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "TODD": [
@@ -10557,7 +11889,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102013",
@@ -10572,7 +11906,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0105502",
@@ -10587,7 +11923,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "KAITLYNN": [
@@ -10604,7 +11942,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "6731749",
@@ -10619,7 +11959,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44306",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "LIVIA": [
@@ -10636,7 +11978,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "O": [
@@ -10653,7 +11997,9 @@
       "mail_city": "Wadsworth",
       "mail_state": "OH",
       "mail_zip": "44281",
-      "legal": ""
+      "legal": "",
+      "luc": "520",
+      "acres": ""
     },
     {
       "parcel_id": "0104385",
@@ -10668,7 +12014,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0107361",
@@ -10683,7 +12031,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44319",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "ANITA": [
@@ -10700,7 +12050,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0109726",
@@ -10715,7 +12067,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0112665",
@@ -10730,7 +12084,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "RUTHANNE": [
@@ -10747,7 +12103,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101327",
@@ -10762,7 +12120,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0208355",
@@ -10777,7 +12137,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44223",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "BRANDON": [
@@ -10794,7 +12156,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101492",
@@ -10809,7 +12173,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102348",
@@ -10824,7 +12190,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "GENE": [
@@ -10841,7 +12209,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0104794",
@@ -10856,7 +12226,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0110775",
@@ -10871,7 +12243,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "FREDERICK": [
@@ -10888,7 +12262,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".1700"
     },
     {
       "parcel_id": "0117137",
@@ -10903,7 +12279,9 @@
       "mail_city": "Barberton",
       "mail_state": "",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0117340",
@@ -10918,7 +12296,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "710",
+      "acres": ""
     }
   ],
   "CASEY": [
@@ -10935,7 +12315,9 @@
       "mail_city": "Perryville",
       "mail_state": "OH",
       "mail_zip": "21903",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0109948",
@@ -10950,7 +12332,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ".2100"
     },
     {
       "parcel_id": "0109948C",
@@ -10965,7 +12349,9 @@
       "mail_city": "Barberton",
       "mail_state": "",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "710",
+      "acres": ".2100"
     }
   ],
   "LEONARD": [
@@ -10982,7 +12368,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".1600"
     },
     {
       "parcel_id": "0101670",
@@ -10997,7 +12385,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "520",
+      "acres": ""
     },
     {
       "parcel_id": "0106848",
@@ -11012,7 +12402,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "429",
+      "acres": ""
     }
   ],
   "CURTIS": [
@@ -11029,7 +12421,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0201078",
@@ -11044,7 +12438,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44313",
-      "legal": ""
+      "legal": "",
+      "luc": "401",
+      "acres": ""
     },
     {
       "parcel_id": "0201431",
@@ -11059,7 +12455,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "RAE": [
@@ -11076,7 +12474,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0104563",
@@ -11091,7 +12491,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0107034",
@@ -11106,7 +12508,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "GINA": [
@@ -11123,7 +12527,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0215279",
@@ -11138,7 +12544,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44223",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0407021",
@@ -11153,7 +12561,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44333",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "JOANN": [
@@ -11170,7 +12580,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "520",
+      "acres": ""
     },
     {
       "parcel_id": "0103319",
@@ -11185,7 +12597,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0103871",
@@ -11200,7 +12614,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "520",
+      "acres": ""
     }
   ],
   "MARCIA": [
@@ -11217,7 +12633,9 @@
       "mail_city": "Canal Fulton",
       "mail_state": "OH",
       "mail_zip": "44614",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0108211",
@@ -11232,7 +12650,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0200927",
@@ -11247,7 +12667,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "SAMANTHA": [
@@ -11264,7 +12686,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0103050",
@@ -11279,7 +12703,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0103051",
@@ -11294,7 +12720,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "PAULA": [
@@ -11311,7 +12739,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0104273",
@@ -11326,7 +12756,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0105659",
@@ -11341,7 +12773,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "THERESA": [
@@ -11358,7 +12792,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0115062",
@@ -11373,7 +12809,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": "6.4500"
     },
     {
       "parcel_id": "0116233",
@@ -11388,7 +12826,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "GLENN": [
@@ -11405,7 +12845,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101446",
@@ -11420,7 +12862,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0101694",
@@ -11435,7 +12879,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44319",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "YVONNE": [
@@ -11452,7 +12898,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102493",
@@ -11467,7 +12915,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".5200"
     },
     {
       "parcel_id": "0105489",
@@ -11482,7 +12932,9 @@
       "mail_city": "Saint James City",
       "mail_state": "OH",
       "mail_zip": "33956",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "KAREN": [
@@ -11499,7 +12951,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102835",
@@ -11514,7 +12968,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0203643",
@@ -11529,7 +12985,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44223",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "TRSUTEE": [
@@ -11546,7 +13004,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "2601070",
@@ -11561,7 +13021,9 @@
       "mail_city": "New Franklin",
       "mail_state": "OH",
       "mail_zip": "44319",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "2601071",
@@ -11576,7 +13038,9 @@
       "mail_city": "New Franklin",
       "mail_state": "OH",
       "mail_zip": "44319",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "NATHANIEL": [
@@ -11593,7 +13057,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102707",
@@ -11608,7 +13074,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0109890",
@@ -11623,7 +13091,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "HOLLY": [
@@ -11640,7 +13110,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0201871",
@@ -11655,7 +13127,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0210741",
@@ -11670,7 +13144,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "CARROLL": [
@@ -11687,7 +13163,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "6002666",
@@ -11702,7 +13180,9 @@
       "mail_city": "Tallmadge",
       "mail_state": "OH",
       "mail_zip": "44278",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ".1300"
     },
     {
       "parcel_id": "6719941",
@@ -11717,7 +13197,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44306",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "RUSSELL": [
@@ -11734,7 +13216,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101794",
@@ -11749,7 +13233,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0204112",
@@ -11764,7 +13250,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "MILOS": [
@@ -11781,7 +13269,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0104039",
@@ -11796,7 +13286,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0115411",
@@ -11811,7 +13303,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".9900"
     }
   ],
   "RENOVATIONS": [
@@ -11828,7 +13322,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101850",
@@ -11843,7 +13339,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "6740875",
@@ -11858,7 +13356,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44314",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "DENNIS": [
@@ -11875,7 +13375,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "300",
+      "acres": ""
     },
     {
       "parcel_id": "0103000",
@@ -11890,7 +13392,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".1800"
     },
     {
       "parcel_id": "0103769",
@@ -11905,7 +13409,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "DEBRA": [
@@ -11922,7 +13428,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101677",
@@ -11937,7 +13445,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0103691",
@@ -11952,7 +13462,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "THEODORE": [
@@ -11969,7 +13481,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44301",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0402815",
@@ -11984,7 +13498,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44333",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0403014",
@@ -11999,7 +13515,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44333",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": "1.1100"
     }
   ],
   "AMY": [
@@ -12016,7 +13534,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101701",
@@ -12031,7 +13551,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101702",
@@ -12046,7 +13568,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "DANIELLE": [
@@ -12063,7 +13587,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0107072",
@@ -12078,7 +13604,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0110418",
@@ -12093,7 +13621,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "RONALD": [
@@ -12110,7 +13640,9 @@
       "mail_city": "Berlin Center",
       "mail_state": "OH",
       "mail_zip": "44401",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101960",
@@ -12125,7 +13657,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0103102",
@@ -12140,7 +13674,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "HEATHER": [
@@ -12157,7 +13693,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0103777",
@@ -12172,7 +13710,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0107500",
@@ -12187,7 +13727,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "CRITCHFIELD": [
@@ -12204,7 +13746,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0106389",
@@ -12219,7 +13763,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0115410",
@@ -12234,7 +13780,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "499",
+      "acres": ""
     }
   ],
   "MCCOY": [
@@ -12253,7 +13801,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44313",
-      "legal": ""
+      "legal": "",
+      "luc": "530",
+      "acres": ""
     },
     {
       "parcel_id": "0104089",
@@ -12270,7 +13820,9 @@
       "mail_city": "North Canton",
       "mail_state": "OH",
       "mail_zip": "44720",
-      "legal": ""
+      "legal": "",
+      "luc": "401",
+      "acres": ""
     },
     {
       "parcel_id": "6738185",
@@ -12287,7 +13839,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "FAMILY": [
@@ -12306,7 +13860,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44313",
-      "legal": ""
+      "legal": "",
+      "luc": "530",
+      "acres": ""
     },
     {
       "parcel_id": "0104089",
@@ -12323,7 +13879,9 @@
       "mail_city": "North Canton",
       "mail_state": "OH",
       "mail_zip": "44720",
-      "legal": ""
+      "legal": "",
+      "luc": "401",
+      "acres": ""
     },
     {
       "parcel_id": "1501226",
@@ -12340,7 +13898,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44321",
-      "legal": ""
+      "legal": "",
+      "luc": "101",
+      "acres": "119.1900"
     }
   ],
   "MANAGEMENT": [
@@ -12359,7 +13919,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44313",
-      "legal": ""
+      "legal": "",
+      "luc": "530",
+      "acres": ""
     },
     {
       "parcel_id": "0104089",
@@ -12376,7 +13938,9 @@
       "mail_city": "North Canton",
       "mail_state": "OH",
       "mail_zip": "44720",
-      "legal": ""
+      "legal": "",
+      "luc": "401",
+      "acres": ""
     },
     {
       "parcel_id": "0116319",
@@ -12391,7 +13955,9 @@
       "mail_city": "Norton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "550",
+      "acres": ""
     }
   ],
   "BURNS": [
@@ -12408,7 +13974,9 @@
       "mail_city": "North Canton",
       "mail_state": "OH",
       "mail_zip": "44720",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".6300"
     },
     {
       "parcel_id": "0202072",
@@ -12423,7 +13991,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "6846857",
@@ -12439,7 +14009,9 @@
       "mail_city": "Uniontown",
       "mail_state": "OH",
       "mail_zip": "44685",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "EMMA": [
@@ -12456,7 +14028,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102285",
@@ -12471,7 +14045,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0107947",
@@ -12486,7 +14062,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "NAVARRETE": [
@@ -12503,7 +14081,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0101647",
@@ -12518,7 +14098,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "MOMCILO": [
@@ -12535,7 +14117,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "CHEYANNE": [
@@ -12552,7 +14136,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "6702641",
@@ -12567,7 +14153,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44306",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "ALEXIS": [
@@ -12584,7 +14172,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0103416",
@@ -12599,7 +14189,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0112688",
@@ -12614,7 +14206,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "KATHRINE": [
@@ -12631,7 +14225,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "6828407",
@@ -12646,7 +14242,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44312",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "6828408",
@@ -12661,7 +14259,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44312",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "KEITH": [
@@ -12678,7 +14278,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0103130",
@@ -12693,7 +14295,9 @@
       "mail_city": "Doylestown",
       "mail_state": "OH",
       "mail_zip": "44230",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0103130T",
@@ -12708,7 +14312,9 @@
       "mail_city": "Doylestown",
       "mail_state": "",
       "mail_zip": "44230",
-      "legal": ""
+      "legal": "",
+      "luc": "720",
+      "acres": ""
     }
   ],
   "KATRINA": [
@@ -12725,7 +14331,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0107362",
@@ -12740,7 +14348,9 @@
       "mail_city": "Doylestown",
       "mail_state": "OH",
       "mail_zip": "44230",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0113026",
@@ -12755,7 +14365,9 @@
       "mail_city": "Wadsworth",
       "mail_state": "OH",
       "mail_zip": "44282",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     }
   ],
   "ISTVAN": [
@@ -12772,7 +14384,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "6833735",
@@ -12787,7 +14401,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44313",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "6837975",
@@ -12802,7 +14418,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44303",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "CHRISTIANE": [
@@ -12819,7 +14437,9 @@
       "mail_city": "Norton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "520",
+      "acres": ""
     },
     {
       "parcel_id": "0101773T",
@@ -12834,7 +14454,9 @@
       "mail_city": "Norton",
       "mail_state": "",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "720",
+      "acres": ""
     },
     {
       "parcel_id": "4608305",
@@ -12849,7 +14471,9 @@
       "mail_city": "Norton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "JUSTINE": [
@@ -12866,7 +14490,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0105447",
@@ -12881,7 +14507,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "2500061",
@@ -12896,7 +14524,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": "1.4600"
     }
   ],
   "SHELBY": [
@@ -12913,7 +14543,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102723",
@@ -12928,7 +14560,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102932",
@@ -12943,7 +14577,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "LIMITED": [
@@ -12960,7 +14596,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "399",
+      "acres": ".5900"
     },
     {
       "parcel_id": "0101804",
@@ -12975,7 +14613,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "340",
+      "acres": ".6100"
     },
     {
       "parcel_id": "0104280",
@@ -12990,7 +14630,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "456",
+      "acres": ""
     }
   ],
   "PATON": [
@@ -13007,7 +14649,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "LLP": [
@@ -13024,7 +14668,9 @@
       "mail_city": "Apple Valley",
       "mail_state": "OH",
       "mail_zip": "92307",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0216882",
@@ -13039,7 +14685,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44312",
-      "legal": ""
+      "legal": "",
+      "luc": "447",
+      "acres": ""
     },
     {
       "parcel_id": "0219833",
@@ -13054,7 +14702,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44223",
-      "legal": ""
+      "legal": "",
+      "luc": "442",
+      "acres": ""
     }
   ],
   "VORIS": [
@@ -13071,7 +14721,9 @@
       "mail_city": "Las Vegas",
       "mail_state": "OH",
       "mail_zip": "89148",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".1500"
     },
     {
       "parcel_id": "0900851",
@@ -13086,7 +14738,9 @@
       "mail_city": "Las Vegas",
       "mail_state": "OH",
       "mail_zip": "89148",
-      "legal": ""
+      "legal": "",
+      "luc": "401",
+      "acres": ""
     }
   ],
   "TYLER": [
@@ -13103,7 +14757,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0102235",
@@ -13118,7 +14774,9 @@
       "mail_city": "Christiansted",
       "mail_state": "OH",
       "mail_zip": "00821",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0104290",
@@ -13133,7 +14791,9 @@
       "mail_city": "Millersburg",
       "mail_state": "OH",
       "mail_zip": "44654",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "HENRY": [
@@ -13150,7 +14810,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44320",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0102633",
@@ -13165,7 +14827,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0110427",
@@ -13180,7 +14844,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "TINA": [
@@ -13197,7 +14863,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0101839",
@@ -13212,7 +14880,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0104898",
@@ -13227,7 +14897,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "HERBERT": [
@@ -13244,7 +14916,9 @@
       "mail_city": "Wadsworth",
       "mail_state": "OH",
       "mail_zip": "44281",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0113395",
@@ -13259,7 +14933,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0402082",
@@ -13274,7 +14950,9 @@
       "mail_city": "Akron",
       "mail_state": "OH",
       "mail_zip": "44333",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": "1.3900"
     }
   ],
   "REYES": [
@@ -13291,7 +14969,9 @@
       "mail_city": "New York",
       "mail_state": "OH",
       "mail_zip": "10036",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0103945",
@@ -13306,7 +14986,9 @@
       "mail_city": "New York",
       "mail_state": "OH",
       "mail_zip": "10038",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0107852",
@@ -13321,7 +15003,9 @@
       "mail_city": "New York",
       "mail_state": "OH",
       "mail_zip": "10036",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ],
   "LUTHERAN": [
@@ -13339,7 +15023,9 @@
       "mail_city": "Norton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "500",
+      "acres": ""
     },
     {
       "parcel_id": "0101861",
@@ -13355,7 +15041,9 @@
       "mail_city": "Norton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     },
     {
       "parcel_id": "0211615",
@@ -13371,7 +15059,9 @@
       "mail_city": "Cuyahoga Falls",
       "mail_state": "OH",
       "mail_zip": "44221",
-      "legal": ""
+      "legal": "",
+      "luc": "685",
+      "acres": ""
     }
   ],
   "KATELYN": [
@@ -13388,7 +15078,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "599",
+      "acres": ""
     },
     {
       "parcel_id": "0101866",
@@ -13403,7 +15095,9 @@
       "mail_city": "Barberton",
       "mail_state": "OH",
       "mail_zip": "44203",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ".1200"
     },
     {
       "parcel_id": "0201400",
@@ -13418,7 +15112,9 @@
       "mail_city": "Lakewood",
       "mail_state": "OH",
       "mail_zip": "44107",
-      "legal": ""
+      "legal": "",
+      "luc": "510",
+      "acres": ""
     }
   ]
 }
