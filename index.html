@@ -333,8 +333,15 @@ function renderLeads(records) {
     var vacantBit = r.is_vacant_land ? '<span class="flag-pill flag-vacant" style="font-size:9px">VACANT LOT</span>' : '';
     var phonesBit = '';
     if (r.phones && r.phones.length > 0) {
-      phonesBit = '<div style="margin-top:4px">' + r.phones.map(function(p) {
-        return '<a href="tel:' + p + '" style="font-family:\'IBM Plex Mono\',monospace;font-size:10px;color:var(--green);text-decoration:none;margin-right:8px">📞 ' + p + '</a>';
+      phonesBit = '<div style="margin-top:5px;display:flex;flex-direction:column;gap:3px">' + r.phones.map(function(p, i) {
+        var ptype = (r.phone_types && r.phone_types[i]) || 'unknown';
+        var isMobile = ptype === 'mobile';
+        var typeLabel = isMobile
+          ? '<span style="font-size:8px;padding:1px 4px;border-radius:2px;background:var(--green-dim);color:var(--green);font-weight:600;margin-right:4px">MOBILE</span>'
+          : ptype === 'landline'
+            ? '<span style="font-size:8px;padding:1px 4px;border-radius:2px;background:var(--surface2);color:var(--text3);font-weight:600;margin-right:4px">LAND</span>'
+            : '';
+        return '<div>' + typeLabel + '<a href="tel:' + p + '" style="font-family:\'IBM Plex Mono\',monospace;font-size:10px;color:var(--green);text-decoration:none">📞 ' + p + '</a></div>';
       }).join('') + '</div>';
     }
 
