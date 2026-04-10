@@ -1,15 +1,54 @@
 {
-  "fetched_at": "2026-04-10T15:15:03.348345+00:00",
+  "fetched_at": "2026-04-10T15:31:19.456320+00:00",
   "source": "Akron / Summit County, Ohio",
   "date_range": {
     "from": "2026-01-10",
     "to": "2026-04-10"
   },
-  "total": 60,
+  "total": 59,
   "with_address": 19,
   "with_mail_address": 19,
-  "hot_stack_count": 1,
+  "hot_stack_count": 2,
   "records": [
+    {
+      "doc_num": "HERSHEY 04",
+      "doc_type": "JUD",
+      "filed": "2026-04-09",
+      "cat": "JUD",
+      "cat_label": "Judgment",
+      "owner": "Dawn Hershey",
+      "grantee": "Portfolio Recovery Associates, Llc",
+      "amount": 5140.27,
+      "legal": "PORTFOLIO RECOVERY ASSOCIATES, LLC -VS- DAWN HERSHEY",
+      "prop_address": "5145 W BATH RD",
+      "prop_city": "AKRON",
+      "prop_state": "OH",
+      "prop_zip": "44333",
+      "mail_address": "5145 W BATH RD",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44333",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Judgment lien",
+        "New this week",
+        "Tax delinquent",
+        "\ud83d\udd25 Hot Stack"
+      ],
+      "score": 70,
+      "match_method": "exact_name_variant",
+      "match_score": 1.0,
+      "with_address": 1,
+      "distress_sources": [
+        "judgment",
+        "tax_delinquent"
+      ],
+      "distress_count": 2,
+      "hot_stack": true,
+      "luc": "510",
+      "acres": "1.4000",
+      "is_vacant_land": false
+    },
     {
       "doc_num": "BOUGAMRA 04",
       "doc_type": "JUD",
@@ -18,9 +57,9 @@
       "cat_label": "Judgment",
       "owner": "Erika D Bougamra",
       "grantee": "Td Bank Usa, N.A.",
-      "amount": null,
+      "amount": 996.2,
       "legal": "TD BANK USA, N.A. -VS- ERIKA D BOUGAMRA",
-      "prop_address": "767 WORK DR",
+      "prop_address": "763 WORK DR",
       "prop_city": "AKRON",
       "prop_state": "OH",
       "prop_zip": "44320",
@@ -32,8 +71,7 @@
       "flags": [
         "Judgment lien",
         "New this week",
-        "Vacant land",
-        "Vacant land parcel",
+        "Tax delinquent",
         "\ud83d\udd25 Hot Stack"
       ],
       "score": 70,
@@ -41,14 +79,14 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
-        "judgment"
+        "judgment",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
-      "luc": "500",
+      "luc": "510",
       "acres": "",
-      "is_vacant_land": true
+      "is_vacant_land": false
     },
     {
       "doc_num": "BYE 04",
@@ -96,14 +134,14 @@
       "grantee": "Kristen M. Scalise",
       "amount": null,
       "legal": "KRISTEN M. SCALISE -VS- UNKNOWN HEIRS OF JOSEPH L. BLAKE",
-      "prop_address": "770 SILVERCREST AVE",
+      "prop_address": "1528 GARMAN RD",
       "prop_city": "AKRON",
       "prop_state": "OH",
-      "prop_zip": "44314",
-      "mail_address": "770 SILVERCREST AVE",
+      "prop_zip": "44313",
+      "mail_address": "1528 GARMAN RD",
       "mail_city": "Akron",
       "mail_state": "OH",
-      "mail_zip": "44314",
+      "mail_zip": "44313",
       "clerk_url": "https://newcivilfilings.summitoh.net/",
       "flags": [
         "Pre-foreclosure",
@@ -192,42 +230,6 @@
       "hot_stack": false,
       "luc": "510",
       "acres": ".1800",
-      "is_vacant_land": false
-    },
-    {
-      "doc_num": "HERSHEY 04",
-      "doc_type": "JUD",
-      "filed": "2026-04-09",
-      "cat": "JUD",
-      "cat_label": "Judgment",
-      "owner": "Dawn Hershey",
-      "grantee": "Portfolio Recovery Associates, Llc",
-      "amount": null,
-      "legal": "PORTFOLIO RECOVERY ASSOCIATES, LLC -VS- DAWN HERSHEY",
-      "prop_address": "5145 W BATH RD",
-      "prop_city": "AKRON",
-      "prop_state": "OH",
-      "prop_zip": "44333",
-      "mail_address": "5145 W BATH RD",
-      "mail_city": "Akron",
-      "mail_state": "OH",
-      "mail_zip": "44333",
-      "clerk_url": "https://newcivilfilings.summitoh.net/",
-      "flags": [
-        "Judgment lien",
-        "New this week"
-      ],
-      "score": 55,
-      "match_method": "exact_name_variant",
-      "match_score": 1.0,
-      "with_address": 1,
-      "distress_sources": [
-        "judgment"
-      ],
-      "distress_count": 1,
-      "hot_stack": false,
-      "luc": "510",
-      "acres": "1.4000",
       "is_vacant_land": false
     },
     {
@@ -2135,43 +2137,6 @@
       "clerk_url": "https://newcivilfilings.summitoh.net/",
       "flags": [
         "Judgment lien",
-        "New this week"
-      ],
-      "score": 50,
-      "match_method": "unmatched",
-      "match_score": 0.0,
-      "with_address": 0,
-      "distress_sources": [
-        "judgment"
-      ],
-      "distress_count": 1,
-      "hot_stack": false,
-      "luc": "",
-      "acres": "",
-      "is_vacant_land": false
-    },
-    {
-      "doc_num": "LLC 04",
-      "doc_type": "JUD",
-      "filed": "2026-04-08",
-      "cat": "JUD",
-      "cat_label": "Judgment",
-      "owner": "Trident Transportation Llc",
-      "grantee": "Itria Ventures Llc,",
-      "amount": null,
-      "legal": "ITRIA VENTURES LLC, -VS- TRIDENT TRANSPORTATION LLC",
-      "prop_address": "",
-      "prop_city": "",
-      "prop_state": "OH",
-      "prop_zip": "",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "",
-      "mail_zip": "",
-      "clerk_url": "https://newcivilfilings.summitoh.net/",
-      "flags": [
-        "Judgment lien",
-        "LLC / corp owner",
         "New this week"
       ],
       "score": 50,

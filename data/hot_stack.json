@@ -1,9 +1,48 @@
 {
-  "fetched_at": "2026-04-10T15:15:04.887515+00:00",
+  "fetched_at": "2026-04-10T15:31:20.836644+00:00",
   "source": "Akron / Summit County, Ohio",
-  "total": 1,
+  "total": 2,
   "description": "Properties appearing in 2+ distress sources \u2014 highest priority leads",
   "records": [
+    {
+      "doc_num": "HERSHEY 04",
+      "doc_type": "JUD",
+      "filed": "2026-04-09",
+      "cat": "JUD",
+      "cat_label": "Judgment",
+      "owner": "Dawn Hershey",
+      "grantee": "Portfolio Recovery Associates, Llc",
+      "amount": 5140.27,
+      "legal": "PORTFOLIO RECOVERY ASSOCIATES, LLC -VS- DAWN HERSHEY",
+      "prop_address": "5145 W BATH RD",
+      "prop_city": "AKRON",
+      "prop_state": "OH",
+      "prop_zip": "44333",
+      "mail_address": "5145 W BATH RD",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44333",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Judgment lien",
+        "New this week",
+        "Tax delinquent",
+        "\ud83d\udd25 Hot Stack"
+      ],
+      "score": 70,
+      "match_method": "exact_name_variant",
+      "match_score": 1.0,
+      "with_address": 1,
+      "distress_sources": [
+        "judgment",
+        "tax_delinquent"
+      ],
+      "distress_count": 2,
+      "hot_stack": true,
+      "luc": "510",
+      "acres": "1.4000",
+      "is_vacant_land": false
+    },
     {
       "doc_num": "BOUGAMRA 04",
       "doc_type": "JUD",
@@ -12,9 +51,9 @@
       "cat_label": "Judgment",
       "owner": "Erika D Bougamra",
       "grantee": "Td Bank Usa, N.A.",
-      "amount": null,
+      "amount": 996.2,
       "legal": "TD BANK USA, N.A. -VS- ERIKA D BOUGAMRA",
-      "prop_address": "767 WORK DR",
+      "prop_address": "763 WORK DR",
       "prop_city": "AKRON",
       "prop_state": "OH",
       "prop_zip": "44320",
@@ -26,8 +65,7 @@
       "flags": [
         "Judgment lien",
         "New this week",
-        "Vacant land",
-        "Vacant land parcel",
+        "Tax delinquent",
         "\ud83d\udd25 Hot Stack"
       ],
       "score": 70,
@@ -35,14 +73,14 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
-        "judgment"
+        "judgment",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
-      "luc": "500",
+      "luc": "510",
       "acres": "",
-      "is_vacant_land": true
+      "is_vacant_land": false
     }
   ]
 }
