@@ -2,6 +2,16 @@
   {
     "parcel_id": "0100001",
     "owner": "WAGNER THOMAS",
+    "owner_aliases": [
+      "WAGNER THOMAS",
+      "168 SW 31ST ST",
+      "BARBERTON",
+      "44203",
+      "BARBERTON-BRBRTN CSD",
+      "NJARJABKA",
+      "09-OCT-2025",
+      "31ST"
+    ],
     "prop_address": "168 SW 31ST ST",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -14,6 +24,13 @@
   {
     "parcel_id": "0100002",
     "owner": "ABBOTT DAVID J",
+    "owner_aliases": [
+      "ABBOTT DAVID J",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "SUMMIT"
+    ],
     "prop_address": "860 N SUMMIT ST",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -26,6 +43,13 @@
   {
     "parcel_id": "0100003",
     "owner": "ABBOTT DAVID J",
+    "owner_aliases": [
+      "ABBOTT DAVID J",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "SUMMIT"
+    ],
     "prop_address": "860 N SUMMIT ST",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -38,6 +62,13 @@
   {
     "parcel_id": "0100004",
     "owner": "BUNN DEBRA A",
+    "owner_aliases": [
+      "BUNN DEBRA A",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "AZALEA"
+    ],
     "prop_address": "673 N AZALEA BLVD",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -50,6 +81,16 @@
   {
     "parcel_id": "0100005",
     "owner": "ENDRESS NED R III",
+    "owner_aliases": [
+      "ENDRESS NED R III",
+      "BELCHER AVE",
+      "BARBERTON",
+      "44203",
+      "BARBERTON-BRBRTN CSD",
+      "CL_NJARJABKA",
+      "10-NOV-2025",
+      "BELCHER"
+    ],
     "prop_address": "BELCHER AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -62,6 +103,13 @@
   {
     "parcel_id": "0100006",
     "owner": "LMRK OWNER 1 LLC",
+    "owner_aliases": [
+      "LMRK OWNER 1 LLC",
+      "AURORA",
+      "LWALKER",
+      "02-JAN-2026",
+      "STATE"
+    ],
     "prop_address": "348 W STATE ST",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -74,6 +122,13 @@
   {
     "parcel_id": "0100007",
     "owner": "CAMPBELL COLLEEN M",
+    "owner_aliases": [
+      "CAMPBELL COLLEEN M",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "CHARLES"
+    ],
     "prop_address": "CHARLES AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -86,6 +141,13 @@
   {
     "parcel_id": "0100008",
     "owner": "MITCHELL SUSAN",
+    "owner_aliases": [
+      "MITCHELL SUSAN",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "MORGAN"
+    ],
     "prop_address": "336 MORGAN ST",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -98,6 +160,16 @@
   {
     "parcel_id": "0100009",
     "owner": "OGLE DANE ANDREW",
+    "owner_aliases": [
+      "OGLE DANE ANDREW",
+      "626 ORCHARD AVE",
+      "BARBERTON",
+      "44203",
+      "BARBERTON-BRBRTN CSD",
+      "LWALKER",
+      "03-SEP-2025",
+      "ORCHARD"
+    ],
     "prop_address": "626 ORCHARD AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -110,6 +182,13 @@
   {
     "parcel_id": "0100010",
     "owner": "PLETCHER ROY",
+    "owner_aliases": [
+      "PLETCHER ROY",
+      "BARBERTON",
+      "CL_NJARJABKA",
+      "26-DEC-2025",
+      "19TH"
+    ],
     "prop_address": "252 19TH ST",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -122,6 +201,13 @@
   {
     "parcel_id": "0100011",
     "owner": "SIEGENTHALER DIANA J TRUSTEE",
+    "owner_aliases": [
+      "SIEGENTHALER DIANA J TRUSTEE",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "BENTON"
+    ],
     "prop_address": "1366 BENTON ST",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -134,6 +220,12 @@
   {
     "parcel_id": "0100012",
     "owner": "PINEWICK GROUP LLC",
+    "owner_aliases": [
+      "PINEWICK GROUP LLC",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025"
+    ],
     "prop_address": "288 & 290 5TH ST",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -146,6 +238,13 @@
   {
     "parcel_id": "0100013",
     "owner": "MCCLOSKEY SCOTT C",
+    "owner_aliases": [
+      "MCCLOSKEY SCOTT C",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "PARK"
+    ],
     "prop_address": "209 E PARK AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -158,6 +257,13 @@
   {
     "parcel_id": "0100014",
     "owner": "MCCLOSKEY SCOTT C",
+    "owner_aliases": [
+      "MCCLOSKEY SCOTT C",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "PARK"
+    ],
     "prop_address": "E PARK AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -170,6 +276,13 @@
   {
     "parcel_id": "0100015",
     "owner": "MCCLOSKEY SCOTT C",
+    "owner_aliases": [
+      "MCCLOSKEY SCOTT C",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "PARK"
+    ],
     "prop_address": "209 E PARK AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -182,6 +295,13 @@
   {
     "parcel_id": "0100016",
     "owner": "MCCLOSKEY SCOTT C",
+    "owner_aliases": [
+      "MCCLOSKEY SCOTT C",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "PARK"
+    ],
     "prop_address": "E PARK AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -194,6 +314,13 @@
   {
     "parcel_id": "0100017",
     "owner": "CASH AUSTIN RICHARD BRIAN LEE",
+    "owner_aliases": [
+      "CASH AUSTIN RICHARD BRIAN LEE",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "YONKER"
+    ],
     "prop_address": "79 YONKER ST",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -206,6 +333,13 @@
   {
     "parcel_id": "0100018",
     "owner": "ADAMS THOMAS M",
+    "owner_aliases": [
+      "ADAMS THOMAS M",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "WOOSTER"
+    ],
     "prop_address": "1692 WOOSTER RD",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -218,6 +352,13 @@
   {
     "parcel_id": "0100019",
     "owner": "PORTER TIMOTHY J",
+    "owner_aliases": [
+      "PORTER TIMOTHY J",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "STATE"
+    ],
     "prop_address": "218 W STATE ST",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -230,6 +371,13 @@
   {
     "parcel_id": "0100020",
     "owner": "ADAMS WILLIAM C",
+    "owner_aliases": [
+      "ADAMS WILLIAM C",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "HOPOCAN"
+    ],
     "prop_address": "580 E HOPOCAN AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -242,6 +390,13 @@
   {
     "parcel_id": "0100021",
     "owner": "GEORGE LISA",
+    "owner_aliases": [
+      "GEORGE LISA",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "ANTLES"
+    ],
     "prop_address": "68 ANTLES AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -254,6 +409,13 @@
   {
     "parcel_id": "0100022",
     "owner": "STEWART JANET M",
+    "owner_aliases": [
+      "STEWART JANET M",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "TUSCARAWAS"
+    ],
     "prop_address": "413 E TUSCARAWAS AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -266,6 +428,13 @@
   {
     "parcel_id": "0100023",
     "owner": "ANDERS BURDEEN A TRUSTEE",
+    "owner_aliases": [
+      "ANDERS BURDEEN A TRUSTEE",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "FORD"
+    ],
     "prop_address": "601 E FORD AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -278,6 +447,13 @@
   {
     "parcel_id": "0100024",
     "owner": "CRAIG ASHLEY TRUSTEE",
+    "owner_aliases": [
+      "CRAIG ASHLEY TRUSTEE",
+      "BARBERTON",
+      "AWHITE",
+      "16-MAR-2026",
+      "CASSELL"
+    ],
     "prop_address": "742 E CASSELL AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -290,6 +466,13 @@
   {
     "parcel_id": "0100025",
     "owner": "SOMMER JENNIFER S",
+    "owner_aliases": [
+      "SOMMER JENNIFER S",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "WISTERIA"
+    ],
     "prop_address": "873 WISTERIA DR",
     "prop_city": "BARBERTON",
     "prop_zip": "",
@@ -302,6 +485,13 @@
   {
     "parcel_id": "0100026",
     "owner": "BELILES JANAN",
+    "owner_aliases": [
+      "BELILES JANAN",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "29TH"
+    ],
     "prop_address": "221 29TH ST",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -314,6 +504,13 @@
   {
     "parcel_id": "0100027",
     "owner": "ROMESBURG WILLIAM ALLEN",
+    "owner_aliases": [
+      "ROMESBURG WILLIAM ALLEN",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "FRITZ"
+    ],
     "prop_address": "129 FRITZ ST",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -326,6 +523,13 @@
   {
     "parcel_id": "0100028",
     "owner": "ROMESBURG WILLIAM ALLEN",
+    "owner_aliases": [
+      "ROMESBURG WILLIAM ALLEN",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "FRITZ"
+    ],
     "prop_address": "129 FRITZ ST",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -338,6 +542,13 @@
   {
     "parcel_id": "0100029",
     "owner": "CRUZAN DREAM RENTALS LLC",
+    "owner_aliases": [
+      "CRUZAN DREAM RENTALS LLC",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "TUSCARAWAS"
+    ],
     "prop_address": "194 E TUSCARAWAS AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -350,6 +561,13 @@
   {
     "parcel_id": "0100030",
     "owner": "HAYDEN CARRIE L",
+    "owner_aliases": [
+      "HAYDEN CARRIE L",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "PRINCETON"
+    ],
     "prop_address": "520 PRINCETON AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -362,6 +580,13 @@
   {
     "parcel_id": "0100031",
     "owner": "FLOCKER HARRY J",
+    "owner_aliases": [
+      "FLOCKER HARRY J",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "GRAND"
+    ],
     "prop_address": "1349 GRAND BLVD",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -374,6 +599,13 @@
   {
     "parcel_id": "0100032",
     "owner": "KMA CAPITAL LLC",
+    "owner_aliases": [
+      "KMA CAPITAL LLC",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "17TH"
+    ],
     "prop_address": "435 17TH ST",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -386,6 +618,13 @@
   {
     "parcel_id": "0100034",
     "owner": "DILLON DONALD W",
+    "owner_aliases": [
+      "DILLON DONALD W",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "BENTON"
+    ],
     "prop_address": "1170 BENTON ST",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -398,6 +637,13 @@
   {
     "parcel_id": "0100035",
     "owner": "BARNES BARRY",
+    "owner_aliases": [
+      "BARNES BARRY",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "BELLEVIEW"
+    ],
     "prop_address": "1102 BELLEVIEW AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -410,6 +656,13 @@
   {
     "parcel_id": "0100036",
     "owner": "PORTAGE FINANCIAL SERVICES LLC",
+    "owner_aliases": [
+      "PORTAGE FINANCIAL SERVICES LLC",
+      "BARBERTON",
+      "CLINKE",
+      "12-JAN-2026",
+      "HOPOCAN"
+    ],
     "prop_address": "532 W HOPOCAN AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -422,6 +675,13 @@
   {
     "parcel_id": "0100036T",
     "owner": "PORTAGE FINANCIAL SERVICES LLC",
+    "owner_aliases": [
+      "PORTAGE FINANCIAL SERVICES LLC",
+      "BARBERTON",
+      "CL_NJARJABKA",
+      "13-JAN-2026",
+      "HOPOCAN"
+    ],
     "prop_address": "532 W HOPOCAN AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -434,6 +694,15 @@
   {
     "parcel_id": "0100037",
     "owner": "FUNK DONALD T",
+    "owner_aliases": [
+      "FUNK DONALD T",
+      "321 VAN ST",
+      "BARBERTON",
+      "44203",
+      "BARBERTON-BRBRTN CSD",
+      "CL_NJARJABKA",
+      "21-NOV-2025"
+    ],
     "prop_address": "321 VAN ST",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -446,6 +715,13 @@
   {
     "parcel_id": "0100038",
     "owner": "CITY OF BARBERTON",
+    "owner_aliases": [
+      "CITY OF BARBERTON",
+      "E BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "ROBINSON"
+    ],
     "prop_address": "898 ROBINSON AVE",
     "prop_city": "E BARBERTON",
     "prop_zip": "44203",
@@ -458,6 +734,13 @@
   {
     "parcel_id": "0100040",
     "owner": "BENNETT ANTON W",
+    "owner_aliases": [
+      "BENNETT ANTON W",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "WASHINGTON"
+    ],
     "prop_address": "537 WASHINGTON AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -470,6 +753,13 @@
   {
     "parcel_id": "0100041",
     "owner": "EBEY GEORGE W",
+    "owner_aliases": [
+      "EBEY GEORGE W",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "LAKE"
+    ],
     "prop_address": "304 E LAKE AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -482,6 +772,13 @@
   {
     "parcel_id": "0100042",
     "owner": "HILLYER RAYLAN P",
+    "owner_aliases": [
+      "HILLYER RAYLAN P",
+      "BARBERTON",
+      "CL_NJARJABKA",
+      "02-JAN-2026",
+      "LAKE"
+    ],
     "prop_address": "308 E LAKE AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -494,6 +791,13 @@
   {
     "parcel_id": "0100043",
     "owner": "STULTS TIMOTHY A",
+    "owner_aliases": [
+      "STULTS TIMOTHY A",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "LAKE"
+    ],
     "prop_address": "300 E LAKE AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -506,6 +810,13 @@
   {
     "parcel_id": "0100044",
     "owner": "SPANGLER LAURA",
+    "owner_aliases": [
+      "SPANGLER LAURA",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "LAKE"
+    ],
     "prop_address": "314 E LAKE AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -518,6 +829,13 @@
   {
     "parcel_id": "0100045",
     "owner": "CLEMENTS BRIAN A",
+    "owner_aliases": [
+      "CLEMENTS BRIAN A",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "19TH"
+    ],
     "prop_address": "259 19TH ST",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -530,6 +848,13 @@
   {
     "parcel_id": "0100046",
     "owner": "SENDERAK JOHN D",
+    "owner_aliases": [
+      "SENDERAK JOHN D",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "17TH"
+    ],
     "prop_address": "444 17TH ST",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -542,6 +867,13 @@
   {
     "parcel_id": "0100047",
     "owner": "SCOTT IAN",
+    "owner_aliases": [
+      "SCOTT IAN",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "BENTON"
+    ],
     "prop_address": "1226 BENTON ST",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -554,6 +886,13 @@
   {
     "parcel_id": "0100048",
     "owner": "SCOTT IAN",
+    "owner_aliases": [
+      "SCOTT IAN",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "BENTON"
+    ],
     "prop_address": "BENTON ST",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -566,6 +905,13 @@
   {
     "parcel_id": "0100049",
     "owner": "WILLIAMS WILLIE R",
+    "owner_aliases": [
+      "WILLIAMS WILLIE R",
+      "BARBERTON",
+      "AWHITE",
+      "10-FEB-2026",
+      "ELSON"
+    ],
     "prop_address": "188 ELSON AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -578,6 +924,13 @@
   {
     "parcel_id": "0100053",
     "owner": "AKERS CHRISTOPHER",
+    "owner_aliases": [
+      "AKERS CHRISTOPHER",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "FORD"
+    ],
     "prop_address": "213 E FORD AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
@@ -590,6 +943,13 @@
   {
     "parcel_id": "0100054",
     "owner": "SAVAGE SEAN",
+    "owner_aliases": [
+      "SAVAGE SEAN",
+      "BARBERTON",
+      "EOY ROLL",
+      "29-AUG-2025",
+      "GRANDVIEW"
+    ],
     "prop_address": "488 GRANDVIEW AVE",
     "prop_city": "BARBERTON",
     "prop_zip": "44203",
