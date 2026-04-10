@@ -328,7 +328,6 @@ def name_variants(name: str) -> List[str]:
             variants.add(full)
 
         if len(parts) == 1:
-            variants.add(parts[0])
             return
 
         first = parts[0]
@@ -350,9 +349,6 @@ def name_variants(name: str) -> List[str]:
                 variants.add(f"{first} {middle_initials} {last}".strip())
                 variants.add(f"{last}, {first} {middle_initials}".strip())
                 variants.add(f"{last} {first} {middle_initials}".strip())
-
-        variants.add(first)
-        variants.add(last)
 
     if len(comma_parts) >= 2:
         last = comma_parts[0]
@@ -716,7 +712,10 @@ def build_parcel_indexes() -> Tuple[Dict[str, dict], Dict[str, List[dict]], Dict
         if not owner:
             continue
 
+        owner_is_corp = likely_corporate_name(owner)
         for variant in name_variants(owner):
+            if not owner_is_corp and len(tokens_from_name(variant)) < 2:
+                continue
             owner_index.setdefault(variant, record)
 
         last_name = get_last_name(owner)
@@ -1187,8 +1186,11 @@ def fuzzy_match_record(
 ) -> Tuple[Optional[dict], str, float]:
     owner = record.owner
     owner_variants = name_variants(owner)
+    owner_is_corp = likely_corporate_name(owner)
 
     for variant in owner_variants:
+        if not owner_is_corp and len(tokens_from_name(variant)) < 2:
+            continue
         if variant in owner_index:
             return owner_index[variant], "exact_name_variant", 1.0
 
