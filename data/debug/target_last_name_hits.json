@@ -135,6 +135,12 @@
       "parcel_id": "6706533"
     },
     {
+      "owner": "BROWN AND WILLIAMS CONSTRUCTION",
+      "prop_address": "41 E DALTON ST",
+      "mail_address": "",
+      "parcel_id": "6738593"
+    },
+    {
       "owner": "JOHNSON THEA BROWN",
       "prop_address": "940 SNYDER ST",
       "mail_address": "",
@@ -681,5 +687,274 @@
       "mail_address": "",
       "parcel_id": "6841230"
     }
-  ]
+  ],
+  "RICE": [
+    {
+      "owner": "WASHINGTON MARGARET RICE",
+      "prop_address": "9635 E IDLEWOOD DR",
+      "mail_address": "",
+      "parcel_id": "6405208"
+    },
+    {
+      "owner": "SCOTT SYLVIA RICE",
+      "prop_address": "668 DEERING DR",
+      "mail_address": "",
+      "parcel_id": "6706938"
+    }
+  ],
+  "SCOTT": [
+    {
+      "owner": "KEITH KYLE SCOTT",
+      "prop_address": "654 FAIRVIEW AVE",
+      "mail_address": "",
+      "parcel_id": "0100293"
+    },
+    {
+      "owner": "GRUBER SCOTT",
+      "prop_address": "682 PAIGE AVE",
+      "mail_address": "",
+      "parcel_id": "0100692"
+    },
+    {
+      "owner": "HAYNES SCOTT",
+      "prop_address": "219 15TH ST",
+      "mail_address": "",
+      "parcel_id": "0101419"
+    },
+    {
+      "owner": "RICHARDS RORY SCOTT",
+      "prop_address": "260 E TUSCARAWAS AVE",
+      "mail_address": "",
+      "parcel_id": "0101859"
+    },
+    {
+      "owner": "ROWAN DONALD SCOTT",
+      "prop_address": "1270 CENTRAL AVE",
+      "mail_address": "",
+      "parcel_id": "0103341"
+    },
+    {
+      "owner": "ROWAN DONALD SCOTT",
+      "prop_address": "CENTRAL AVE",
+      "mail_address": "",
+      "parcel_id": "0103342"
+    },
+    {
+      "owner": "REYNOLDS SCOTT",
+      "prop_address": "35 TAYLOR RD",
+      "mail_address": "",
+      "parcel_id": "0104370"
+    },
+    {
+      "owner": "DOERFLER BRADLEY SCOTT",
+      "prop_address": "846 CANNA CIR",
+      "mail_address": "",
+      "parcel_id": "0104789"
+    },
+    {
+      "owner": "KELLEY WILLIAM SCOTT",
+      "prop_address": "689 E LAKE AVE",
+      "mail_address": "",
+      "parcel_id": "0106795"
+    },
+    {
+      "owner": "BRANDON SCOTT",
+      "prop_address": "84 BROWN ST",
+      "mail_address": "",
+      "parcel_id": "0107192"
+    },
+    {
+      "owner": "PATTERSON PATRICK SCOTT",
+      "prop_address": "194 29TH ST",
+      "mail_address": "",
+      "parcel_id": "0107219"
+    },
+    {
+      "owner": "BENEDUM SCOTT",
+      "prop_address": "37 NEW ST",
+      "mail_address": "",
+      "parcel_id": "0107820"
+    },
+    {
+      "owner": "KOVACS SCOTT",
+      "prop_address": "97 30TH ST",
+      "mail_address": "",
+      "parcel_id": "0108598"
+    },
+    {
+      "owner": "BRAY SCOTT",
+      "prop_address": "166 28TH ST",
+      "mail_address": "",
+      "parcel_id": "0108721"
+    },
+    {
+      "owner": "BRAY SCOTT",
+      "prop_address": "28TH ST",
+      "mail_address": "",
+      "parcel_id": "0108722"
+    },
+    {
+      "owner": "BRANN SCOTT",
+      "prop_address": "30 15TH ST",
+      "mail_address": "",
+      "parcel_id": "0109191"
+    },
+    {
+      "owner": "HAYS SCOTT",
+      "prop_address": "1240 PROSPECT ST",
+      "mail_address": "",
+      "parcel_id": "0109232"
+    },
+    {
+      "owner": "SAYRE BRADLEY SCOTT",
+      "prop_address": "1336 BENTON ST",
+      "mail_address": "",
+      "parcel_id": "0109572"
+    },
+    {
+      "owner": "THOMPSON WILLIS SCOTT TRUSTEE",
+      "prop_address": "537 FAIRVIEW AVE",
+      "mail_address": "",
+      "parcel_id": "0109619"
+    },
+    {
+      "owner": "THOMPSON WILLIS SCOTT TRUSTEE",
+      "prop_address": "537 FAIRVIEW AVE",
+      "mail_address": "",
+      "parcel_id": "0109620"
+    },
+    {
+      "owner": "THOMPSON WILLIS SCOTT TRUSTEE",
+      "prop_address": "537 FAIRVIEW AVE",
+      "mail_address": "",
+      "parcel_id": "0109621"
+    },
+    {
+      "owner": "WHITED SCOTT",
+      "prop_address": "39 NW 31ST ST",
+      "mail_address": "",
+      "parcel_id": "0110105"
+    },
+    {
+      "owner": "BOYD SCOTT",
+      "prop_address": "701 MESA VERDE DR",
+      "mail_address": "",
+      "parcel_id": "0110304"
+    },
+    {
+      "owner": "GOUGLER BRANDON SCOTT",
+      "prop_address": "529 E HOPOCAN AVE",
+      "mail_address": "",
+      "parcel_id": "0110311"
+    },
+    {
+      "owner": "SMITH DANIEL SCOTT",
+      "prop_address": "667 WASHINGTON AVE",
+      "mail_address": "",
+      "parcel_id": "0110352"
+    }
+  ],
+  "BELL": [
+    {
+      "owner": "METCALF DEBRA BELL",
+      "prop_address": "3114 REIMER RD",
+      "mail_address": "",
+      "parcel_id": "4600508"
+    },
+    {
+      "owner": "BELL & BLAIRE HOLDINGS LLC",
+      "prop_address": "103 S MAIN ST",
+      "mail_address": "",
+      "parcel_id": "5800252"
+    },
+    {
+      "owner": "BELL & BLAIRE HOLDINGS LLC",
+      "prop_address": "103 S MAIN ST",
+      "mail_address": "",
+      "parcel_id": "5800253"
+    },
+    {
+      "owner": "BELL & BLAIRE HOLDINGS LLC",
+      "prop_address": "91 -103 S MAIN ST",
+      "mail_address": "",
+      "parcel_id": "5800254"
+    },
+    {
+      "owner": "BELL & BLAIRE HOLDINGS LLC",
+      "prop_address": "103 S MAIN ST",
+      "mail_address": "",
+      "parcel_id": "5800255"
+    },
+    {
+      "owner": "BELL JOHN",
+      "prop_address": "550 GARNETTE RD",
+      "mail_address": "",
+      "parcel_id": "6705192"
+    },
+    {
+      "owner": "COLEMAN IDA BELL",
+      "prop_address": "646 EASTER AVE",
+      "mail_address": "",
+      "parcel_id": "6718415"
+    },
+    {
+      "owner": "HTOO HEH BELL",
+      "prop_address": "299 LOOKOUT AVE",
+      "mail_address": "",
+      "parcel_id": "6721507"
+    },
+    {
+      "owner": "JOHNSON MINNIE BELL",
+      "prop_address": "1122 JOHNSTON ST",
+      "mail_address": "",
+      "parcel_id": "6745474"
+    },
+    {
+      "owner": "BELL JOHN",
+      "prop_address": "527 VAN EVERETT AVE",
+      "mail_address": "",
+      "parcel_id": "6801426"
+    },
+    {
+      "owner": "TERRY FANNIE BELL",
+      "prop_address": "1012 LEROY ST",
+      "mail_address": "",
+      "parcel_id": "6838415"
+    }
+  ],
+  "FERNANDEZ": [
+    {
+      "owner": "SEMPRIT EFRAIN FERNANDEZ",
+      "prop_address": "5207 FREDERICK ST",
+      "mail_address": "",
+      "parcel_id": "0116586"
+    },
+    {
+      "owner": "CALDERON NORMA IDAL FERNANDEZ",
+      "prop_address": "2575 MYERSVILLE RD",
+      "mail_address": "",
+      "parcel_id": "5110122"
+    },
+    {
+      "owner": "LARIOS ROSA E FERNANDEZ",
+      "prop_address": "940 PEERLESS AVE",
+      "mail_address": "",
+      "parcel_id": "6803640"
+    },
+    {
+      "owner": "CALDERON NORMA IDALIA FERNANDEZ",
+      "prop_address": "162 HAROLD ST",
+      "mail_address": "",
+      "parcel_id": "6828204"
+    }
+  ],
+  "KANDIKO": [],
+  "PFAHLER": [],
+  "PRIM": [],
+  "PEARSON": [],
+  "PARMER": [],
+  "NEFFENGER": [],
+  "MOUNTS": [],
+  "MOHLER": [],
+  "MCCALL": []
 }

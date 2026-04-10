@@ -1,11 +1,13 @@
 {
-  "matched": 20,
-  "unmatched": 48,
-  "with_address": 20,
+  "matched": 23,
+  "unmatched": 45,
+  "with_address": 23,
   "match_methods": {
     "unmatched": 29,
     "exact_name_variant": 20,
-    "no_property_match": 19
+    "no_property_match": 16,
+    "last_name_unique_fallback": 1,
+    "last_name_initial_fallback": 2
   },
   "sample_unmatched": [
     {
@@ -156,11 +158,6 @@
       "legal": "CAPITAL ONE NA -VS- WILLIAM R BARTON"
     },
     {
-      "doc_num": "DAVISON 04",
-      "owner": "Asante Davison",
-      "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- ASANTE DAVISON"
-    },
-    {
       "doc_num": "ALI 04",
       "owner": "Emoun R Ali",
       "legal": "CAPITAL ONE NA -VS- EMOUN R ALI"
@@ -184,11 +181,6 @@
       "doc_num": "FORD 04",
       "owner": "Caleb Ford",
       "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- CALEB FORD"
-    },
-    {
-      "doc_num": "GRIFFIN 04",
-      "owner": "Star Griffin",
-      "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- STAR GRIFFIN"
     },
     {
       "doc_num": "HUGHES 04",
@@ -221,15 +213,10 @@
       "legal": "SEVEN SEVENTEEN CREDIT UNION INC -VS- DALLAS L SCOTT"
     },
     {
-      "doc_num": "BELL 04",
-      "owner": "Marjorie E Bell",
-      "legal": "SEVEN SEVENTEEN CREDIT UNION INC -VS- MARJORIE E BELL"
-    },
-    {
       "doc_num": "FERNANDEZ 04",
       "owner": "Robert Fernandez",
       "legal": "ROOFSMITH RESTORATION, INC. -VS- ROBERT FERNANDEZ"
     }
   ],
-  "generated_at": "2026-04-10T00:35:48.615696+00:00"
+  "generated_at": "2026-04-10T04:19:07.294494+00:00"
 }
