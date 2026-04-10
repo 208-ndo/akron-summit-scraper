@@ -162,6 +162,7 @@ class LeadRecord:
     is_vacant_land: bool = False
     is_absentee: bool = False
     phones: list = field(default_factory=list)
+    phone_types: list = field(default_factory=list)
     emails: list = field(default_factory=list)
     skip_trace_source: str = ""
 
@@ -1656,7 +1657,7 @@ def write_csv(records: List[LeadRecord], csv_path: Path) -> None:
         "Property Address","Property City","Property State","Property Zip",
         "Lead Type","Document Type","Date Filed","Document Number","Amount/Debt Owed",
         "Seller Score","Motivated Seller Flags","Distress Sources","Distress Count","Hot Stack",
-        "Vacant Land","Absentee Owner","Phone 1","Phone 2","Phone 3","Email","Skip Trace Source","LUC Code","Acres","Match Method","Match Score","Source","Public Records URL",
+        "Vacant Land","Absentee Owner","Phone 1","Phone 1 Type","Phone 2","Phone 2 Type","Phone 3","Phone 3 Type","Email","Skip Trace Source","LUC Code","Acres","Match Method","Match Score","Source","Public Records URL",
     ]
     with csv_path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames)
@@ -1680,8 +1681,11 @@ def write_csv(records: List[LeadRecord], csv_path: Path) -> None:
                 "Vacant Land":"YES" if record.is_vacant_land else "",
                 "Absentee Owner":"YES" if record.is_absentee else "",
                 "Phone 1":record.phones[0] if len(record.phones) > 0 else "",
+                "Phone 1 Type":record.phone_types[0] if len(record.phone_types) > 0 else "",
                 "Phone 2":record.phones[1] if len(record.phones) > 1 else "",
+                "Phone 2 Type":record.phone_types[1] if len(record.phone_types) > 1 else "",
                 "Phone 3":record.phones[2] if len(record.phones) > 2 else "",
+                "Phone 3 Type":record.phone_types[2] if len(record.phone_types) > 2 else "",
                 "Email":record.emails[0] if record.emails else "",
                 "Skip Trace Source":record.skip_trace_source,
                 "LUC Code":record.luc,"Acres":record.acres,
@@ -1752,16 +1756,73 @@ async def skip_trace_one(page, first: str, last: str, city: str, state: str = "O
                 logging.warning("Skip trace blocked on %s", source["name"])
                 continue
 
-            # Try structured selectors first
-            phones = []
+            mobile_phones = []
+            landline_phones = []
             emails = []
 
-            for el in soup.select(source["phone_selector"]):
-                text = clean_text(el.get_text(" ") or el.get("href", ""))
-                text = text.replace("tel:", "").strip()
-                if phone_pattern.search(text):
-                    phones.append(re.search(r"[\d\(\)\-\.\s]{10,14}", text).group().strip())
+            def classify_phone(num: str, context: str = "") -> str:
+                """Return 'mobile', 'landline', or 'unknown' based on context clues."""
+                ctx = context.lower()
+                if any(x in ctx for x in ["mobile", "cell", "wireless", "smartphone"]):
+                    return "mobile"
+                if any(x in ctx for x in ["landline", "home", "work", "voip", "business"]):
+                    return "landline"
+                return "unknown"
 
+            def normalize_phone(raw: str) -> str:
+                """Normalize to (XXX) XXX-XXXX format."""
+                digits = re.sub(r"\D", "", raw)
+                if len(digits) == 11 and digits.startswith("1"):
+                    digits = digits[1:]
+                if len(digits) == 10:
+                    return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}"
+                return raw.strip()
+
+            # Try structured selectors first
+            for el in soup.select(source["phone_selector"]):
+                raw = clean_text(el.get_text(" ") or el.get("href", "")).replace("tel:", "").strip()
+                if not phone_pattern.search(raw):
+                    continue
+                num = normalize_phone(raw)
+                # Get surrounding context for mobile/landline classification
+                parent_text = ""
+                try:
+                    parent = el.find_parent(["div", "li", "span", "p"])
+                    if parent:
+                        parent_text = parent.get_text(" ").lower()
+                except Exception:
+                    pass
+                phone_type = classify_phone(num, parent_text)
+                if phone_type == "mobile":
+                    mobile_phones.append(num)
+                else:
+                    landline_phones.append(num)
+
+            # Try to find type labels near phone numbers in page text
+            if not mobile_phones and not landline_phones:
+                full_text = soup.get_text(" ")
+                # Look for labeled phone blocks: "Mobile: (330) 555-1234"
+                for m in re.finditer(
+                    r"(mobile|cell|wireless|landline|home|work)[:\s]+(\(?\d{3}\)?[\s\-\.]\d{3}[\s\-\.]\d{4})",
+                    full_text, re.IGNORECASE
+                ):
+                    label = m.group(1).lower()
+                    num = normalize_phone(m.group(2))
+                    if label in ("mobile", "cell", "wireless"):
+                        mobile_phones.append(num)
+                    else:
+                        landline_phones.append(num)
+
+            # Pure regex fallback — grab any phone number, treat as unknown (goes to landline bucket)
+            if not mobile_phones and not landline_phones:
+                for match in phone_pattern.finditer(soup.get_text(" ")):
+                    digits = re.sub(r"\D", "", match.group())
+                    if len(digits) == 10 and not digits.startswith("000"):
+                        landline_phones.append(normalize_phone(match.group()))
+                        if len(landline_phones) >= 4:
+                            break
+
+            # Email extraction
             for el in soup.select(source["email_selector"]):
                 href = el.get("href", "").replace("mailto:", "").strip()
                 text = clean_text(el.get_text(" "))
@@ -1769,24 +1830,27 @@ async def skip_trace_one(page, first: str, last: str, city: str, state: str = "O
                 if "@" in email and "." in email:
                     emails.append(email)
 
-            # Fallback: regex scan entire page for phone numbers
-            if not phones:
-                for match in phone_pattern.finditer(soup.get_text(" ")):
-                    num = match.group().strip()
-                    # Filter out obviously wrong numbers (zip codes, years, etc)
-                    digits_only = re.sub(r"\D", "", num)
-                    if len(digits_only) == 10 and not digits_only.startswith("000"):
-                        phones.append(num)
-                        if len(phones) >= 3:
-                            break
+            # Dedupe each list
+            mobile_phones = list(dict.fromkeys(mobile_phones))
+            landline_phones = list(dict.fromkeys(landline_phones))
 
-            if phones:
-                result["phones"] = list(dict.fromkeys(phones))[:3]  # dedupe, max 3
+            # Combine: mobile first, then landline, max 3 total
+            all_phones = (mobile_phones + landline_phones)[:3]
+
+            if all_phones:
+                result["phones"] = all_phones
+                result["phone_types"] = (
+                    ["mobile"] * min(len(mobile_phones), 3) +
+                    ["landline"] * max(0, 3 - len(mobile_phones))
+                )[:len(all_phones)]
                 result["emails"] = list(dict.fromkeys(emails))[:2]
                 result["source"] = source["name"]
                 result["skip_traced"] = True
-                logging.info("Skip traced %s %s via %s → %s",
-                             first, last, source["name"], result["phones"][0])
+                logging.info(
+                    "Skip traced %s %s via %s → %s mobile, %s landline",
+                    first, last, source["name"],
+                    len(mobile_phones), len(landline_phones)
+                )
                 return result
 
         except PlaywrightTimeoutError:
@@ -1797,7 +1861,6 @@ async def skip_trace_one(page, first: str, last: str, city: str, state: str = "O
             continue
 
     return result
-
 
 async def skip_trace_leads(records: List[LeadRecord]) -> List[LeadRecord]:
     """
@@ -1851,6 +1914,7 @@ async def skip_trace_leads(records: List[LeadRecord]) -> List[LeadRecord]:
 
                 if skip_result["skip_traced"]:
                     record.phones = skip_result["phones"]
+                    record.phone_types = skip_result.get("phone_types", [])
                     record.emails = skip_result["emails"]
                     record.skip_trace_source = skip_result["source"]
                     if "Phone found" not in record.flags:
