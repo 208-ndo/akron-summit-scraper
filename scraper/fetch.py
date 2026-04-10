@@ -159,6 +159,7 @@ class LeadRecord:
     luc: str = ""
     acres: str = ""
     is_vacant_land: bool = False
+    is_absentee: bool = False
 
 
 @dataclass
@@ -481,6 +482,7 @@ def score_record(record: LeadRecord) -> int:
     if "mechanic lien" in lower_flags:      flag_score += 10
     if "probate / estate" in lower_flags:   flag_score += 15
     if "vacant property" in lower_flags:    flag_score += 20
+    if "absentee owner" in lower_flags:     flag_score += 10
     score += min(flag_score, 50)
     if "lis pendens" in lower_flags and "pre-foreclosure" in lower_flags:
         score += 20
@@ -544,6 +546,56 @@ def normalize_address_key(address: str) -> str:
         addr = addr.replace(old, new)
     addr = re.sub(r"[^A-Z0-9\s]", "", addr)
     return re.sub(r"\s+", " ", addr).strip()
+
+
+def is_absentee_owner(prop_address: str, mail_address: str) -> bool:
+    """
+    Returns True if the mailing address is different from the property address.
+    This means the owner does NOT live at the property — absentee owner.
+
+    Rules:
+    - Both addresses must be non-empty to compare
+    - We normalize both (strip unit numbers, directionals, punctuation)
+    - If the street number + street name differ → absentee
+    - If mail address is in a completely different zip → definitely absentee
+    - PO Boxes are always absentee
+    """
+    if not prop_address or not mail_address:
+        return False
+
+    # PO Box = always absentee
+    mail_upper = mail_address.upper()
+    if re.search(r"\bP\.?\s*O\.?\s*BOX\b", mail_upper):
+        return True
+
+    # Normalize both addresses for comparison
+    prop_key = normalize_address_key(prop_address)
+    mail_key = normalize_address_key(mail_address)
+
+    if not prop_key or not mail_key:
+        return False
+
+    # If identical → owner-occupied
+    if prop_key == mail_key:
+        return False
+
+    # Extract just the street number + first street name word for fuzzy compare
+    # e.g. "1363 CARNEGIE AVE AKRON" → "1363 CARNEGIE"
+    def street_core(addr: str) -> str:
+        parts = addr.split()
+        if len(parts) >= 2:
+            return " ".join(parts[:2])
+        return addr
+
+    prop_core = street_core(prop_key)
+    mail_core = street_core(mail_key)
+
+    # If cores match, it's close enough to be same address (unit number diff etc)
+    if prop_core == mail_core:
+        return False
+
+    # Different address = absentee owner
+    return True
 
 
 def scrape_tax_delinquent_parcels() -> Dict[str, dict]:
@@ -1493,6 +1545,11 @@ def enrich_with_parcel_data(records, owner_index, last_name_index, first_last_in
                 if "Vacant land" not in record.flags: record.flags.append("Vacant land")
             record.mail_state   = normalize_state(record.mail_state) or ("OH" if record.mail_address else "")
             record.with_address = 1 if clean_text(record.prop_address) else 0
+
+            # Absentee owner detection — mail address differs from property address
+            record.is_absentee = is_absentee_owner(record.prop_address, record.mail_address)
+            if record.is_absentee and "Absentee owner" not in record.flags:
+                record.flags.append("Absentee owner")
             if record.with_address: report["with_address"] += 1
             if clean_text(record.mail_address): report["with_mail_address"] += 1
             record.flags = list(dict.fromkeys(record.flags + category_flags(record.doc_type, record.owner)))
@@ -1595,7 +1652,7 @@ def write_csv(records: List[LeadRecord], csv_path: Path) -> None:
         "Property Address","Property City","Property State","Property Zip",
         "Lead Type","Document Type","Date Filed","Document Number","Amount/Debt Owed",
         "Seller Score","Motivated Seller Flags","Distress Sources","Distress Count","Hot Stack",
-        "Vacant Land","LUC Code","Acres","Match Method","Match Score","Source","Public Records URL",
+        "Vacant Land","Absentee Owner","LUC Code","Acres","Match Method","Match Score","Source","Public Records URL",
     ]
     with csv_path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames)
@@ -1617,6 +1674,7 @@ def write_csv(records: List[LeadRecord], csv_path: Path) -> None:
                 "Distress Count":record.distress_count,
                 "Hot Stack":"YES" if record.hot_stack else "",
                 "Vacant Land":"YES" if record.is_vacant_land else "",
+                "Absentee Owner":"YES" if record.is_absentee else "",
                 "LUC Code":record.luc,"Acres":record.acres,
                 "Match Method":record.match_method,"Match Score":record.match_score,
                 "Source":SOURCE_NAME,"Public Records URL":record.clerk_url,
@@ -1695,12 +1753,13 @@ async def main() -> None:
 
     hot_count = sum(1 for r in all_records if r.hot_stack)
     tax_count = sum(1 for r in all_records if "Tax delinquent" in r.flags)
+    absentee_count = sum(1 for r in all_records if r.is_absentee)
     logging.info(
-        "Finished. Total: %s | Prop address: %s | Mail address: %s | 🔥 Hot Stack: %s | 💰 Tax Delinquent: %s | Vacant lots: %s",
+        "Finished. Total: %s | Prop address: %s | Mail: %s | 🔥 Hot Stack: %s | 💰 Tax Delinquent: %s | 🏠 Absentee: %s | Vacant lots: %s",
         len(all_records),
         sum(1 for r in all_records if r.prop_address),
         sum(1 for r in all_records if r.mail_address),
-        hot_count, tax_count, len(vacant_land),
+        hot_count, tax_count, absentee_count, len(vacant_land),
     )
 
 
