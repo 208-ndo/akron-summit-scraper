@@ -30,6 +30,8 @@ DEFAULT_OUTPUT_CSV_PATH = DATA_DIR / "ghl_export.csv"
 DEFAULT_ENRICHED_JSON_PATH = DATA_DIR / "records.enriched.json"
 DEFAULT_ENRICHED_CSV_PATH = DATA_DIR / "records.enriched.csv"
 DEFAULT_REPORT_PATH = DATA_DIR / "match_report.json"
+DEFAULT_VACANT_JSON_PATH = DATA_DIR / "vacant_land.json"
+DEFAULT_STACK_JSON_PATH = DATA_DIR / "hot_stack.json"
 
 LOOKBACK_DAYS = 90
 SOURCE_NAME = "Akron / Summit County, Ohio"
@@ -38,6 +40,7 @@ CLERK_RECORDS_URL = "https://clerk.summitoh.net/RecordsSearch/Disclaimer.asp?toP
 PENDING_CIVIL_URL = "https://newcivilfilings.summitoh.net/"
 PROBATE_URL = "https://search.summitohioprobate.com/eservices/"
 CAMA_PAGE_URL = "https://fiscaloffice.summitoh.net/index.php/documents-a-forms/viewcategory/10-cama"
+VACANT_BUILDING_URL = "https://www.akronohio.gov/government/boards_and_commissions/vacant_building_board.php"
 
 HEADERS = {
     "User-Agent": (
@@ -48,90 +51,80 @@ HEADERS = {
 }
 
 LEAD_TYPE_MAP = {
-    "LP": "Lis Pendens",
-    "NOFC": "Pre-foreclosure",
-    "TAXDEED": "Tax Deed",
-    "JUD": "Judgment",
-    "CCJ": "Certified Judgment",
-    "DRJUD": "Domestic Judgment",
+    "LP":       "Lis Pendens",
+    "NOFC":     "Pre-foreclosure",
+    "TAXDEED":  "Tax Deed",
+    "JUD":      "Judgment",
+    "CCJ":      "Certified Judgment",
+    "DRJUD":    "Domestic Judgment",
     "LNCORPTX": "Corp Tax Lien",
-    "LNIRS": "IRS Lien",
-    "LNFED": "Federal Lien",
-    "LN": "Lien",
-    "LNMECH": "Mechanic Lien",
-    "LNHOA": "HOA Lien",
-    "MEDLN": "Medicaid Lien",
-    "PRO": "Probate / Estate",
-    "NOC": "Notice of Commencement",
-    "RELLP": "Release Lis Pendens",
+    "LNIRS":    "IRS Lien",
+    "LNFED":    "Federal Lien",
+    "LN":       "Lien",
+    "LNMECH":   "Mechanic Lien",
+    "LNHOA":    "HOA Lien",
+    "MEDLN":    "Medicaid Lien",
+    "PRO":      "Probate / Estate",
+    "NOC":      "Notice of Commencement",
+    "RELLP":    "Release Lis Pendens",
+    "TAXDELINQ":"Tax Delinquent",
+    "VACANT":   "Vacant Property",
+    "VACLAND":  "Vacant Land",
 }
+
+# Summit County LUC codes — Land Use Classification
+VACANT_LAND_LUCS = {"500", "501", "502", "503"}
+RESIDENTIAL_LUCS = {
+    "510","511","512","513","514","515",
+    "520","521","522","523",
+    "530","531","532","533",
+    "540","550","560",
+}
+MAX_INFILL_ACRES = 2.0
 
 LIKELY_OWNER_KEYS = [
-    "OWNER1", "OWNER2", "OWNER", "OWN1", "OWNER_NAME", "OWNERNAME", "OWNERNM", "NAME", "OWNNAM",
-    "OWNER 1", "OWNER 2", "TAXPAYER", "TAXPAYER_NAME", "MAILNAME", "MAIL_NAME", "NAME1", "NAME2"
+    "OWNER1","OWNER2","OWNER","OWN1","OWNER_NAME","OWNERNAME","OWNERNM","NAME","OWNNAM",
+    "OWNER 1","OWNER 2","TAXPAYER","TAXPAYER_NAME","MAILNAME","MAIL_NAME","NAME1","NAME2"
 ]
-LIKELY_PROP_ADDR_KEYS = [
-    "SITE_ADDR", "SITEADDR", "PROPERTY_ADDRESS", "PROPADDR", "ADDRESS", "LOCADDR", "SADDR",
-    "ADDRESS_1", "ADDRESS_2"
-]
-LIKELY_PROP_CITY_KEYS = [
-    "SITE_CITY", "CITY", "SITECITY", "PROPERTY_CITY", "SCITY", "CITYNAME", "UDATE1"
-]
-LIKELY_PROP_ZIP_KEYS = [
-    "SITE_ZIP", "ZIP", "SITEZIP", "PROPERTY_ZIP", "SZIP", "USER2", "ZIPCD", "NOTE2"
-]
-LIKELY_MAIL_ADDR_KEYS = [
-    "MAIL_ADR1", "ADDR_1", "MAILADR1", "MAIL_ADDR", "MAILADDRESS", "MADDR1", "ADDRESS1", "MAILADD1",
-    "ADDRESS_1", "ADDRESS_2"
-]
-LIKELY_MAIL_CITY_KEYS = [
-    "NOTE1", "MAILCITY", "CITY", "MCITY", "CITYNAME"
-]
-LIKELY_MAIL_STATE_KEYS = [
-    "STATE", "MAILSTATE", "MSTATE", "STATECODE"
-]
-LIKELY_MAIL_ZIP_KEYS = [
-    "MAIL_PTR", "MAILZIP", "ZIP", "MZIP", "OWNER ZIPCD1", "OWNER ZIPCD2", "OWNER_ZIPCD1", "OWNER_ZIPCD2"
-]
-LIKELY_LEGAL_KEYS = [
-    "LEGAL", "LEGAL_DESC", "LEGALDESCRIPTION", "LEGDESC"
-]
-LIKELY_PID_KEYS = [
-    "PARID", "PARCEL", "PAIRD", "PARCELID", "PARCEL_ID", "PID", "PARCELNO", "PAR_NO", "PAR_NUM"
-]
+LIKELY_PROP_ADDR_KEYS = ["SITE_ADDR","SITEADDR","PROPERTY_ADDRESS","PROPADDR","ADDRESS","LOCADDR","SADDR"]
+LIKELY_PROP_CITY_KEYS = ["SITE_CITY","CITY","SITECITY","PROPERTY_CITY","SCITY","CITYNAME","UDATE1"]
+LIKELY_PROP_ZIP_KEYS  = ["SITE_ZIP","ZIP","SITEZIP","PROPERTY_ZIP","SZIP","USER2","ZIPCD","NOTE2"]
+LIKELY_MAIL_ADDR_KEYS = ["MAIL_ADR1","ADDR_1","MAILADR1","MAIL_ADDR","MAILADDRESS","MADDR1","ADDRESS1","MAILADD1"]
+LIKELY_MAIL_CITY_KEYS = ["NOTE1","MAILCITY","CITY","MCITY","CITYNAME"]
+LIKELY_MAIL_STATE_KEYS= ["STATE","MAILSTATE","MSTATE","STATECODE"]
+LIKELY_MAIL_ZIP_KEYS  = ["MAIL_PTR","MAILZIP","ZIP","MZIP","OWNER ZIPCD1","OWNER ZIPCD2","OWNER_ZIPCD1","OWNER_ZIPCD2"]
+LIKELY_LEGAL_KEYS     = ["LEGAL","LEGAL_DESC","LEGALDESCRIPTION","LEGDESC"]
+LIKELY_PID_KEYS       = ["PARID","PARCEL","PAIRD","PARCELID","PARCEL_ID","PID","PARCELNO","PAR_NO","PAR_NUM"]
 
 BAD_EXACT_OWNERS = {
-    "Action", "Get Docs", "Date Added", "Party", "Plaintiff", "Defendant",
-    "Search", "Home", "Select Division", "Welcome",
-    # SC701 clerk/user codes that appear in MAIL_NAME1
-    "EOY ROLL", "LWALKER", "AWHITE", "NJARJABKA", "CL_NJARJABKA", "SCLB",
+    "Action","Get Docs","Date Added","Party","Plaintiff","Defendant",
+    "Search","Home","Select Division","Welcome",
+    "EOY ROLL","LWALKER","AWHITE","NJARJABKA","CL_NJARJABKA","SCLB",
 }
 
-# SC701 STATE field contains numeric codes, not real state abbreviations
-# "3" = Ohio in Summit County CAMA — we always default to OH
-SC701_STATE_CODE_MAP = {
-    "3": "OH",
-    "0": "",
-    "1": "",
-    "2": "",
-}
+SC701_STATE_CODE_MAP = {"3":"OH","0":"","1":"","2":""}
 
 STATE_CODES = {
     "AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA",
     "ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK",
     "OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","DC"
 }
-
 CORP_WORDS = {
-    "LLC", "INC", "CORP", "CO", "COMPANY", "TRUST", "BANK", "ASSOCIATION", "NATIONAL",
-    "LTD", "LP", "PLC", "HOLDINGS", "FUNDING", "VENTURES", "RESTORATION", "SCHOOLS",
-    "UNION", "MORTGAGE", "RECOVERY", "BOARD", "SERVICING"
+    "LLC","INC","CORP","CO","COMPANY","TRUST","BANK","ASSOCIATION","NATIONAL",
+    "LTD","LP","PLC","HOLDINGS","FUNDING","VENTURES","RESTORATION","SCHOOLS",
+    "UNION","MORTGAGE","RECOVERY","BOARD","SERVICING"
 }
 NOISE_NAME_WORDS = {
-    "AKA", "ET", "AL", "UNKNOWN", "HEIRS", "SPOUSE", "JOHN", "JANE", "DOE", "ADMINISTRATOR",
-    "EXECUTOR", "FIDUCIARY", "TRUSTEE", "OR", "THE", "OF", "SUCCESSOR", "MERGER", "TO",
-    "BY", "ADMIN", "ESTATE"
+    "AKA","ET","AL","UNKNOWN","HEIRS","SPOUSE","JOHN","JANE","DOE","ADMINISTRATOR",
+    "EXECUTOR","FIDUCIARY","TRUSTEE","OR","THE","OF","SUCCESSOR","MERGER","TO","BY","ADMIN","ESTATE"
 }
+
+# Distress stacking — points per source type
+DISTRESS_SOURCE_POINTS = {
+    "foreclosure":30,"lis_pendens":30,"judgment":20,"lien":15,
+    "tax_delinquent":25,"vacant_building":30,"probate":20,"mechanic_lien":15,
+}
+STACK_BONUS = {2:15, 3:25, 4:40}
 
 
 @dataclass
@@ -159,6 +152,32 @@ class LeadRecord:
     match_method: str = "unmatched"
     match_score: float = 0.0
     with_address: int = 0
+    distress_sources: List[str] = field(default_factory=list)
+    distress_count: int = 0
+    hot_stack: bool = False
+    luc: str = ""
+    acres: str = ""
+    is_vacant_land: bool = False
+
+
+@dataclass
+class VacantLandRecord:
+    parcel_id: str = ""
+    prop_address: str = ""
+    prop_city: str = ""
+    prop_state: str = "OH"
+    prop_zip: str = ""
+    owner: str = ""
+    mail_address: str = ""
+    mail_city: str = ""
+    mail_state: str = ""
+    mail_zip: str = ""
+    luc: str = ""
+    acres: str = ""
+    flags: List[str] = field(default_factory=list)
+    score: int = 0
+    distress_sources: List[str] = field(default_factory=list)
+    distress_count: int = 0
 
 
 def ensure_dirs() -> None:
@@ -168,10 +187,7 @@ def ensure_dirs() -> None:
 
 
 def log_setup() -> None:
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s | %(levelname)s | %(message)s",
-    )
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s")
 
 
 def save_debug_text(name: str, content: str) -> None:
@@ -195,23 +211,13 @@ def clean_text(value: Optional[str]) -> str:
 
 
 def normalize_state(value: str) -> str:
-    """
-    Convert a raw STATE value to a 2-letter state code.
-    Summit County CAMA SC701 uses numeric codes (e.g. "3" = OH).
-    We map those first, then fall back to standard validation.
-    """
     v = clean_text(value).upper()
     if not v:
         return ""
-
-    # Summit County CAMA numeric state codes
     if v in SC701_STATE_CODE_MAP:
         return SC701_STATE_CODE_MAP[v]
-
-    # Strip anything that makes it obviously invalid
-    if v in {"0", "1", "2", "4", "5", "6", "7", "8", "9", "00", "000", "-", "N/A", "NA", "NONE", "NULL"}:
+    if v in {"0","1","2","4","5","6","7","8","9","00","000","-","N/A","NA","NONE","NULL"}:
         return ""
-
     v = re.sub(r"[^A-Z]", "", v)
     return v if v in STATE_CODES else ""
 
@@ -232,26 +238,18 @@ def retry_request(url: str, attempts: int = 3, timeout: int = 60) -> requests.Re
 def normalize_name(name: str) -> str:
     name = clean_text(name).upper()
     name = re.sub(r"[^A-Z0-9,&.\- /']", " ", name)
-    name = re.sub(r"\s+", " ", name).strip()
-    return name
+    return re.sub(r"\s+", " ", name).strip()
 
 
 def normalize_person_name(name: str) -> str:
     n = normalize_name(name)
     if not n:
         return ""
-    n = re.sub(r"\bAKA\b.*$", "", n).strip()
-    n = re.sub(r"\bET AL\b.*$", "", n).strip()
-    n = re.sub(r"\bUNKNOWN HEIRS OF\b", "", n).strip()
-    n = re.sub(r"\bUNKNOWN SPOUSE OF\b", "", n).strip()
-    n = re.sub(r"\bUNKNOWN ADMINISTRATOR\b", "", n).strip()
-    n = re.sub(r"\bEXECUTOR\b", "", n).strip()
-    n = re.sub(r"\bFIDUCIARY\b", "", n).strip()
-    n = re.sub(r"\bJOHN DOE\b", "", n).strip()
-    n = re.sub(r"\bJANE DOE\b", "", n).strip()
-    n = re.sub(r"\bTHE\b", "", n).strip()
-    n = re.sub(r"\s+", " ", n).strip(" ,.-")
-    return n
+    for pat in [r"\bAKA\b.*$", r"\bET AL\b.*$", r"\bUNKNOWN HEIRS OF\b",
+                r"\bUNKNOWN SPOUSE OF\b", r"\bUNKNOWN ADMINISTRATOR\b",
+                r"\bEXECUTOR\b", r"\bFIDUCIARY\b", r"\bJOHN DOE\b", r"\bJANE DOE\b", r"\bTHE\b"]:
+        n = re.sub(pat, "", n).strip()
+    return re.sub(r"\s+", " ", n).strip(" ,.-")
 
 
 def tokens_from_name(name: str) -> List[str]:
@@ -262,8 +260,7 @@ def tokens_from_name(name: str) -> List[str]:
 
 
 def likely_corporate_name(name: str) -> bool:
-    tokens = set(tokens_from_name(name))
-    return any(t in CORP_WORDS for t in tokens)
+    return any(t in CORP_WORDS for t in set(tokens_from_name(name)))
 
 
 def get_last_name(name: str) -> str:
@@ -282,77 +279,47 @@ def get_first_initial(name: str) -> str:
 
 
 def same_first_name_or_initial(name_a: str, name_b: str) -> bool:
-    first_a = get_first_name(name_a)
-    first_b = get_first_name(name_b)
-    if first_a and first_b and first_a == first_b:
+    fa, fb = get_first_name(name_a), get_first_name(name_b)
+    if fa and fb and fa == fb:
         return True
-    init_a = get_first_initial(name_a)
-    init_b = get_first_initial(name_b)
-    return bool(init_a and init_b and init_a == init_b)
+    ia, ib = get_first_initial(name_a), get_first_initial(name_b)
+    return bool(ia and ib and ia == ib)
 
 
-def singularize_last_name(last_name: str) -> str:
-    ln = clean_text(last_name).upper()
-    if ln.endswith("IES") and len(ln) > 4:
-        return ln[:-3] + "Y"
-    if ln.endswith("ES") and len(ln) > 3:
-        return ln[:-2]
-    if ln.endswith("S") and len(ln) > 3:
-        return ln[:-1]
+def singularize_last_name(ln: str) -> str:
+    ln = clean_text(ln).upper()
+    if ln.endswith("IES") and len(ln) > 4: return ln[:-3] + "Y"
+    if ln.endswith("ES") and len(ln) > 3:  return ln[:-2]
+    if ln.endswith("S") and len(ln) > 3:   return ln[:-1]
     return ln
 
 
 def last_names_compatible(a: str, b: str) -> bool:
-    a_u = clean_text(a).upper()
-    b_u = clean_text(b).upper()
-    if not a_u or not b_u:
-        return False
+    a_u, b_u = clean_text(a).upper(), clean_text(b).upper()
+    if not a_u or not b_u: return False
     return a_u == b_u or singularize_last_name(a_u) == singularize_last_name(b_u)
 
 
 def build_owner_name(row: dict) -> str:
-    owner1 = clean_text(row.get("OWNER1") or row.get("OWNER 1"))
-    owner2 = clean_text(row.get("OWNER2") or row.get("OWNER 2"))
-    if owner1 and owner2:
-        combined = f"{owner1} {owner2}".strip()
-        return re.sub(r"\s+", " ", combined)
-    if owner1:
-        return owner1
-    if owner2:
-        return owner2
-    return safe_pick(row, LIKELY_OWNER_KEYS)
+    o1 = clean_text(row.get("OWNER1") or row.get("OWNER 1"))
+    o2 = clean_text(row.get("OWNER2") or row.get("OWNER 2"))
+    if o1 and o2: return re.sub(r"\s+", " ", f"{o1} {o2}".strip())
+    return o1 or o2 or safe_pick(row, LIKELY_OWNER_KEYS)
 
 
 def build_mail_zip(row: dict) -> str:
-    # SC701: MAIL_PTR is the real ZIP code field
-    mail_ptr = clean_text(row.get("MAIL_PTR"))
-    if mail_ptr and re.fullmatch(r"\d{5}", mail_ptr):
-        return mail_ptr
-
-    # Try extended ZIP with dash
+    mp = clean_text(row.get("MAIL_PTR"))
+    if mp and re.fullmatch(r"\d{5}", mp): return mp
     z1 = clean_text(row.get("OWNER ZIPCD1") or row.get("OWNER_ZIPCD1"))
     z2 = clean_text(row.get("OWNER ZIPCD2") or row.get("OWNER_ZIPCD2"))
-    if z1 and z2:
-        return f"{z1}-{z2}"
-    if z1:
-        return z1
-
-    # Generic fallback
-    return safe_pick(row, LIKELY_MAIL_ZIP_KEYS)
+    if z1 and z2: return f"{z1}-{z2}"
+    return z1 or safe_pick(row, LIKELY_MAIL_ZIP_KEYS)
 
 
 def build_mail_city_sc701(row: dict) -> str:
-    """
-    In Summit County SC701 mail file:
-    NOTE1 = the actual mailing city (e.g. "BARBERTON", "COPLEY", "AKRON")
-    ZIP_1 = a 5-char TRUNCATED city code — NOT usable
-    CITY  = empty in these files
-    """
-    note1 = clean_text(row.get("NOTE1"))
-    if note1 and len(note1) > 2 and not re.fullmatch(r"\d+", note1):
-        return note1.title()
-
-    # Fallback to generic keys
+    n1 = clean_text(row.get("NOTE1"))
+    if n1 and len(n1) > 2 and not re.fullmatch(r"\d+", n1):
+        return n1.title()
     for key in ["MAILCITY", "CITY", "MCITY"]:
         val = clean_text(row.get(key))
         if val and len(val) > 2 and not re.fullmatch(r"\d+", val):
@@ -361,185 +328,98 @@ def build_mail_city_sc701(row: dict) -> str:
 
 
 def build_mail_state_sc701(row: dict) -> str:
-    """
-    In Summit County SC701: STATE field = "3" (numeric code for Ohio).
-    We map it directly. Never trust the raw value as a state abbreviation.
-    """
     raw = clean_text(row.get("STATE") or "")
     mapped = SC701_STATE_CODE_MAP.get(raw)
-    if mapped is not None:
-        return mapped  # could be "OH" or ""
-
-    # If it somehow IS a real 2-letter state
+    if mapped is not None: return mapped
     cleaned = re.sub(r"[^A-Z]", "", raw.upper())
-    if cleaned in STATE_CODES:
-        return cleaned
-
-    # Default: if we have a mail address, it's almost certainly OH for Summit County
-    if clean_text(row.get("MAIL_ADR1")):
-        return "OH"
-    return ""
+    if cleaned in STATE_CODES: return cleaned
+    return "OH" if clean_text(row.get("MAIL_ADR1")) else ""
 
 
 def split_owner_chunks(name: str) -> List[str]:
     raw = normalize_person_name(name)
-    if not raw:
-        return []
-
-    working = raw
-    working = re.sub(r"\bET AL\b", "", working)
-    working = re.sub(r"\bAKA\b.*$", "", working)
+    if not raw: return []
+    working = re.sub(r"\bET AL\b|\bAKA\b.*$", "", raw)
     working = re.sub(r"\s+", " ", working).strip(" ,;/")
-
-    if not working:
-        return []
-
+    if not working: return []
     parts = re.split(r"\s*(?:;|/|\bAND\b|&)\s*", working)
-    cleaned = []
+    seen, result = set(), []
     for part in parts:
         p = normalize_person_name(part)
-        if p:
-            cleaned.append(p)
-
-    if not cleaned:
-        cleaned = [working]
-
-    deduped = []
-    seen = set()
-    for item in cleaned:
-        if item not in seen:
-            seen.add(item)
-            deduped.append(item)
-    return deduped
+        if p and p not in seen:
+            seen.add(p)
+            result.append(p)
+    return result or [working]
 
 
 def name_variants(name: str) -> List[str]:
     raw = normalize_person_name(name)
-    if not raw:
-        return []
-
-    def clean_token(tok: str) -> str:
-        tok = normalize_person_name(tok or "")
-        return tok.strip()
-
-    suffixes = {"JR", "SR", "II", "III", "IV", "V", "ETAL", "ET", "AL"}
-    joiner_noise = {"AND", "&", "OR"}
-
+    if not raw: return []
+    suffixes = {"JR","SR","II","III","IV","V","ETAL","ET","AL"}
+    joiner_noise = {"AND","&","OR"}
     variants = set()
 
     for chunk in split_owner_chunks(raw):
-        working = chunk.replace(";", " ").replace("/", " ")
-        working = re.sub(r"\bAND\b|\bOR\b|&", " ", working)
+        working = re.sub(r"\bAND\b|\bOR\b|&", " ", chunk.replace(";", " ").replace("/", " "))
         working = re.sub(r"\s+", " ", working).strip()
+        if not working: continue
+        variants.update([chunk, working, working.replace(",", "")])
+        comma_parts = [normalize_person_name(x) for x in chunk.split(",") if normalize_person_name(x)]
 
-        if not working:
-            continue
-
-        variants.add(chunk)
-        variants.add(working)
-        variants.add(working.replace(",", ""))
-
-        comma_parts = [clean_token(x) for x in chunk.split(",") if clean_token(x)]
-
-        def add_person_variants(parts: List[str]) -> None:
-            if not parts:
-                return
-
+        def add_variants(parts):
             parts = [p for p in parts if p and p not in joiner_noise]
-            if not parts:
-                return
-
-            while parts and parts[-1] in suffixes:
-                parts = parts[:-1]
-
-            if not parts:
-                return
-
-            full = " ".join(parts).strip()
-            if full:
-                variants.add(full)
-
-            if len(parts) == 1:
-                variants.add(parts[0])
-                return
-
-            first = parts[0]
-            last = parts[-1]
-            middle_parts = parts[1:-1]
-            middle = " ".join(middle_parts).strip()
-
-            variants.add(f"{first} {last}".strip())
-            variants.add(f"{last} {first}".strip())
-            variants.add(f"{last}, {first}".strip())
-
-            if middle:
-                variants.add(f"{first} {middle} {last}".strip())
-                variants.add(f"{last}, {first} {middle}".strip())
-                variants.add(f"{last} {first} {middle}".strip())
-
-                middle_initials = " ".join(m[0] for m in middle_parts if m).strip()
-                if middle_initials:
-                    variants.add(f"{first} {middle_initials} {last}".strip())
-                    variants.add(f"{last}, {first} {middle_initials}".strip())
-                    variants.add(f"{last} {first} {middle_initials}".strip())
+            while parts and parts[-1] in suffixes: parts = parts[:-1]
+            if not parts: return
+            full = " ".join(parts)
+            if full: variants.add(full)
+            if len(parts) == 1: variants.add(parts[0]); return
+            first, last = parts[0], parts[-1]
+            mids = parts[1:-1]
+            mid = " ".join(mids)
+            variants.update([f"{first} {last}", f"{last} {first}", f"{last}, {first}"])
+            if mid:
+                variants.update([f"{first} {mid} {last}", f"{last}, {first} {mid}", f"{last} {first} {mid}"])
+                mi = " ".join(m[0] for m in mids if m)
+                if mi:
+                    variants.update([f"{first} {mi} {last}", f"{last}, {first} {mi}", f"{last} {first} {mi}"])
 
         if len(comma_parts) >= 2:
             last = comma_parts[0]
-            remainder_tokens = []
-            for piece in comma_parts[1:]:
-                remainder_tokens.extend([t for t in piece.split() if t])
-            add_person_variants(remainder_tokens + [last])
-
-            first_piece = comma_parts[1]
-            first_tokens = [t for t in first_piece.split() if t]
-            if first_tokens:
-                first = first_tokens[0]
-                variants.add(f"{first} {last}".strip())
-                variants.add(f"{last} {first}".strip())
-                variants.add(f"{last}, {first}".strip())
+            rem = []
+            for piece in comma_parts[1:]: rem.extend(piece.split())
+            add_variants(rem + [last])
+            ft = comma_parts[1].split()
+            if ft:
+                f = ft[0]
+                variants.update([f"{f} {last}", f"{last} {f}", f"{last}, {f}"])
         else:
-            space_parts = [p for p in working.replace(",", " ").split() if p]
-            add_person_variants(space_parts)
+            add_variants([p for p in working.replace(",", " ").split() if p])
 
-    final_variants = []
-    seen = set()
+    final, seen = [], set()
     for v in variants:
-        v = normalize_person_name(v)
-        if not v:
-            continue
-        v = re.sub(r"\s+", " ", v).strip(" ,")
+        v = re.sub(r"\s+", " ", normalize_person_name(v)).strip(" ,")
         if v and v not in seen:
             seen.add(v)
-            final_variants.append(v)
-
-    return final_variants
+            final.append(v)
+    return final
 
 
 def parse_amount(value: str) -> Optional[float]:
     value = clean_text(value)
-    if not value:
-        return None
+    if not value: return None
     cleaned = re.sub(r"[^0-9.\-]", "", value)
-    if not cleaned:
-        return None
-    try:
-        return float(cleaned)
-    except ValueError:
-        return None
+    try: return float(cleaned) if cleaned else None
+    except ValueError: return None
 
 
 def safe_pick(row: dict, keys: List[str]) -> str:
     for key in keys:
-        if key in row and clean_text(row.get(key)):
-            return clean_text(row.get(key))
-
+        if key in row and clean_text(row.get(key)): return clean_text(row.get(key))
     upper_map = {str(k).upper(): k for k in row.keys()}
     for key in keys:
         if key.upper() in upper_map:
-            real_key = upper_map[key.upper()]
-            val = clean_text(row.get(real_key))
-            if val:
-                return val
+            val = clean_text(row.get(upper_map[key.upper()]))
+            if val: return val
     return ""
 
 
@@ -547,91 +427,211 @@ def get_pid(row: dict) -> str:
     return safe_pick(row, LIKELY_PID_KEYS)
 
 
+def parse_acres(raw: str) -> Optional[float]:
+    raw = clean_text(raw)
+    if not raw: return None
+    try: return float(raw)
+    except ValueError: return None
+
+
+def is_infill_lot(luc: str, acres_raw: str) -> bool:
+    if luc not in VACANT_LAND_LUCS: return False
+    acres = parse_acres(acres_raw)
+    return acres is None or acres <= MAX_INFILL_ACRES
+
+
 def category_flags(doc_type: str, owner: str = "") -> List[str]:
     flags: List[str] = []
     dt = clean_text(doc_type).upper()
-    owner_upper = normalize_name(owner)
-
-    if dt == "LP":
-        flags.append("Lis pendens")
-    if dt == "NOFC":
-        flags.append("Pre-foreclosure")
-    if dt in {"JUD", "CCJ", "DRJUD"}:
-        flags.append("Judgment lien")
-    if dt in {"TAXDEED", "LNCORPTX", "LNIRS", "LNFED"}:
-        flags.append("Tax lien")
-    if dt == "LNMECH":
-        flags.append("Mechanic lien")
-    if dt == "PRO":
-        flags.append("Probate / estate")
-
-    corp_terms = [" LLC", " INC", " CORP", " CO ", " COMPANY", " TRUST", " LP", " LTD", " BANK "]
-    if any(term in f" {owner_upper} " for term in corp_terms):
+    ou = normalize_name(owner)
+    if dt == "LP":                                      flags.append("Lis pendens")
+    if dt == "NOFC":                                    flags.append("Pre-foreclosure")
+    if dt in {"JUD","CCJ","DRJUD"}:                    flags.append("Judgment lien")
+    if dt in {"TAXDEED","LNCORPTX","LNIRS","LNFED","TAXDELINQ"}: flags.append("Tax lien")
+    if dt == "LNMECH":                                  flags.append("Mechanic lien")
+    if dt == "PRO":                                     flags.append("Probate / estate")
+    if dt in {"VACANT","VACLAND"}:                     flags.append("Vacant property")
+    if any(t in f" {ou} " for t in [" LLC"," INC"," CORP"," CO "," COMPANY"," TRUST"," LP"," LTD"," BANK "]):
         flags.append("LLC / corp owner")
-
     return list(dict.fromkeys(flags))
+
+
+def classify_distress_source(doc_type: str) -> Optional[str]:
+    dt = clean_text(doc_type).upper()
+    if dt in {"LP","RELLP"}:                return "lis_pendens"
+    if dt == "NOFC":                        return "foreclosure"
+    if dt in {"JUD","CCJ","DRJUD"}:        return "judgment"
+    if dt in {"LN","LNHOA","LNFED","LNIRS","LNCORPTX","MEDLN"}: return "lien"
+    if dt == "LNMECH":                      return "mechanic_lien"
+    if dt in {"TAXDEED","TAXDELINQ"}:       return "tax_delinquent"
+    if dt == "PRO":                         return "probate"
+    if dt in {"VACANT","VACLAND"}:          return "vacant_building"
+    return None
 
 
 def score_record(record: LeadRecord) -> int:
     score = 30
-    score += min(len(record.flags) * 10, 40)
-
-    lower_flags = {flag.lower() for flag in record.flags}
+    lower_flags = {f.lower() for f in record.flags}
+    flag_score = 0
+    if "lis pendens" in lower_flags:        flag_score += 20
+    if "pre-foreclosure" in lower_flags:    flag_score += 20
+    if "judgment lien" in lower_flags:      flag_score += 15
+    if "tax lien" in lower_flags:           flag_score += 15
+    if "mechanic lien" in lower_flags:      flag_score += 10
+    if "probate / estate" in lower_flags:   flag_score += 15
+    if "vacant property" in lower_flags:    flag_score += 20
+    score += min(flag_score, 50)
     if "lis pendens" in lower_flags and "pre-foreclosure" in lower_flags:
         score += 20
-
     if record.amount is not None:
-        if record.amount > 100000:
-            score += 15
-        elif record.amount > 50000:
-            score += 10
-
+        score += 15 if record.amount > 100000 else (10 if record.amount > 50000 else 0)
     if record.filed:
         try:
-            filed_dt = datetime.fromisoformat(record.filed)
-            if filed_dt.date() >= (datetime.now().date() - timedelta(days=7)):
+            if datetime.fromisoformat(record.filed).date() >= (datetime.now().date() - timedelta(days=7)):
                 if "New this week" not in record.flags:
                     record.flags.append("New this week")
                 score += 5
         except Exception:
             pass
-
     if record.prop_address:
         score += 5
+
+    # DISTRESS STACK BONUS
+    distress_count = len(set(record.distress_sources))
+    record.distress_count = distress_count
+    bonus_key = min(distress_count, 4)
+    if bonus_key >= 2:
+        score += STACK_BONUS.get(bonus_key, STACK_BONUS[4])
+        record.hot_stack = True
+        if "🔥 Hot Stack" not in record.flags:
+            record.flags.append("🔥 Hot Stack")
 
     return min(score, 100)
 
 
+# -----------------------------------------------------------------------
+# VACANT BUILDING BOARD SCRAPER
+# -----------------------------------------------------------------------
+def scrape_vacant_building_addresses() -> List[str]:
+    addresses: List[str] = []
+    try:
+        resp = retry_request(VACANT_BUILDING_URL, timeout=30)
+        soup = BeautifulSoup(resp.text, "lxml")
+        text = soup.get_text(" ")
+        addr_pattern = re.compile(
+            r"\b(\d{2,5})\s+([NSEW]\.?\s+)?([A-Z][A-Za-z\.\s]{2,30})\s+(St|Ave|Rd|Dr|Blvd|Ln|Ct|Pl|Way|Ter|Cir|Pkwy)\.?\b",
+            re.IGNORECASE
+        )
+        for match in addr_pattern.finditer(text):
+            addr = re.sub(r"\s+", " ", match.group(0)).strip().upper()
+            if addr and len(addr) > 8:
+                addresses.append(addr)
+        addresses = list(dict.fromkeys(addresses))
+        logging.info("Found %s vacant building addresses from Akron board", len(addresses))
+        save_debug_json("vacant_building_addresses.json", addresses)
+    except Exception as exc:
+        logging.warning("Could not scrape vacant building board: %s", exc)
+    return addresses
+
+
+# -----------------------------------------------------------------------
+# DISTRESS STACKING
+# -----------------------------------------------------------------------
+def normalize_address_key(address: str) -> str:
+    addr = clean_text(address).upper()
+    for old, new in [("N.","N"),("S.","S"),("E.","E"),("W.","W")]:
+        addr = addr.replace(old, new)
+    addr = re.sub(r"[^A-Z0-9\s]", "", addr)
+    return re.sub(r"\s+", " ", addr).strip()
+
+
+def build_distress_index(records: List[LeadRecord], vacant_addresses: List[str]) -> Dict[str, List[str]]:
+    index: Dict[str, List[str]] = defaultdict(list)
+    for record in records:
+        if not record.prop_address: continue
+        key = normalize_address_key(record.prop_address)
+        if not key: continue
+        source = classify_distress_source(record.doc_type)
+        if source and source not in index[key]:
+            index[key].append(source)
+    for addr in vacant_addresses:
+        key = normalize_address_key(addr)
+        if key and "vacant_building" not in index[key]:
+            index[key].append("vacant_building")
+    return dict(index)
+
+
+def apply_distress_stacking(records: List[LeadRecord], distress_index: Dict[str, List[str]]) -> List[LeadRecord]:
+    for record in records:
+        if not record.prop_address: continue
+        key = normalize_address_key(record.prop_address)
+        sources = distress_index.get(key, [])
+        record.distress_sources = list(set(sources))
+        for source in record.distress_sources:
+            if source == "tax_delinquent" and "Tax delinquent" not in record.flags:
+                record.flags.append("Tax delinquent")
+            if source == "vacant_building" and "Vacant building" not in record.flags:
+                record.flags.append("Vacant building")
+        record.score = score_record(record)
+    return records
+
+
+# -----------------------------------------------------------------------
+# VACANT LAND LIST
+# -----------------------------------------------------------------------
+def build_vacant_land_list(parcel_rows: List[dict], mail_by_pid: Dict[str, dict]) -> List[VacantLandRecord]:
+    vacant: List[VacantLandRecord] = []
+    seen_pids: set = set()
+    for row in parcel_rows:
+        luc = clean_text(row.get("LUC"))
+        acres_raw = clean_text(row.get("ACRES"))
+        if not is_infill_lot(luc, acres_raw): continue
+        pid = get_pid(row)
+        if not pid or pid in seen_pids: continue
+        seen_pids.add(pid)
+        prop_address = build_prop_address_from_row(row)
+        prop_zip = build_prop_zip_from_row(row)
+        mail_row = mail_by_pid.get(pid, {})
+        mail_street = clean_text(mail_row.get("MAIL_ADR1")) if mail_row else ""
+        mail_city   = build_mail_city_sc701(mail_row) if mail_row else ""
+        mail_zip    = build_mail_zip(mail_row) if mail_row else ""
+        mail_state  = build_mail_state_sc701(mail_row) if mail_row else ""
+        owner       = build_owner_name(mail_row) if mail_row else ""
+        if not prop_address and not mail_street: continue
+        rec = VacantLandRecord(
+            parcel_id=pid, prop_address=prop_address, prop_city=mail_city,
+            prop_state="OH", prop_zip=prop_zip, owner=owner,
+            mail_address=mail_street, mail_city=mail_city,
+            mail_state=mail_state or "OH", mail_zip=mail_zip,
+            luc=luc, acres=acres_raw,
+            flags=["Vacant land", "Infill lot"], score=40,
+        )
+        vacant.append(rec)
+    logging.info("Found %s vacant infill lots (<= 2 acres)", len(vacant))
+    return vacant
+
+
+# -----------------------------------------------------------------------
+# CAMA FILE DISCOVERY AND PARSING
+# -----------------------------------------------------------------------
 def discover_cama_downloads() -> List[str]:
     logging.info("Discovering Summit CAMA downloads...")
     response = retry_request(CAMA_PAGE_URL)
     soup = BeautifulSoup(response.text, "lxml")
-
-    wanted_codes = {"SC700", "SC701", "SC702", "SC705", "SC720", "SC731"}
+    wanted_codes = {"SC700","SC701","SC702","SC705","SC720","SC731"}
     urls: List[str] = []
-
     for link in soup.select("a[href]"):
         href = clean_text(link.get("href"))
         text = clean_text(link.get_text(" ")).upper()
         blob = f"{href} {text}".upper()
-
-        if not any(code in blob for code in wanted_codes):
-            continue
-
+        if not any(code in blob for code in wanted_codes): continue
         full_url = requests.compat.urljoin(CAMA_PAGE_URL, href)
-
-        if "/finish/" in full_url:
-            urls.append(full_url)
-        elif "/viewdownload/" in full_url:
-            urls.append(full_url.replace("/viewdownload/", "/finish/"))
-
-    deduped: List[str] = []
-    seen = set()
+        if "/finish/" in full_url: urls.append(full_url)
+        elif "/viewdownload/" in full_url: urls.append(full_url.replace("/viewdownload/", "/finish/"))
+    deduped, seen = [], set()
     for url in urls:
         if url not in seen:
-            seen.add(url)
-            deduped.append(url)
-
+            seen.add(url); deduped.append(url)
     logging.info("Found %s CAMA file links", len(deduped))
     save_debug_json("cama_links.json", deduped)
     return deduped
@@ -646,7 +646,7 @@ def split_lines(text: str) -> List[str]:
 
 
 def choose_delimiter(sample_text: str) -> str:
-    candidates = ["|", "\t", ","]
+    candidates = ["|","\t",","]
     counts = {d: sample_text.count(d) for d in candidates}
     best = max(counts, key=counts.get)
     return best if counts[best] > 0 else "|"
@@ -654,158 +654,101 @@ def choose_delimiter(sample_text: str) -> str:
 
 def parse_delimited_text(raw_text: str) -> List[dict]:
     lines = split_lines(raw_text)
-    if len(lines) < 2:
-        return []
-
-    sample = "\n".join(lines[:10])
-    delim = choose_delimiter(sample)
-
+    if len(lines) < 2: return []
+    delim = choose_delimiter("\n".join(lines[:10]))
     reader = csv.DictReader(io.StringIO("\n".join(lines)), delimiter=delim)
     rows = []
     for row in reader:
         cleaned = {clean_text(k): clean_text(v) for k, v in row.items() if k is not None}
-        if any(cleaned.values()):
-            rows.append(cleaned)
+        if any(cleaned.values()): rows.append(cleaned)
     return rows
 
 
 def parse_fixed_width_fallback(raw_text: str) -> List[dict]:
     lines = split_lines(raw_text)
-    if not lines:
-        return []
-    rows = []
-    for idx, line in enumerate(lines[:5000], start=1):
-        rows.append({"RAW_LINE": clean_text(line), "ROW_NUM": str(idx)})
-    return rows
+    return [{"RAW_LINE": clean_text(line), "ROW_NUM": str(i)} for i, line in enumerate(lines[:5000], 1)]
 
 
 def read_any_cama_payload(content: bytes, source_name: str) -> Dict[str, List[dict]]:
     datasets: Dict[str, List[dict]] = {}
-
     if looks_like_zip(content):
         with zipfile.ZipFile(io.BytesIO(content)) as zf:
             for member in zf.namelist():
-                if member.endswith("/"):
-                    continue
-                try:
-                    raw = zf.read(member).decode("utf-8", errors="ignore")
-                except Exception:
-                    continue
-
-                parsed = parse_delimited_text(raw)
-                if not parsed:
-                    parsed = parse_fixed_width_fallback(raw)
-                datasets[member] = parsed
+                if member.endswith("/"): continue
+                try: raw = zf.read(member).decode("utf-8", errors="ignore")
+                except Exception: continue
+                datasets[member] = parse_delimited_text(raw) or parse_fixed_width_fallback(raw)
         return datasets
-
     raw_text = content.decode("utf-8", errors="ignore")
-    parsed = parse_delimited_text(raw_text)
-    if not parsed:
-        parsed = parse_fixed_width_fallback(raw_text)
-    datasets[source_name] = parsed
+    datasets[source_name] = parse_delimited_text(raw_text) or parse_fixed_width_fallback(raw_text)
     return datasets
 
 
 def build_prop_address_from_row(row: dict) -> str:
-    adrno = clean_text(row.get("ADRNO"))
-    adradd = clean_text(row.get("ADRADD"))
-    adrdir = clean_text(row.get("ADRDIR"))
-    adrstr = clean_text(row.get("ADRSTR"))
-    adrsuf = clean_text(row.get("ADRSUF"))
-    adrsuf2 = clean_text(row.get("ADRSUF2"))
-
-    parts = [adrno, adradd, adrdir, adrstr, adrsuf, adrsuf2]
-    address = " ".join(part for part in parts if part).strip()
-    if address:
-        return re.sub(r"\s+", " ", address)
-
-    return safe_pick(row, LIKELY_PROP_ADDR_KEYS)
+    parts = [clean_text(row.get(k)) for k in ["ADRNO","ADRADD","ADRDIR","ADRSTR","ADRSUF","ADRSUF2"]]
+    address = " ".join(p for p in parts if p).strip()
+    return re.sub(r"\s+", " ", address) if address else safe_pick(row, LIKELY_PROP_ADDR_KEYS)
 
 
 def build_prop_city_from_row(row: dict) -> str:
-    """
-    SC705 parcel file does NOT have a city column.
-    We try known fallback fields; the real city will come from
-    the SC701 mail file's NOTE1 field when PIDs match.
-    """
-    return (
-        clean_text(row.get("UDATE1"))
-        or clean_text(row.get("CITY"))
-        or safe_pick(row, LIKELY_PROP_CITY_KEYS)
-    )
+    return clean_text(row.get("UDATE1")) or clean_text(row.get("CITY")) or safe_pick(row, LIKELY_PROP_CITY_KEYS)
 
 
 def build_prop_zip_from_row(row: dict) -> str:
-    """
-    SC705 parcel file: NOTE2 holds the property ZIP code.
-    """
-    # SC705: NOTE2 = ZIP code
-    note2 = clean_text(row.get("NOTE2"))
-    if note2 and re.fullmatch(r"\d{5}", note2):
-        return note2
-
-    # Legacy fallbacks
-    direct = clean_text(row.get("USER2"))
-    if direct and re.fullmatch(r"\d{5}", direct):
-        return direct
-
-    zip_raw = clean_text(row.get("ZIPCD"))
-    m = re.search(r"(\d{5})", zip_raw)
-    if m:
-        return m.group(1)
-
-    fallback = safe_pick(row, LIKELY_PROP_ZIP_KEYS)
-    m2 = re.search(r"(\d{5})", fallback)
+    n2 = clean_text(row.get("NOTE2"))
+    if n2 and re.fullmatch(r"\d{5}", n2): return n2
+    u2 = clean_text(row.get("USER2"))
+    if u2 and re.fullmatch(r"\d{5}", u2): return u2
+    zr = clean_text(row.get("ZIPCD"))
+    m = re.search(r"(\d{5})", zr)
+    if m: return m.group(1)
+    fb = safe_pick(row, LIKELY_PROP_ZIP_KEYS)
+    m2 = re.search(r"(\d{5})", fb)
     return m2.group(1) if m2 else ""
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--records", default=str(DATA_DIR / "records.json"))
-    parser.add_argument("--parcels", default=str(DEBUG_DIR / "sc705_sc731_parcel_sample_rows.json"))
-    parser.add_argument("--owner-index", dest="owner_index", default=str(DEBUG_DIR / "owner_values_sample.json"))
-    parser.add_argument("--out-json", dest="out_json", default=str(DEFAULT_ENRICHED_JSON_PATH))
-    parser.add_argument("--out-csv", dest="out_csv", default=str(DEFAULT_ENRICHED_CSV_PATH))
-    parser.add_argument("--report", dest="report", default=str(DEFAULT_REPORT_PATH))
+    parser.add_argument("--records",    default=str(DATA_DIR / "records.json"))
+    parser.add_argument("--parcels",    default=str(DEBUG_DIR / "sc705_sc731_parcel_sample_rows.json"))
+    parser.add_argument("--owner-index",dest="owner_index", default=str(DEBUG_DIR / "owner_values_sample.json"))
+    parser.add_argument("--out-json",   dest="out_json",    default=str(DEFAULT_ENRICHED_JSON_PATH))
+    parser.add_argument("--out-csv",    dest="out_csv",     default=str(DEFAULT_ENRICHED_CSV_PATH))
+    parser.add_argument("--report",     dest="report",      default=str(DEFAULT_REPORT_PATH))
     return parser.parse_args()
 
 
 def normalize_candidate_record(record: dict) -> dict:
-    aliases = record.get("owner_aliases") or []
-    clean_aliases = []
-    seen = set()
+    aliases, seen, clean_aliases = record.get("owner_aliases") or [], set(), []
     for alias in aliases:
         a = clean_text(alias)
         if a and a not in seen:
-            seen.add(a)
-            clean_aliases.append(a)
-
+            seen.add(a); clean_aliases.append(a)
     return {
-        "parcel_id": clean_text(record.get("parcel_id")),
-        "owner": clean_text(record.get("owner")),
-        "owner_aliases": clean_aliases,
+        "parcel_id":    clean_text(record.get("parcel_id")),
+        "owner":        clean_text(record.get("owner")),
+        "owner_aliases":clean_aliases,
         "prop_address": clean_text(record.get("prop_address")),
-        "prop_city": clean_text(record.get("prop_city")),
-        "prop_zip": clean_text(record.get("prop_zip")),
+        "prop_city":    clean_text(record.get("prop_city")),
+        "prop_zip":     clean_text(record.get("prop_zip")),
         "mail_address": clean_text(record.get("mail_address")),
-        "mail_city": clean_text(record.get("mail_city")),
-        "mail_state": normalize_state(clean_text(record.get("mail_state"))),
-        "mail_zip": clean_text(record.get("mail_zip")),
-        "legal": clean_text(record.get("legal")),
+        "mail_city":    clean_text(record.get("mail_city")),
+        "mail_state":   normalize_state(clean_text(record.get("mail_state"))),
+        "mail_zip":     clean_text(record.get("mail_zip")),
+        "legal":        clean_text(record.get("legal")),
+        "luc":          clean_text(record.get("luc")),
+        "acres":        clean_text(record.get("acres")),
     }
 
 
 def add_candidate(index: Dict[str, List[dict]], key: str, record: dict) -> None:
     k = clean_text(key)
-    if not k:
-        return
-    index[k].append(record)
+    if k: index[k].append(record)
 
 
 def add_owner_alias(record: dict, owner_name: str) -> None:
     owner_name = clean_text(owner_name)
-    if not owner_name:
-        return
+    if not owner_name: return
     record.setdefault("owner_aliases", [])
     if owner_name not in record["owner_aliases"]:
         record["owner_aliases"].append(owner_name)
@@ -814,332 +757,173 @@ def add_owner_alias(record: dict, owner_name: str) -> None:
 
 
 def is_sc701_clerk_code(value: str) -> bool:
-    """
-    SC701 MAIL_NAME1 contains clerk user codes, not real names.
-    Examples: "EOY ROLL", "LWALKER", "AWHITE", "NJARJABKA", "CL_NJARJABKA"
-    These are NOT property owner names — filter them out.
-    """
     v = clean_text(value).upper()
-    if not v:
-        return True
-    # Known clerk codes
-    clerk_patterns = [
-        r"^EOY\s+ROLL$",
-        r"^CL_",
-        r"^[A-Z]+WALKER$",
-        r"^[A-Z]+WHITE$",
-        r"^[A-Z]+JARJABKA$",
-        r"^SCLB$",
-        r"^LMRK$",
-    ]
-    for pat in clerk_patterns:
-        if re.match(pat, v):
-            return True
-    # If it looks like a date (e.g. "29-AUG-2025"), skip it
-    if re.match(r"\d{1,2}-[A-Z]{3}-\d{4}", v):
-        return True
-    return False
+    if not v: return True
+    for pat in [r"^EOY\s+ROLL$",r"^CL_",r"^[A-Z]+WALKER$",r"^[A-Z]+WHITE$",r"^[A-Z]+JARJABKA$",r"^SCLB$",r"^LMRK$"]:
+        if re.match(pat, v): return True
+    return bool(re.match(r"\d{1,2}-[A-Z]{3}-\d{4}", v))
 
 
 def extract_owner_aliases_from_row(row: dict) -> List[str]:
     aliases: List[str] = []
-
-    # SC701 rows: MAIL_NAME1 and MAIL_NAME2 are clerk codes/dates, NOT owner names
-    # Skip them — owner names come from SC700 own rows and SC705 parcel rows
     is_mail_row = "MAIL_ADR1" in row or "MAIL_PTR" in row
-
     if not is_mail_row:
-        preferred_keys = [
-            "OWNER1", "OWNER2", "OWNER", "OWN1", "OWNER_NAME", "OWNERNAME", "OWNERNM",
-            "OWNER 1", "OWNER 2", "TAXPAYER", "TAXPAYER_NAME", "MAILNAME", "MAIL_NAME",
-            "NAME1", "NAME2"
-        ]
-        for key in preferred_keys:
+        for key in ["OWNER1","OWNER2","OWNER","OWN1","OWNER_NAME","OWNERNAME","OWNERNM",
+                    "OWNER 1","OWNER 2","TAXPAYER","TAXPAYER_NAME","MAILNAME","MAIL_NAME","NAME1","NAME2"]:
             val = safe_pick(row, [key])
-            if val:
-                aliases.append(val)
-
+            if val: aliases.append(val)
         combined = build_owner_name(row)
-        if combined:
-            aliases.append(combined)
+        if combined: aliases.append(combined)
 
-    deduped: List[str] = []
-    seen = set()
-
+    deduped, seen = [], set()
     for alias in aliases:
         alias = clean_text(alias)
-        if not alias:
-            continue
-        if alias in BAD_EXACT_OWNERS:
-            continue
-
-        # Skip SC701 clerk codes
-        if is_sc701_clerk_code(alias):
-            continue
-
+        if not alias or alias in BAD_EXACT_OWNERS: continue
+        if is_sc701_clerk_code(alias): continue
         alias_u = normalize_name(alias)
-
-        if re.fullmatch(r"\d{1,2}-[A-Z]{3}-\d{4}", alias_u):
-            continue
-        if re.fullmatch(r"\d{5}", alias_u):
-            continue
-        if re.fullmatch(r"[A-Z0-9_]+", alias_u) and "_" in alias_u:
-            continue
-        if len(alias_u) < 4:
-            continue
-
+        if re.fullmatch(r"\d{1,2}-[A-Z]{3}-\d{4}", alias_u): continue
+        if re.fullmatch(r"\d{5}", alias_u): continue
+        if re.fullmatch(r"[A-Z0-9_]+", alias_u) and "_" in alias_u: continue
+        if len(alias_u) < 4: continue
         toks = tokens_from_name(alias_u)
-        if not toks:
-            continue
-
-        if len(toks) == 1:
-            one = toks[0]
-            if one in {
-                "AKRON", "BARBERTON", "STOW", "HUDSON", "TWINSBURG", "TALLMADGE",
-                "CUYAHOGA", "FALLS", "MUNROE", "SPRINGFIELD", "NORTHFIELD",
-                "WILSONWAY", "COLE", "BROWN", "FORD", "GREEN", "GRIFFITH",
-                "HUGHES", "MILLER", "BARTON", "KELLEY"
-            }:
-                continue
-
-        if not likely_corporate_name(alias_u) and len(toks) < 2:
-            continue
-
+        if not toks: continue
+        if len(toks) == 1 and toks[0] in {"AKRON","BARBERTON","STOW","HUDSON","TWINSBURG","TALLMADGE",
+                                           "CUYAHOGA","FALLS","MUNROE","SPRINGFIELD","NORTHFIELD"}: continue
+        if not likely_corporate_name(alias_u) and len(toks) < 2: continue
         if alias_u not in seen:
-            seen.add(alias_u)
-            deduped.append(alias_u)
-
+            seen.add(alias_u); deduped.append(alias_u)
     return deduped
 
 
-def build_parcel_indexes() -> Tuple[Dict[str, List[dict]], Dict[str, List[dict]], Dict[str, List[dict]]]:
+def build_parcel_indexes() -> Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
     urls = discover_cama_downloads()
-
-    own_rows: List[dict] = []
-    mail_rows: List[dict] = []
-    legal_rows: List[dict] = []
-    parcel_rows: List[dict] = []
-
+    own_rows, mail_rows, legal_rows, parcel_rows = [], [], [], []
     for url in urls:
         try:
             response = retry_request(url)
             datasets = read_any_cama_payload(response.content, Path(url).name)
-
             for fname, rows in datasets.items():
                 upper = fname.upper()
-                if "SC700" in upper:
-                    own_rows.extend(rows)
-                elif "SC701" in upper:
-                    mail_rows.extend(rows)
-                elif "SC702" in upper:
-                    legal_rows.extend(rows)
-                elif "SC705" in upper or "SC731" in upper or "SC720" in upper:
-                    parcel_rows.extend(rows)
-
+                if "SC700" in upper:   own_rows.extend(rows)
+                elif "SC701" in upper: mail_rows.extend(rows)
+                elif "SC702" in upper: legal_rows.extend(rows)
+                elif any(x in upper for x in ["SC705","SC731","SC720"]): parcel_rows.extend(rows)
             logging.info("Loaded CAMA source %s", url)
         except Exception as exc:
             logging.warning("Could not process CAMA file %s: %s", url, exc)
 
-    save_debug_json("sc700_owndat_sample_rows.json", own_rows[:25])
-    save_debug_json("sc701_maildat_sample_rows.json", mail_rows[:25])
-    save_debug_json("sc702_legdat_sample_rows.json", legal_rows[:25])
+    save_debug_json("sc700_owndat_sample_rows.json",       own_rows[:25])
+    save_debug_json("sc701_maildat_sample_rows.json",      mail_rows[:25])
+    save_debug_json("sc702_legdat_sample_rows.json",       legal_rows[:25])
     save_debug_json("sc705_sc731_parcel_sample_rows.json", parcel_rows[:25])
+
+    mail_by_pid: Dict[str, dict] = {}
+    for row in mail_rows:
+        pid = get_pid(row)
+        if pid and pid not in mail_by_pid:
+            mail_by_pid[pid] = row
 
     parcel_by_id: Dict[str, dict] = {}
 
-    # -----------------------------------------------------------------------
-    # Step 1: Load SC705/SC731 parcel rows (property address + ZIP from NOTE2)
-    # -----------------------------------------------------------------------
     for row in parcel_rows:
         pid = get_pid(row)
-        if not pid:
-            continue
+        if not pid: continue
         parcel_by_id.setdefault(pid, {"parcel_id": pid, "owner_aliases": []})
-        existing = parcel_by_id[pid]
-        existing.update({
-            "parcel_id": pid,
-            "prop_address": clean_text(existing.get("prop_address")) or build_prop_address_from_row(row),
-            "prop_city": clean_text(existing.get("prop_city")) or build_prop_city_from_row(row),
-            "prop_zip": clean_text(existing.get("prop_zip")) or build_prop_zip_from_row(row),
+        e = parcel_by_id[pid]
+        e.update({
+            "parcel_id":   pid,
+            "prop_address":e.get("prop_address") or build_prop_address_from_row(row),
+            "prop_city":   e.get("prop_city")    or build_prop_city_from_row(row),
+            "prop_zip":    e.get("prop_zip")     or build_prop_zip_from_row(row),
+            "luc":         e.get("luc")          or clean_text(row.get("LUC")),
+            "acres":       e.get("acres")        or clean_text(row.get("ACRES")),
         })
-        for alias in extract_owner_aliases_from_row(row):
-            add_owner_alias(existing, alias)
+        for alias in extract_owner_aliases_from_row(row): add_owner_alias(e, alias)
 
-    # -----------------------------------------------------------------------
-    # Step 2: Load SC700 owner rows (owner name data)
-    # -----------------------------------------------------------------------
     for row in own_rows:
         pid = get_pid(row)
-        if not pid:
-            continue
+        if not pid: continue
         parcel_by_id.setdefault(pid, {"parcel_id": pid, "owner_aliases": []})
-        existing = parcel_by_id[pid]
-        for alias in extract_owner_aliases_from_row(row):
-            add_owner_alias(existing, alias)
+        for alias in extract_owner_aliases_from_row(row): add_owner_alias(parcel_by_id[pid], alias)
 
-    # -----------------------------------------------------------------------
-    # Step 3: Load SC701 mail rows
-    # Summit County SC701 column mapping (CONFIRMED from debug sample):
-    #   PARID       = parcel ID (join key)
-    #   MAIL_ADR1   = mailing street address  ✅
-    #   NOTE1       = mailing city (e.g. "BARBERTON", "COPLEY", "AKRON")  ✅
-    #   MAIL_PTR    = mailing ZIP code (e.g. "44203")  ✅
-    #   STATE       = "3" = numeric code for Ohio — NOT a real state abbrev
-    #   MAIL_NAME1  = clerk/user code (e.g. "EOY ROLL", "LWALKER") — NOT owner name
-    #   MAIL_NAME2  = date of change — NOT owner name
-    #   ZIP_1       = 5-char truncated city code — NOT usable
-    #
-    # Also: when prop_city is missing from SC705, NOTE1 from SC701 often
-    # matches the property city for owner-occupied properties.
-    # -----------------------------------------------------------------------
     for row in mail_rows:
         pid = get_pid(row)
-        if not pid:
-            continue
+        if not pid: continue
         parcel_by_id.setdefault(pid, {"parcel_id": pid, "owner_aliases": []})
-        existing = parcel_by_id[pid]
+        e = parcel_by_id[pid]
+        ms  = clean_text(row.get("MAIL_ADR1")) or safe_pick(row, ["MAIL_ADR1","MAIL_ADDR","MAILADR1"])
+        mc  = build_mail_city_sc701(row)
+        mz  = build_mail_zip(row)
+        mst = build_mail_state_sc701(row)
+        if not e.get("mail_address") and ms:  e["mail_address"] = ms
+        if not e.get("mail_city")    and mc:  e["mail_city"]    = mc
+        if not e.get("mail_zip")     and mz:  e["mail_zip"]     = mz
+        if not e.get("mail_state")   and mst: e["mail_state"]   = mst
+        if not e.get("prop_city")    and mc:  e["prop_city"]    = mc
 
-        mail_street = clean_text(row.get("MAIL_ADR1")) or safe_pick(row, ["MAIL_ADR1", "MAIL_ADDR", "MAILADR1"])
-        mail_city   = build_mail_city_sc701(row)
-        mail_zip    = build_mail_zip(row)
-        mail_state  = build_mail_state_sc701(row)
-
-        # Only update if not already set (first record wins per parcel)
-        if not clean_text(existing.get("mail_address")) and mail_street:
-            existing["mail_address"] = mail_street
-        if not clean_text(existing.get("mail_city")) and mail_city:
-            existing["mail_city"] = mail_city
-        if not clean_text(existing.get("mail_zip")) and mail_zip:
-            existing["mail_zip"] = mail_zip
-        if not clean_text(existing.get("mail_state")) and mail_state:
-            existing["mail_state"] = mail_state
-
-        # If prop_city is still blank, use mail city as a proxy
-        # (works well for owner-occupied homes where mail = property address)
-        if not clean_text(existing.get("prop_city")) and mail_city:
-            existing["prop_city"] = mail_city
-
-        # SC701 MAIL_NAME1 is a clerk code, not an owner — skip alias extraction
-
-    # -----------------------------------------------------------------------
-    # Step 4: Load SC702 legal rows
-    # -----------------------------------------------------------------------
     for row in legal_rows:
         pid = get_pid(row)
-        if not pid:
-            continue
+        if not pid: continue
         parcel_by_id.setdefault(pid, {"parcel_id": pid, "owner_aliases": []})
-        existing = parcel_by_id[pid]
-        existing["legal"] = clean_text(existing.get("legal")) or safe_pick(row, LIKELY_LEGAL_KEYS)
-        for alias in extract_owner_aliases_from_row(row):
-            add_owner_alias(existing, alias)
+        e = parcel_by_id[pid]
+        e["legal"] = e.get("legal") or safe_pick(row, LIKELY_LEGAL_KEYS)
+        for alias in extract_owner_aliases_from_row(row): add_owner_alias(e, alias)
 
-    # -----------------------------------------------------------------------
-    # Step 5: Build lookup indexes from assembled parcel data
-    # -----------------------------------------------------------------------
-    owner_index: Dict[str, List[dict]] = defaultdict(list)
-    last_name_index: Dict[str, List[dict]] = defaultdict(list)
-    first_last_index: Dict[str, List[dict]] = defaultdict(list)
-
+    owner_index: Dict[str,List[dict]]      = defaultdict(list)
+    last_name_index: Dict[str,List[dict]]  = defaultdict(list)
+    first_last_index: Dict[str,List[dict]] = defaultdict(list)
     normalized_records = []
-    seen_pid_for_last = defaultdict(set)
-    seen_pid_for_first_last = defaultdict(set)
-    seen_pid_for_owner_key = defaultdict(set)
+    seen_pid_last = defaultdict(set)
+    seen_pid_fl   = defaultdict(set)
+    seen_pid_own  = defaultdict(set)
 
     for raw_record in parcel_by_id.values():
         record = normalize_candidate_record(raw_record)
         all_aliases = list(record.get("owner_aliases") or [])
-        if clean_text(record.get("owner")) and clean_text(record.get("owner")) not in all_aliases:
-            all_aliases.append(clean_text(record.get("owner")))
-
-        if not all_aliases:
-            continue
-
+        owner = clean_text(record.get("owner"))
+        if owner and owner not in all_aliases: all_aliases.append(owner)
+        if not all_aliases: continue
         normalized_records.append(record)
-
         for alias_name in all_aliases:
-            owner_is_corp = likely_corporate_name(alias_name)
-            chunk_names = split_owner_chunks(alias_name)
-            if not chunk_names:
-                chunk_names = [alias_name]
-
-            for chunk in chunk_names:
-                chunk_variants = name_variants(chunk)
-                if not chunk_variants:
-                    chunk_variants = [normalize_person_name(chunk)]
-
-                for variant in chunk_variants:
+            is_corp = likely_corporate_name(alias_name)
+            chunks = split_owner_chunks(alias_name) or [alias_name]
+            for chunk in chunks:
+                variants = name_variants(chunk) or [normalize_person_name(chunk)]
+                for variant in variants:
                     toks = tokens_from_name(variant)
-                    if not owner_is_corp and len(toks) < 2:
-                        continue
+                    if not is_corp and len(toks) < 2: continue
                     pid = record.get("parcel_id") or ""
-                    if pid and pid in seen_pid_for_owner_key[variant]:
-                        continue
-                    if pid:
-                        seen_pid_for_owner_key[variant].add(pid)
+                    if pid and pid in seen_pid_own[variant]: continue
+                    if pid: seen_pid_own[variant].add(pid)
                     add_candidate(owner_index, variant, record)
-
-                last_name = get_last_name(chunk)
-                first_name = get_first_name(chunk)
-
-                if last_name:
+                ln = get_last_name(chunk)
+                fn = get_first_name(chunk)
+                if ln:
                     pid = record.get("parcel_id") or ""
-                    if not pid or pid not in seen_pid_for_last[last_name]:
-                        if pid:
-                            seen_pid_for_last[last_name].add(pid)
-                        last_name_index[last_name].append(record)
-
-                if first_name and last_name:
-                    fl_key = f"{first_name} {last_name}"
+                    if not pid or pid not in seen_pid_last[ln]:
+                        if pid: seen_pid_last[ln].add(pid)
+                        last_name_index[ln].append(record)
+                if fn and ln:
+                    fl = f"{fn} {ln}"
                     pid = record.get("parcel_id") or ""
-                    if not pid or pid not in seen_pid_for_first_last[fl_key]:
-                        if pid:
-                            seen_pid_for_first_last[fl_key].add(pid)
-                        first_last_index[fl_key].append(record)
+                    if not pid or pid not in seen_pid_fl[fl]:
+                        if pid: seen_pid_fl[fl].add(pid)
+                        first_last_index[fl].append(record)
 
-    save_debug_json("parcel_by_id_sample.json", normalized_records[:50])
-    save_debug_json("owner_index_sample.json", {k: v[:3] for k, v in list(owner_index.items())[:300]})
-    save_debug_json("owner_values_sample.json", list(owner_index.keys())[:5000])
-    save_debug_json("last_name_index_sample.json", {k: v[:3] for k, v in list(last_name_index.items())[:300]})
-
-    # Debug: show a sample of what we built for specific target names
-    target_last_names = [
-        "SIPE", "DARDENNE", "CSASZAR", "BOSTIC", "BECTON", "ESOLA", "ASAMOAH",
-        "ARMSTEAD", "FUSCO", "FENDER", "ELEKES", "FARREY", "HACHA", "PULLIN",
-        "PRIM", "PFAHLER", "PEARSON", "PARMER", "NEFFENGER", "MOUNTS", "MOHLER",
-        "MCCALL", "COLLINS", "COLE", "BROWN", "BARTON", "ALI", "KELLEY",
-        "GRIFFITH", "GREEN", "FORD", "HUGHES", "MILLER", "MCKINNEY",
-        "CAMPBELL", "RICE", "SCOTT", "FERNANDEZ", "KANDIKO", "CINALLI"
-    ]
-
-    target_last_name_hits = {}
-    for lname in target_last_names:
-        hits = last_name_index.get(lname, [])
-        target_last_name_hits[lname] = [
-            {
-                "owner": clean_text(h.get("owner")),
-                "owner_aliases": h.get("owner_aliases", [])[:8],
-                "prop_address": clean_text(h.get("prop_address")),
-                "prop_city": clean_text(h.get("prop_city")),
-                "prop_zip": clean_text(h.get("prop_zip")),
-                "mail_address": clean_text(h.get("mail_address")),
-                "mail_city": clean_text(h.get("mail_city")),
-                "mail_state": clean_text(h.get("mail_state")),
-                "mail_zip": clean_text(h.get("mail_zip")),
-                "parcel_id": clean_text(h.get("parcel_id")),
-            }
-            for h in hits[:25]
-        ]
-
-    save_debug_json("target_last_name_hits.json", target_last_name_hits)
-
+    save_debug_json("parcel_by_id_sample.json",       normalized_records[:50])
+    save_debug_json("owner_index_sample.json",         {k: v[:3] for k, v in list(owner_index.items())[:300]})
+    save_debug_json("owner_values_sample.json",        list(owner_index.keys())[:5000])
+    save_debug_json("last_name_index_sample.json",     {k: v[:3] for k, v in list(last_name_index.items())[:300]})
     logging.info(
         "Built parcel index: %s owner-name keys | %s parcels | %s owner rows | %s mail rows | %s legal rows",
         len(owner_index), len(parcel_rows), len(own_rows), len(mail_rows), len(legal_rows)
     )
-    return owner_index, last_name_index, first_last_index
+    return owner_index, last_name_index, first_last_index, parcel_rows, mail_by_pid
 
 
+# -----------------------------------------------------------------------
+# PLAYWRIGHT SCRAPING
+# -----------------------------------------------------------------------
 async def click_first_matching(page, selectors: List[str]) -> bool:
     for selector in selectors:
         try:
@@ -1155,121 +939,72 @@ async def click_first_matching(page, selectors: List[str]) -> bool:
 
 def infer_doc_type_from_text(text: str) -> Optional[str]:
     t = clean_text(text).upper()
-
-    if any(x in t for x in ["LIS PENDENS", " LP ", "LP-"]):
-        return "LP"
-    if any(x in t for x in ["NOTICE OF FORECLOSURE", "FORECLOS", "NOFC"]):
-        return "NOFC"
-    if any(x in t for x in ["CERTIFIED JUDGMENT", "DOMESTIC JUDGMENT", "JUDGMENT"]):
-        return "JUD"
-    if any(x in t for x in ["TAX DEED", "TAXDEED"]):
-        return "TAXDEED"
-    if any(x in t for x in ["IRS LIEN", "FEDERAL LIEN", "TAX LIEN"]):
-        return "LNFED"
-    if "MECHANIC LIEN" in t:
-        return "LNMECH"
-    if "LIEN" in t:
-        return "LN"
-    if "NOTICE OF COMMENCEMENT" in t:
-        return "NOC"
+    if any(x in t for x in ["LIS PENDENS"," LP ","LP-"]):           return "LP"
+    if any(x in t for x in ["NOTICE OF FORECLOSURE","FORECLOS","NOFC"]): return "NOFC"
+    if any(x in t for x in ["CERTIFIED JUDGMENT","DOMESTIC JUDGMENT","JUDGMENT"]): return "JUD"
+    if any(x in t for x in ["TAX DEED","TAXDEED"]):                  return "TAXDEED"
+    if any(x in t for x in ["IRS LIEN","FEDERAL LIEN","TAX LIEN"]):  return "LNFED"
+    if "MECHANIC LIEN" in t:  return "LNMECH"
+    if "LIEN" in t:           return "LN"
+    if "NOTICE OF COMMENCEMENT" in t: return "NOC"
     return None
 
 
 def try_parse_date(text: str) -> Optional[str]:
     text = clean_text(text)
-    if not text:
-        return None
-
-    patterns = [
-        r"\b\d{4}-\d{2}-\d{2}\b",
-        r"\b\d{1,2}/\d{1,2}/\d{2,4}\b",
-        r"\b\d{1,2}-\d{1,2}-\d{2,4}\b",
-    ]
-    for pattern in patterns:
+    if not text: return None
+    for pattern in [r"\b\d{4}-\d{2}-\d{2}\b", r"\b\d{1,2}/\d{1,2}/\d{2,4}\b", r"\b\d{1,2}-\d{1,2}-\d{2,4}\b"]:
         match = re.search(pattern, text)
         if match:
             raw = match.group(0)
-            for fmt in ("%Y-%m-%d", "%m/%d/%Y", "%m/%d/%y", "%m-%d-%Y", "%m-%d-%y"):
-                try:
-                    return datetime.strptime(raw, fmt).date().isoformat()
-                except ValueError:
-                    continue
+            for fmt in ("%Y-%m-%d","%m/%d/%Y","%m/%d/%y","%m-%d-%Y","%m-%d-%y"):
+                try: return datetime.strptime(raw, fmt).date().isoformat()
+                except ValueError: continue
     return None
 
 
 def extract_case_number(text: str, fallback: str) -> str:
     text_u = clean_text(text).upper()
-    patterns = [
-        r"\b\d{2,4}[ -][A-Z]{1,6}[ -]\d{2,8}\b",
-        r"\b[A-Z]{2,}[ ]\d{2}\b",
-        r"\b\d{6,}\b",
-    ]
-    for pattern in patterns:
+    for pattern in [r"\b\d{2,4}[ -][A-Z]{1,6}[ -]\d{2,8}\b", r"\b[A-Z]{2,}[ ]\d{2}\b", r"\b\d{6,}\b"]:
         m = re.search(pattern, text_u)
-        if m:
-            return clean_text(m.group(0))
+        if m: return clean_text(m.group(0))
     return fallback
 
 
-def split_caption(caption: str) -> Tuple[str, str]:
+def split_caption(caption: str) -> Tuple[str,str]:
     cap = clean_text(caption)
     upper = cap.upper()
-
-    separators = [" -VS- ", " VS. ", " VS ", " V. ", " V "]
-    for sep in separators:
+    for sep in [" -VS- "," VS. "," VS "," V. "," V "]:
         if sep in upper:
             parts = re.split(re.escape(sep), cap, maxsplit=1, flags=re.IGNORECASE)
             if len(parts) == 2:
-                plaintiff = clean_text(parts[0])
-                defendant = clean_text(parts[1])
-                return plaintiff, defendant
+                return clean_text(parts[0]), clean_text(parts[1])
     return "", ""
 
 
 def clean_defendant_name(name: str) -> str:
     n = clean_text(name)
-    if not n:
-        return ""
-
-    n = re.sub(r"\bAKA\b.*$", "", n, flags=re.IGNORECASE).strip()
-    n = re.sub(r"\bET AL\b.*$", "", n, flags=re.IGNORECASE).strip()
-    n = re.sub(r"\bUNKNOWN HEIRS OF\b", "", n, flags=re.IGNORECASE).strip()
-    n = re.sub(r"\bUNKNOWN SPOUSE OF\b", "", n, flags=re.IGNORECASE).strip()
-    n = re.sub(r"\bUNKNOWN ADMINISTRATOR\b", "", n, flags=re.IGNORECASE).strip()
-    n = re.sub(r"\bEXECUTOR\b", "", n, flags=re.IGNORECASE).strip()
-    n = re.sub(r"\bFIDUCIARY\b", "", n, flags=re.IGNORECASE).strip()
-    n = re.sub(r"\bJOHN DOE\b", "", n, flags=re.IGNORECASE).strip()
-    n = re.sub(r"\bJANE DOE\b", "", n, flags=re.IGNORECASE).strip()
+    if not n: return ""
+    for pat in [r"\bAKA\b.*$",r"\bET AL\b.*$",r"\bUNKNOWN HEIRS OF\b",r"\bUNKNOWN SPOUSE OF\b",
+                r"\bUNKNOWN ADMINISTRATOR\b",r"\bEXECUTOR\b",r"\bFIDUCIARY\b",r"\bJOHN DOE\b",r"\bJANE DOE\b"]:
+        n = re.sub(pat, "", n, flags=re.IGNORECASE).strip()
     n = re.sub(r"\s+", " ", n).strip(" ,.-")
-
-    if not n or n in BAD_EXACT_OWNERS:
-        return ""
-    return n
+    return "" if (not n or n in BAD_EXACT_OWNERS) else n
 
 
 def looks_like_good_owner(name: str) -> bool:
     n = clean_text(name)
-    if not n:
-        return False
-    if n in BAD_EXACT_OWNERS:
-        return False
-    if len(n) < 4:
-        return False
-    letters = sum(ch.isalpha() for ch in n)
-    return letters >= 4
+    if not n or n in BAD_EXACT_OWNERS or len(n) < 4: return False
+    return sum(ch.isalpha() for ch in n) >= 4
 
 
-def extract_owner_and_grantee(cells: List[str]) -> Tuple[str, str, str]:
+def extract_owner_and_grantee(cells: List[str]) -> Tuple[str,str,str]:
     row_text = clean_text(" ".join(cells))
-
-    candidates = cells + [row_text]
-    for candidate in candidates:
+    for candidate in cells + [row_text]:
         plaintiff, defendant = split_caption(candidate)
         defendant = clean_defendant_name(defendant)
-        plaintiff = clean_text(plaintiff)
         if looks_like_good_owner(defendant):
-            return defendant.title(), plaintiff.title(), candidate
-
+            return defendant.title(), clean_text(plaintiff).title(), candidate
     return "", "", row_text
 
 
@@ -1277,55 +1012,34 @@ def parse_pending_civil_table(html: str, base_url: str, prefix: str) -> List[Lea
     soup = BeautifulSoup(html, "lxml")
     records: List[LeadRecord] = []
     debug_rows: List[List[str]] = []
-
-    tables = soup.find_all("table")
-    for table_idx, table in enumerate(tables, start=1):
-        rows = table.find_all("tr")
-        for row_idx, row in enumerate(rows, start=1):
-            cells = [clean_text(td.get_text(" ")) for td in row.find_all(["td", "th"])]
-            if not cells:
-                continue
-
+    for t_idx, table in enumerate(soup.find_all("table"), 1):
+        for r_idx, row in enumerate(table.find_all("tr"), 1):
+            cells = [clean_text(td.get_text(" ")) for td in row.find_all(["td","th"])]
+            if not cells: continue
             debug_rows.append(cells[:10])
-
             row_text = clean_text(" ".join(cells))
             doc_type = infer_doc_type_from_text(row_text)
-            if doc_type not in {"NOFC", "LP", "JUD", "LN", "LNMECH", "LNFED", "NOC"}:
-                continue
-
+            if doc_type not in {"NOFC","LP","JUD","LN","LNMECH","LNFED","NOC"}: continue
             filed = try_parse_date(row_text) or datetime.now().date().isoformat()
-            cutoff = datetime.now().date() - timedelta(days=LOOKBACK_DAYS)
-            if datetime.fromisoformat(filed).date() < cutoff:
-                continue
-
+            if datetime.fromisoformat(filed).date() < (datetime.now().date() - timedelta(days=LOOKBACK_DAYS)): continue
             owner, grantee, source_caption = extract_owner_and_grantee(cells)
-            if not owner:
-                continue
-
-            amount_match = re.search(r"\$[\d,]+(?:\.\d{2})?", row_text)
-            amount = parse_amount(amount_match.group(0)) if amount_match else None
-
+            if not owner: continue
+            am = re.search(r"\$[\d,]+(?:\.\d{2})?", row_text)
+            amount = parse_amount(am.group(0)) if am else None
             link = row.find("a", href=True)
             href = clean_text(link.get("href")) if link else ""
-
-            doc_num = extract_case_number(row_text, f"{prefix}-T{table_idx}-R{row_idx}")
-
+            doc_num = extract_case_number(row_text, f"{prefix}-T{t_idx}-R{r_idx}")
             record = LeadRecord(
-                doc_num=doc_num,
-                doc_type=doc_type,
-                filed=filed,
-                cat=doc_type,
+                doc_num=doc_num, doc_type=doc_type, filed=filed, cat=doc_type,
                 cat_label=LEAD_TYPE_MAP.get(doc_type, doc_type),
-                owner=owner,
-                grantee=grantee,
-                amount=amount,
-                legal=clean_text(source_caption),
+                owner=owner, grantee=grantee, amount=amount, legal=clean_text(source_caption),
                 clerk_url=requests.compat.urljoin(base_url, href) if href else base_url,
             )
             record.flags = category_flags(record.doc_type, record.owner)
+            ds = classify_distress_source(doc_type)
+            if ds: record.distress_sources = [ds]
             record.score = score_record(record)
             records.append(record)
-
     save_debug_json(f"{prefix.lower()}_table_cells_sample.json", debug_rows[:25])
     return records
 
@@ -1333,436 +1047,208 @@ def parse_pending_civil_table(html: str, base_url: str, prefix: str) -> List[Lea
 async def scrape_pending_civil_records(page) -> List[LeadRecord]:
     logging.info("Scraping pending civil filings...")
     records: List[LeadRecord] = []
-
     try:
         await page.goto(PENDING_CIVIL_URL, wait_until="domcontentloaded", timeout=90000)
         await page.wait_for_timeout(4000)
         html1 = await page.content()
         save_debug_text("pending_civil_page_1.html", html1)
         records.extend(parse_pending_civil_table(html1, PENDING_CIVIL_URL, "PCF1"))
-
-        clicked = await click_first_matching(page, [
-            "text=Search",
-            "text=Begin",
-            "text=Continue",
-            "input[type='submit']",
-            "button",
-            "a",
-        ])
-        if clicked:
+        if await click_first_matching(page, ["text=Search","text=Begin","text=Continue","input[type='submit']","button","a"]):
             html2 = await page.content()
             save_debug_text("pending_civil_page_2.html", html2)
             records.extend(parse_pending_civil_table(html2, PENDING_CIVIL_URL, "PCF2"))
-
     except Exception as exc:
         logging.warning("Pending civil scrape failed: %s", exc)
-
     return records
 
 
 async def scrape_clerk_records() -> List[LeadRecord]:
     logging.info("Scraping clerk records...")
     records: List[LeadRecord] = []
-
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
         page = await browser.new_page()
-
         try:
             await page.goto(CLERK_RECORDS_URL, wait_until="domcontentloaded", timeout=90000)
             await page.wait_for_timeout(4000)
-            logging.info("Clerk records page 1 title: %s", await page.title())
             save_debug_text("clerk_records_page_1.html", await page.content())
-
-            clicked = await click_first_matching(page, [
-                "text=Click Here",
-                "text=Begin",
-                "text=Continue",
-                "text=Accept",
-                "text=Search",
-                "input[type='submit']",
-                "button",
-                "a",
-            ])
-            if clicked:
-                logging.info("Clerk records page 2 title: %s", await page.title())
+            if await click_first_matching(page, ["text=Click Here","text=Begin","text=Continue","text=Accept","text=Search","input[type='submit']","button","a"]):
                 save_debug_text("clerk_records_page_2.html", await page.content())
-
-                clicked_again = await click_first_matching(page, [
-                    "text=Civil",
-                    "text=General",
-                    "text=Search",
-                    "input[type='submit']",
-                    "button",
-                    "a",
-                ])
-                if clicked_again:
-                    logging.info("Clerk records page 3 title: %s", await page.title())
+                if await click_first_matching(page, ["text=Civil","text=General","text=Search","input[type='submit']","button","a"]):
                     save_debug_text("clerk_records_page_3.html", await page.content())
-
             records.extend(await scrape_pending_civil_records(page))
-
         except PlaywrightTimeoutError:
             logging.warning("Timeout while scraping clerk records.")
         except Exception as exc:
             logging.warning("Clerk scrape failed: %s", exc)
         finally:
             await browser.close()
-
-    deduped: List[LeadRecord] = []
-    seen = set()
+    deduped, seen = [], set()
     for record in records:
-        normalized_doc = re.sub(r"^(PCF1|PCF2)-", "", clean_text(record.doc_num).upper())
-        key = (
-            normalized_doc,
-            clean_text(record.doc_type).upper(),
-            normalize_name(record.owner),
-            clean_text(record.filed),
-        )
-        if key in seen:
-            continue
-        seen.add(key)
-        deduped.append(record)
-
+        nd = re.sub(r"^(PCF1|PCF2)-", "", clean_text(record.doc_num).upper())
+        key = (nd, clean_text(record.doc_type).upper(), normalize_name(record.owner), clean_text(record.filed))
+        if key in seen: continue
+        seen.add(key); deduped.append(record)
     logging.info("Collected %s clerk records", len(deduped))
     return deduped
-
-
-def valid_probate_candidate(text: str) -> bool:
-    t = clean_text(text)
-    t_u = t.upper()
-    if not t:
-        return False
-    good_contains = [
-        "ESTATE OF",
-        "IN THE MATTER OF",
-        "GUARDIANSHIP OF",
-        "DECEDENT",
-        "FIDUCIARY",
-        "ESTATE",
-    ]
-    return any(x in t_u for x in good_contains)
 
 
 async def scrape_probate_records() -> List[LeadRecord]:
     logging.info("Scraping probate records...")
     records: List[LeadRecord] = []
-
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
         page = await browser.new_page()
-
         try:
             await page.goto(PROBATE_URL, wait_until="domcontentloaded", timeout=90000)
             await page.wait_for_timeout(4000)
-
             save_debug_text("probate_page_1.html", await page.content())
-            logging.info("Probate page 1 title: %s", await page.title())
-
-            clicked = await click_first_matching(page, [
-                "text=Click Here",
-                "text=Begin",
-                "text=Search",
-                "a.anchorButton",
-                "input[type='submit']",
-                "button",
-                "a",
-            ])
-
-            if clicked:
+            if await click_first_matching(page, ["text=Click Here","text=Begin","text=Search","a.anchorButton","input[type='submit']","button","a"]):
                 save_debug_text("probate_page_2.html", await page.content())
-                logging.info("Probate page 2 title: %s", await page.title())
-
                 soup = BeautifulSoup(await page.content(), "lxml")
-                rows = soup.find_all("tr")
-                for i, row in enumerate(rows):
+                for i, row in enumerate(soup.find_all("tr")):
                     text = clean_text(row.get_text(" "))
-                    if not valid_probate_candidate(text):
-                        continue
+                    if not any(x in text.upper() for x in ["ESTATE OF","IN THE MATTER OF","GUARDIANSHIP","DECEDENT","FIDUCIARY","ESTATE"]): continue
                     link = row.find("a", href=True)
                     href = clean_text(link.get("href")) if link else ""
                     filed = try_parse_date(text) or datetime.now().date().isoformat()
-
                     record = LeadRecord(
-                        doc_num=f"PRO-TR-{i+1}",
-                        doc_type="PRO",
-                        filed=filed,
-                        cat="PRO",
-                        cat_label=LEAD_TYPE_MAP["PRO"],
-                        owner=text[:180],
-                        grantee="",
-                        amount=None,
-                        legal="",
+                        doc_num=f"PRO-TR-{i+1}", doc_type="PRO", filed=filed,
+                        cat="PRO", cat_label=LEAD_TYPE_MAP["PRO"],
+                        owner=text[:180], grantee="", amount=None, legal="",
                         clerk_url=requests.compat.urljoin(page.url, href) if href else page.url,
                     )
                     record.flags = category_flags(record.doc_type, record.owner)
+                    record.distress_sources = ["probate"]
                     record.score = score_record(record)
                     records.append(record)
-
         except Exception as exc:
             logging.warning("Probate scrape failed: %s", exc)
         finally:
             await browser.close()
-
-    deduped: List[LeadRecord] = []
-    seen = set()
+    deduped, seen = [], set()
     for record in records:
         key = (clean_text(record.doc_num), normalize_name(record.owner), clean_text(record.filed))
-        if key in seen:
-            continue
-        seen.add(key)
-        deduped.append(record)
-
+        if key in seen: continue
+        seen.add(key); deduped.append(record)
     logging.info("Collected %s probate records", len(deduped))
     return deduped
 
 
+# -----------------------------------------------------------------------
+# PARCEL MATCHING
+# -----------------------------------------------------------------------
 def better_record(candidate: dict) -> int:
     score = 0
-    if clean_text(candidate.get("prop_address")):
-        score += 100
-    if clean_text(candidate.get("mail_address")):
-        score += 40
-    if clean_text(candidate.get("mail_zip")):
-        score += 20
-    if clean_text(candidate.get("mail_city")):
-        score += 15
-    if clean_text(candidate.get("legal")):
-        score += 15
-    if clean_text(candidate.get("prop_city")):
-        score += 10
-    if clean_text(candidate.get("prop_zip")):
-        score += 10
+    if clean_text(candidate.get("prop_address")): score += 100
+    if clean_text(candidate.get("mail_address")): score += 40
+    if clean_text(candidate.get("mail_zip")):     score += 20
+    if clean_text(candidate.get("mail_city")):    score += 15
+    if clean_text(candidate.get("legal")):        score += 15
+    if clean_text(candidate.get("prop_city")):    score += 10
+    if clean_text(candidate.get("prop_zip")):     score += 10
     return score
 
 
 def alias_list(candidate: dict) -> List[str]:
     aliases = list(candidate.get("owner_aliases") or [])
     owner = clean_text(candidate.get("owner"))
-    if owner and owner not in aliases:
-        aliases.append(owner)
+    if owner and owner not in aliases: aliases.append(owner)
     return aliases
 
 
 def candidate_match_score(record_owner: str, candidate: dict) -> float:
     best = 0.0
-    for cand_owner in alias_list(candidate):
-        record_tokens = set(tokens_from_name(record_owner))
-        cand_tokens = set(tokens_from_name(cand_owner))
-
-        if not record_tokens or not cand_tokens:
-            continue
-
-        overlap = len(record_tokens & cand_tokens)
-        score = overlap * 10.0
-
-        record_first = get_first_name(record_owner)
-        cand_first = get_first_name(cand_owner)
-        record_last = get_last_name(record_owner)
-        cand_last = get_last_name(cand_owner)
-
-        if record_last and cand_last and last_names_compatible(record_last, cand_last):
-            score += 25.0
-
-        if record_first and cand_first and record_first == cand_first:
-            score += 18.0
-        elif same_first_name_or_initial(record_owner, cand_owner):
-            score += 10.0
-
-        if clean_text(candidate.get("prop_address")):
-            score += 8.0
-        if clean_text(candidate.get("mail_address")):
-            score += 4.0
-
-        if score > best:
-            best = score
+    for co in alias_list(candidate):
+        rt = set(tokens_from_name(record_owner))
+        ct = set(tokens_from_name(co))
+        if not rt or not ct: continue
+        score = len(rt & ct) * 10.0
+        rl, cl = get_last_name(record_owner), get_last_name(co)
+        rf, cf = get_first_name(record_owner), get_first_name(co)
+        if rl and cl and last_names_compatible(rl, cl): score += 25.0
+        if rf and cf and rf == cf: score += 18.0
+        elif same_first_name_or_initial(record_owner, co): score += 10.0
+        if clean_text(candidate.get("prop_address")): score += 8.0
+        if clean_text(candidate.get("mail_address")): score += 4.0
+        if score > best: best = score
     return best
 
 
 def choose_best_candidate(candidates: List[dict], record_owner: str = "") -> Optional[dict]:
-    if not candidates:
-        return None
+    if not candidates: return None
     deduped = {}
-    for candidate in candidates:
-        key = clean_text(candidate.get("parcel_id")) or f"{clean_text(candidate.get('owner'))}|{clean_text(candidate.get('prop_address'))}"
-        current = deduped.get(key)
-        if current is None:
-            deduped[key] = candidate
-        else:
-            if better_record(candidate) > better_record(current):
-                deduped[key] = candidate
-
-    ranked = sorted(
-        deduped.values(),
-        key=lambda c: (candidate_match_score(record_owner, c), better_record(c)),
-        reverse=True
-    )
+    for c in candidates:
+        key = clean_text(c.get("parcel_id")) or f"{clean_text(c.get('owner'))}|{clean_text(c.get('prop_address'))}"
+        if key not in deduped or better_record(c) > better_record(deduped[key]): deduped[key] = c
+    ranked = sorted(deduped.values(), key=lambda c: (candidate_match_score(record_owner, c), better_record(c)), reverse=True)
     return ranked[0] if ranked else None
 
 
 def unique_best_by_score(candidates: List[dict], record_owner: str, min_gap: float = 12.0) -> Optional[dict]:
-    if not candidates:
-        return None
-
+    if not candidates: return None
     deduped = {}
-    for candidate in candidates:
-        key = clean_text(candidate.get("parcel_id")) or f"{clean_text(candidate.get('owner'))}|{clean_text(candidate.get('prop_address'))}"
-        current = deduped.get(key)
-        if current is None:
-            deduped[key] = candidate
-        else:
-            if better_record(candidate) > better_record(current):
-                deduped[key] = candidate
-
-    ranked = sorted(
-        [(candidate, candidate_match_score(record_owner, candidate), better_record(candidate)) for candidate in deduped.values()],
-        key=lambda x: (x[1], x[2]),
-        reverse=True
-    )
-    if not ranked:
-        return None
-    if len(ranked) == 1:
-        return ranked[0][0]
-
-    top_score = ranked[0][1]
-    second_score = ranked[1][1]
-    if top_score >= second_score + min_gap:
-        return ranked[0][0]
+    for c in candidates:
+        key = clean_text(c.get("parcel_id")) or f"{clean_text(c.get('owner'))}|{clean_text(c.get('prop_address'))}"
+        if key not in deduped or better_record(c) > better_record(deduped[key]): deduped[key] = c
+    ranked = sorted([(c, candidate_match_score(record_owner, c), better_record(c)) for c in deduped.values()],
+                    key=lambda x: (x[1],x[2]), reverse=True)
+    if not ranked: return None
+    if len(ranked) == 1: return ranked[0][0]
+    if ranked[0][1] >= ranked[1][1] + min_gap: return ranked[0][0]
     return None
 
 
-def fuzzy_match_record(
-    record: LeadRecord,
-    owner_index: Dict[str, List[dict]],
-    last_name_index: Dict[str, List[dict]],
-    first_last_index: Dict[str, List[dict]]
-) -> Tuple[Optional[dict], str, float]:
+def fuzzy_match_record(record: LeadRecord, owner_index, last_name_index, first_last_index) -> Tuple[Optional[dict],str,float]:
     owner = record.owner
     owner_variants = name_variants(owner)
-    owner_is_corp = likely_corporate_name(owner)
-
+    is_corp = likely_corporate_name(owner)
     for variant in owner_variants:
-        if not owner_is_corp and len(tokens_from_name(variant)) < 2:
-            continue
-        candidates = owner_index.get(variant, [])
-        best = choose_best_candidate(candidates, owner)
-        if best:
-            return best, "exact_name_variant", 1.0
-
-    first_name = get_first_name(owner)
-    last_name = get_last_name(owner)
-    owner_tokens = set(tokens_from_name(owner))
-
-    if first_name and last_name:
-        key = f"{first_name} {last_name}"
-        candidates = first_last_index.get(key, [])
-        best = unique_best_by_score(candidates, owner, min_gap=8.0) or choose_best_candidate(candidates, owner)
-        if best:
-            return best, "first_last_fallback", 0.95
-
-    if first_name and last_name:
-        reverse_key = f"{last_name} {first_name}"
-        candidates = owner_index.get(reverse_key, [])
-        best = choose_best_candidate(candidates, owner)
-        if best:
-            return best, "last_first_variant", 0.94
-
-    if last_name and not owner_is_corp:
-        candidates = last_name_index.get(last_name, [])
-
-        strong_candidates = []
-        for candidate in candidates:
-            best_alias = ""
-            best_alias_score = -1
-            for candidate_owner in alias_list(candidate):
-                candidate_tokens = set(tokens_from_name(candidate_owner))
-                overlap = owner_tokens & candidate_tokens
-                cand_last = get_last_name(candidate_owner)
-                if not last_names_compatible(last_name, cand_last):
-                    continue
-                alias_score = len(overlap)
-                if alias_score > best_alias_score:
-                    best_alias_score = alias_score
-                    best_alias = candidate_owner
-
-            if not best_alias:
-                continue
-
-            overlap = owner_tokens & set(tokens_from_name(best_alias))
-            if len(overlap) < 2:
-                continue
-
-            if not same_first_name_or_initial(owner, best_alias):
-                continue
-
-            strong_candidates.append(candidate)
-
-        best = unique_best_by_score(strong_candidates, owner, min_gap=6.0) or choose_best_candidate(strong_candidates, owner)
-        if best:
-            return best, "token_overlap_strict", 0.90
-
-        unique_candidates = []
-        seen = set()
-        for candidate in candidates:
-            compatible = False
-            for candidate_owner in alias_list(candidate):
-                cand_last = get_last_name(candidate_owner)
-                if last_names_compatible(last_name, cand_last):
-                    compatible = True
-                    break
-            if not compatible:
-                continue
-
-            key = clean_text(candidate.get("parcel_id")) or f"{clean_text(candidate.get('owner'))}|{clean_text(candidate.get('prop_address'))}"
-            if key in seen:
-                continue
-            seen.add(key)
-            unique_candidates.append(candidate)
-
-        if len(unique_candidates) == 1:
-            return unique_candidates[0], "last_name_unique_fallback", 0.82
-
-        initial_candidates = []
-        for candidate in unique_candidates:
-            for candidate_owner in alias_list(candidate):
-                if same_first_name_or_initial(owner, candidate_owner):
-                    initial_candidates.append(candidate)
-                    break
-
-        best = unique_best_by_score(initial_candidates, owner, min_gap=8.0)
-        if best:
-            return best, "last_name_initial_fallback", 0.84
-
-        if candidates:
-            return None, "no_property_match", 0.0
-
+        if not is_corp and len(tokens_from_name(variant)) < 2: continue
+        best = choose_best_candidate(owner_index.get(variant, []), owner)
+        if best: return best, "exact_name_variant", 1.0
+    fn, ln = get_first_name(owner), get_last_name(owner)
+    ot = set(tokens_from_name(owner))
+    if fn and ln:
+        candidates = first_last_index.get(f"{fn} {ln}", [])
+        best = unique_best_by_score(candidates, owner, 8.0) or choose_best_candidate(candidates, owner)
+        if best: return best, "first_last_fallback", 0.95
+    if fn and ln:
+        best = choose_best_candidate(owner_index.get(f"{ln} {fn}", []), owner)
+        if best: return best, "last_first_variant", 0.94
+    if ln and not is_corp:
+        candidates = last_name_index.get(ln, [])
+        strong = [c for c in candidates if any(
+            last_names_compatible(ln, get_last_name(co)) and
+            len(ot & set(tokens_from_name(co))) >= 2 and
+            same_first_name_or_initial(owner, co)
+            for co in alias_list(c)
+        )]
+        best = unique_best_by_score(strong, owner, 6.0) or choose_best_candidate(strong, owner)
+        if best: return best, "token_overlap_strict", 0.90
+        unique_c, seen = [], set()
+        for c in candidates:
+            if not any(last_names_compatible(ln, get_last_name(co)) for co in alias_list(c)): continue
+            key = clean_text(c.get("parcel_id")) or f"{clean_text(c.get('owner'))}|{clean_text(c.get('prop_address'))}"
+            if key in seen: continue
+            seen.add(key); unique_c.append(c)
+        if len(unique_c) == 1: return unique_c[0], "last_name_unique_fallback", 0.82
+        init_c = [c for c in unique_c if any(same_first_name_or_initial(owner, co) for co in alias_list(c))]
+        best = unique_best_by_score(init_c, owner, 8.0)
+        if best: return best, "last_name_initial_fallback", 0.84
+        if candidates: return None, "no_property_match", 0.0
     return None, "unmatched", 0.0
 
 
-def enrich_with_parcel_data(
-    records: List[LeadRecord],
-    owner_index: Dict[str, List[dict]],
-    last_name_index: Dict[str, List[dict]],
-    first_last_index: Dict[str, List[dict]]
-) -> Tuple[List[LeadRecord], dict]:
+def enrich_with_parcel_data(records, owner_index, last_name_index, first_last_index):
     enriched: List[LeadRecord] = []
-
     report = {
-        "matched": 0,
-        "unmatched": 0,
-        "with_address": 0,
-        "with_mail_address": 0,
-        "match_methods": defaultdict(int),
-        "sample_unmatched": [],
-        "sample_no_property_match": [],
+        "matched":0,"unmatched":0,"with_address":0,"with_mail_address":0,
+        "match_methods":defaultdict(int),"sample_unmatched":[],"sample_no_property_match":[],
     }
-
     for record in records:
         try:
-            matched, method, match_score = fuzzy_match_record(
-                record, owner_index, last_name_index, first_last_index
-            )
-
+            matched, method, match_score = fuzzy_match_record(record, owner_index, last_name_index, first_last_index)
             if matched:
                 record.prop_address = record.prop_address or clean_text(matched.get("prop_address"))
                 record.prop_city    = record.prop_city    or clean_text(matched.get("prop_city"))
@@ -1771,83 +1257,56 @@ def enrich_with_parcel_data(
                 record.mail_city    = record.mail_city    or clean_text(matched.get("mail_city"))
                 record.mail_zip     = record.mail_zip     or clean_text(matched.get("mail_zip"))
                 record.legal        = record.legal        or clean_text(matched.get("legal"))
-
-                # Mail state: use matched value, map SC701 codes, default OH
-                raw_mail_state = clean_text(matched.get("mail_state"))
-                record.mail_state = record.mail_state or normalize_state(raw_mail_state) or "OH"
-
-                record.match_method = method
-                record.match_score = match_score
-                report["matched"] += 1
-                report["match_methods"][method] += 1
+                record.mail_state   = record.mail_state   or normalize_state(clean_text(matched.get("mail_state"))) or "OH"
+                record.luc          = record.luc          or clean_text(matched.get("luc"))
+                record.acres        = record.acres        or clean_text(matched.get("acres"))
+                record.match_method = method; record.match_score = match_score
+                report["matched"] += 1; report["match_methods"][method] += 1
             else:
-                record.match_method = method
-                record.match_score = 0.0
-                report["unmatched"] += 1
-                report["match_methods"][method] += 1
-
+                record.match_method = method; record.match_score = 0.0
+                report["unmatched"] += 1; report["match_methods"][method] += 1
                 if method == "no_property_match":
                     if len(report["sample_no_property_match"]) < 25:
-                        report["sample_no_property_match"].append({
-                            "doc_num": record.doc_num,
-                            "owner": record.owner,
-                            "legal": record.legal,
-                        })
+                        report["sample_no_property_match"].append({"doc_num":record.doc_num,"owner":record.owner})
                 else:
                     if len(report["sample_unmatched"]) < 25:
-                        report["sample_unmatched"].append({
-                            "doc_num": record.doc_num,
-                            "owner": record.owner,
-                            "legal": record.legal,
-                        })
-
-            # Final cleanup
-            record.mail_state = normalize_state(record.mail_state) or ("OH" if record.mail_address else "")
+                        report["sample_unmatched"].append({"doc_num":record.doc_num,"owner":record.owner})
+            if record.luc in VACANT_LAND_LUCS:
+                record.is_vacant_land = True
+                if "Vacant land" not in record.flags: record.flags.append("Vacant land")
+            record.mail_state   = normalize_state(record.mail_state) or ("OH" if record.mail_address else "")
             record.with_address = 1 if clean_text(record.prop_address) else 0
-            if record.with_address:
-                report["with_address"] += 1
-            if clean_text(record.mail_address):
-                report["with_mail_address"] += 1
-
+            if record.with_address: report["with_address"] += 1
+            if clean_text(record.mail_address): report["with_mail_address"] += 1
             record.flags = list(dict.fromkeys(record.flags + category_flags(record.doc_type, record.owner)))
-            if record.match_method == "no_property_match":
-                if "No property match" not in record.flags:
-                    record.flags.append("No property match")
-
+            if record.match_method == "no_property_match" and "No property match" not in record.flags:
+                record.flags.append("No property match")
             record.score = score_record(record)
             enriched.append(record)
         except Exception as exc:
             logging.warning("Failed to enrich record %s: %s", record.doc_num, exc)
-            record.match_method = "unmatched"
-            record.match_score = 0.0
+            record.match_method = "unmatched"; record.match_score = 0.0
             record.with_address = 1 if clean_text(record.prop_address) else 0
             enriched.append(record)
-
     report["match_methods"] = dict(report["match_methods"])
     return enriched, report
 
 
 def dedupe_records(records: List[LeadRecord]) -> List[LeadRecord]:
-    final: List[LeadRecord] = []
-    seen = set()
-
+    final, seen = [], set()
     for record in records:
-        normalized_doc = re.sub(r"^(PCF1|PCF2)-", "", clean_text(record.doc_num).upper())
-        key = (
-            normalized_doc,
-            clean_text(record.doc_type).upper(),
-            normalize_name(record.owner),
-            clean_text(record.filed),
-        )
-        if key in seen:
-            continue
-        seen.add(key)
-        final.append(record)
-
+        nd = re.sub(r"^(PCF1|PCF2)-", "", clean_text(record.doc_num).upper())
+        key = (nd, clean_text(record.doc_type).upper(), normalize_name(record.owner), clean_text(record.filed))
+        if key in seen: continue
+        seen.add(key); final.append(record)
     return final
 
 
+# -----------------------------------------------------------------------
+# OUTPUT WRITERS
+# -----------------------------------------------------------------------
 def build_payload(records: List[LeadRecord]) -> dict:
+    hot = [r for r in records if r.hot_stack]
     return {
         "fetched_at": datetime.now(timezone.utc).isoformat(),
         "source": SOURCE_NAME,
@@ -1856,99 +1315,95 @@ def build_payload(records: List[LeadRecord]) -> dict:
             "to": datetime.now().date().isoformat(),
         },
         "total": len(records),
-        "with_address": sum(1 for record in records if clean_text(record.prop_address)),
-        "with_mail_address": sum(1 for record in records if clean_text(record.mail_address)),
-        "records": [asdict(record) for record in records],
+        "with_address": sum(1 for r in records if clean_text(r.prop_address)),
+        "with_mail_address": sum(1 for r in records if clean_text(r.mail_address)),
+        "hot_stack_count": len(hot),
+        "records": [asdict(r) for r in records],
     }
 
 
 def write_json_outputs(records: List[LeadRecord], extra_json_path: Optional[Path] = None) -> None:
     payload = build_payload(records)
-
-    output_paths = list(DEFAULT_OUTPUT_JSON_PATHS)
-    if extra_json_path:
-        output_paths.append(extra_json_path)
-
+    paths = list(DEFAULT_OUTPUT_JSON_PATHS)
+    if extra_json_path: paths.append(extra_json_path)
     seen = set()
-    deduped_paths = []
-    for path in output_paths:
-        if str(path) not in seen:
-            seen.add(str(path))
-            deduped_paths.append(path)
-
-    for path in deduped_paths:
+    for path in paths:
+        if str(path) in seen: continue
+        seen.add(str(path))
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
-
     logging.info("Wrote JSON outputs.")
+
+
+def write_vacant_land_json(vacant: List[VacantLandRecord]) -> None:
+    payload = {
+        "fetched_at": datetime.now(timezone.utc).isoformat(),
+        "source": SOURCE_NAME,
+        "total": len(vacant),
+        "description": "Vacant infill lots <= 2 acres in Summit County",
+        "records": [asdict(r) for r in vacant],
+    }
+    for path in [DEFAULT_VACANT_JSON_PATH, DASHBOARD_DIR / "vacant_land.json"]:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    logging.info("Wrote vacant land JSON: %s records", len(vacant))
+
+
+def write_hot_stack_json(records: List[LeadRecord]) -> None:
+    hot = sorted([r for r in records if r.hot_stack], key=lambda r: (r.distress_count, r.score), reverse=True)
+    payload = {
+        "fetched_at": datetime.now(timezone.utc).isoformat(),
+        "source": SOURCE_NAME,
+        "total": len(hot),
+        "description": "Properties appearing in 2+ distress sources — highest priority leads",
+        "records": [asdict(r) for r in hot],
+    }
+    for path in [DEFAULT_STACK_JSON_PATH, DASHBOARD_DIR / "hot_stack.json"]:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    logging.info("Wrote hot stack JSON: %s records", len(hot))
 
 
 def split_name(full_name: str) -> Tuple[str, str]:
     parts = clean_text(full_name).split()
-    if not parts:
-        return "", ""
-    if len(parts) == 1:
-        return parts[0], ""
+    if not parts: return "", ""
+    if len(parts) == 1: return parts[0], ""
     return parts[0], " ".join(parts[1:])
 
 
 def write_csv(records: List[LeadRecord], csv_path: Path) -> None:
     csv_path.parent.mkdir(parents=True, exist_ok=True)
-
     fieldnames = [
-        "First Name",
-        "Last Name",
-        "Mailing Address",
-        "Mailing City",
-        "Mailing State",
-        "Mailing Zip",
-        "Property Address",
-        "Property City",
-        "Property State",
-        "Property Zip",
-        "Lead Type",
-        "Document Type",
-        "Date Filed",
-        "Document Number",
-        "Amount/Debt Owed",
-        "Seller Score",
-        "Motivated Seller Flags",
-        "Match Method",
-        "Match Score",
-        "Source",
-        "Public Records URL",
+        "First Name","Last Name","Mailing Address","Mailing City","Mailing State","Mailing Zip",
+        "Property Address","Property City","Property State","Property Zip",
+        "Lead Type","Document Type","Date Filed","Document Number","Amount/Debt Owed",
+        "Seller Score","Motivated Seller Flags","Distress Sources","Distress Count","Hot Stack",
+        "Vacant Land","LUC Code","Acres","Match Method","Match Score","Source","Public Records URL",
     ]
-
     with csv_path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames)
         writer.writeheader()
-
         for record in records:
             first, last = split_name(record.owner)
             writer.writerow({
-                "First Name": first,
-                "Last Name": last,
-                "Mailing Address": record.mail_address,
-                "Mailing City": record.mail_city,
-                "Mailing State": record.mail_state,
-                "Mailing Zip": record.mail_zip,
-                "Property Address": record.prop_address,
-                "Property City": record.prop_city,
-                "Property State": record.prop_state,
-                "Property Zip": record.prop_zip,
-                "Lead Type": record.cat_label,
-                "Document Type": record.doc_type,
-                "Date Filed": record.filed,
-                "Document Number": record.doc_num,
-                "Amount/Debt Owed": record.amount if record.amount is not None else "",
-                "Seller Score": record.score,
-                "Motivated Seller Flags": "; ".join(record.flags),
-                "Match Method": record.match_method,
-                "Match Score": record.match_score,
-                "Source": SOURCE_NAME,
-                "Public Records URL": record.clerk_url,
+                "First Name":first,"Last Name":last,
+                "Mailing Address":record.mail_address,"Mailing City":record.mail_city,
+                "Mailing State":record.mail_state,"Mailing Zip":record.mail_zip,
+                "Property Address":record.prop_address,"Property City":record.prop_city,
+                "Property State":record.prop_state,"Property Zip":record.prop_zip,
+                "Lead Type":record.cat_label,"Document Type":record.doc_type,
+                "Date Filed":record.filed,"Document Number":record.doc_num,
+                "Amount/Debt Owed":record.amount if record.amount is not None else "",
+                "Seller Score":record.score,
+                "Motivated Seller Flags":"; ".join(record.flags),
+                "Distress Sources":"; ".join(record.distress_sources),
+                "Distress Count":record.distress_count,
+                "Hot Stack":"YES" if record.hot_stack else "",
+                "Vacant Land":"YES" if record.is_vacant_land else "",
+                "LUC Code":record.luc,"Acres":record.acres,
+                "Match Method":record.match_method,"Match Score":record.match_score,
+                "Source":SOURCE_NAME,"Public Records URL":record.clerk_url,
             })
-
     logging.info("Wrote CSV: %s", csv_path)
 
 
@@ -1959,40 +1414,57 @@ def write_report(report: dict, report_path: Path) -> None:
     logging.info("Wrote report: %s", report_path)
 
 
+# -----------------------------------------------------------------------
+# MAIN
+# -----------------------------------------------------------------------
 async def main() -> None:
     args = parse_args()
-
     ensure_dirs()
     log_setup()
-
-    out_json_path = Path(args.out_json)
-    out_csv_path = Path(args.out_csv)
-    report_path = Path(args.report)
-
     logging.info("Starting Summit County scraper run...")
 
-    owner_index, last_name_index, first_last_index = build_parcel_indexes()
-    clerk_records = await scrape_clerk_records()
+    # 1. Build parcel indexes
+    owner_index, last_name_index, first_last_index, parcel_rows, mail_by_pid = build_parcel_indexes()
+
+    # 2. Scrape court records
+    clerk_records   = await scrape_clerk_records()
     probate_records = await scrape_probate_records()
 
+    # 3. Scrape Akron vacant building registry
+    vacant_addresses = scrape_vacant_building_addresses()
+
+    # 4. Enrich with parcel data
     all_records = clerk_records + probate_records
-    all_records, report = enrich_with_parcel_data(
-        all_records, owner_index, last_name_index, first_last_index
-    )
+    all_records, report = enrich_with_parcel_data(all_records, owner_index, last_name_index, first_last_index)
+
+    # 5. Apply distress stacking — the hot stack system
+    distress_index = build_distress_index(all_records, vacant_addresses)
+    all_records = apply_distress_stacking(all_records, distress_index)
+
+    # 6. Dedupe and sort: hot stack first, then distress count, then score
     all_records = dedupe_records(all_records)
-    all_records.sort(key=lambda record: (record.filed, record.score, record.doc_num), reverse=True)
+    all_records.sort(key=lambda r: (r.hot_stack, r.distress_count, r.score, r.filed), reverse=True)
 
-    write_json_outputs(all_records, extra_json_path=out_json_path)
+    # 7. Build vacant land list
+    vacant_land = build_vacant_land_list(parcel_rows, mail_by_pid)
+    vacant_land.sort(key=lambda r: r.score, reverse=True)
+
+    # 8. Write all outputs
+    write_json_outputs(all_records, extra_json_path=Path(args.out_json))
     write_csv(all_records, DEFAULT_OUTPUT_CSV_PATH)
-    if out_csv_path != DEFAULT_OUTPUT_CSV_PATH:
-        write_csv(all_records, out_csv_path)
-    write_report(report, report_path)
+    if Path(args.out_csv) != DEFAULT_OUTPUT_CSV_PATH:
+        write_csv(all_records, Path(args.out_csv))
+    write_report(report, Path(args.report))
+    write_vacant_land_json(vacant_land)
+    write_hot_stack_json(all_records)
 
+    hot_count = sum(1 for r in all_records if r.hot_stack)
     logging.info(
-        "Finished. Total: %s | With prop address: %s | With mail address: %s",
+        "Finished. Total: %s | With prop address: %s | With mail address: %s | 🔥 Hot Stack: %s | Vacant lots: %s",
         len(all_records),
         sum(1 for r in all_records if r.prop_address),
         sum(1 for r in all_records if r.mail_address),
+        hot_count, len(vacant_land),
     )
 
 
