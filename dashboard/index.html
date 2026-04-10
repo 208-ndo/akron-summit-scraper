@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Akron Summit – Motivated Seller Intelligence</title>
+</head>
+<body>
+  <h1>Dashboard loading...</h1>
+  <script>
+    fetch('records.json')
+      .then(r => r.json())
+      .then(data => {
+        document.body.innerHTML = `<h1>Total Records: ${data.total}</h1><pre>${JSON.stringify(data, null, 2)}</pre>`;
+      })
+      .catch(e => {
+        document.body.innerHTML = '<h1>No data yet or records.json not found.</h1>';
+      });
+  </script>
+</body>
+</html>
