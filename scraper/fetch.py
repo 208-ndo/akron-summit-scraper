@@ -5,6 +5,7 @@ import io
 import json
 import logging
 import re
+import random
 import zipfile
 from collections import defaultdict
 from dataclasses import dataclass, asdict, field
@@ -160,6 +161,9 @@ class LeadRecord:
     acres: str = ""
     is_vacant_land: bool = False
     is_absentee: bool = False
+    phones: list = field(default_factory=list)
+    emails: list = field(default_factory=list)
+    skip_trace_source: str = ""
 
 
 @dataclass
@@ -1652,7 +1656,7 @@ def write_csv(records: List[LeadRecord], csv_path: Path) -> None:
         "Property Address","Property City","Property State","Property Zip",
         "Lead Type","Document Type","Date Filed","Document Number","Amount/Debt Owed",
         "Seller Score","Motivated Seller Flags","Distress Sources","Distress Count","Hot Stack",
-        "Vacant Land","Absentee Owner","LUC Code","Acres","Match Method","Match Score","Source","Public Records URL",
+        "Vacant Land","Absentee Owner","Phone 1","Phone 2","Phone 3","Email","Skip Trace Source","LUC Code","Acres","Match Method","Match Score","Source","Public Records URL",
     ]
     with csv_path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames)
@@ -1675,6 +1679,11 @@ def write_csv(records: List[LeadRecord], csv_path: Path) -> None:
                 "Hot Stack":"YES" if record.hot_stack else "",
                 "Vacant Land":"YES" if record.is_vacant_land else "",
                 "Absentee Owner":"YES" if record.is_absentee else "",
+                "Phone 1":record.phones[0] if len(record.phones) > 0 else "",
+                "Phone 2":record.phones[1] if len(record.phones) > 1 else "",
+                "Phone 3":record.phones[2] if len(record.phones) > 2 else "",
+                "Email":record.emails[0] if record.emails else "",
+                "Skip Trace Source":record.skip_trace_source,
                 "LUC Code":record.luc,"Acres":record.acres,
                 "Match Method":record.match_method,"Match Score":record.match_score,
                 "Source":SOURCE_NAME,"Public Records URL":record.clerk_url,
@@ -1687,6 +1696,178 @@ def write_report(report: dict, report_path: Path) -> None:
     report["generated_at"] = datetime.now(timezone.utc).isoformat()
     report_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
     logging.info("Wrote report: %s", report_path)
+
+
+# -----------------------------------------------------------------------
+# FREE SKIP TRACE — TruePeopleSearch + FastPeopleSearch + CyberBackgroundChecks
+# -----------------------------------------------------------------------
+async def skip_trace_one(page, first: str, last: str, city: str, state: str = "OH") -> dict:
+    """
+    Try to find phone numbers for one person using free public people search sites.
+    Tries sources in order: TruePeopleSearch → FastPeopleSearch → CyberBackgroundChecks.
+    Returns dict with phones, emails, source used.
+    """
+    result = {"phones": [], "emails": [], "source": None, "skip_traced": False}
+    phone_pattern = re.compile(r"\(?\d{3}\)?[\s\-\.]\d{3}[\s\-\.]\d{4}")
+
+    name_slug = f"{first}-{last}".lower().replace(" ", "-")
+    city_slug = city.lower().replace(" ", "-")
+
+    sources = [
+        {
+            "name": "TruePeopleSearch",
+            "url": f"https://www.truepeoplesearch.com/results?name={first}+{last}&citystatezip={city}+{state}",
+            "result_selector": "div.card-summary",
+            "phone_selector": "span[itemprop='telephone']",
+            "email_selector": "a[href^='mailto']",
+        },
+        {
+            "name": "FastPeopleSearch",
+            "url": f"https://www.fastpeoplesearch.com/name/{name_slug}_{city_slug}-{state.lower()}",
+            "result_selector": "div.card-block",
+            "phone_selector": "a[href^='tel']",
+            "email_selector": "a[href^='mailto']",
+        },
+        {
+            "name": "CyberBackgroundChecks",
+            "url": f"https://www.cyberbackgroundchecks.com/people/{first}/{last}/{state.lower()}",
+            "result_selector": "div.person-item",
+            "phone_selector": "span.phone",
+            "email_selector": "span.email",
+        },
+    ]
+
+    for source in sources:
+        try:
+            await page.goto(source["url"], wait_until="domcontentloaded", timeout=30000)
+            # Random human-like delay 3-7 seconds
+            await page.wait_for_timeout(random.randint(3000, 7000))
+
+            content = await page.content()
+            soup = BeautifulSoup(content, "lxml")
+
+            # Check if we got blocked
+            page_text = soup.get_text(" ").lower()
+            if any(x in page_text for x in ["access denied", "blocked", "captcha", "robot", "unusual traffic"]):
+                logging.warning("Skip trace blocked on %s", source["name"])
+                continue
+
+            # Try structured selectors first
+            phones = []
+            emails = []
+
+            for el in soup.select(source["phone_selector"]):
+                text = clean_text(el.get_text(" ") or el.get("href", ""))
+                text = text.replace("tel:", "").strip()
+                if phone_pattern.search(text):
+                    phones.append(re.search(r"[\d\(\)\-\.\s]{10,14}", text).group().strip())
+
+            for el in soup.select(source["email_selector"]):
+                href = el.get("href", "").replace("mailto:", "").strip()
+                text = clean_text(el.get_text(" "))
+                email = href or text
+                if "@" in email and "." in email:
+                    emails.append(email)
+
+            # Fallback: regex scan entire page for phone numbers
+            if not phones:
+                for match in phone_pattern.finditer(soup.get_text(" ")):
+                    num = match.group().strip()
+                    # Filter out obviously wrong numbers (zip codes, years, etc)
+                    digits_only = re.sub(r"\D", "", num)
+                    if len(digits_only) == 10 and not digits_only.startswith("000"):
+                        phones.append(num)
+                        if len(phones) >= 3:
+                            break
+
+            if phones:
+                result["phones"] = list(dict.fromkeys(phones))[:3]  # dedupe, max 3
+                result["emails"] = list(dict.fromkeys(emails))[:2]
+                result["source"] = source["name"]
+                result["skip_traced"] = True
+                logging.info("Skip traced %s %s via %s → %s",
+                             first, last, source["name"], result["phones"][0])
+                return result
+
+        except PlaywrightTimeoutError:
+            logging.warning("Skip trace timeout on %s for %s %s", source["name"], first, last)
+            continue
+        except Exception as exc:
+            logging.warning("Skip trace error on %s: %s", source["name"], exc)
+            continue
+
+    return result
+
+
+async def skip_trace_leads(records: List[LeadRecord]) -> List[LeadRecord]:
+    """
+    Run free skip tracing on priority leads only:
+    - Hot Stack OR Absentee Owner
+    - Must have a property address (so we know who/where)
+    - Not already skip traced
+
+    Uses a single shared browser session with human-like delays.
+    """
+    priority = [r for r in records if r.prop_address and not r.phones]
+
+    if not priority:
+        logging.info("No leads to skip trace — all already have phones or no address")
+        return records
+
+    logging.info("Skip tracing %s leads with address (skipping %s already traced)...",
+                 len(priority), sum(1 for r in records if r.phones))
+    traced = 0
+
+    async with async_playwright() as p:
+        # Launch with stealth settings to avoid bot detection
+        browser = await p.chromium.launch(
+            headless=True,
+            args=[
+                "--no-sandbox",
+                "--disable-blink-features=AutomationControlled",
+                "--disable-dev-shm-usage",
+            ]
+        )
+        context = await browser.new_context(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+            viewport={"width": 1366, "height": 768},
+            locale="en-US",
+        )
+        # Hide webdriver flag
+        await context.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+        page = await context.new_page()
+
+        for record in priority:
+            try:
+                # Parse first/last name
+                name_parts = (record.owner or "").split()
+                if len(name_parts) < 2:
+                    continue
+                first = name_parts[0]
+                last = name_parts[-1]
+                city = record.prop_city or record.mail_city or "Akron"
+
+                skip_result = await skip_trace_one(page, first, last, city)
+
+                if skip_result["skip_traced"]:
+                    record.phones = skip_result["phones"]
+                    record.emails = skip_result["emails"]
+                    record.skip_trace_source = skip_result["source"]
+                    if "Phone found" not in record.flags:
+                        record.flags.append("Phone found")
+                    traced += 1
+
+                # Polite delay between leads — 5-12 seconds
+                await page.wait_for_timeout(random.randint(5000, 12000))
+
+            except Exception as exc:
+                logging.warning("Skip trace failed for %s: %s", record.owner, exc)
+                continue
+
+        await browser.close()
+
+    logging.info("Skip traced %s/%s leads with address", traced, len(priority))
+    return records
 
 
 # -----------------------------------------------------------------------
@@ -1729,7 +1910,10 @@ async def main() -> None:
     distress_index = build_distress_index(all_records, vacant_addresses, vacant_land_pids, delinquent_parcels)
     all_records = apply_distress_stacking(all_records, distress_index, delinquent_addresses)
 
-    # 9. Build tax delinquent records list for dashboard tab
+    # 9. Skip trace priority leads (Hot Stack + Absentee) — free via public people search
+    all_records = await skip_trace_leads(all_records)
+
+    # 10. Build tax delinquent records list for dashboard tab
     #    Any record flagged as tax delinquent goes into the tab
     tax_delinquent_records = [r for r in all_records if "Tax delinquent" in r.flags]
     logging.info("Tax delinquent leads: %s", len(tax_delinquent_records))
@@ -1754,12 +1938,13 @@ async def main() -> None:
     hot_count = sum(1 for r in all_records if r.hot_stack)
     tax_count = sum(1 for r in all_records if "Tax delinquent" in r.flags)
     absentee_count = sum(1 for r in all_records if r.is_absentee)
+    traced_count = sum(1 for r in all_records if r.phones)
     logging.info(
-        "Finished. Total: %s | Prop address: %s | Mail: %s | 🔥 Hot Stack: %s | 💰 Tax Delinquent: %s | 🏠 Absentee: %s | Vacant lots: %s",
+        "Finished. Total: %s | Prop: %s | Mail: %s | 🔥 Hot Stack: %s | 💰 Tax Deln: %s | 🏠 Absentee: %s | 📞 Skip Traced: %s | Vacant: %s",
         len(all_records),
         sum(1 for r in all_records if r.prop_address),
         sum(1 for r in all_records if r.mail_address),
-        hot_count, tax_count, absentee_count, len(vacant_land),
+        hot_count, tax_count, absentee_count, traced_count, len(vacant_land),
     )
 
 
