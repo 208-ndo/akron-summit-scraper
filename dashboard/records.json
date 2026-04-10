@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-04-10T04:34:35.332523+00:00",
+  "fetched_at": "2026-04-10T05:05:19.832743+00:00",
   "source": "Akron / Summit County, Ohio",
   "date_range": {
     "from": "2026-01-10",
     "to": "2026-04-10"
   },
   "total": 68,
-  "with_address": 26,
+  "with_address": 24,
   "records": [
     {
       "doc_num": "MILLER 04",
@@ -163,6 +163,35 @@
       "grantee": "Capital One Na Successor By Merger To Di",
       "amount": null,
       "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- CALEB FORD",
+      "prop_address": "",
+      "prop_city": "",
+      "prop_state": "OH",
+      "prop_zip": "",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Judgment lien",
+        "New this week",
+        "No property match"
+      ],
+      "score": 65,
+      "match_method": "no_property_match",
+      "match_score": 0.0,
+      "with_address": 0
+    },
+    {
+      "doc_num": "COLLINS 04",
+      "doc_type": "JUD",
+      "filed": "2026-04-09",
+      "cat": "JUD",
+      "cat_label": "Judgment",
+      "owner": "Beth Collins",
+      "grantee": "Capital One Na",
+      "amount": null,
+      "legal": "CAPITAL ONE NA -VS- BETH COLLINS",
       "prop_address": "",
       "prop_city": "",
       "prop_state": "OH",
@@ -421,10 +450,10 @@
       "grantee": "Capital One Na",
       "amount": null,
       "legal": "CAPITAL ONE NA -VS- CATHY MCKINNEY",
-      "prop_address": "492 TALBOT AVE",
+      "prop_address": "734 HUNTERS TRL",
       "prop_city": "AKRON",
       "prop_state": "OH",
-      "prop_zip": "44306",
+      "prop_zip": "44313",
       "mail_address": "",
       "mail_city": "",
       "mail_state": "",
@@ -435,8 +464,8 @@
         "New this week"
       ],
       "score": 60,
-      "match_method": "last_name_initial_fallback",
-      "match_score": 0.84,
+      "match_method": "last_name_unique_fallback",
+      "match_score": 0.82,
       "with_address": 1
     },
     {
@@ -720,34 +749,6 @@
       "with_address": 1
     },
     {
-      "doc_num": "COLLINS 04",
-      "doc_type": "JUD",
-      "filed": "2026-04-09",
-      "cat": "JUD",
-      "cat_label": "Judgment",
-      "owner": "Beth Collins",
-      "grantee": "Capital One Na",
-      "amount": null,
-      "legal": "CAPITAL ONE NA -VS- BETH COLLINS",
-      "prop_address": "1568 WILSONWAY DR",
-      "prop_city": "BARBERTON",
-      "prop_state": "OH",
-      "prop_zip": "44203",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "",
-      "mail_zip": "",
-      "clerk_url": "https://newcivilfilings.summitoh.net/",
-      "flags": [
-        "Judgment lien",
-        "New this week"
-      ],
-      "score": 60,
-      "match_method": "last_name_initial_fallback",
-      "match_score": 0.84,
-      "with_address": 1
-    },
-    {
       "doc_num": "BOUGAMRA 04",
       "doc_type": "JUD",
       "filed": "2026-04-09",
@@ -757,7 +758,7 @@
       "grantee": "Td Bank Usa, N.A.",
       "amount": null,
       "legal": "TD BANK USA, N.A. -VS- ERIKA D BOUGAMRA",
-      "prop_address": "767 WORK DR",
+      "prop_address": "763 WORK DR",
       "prop_city": "AKRON",
       "prop_state": "OH",
       "prop_zip": "44320",
@@ -1618,6 +1619,35 @@
       "with_address": 0
     },
     {
+      "doc_num": "RICE 04",
+      "doc_type": "NOFC",
+      "filed": "2026-04-08",
+      "cat": "NOFC",
+      "cat_label": "Pre-foreclosure",
+      "owner": "Patrice Rice",
+      "grantee": "The Huntington National Bank",
+      "amount": null,
+      "legal": "THE HUNTINGTON NATIONAL BANK -VS- PATRICE RICE",
+      "prop_address": "",
+      "prop_city": "",
+      "prop_state": "OH",
+      "prop_zip": "",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Pre-foreclosure",
+        "New this week",
+        "No property match"
+      ],
+      "score": 65,
+      "match_method": "no_property_match",
+      "match_score": 0.0,
+      "with_address": 0
+    },
+    {
       "doc_num": "LLC 04",
       "doc_type": "JUD",
       "filed": "2026-04-08",
@@ -1729,34 +1759,6 @@
       "score": 60,
       "match_method": "exact_name_variant",
       "match_score": 1.0,
-      "with_address": 1
-    },
-    {
-      "doc_num": "RICE 04",
-      "doc_type": "NOFC",
-      "filed": "2026-04-08",
-      "cat": "NOFC",
-      "cat_label": "Pre-foreclosure",
-      "owner": "Patrice Rice",
-      "grantee": "The Huntington National Bank",
-      "amount": null,
-      "legal": "THE HUNTINGTON NATIONAL BANK -VS- PATRICE RICE",
-      "prop_address": "3200 RICE RD",
-      "prop_city": "CUYAHOGA FA",
-      "prop_state": "OH",
-      "prop_zip": "44223",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "",
-      "mail_zip": "",
-      "clerk_url": "https://newcivilfilings.summitoh.net/",
-      "flags": [
-        "Pre-foreclosure",
-        "New this week"
-      ],
-      "score": 60,
-      "match_method": "last_name_initial_fallback",
-      "match_score": 0.84,
       "with_address": 1
     },
     {

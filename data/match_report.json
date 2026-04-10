@@ -1,13 +1,13 @@
 {
-  "matched": 26,
-  "unmatched": 42,
-  "with_address": 26,
+  "matched": 24,
+  "unmatched": 44,
+  "with_address": 24,
   "match_methods": {
     "unmatched": 29,
     "exact_name_variant": 20,
-    "last_name_initial_fallback": 5,
-    "no_property_match": 13,
-    "last_name_unique_fallback": 1
+    "no_property_match": 15,
+    "last_name_unique_fallback": 2,
+    "last_name_initial_fallback": 2
   },
   "sample_unmatched": [
     {
@@ -138,6 +138,11 @@
   ],
   "sample_no_property_match": [
     {
+      "doc_num": "COLLINS 04",
+      "owner": "Beth Collins",
+      "legal": "CAPITAL ONE NA -VS- BETH COLLINS"
+    },
+    {
       "doc_num": "COLE 04",
       "owner": "Lois G Cole",
       "legal": "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- LOIS G COLE"
@@ -193,6 +198,11 @@
       "legal": "AKRON PUBLIC SCHOOLS -VS- A'NYAH LANEE CAMPBELL"
     },
     {
+      "doc_num": "RICE 04",
+      "owner": "Patrice Rice",
+      "legal": "THE HUNTINGTON NATIONAL BANK -VS- PATRICE RICE"
+    },
+    {
       "doc_num": "SCOTT 04",
       "owner": "Dallas L Scott",
       "legal": "SEVEN SEVENTEEN CREDIT UNION INC -VS- DALLAS L SCOTT"
@@ -203,5 +213,5 @@
       "legal": "ROOFSMITH RESTORATION, INC. -VS- ROBERT FERNANDEZ"
     }
   ],
-  "generated_at": "2026-04-10T04:34:35.341378+00:00"
+  "generated_at": "2026-04-10T05:05:19.842415+00:00"
 }
