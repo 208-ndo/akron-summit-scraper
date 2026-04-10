@@ -1702,9 +1702,100 @@ def write_report(report: dict, report_path: Path) -> None:
     logging.info("Wrote report: %s", report_path)
 
 
-# -----------------------------------------------------------------------
-# FREE SKIP TRACE — TruePeopleSearch + FastPeopleSearch + CyberBackgroundChecks
-# -----------------------------------------------------------------------
+def build_tax_delinquent_leads(
+    delinquent_parcels: Dict[str, dict],
+    parcel_rows: List[dict],
+    mail_by_pid: Dict[str, dict],
+    vacant_land_pids: set,
+) -> List[LeadRecord]:
+    """
+    Build standalone LeadRecord entries directly from the Akron Legal News
+    delinquent tax data. These are properties that OWE back taxes — regardless
+    of whether they have a court filing. This is what fills the Tax Delinquent tab.
+
+    We join parcel IDs from Akron Legal News → CAMA parcel data → mail address.
+    """
+    leads: List[LeadRecord] = []
+    delinquent_pid_set = set(delinquent_parcels.keys())
+
+    # Build a quick pid → parcel row lookup
+    pid_to_row: Dict[str, dict] = {}
+    for row in parcel_rows:
+        pid = get_pid(row)
+        if pid:
+            pid_to_row[pid] = row
+
+    for pid, delin_info in delinquent_parcels.items():
+        row = pid_to_row.get(pid)
+        if not row:
+            continue
+
+        prop_address = build_prop_address_from_row(row)
+        prop_city = build_prop_city_from_row(row)
+        prop_zip = build_prop_zip_from_row(row)
+        if not prop_address:
+            continue
+
+        # Get mail address from mail index
+        mail_row = mail_by_pid.get(pid, {})
+        mail_address = clean_text(mail_row.get("MAIL_ADR1", ""))
+        mail_city = clean_text(mail_row.get("NOTE1", "")).title()
+        mail_zip = clean_text(mail_row.get("MAIL_PTR", ""))
+        mail_state = "OH"
+
+        owner = delin_info.get("owner", "")
+        amount_owed = delin_info.get("amount_owed", 0.0)
+        luc = clean_text(row.get("LUC", ""))
+        acres = clean_text(row.get("ACRES", ""))
+        is_vacant = luc in VACANT_LAND_LUCS
+        is_absentee = is_absentee_owner(prop_address, mail_address)
+
+        flags = ["Tax delinquent"]
+        if is_vacant:
+            flags.append("Vacant land")
+        if is_absentee:
+            flags.append("Absentee owner")
+        if amount_owed and amount_owed > 10000:
+            flags.append("High tax debt")
+
+        distress_sources = ["tax_delinquent"]
+        if is_vacant:
+            distress_sources.append("vacant_land")
+
+        record = LeadRecord(
+            doc_num=f"TAX-{pid}",
+            doc_type="TAX",
+            filed="",
+            cat="TAX",
+            cat_label="Tax Delinquent",
+            owner=owner.title(),
+            amount=amount_owed,
+            prop_address=prop_address,
+            prop_city=prop_city,
+            prop_state="OH",
+            prop_zip=prop_zip,
+            mail_address=mail_address,
+            mail_city=mail_city,
+            mail_state=mail_state,
+            mail_zip=mail_zip,
+            clerk_url=delin_info.get("source_url", ""),
+            flags=flags,
+            distress_sources=distress_sources,
+            distress_count=len(distress_sources),
+            luc=luc,
+            acres=acres,
+            is_vacant_land=is_vacant,
+            is_absentee=is_absentee,
+            with_address=1,
+            match_method="tax_delinquent_direct",
+            match_score=1.0,
+        )
+        record.score = score_record(record)
+        record.hot_stack = record.distress_count >= 2
+        leads.append(record)
+
+    logging.info("Built %s standalone tax delinquent leads", len(leads))
+    return leads
 async def skip_trace_one(page, first: str, last: str, city: str, state: str = "OH") -> dict:
     """
     Try to find phone numbers for one person using free public people search sites.
@@ -1973,6 +2064,15 @@ async def main() -> None:
     # 8. Apply distress stacking — cross-references court filings, vacant land, tax delinquent
     distress_index = build_distress_index(all_records, vacant_addresses, vacant_land_pids, delinquent_parcels)
     all_records = apply_distress_stacking(all_records, distress_index, delinquent_addresses)
+
+    # 8b. Build standalone tax delinquent leads from Akron Legal News
+    #     These fill the Tax Delinquent tab directly — not just cross-reference
+    tax_delin_leads = build_tax_delinquent_leads(
+        delinquent_parcels, parcel_rows, mail_by_pid, vacant_land_pids
+    )
+    # Merge into all_records — dedupe will handle any overlap with court filing leads
+    all_records = all_records + tax_delin_leads
+    logging.info("Total records after adding tax delinquent leads: %s", len(all_records))
 
     # 9. Skip trace priority leads (Hot Stack + Absentee) — free via public people search
     all_records = await skip_trace_leads(all_records)
