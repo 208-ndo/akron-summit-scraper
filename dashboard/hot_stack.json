@@ -1,9 +1,51 @@
 {
-  "fetched_at": "2026-04-10T15:31:20.836644+00:00",
+  "fetched_at": "2026-04-10T15:40:29.353927+00:00",
   "source": "Akron / Summit County, Ohio",
   "total": 2,
   "description": "Properties appearing in 2+ distress sources \u2014 highest priority leads",
   "records": [
+    {
+      "doc_num": "BOUGAMRA 04",
+      "doc_type": "JUD",
+      "filed": "2026-04-09",
+      "cat": "JUD",
+      "cat_label": "Judgment",
+      "owner": "Erika D Bougamra",
+      "grantee": "Td Bank Usa, N.A.",
+      "amount": null,
+      "legal": "TD BANK USA, N.A. -VS- ERIKA D BOUGAMRA",
+      "prop_address": "767 WORK DR",
+      "prop_city": "AKRON",
+      "prop_state": "OH",
+      "prop_zip": "44320",
+      "mail_address": "763 WORK DR",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44320",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Judgment lien",
+        "New this week",
+        "Vacant land",
+        "Absentee owner",
+        "Vacant land parcel",
+        "\ud83d\udd25 Hot Stack"
+      ],
+      "score": 80,
+      "match_method": "exact_name_variant",
+      "match_score": 1.0,
+      "with_address": 1,
+      "distress_sources": [
+        "vacant_land",
+        "judgment"
+      ],
+      "distress_count": 2,
+      "hot_stack": true,
+      "luc": "500",
+      "acres": "",
+      "is_vacant_land": true,
+      "is_absentee": true
+    },
     {
       "doc_num": "HERSHEY 04",
       "doc_type": "JUD",
@@ -34,53 +76,15 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "judgment",
-        "tax_delinquent"
+        "tax_delinquent",
+        "judgment"
       ],
       "distress_count": 2,
       "hot_stack": true,
       "luc": "510",
       "acres": "1.4000",
-      "is_vacant_land": false
-    },
-    {
-      "doc_num": "BOUGAMRA 04",
-      "doc_type": "JUD",
-      "filed": "2026-04-09",
-      "cat": "JUD",
-      "cat_label": "Judgment",
-      "owner": "Erika D Bougamra",
-      "grantee": "Td Bank Usa, N.A.",
-      "amount": 996.2,
-      "legal": "TD BANK USA, N.A. -VS- ERIKA D BOUGAMRA",
-      "prop_address": "763 WORK DR",
-      "prop_city": "AKRON",
-      "prop_state": "OH",
-      "prop_zip": "44320",
-      "mail_address": "763 WORK DR",
-      "mail_city": "Akron",
-      "mail_state": "OH",
-      "mail_zip": "44320",
-      "clerk_url": "https://newcivilfilings.summitoh.net/",
-      "flags": [
-        "Judgment lien",
-        "New this week",
-        "Tax delinquent",
-        "\ud83d\udd25 Hot Stack"
-      ],
-      "score": 70,
-      "match_method": "exact_name_variant",
-      "match_score": 1.0,
-      "with_address": 1,
-      "distress_sources": [
-        "judgment",
-        "tax_delinquent"
-      ],
-      "distress_count": 2,
-      "hot_stack": true,
-      "luc": "510",
-      "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     }
   ]
 }

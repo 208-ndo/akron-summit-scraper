@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-10T15:31:19.456320+00:00",
+  "fetched_at": "2026-04-10T15:40:27.821922+00:00",
   "source": "Akron / Summit County, Ohio",
   "date_range": {
     "from": "2026-01-10",
@@ -10,6 +10,48 @@
   "with_mail_address": 19,
   "hot_stack_count": 2,
   "records": [
+    {
+      "doc_num": "BOUGAMRA 04",
+      "doc_type": "JUD",
+      "filed": "2026-04-09",
+      "cat": "JUD",
+      "cat_label": "Judgment",
+      "owner": "Erika D Bougamra",
+      "grantee": "Td Bank Usa, N.A.",
+      "amount": null,
+      "legal": "TD BANK USA, N.A. -VS- ERIKA D BOUGAMRA",
+      "prop_address": "767 WORK DR",
+      "prop_city": "AKRON",
+      "prop_state": "OH",
+      "prop_zip": "44320",
+      "mail_address": "763 WORK DR",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44320",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Judgment lien",
+        "New this week",
+        "Vacant land",
+        "Absentee owner",
+        "Vacant land parcel",
+        "\ud83d\udd25 Hot Stack"
+      ],
+      "score": 80,
+      "match_method": "exact_name_variant",
+      "match_score": 1.0,
+      "with_address": 1,
+      "distress_sources": [
+        "vacant_land",
+        "judgment"
+      ],
+      "distress_count": 2,
+      "hot_stack": true,
+      "luc": "500",
+      "acres": "",
+      "is_vacant_land": true,
+      "is_absentee": true
+    },
     {
       "doc_num": "HERSHEY 04",
       "doc_type": "JUD",
@@ -40,53 +82,15 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "judgment",
-        "tax_delinquent"
+        "tax_delinquent",
+        "judgment"
       ],
       "distress_count": 2,
       "hot_stack": true,
       "luc": "510",
       "acres": "1.4000",
-      "is_vacant_land": false
-    },
-    {
-      "doc_num": "BOUGAMRA 04",
-      "doc_type": "JUD",
-      "filed": "2026-04-09",
-      "cat": "JUD",
-      "cat_label": "Judgment",
-      "owner": "Erika D Bougamra",
-      "grantee": "Td Bank Usa, N.A.",
-      "amount": 996.2,
-      "legal": "TD BANK USA, N.A. -VS- ERIKA D BOUGAMRA",
-      "prop_address": "763 WORK DR",
-      "prop_city": "AKRON",
-      "prop_state": "OH",
-      "prop_zip": "44320",
-      "mail_address": "763 WORK DR",
-      "mail_city": "Akron",
-      "mail_state": "OH",
-      "mail_zip": "44320",
-      "clerk_url": "https://newcivilfilings.summitoh.net/",
-      "flags": [
-        "Judgment lien",
-        "New this week",
-        "Tax delinquent",
-        "\ud83d\udd25 Hot Stack"
-      ],
-      "score": 70,
-      "match_method": "exact_name_variant",
-      "match_score": 1.0,
-      "with_address": 1,
-      "distress_sources": [
-        "judgment",
-        "tax_delinquent"
-      ],
-      "distress_count": 2,
-      "hot_stack": true,
-      "luc": "510",
-      "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "BYE 04",
@@ -122,7 +126,8 @@
       "hot_stack": false,
       "luc": "510",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "BLAKE 04",
@@ -158,10 +163,11 @@
       "hot_stack": false,
       "luc": "510",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
-      "doc_num": "PCF1-T1-R55",
+      "doc_num": "PCF1-T1-R57",
       "doc_type": "NOFC",
       "filed": "2026-04-09",
       "cat": "NOFC",
@@ -194,7 +200,8 @@
       "hot_stack": false,
       "luc": "510",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "NANASSY 04",
@@ -230,7 +237,8 @@
       "hot_stack": false,
       "luc": "510",
       "acres": ".1800",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "DOZIER 04",
@@ -266,7 +274,8 @@
       "hot_stack": false,
       "luc": "510",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "DAVISON 04",
@@ -302,7 +311,8 @@
       "hot_stack": false,
       "luc": "510",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "GRANT 04",
@@ -338,7 +348,8 @@
       "hot_stack": false,
       "luc": "510",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "KEMPPEL 04",
@@ -374,7 +385,8 @@
       "hot_stack": false,
       "luc": "510",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "HEYBURN 04",
@@ -410,7 +422,8 @@
       "hot_stack": false,
       "luc": "510",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "FONTE 04",
@@ -446,7 +459,8 @@
       "hot_stack": false,
       "luc": "510",
       "acres": "1.0900",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "GRIFFIN 04",
@@ -482,7 +496,8 @@
       "hot_stack": false,
       "luc": "510",
       "acres": ".5000",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "GRIFFITH 04",
@@ -518,7 +533,8 @@
       "hot_stack": false,
       "luc": "510",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "MCKINNEY 04",
@@ -554,7 +570,8 @@
       "hot_stack": false,
       "luc": "550",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "MACE 04",
@@ -590,7 +607,8 @@
       "hot_stack": false,
       "luc": "510",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "FIDUC 04",
@@ -626,7 +644,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "TANNER 04",
@@ -662,7 +681,8 @@
       "hot_stack": false,
       "luc": "510",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "BARCHALK 04",
@@ -698,7 +718,8 @@
       "hot_stack": false,
       "luc": "510",
       "acres": ".1900",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "BISHOP 04",
@@ -734,7 +755,8 @@
       "hot_stack": false,
       "luc": "510",
       "acres": ".1500",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "KANDIKO 04",
@@ -770,7 +792,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "SIPE 04",
@@ -806,7 +829,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "DARDENNE 04",
@@ -842,7 +866,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "CSASZAR 04",
@@ -878,7 +903,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "COLLINS 04",
@@ -915,7 +941,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "COLE 04",
@@ -952,7 +979,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "BROWN 04",
@@ -989,7 +1017,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "BOSTIC 04",
@@ -1025,7 +1054,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "BECTON 04",
@@ -1061,7 +1091,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "BARTON 04",
@@ -1098,7 +1129,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "ESOLA 04",
@@ -1134,7 +1166,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "ASAMOAH 04",
@@ -1170,7 +1203,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "ARMSTEAD 04",
@@ -1206,7 +1240,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "ALI 04",
@@ -1243,7 +1278,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "KELLEY 04",
@@ -1280,7 +1316,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "GRIFFITH 04",
@@ -1317,7 +1354,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "GREEN 04",
@@ -1354,7 +1392,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "FUSCO 04",
@@ -1390,7 +1429,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "FENDER 04",
@@ -1426,7 +1466,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "ELEKES 04",
@@ -1462,7 +1503,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "FARREY 04",
@@ -1498,7 +1540,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "FORD 04",
@@ -1535,7 +1578,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "HACHA 04",
@@ -1571,7 +1615,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "HUGHES 04",
@@ -1608,7 +1653,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "PULLIN 04",
@@ -1644,7 +1690,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "PRIM 04",
@@ -1680,7 +1727,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "PFAHLER 04",
@@ -1716,7 +1764,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "PEARSON 04",
@@ -1752,7 +1801,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "PARMER 04",
@@ -1788,7 +1838,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "NEFFENGER 04",
@@ -1824,7 +1875,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "MOUNTS 04",
@@ -1860,7 +1912,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "MOHLER 04",
@@ -1896,7 +1949,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "MILLER 04",
@@ -1933,7 +1987,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "MCCALL 04",
@@ -1969,7 +2024,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "CINALLI 04",
@@ -2005,7 +2061,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "CAMPBELL 04",
@@ -2042,7 +2099,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "HORVAT 04",
@@ -2078,7 +2136,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "BEAL 04",
@@ -2114,7 +2173,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     },
     {
       "doc_num": "TALKINGTON 04",
@@ -2150,7 +2210,8 @@
       "hot_stack": false,
       "luc": "",
       "acres": "",
-      "is_vacant_land": false
+      "is_vacant_land": false,
+      "is_absentee": false
     }
   ]
 }

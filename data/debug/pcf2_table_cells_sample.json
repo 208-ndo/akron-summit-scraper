@@ -3,8 +3,22 @@
     "Action",
     "Case Name",
     "Date Added",
-    "Case Category Workers Compensation: 4 Foreclosure: 5 Judgment Lien: 53 Breach of Contract: 4 Other Civil: 2 Personal Injury: 4 Judgment Lien Juvenile Court: 1 Cognovit Action: 1 Unfair Consumer Sales Act: 1 Select All",
+    "Case Category Money Due: 2 Workers Compensation: 4 Foreclosure: 5 Judgment Lien: 53 Breach of Contract: 4 Other Civil: 2 Personal Injury: 4 Judgment Lien Juvenile Court: 1 Cognovit Action: 1 Unfair Consumer Sales Act: 1 Select All",
     "Status"
+  ],
+  [
+    "Get Docs",
+    "FIRST FINANCIAL BANK -VS- JASON CHEETHAM",
+    "04/10/2026 11:38 AM",
+    "Money Due",
+    "Pending Review"
+  ],
+  [
+    "Get Docs",
+    "TOWPATH CREDIT UNION -VS- MICHELLE KINCAID",
+    "04/10/2026 11:36 AM",
+    "Money Due",
+    "Pending Review"
   ],
   [
     "Get Docs",
@@ -116,14 +130,14 @@
     "CAPITAL ONE NA -VS- ALAINAH B BECTON",
     "04/09/2026 05:44 PM",
     "Judgment Lien",
-    "Pending Review"
+    "Filing Complete"
   ],
   [
     "Get Docs",
     "CAPITAL ONE NA -VS- WILLIAM R BARTON",
     "04/09/2026 05:42 PM",
     "Judgment Lien",
-    "Pending Review"
+    "Filing Complete"
   ],
   [
     "Get Docs",
@@ -157,20 +171,6 @@
     "Get Docs",
     "CAPITAL ONE NA SUCCESSOR BY MERGER TO DI -VS- PATRICK ARMSTEAD",
     "04/09/2026 05:24 PM",
-    "Judgment Lien",
-    "Filing Complete"
-  ],
-  [
-    "Get Docs",
-    "CAPITAL ONE NA -VS- EMOUN R ALI",
-    "04/09/2026 05:21 PM",
-    "Judgment Lien",
-    "Filing Complete"
-  ],
-  [
-    "Get Docs",
-    "CAPITAL ONE NA -VS- CHARLES J KEMPPEL",
-    "04/09/2026 05:19 PM",
     "Judgment Lien",
     "Filing Complete"
   ]
