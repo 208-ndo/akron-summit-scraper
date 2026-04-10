@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-10T05:05:19.832743+00:00",
+  "fetched_at": "2026-04-10T10:42:25.551272+00:00",
   "source": "Akron / Summit County, Ohio",
   "date_range": {
     "from": "2026-01-10",
@@ -385,7 +385,7 @@
       "with_address": 1
     },
     {
-      "doc_num": "PCF1-T1-R51",
+      "doc_num": "PCF1-T1-R52",
       "doc_type": "NOFC",
       "filed": "2026-04-09",
       "cat": "NOFC",
