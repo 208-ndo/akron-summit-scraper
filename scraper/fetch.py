@@ -1047,27 +1047,20 @@ def parse_sc750_sales(raw:str)->Dict[str,dict]:
 
 def parse_sc720_values(raw: str) -> Dict[str, dict]:
     """
-    Parse SC720_DELG — the value/owner roll file.
-    Confirmed columns from Summit County file:
-      PARCEL    = parcel ID (7 digits)
-      TAX_VAL   = assessed value (Ohio assessed = 35% of market)
-      OWNER     = owner last name / company
-      OWNER_A   = owner first name
-      OWNER_C   = owner city
-      OWNER_S   = owner state
-      OWNER_Z   = owner zip
-      TAXBILL_A = mailing address
-      TAXBILL_C = mailing city
-      TAXBILL_S = mailing state
-      TAXBILL_Z = mailing zip
-      PROPERTY  = property address (street)
-      LUC       = land use code
-      MORTCO    = mortgage company
+    Parse SC720_DELG — Summit County value/owner roll (delinquent subset).
 
-    Returns dict of parcel_id -> value/owner dict.
-    EST_MARKET_VALUE = TAX_VAL / 0.35
+    Column names are scanned dynamically because Excel truncates them.
+    Confirmed visible columns (from Excel screenshot):
+      PARCEL    = parcel ID
+      TAX_VAL   = assessed value  → est market = TAX_VAL / 0.35
+      OWNER, OWNER_A, OWNER_C, OWNER_S, OWNER_Z = owner name + mailing
+      TAXBILL_A, TAXBILL_C, TAXBILL_S, TAXBILL_Z = tax bill mailing
+      PROPERTY  = property address
+      LUC       = land use code
+
+    We scan ALL column names dynamically so truncation/spacing variants
+    are handled automatically.
     """
-    values: Dict[str, dict] = []
     lines = [l.rstrip("\r") for l in raw.splitlines() if clean_text(l)]
     if len(lines) < 2:
         return {}
@@ -1078,63 +1071,106 @@ def parse_sc720_values(raw: str) -> Dict[str, dict]:
     result: Dict[str, dict] = {}
     try:
         reader = csv.DictReader(io.StringIO("\n".join(lines)), delimiter=delim)
+        # Log actual headers on first read so we can see exact column names
+        headers = reader.fieldnames or []
+        logging.info("SC720 headers: %s", headers)
+        save_debug_json("sc720_headers.json", headers)
+
         for row in reader:
             cleaned = {clean_text(k): clean_text(v) for k, v in row.items() if k is not None}
-            # parcel ID
-            pid = clean_text(cleaned.get("PARCEL", ""))
-            if not pid:
-                pid = safe_pick(cleaned, LIKELY_PID_KEYS)
+            ku_map = {k.upper().replace(" ", "_").replace("-", "_"): k for k in cleaned}
+
+            # ── Parcel ID ────────────────────────────────────────────────
+            pid = cleaned.get("PARCEL", "") or safe_pick(cleaned, LIKELY_PID_KEYS)
+            pid = clean_text(pid)
             if not pid:
                 continue
-            # assessed value → market value
-            tax_val_raw = clean_text(cleaned.get("TAX_VAL", ""))
+
+            # ── Assessed value → est market value ────────────────────────
+            # Try TAX_VAL first (confirmed in Excel), then scan for any
+            # column whose name contains VAL, TAX, APPR, CERT
             assessed = None
             est_market = None
-            if tax_val_raw:
-                try:
-                    v = float(re.sub(r"[^0-9.]", "", tax_val_raw))
-                    if v > 100:
-                        assessed = v
-                        est_market = round(v / 0.35)
-                except:
-                    pass
-            # build owner name from parts
-            owner_parts = [
-                clean_text(cleaned.get("OWNER", "")),
-                clean_text(cleaned.get("OWNER_A", "")),
-            ]
-            owner = " ".join(p for p in owner_parts if p).strip()
-            # property address
-            prop_address = clean_text(cleaned.get("PROPERTY", ""))
-            # mailing info
-            mail_address = clean_text(cleaned.get("TAXBILL_A", ""))
-            mail_city    = clean_text(cleaned.get("TAXBILL_C", ""))
-            mail_state   = clean_text(cleaned.get("TAXBILL_S", ""))
-            mail_zip     = clean_text(cleaned.get("TAXBILL_Z", ""))
-            # owner mailing (fallback)
-            owner_city  = clean_text(cleaned.get("OWNER_C", ""))
-            owner_state = clean_text(cleaned.get("OWNER_S", ""))
-            owner_zip   = clean_text(cleaned.get("OWNER_Z", ""))
+            for col_pattern in ["TAX_VAL", "TAXVAL", "TAX VAL", "CERTIFIED",
+                                 "APPR", "CERT", "MKTVAL", "TOTALVAL"]:
+                for k, v in cleaned.items():
+                    if col_pattern in k.upper().replace(" ", "_") and v:
+                        try:
+                            fv = float(re.sub(r"[^0-9.]", "", v))
+                            if fv > 100:
+                                assessed = fv
+                                est_market = round(fv / 0.35)
+                                break
+                        except:
+                            pass
+                if assessed:
+                    break
+
+            # ── Owner name ────────────────────────────────────────────────
+            owner = ""
+            for k in ["OWNER", "OWNER_A", "OWNER A"]:
+                part = clean_text(cleaned.get(k, ""))
+                if part and part not in owner:
+                    owner = (owner + " " + part).strip()
+
+            # ── Property address ──────────────────────────────────────────
+            prop_address = ""
+            for k in ["PROPERTY", "PROP_ADDR", "PROP ADDR", "SITE_ADDR"]:
+                v = clean_text(cleaned.get(k, ""))
+                if v:
+                    prop_address = v
+                    break
+
+            # ── Mailing address (tax bill address preferred) ──────────────
+            mail_address = ""
+            mail_city = ""
+            mail_state = ""
+            mail_zip = ""
+            # Try TAXBILL_ columns first
+            for k in ["TAXBILL_A", "TAXBILL A", "TAXBILL_ADDR"]:
+                v = clean_text(cleaned.get(k, ""))
+                if v: mail_address = v; break
+            for k in ["TAXBILL_C", "TAXBILL C", "TAXBILL_CITY"]:
+                v = clean_text(cleaned.get(k, ""))
+                if v: mail_city = v; break
+            for k in ["TAXBILL_S", "TAXBILL S", "TAXBILL_STATE"]:
+                v = clean_text(cleaned.get(k, ""))
+                if v: mail_state = v; break
+            for k in ["TAXBILL_Z", "TAXBILL Z", "TAXBILL_ZIP"]:
+                v = clean_text(cleaned.get(k, ""))
+                if v: mail_zip = v; break
+            # Fallback to OWNER_ columns
+            if not mail_address:
+                for k in ["OWNER_C", "OWNER C"]:
+                    v = clean_text(cleaned.get(k, ""))
+                    if v: mail_city = v; break
+                for k in ["OWNER_S", "OWNER S"]:
+                    v = clean_text(cleaned.get(k, ""))
+                    if v: mail_state = v; break
+                for k in ["OWNER_Z", "OWNER Z"]:
+                    v = clean_text(cleaned.get(k, ""))
+                    if v: mail_zip = v; break
+
             luc = clean_text(cleaned.get("LUC", ""))
+
             result[pid] = {
-                "parcel_id":      pid,
-                "assessed_value": assessed,
+                "parcel_id":       pid,
+                "assessed_value":  assessed,
                 "est_market_value": est_market,
-                "owner":          owner,
-                "prop_address":   prop_address,
-                "mail_address":   mail_address or clean_text(cleaned.get("OWNER_A", "")),
-                "mail_city":      mail_city or owner_city,
-                "mail_state":     normalize_state(mail_state or owner_state),
-                "mail_zip":       mail_zip or owner_zip,
-                "luc":            luc,
+                "owner":           owner,
+                "prop_address":    prop_address,
+                "mail_address":    mail_address,
+                "mail_city":       mail_city,
+                "mail_state":      normalize_state(mail_state),
+                "mail_zip":        mail_zip,
+                "luc":             luc,
             }
     except Exception as e:
         logging.warning("SC720 parse error: %s", e)
+
     with_val = sum(1 for v in result.values() if v.get("est_market_value"))
     logging.info("SC720 value roll parsed: %s parcels | %s with est market value", len(result), with_val)
-    # save a debug sample
-    sample_list = list(result.values())[:25]
-    save_debug_json("sc720_value_sample.json", sample_list)
+    save_debug_json("sc720_value_sample.json", list(result.values())[:25])
     return result
 
 
