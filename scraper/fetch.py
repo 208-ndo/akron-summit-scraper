@@ -1087,69 +1087,41 @@ def parse_sc720_values(raw: str) -> Dict[str, dict]:
                 continue
 
             # ── Assessed value → est market value ────────────────────────
-            # Try TAX_VAL first (confirmed in Excel), then scan for any
-            # column whose name contains VAL, TAX, APPR, CERT
+            # TAX_VAL confirmed as assessed value column in Summit County SC720
+            # DLQ_AMOUNT = delinquent tax amount (also useful)
             assessed = None
             est_market = None
-            for col_pattern in ["TAX_VAL", "TAXVAL", "TAX VAL", "CERTIFIED",
-                                 "APPR", "CERT", "MKTVAL", "TOTALVAL"]:
-                for k, v in cleaned.items():
-                    if col_pattern in k.upper().replace(" ", "_") and v:
-                        try:
-                            fv = float(re.sub(r"[^0-9.]", "", v))
-                            if fv > 100:
-                                assessed = fv
-                                est_market = round(fv / 0.35)
-                                break
-                        except:
-                            pass
-                if assessed:
-                    break
+            tax_val_raw = clean_text(cleaned.get("TAX_VAL", ""))
+            if tax_val_raw:
+                try:
+                    fv = float(re.sub(r"[^0-9.]", "", tax_val_raw))
+                    if fv > 100:
+                        assessed = fv
+                        est_market = round(fv / 0.35)
+                except:
+                    pass
 
             # ── Owner name ────────────────────────────────────────────────
-            owner = ""
-            for k in ["OWNER", "OWNER_A", "OWNER A"]:
-                part = clean_text(cleaned.get(k, ""))
-                if part and part not in owner:
-                    owner = (owner + " " + part).strip()
+            owner = clean_text(cleaned.get("OWNER", ""))
 
             # ── Property address ──────────────────────────────────────────
-            prop_address = ""
-            for k in ["PROPERTY", "PROP_ADDR", "PROP ADDR", "SITE_ADDR"]:
-                v = clean_text(cleaned.get(k, ""))
-                if v:
-                    prop_address = v
-                    break
+            prop_address = clean_text(cleaned.get("PROPERTY_ADDRESS", ""))
 
-            # ── Mailing address (tax bill address preferred) ──────────────
-            mail_address = ""
-            mail_city = ""
-            mail_state = ""
-            mail_zip = ""
-            # Try TAXBILL_ columns first
-            for k in ["TAXBILL_A", "TAXBILL A", "TAXBILL_ADDR"]:
-                v = clean_text(cleaned.get(k, ""))
-                if v: mail_address = v; break
-            for k in ["TAXBILL_C", "TAXBILL C", "TAXBILL_CITY"]:
-                v = clean_text(cleaned.get(k, ""))
-                if v: mail_city = v; break
-            for k in ["TAXBILL_S", "TAXBILL S", "TAXBILL_STATE"]:
-                v = clean_text(cleaned.get(k, ""))
-                if v: mail_state = v; break
-            for k in ["TAXBILL_Z", "TAXBILL Z", "TAXBILL_ZIP"]:
-                v = clean_text(cleaned.get(k, ""))
-                if v: mail_zip = v; break
-            # Fallback to OWNER_ columns
-            if not mail_address:
-                for k in ["OWNER_C", "OWNER C"]:
-                    v = clean_text(cleaned.get(k, ""))
-                    if v: mail_city = v; break
-                for k in ["OWNER_S", "OWNER S"]:
-                    v = clean_text(cleaned.get(k, ""))
-                    if v: mail_state = v; break
-                for k in ["OWNER_Z", "OWNER Z"]:
-                    v = clean_text(cleaned.get(k, ""))
-                    if v: mail_zip = v; break
+            # ── Mailing address (tax bill preferred, owner as fallback) ───
+            mail_address = clean_text(cleaned.get("TAXBILL_ADDRESS", "")) \
+                        or clean_text(cleaned.get("OWNER_ADDRESS", ""))
+            mail_city    = clean_text(cleaned.get("TAXBILL_CITY", "")) \
+                        or clean_text(cleaned.get("OWNER_CITY", ""))
+            mail_state   = clean_text(cleaned.get("TAXBILL_STATE", "")) \
+                        or clean_text(cleaned.get("OWNER_STATE", ""))
+            # zip: combine ZIPCD1 + ZIPCD2 if both present
+            tbz1 = clean_text(cleaned.get("TAXBILL_ZIPCD1", ""))
+            tbz2 = clean_text(cleaned.get("TAXBILL_ZIPCD2", ""))
+            owz1 = clean_text(cleaned.get("OWNER_ZIPCD1", ""))
+            owz2 = clean_text(cleaned.get("OWNER_ZIPCD2", ""))
+            z1   = tbz1 or owz1
+            z2   = tbz2 or owz2
+            mail_zip = f"{z1}-{z2}" if z1 and z2 else z1
 
             luc = clean_text(cleaned.get("LUC", ""))
 
