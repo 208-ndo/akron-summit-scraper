@@ -440,6 +440,11 @@ def estimate_mortgage_data(record:"LeadRecord")->"LeadRecord":
 
     if record.estimated_value and record.est_mortgage_balance is not None:
         record.est_equity=round(record.estimated_value-record.est_mortgage_balance,2)
+    elif record.estimated_value and record.est_mortgage_balance is None and not record.last_sale_price:
+        # No sale history — assume 50% equity (conservative estimate for tax delinquent/inherited)
+        record.est_mortgage_balance=round(record.estimated_value*0.50,2)
+        record.est_equity=round(record.estimated_value*0.50,2)
+        signals.append("Est. equity (no sale history)")
 
     if record.doc_type in {"LP","NOFC","TAXDEED","SHERIFF"} and record.amount and record.amount>0:
         record.est_arrears=record.amount
