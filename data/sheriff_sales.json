@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-11T07:39:13.528584+00:00",
+  "fetched_at": "2026-04-11T08:11:42.615019+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "sheriff_sales",
   "description": "\u26a1 Properties scheduled for sheriff auction \u2014 days from losing everything",
@@ -27,7 +27,8 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 100,
       "match_method": "sheriff_sale_direct",
@@ -54,14 +55,17 @@
       "estimated_value": 264000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 132000.0,
+      "est_equity": 132000.0,
       "est_arrears": 264000.0,
-      "est_payoff": 264000.0,
-      "subject_to_score": 25,
+      "est_payoff": 132000.0,
+      "subject_to_score": 65,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$264,000",
-        "Active foreclosure"
+        "High equity \ud83c\udfe6",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 264000.0,
@@ -96,7 +100,8 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 100,
       "match_method": "sheriff_sale_direct",
@@ -123,14 +128,17 @@
       "estimated_value": 150000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 75000.0,
+      "est_equity": 75000.0,
       "est_arrears": 150000.0,
-      "est_payoff": 150000.0,
-      "subject_to_score": 25,
+      "est_payoff": 75000.0,
+      "subject_to_score": 65,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$150,000",
-        "Active foreclosure"
+        "High equity \ud83c\udfe6",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 150000.0,
@@ -165,7 +173,8 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 100,
       "match_method": "sheriff_sale_direct",
@@ -192,14 +201,17 @@
       "estimated_value": 120000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 60000.0,
+      "est_equity": 60000.0,
       "est_arrears": 120000.0,
-      "est_payoff": 120000.0,
-      "subject_to_score": 25,
+      "est_payoff": 60000.0,
+      "subject_to_score": 65,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$120,000",
-        "Active foreclosure"
+        "High equity \ud83c\udfe6",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 120000.0,
@@ -234,7 +246,8 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 100,
       "match_method": "sheriff_sale_direct",
@@ -261,14 +274,17 @@
       "estimated_value": 276000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 138000.0,
+      "est_equity": 138000.0,
       "est_arrears": 276000.0,
-      "est_payoff": 276000.0,
-      "subject_to_score": 25,
+      "est_payoff": 138000.0,
+      "subject_to_score": 65,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$276,000",
-        "Active foreclosure"
+        "High equity \ud83c\udfe6",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 276000.0,
@@ -303,7 +319,8 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 100,
       "match_method": "sheriff_sale_direct",
@@ -330,14 +347,17 @@
       "estimated_value": 105000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 52500.0,
+      "est_equity": 52500.0,
       "est_arrears": 105000.0,
-      "est_payoff": 105000.0,
-      "subject_to_score": 25,
+      "est_payoff": 52500.0,
+      "subject_to_score": 65,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$105,000",
-        "Active foreclosure"
+        "High equity \ud83c\udfe6",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 105000.0,
@@ -372,7 +392,8 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 100,
       "match_method": "sheriff_sale_direct",
@@ -399,14 +420,17 @@
       "estimated_value": 153000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 76500.0,
+      "est_equity": 76500.0,
       "est_arrears": 153000.0,
-      "est_payoff": 153000.0,
-      "subject_to_score": 25,
+      "est_payoff": 76500.0,
+      "subject_to_score": 65,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$153,000",
-        "Active foreclosure"
+        "High equity \ud83c\udfe6",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 153000.0,
@@ -441,7 +465,8 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 100,
       "match_method": "sheriff_sale_direct",
@@ -468,14 +493,17 @@
       "estimated_value": 114000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 57000.0,
+      "est_equity": 57000.0,
       "est_arrears": 114000.0,
-      "est_payoff": 114000.0,
-      "subject_to_score": 25,
+      "est_payoff": 57000.0,
+      "subject_to_score": 65,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$114,000",
-        "Active foreclosure"
+        "High equity \ud83c\udfe6",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 114000.0,
@@ -510,7 +538,8 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 100,
       "match_method": "sheriff_sale_direct",
@@ -537,14 +566,17 @@
       "estimated_value": 147000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 73500.0,
+      "est_equity": 73500.0,
       "est_arrears": 147000.0,
-      "est_payoff": 147000.0,
-      "subject_to_score": 25,
+      "est_payoff": 73500.0,
+      "subject_to_score": 65,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$147,000",
-        "Active foreclosure"
+        "High equity \ud83c\udfe6",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 147000.0,
@@ -579,7 +611,8 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 100,
       "match_method": "sheriff_sale_direct",
@@ -606,14 +639,17 @@
       "estimated_value": 153000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 76500.0,
+      "est_equity": 76500.0,
       "est_arrears": 153000.0,
-      "est_payoff": 153000.0,
-      "subject_to_score": 25,
+      "est_payoff": 76500.0,
+      "subject_to_score": 65,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$153,000",
-        "Active foreclosure"
+        "High equity \ud83c\udfe6",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 153000.0,
@@ -648,7 +684,8 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 100,
       "match_method": "sheriff_sale_direct",
@@ -675,14 +712,17 @@
       "estimated_value": 161440.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 80720.0,
+      "est_equity": 80720.0,
       "est_arrears": 161440.0,
-      "est_payoff": 161440.0,
-      "subject_to_score": 25,
+      "est_payoff": 80720.0,
+      "subject_to_score": 65,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$161,440",
-        "Active foreclosure"
+        "High equity \ud83c\udfe6",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 161440.0,
@@ -717,7 +757,8 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 100,
       "match_method": "sheriff_sale_direct",
@@ -744,14 +785,17 @@
       "estimated_value": 150000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 75000.0,
+      "est_equity": 75000.0,
       "est_arrears": 150000.0,
-      "est_payoff": 150000.0,
-      "subject_to_score": 25,
+      "est_payoff": 75000.0,
+      "subject_to_score": 65,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$150,000",
-        "Active foreclosure"
+        "High equity \ud83c\udfe6",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 150000.0,
@@ -786,7 +830,8 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 100,
       "match_method": "sheriff_sale_direct",
@@ -813,14 +858,17 @@
       "estimated_value": 357000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 178500.0,
+      "est_equity": 178500.0,
       "est_arrears": 357000.0,
-      "est_payoff": 357000.0,
-      "subject_to_score": 25,
+      "est_payoff": 178500.0,
+      "subject_to_score": 65,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$357,000",
-        "Active foreclosure"
+        "High equity \ud83c\udfe6",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 357000.0,
@@ -855,7 +903,8 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 100,
       "match_method": "sheriff_sale_direct",
@@ -882,14 +931,17 @@
       "estimated_value": 201000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 100500.0,
+      "est_equity": 100500.0,
       "est_arrears": 201000.0,
-      "est_payoff": 201000.0,
-      "subject_to_score": 25,
+      "est_payoff": 100500.0,
+      "subject_to_score": 65,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$201,000",
-        "Active foreclosure"
+        "High equity \ud83c\udfe6",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 201000.0,
@@ -924,7 +976,8 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 100,
       "match_method": "sheriff_sale_direct",
@@ -951,14 +1004,17 @@
       "estimated_value": 132000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 66000.0,
+      "est_equity": 66000.0,
       "est_arrears": 132000.0,
-      "est_payoff": 132000.0,
-      "subject_to_score": 25,
+      "est_payoff": 66000.0,
+      "subject_to_score": 65,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$132,000",
-        "Active foreclosure"
+        "High equity \ud83c\udfe6",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 132000.0,
@@ -993,7 +1049,8 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 100,
       "match_method": "sheriff_sale_direct",
@@ -1020,14 +1077,17 @@
       "estimated_value": 129000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 64500.0,
+      "est_equity": 64500.0,
       "est_arrears": 129000.0,
-      "est_payoff": 129000.0,
-      "subject_to_score": 25,
+      "est_payoff": 64500.0,
+      "subject_to_score": 65,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$129,000",
-        "Active foreclosure"
+        "High equity \ud83c\udfe6",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 129000.0,
@@ -1062,7 +1122,8 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 100,
       "match_method": "sheriff_sale_direct",
@@ -1089,14 +1150,17 @@
       "estimated_value": 120000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 60000.0,
+      "est_equity": 60000.0,
       "est_arrears": 120000.0,
-      "est_payoff": 120000.0,
-      "subject_to_score": 25,
+      "est_payoff": 60000.0,
+      "subject_to_score": 65,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$120,000",
-        "Active foreclosure"
+        "High equity \ud83c\udfe6",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 120000.0,
@@ -1131,7 +1195,8 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 100,
       "match_method": "sheriff_sale_direct",
@@ -1158,14 +1223,17 @@
       "estimated_value": 165000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 82500.0,
+      "est_equity": 82500.0,
       "est_arrears": 165000.0,
-      "est_payoff": 165000.0,
-      "subject_to_score": 25,
+      "est_payoff": 82500.0,
+      "subject_to_score": 65,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$165,000",
-        "Active foreclosure"
+        "High equity \ud83c\udfe6",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 165000.0,
@@ -1200,7 +1268,8 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 100,
       "match_method": "sheriff_sale_direct",
@@ -1227,14 +1296,17 @@
       "estimated_value": 606000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 303000.0,
+      "est_equity": 303000.0,
       "est_arrears": 606000.0,
-      "est_payoff": 606000.0,
-      "subject_to_score": 25,
+      "est_payoff": 303000.0,
+      "subject_to_score": 65,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$606,000",
-        "Active foreclosure"
+        "High equity \ud83c\udfe6",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 606000.0,
@@ -1269,7 +1341,8 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 100,
       "match_method": "sheriff_sale_direct",
@@ -1296,14 +1369,17 @@
       "estimated_value": 150000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 75000.0,
+      "est_equity": 75000.0,
       "est_arrears": 150000.0,
-      "est_payoff": 150000.0,
-      "subject_to_score": 25,
+      "est_payoff": 75000.0,
+      "subject_to_score": 65,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$150,000",
-        "Active foreclosure"
+        "High equity \ud83c\udfe6",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 150000.0,
@@ -1338,7 +1414,8 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 100,
       "match_method": "sheriff_sale_direct",
@@ -1365,14 +1442,17 @@
       "estimated_value": 456000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 228000.0,
+      "est_equity": 228000.0,
       "est_arrears": 456000.0,
-      "est_payoff": 456000.0,
-      "subject_to_score": 25,
+      "est_payoff": 228000.0,
+      "subject_to_score": 65,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$456,000",
-        "Active foreclosure"
+        "High equity \ud83c\udfe6",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 456000.0,
@@ -1407,7 +1487,8 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 100,
       "match_method": "sheriff_sale_direct",
@@ -1434,14 +1515,17 @@
       "estimated_value": 138000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 69000.0,
+      "est_equity": 69000.0,
       "est_arrears": 138000.0,
-      "est_payoff": 138000.0,
-      "subject_to_score": 25,
+      "est_payoff": 69000.0,
+      "subject_to_score": 65,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$138,000",
-        "Active foreclosure"
+        "High equity \ud83c\udfe6",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 138000.0,
@@ -1476,7 +1560,8 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 100,
       "match_method": "sheriff_sale_direct",
@@ -1503,14 +1588,17 @@
       "estimated_value": 408000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 204000.0,
+      "est_equity": 204000.0,
       "est_arrears": 408000.0,
-      "est_payoff": 408000.0,
-      "subject_to_score": 25,
+      "est_payoff": 204000.0,
+      "subject_to_score": 65,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$408,000",
-        "Active foreclosure"
+        "High equity \ud83c\udfe6",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 408000.0,
@@ -1545,7 +1633,8 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 100,
       "match_method": "sheriff_sale_direct",
@@ -1572,14 +1661,17 @@
       "estimated_value": 150000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 75000.0,
+      "est_equity": 75000.0,
       "est_arrears": 150000.0,
-      "est_payoff": 150000.0,
-      "subject_to_score": 25,
+      "est_payoff": 75000.0,
+      "subject_to_score": 65,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$150,000",
-        "Active foreclosure"
+        "High equity \ud83c\udfe6",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 150000.0,
@@ -1614,9 +1706,10 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
-      "score": 95,
+      "score": 100,
       "match_method": "sheriff_sale_direct",
       "match_score": 1.0,
       "with_address": 1,
@@ -1641,14 +1734,17 @@
       "estimated_value": 69000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 34500.0,
+      "est_equity": 34500.0,
       "est_arrears": 69000.0,
-      "est_payoff": 69000.0,
-      "subject_to_score": 25,
+      "est_payoff": 34500.0,
+      "subject_to_score": 55,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$69,000",
-        "Active foreclosure"
+        "Moderate equity",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 69000.0,
@@ -1683,9 +1779,10 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
-      "score": 95,
+      "score": 100,
       "match_method": "sheriff_sale_direct",
       "match_score": 1.0,
       "with_address": 1,
@@ -1710,14 +1807,17 @@
       "estimated_value": 81000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 40500.0,
+      "est_equity": 40500.0,
       "est_arrears": 81000.0,
-      "est_payoff": 81000.0,
-      "subject_to_score": 25,
+      "est_payoff": 40500.0,
+      "subject_to_score": 55,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$81,000",
-        "Active foreclosure"
+        "Moderate equity",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 81000.0,
@@ -1752,9 +1852,10 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
-      "score": 95,
+      "score": 100,
       "match_method": "sheriff_sale_direct",
       "match_score": 1.0,
       "with_address": 1,
@@ -1779,14 +1880,17 @@
       "estimated_value": 51000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 25500.0,
+      "est_equity": 25500.0,
       "est_arrears": 51000.0,
-      "est_payoff": 51000.0,
-      "subject_to_score": 25,
+      "est_payoff": 25500.0,
+      "subject_to_score": 55,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$51,000",
-        "Active foreclosure"
+        "Moderate equity",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 51000.0,
@@ -1821,9 +1925,10 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
-      "score": 95,
+      "score": 100,
       "match_method": "sheriff_sale_direct",
       "match_score": 1.0,
       "with_address": 1,
@@ -1848,14 +1953,17 @@
       "estimated_value": 63000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 31500.0,
+      "est_equity": 31500.0,
       "est_arrears": 63000.0,
-      "est_payoff": 63000.0,
-      "subject_to_score": 25,
+      "est_payoff": 31500.0,
+      "subject_to_score": 55,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$63,000",
-        "Active foreclosure"
+        "Moderate equity",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 63000.0,
@@ -1890,9 +1998,10 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
-      "score": 95,
+      "score": 100,
       "match_method": "sheriff_sale_direct",
       "match_score": 1.0,
       "with_address": 1,
@@ -1917,14 +2026,17 @@
       "estimated_value": 60000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 30000.0,
+      "est_equity": 30000.0,
       "est_arrears": 60000.0,
-      "est_payoff": 60000.0,
-      "subject_to_score": 25,
+      "est_payoff": 30000.0,
+      "subject_to_score": 55,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$60,000",
-        "Active foreclosure"
+        "Moderate equity",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 60000.0,
@@ -1959,9 +2071,10 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
-      "score": 95,
+      "score": 100,
       "match_method": "sheriff_sale_direct",
       "match_score": 1.0,
       "with_address": 1,
@@ -1986,18 +2099,94 @@
       "estimated_value": 99000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 49500.0,
+      "est_equity": 49500.0,
       "est_arrears": 99000.0,
-      "est_payoff": 99000.0,
-      "subject_to_score": 25,
+      "est_payoff": 49500.0,
+      "subject_to_score": 55,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$99,000",
-        "Active foreclosure"
+        "Moderate equity",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 99000.0,
       "lender": "Seneca Mtg Srving LLC",
+      "code_violation_case": "",
+      "code_violation_date": "",
+      "decedent_name": "",
+      "executor_name": "",
+      "executor_state": "",
+      "estate_value": null,
+      "is_inherited": false
+    },
+    {
+      "doc_num": "CV2025 09 4317",
+      "doc_type": "SHERIFF",
+      "filed": "",
+      "cat": "SHERIFF",
+      "cat_label": "Sheriff Sale",
+      "owner": "Wesley Earl Blackwell",
+      "grantee": "Nationstar Mtg LLC",
+      "amount": 45000.0,
+      "legal": "",
+      "prop_address": "689 Columbus Avenue",
+      "prop_city": "Akron",
+      "prop_state": "OH",
+      "prop_zip": "",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "clerk_url": "https://www.akronlegalnews.com/notices/detail/16191",
+      "flags": [
+        "Sheriff sale scheduled",
+        "Foreclosure",
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
+      ],
+      "score": 100,
+      "match_method": "sheriff_sale_direct",
+      "match_score": 1.0,
+      "with_address": 1,
+      "distress_sources": [
+        "sheriff_sale",
+        "foreclosure"
+      ],
+      "distress_count": 2,
+      "hot_stack": true,
+      "luc": "",
+      "acres": "",
+      "is_vacant_land": false,
+      "is_vacant_home": false,
+      "is_absentee": false,
+      "is_out_of_state": false,
+      "parcel_id": "",
+      "phones": [],
+      "phone_types": [],
+      "emails": [],
+      "skip_trace_source": "",
+      "assessed_value": null,
+      "estimated_value": 45000.0,
+      "last_sale_price": null,
+      "last_sale_year": null,
+      "est_mortgage_balance": 22500.0,
+      "est_equity": 22500.0,
+      "est_arrears": 45000.0,
+      "est_payoff": 22500.0,
+      "subject_to_score": 55,
+      "mortgage_signals": [
+        "Est. equity (no sale history)",
+        "Arrears ~$45,000",
+        "Moderate equity",
+        "Active foreclosure",
+        "LTV <70%"
+      ],
+      "sheriff_sale_date": "",
+      "appraised_value": 45000.0,
+      "lender": "Nationstar Mtg LLC",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -2028,9 +2217,10 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
-      "score": 95,
+      "score": 100,
       "match_method": "sheriff_sale_direct",
       "match_score": 1.0,
       "with_address": 1,
@@ -2055,14 +2245,17 @@
       "estimated_value": 69000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 34500.0,
+      "est_equity": 34500.0,
       "est_arrears": 69000.0,
-      "est_payoff": 69000.0,
-      "subject_to_score": 25,
+      "est_payoff": 34500.0,
+      "subject_to_score": 55,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$69,000",
-        "Active foreclosure"
+        "Moderate equity",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 69000.0,
@@ -2097,9 +2290,10 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
-      "score": 95,
+      "score": 100,
       "match_method": "sheriff_sale_direct",
       "match_score": 1.0,
       "with_address": 1,
@@ -2124,14 +2318,17 @@
       "estimated_value": 96000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 48000.0,
+      "est_equity": 48000.0,
       "est_arrears": 96000.0,
-      "est_payoff": 96000.0,
-      "subject_to_score": 25,
+      "est_payoff": 48000.0,
+      "subject_to_score": 55,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$96,000",
-        "Active foreclosure"
+        "Moderate equity",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 96000.0,
@@ -2166,9 +2363,10 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
-      "score": 95,
+      "score": 100,
       "match_method": "sheriff_sale_direct",
       "match_score": 1.0,
       "with_address": 1,
@@ -2193,14 +2391,17 @@
       "estimated_value": 72000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 36000.0,
+      "est_equity": 36000.0,
       "est_arrears": 72000.0,
-      "est_payoff": 72000.0,
-      "subject_to_score": 25,
+      "est_payoff": 36000.0,
+      "subject_to_score": 55,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$72,000",
-        "Active foreclosure"
+        "Moderate equity",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 72000.0,
@@ -2235,9 +2436,10 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
-      "score": 95,
+      "score": 100,
       "match_method": "sheriff_sale_direct",
       "match_score": 1.0,
       "with_address": 1,
@@ -2262,14 +2464,17 @@
       "estimated_value": 60000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 30000.0,
+      "est_equity": 30000.0,
       "est_arrears": 60000.0,
-      "est_payoff": 60000.0,
-      "subject_to_score": 25,
+      "est_payoff": 30000.0,
+      "subject_to_score": 55,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$60,000",
-        "Active foreclosure"
+        "Moderate equity",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 60000.0,
@@ -2304,9 +2509,10 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
-      "score": 95,
+      "score": 100,
       "match_method": "sheriff_sale_direct",
       "match_score": 1.0,
       "with_address": 1,
@@ -2331,14 +2537,17 @@
       "estimated_value": 96000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 48000.0,
+      "est_equity": 48000.0,
       "est_arrears": 96000.0,
-      "est_payoff": 96000.0,
-      "subject_to_score": 25,
+      "est_payoff": 48000.0,
+      "subject_to_score": 55,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$96,000",
-        "Active foreclosure"
+        "Moderate equity",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 96000.0,
@@ -2373,9 +2582,10 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
-      "score": 95,
+      "score": 100,
       "match_method": "sheriff_sale_direct",
       "match_score": 1.0,
       "with_address": 1,
@@ -2400,14 +2610,17 @@
       "estimated_value": 84000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 42000.0,
+      "est_equity": 42000.0,
       "est_arrears": 84000.0,
-      "est_payoff": 84000.0,
-      "subject_to_score": 25,
+      "est_payoff": 42000.0,
+      "subject_to_score": 55,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$84,000",
-        "Active foreclosure"
+        "Moderate equity",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 84000.0,
@@ -2442,9 +2655,10 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
-      "score": 95,
+      "score": 100,
       "match_method": "sheriff_sale_direct",
       "match_score": 1.0,
       "with_address": 1,
@@ -2469,14 +2683,17 @@
       "estimated_value": 51000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 25500.0,
+      "est_equity": 25500.0,
       "est_arrears": 51000.0,
-      "est_payoff": 51000.0,
-      "subject_to_score": 25,
+      "est_payoff": 25500.0,
+      "subject_to_score": 55,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$51,000",
-        "Active foreclosure"
+        "Moderate equity",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 51000.0,
@@ -2511,9 +2728,10 @@
       "flags": [
         "Sheriff sale scheduled",
         "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "\ud83c\udfaf Subject-To Candidate"
       ],
-      "score": 95,
+      "score": 100,
       "match_method": "sheriff_sale_direct",
       "match_score": 1.0,
       "with_address": 1,
@@ -2538,87 +2756,21 @@
       "estimated_value": 51000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 25500.0,
+      "est_equity": 25500.0,
       "est_arrears": 51000.0,
-      "est_payoff": 51000.0,
-      "subject_to_score": 25,
+      "est_payoff": 25500.0,
+      "subject_to_score": 55,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$51,000",
-        "Active foreclosure"
+        "Moderate equity",
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 51000.0,
       "lender": "Carrington Mtg Srv LLC",
-      "code_violation_case": "",
-      "code_violation_date": "",
-      "decedent_name": "",
-      "executor_name": "",
-      "executor_state": "",
-      "estate_value": null,
-      "is_inherited": false
-    },
-    {
-      "doc_num": "CV2025 09 4317",
-      "doc_type": "SHERIFF",
-      "filed": "",
-      "cat": "SHERIFF",
-      "cat_label": "Sheriff Sale",
-      "owner": "Wesley Earl Blackwell",
-      "grantee": "Nationstar Mtg LLC",
-      "amount": 45000.0,
-      "legal": "",
-      "prop_address": "689 Columbus Avenue",
-      "prop_city": "Akron",
-      "prop_state": "OH",
-      "prop_zip": "",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "",
-      "mail_zip": "",
-      "clerk_url": "https://www.akronlegalnews.com/notices/detail/16191",
-      "flags": [
-        "Sheriff sale scheduled",
-        "Foreclosure",
-        "\ud83d\udd25 Hot Stack"
-      ],
-      "score": 90,
-      "match_method": "sheriff_sale_direct",
-      "match_score": 1.0,
-      "with_address": 1,
-      "distress_sources": [
-        "sheriff_sale",
-        "foreclosure"
-      ],
-      "distress_count": 2,
-      "hot_stack": true,
-      "luc": "",
-      "acres": "",
-      "is_vacant_land": false,
-      "is_vacant_home": false,
-      "is_absentee": false,
-      "is_out_of_state": false,
-      "parcel_id": "",
-      "phones": [],
-      "phone_types": [],
-      "emails": [],
-      "skip_trace_source": "",
-      "assessed_value": null,
-      "estimated_value": 45000.0,
-      "last_sale_price": null,
-      "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
-      "est_arrears": 45000.0,
-      "est_payoff": 45000.0,
-      "subject_to_score": 25,
-      "mortgage_signals": [
-        "Arrears ~$45,000",
-        "Active foreclosure"
-      ],
-      "sheriff_sale_date": "",
-      "appraised_value": 45000.0,
-      "lender": "Nationstar Mtg LLC",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -2676,14 +2828,16 @@
       "estimated_value": 36000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 18000.0,
+      "est_equity": 18000.0,
       "est_arrears": 36000.0,
-      "est_payoff": 36000.0,
-      "subject_to_score": 25,
+      "est_payoff": 18000.0,
+      "subject_to_score": 45,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$36,000",
-        "Active foreclosure"
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 36000.0,
@@ -2745,14 +2899,16 @@
       "estimated_value": 30000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 15000.0,
+      "est_equity": 15000.0,
       "est_arrears": 30000.0,
-      "est_payoff": 30000.0,
-      "subject_to_score": 25,
+      "est_payoff": 15000.0,
+      "subject_to_score": 45,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$30,000",
-        "Active foreclosure"
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 30000.0,
@@ -2814,14 +2970,16 @@
       "estimated_value": 30000.0,
       "last_sale_price": null,
       "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
+      "est_mortgage_balance": 15000.0,
+      "est_equity": 15000.0,
       "est_arrears": 30000.0,
-      "est_payoff": 30000.0,
-      "subject_to_score": 25,
+      "est_payoff": 15000.0,
+      "subject_to_score": 45,
       "mortgage_signals": [
+        "Est. equity (no sale history)",
         "Arrears ~$30,000",
-        "Active foreclosure"
+        "Active foreclosure",
+        "LTV <70%"
       ],
       "sheriff_sale_date": "",
       "appraised_value": 30000.0,
