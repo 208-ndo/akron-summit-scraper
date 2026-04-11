@@ -56,16 +56,14 @@ PENDING_CIVIL_URL    = "https://newcivilfilings.summitoh.net/"
 PROBATE_URL          = "https://search.summitohioprobate.com/eservices/"
 PROBATE_NEWS_URL     = "https://www.akronlegalnews.com/courts/probate_new_cases"
 PROBATE_NEWS_URLS    = [
-    # Akron Legal News — free for current cases
+    # Akron Legal News — current cases
     "https://www.akronlegalnews.com/courts/probate_new_cases",
+    # Archive URLs — last 90 days via date parameter
+] + [
+    f"https://www.akronlegalnews.com/courts/probate_new_cases?date={(datetime.now()-timedelta(days=d)).strftime('%Y-%m-%d')}"
+    for d in range(1, 91, 7)  # weekly intervals back 90 days
 ]
-# Obituary sources — public, no login, catches leads before court filing
-OBITUARY_URLS = [
-    "https://www.legacy.com/obituaries/name/search?firstName=&lastName=&state=OH&city=Akron",
-    "https://www.legacy.com/local-obituaries/united-states/ohio/akron/",
-    "https://obits.cleveland.com/obituaries/akron-oh/",
-    "https://www.akronlegalnews.com/public_records/deaths",
-]
+
 CAMA_PAGE_URL        = "https://fiscaloffice.summitoh.net/index.php/documents-a-forms/viewcategory/10-cama"
 VACANT_BUILDING_URL  = "https://www.akronohio.gov/government/boards_and_commissions/vacant_building_board.php"
 HOUSING_APPEALS_URL  = "https://www.akronohio.gov/government/boards_and_commissions/housing_appeals_board.php"
@@ -804,44 +802,23 @@ def scrape_probate_leads(parcel_rows:List[dict],mail_by_pid:Dict[str,dict],
         all_text = ""
         seen_cases: set = set()
 
-        # Source 1: Akron Legal News (free for current cases)
+        # Source 1: Akron Legal News — current + last 90 days archive
+        pages_with_data = 0
         for purl in PROBATE_NEWS_URLS:
             try:
-                resp = retry_request(purl, timeout=30)
+                resp = retry_request(purl, timeout=20)
                 soup = BeautifulSoup(resp.text, "lxml")
                 candidate = soup.get_text(" ")
-                if "Estate of" in candidate or "ESTATE OF" in candidate:
-                    all_text += " " + candidate
-                    logging.info("Probate text from: %s", purl)
-                    break
+                if ("Estate of" in candidate or "ESTATE OF" in candidate or
+                    "no current probate" not in candidate.lower()):
+                    if "Estate of" in candidate or "ESTATE OF" in candidate:
+                        all_text += " " + candidate
+                        pages_with_data += 1
             except Exception as pe:
-                logging.warning("Probate URL %s: %s", purl, pe)
+                pass  # silently skip failed archive pages
+        logging.info("Probate: scraped %s URLs, %s with data", len(PROBATE_NEWS_URLS), pages_with_data)
 
-        # Source 2: Obituaries — catches leads BEFORE court filing
-        # Cross-reference recent deaths against CAMA owner names
-        obit_names = []
-        for ourl in OBITUARY_URLS:
-            try:
-                resp = retry_request(ourl, timeout=20)
-                soup = BeautifulSoup(resp.text, "lxml")
-                obit_text = soup.get_text(" ")
-                # Extract names from obituary listings
-                # Pattern: "John Smith, 72, of Akron" or "SMITH, JOHN A."
-                name_pat1 = re.compile(r"([A-Z][a-z]+\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+)?),\s*\d{2,3},\s*of\s+(?:Akron|Barberton|Stow|Hudson|Cuyahoga Falls|Tallmadge|Copley|Norton|Fairlawn|Green|Mogadore)", re.IGNORECASE)
-                name_pat2 = re.compile(r"([A-Z]{2,}),\s+([A-Z][A-Z\s\.]{2,20})\s*[-–]\s*(?:age\s*)?\d{2}", re.IGNORECASE)
-                for m in name_pat1.finditer(obit_text):
-                    obit_names.append(clean_text(m.group(1)))
-                for m in name_pat2.finditer(obit_text):
-                    # Last, First format → First Last
-                    obit_names.append(f"{clean_text(m.group(2)).title()} {clean_text(m.group(1)).title()}")
-                if obit_names:
-                    logging.info("Obituaries from %s: %s names", ourl, len(obit_names))
-                    all_text += " " + obit_text
-                    save_debug_text("probate_obit_text.txt", obit_text[:5000])
-                    break
-            except Exception as oe:
-                logging.warning("Obit URL %s: %s", ourl, oe)
-        logging.info("Obituary names collected: %s", len(obit_names))
+        obit_names = []  # obituary scraping not available in this environment
 
         save_debug_text("probate_page_text.txt", all_text[:8000])
 
@@ -923,11 +900,7 @@ def scrape_probate_leads(parcel_rows:List[dict],mail_by_pid:Dict[str,dict],
             surrounding = all_text[max(0, m.start()-50): m.end()+500]
             process_decedent(name, surrounding, case_num)
 
-        # Process obituary names — cross-reference against CAMA
-        # If someone died and owns property → probate lead even before court filing
-        for obit_name in obit_names:
-            if not obit_name or len(obit_name) < 4: continue
-            process_decedent(obit_name, "", "OBIT")
+
 
         logging.info(
             "Probate leads: %s total | %s with property | %s out-of-state executor | %s tax delinquent",
