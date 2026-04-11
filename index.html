@@ -3,602 +3,739 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Akron Summit – Motivated Seller Intelligence</title>
+<title>Akron Summit County • Motivated Seller Intelligence</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#0a0c10;--surface:#111318;--surface2:#181c24;--border:#1e2330;--border2:#252d3d;
-  --text:#dde4f0;--text2:#7a8599;--text3:#3d4a5c;
-  --blue:#3d8ef8;--blue-dim:#1a3660;
-  --orange:#f0932b;--orange-dim:#4a2e0e;
-  --red:#e05252;--red-dim:#3d1616;
-  --purple:#9b72f0;--purple-dim:#2d1f50;
-  --green:#3ecf78;--green-dim:#0e3320;
-  --gold:#e6b84a;--gold-dim:#3d2e0a;
-  --teal:#2dd4bf;--teal-dim:#0a3330;
-  --fire:#ff6b2b;--fire-dim:#3d1a08;
-}
-body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:13px}
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface2: #1a1a26;
+    --border: #2a2a3a;
+    --accent: #f5a623;
+    --accent2: #e85d4a;
+    --accent3: #4af5a6;
+    --accent4: #5d8ef5;
+    --text: #e8e8f0;
+    --muted: #6b6b8a;
+    --hot: #ff4444;
+    --warm: #ff8c00;
+    --cool: #44aaff;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:'Syne',sans-serif; min-height:100vh; overflow-x:hidden; }
 
-/* TOP BAR */
-.top-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:11px 24px;display:flex;justify-content:space-between;align-items:center;gap:8px;position:sticky;top:0;z-index:100}
-.top-bar-left{display:flex;align-items:center;gap:10px}
-.logo-icon{font-size:16px}
-.top-bar h1{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;color:var(--text2);letter-spacing:.12em;text-transform:uppercase}
-.top-bar .date{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3)}
-.live-dot{width:6px;height:6px;background:var(--green);border-radius:50%;display:inline-block;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+  /* top bar */
+  .topbar {
+    position:sticky; top:0; z-index:100;
+    background:rgba(10,10,15,0.95); backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+    padding:0 24px;
+    display:flex; align-items:center; justify-content:space-between;
+    height:56px;
+  }
+  .brand { display:flex; align-items:center; gap:10px; }
+  .brand-dot { width:10px; height:10px; border-radius:50%; background:var(--accent3); animation:pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+  .brand-name { font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text); }
+  .brand-sub { font-size:11px; color:var(--muted); font-family:'Space Mono',monospace; }
+  .updated { font-family:'Space Mono',monospace; font-size:11px; color:var(--muted); }
 
-/* TABS */
-.tabs{background:var(--surface);border-bottom:1px solid var(--border);padding:0 24px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
-.tabs::-webkit-scrollbar{display:none}
-.tab{padding:11px 16px;font-size:12px;font-weight:500;color:var(--text3);cursor:pointer;border-bottom:2px solid transparent;display:flex;gap:7px;align-items:center;white-space:nowrap;transition:color .15s;letter-spacing:.02em}
-.tab:hover{color:var(--text2)}
-.tab.active{color:var(--text);border-bottom-color:var(--blue)}
-.tab.tab-hot.active{border-bottom-color:var(--fire)}
-.tab.tab-vacant.active{border-bottom-color:var(--green)}
-.tab .badge{border-radius:3px;padding:1px 6px;font-size:10px;font-family:'IBM Plex Mono',monospace;font-weight:500}
-.tab .badge{background:var(--surface2);color:var(--text3)}
-.tab.active .badge{background:var(--blue-dim);color:var(--blue)}
-.tab.tab-hot.active .badge{background:var(--fire-dim);color:var(--fire)}
-.tab.tab-vacant.active .badge{background:var(--green-dim);color:var(--green)}
+  /* stats bar */
+  .statsbar {
+    background:var(--surface); border-bottom:1px solid var(--border);
+    padding:12px 24px; display:flex; gap:24px; overflow-x:auto;
+    scrollbar-width:none;
+  }
+  .statsbar::-webkit-scrollbar { display:none; }
+  .stat { display:flex; flex-direction:column; align-items:center; min-width:80px; }
+  .stat-num { font-size:22px; font-weight:800; line-height:1; }
+  .stat-label { font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-top:3px; white-space:nowrap; }
+  .stat-num.hot { color:var(--hot); }
+  .stat-num.warm { color:var(--warm); }
+  .stat-num.cool { color:var(--cool); }
+  .stat-num.green { color:var(--accent3); }
+  .stat-num.gold { color:var(--accent); }
+  .stat-divider { width:1px; background:var(--border); align-self:stretch; margin:0 4px; }
 
-/* STAT GRID */
-.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1px;background:var(--border);border-bottom:1px solid var(--border)}
-.stat-card{background:var(--surface);padding:16px 20px;position:relative;overflow:hidden;cursor:default}
-.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
-.stat-card.c-blue::before{background:var(--blue)}
-.stat-card.c-gold::before{background:var(--gold)}
-.stat-card.c-red::before{background:var(--red)}
-.stat-card.c-purple::before{background:var(--purple)}
-.stat-card.c-green::before{background:var(--green)}
-.stat-card.c-orange::before{background:var(--orange)}
-.stat-card.c-fire::before{background:var(--fire)}
-.stat-card.c-teal::before{background:var(--teal)}
-.stat-card .label{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;font-weight:500}
-.stat-card .value{font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--text);line-height:1}
-.stat-card .sub{font-size:10px;color:var(--text3);margin-top:5px}
+  /* tabs */
+  .tabs-wrap { background:var(--surface); border-bottom:1px solid var(--border); padding:0 24px; overflow-x:auto; scrollbar-width:none; }
+  .tabs-wrap::-webkit-scrollbar { display:none; }
+  .tabs { display:flex; gap:2px; white-space:nowrap; }
+  .tab {
+    padding:12px 16px; font-size:12px; font-weight:700; letter-spacing:0.06em;
+    text-transform:uppercase; cursor:pointer; border:none; background:none;
+    color:var(--muted); border-bottom:2px solid transparent;
+    transition:all 0.15s; position:relative;
+  }
+  .tab:hover { color:var(--text); }
+  .tab.active { color:var(--text); border-bottom-color:var(--accent); }
+  .tab .badge {
+    display:inline-flex; align-items:center; justify-content:center;
+    background:var(--border); color:var(--muted); border-radius:10px;
+    font-size:10px; font-weight:700; padding:1px 6px; margin-left:6px;
+    min-width:20px;
+  }
+  .tab.active .badge { background:var(--accent); color:#000; }
+  .tab.urgent .badge { background:var(--hot); color:#fff; }
+  .tab.urgent { color:var(--hot); }
 
-/* CONTROLS */
-.controls{padding:12px 24px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--surface);border-bottom:1px solid var(--border)}
-.controls input{background:var(--surface2);border:1px solid var(--border2);border-radius:4px;padding:6px 11px;color:var(--text);font-size:12px;width:220px;outline:none;font-family:'IBM Plex Sans',sans-serif}
-.controls input:focus{border-color:var(--blue)}
-.controls input::placeholder{color:var(--text3)}
-.controls select{background:var(--surface2);border:1px solid var(--border2);border-radius:4px;padding:6px 11px;color:var(--text);font-size:12px;outline:none;font-family:'IBM Plex Sans',sans-serif;cursor:pointer}
-.btn-csv{background:var(--blue);border:none;border-radius:4px;padding:6px 14px;color:#fff;font-size:12px;cursor:pointer;font-weight:600;font-family:'IBM Plex Sans',sans-serif;letter-spacing:.02em}
-.btn-csv:hover{filter:brightness(1.15)}
-.btn-clear{background:transparent;border:1px solid var(--border2);border-radius:4px;padding:6px 11px;color:var(--text3);font-size:12px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif}
-.btn-clear:hover{border-color:var(--text3);color:var(--text2)}
-.record-count{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text3)}
+  /* toolbar */
+  .toolbar {
+    padding:12px 24px; display:flex; gap:10px; align-items:center;
+    border-bottom:1px solid var(--border); background:var(--bg); flex-wrap:wrap;
+  }
+  .search-wrap { position:relative; flex:1; min-width:200px; }
+  .search-wrap input {
+    width:100%; background:var(--surface); border:1px solid var(--border);
+    border-radius:6px; padding:8px 12px 8px 34px; font-family:'Space Mono',monospace;
+    font-size:12px; color:var(--text); outline:none;
+  }
+  .search-wrap input:focus { border-color:var(--accent); }
+  .search-wrap input::placeholder { color:var(--muted); }
+  .search-icon { position:absolute; left:10px; top:50%; transform:translateY(-50%); color:var(--muted); font-size:14px; }
+  select {
+    background:var(--surface); border:1px solid var(--border); border-radius:6px;
+    padding:8px 12px; font-family:'Space Mono',monospace; font-size:12px;
+    color:var(--text); outline:none; cursor:pointer;
+  }
+  select:focus { border-color:var(--accent); }
+  .btn {
+    padding:8px 16px; border-radius:6px; font-family:'Syne',sans-serif;
+    font-size:12px; font-weight:700; cursor:pointer; border:none;
+    letter-spacing:0.05em; transition:all 0.15s;
+  }
+  .btn-primary { background:var(--accent); color:#000; }
+  .btn-primary:hover { background:#f0b040; }
+  .btn-ghost { background:var(--surface); border:1px solid var(--border); color:var(--text); }
+  .btn-ghost:hover { border-color:var(--accent); color:var(--accent); }
+  .record-count { font-family:'Space Mono',monospace; font-size:11px; color:var(--muted); margin-left:auto; white-space:nowrap; }
 
-/* TABLE */
-.table-wrap{padding:0 24px 40px;overflow-x:auto}
-table{width:100%;border-collapse:collapse;min-width:760px}
-th{color:var(--text3);font-weight:500;text-transform:uppercase;font-size:9px;letter-spacing:.1em;padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap}
-td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:middle}
-tr:hover td{background:var(--surface)}
-.score-badge{display:inline-flex;width:34px;height:34px;border-radius:5px;align-items:center;justify-content:center;font-weight:700;font-size:13px;font-family:'IBM Plex Mono',monospace}
-.score-fire{background:var(--fire-dim);color:var(--fire);box-shadow:0 0 8px var(--fire-dim)}
-.score-high{background:var(--blue-dim);color:var(--blue)}
-.score-med{background:var(--gold-dim);color:var(--gold)}
-.score-low{background:var(--surface2);color:var(--text3)}
-.flag-pill{display:inline-block;padding:2px 7px;border-radius:3px;font-size:10px;font-weight:600;margin:2px 2px 2px 0;letter-spacing:.02em;font-family:'IBM Plex Mono',monospace}
-.flag-lp{background:var(--red-dim);color:var(--red)}
-.flag-fc{background:var(--orange-dim);color:var(--orange)}
-.flag-tax{background:var(--blue-dim);color:var(--blue)}
-.flag-lien{background:var(--purple-dim);color:var(--purple)}
-.flag-prob{background:var(--green-dim);color:var(--green)}
-.flag-llc{background:var(--surface2);color:var(--text3)}
-.flag-new{background:var(--green-dim);color:var(--green)}
-.flag-hot{background:var(--fire-dim);color:var(--fire)}
-.flag-vacant{background:var(--teal-dim);color:var(--teal)}
-.flag-stack{background:var(--gold-dim);color:var(--gold)}
-.flag-noprop{background:var(--surface2);color:var(--text3)}
-.flag-absentee{background:#2d1f50;color:#c792f0}
-.flag-phone{background:var(--green-dim);color:var(--green)}
-.owner-name{font-weight:600;color:var(--text);font-size:13px}
-.prop-addr{font-size:11px;color:var(--text2);margin-top:2px;font-family:'IBM Plex Mono',monospace}
-.no-match{font-size:11px;color:var(--text3);margin-top:2px;font-family:'IBM Plex Mono',monospace}
-.distress-bar{display:flex;gap:4px;margin-top:4px;flex-wrap:wrap}
-.ds-chip{font-size:9px;font-family:'IBM Plex Mono',monospace;padding:1px 5px;border-radius:2px;background:var(--surface2);color:var(--text3);text-transform:uppercase;letter-spacing:.05em}
-.no-data{text-align:center;padding:60px;color:var(--text3)}
-.loading-state{text-align:center;padding:60px;color:var(--text3)}
-.acres-badge{font-size:9px;font-family:'IBM Plex Mono',monospace;color:var(--text3);margin-left:6px}
+  /* table */
+  .table-wrap { overflow:auto; height:calc(100vh - 230px); }
+  table { width:100%; border-collapse:collapse; }
+  thead th {
+    background:var(--surface); padding:10px 16px; text-align:left;
+    font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--muted); border-bottom:1px solid var(--border); white-space:nowrap;
+    position:sticky; top:0; z-index:10; cursor:pointer; user-select:none;
+  }
+  thead th:hover { color:var(--text); }
+  thead th.sorted { color:var(--accent); }
+  tbody tr {
+    border-bottom:1px solid var(--border);
+    transition:background 0.1s; cursor:pointer;
+  }
+  tbody tr:hover { background:var(--surface); }
+  tbody td { padding:10px 16px; font-size:13px; vertical-align:middle; }
+  .score-cell { width:48px; }
+  .score-badge {
+    width:40px; height:40px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:14px; font-weight:800; font-family:'Space Mono',monospace;
+  }
+  .score-high { background:rgba(255,68,68,0.15); color:var(--hot); border:1px solid rgba(255,68,68,0.3); }
+  .score-mid  { background:rgba(255,140,0,0.15); color:var(--warm); border:1px solid rgba(255,140,0,0.3); }
+  .score-low  { background:rgba(74,245,166,0.15); color:var(--accent3); border:1px solid rgba(74,245,166,0.3); }
+  .owner-cell { min-width:200px; }
+  .owner-name { font-weight:700; font-size:13px; margin-bottom:2px; }
+  .owner-sub { font-size:11px; color:var(--muted); font-family:'Space Mono',monospace; }
+  .amount-cell { font-family:'Space Mono',monospace; font-weight:700; color:var(--accent); }
+  .date-cell { font-family:'Space Mono',monospace; font-size:11px; color:var(--muted); }
+  .doctype-cell { font-family:'Space Mono',monospace; font-size:11px; }
+  .tags-cell { max-width:380px; }
 
-/* HOT STACK HEADER */
-.hot-header{background:linear-gradient(90deg,var(--fire-dim),transparent);border-bottom:1px solid var(--fire-dim);padding:10px 24px;display:none;align-items:center;gap:10px}
-.hot-header.visible{display:flex}
-.hot-header-text{font-size:12px;color:var(--fire);font-weight:600;letter-spacing:.04em}
-.hot-header-sub{font-size:11px;color:var(--text3)}
+  /* tags */
+  .tags { display:flex; flex-wrap:wrap; gap:4px; }
+  .tag {
+    font-size:10px; font-weight:700; padding:2px 7px; border-radius:4px;
+    letter-spacing:0.05em; white-space:nowrap;
+  }
+  .tag-hot     { background:rgba(255,68,68,0.2);   color:#ff7777; border:1px solid rgba(255,68,68,0.3); }
+  .tag-warn    { background:rgba(255,140,0,0.2);   color:#ffa040; border:1px solid rgba(255,140,0,0.3); }
+  .tag-blue    { background:rgba(93,142,245,0.2);  color:#8ab4ff; border:1px solid rgba(93,142,245,0.3); }
+  .tag-green   { background:rgba(74,245,166,0.2);  color:#50e8a0; border:1px solid rgba(74,245,166,0.3); }
+  .tag-purple  { background:rgba(180,80,255,0.2);  color:#c080ff; border:1px solid rgba(180,80,255,0.3); }
+  .tag-gray    { background:rgba(107,107,138,0.2); color:#9090b0; border:1px solid rgba(107,107,138,0.3); }
+  .tag-gold    { background:rgba(245,166,35,0.2);  color:#f5c060; border:1px solid rgba(245,166,35,0.3); }
 
-/* VACANT LAND TABLE additions */
-.luc-badge{font-family:'IBM Plex Mono',monospace;font-size:10px;padding:1px 6px;border-radius:3px;background:var(--teal-dim);color:var(--teal)}
-.parcel-id{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3)}
+  /* action cell */
+  .action-cell { width:80px; text-align:right; }
+  .view-btn {
+    font-size:10px; font-weight:700; padding:5px 10px; border-radius:4px;
+    background:var(--surface2); border:1px solid var(--border); color:var(--muted);
+    cursor:pointer; text-decoration:none; display:inline-block;
+    transition:all 0.15s; letter-spacing:0.05em;
+  }
+  .view-btn:hover { border-color:var(--accent); color:var(--accent); }
 
-/* SECTION label */
-.tab-section{display:none}
-.tab-section.active{display:block}
+  /* equity mini bar */
+  .equity-bar { width:80px; height:4px; background:var(--border); border-radius:2px; overflow:hidden; }
+  .equity-fill { height:100%; border-radius:2px; transition:width 0.3s; }
+  .equity-positive { background:var(--accent3); }
+  .equity-negative { background:var(--accent2); }
+  .equity-label { font-family:'Space Mono',monospace; font-size:10px; margin-top:3px; }
+
+  /* loading / empty */
+  .empty { display:flex; flex-direction:column; align-items:center; justify-content:center;
+           height:200px; color:var(--muted); gap:8px; }
+  .empty-icon { font-size:32px; opacity:0.3; }
+  .loading { text-align:center; padding:40px; color:var(--muted);
+             font-family:'Space Mono',monospace; font-size:12px; }
+  .spinner { display:inline-block; width:16px; height:16px; border:2px solid var(--border);
+             border-top-color:var(--accent); border-radius:50%; animation:spin 0.8s linear infinite; margin-right:8px; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+
+  /* modal */
+  .modal-overlay {
+    position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:200;
+    display:none; align-items:center; justify-content:center; padding:20px;
+  }
+  .modal-overlay.open { display:flex; }
+  .modal {
+    background:var(--surface); border:1px solid var(--border); border-radius:12px;
+    width:100%; max-width:680px; max-height:90vh; overflow-y:auto;
+    padding:28px;
+  }
+  .modal-header { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:20px; }
+  .modal-title { font-size:18px; font-weight:800; }
+  .modal-sub { font-size:12px; color:var(--muted); font-family:'Space Mono',monospace; margin-top:4px; }
+  .modal-close { background:none; border:none; color:var(--muted); cursor:pointer; font-size:20px; padding:0; }
+  .modal-close:hover { color:var(--text); }
+  .modal-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .modal-field { display:flex; flex-direction:column; gap:3px; }
+  .modal-field.full { grid-column:1/-1; }
+  .modal-label { font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); }
+  .modal-value { font-size:13px; color:var(--text); font-family:'Space Mono',monospace; }
+  .modal-value.highlight { color:var(--accent); font-weight:700; }
+  .modal-value.green { color:var(--accent3); }
+  .modal-value.red { color:var(--accent2); }
+  .modal-divider { grid-column:1/-1; border:none; border-top:1px solid var(--border); margin:4px 0; }
+  .modal-section { grid-column:1/-1; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-top:4px; }
+  .modal-tags { grid-column:1/-1; display:flex; flex-wrap:wrap; gap:6px; }
+  .modal-actions { grid-column:1/-1; display:flex; gap:10px; margin-top:8px; }
+
+  /* sheriff urgency banner */
+  .sheriff-banner {
+    background:rgba(255,68,68,0.1); border:1px solid rgba(255,68,68,0.3);
+    border-radius:8px; padding:10px 16px; margin-bottom:16px;
+    grid-column:1/-1; display:flex; align-items:center; gap:10px;
+    font-size:12px; font-weight:700; color:var(--hot);
+  }
+
+  /* scrollbar */
+  ::-webkit-scrollbar { width:6px; height:6px; }
+  ::-webkit-scrollbar-track { background:var(--bg); }
+  ::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
+  ::-webkit-scrollbar-thumb:hover { background:var(--muted); }
+
+  /* responsive */
+  @media(max-width:768px) {
+    .statsbar { gap:16px; }
+    .stat-num { font-size:18px; }
+    .modal-grid { grid-template-columns:1fr; }
+    .modal-field.full { grid-column:1; }
+  }
 </style>
 </head>
 <body>
 
-<div class="top-bar">
-  <div class="top-bar-left">
-    <span class="logo-icon">⚡</span>
-    <h1>Akron Summit County &bull; Motivated Seller Intelligence</h1>
-    <span class="live-dot"></span>
+<!-- TOP BAR -->
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-dot"></div>
+    <div>
+      <div class="brand-name">Akron Summit County</div>
+      <div class="brand-sub">Motivated Seller Intelligence</div>
+    </div>
   </div>
-  <span class="date" id="date-range">Loading...</span>
+  <div class="updated" id="updated-label">Loading...</div>
+</header>
+
+<!-- STATS BAR -->
+<div class="statsbar" id="statsbar">
+  <div class="stat"><div class="stat-num" id="stat-total">–</div><div class="stat-label">Total Leads</div></div>
+  <div class="stat-divider"></div>
+  <div class="stat"><div class="stat-num hot" id="stat-sheriff">–</div><div class="stat-label">⚡ Sheriff Sales</div></div>
+  <div class="stat-divider"></div>
+  <div class="stat"><div class="stat-num hot" id="stat-hotstack">–</div><div class="stat-label">🔥 Hot Stack</div></div>
+  <div class="stat-divider"></div>
+  <div class="stat"><div class="stat-num warm" id="stat-probate">–</div><div class="stat-label">⚖️ Probate</div></div>
+  <div class="stat-divider"></div>
+  <div class="stat"><div class="stat-num warm" id="stat-codevio">–</div><div class="stat-label">🏚 Code Vio</div></div>
+  <div class="stat-divider"></div>
+  <div class="stat"><div class="stat-num cool" id="stat-vacanthome">–</div><div class="stat-label">🏠 Vacant Homes</div></div>
+  <div class="stat-divider"></div>
+  <div class="stat"><div class="stat-num gold" id="stat-taxdelin">–</div><div class="stat-label">💰 Tax Delin</div></div>
+  <div class="stat-divider"></div>
+  <div class="stat"><div class="stat-num green" id="stat-absentee">–</div><div class="stat-label">📭 Absentee</div></div>
+  <div class="stat-divider"></div>
+  <div class="stat"><div class="stat-num green" id="stat-inherited">–</div><div class="stat-label">🏛 Inherited</div></div>
+  <div class="stat-divider"></div>
+  <div class="stat"><div class="stat-num cool" id="stat-subjectto">–</div><div class="stat-label">🎯 Subject-To</div></div>
+  <div class="stat-divider"></div>
+  <div class="stat"><div class="stat-num" id="stat-newweek">–</div><div class="stat-label">New This Week</div></div>
 </div>
 
-<div class="tabs">
-  <div class="tab active" data-tab="all">All Leads <span class="badge" id="tab-all">0</span></div>
-  <div class="tab" data-tab="clerk">Clerk Records <span class="badge" id="tab-clerk">0</span></div>
-  <div class="tab" data-tab="tax">Tax Delinquent <span class="badge" id="tab-tax">0</span></div>
-  <div class="tab" data-tab="lp">Lis Pendens <span class="badge" id="tab-lp">0</span></div>
-  <div class="tab tab-hot" data-tab="hotstack">🔥 Hot Stack <span class="badge" id="tab-hot">0</span></div>
-  <div class="tab tab-vacant" data-tab="vacant">🌱 Vacant Land <span class="badge" id="tab-vacant">0</span></div>
-</div>
-
-<!-- STAT GRID — leads view -->
-<div class="stat-grid" id="stats-leads">
-  <div class="stat-card c-blue"><div class="label">Total Records</div><div class="value" id="stat-total">—</div><div class="sub">all lead types</div></div>
-  <div class="stat-card c-fire"><div class="label">🔥 Hot Stack</div><div class="value" id="stat-hot">—</div><div class="sub">2+ distress sources</div></div>
-  <div class="stat-card c-red"><div class="label">Lis Pendens</div><div class="value" id="stat-lp">—</div><div class="sub">pre-foreclosure</div></div>
-  <div class="stat-card c-purple"><div class="label">Liens / Judgments</div><div class="value" id="stat-liens">—</div><div class="sub">financial distress</div></div>
-  <div class="stat-card c-green"><div class="label">With Address</div><div class="value" id="stat-addr">—</div><div class="sub">address matched</div></div>
-  <div class="stat-card c-teal"><div class="label">Mail Address</div><div class="value" id="stat-mail">—</div><div class="sub">mailing matched</div></div>
-  <div class="stat-card c-orange"><div class="label">New This Week</div><div class="value" id="stat-new">—</div><div class="sub">filed recently</div></div>
-  <div class="stat-card c-gold"><div class="label">Vacant Land</div><div class="value" id="stat-vacant">—</div><div class="sub">infill lots ≤ 2 acres</div></div>
-  <div class="stat-card c-purple"><div class="label">🏠 Absentee Owners</div><div class="value" id="stat-absentee">—</div><div class="sub">mail ≠ property address</div></div>
-  <div class="stat-card c-green"><div class="label">📞 Skip Traced</div><div class="value" id="stat-traced">—</div><div class="sub">phones found</div></div>
-</div>
-
-<!-- HOT STACK BANNER -->
-<div class="hot-header" id="hot-header">
-  <span style="font-size:20px">🔥</span>
-  <div>
-    <div class="hot-header-text">HOT STACK — HIGH PRIORITY</div>
-    <div class="hot-header-sub">These properties appear in 2+ distress sources. Drive these first.</div>
+<!-- TABS -->
+<div class="tabs-wrap">
+  <div class="tabs" id="tabs">
+    <button class="tab urgent active" data-tab="all">All Leads <span class="badge" id="badge-all">0</span></button>
+    <button class="tab urgent" data-tab="sheriff_sales">⚡ Sheriff Sales <span class="badge" id="badge-sheriff_sales">0</span></button>
+    <button class="tab" data-tab="hot_stack">🔥 Hot Stack <span class="badge" id="badge-hot_stack">0</span></button>
+    <button class="tab" data-tab="probate">⚖️ Probate <span class="badge" id="badge-probate">0</span></button>
+    <button class="tab" data-tab="code_violations">🏚 Code Violations <span class="badge" id="badge-code_violations">0</span></button>
+    <button class="tab" data-tab="vacant_homes">🏠 Vacant Homes <span class="badge" id="badge-vacant_homes">0</span></button>
+    <button class="tab" data-tab="tax_delinquent">💰 Tax Delinquent <span class="badge" id="badge-tax_delinquent">0</span></button>
+    <button class="tab" data-tab="absentee">📭 Absentee <span class="badge" id="badge-absentee">0</span></button>
+    <button class="tab" data-tab="out_of_state">🌎 Out-of-State <span class="badge" id="badge-out_of_state">0</span></button>
+    <button class="tab" data-tab="inherited">🏛 Inherited <span class="badge" id="badge-inherited">0</span></button>
+    <button class="tab" data-tab="foreclosure">⚠️ Foreclosure <span class="badge" id="badge-foreclosure">0</span></button>
+    <button class="tab" data-tab="subject_to">🎯 Subject-To <span class="badge" id="badge-subject_to">0</span></button>
+    <button class="tab" data-tab="prime_subject_to">⭐ Prime Deals <span class="badge" id="badge-prime_subject_to">0</span></button>
   </div>
 </div>
 
-<!-- CONTROLS -->
-<div class="controls" id="controls-main">
-  <input type="text" id="search" placeholder="Search owner, address, doc number...">
-  <select id="filter-score">
-    <option value="0">All Scores</option>
-    <option value="75">High (≥75)</option>
-    <option value="60">Medium (≥60)</option>
-    <option value="30">Low (≥30)</option>
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <div class="search-wrap">
+    <span class="search-icon">⌕</span>
+    <input type="text" id="search" placeholder="Search owner, address, doc number..." oninput="applyFilters()">
+  </div>
+  <select id="filter-score" onchange="applyFilters()">
+    <option value="">All Scores</option>
+    <option value="80">Score 80+</option>
+    <option value="70">Score 70+</option>
+    <option value="60">Score 60+</option>
+    <option value="50">Score 50+</option>
   </select>
-  <select id="filter-flag">
+  <select id="filter-flag" onchange="applyFilters()">
     <option value="">All Flags</option>
-    <option value="Lis pendens">Lis Pendens</option>
-    <option value="Pre-foreclosure">Pre-foreclosure</option>
-    <option value="Tax lien">Tax Lien</option>
-    <option value="Judgment lien">Judgment Lien</option>
-    <option value="Mechanic lien">Mechanic Lien</option>
-    <option value="Probate / estate">Probate</option>
-    <option value="LLC / corp owner">LLC / Corp</option>
-    <option value="🔥 Hot Stack">🔥 Hot Stack</option>
-    <option value="Vacant land">Vacant Land</option>
-    <option value="Absentee owner">🏠 Absentee Owner</option>
-    <option value="Phone found">📞 Phone Found</option>
-    <option value="New this week">New This Week</option>
+    <option value="Hot Stack">🔥 Hot Stack</option>
+    <option value="Sheriff sale">⚡ Sheriff Sale</option>
+    <option value="Absentee owner">📭 Absentee</option>
+    <option value="Out-of-state owner">🌎 Out-of-State</option>
+    <option value="Vacant home">🏠 Vacant Home</option>
+    <option value="Tax delinquent">💰 Tax Delinquent</option>
+    <option value="Code violation">🏚 Code Violation</option>
+    <option value="Inherited">🏛 Inherited</option>
+    <option value="Subject-To">🎯 Subject-To</option>
+    <option value="New this week">🆕 New This Week</option>
   </select>
-  <select id="filter-addr">
+  <select id="filter-address" onchange="applyFilters()">
     <option value="">Address: All</option>
-    <option value="yes">Has Address</option>
-    <option value="no">No Address</option>
+    <option value="with">With Address</option>
+    <option value="without">Without Address</option>
   </select>
-  <button class="btn-csv" id="btn-csv">↓ GHL CSV</button>
-  <button class="btn-clear" id="btn-clear">✕ Clear</button>
-  <span class="record-count" id="rec-count">0 records</span>
+  <button class="btn btn-primary" onclick="exportCSV()">⬇ GHL CSV</button>
+  <button class="btn btn-ghost" onclick="clearFilters()">✕ Clear</button>
+  <div class="record-count" id="record-count">0 records</div>
 </div>
 
-<!-- VACANT LAND CONTROLS -->
-<div class="controls" id="controls-vacant" style="display:none">
-  <input type="text" id="search-vacant" placeholder="Search address, owner, parcel ID...">
-  <select id="filter-vacant-city">
-    <option value="">All Cities</option>
-  </select>
-  <button class="btn-csv" id="btn-csv-vacant">↓ Export Vacant CSV</button>
-  <button class="btn-clear" id="btn-clear-vacant">✕ Clear</button>
-  <span class="record-count" id="rec-count-vacant">0 lots</span>
-</div>
-
-<!-- LEADS TABLE -->
-<div class="table-wrap" id="table-leads">
-  <table>
+<!-- TABLE -->
+<div class="table-wrap">
+  <table id="leads-table">
     <thead>
       <tr>
-        <th>Score</th>
-        <th>Owner / Property</th>
-        <th>Doc Type</th>
-        <th>Filed</th>
-        <th>Amount</th>
-        <th>Doc #</th>
-        <th>Flags</th>
-        <th>Phone</th>
-        <th>Link</th>
+        <th class="score-cell" onclick="sortBy('score')">Score</th>
+        <th onclick="sortBy('owner')">Owner / Property</th>
+        <th onclick="sortBy('doc_type')">Type</th>
+        <th onclick="sortBy('filed')">Filed</th>
+        <th onclick="sortBy('amount')">Amount</th>
+        <th onclick="sortBy('doc_num')">Doc #</th>
+        <th>Tags</th>
+        <th>Equity Est.</th>
+        <th class="action-cell">Link</th>
       </tr>
     </thead>
-    <tbody id="tbody"></tbody>
+    <tbody id="table-body">
+      <tr><td colspan="9"><div class="loading"><span class="spinner"></span>Loading leads...</div></td></tr>
+    </tbody>
   </table>
-  <div class="no-data" id="no-data" style="display:none">
-    <div style="font-size:32px;margin-bottom:12px">📋</div>
-    <div style="color:var(--text3);font-size:14px">No records match your filters</div>
-  </div>
-  <div class="loading-state" id="loading-state">
-    <div style="color:var(--text3);font-size:14px">Loading records...</div>
-  </div>
 </div>
 
-<!-- VACANT LAND TABLE -->
-<div class="table-wrap" id="table-vacant" style="display:none">
-  <table>
-    <thead>
-      <tr>
-        <th>Parcel ID</th>
-        <th>Property Address</th>
-        <th>Owner / Mail Address</th>
-        <th>LUC</th>
-        <th>Acres</th>
-        <th>City</th>
-        <th>ZIP</th>
-      </tr>
-    </thead>
-    <tbody id="tbody-vacant"></tbody>
-  </table>
-  <div class="no-data" id="no-data-vacant" style="display:none">
-    <div style="font-size:32px;margin-bottom:12px">🌱</div>
-    <div style="color:var(--text3);font-size:14px">No vacant lots match your filters</div>
-  </div>
-  <div class="loading-state" id="loading-vacant">
-    <div style="color:var(--text3);font-size:14px">Loading vacant land data...</div>
-  </div>
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modal-content"></div>
 </div>
 
 <script>
-var allRecords = [];
-var allVacant = [];
-var activeTab = 'all';
+// ─── State ───────────────────────────────────────────────────────────────────
+let allData = {};       // { tabName: [records] }
+let currentTab = 'all';
+let currentRecords = [];
+let filteredRecords = [];
+let sortCol = 'score';
+let sortDir = -1;
+const PAGE_SIZE = 200;
+let rendered = 0;
 
-function flagClass(f) {
-  f = (f || '').toLowerCase();
-  if (f.includes('hot stack') || f.includes('🔥')) return 'flag-hot';
-  if (f.includes('absentee')) return 'flag-absentee';
-  if (f.includes('phone')) return 'flag-phone';
-  if (f.includes('lis') || f.includes('pendens')) return 'flag-lp';
-  if (f.includes('foreclos') || f.includes('pre-fore')) return 'flag-fc';
-  if (f.includes('tax')) return 'flag-tax';
-  if (f.includes('lien') || f.includes('judgment')) return 'flag-lien';
-  if (f.includes('probate')) return 'flag-prob';
-  if (f.includes('llc') || f.includes('corp')) return 'flag-llc';
-  if (f.includes('new this')) return 'flag-new';
-  if (f.includes('vacant')) return 'flag-vacant';
-  if (f.includes('stack') || f.includes('distress')) return 'flag-stack';
-  if (f.includes('no property')) return 'flag-noprop';
-  return 'flag-llc';
-}
+// ─── Load all tab data ────────────────────────────────────────────────────────
+const TAB_FILES = {
+  all:            'records.json',
+  sheriff_sales:  'sheriff_sales.json',
+  hot_stack:      'hot_stack.json',
+  probate:        'probate.json',
+  code_violations:'code_violations.json',
+  vacant_homes:   'vacant_homes.json',
+  tax_delinquent: 'tax_delinquent.json',
+  absentee:       'absentee.json',
+  out_of_state:   'out_of_state.json',
+  inherited:      'inherited.json',
+  foreclosure:    'foreclosure.json',
+  subject_to:     'subject_to.json',
+  prime_subject_to:'prime_subject_to.json',
+};
 
-function scoreClass(s, hot) {
-  if (hot) return 'score-fire';
-  return s >= 75 ? 'score-high' : s >= 60 ? 'score-med' : 'score-low';
-}
-
-function fmt(v) {
-  return v ? '$' + parseFloat(v).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2}) : '—';
-}
-
-function dsLabel(s) {
-  var map = {
-    'foreclosure':'FORECL','lis_pendens':'LIS PEND','judgment':'JUDG',
-    'lien':'LIEN','mechanic_lien':'MECH','tax_delinquent':'TAX DELN',
-    'probate':'PROBATE','vacant_building':'VACANT BLD','vacant_land':'VACANT LOT'
-  };
-  return map[s] || s.toUpperCase();
-}
-
-function renderLeads(records) {
-  var tbody = document.getElementById('tbody');
-  var noData = document.getElementById('no-data');
-  document.getElementById('loading-state').style.display = 'none';
-  if (!records.length) { tbody.innerHTML = ''; noData.style.display = 'block'; return; }
-  noData.style.display = 'none';
-
-  tbody.innerHTML = records.map(function(r) {
-    var flags = (r.flags || []).map(function(f) {
-      return '<span class="flag-pill ' + flagClass(f) + '">' + f + '</span>';
-    }).join('');
-
-    var addrLine = r.prop_address
-      ? '<div class="prop-addr">' + r.prop_address + (r.prop_city ? ', ' + r.prop_city : '') + '</div>'
-      : '<div class="no-match">No address matched</div>';
-
-    var distressSources = (r.distress_sources || []);
-    var dsBar = distressSources.length > 0
-      ? '<div class="distress-bar">' + distressSources.map(function(s){
-          return '<span class="ds-chip">' + dsLabel(s) + '</span>';
-        }).join('') + '</div>'
-      : '';
-
-    var link = r.clerk_url
-      ? '<a href="' + r.clerk_url + '" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;font-family:\'IBM Plex Mono\',monospace">View ↗</a>'
-      : '—';
-
-    var acresBit = r.acres ? '<span class="acres-badge">' + r.acres + ' ac</span>' : '';
-    var vacantBit = r.is_vacant_land ? '<span class="flag-pill flag-vacant" style="font-size:9px">VACANT LOT</span>' : '';
-    var phonesBit = '';
-    if (r.phones && r.phones.length > 0) {
-      phonesBit = '<div style="margin-top:5px;display:flex;flex-direction:column;gap:3px">' + r.phones.map(function(p, i) {
-        var ptype = (r.phone_types && r.phone_types[i]) || 'unknown';
-        var isMobile = ptype === 'mobile';
-        var typeLabel = isMobile
-          ? '<span style="font-size:8px;padding:1px 4px;border-radius:2px;background:var(--green-dim);color:var(--green);font-weight:600;margin-right:4px">MOBILE</span>'
-          : ptype === 'landline'
-            ? '<span style="font-size:8px;padding:1px 4px;border-radius:2px;background:var(--surface2);color:var(--text3);font-weight:600;margin-right:4px">LAND</span>'
-            : '';
-        return '<div>' + typeLabel + '<a href="tel:' + p + '" style="font-family:\'IBM Plex Mono\',monospace;font-size:10px;color:var(--green);text-decoration:none">📞 ' + p + '</a></div>';
-      }).join('') + '</div>';
-    }
-
-    return '<tr>' +
-      '<td><span class="score-badge ' + scoreClass(r.score||0, r.hot_stack) + '">' + (r.score||0) + '</span></td>' +
-      '<td><div class="owner-name">' + (r.owner||'Unknown') + '</div>' + addrLine + dsBar + '</td>' +
-      '<td style="color:var(--text2);font-family:\'IBM Plex Mono\',monospace;font-size:11px">' + (r.doc_type||'—') + '</td>' +
-      '<td style="color:var(--text2);font-family:\'IBM Plex Mono\',monospace;font-size:11px;white-space:nowrap">' + (r.filed||'—') + '</td>' +
-      '<td style="font-weight:500;color:var(--text2);font-family:\'IBM Plex Mono\',monospace;font-size:11px">' + fmt(r.amount) + '</td>' +
-      '<td style="font-size:10px;color:var(--text3);font-family:\'IBM Plex Mono\',monospace">' + (r.doc_num||'—') + '</td>' +
-      '<td>' + (flags||'<span style="color:var(--text3);font-size:10px">—</span>') + acresBit + vacantBit + '</td>' +
-      '<td>' + (phonesBit || '<span style="color:var(--text3);font-size:10px">—</span>') + '</td>' +
-      '<td>' + link + '</td>' +
-    '</tr>';
-  }).join('');
-}
-
-function renderVacant(records) {
-  var tbody = document.getElementById('tbody-vacant');
-  var noData = document.getElementById('no-data-vacant');
-  document.getElementById('loading-vacant').style.display = 'none';
-  if (!records.length) { tbody.innerHTML = ''; noData.style.display = 'block'; return; }
-  noData.style.display = 'none';
-
-  tbody.innerHTML = records.map(function(r) {
-    var acresDisplay = r.acres ? parseFloat(r.acres).toFixed(2) + ' ac' : '—';
-    var ownerLine = r.owner ? '<div class="owner-name" style="font-size:12px">' + r.owner + '</div>' : '';
-    var mailLine = r.mail_address
-      ? '<div class="prop-addr">' + r.mail_address + (r.mail_city ? ', ' + r.mail_city : '') + '</div>'
-      : '<div class="no-match">No mail address</div>';
-
-    return '<tr>' +
-      '<td><span class="parcel-id">' + (r.parcel_id||'—') + '</span></td>' +
-      '<td><div class="prop-addr" style="font-size:12px;color:var(--text)">' + (r.prop_address||'—') + '</div></td>' +
-      '<td>' + ownerLine + mailLine + '</td>' +
-      '<td><span class="luc-badge">' + (r.luc||'—') + '</span></td>' +
-      '<td style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;color:var(--text2)">' + acresDisplay + '</td>' +
-      '<td style="font-size:12px;color:var(--text2)">' + (r.prop_city||r.mail_city||'—') + '</td>' +
-      '<td style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;color:var(--text3)">' + (r.prop_zip||r.mail_zip||'—') + '</td>' +
-    '</tr>';
-  }).join('');
-}
-
-function getFiltered() {
-  var q = document.getElementById('search').value.toLowerCase();
-  var minScore = parseInt(document.getElementById('filter-score').value) || 0;
-  var flagF = document.getElementById('filter-flag').value;
-  var addrF = document.getElementById('filter-addr').value;
-
-  return allRecords.filter(function(r) {
-    if (activeTab === 'tax' && !((r.flags||[]).some(function(f){return f.toLowerCase().includes('tax');}) || r.cat === 'TAX' || r.doc_type === 'TAX')) return false;
-    if (activeTab === 'lp' && !(r.flags||[]).some(function(f){return f.toLowerCase().includes('lis')||f.toLowerCase().includes('pendens');})) return false;
-    if (activeTab === 'clerk' && !r.doc_type) return false;
-    if (activeTab === 'hotstack' && !r.hot_stack) return false;
-    if ((r.score||0) < minScore) return false;
-    if (flagF && !(r.flags||[]).some(function(f){return f === flagF;})) return false;
-    if (addrF === 'yes' && !r.prop_address) return false;
-    if (addrF === 'no' && r.prop_address) return false;
-    if (q) {
-      var s = ((r.owner||'') + ' ' + (r.prop_address||'') + ' ' + (r.doc_num||'') + ' ' + (r.doc_type||'') + ' ' + (r.mail_address||'')).toLowerCase();
-      if (!s.includes(q)) return false;
-    }
-    return true;
-  });
-}
-
-function getFilteredVacant() {
-  var q = document.getElementById('search-vacant').value.toLowerCase();
-  var cityF = document.getElementById('filter-vacant-city').value;
-
-  return allVacant.filter(function(r) {
-    if (cityF) {
-      var city = (r.prop_city || r.mail_city || '').toLowerCase();
-      if (!city.includes(cityF.toLowerCase())) return false;
-    }
-    if (q) {
-      var s = ((r.prop_address||'') + ' ' + (r.owner||'') + ' ' + (r.parcel_id||'') + ' ' + (r.mail_address||'')).toLowerCase();
-      if (!s.includes(q)) return false;
-    }
-    return true;
-  });
-}
-
-function update() {
-  if (activeTab === 'vacant') {
-    var vrecs = getFilteredVacant();
-    document.getElementById('rec-count-vacant').textContent = vrecs.length.toLocaleString() + ' lots';
-    renderVacant(vrecs);
-  } else {
-    var recs = getFiltered();
-    document.getElementById('rec-count').textContent = recs.length.toLocaleString() + ' records';
-    renderLeads(recs);
+async function loadTab(tab) {
+  if (allData[tab]) return allData[tab];
+  const file = TAB_FILES[tab];
+  try {
+    const r = await fetch(file);
+    if (!r.ok) throw new Error(r.status);
+    const j = await r.json();
+    const records = j.records || [];
+    allData[tab] = records;
+    // update badge
+    const badge = document.getElementById('badge-' + tab);
+    if (badge) badge.textContent = records.length.toLocaleString();
+    return records;
+  } catch(e) {
+    allData[tab] = [];
+    return [];
   }
 }
 
-function setStats(records, vacantCount, hotCount) {
-  document.getElementById('stat-total').textContent = records.length.toLocaleString();
-  document.getElementById('stat-hot').textContent = hotCount.toLocaleString();
-  document.getElementById('stat-lp').textContent = records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('lis');});}).length.toLocaleString();
-  document.getElementById('stat-liens').textContent = records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('lien')||f.toLowerCase().includes('judgment');});}).length.toLocaleString();
-  document.getElementById('stat-addr').textContent = records.filter(function(r){return r.prop_address;}).length.toLocaleString();
-  document.getElementById('stat-mail').textContent = records.filter(function(r){return r.mail_address;}).length.toLocaleString();
-  document.getElementById('stat-new').textContent = records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('new this');});}).length.toLocaleString();
-  document.getElementById('stat-vacant').textContent = vacantCount.toLocaleString();
-  document.getElementById('stat-absentee').textContent = records.filter(function(r){return r.is_absentee;}).length.toLocaleString();
-  document.getElementById('stat-traced').textContent = records.filter(function(r){return r.phones && r.phones.length > 0;}).length.toLocaleString();
-
-  document.getElementById('tab-all').textContent = records.length.toLocaleString();
-  document.getElementById('tab-clerk').textContent = records.filter(function(r){return r.doc_type;}).length.toLocaleString();
-  document.getElementById('tab-tax').textContent = records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('tax');}) || r.cat === 'TAX';}).length.toLocaleString();
-  document.getElementById('tab-lp').textContent = records.filter(function(r){return(r.flags||[]).some(function(f){return f.toLowerCase().includes('lis');});}).length.toLocaleString();
-  document.getElementById('tab-hot').textContent = hotCount.toLocaleString();
-  document.getElementById('tab-vacant').textContent = vacantCount.toLocaleString();
+async function loadMainStats() {
+  try {
+    const r = await fetch('records.json');
+    const j = await r.json();
+    document.getElementById('stat-total').textContent = (j.total||0).toLocaleString();
+    document.getElementById('stat-hotstack').textContent = (j.hot_stack_count||0).toLocaleString();
+    document.getElementById('stat-vacanthome').textContent = (j.vacant_home_count||0).toLocaleString();
+    document.getElementById('stat-taxdelin').textContent = (j.tax_delinquent_count||0).toLocaleString();
+    document.getElementById('stat-absentee').textContent = (j.absentee_count||0).toLocaleString();
+    document.getElementById('stat-subjectto').textContent = (j.subject_to_count||0).toLocaleString();
+    document.getElementById('stat-sheriff').textContent = (j.sheriff_sale_count||0).toLocaleString();
+    document.getElementById('stat-probate').textContent = (j.probate_count||0).toLocaleString();
+    document.getElementById('stat-codevio').textContent = (j.code_violation_count||0).toLocaleString();
+    document.getElementById('stat-inherited').textContent = (j.records||[]).filter(r=>r.is_inherited).length.toLocaleString();
+    const newWeek = (j.records||[]).filter(r=>r.flags&&r.flags.includes('New this week')).length;
+    document.getElementById('stat-newweek').textContent = newWeek.toLocaleString();
+    document.getElementById('badge-all').textContent = (j.total||0).toLocaleString();
+    allData['all'] = j.records || [];
+    if (j.fetched_at) {
+      const d = new Date(j.fetched_at);
+      document.getElementById('updated-label').textContent = 'Updated ' + d.toLocaleDateString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});
+    }
+  } catch(e) {
+    document.getElementById('updated-label').textContent = 'Offline / No data';
+  }
 }
 
-function buildCityFilter(records) {
-  var cities = {};
-  records.forEach(function(r) {
-    var city = r.prop_city || r.mail_city;
-    if (city) cities[city] = true;
+// ─── Tab switching ────────────────────────────────────────────────────────────
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', async () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    currentTab = tab.dataset.tab;
+    showLoading();
+    const records = await loadTab(currentTab);
+    currentRecords = records;
+    applyFilters();
   });
-  var sel = document.getElementById('filter-vacant-city');
-  Object.keys(cities).sort().forEach(function(city) {
-    var opt = document.createElement('option');
-    opt.value = city;
-    opt.textContent = city;
-    sel.appendChild(opt);
+});
+
+function showLoading() {
+  document.getElementById('table-body').innerHTML =
+    '<tr><td colspan="9"><div class="loading"><span class="spinner"></span>Loading...</div></td></tr>';
+}
+
+// ─── Filters ──────────────────────────────────────────────────────────────────
+function applyFilters() {
+  const q = document.getElementById('search').value.toLowerCase().trim();
+  const minScore = parseInt(document.getElementById('filter-score').value)||0;
+  const flagFilter = document.getElementById('filter-flag').value.toLowerCase();
+  const addrFilter = document.getElementById('filter-address').value;
+
+  filteredRecords = currentRecords.filter(r => {
+    if (minScore && (r.score||0) < minScore) return false;
+    if (addrFilter==='with' && !r.prop_address) return false;
+    if (addrFilter==='without' && r.prop_address) return false;
+    if (flagFilter) {
+      const flags = (r.flags||[]).join(' ').toLowerCase();
+      if (!flags.includes(flagFilter)) return false;
+    }
+    if (q) {
+      const hay = [r.owner,r.prop_address,r.prop_city,r.doc_num,r.doc_type,r.mail_address,
+                   r.decedent_name,r.executor_name,(r.flags||[]).join(' ')].join(' ').toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  sortRecords();
+  rendered = 0;
+  renderTable();
+  document.getElementById('record-count').textContent = filteredRecords.length.toLocaleString() + ' records';
+}
+
+function clearFilters() {
+  document.getElementById('search').value='';
+  document.getElementById('filter-score').value='';
+  document.getElementById('filter-flag').value='';
+  document.getElementById('filter-address').value='';
+  applyFilters();
+}
+
+// ─── Sort ─────────────────────────────────────────────────────────────────────
+function sortBy(col) {
+  if (sortCol===col) sortDir*=-1; else { sortCol=col; sortDir=-1; }
+  document.querySelectorAll('thead th').forEach(th => th.classList.remove('sorted'));
+  event.target.classList.add('sorted');
+  sortRecords(); rendered=0; renderTable();
+}
+
+function sortRecords() {
+  filteredRecords.sort((a,b) => {
+    let av = a[sortCol], bv = b[sortCol];
+    if (av==null) av = sortDir<0 ? -Infinity : Infinity;
+    if (bv==null) bv = sortDir<0 ? -Infinity : Infinity;
+    if (typeof av==='string') return av.localeCompare(bv)*sortDir;
+    return (av-bv)*sortDir;
   });
 }
+
+// ─── Render table ─────────────────────────────────────────────────────────────
+function renderTable() {
+  const tbody = document.getElementById('table-body');
+  if (!filteredRecords.length) {
+    tbody.innerHTML = '<tr><td colspan="9"><div class="empty"><div class="empty-icon">◎</div><div>No leads found</div></div></td></tr>';
+    return;
+  }
+  const slice = filteredRecords.slice(0, PAGE_SIZE);
+  tbody.innerHTML = slice.map(r => rowHTML(r)).join('');
+  // infinite scroll
+  if (filteredRecords.length > PAGE_SIZE) {
+    const sentinel = document.createElement('tr');
+    sentinel.id='scroll-sentinel';
+    sentinel.innerHTML='<td colspan="9"><div class="loading" style="padding:16px">Scroll for more...</div></td>';
+    tbody.appendChild(sentinel);
+    rendered = PAGE_SIZE;
+    observeSentinel();
+  }
+}
+
+function observeSentinel() {
+  const sentinel = document.getElementById('scroll-sentinel');
+  if (!sentinel) return;
+  const obs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      loadMore(obs);
+    }
+  }, {root: document.querySelector('.table-wrap'), threshold:0.1});
+  obs.observe(sentinel);
+}
+
+function loadMore(obs) {
+  const tbody = document.getElementById('table-body');
+  const sentinel = document.getElementById('scroll-sentinel');
+  if (sentinel) sentinel.remove();
+  if (obs) obs.disconnect();
+  const next = filteredRecords.slice(rendered, rendered+PAGE_SIZE);
+  next.forEach(r => tbody.insertAdjacentHTML('beforeend', rowHTML(r)));
+  rendered += next.length;
+  if (rendered < filteredRecords.length) {
+    const s = document.createElement('tr'); s.id='scroll-sentinel';
+    s.innerHTML='<td colspan="9"><div class="loading" style="padding:16px">Loading more...</div></td>';
+    tbody.appendChild(s);
+    observeSentinel();
+  }
+}
+
+function rowHTML(r) {
+  const score = r.score||0;
+  const scoreClass = score>=80?'score-high':score>=60?'score-mid':'score-low';
+  const flags = r.flags||[];
+  const tagsHtml = flags.slice(0,5).map(f => tagHTML(f)).join('') + (flags.length>5?`<span class="tag tag-gray">+${flags.length-5}</span>`:'');
+  const equity = r.est_equity;
+  const equityHtml = equity!=null ? equityBar(equity) : '<span style="color:var(--muted);font-size:11px">–</span>';
+  const amount = r.amount!=null ? `$${Number(r.amount).toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0})}` : '–';
+  const addr = r.prop_address ? `<div class="owner-sub">${r.prop_address}${r.prop_city?', '+r.prop_city:''}</div>` : '';
+  const decedent = r.decedent_name ? `<div class="owner-sub">Estate of ${r.decedent_name}</div>` : '';
+  const sheriffBadge = r.doc_type==='SHERIFF' && r.sheriff_sale_date ? `<div class="owner-sub" style="color:var(--hot)">⚡ Sale: ${r.sheriff_sale_date}</div>` : '';
+  const link = r.clerk_url ? `<a class="view-btn" href="${r.clerk_url}" target="_blank">View</a>` : '<span style="color:var(--muted);font-size:11px">–</span>';
+
+  return `<tr onclick='openModal(${JSON.stringify(r).replace(/'/g,"&#39;")})'>
+    <td class="score-cell"><div class="score-badge ${scoreClass}">${score}</div></td>
+    <td class="owner-cell">
+      <div class="owner-name">${r.owner||'<span style="color:var(--muted)">Unknown</span>'}</div>
+      ${decedent}${addr}${sheriffBadge}
+    </td>
+    <td class="doctype-cell">${r.cat_label||r.doc_type||'–'}</td>
+    <td class="date-cell">${r.filed||'–'}</td>
+    <td class="amount-cell">${amount}</td>
+    <td class="date-cell">${(r.doc_num||'').slice(0,20)}</td>
+    <td class="tags-cell"><div class="tags">${tagsHtml}</div></td>
+    <td>${equityHtml}</td>
+    <td class="action-cell">${link}</td>
+  </tr>`;
+}
+
+function tagHTML(flag) {
+  const f = flag.toLowerCase();
+  let cls='tag-gray';
+  if(f.includes('hot stack')||f.includes('sheriff')||f.includes('foreclos')||f.includes('⚡')) cls='tag-hot';
+  else if(f.includes('tax')||f.includes('debt')||f.includes('lien')||f.includes('judgment')) cls='tag-warn';
+  else if(f.includes('absentee')||f.includes('out-of-state')||f.includes('inherited')||f.includes('probate')||f.includes('executor')) cls='tag-blue';
+  else if(f.includes('vacant')||f.includes('code')||f.includes('nuisance')||f.includes('violation')) cls='tag-purple';
+  else if(f.includes('new this week')) cls='tag-green';
+  else if(f.includes('subject-to')||f.includes('equity')||f.includes('prime')) cls='tag-gold';
+  return `<span class="tag ${cls}">${flag}</span>`;
+}
+
+function equityBar(equity) {
+  const max=150000; const pct=Math.min(Math.abs(equity)/max*100,100);
+  const cls=equity>=0?'equity-positive':'equity-negative';
+  const label=equity>=0?`+$${(equity/1000).toFixed(0)}k`:`-$${(Math.abs(equity)/1000).toFixed(0)}k`;
+  const color=equity>=0?'var(--accent3)':'var(--accent2)';
+  return `<div class="equity-bar"><div class="equity-fill ${cls}" style="width:${pct}%"></div></div>
+          <div class="equity-label" style="color:${color}">${label}</div>`;
+}
+
+// ─── Modal ────────────────────────────────────────────────────────────────────
+function openModal(r) {
+  const flags = r.flags||[];
+  const isSheriff = r.doc_type==='SHERIFF';
+  const isProbate = r.doc_type==='PRO';
+  const equity = r.est_equity!=null ? `$${Number(r.est_equity).toLocaleString()}` : '–';
+  const equityColor = r.est_equity!=null ? (r.est_equity>=0?'green':'red') : '';
+  const fmtDollar = v => v!=null ? `$${Number(v).toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0})}` : '–';
+
+  const sheriffBanner = isSheriff ? `
+    <div class="sheriff-banner">
+      ⚡ SHERIFF SALE SCHEDULED: ${r.sheriff_sale_date||'TBD'} — Owner must sell or lose everything
+    </div>` : '';
+
+  const probateSection = isProbate ? `
+    <hr class="modal-divider">
+    <div class="modal-section">Estate / Probate Details</div>
+    <div class="modal-field"><div class="modal-label">Decedent</div><div class="modal-value">${r.decedent_name||'–'}</div></div>
+    <div class="modal-field"><div class="modal-label">Executor / Admin</div><div class="modal-value">${r.executor_name||'–'}</div></div>
+    <div class="modal-field"><div class="modal-label">Executor State</div><div class="modal-value ${r.executor_state&&r.executor_state!=='OH'?'red':''}">${r.executor_state||'OH'}</div></div>
+  ` : '';
+
+  document.getElementById('modal-content').innerHTML = `
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">${r.owner||'Unknown Owner'}</div>
+        <div class="modal-sub">${r.cat_label||r.doc_type} · Score ${r.score||0} · Subject-To ${r.subject_to_score||0}</div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-grid">
+      ${sheriffBanner}
+      <div class="modal-section">Property</div>
+      <div class="modal-field full"><div class="modal-label">Property Address</div><div class="modal-value highlight">${r.prop_address||'–'}${r.prop_city?', '+r.prop_city:''} ${r.prop_zip||''}</div></div>
+      <div class="modal-field full"><div class="modal-label">Mailing Address</div><div class="modal-value">${r.mail_address||'–'}${r.mail_city?', '+r.mail_city:''} ${r.mail_state||''} ${r.mail_zip||''}</div></div>
+      <div class="modal-field"><div class="modal-label">LUC Code</div><div class="modal-value">${r.luc||'–'}</div></div>
+      <div class="modal-field"><div class="modal-label">Acres</div><div class="modal-value">${r.acres||'–'}</div></div>
+      <div class="modal-field"><div class="modal-label">Parcel ID</div><div class="modal-value">${r.parcel_id||'–'}</div></div>
+      <div class="modal-field"><div class="modal-label">Lender</div><div class="modal-value">${r.lender||'–'}</div></div>
+      <hr class="modal-divider">
+      <div class="modal-section">Value &amp; Equity Estimate</div>
+      <div class="modal-field"><div class="modal-label">Assessed Value</div><div class="modal-value">${fmtDollar(r.assessed_value)}</div></div>
+      <div class="modal-field"><div class="modal-label">Est. Market Value</div><div class="modal-value highlight">${fmtDollar(r.estimated_value)}</div></div>
+      <div class="modal-field"><div class="modal-label">Last Sale Price</div><div class="modal-value">${fmtDollar(r.last_sale_price)} ${r.last_sale_year?'('+r.last_sale_year+')':''}</div></div>
+      <div class="modal-field"><div class="modal-label">Est. Mortgage Balance</div><div class="modal-value">${fmtDollar(r.est_mortgage_balance)}</div></div>
+      <div class="modal-field"><div class="modal-label">Est. Equity</div><div class="modal-value ${equityColor}">${equity}</div></div>
+      <div class="modal-field"><div class="modal-label">Est. Arrears / Owed</div><div class="modal-value">${fmtDollar(r.est_arrears)}</div></div>
+      <div class="modal-field"><div class="modal-label">Est. Payoff (Sub-To)</div><div class="modal-value highlight">${fmtDollar(r.est_payoff)}</div></div>
+      ${(r.mortgage_signals||[]).length?`<div class="modal-field full"><div class="modal-label">Signals</div><div class="modal-value">${r.mortgage_signals.join(' · ')}</div></div>`:''}
+      <hr class="modal-divider">
+      <div class="modal-section">Filing Details</div>
+      <div class="modal-field"><div class="modal-label">Doc Type</div><div class="modal-value">${r.cat_label||r.doc_type}</div></div>
+      <div class="modal-field"><div class="modal-label">Date Filed</div><div class="modal-value">${r.filed||'–'}</div></div>
+      <div class="modal-field"><div class="modal-label">Doc Number</div><div class="modal-value">${r.doc_num||'–'}</div></div>
+      <div class="modal-field"><div class="modal-label">Amount / Judgment</div><div class="modal-value">${fmtDollar(r.amount)}</div></div>
+      ${r.code_violation_case?`<div class="modal-field"><div class="modal-label">Code Violation</div><div class="modal-value">${r.code_violation_case} · ${r.code_violation_date||'–'}</div></div>`:''}
+      ${probateSection}
+      <hr class="modal-divider">
+      <div class="modal-section">Distress Profile</div>
+      <div class="modal-field full"><div class="modal-label">Distress Sources (${r.distress_count||0})</div><div class="modal-value">${(r.distress_sources||[]).join(' · ')||'–'}</div></div>
+      <div class="modal-tags">${(r.flags||[]).map(f=>tagHTML(f)).join('')}</div>
+      <div class="modal-actions">
+        ${r.clerk_url?`<a class="btn btn-primary" href="${r.clerk_url}" target="_blank">View Public Record</a>`:''}
+        <button class="btn btn-ghost" onclick="exportSingle(${JSON.stringify(r).replace(/'/g,"&#39;")})">Export Row</button>
+        <button class="btn btn-ghost" onclick="closeModal()">Close</button>
+      </div>
+    </div>`;
+  document.getElementById('modal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+}
+
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+
+// ─── Export ───────────────────────────────────────────────────────────────────
+const CSV_COLS = ['owner','prop_address','prop_city','prop_state','prop_zip',
+  'mail_address','mail_city','mail_state','mail_zip',
+  'doc_type','cat_label','filed','doc_num','amount',
+  'score','subject_to_score','hot_stack','is_vacant_home','is_absentee','is_out_of_state','is_inherited',
+  'assessed_value','estimated_value','last_sale_price','last_sale_year',
+  'est_mortgage_balance','est_equity','est_arrears','est_payoff',
+  'decedent_name','executor_name','executor_state',
+  'sheriff_sale_date','lender','code_violation_case',
+  'parcel_id','luc','distress_count','distress_sources','flags',
+  'phones','emails','clerk_url'];
 
 function exportCSV() {
-  var recs = getFiltered();
-  var rows = [['First Name','Last Name','Mailing Address','Mailing City','Mailing State','Mailing Zip',
-    'Property Address','Property City','Property State','Property Zip','Lead Type','Document Type',
-    'Date Filed','Document Number','Amount/Debt Owed','Seller Score','Motivated Seller Flags',
-    'Distress Sources','Distress Count','Hot Stack','Vacant Land','LUC Code','Acres','Source','Public Records URL']];
-  recs.forEach(function(r) {
-    var parts = (r.owner||'').split(' ');
-    rows.push([
-      parts[0]||'', parts.slice(1).join(' ')||'',
-      r.mail_address||'', r.mail_city||'', r.mail_state||'', r.mail_zip||'',
-      r.prop_address||'', r.prop_city||'', r.prop_state||'', r.prop_zip||'',
-      r.cat_label||r.cat||'', r.doc_type||'', r.filed||'', r.doc_num||'',
-      r.amount||'', r.score||0,
-      (r.flags||[]).join('; '),
-      (r.distress_sources||[]).join('; '),
-      r.distress_count||0,
-      r.hot_stack ? 'YES' : '',
-      r.is_vacant_land ? 'YES' : '',
-      r.luc||'', r.acres||'',
-      'Summit County Clerk', r.clerk_url||''
-    ]);
-  });
-  downloadCSV(rows, 'ghl_leads_akron.csv');
+  const rows = filteredRecords.length ? filteredRecords : currentRecords;
+  const header = CSV_COLS.join(',');
+  const lines = rows.map(r => CSV_COLS.map(c => {
+    let v = r[c];
+    if (Array.isArray(v)) v = v.join('; ');
+    if (v==null) v='';
+    v = String(v).replace(/"/g,'""');
+    return `"${v}"`;
+  }).join(','));
+  const csv = [header,...lines].join('\n');
+  download('ghl_export_' + new Date().toISOString().slice(0,10) + '.csv', csv, 'text/csv');
 }
 
-function exportVacantCSV() {
-  var recs = getFilteredVacant();
-  var rows = [['Parcel ID','Property Address','Property City','Property ZIP','Owner','Mailing Address','Mailing City','Mailing State','Mailing ZIP','LUC Code','Acres']];
-  recs.forEach(function(r) {
-    rows.push([r.parcel_id||'', r.prop_address||'', r.prop_city||'', r.prop_zip||'',
-      r.owner||'', r.mail_address||'', r.mail_city||'', r.mail_state||'', r.mail_zip||'',
-      r.luc||'', r.acres||'']);
-  });
-  downloadCSV(rows, 'vacant_land_akron.csv');
+function exportSingle(r) {
+  const header = CSV_COLS.join(',');
+  const line = CSV_COLS.map(c => {
+    let v = r[c];
+    if (Array.isArray(v)) v = v.join('; ');
+    if (v==null) v='';
+    v = String(v).replace(/"/g,'""');
+    return `"${v}"`;
+  }).join(',');
+  download('lead_' + (r.doc_num||'export') + '.csv', [header,line].join('\n'), 'text/csv');
 }
 
-function downloadCSV(rows, filename) {
-  var csv = rows.map(function(r) {
-    return r.map(function(v) { return '"' + String(v).replace(/"/g,'""') + '"'; }).join(',');
-  }).join('\n');
-  var a = document.createElement('a');
-  a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
-  a.download = filename;
-  a.click();
+function download(filename, content, type) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([content], {type}));
+  a.download = filename; a.click();
 }
 
-function switchTab(tabName) {
-  activeTab = tabName;
-  var isVacant = tabName === 'vacant';
-  var isHot = tabName === 'hotstack';
-
-  // Show/hide appropriate UI sections
-  document.getElementById('controls-main').style.display = isVacant ? 'none' : 'flex';
-  document.getElementById('controls-vacant').style.display = isVacant ? 'flex' : 'none';
-  document.getElementById('table-leads').style.display = isVacant ? 'none' : 'block';
-  document.getElementById('table-vacant').style.display = isVacant ? 'block' : 'none';
-
-  // Hot stack banner
-  var hotHeader = document.getElementById('hot-header');
-  if (isHot) hotHeader.classList.add('visible');
-  else hotHeader.classList.remove('visible');
-
-  update();
+// ─── Init ─────────────────────────────────────────────────────────────────────
+async function init() {
+  await loadMainStats();
+  const records = allData['all'] || [];
+  currentRecords = records;
+  applyFilters();
+  // preload tab counts
+  Object.keys(TAB_FILES).forEach(async tab => {
+    if (tab==='all') return;
+    const recs = await loadTab(tab);
+  });
 }
 
-// Tab click handlers
-document.querySelectorAll('.tab').forEach(function(t) {
-  t.addEventListener('click', function() {
-    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
-    t.classList.add('active');
-    switchTab(t.dataset.tab);
-  });
-});
-
-document.getElementById('search').addEventListener('input', update);
-document.getElementById('filter-score').addEventListener('change', update);
-document.getElementById('filter-flag').addEventListener('change', update);
-document.getElementById('filter-addr').addEventListener('change', update);
-document.getElementById('search-vacant').addEventListener('input', update);
-document.getElementById('filter-vacant-city').addEventListener('change', update);
-document.getElementById('btn-csv').addEventListener('click', exportCSV);
-document.getElementById('btn-csv-vacant').addEventListener('click', exportVacantCSV);
-
-document.getElementById('btn-clear').addEventListener('click', function() {
-  document.getElementById('search').value = '';
-  document.getElementById('filter-score').value = '0';
-  document.getElementById('filter-flag').value = '';
-  document.getElementById('filter-addr').value = '';
-  update();
-});
-document.getElementById('btn-clear-vacant').addEventListener('click', function() {
-  document.getElementById('search-vacant').value = '';
-  document.getElementById('filter-vacant-city').value = '';
-  update();
-});
-
-// Load main records
-fetch('dashboard/records.json')
-  .then(function(r){return r.json();})
-  .then(function(data) {
-    allRecords = data.records || [];
-    var dr = data.date_range || {};
-    var hotCount = data.hot_stack_count || allRecords.filter(function(r){return r.hot_stack;}).length;
-    document.getElementById('date-range').textContent =
-      (dr.from||'') + (dr.to?' → '+dr.to:'') + ' · Updated ' + (data.fetched_at ? new Date(data.fetched_at).toLocaleDateString() : '—');
-
-    // Load vacant land
-    fetch('dashboard/vacant_land.json')
-      .then(function(r){return r.json();})
-      .then(function(vdata) {
-        allVacant = vdata.records || [];
-        buildCityFilter(allVacant);
-        setStats(allRecords, allVacant.length, hotCount);
-        update();
-      })
-      .catch(function() {
-        allVacant = [];
-        setStats(allRecords, 0, hotCount);
-        update();
-      });
-  })
-  .catch(function() {
-    document.getElementById('loading-state').innerHTML =
-      '<div style="color:var(--red);font-size:14px">⚠ Could not load records.json</div>' +
-      '<div style="margin-top:8px;font-size:12px;color:var(--text3)">Check that dashboard/records.json exists in your repo</div>';
-  });
+init();
 </script>
 </body>
 </html>
