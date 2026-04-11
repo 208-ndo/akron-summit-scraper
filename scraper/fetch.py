@@ -71,6 +71,10 @@ SHERIFF_SALES_URL    = "https://www.akronlegalnews.com/notices/sheriff_sale_abst
 DELINQUENT_INDEX_URL = "https://www.akronlegalnews.com/notices/delinquent_taxes"
 RECORDER_TRANSFER_URL = "https://fiscaloffice.summitoh.net/index.php/real-estate/conveyance-data"
 RECORDER_SEARCH_URL   = "https://fiscaloffice.summitoh.net/index.php/real-estate"
+EVICTION_URL          = "https://newcivilfilings.summitoh.net/"  # same as clerk
+DIVORCE_URL           = "https://clerk.summitoh.net/RecordsSearch/Disclaimer.asp?toPage=SelectDivision.asp"
+DOMESTIC_CIVIL_URL    = "https://newcivilfilings.summitoh.net/"
+FIRE_PERMIT_URL       = "https://www.akronohio.gov/government/departments/planning/building_permits.php"
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"}
 
@@ -82,7 +86,7 @@ LEAD_TYPE_MAP = {
     "PRO":"Probate / Estate","NOC":"Notice of Commencement","RELLP":"Release Lis Pendens",
     "TAXDELINQ":"Tax Delinquent","TAX":"Tax Delinquent",
     "VHOME":"Vacant Home","VACLAND":"Vacant Land","VACANT":"Vacant Property",
-    "SHERIFF":"Sheriff Sale","CODEVIOLATION":"Code Violation",
+    "SHERIFF":"Sheriff Sale","CODEVIOLATION":"Code Violation","EVICTION":"Eviction","DIVORCE":"Divorce Filing","FIREDMG":"Fire Damage",
 }
 
 VACANT_LAND_LUCS = {"500","501","502","503"}
@@ -402,6 +406,9 @@ def category_flags(doc_type:str,owner:str="")->List[str]:
     if dt in {"VACANT","VACLAND","VHOME"}:                    flags.append("Vacant property")
     if dt=="SHERIFF":                                          flags.append("Sheriff sale scheduled")
     if dt=="CODEVIOLATION":                                    flags.append("Code violation")
+    if dt=="EVICTION":                                         flags.append("Eviction filed")
+    if dt=="DIVORCE":                                          flags.append("Divorce filing")
+    if dt=="FIREDMG":                                          flags.append("Fire damage")
     if any(t in f" {ou} " for t in [" LLC"," INC"," CORP"," CO "," COMPANY"," TRUST"," LP"," LTD"," BANK "]): flags.append("LLC / corp owner")
     return list(dict.fromkeys(flags))
 
@@ -417,6 +424,9 @@ def classify_distress_source(doc_type:str)->Optional[str]:
     if dt in {"VACANT","VACLAND","VHOME"}:    return "vacant_home"
     if dt=="SHERIFF":                         return "sheriff_sale"
     if dt=="CODEVIOLATION":                   return "code_violation"
+    if dt=="EVICTION":                        return "eviction"
+    if dt=="DIVORCE":                         return "divorce"
+    if dt=="FIREDMG":                         return "fire_damage"
     return None
 
 
@@ -510,6 +520,9 @@ def score_record(record:"LeadRecord")->int:
     if "vacant property" in lf:           fs+=15
     if "sheriff sale scheduled" in lf:    fs+=35
     if "code violation" in lf:            fs+=20
+    if "eviction filed" in lf:            fs+=18  # very motivated — facing eviction
+    if "divorce filing" in lf:            fs+=15  # selling during divorce
+    if "fire damage" in lf:               fs+=20  # damaged property, needs quick sale
     if "absentee owner" in lf:            fs+=10
     if "out-of-state owner" in lf:        fs+=12
     if "tax delinquent" in lf:            fs+=10
@@ -1901,6 +1914,8 @@ def infer_doc_type_from_text(text:str)->Optional[str]:
     t=clean_text(text).upper()
     if any(x in t for x in ["LIS PENDENS"," LP ","LP-"]): return "LP"
     if any(x in t for x in ["NOTICE OF FORECLOSURE","FORECLOS","NOFC"]): return "NOFC"
+    if any(x in t for x in ["EVICTION","FED ","FORCIBLE ENTRY","UNLAWFUL DETAINER","F.E.D."]): return "EVICTION"
+    if any(x in t for x in ["DIVORCE","DISSOLUTION OF MARRIAGE","DOM REL","DOMESTIC REL","DR-"]): return "DIVORCE"
     if any(x in t for x in ["CERTIFIED JUDGMENT","DOMESTIC JUDGMENT","JUDGMENT"]): return "JUD"
     if any(x in t for x in ["TAX DEED","TAXDEED"]): return "TAXDEED"
     if any(x in t for x in ["IRS LIEN","FEDERAL LIEN","TAX LIEN"]): return "LNFED"
@@ -1964,7 +1979,7 @@ def parse_pending_civil_table(html,base_url,prefix)->List[LeadRecord]:
             cells=[clean_text(td.get_text(" ")) for td in row.find_all(["td","th"])]
             if not cells: continue
             rt=clean_text(" ".join(cells)); dt=infer_doc_type_from_text(rt)
-            if dt not in {"NOFC","LP","JUD","LN","LNMECH","LNFED","NOC"}: continue
+            if dt not in {"NOFC","LP","JUD","LN","LNMECH","LNFED","NOC","EVICTION","DIVORCE"}: continue
             filed=try_parse_date(rt) or datetime.now().date().isoformat()
             if datetime.fromisoformat(filed).date()<(datetime.now().date()-timedelta(days=LOOKBACK_DAYS)): continue
             owner,grantee,src=extract_owner_and_grantee(cells)
@@ -1992,6 +2007,69 @@ async def scrape_pending_civil_records(page)->List[LeadRecord]:
             h2=await page.content(); records.extend(parse_pending_civil_table(h2,PENDING_CIVIL_URL,"PCF2"))
     except Exception as e: logging.warning("Pending civil failed: %s",e)
     return records
+
+async def scrape_eviction_divorce_records(page)->List[LeadRecord]:
+    """
+    Scrape Summit County eviction (FED) and divorce filings.
+    Evictions: newcivilfilings.summitoh.net — same portal as clerk records
+    Divorce: clerk.summitoh.net domestic relations division
+    Both are high-motivation leads — people need to sell fast.
+    """
+    records=[]
+    # Evictions — forcible entry & detainer filings
+    try:
+        await page.goto(EVICTION_URL,wait_until="domcontentloaded",timeout=60000)
+        await page.wait_for_timeout(3000)
+        # Try to navigate to FED/Eviction division
+        for sel in ["text=Municipal","text=Eviction","text=FED","text=Forcible","select"]:
+            try:
+                loc=page.locator(sel).first
+                if await loc.count()>0: await loc.click(); await page.wait_for_timeout(1500); break
+            except: pass
+        html=await page.content()
+        eviction_recs=parse_pending_civil_table(html,EVICTION_URL,"EVIC")
+        # Keep only eviction types
+        eviction_recs=[r for r in eviction_recs if r.doc_type=="EVICTION"]
+        records.extend(eviction_recs)
+        logging.info("Eviction records scraped: %s",len(eviction_recs))
+        save_debug_text("eviction_page.html",html[:3000])
+    except Exception as e:
+        logging.warning("Eviction scrape failed: %s",e)
+
+    # Divorce — domestic relations division
+    try:
+        await page.goto(DIVORCE_URL,wait_until="domcontentloaded",timeout=60000)
+        await page.wait_for_timeout(3000)
+        for sel in ["text=Domestic","text=Divorce","text=DR","text=Dissolution","select"]:
+            try:
+                loc=page.locator(sel).first
+                if await loc.count()>0: await loc.click(); await page.wait_for_timeout(2000); break
+            except: pass
+        html=await page.content()
+        divorce_recs=parse_pending_civil_table(html,DIVORCE_URL,"DIV")
+        divorce_recs=[r for r in divorce_recs if r.doc_type=="DIVORCE"]
+        records.extend(divorce_recs)
+        logging.info("Divorce records scraped: %s",len(divorce_recs))
+        save_debug_text("divorce_page.html",html[:3000])
+    except Exception as e:
+        logging.warning("Divorce scrape failed: %s",e)
+
+    return records
+
+
+async def scrape_eviction_divorce_records_standalone()->List[LeadRecord]:
+    """Wrapper that opens its own browser for eviction/divorce scraping."""
+    records=[]
+    async with async_playwright() as p:
+        browser=await p.chromium.launch(headless=True); page=await browser.new_page()
+        try:
+            records=await scrape_eviction_divorce_records(page)
+        except Exception as e:
+            logging.warning("Eviction/divorce standalone failed: %s",e)
+        finally:
+            await browser.close()
+    return records
+
 
 async def scrape_clerk_records()->List[LeadRecord]:
     logging.info("Scraping clerk records..."); records=[]
@@ -2507,6 +2585,8 @@ def write_category_json(records):
         "subject_to":        [r for r in records if r.subject_to_score>=50],
         "prime_subject_to":  [r for r in records if r.subject_to_score>=70],
         "inherited":         [r for r in records if r.is_inherited],
+        "evictions":         [r for r in records if r.doc_type=="EVICTION"],
+        "divorces":          [r for r in records if r.doc_type=="DIVORCE"],
         # FIX #2 — vacant land now written as a category from the main records list
         "vacant_land":       [r for r in records if r.is_vacant_land],
     }
@@ -2523,6 +2603,8 @@ def write_category_json(records):
         "subject_to":       "🎯 Subject-to acquisition candidates (score ≥50)",
         "prime_subject_to": "⭐ Prime subject-to deals — high equity + motivated seller (score ≥70)",
         "inherited":        "🏛 Inherited properties — heirs may want quick sale",
+        "evictions":        "🚪 Eviction filings — landlords offloading problem properties",
+        "divorces":         "💔 Divorce filings — forced sale, both parties want out fast",
         "vacant_land":      "🌿 Distressed vacant infill lots ≤2ac — tax delinquent or in foreclosure",
     }
     output_paths={
@@ -2538,6 +2620,8 @@ def write_category_json(records):
         "subject_to":       (DATA_DIR/"subject_to.json",       DASHBOARD_DIR/"subject_to.json"),
         "prime_subject_to": (DATA_DIR/"prime_subject_to.json", DASHBOARD_DIR/"prime_subject_to.json"),
         "inherited":        (DATA_DIR/"inherited.json",        DASHBOARD_DIR/"inherited.json"),
+        "evictions":        (DATA_DIR/"evictions.json",        DASHBOARD_DIR/"evictions.json"),
+        "divorces":         (DATA_DIR/"divorces.json",         DASHBOARD_DIR/"divorces.json"),
         "vacant_land":      (DATA_DIR/"vacant_land.json",      DASHBOARD_DIR/"vacant_land.json"),
     }
     for cat,recs in categories.items():
@@ -2647,8 +2731,11 @@ async def main():
     # 1. CAMA parcel data
     owner_index,last_name_index,first_last_index,parcel_rows,mail_by_pid,sc720_values=build_parcel_indexes()
 
-    # 2. Court records (clerk)
+    # 2. Court records (clerk) + evictions + divorce
     clerk_records=await scrape_clerk_records()
+    eviction_divorce=await scrape_eviction_divorce_records_standalone()
+    clerk_records=clerk_records+eviction_divorce
+    logging.info("Clerk+Eviction+Divorce: %s total records",len(clerk_records))
 
     # 3. All non-playwright scrapers
     vacant_addresses   = scrape_vacant_building_addresses()
