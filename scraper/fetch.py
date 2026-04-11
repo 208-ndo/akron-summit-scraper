@@ -2108,88 +2108,63 @@ async def scrape_eviction_divorce_records(page)->List[LeadRecord]:
         logging.warning("Eviction scrape failed: %s", e)
 
     # ── DIVORCE ──────────────────────────────────────────────────────────
+    # Akron Legal News publishes domestic relations new cases daily
+    # Same pattern as sheriff sales and probate — no login needed
     try:
-        logging.info("Scraping divorces from clerk.summitoh.net...")
-
-        # Navigate DIRECTLY to DR division — bypass disclaimer via direct URL
-        # The disclaimer page links to SelectDivision.asp which lists divisions
-        dr_urls = [
-            "https://clerk.summitoh.net/RecordsSearch/SelectDivision.asp",
-            "https://clerk.summitoh.net/RecordsSearch/SearchEntry.asp?Division=DR",
-            "https://clerk.summitoh.net/RecordsSearch/SearchEntry.asp?Division=DOM",
+        logging.info("Scraping divorces from Akron Legal News...")
+        divorce_recs = []
+        divorce_urls = [
+            "https://www.akronlegalnews.com/courts/domestic_relations_new_cases",
+            "https://www.akronlegalnews.com/courts/domestic_relations",
+            "https://www.akronlegalnews.com/courts/domestic",
         ]
-
-        for dr_url in dr_urls:
+        for durl in divorce_urls:
             try:
-                await page.goto(dr_url, wait_until="domcontentloaded", timeout=60000)
-                await page.wait_for_timeout(2000)
-                html = await page.content()
-                text = BeautifulSoup(html, "lxml").get_text(" ")
-                if "domestic" in text.lower() or "division" in text.lower():
-                    logging.info("DR division loaded: %s (%s chars)", dr_url, len(text))
-                    save_debug_text("divorce_page.html", html[:5000])
-
-                    # Click domestic relations if division list shown
-                    for sel in ["text=Domestic Relations","text=Domestic","a[href*='DR']","a[href*='DOM']"]:
+                resp = retry_request(durl, timeout=20)
+                soup = BeautifulSoup(resp.text, "lxml")
+                text = soup.get_text(" ")
+                save_debug_text("divorce_page.html", resp.text[:5000])
+                logging.info("Divorce ALN URL: %s | %s chars | has_divorce=%s",
+                    durl, len(text), any(x in text.upper() for x in ["DIVORCE","DISSOLUTION","DOMESTIC"]))
+                if len(text) > 300:
+                    # Parse table rows
+                    for row in soup.select("tr"):
+                        cells = [clean_text(td.get_text(" ")) for td in row.select("td")]
+                        if not cells or len(cells) < 2: continue
+                        row_text = clean_text(" ".join(cells))
+                        if not any(x in row_text.upper() for x in
+                            ["DIVORCE","DISSOLUTION","VS","V."]):continue
+                        owner, grantee, src = extract_owner_and_grantee(cells)
+                        if not owner: continue
+                        dm = re.search(r"(\d{1,2}/\d{1,2}/\d{2,4})", row_text)
+                        filed = datetime.now().date().isoformat()
+                        if dm:
+                            for fmt in ("%m/%d/%Y","%m/%d/%y"):
+                                try: filed=datetime.strptime(dm.group(1),fmt).date().isoformat();break
+                                except: continue
                         try:
-                            loc = page.locator(sel).first
-                            if await loc.count() > 0:
-                                await loc.click()
-                                await page.wait_for_timeout(2000)
-                                logging.info("DR clicked: %s", sel)
-                                break
+                            if datetime.fromisoformat(filed).date()<(datetime.now().date()-timedelta(days=LOOKBACK_DAYS)):
+                                continue
                         except: pass
-                    break
-            except Exception as e:
-                logging.warning("DR URL %s: %s", dr_url, e)
-
-        # After navigation — search for recent DR filings
-        for sel in ["text=Search","input[type='submit']","button[type='submit']"]:
-            try:
-                loc = page.locator(sel).first
-                if await loc.count() > 0:
-                    await loc.click()
-                    await page.wait_for_timeout(2000)
-                    break
-            except: pass
-
-        html = await page.content()
-        save_debug_text("divorce_page2.html", html[:5000])
-
-        divorce_recs = parse_pending_civil_table(html, DIVORCE_URL, "DIV")
-        divorce_recs = [r for r in divorce_recs if r.doc_type == "DIVORCE"]
-
-        # Text pattern fallback
-        soup = BeautifulSoup(html, "lxml")
-        text = soup.get_text(" ")
-        seen_div = {r.doc_num for r in divorce_recs}
-
-        for el in soup.select("tr"):
-            row_text = clean_text(el.get_text(" "))
-            if not row_text or len(row_text) < 10: continue
-            if not any(x in row_text.upper() for x in ["DIVORCE","DISSOLUTION","DR-","D.R."]): continue
-            key = f"DIV-{len(divorce_recs)+1:04d}"
-            if key in seen_div: continue
-            seen_div.add(key)
-            owner, _, _ = extract_owner_and_grantee(
-                [row_text[i:i+80] for i in range(0, min(len(row_text),320), 80)])
-            if not owner: owner = "Unknown"
-            dm = re.search(r"(\d{1,2}/\d{1,2}/\d{2,4})", row_text)
-            filed = datetime.now().date().isoformat()
-            if dm:
-                for fmt in ("%m/%d/%Y", "%m/%d/%y"):
-                    try: filed = datetime.strptime(dm.group(1), fmt).date().isoformat(); break
-                    except: continue
-            rec = LeadRecord(
-                doc_num=key, doc_type="DIVORCE", cat="DIVORCE",
-                cat_label="Divorce Filing", owner=owner, filed=filed,
-                flags=["Divorce filing"],
-                distress_sources=["divorce"], distress_count=1,
-                clerk_url=DIVORCE_URL,
-                match_method="divorce_direct", match_score=0.85,
-            )
-            rec = estimate_mortgage_data(rec); rec.score = score_record(rec)
-            divorce_recs.append(rec)
+                        am = re.search(r"\$[\d,]+",row_text)
+                        amt = parse_amount(am.group(0)) if am else None
+                        dn = extract_case_number(row_text, f"DIV-{len(divorce_recs)+1:04d}")
+                        rec = LeadRecord(
+                            doc_num=dn, doc_type="DIVORCE", cat="DIVORCE",
+                            cat_label="Divorce Filing", owner=owner,
+                            grantee=grantee, filed=filed, amount=amt,
+                            flags=["Divorce filing"],
+                            distress_sources=["divorce"], distress_count=1,
+                            clerk_url=durl,
+                            match_method="divorce_aln", match_score=0.85,
+                        )
+                        rec = estimate_mortgage_data(rec); rec.score = score_record(rec)
+                        divorce_recs.append(rec)
+                    if divorce_recs:
+                        logging.info("Divorce records from ALN: %s", len(divorce_recs))
+                        break
+            except Exception as de:
+                logging.warning("Divorce URL %s: %s", durl, de)
 
         records.extend(divorce_recs)
         logging.info("Divorce records found: %s", len(divorce_recs))
