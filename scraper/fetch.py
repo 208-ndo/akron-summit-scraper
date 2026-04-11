@@ -592,29 +592,37 @@ def scrape_sheriff_sales()->List[LeadRecord]:
 def scrape_housing_appeals_board()->List[LeadRecord]:
     """
     Scrape Akron Housing Appeals Board — homes with active code violation orders.
-    City has officially declared these unsafe / public nuisances.
-    Owner must repair OR sell — extreme motivated seller signal.
+    Improved address extraction — tries multiple patterns.
     """
     records:List[LeadRecord]=[]
     try:
         logging.info("Scraping Housing Appeals Board...")
-        resp=retry_request(HOUSING_APPEALS_URL,timeout=30); soup=BeautifulSoup(resp.text,"lxml")
-        text=soup.get_text(" ")
+        resp=retry_request(HOUSING_APPEALS_URL,timeout=30)
+        soup=BeautifulSoup(resp.text,"lxml"); text=soup.get_text(" ")
         seen_cases=set()
 
+        # Pattern 1: "CASE #XXXX – ADDRESS ST"
         case_pat=re.compile(
-            r"CASE\s*#\s*(\d+)\s*[–\-]+\s*(?:\([A-Z]+\)\s*[–\-]+\s*)?(\d{2,5}\s+[A-Z][A-Za-z\s\.]{3,40}(?:ST|AVE|RD|DR|BLVD|LN|CT|PL|WAY|TER|CIR|PKWY|STREET|AVENUE|ROAD|DRIVE|LANE|COURT|PLACE)\.?(?:\s+\w+)?)",
+            r"CASE\s*#\s*(\d+)\s*[–\-]+\s*(?:\([A-Z ]+\)\s*[–\-]+\s*)?(\d{2,5}\s+[A-Z][A-Za-z0-9\s\.]{3,50}(?:ST|AVE|RD|DR|BLVD|LN|CT|PL|WAY|TER|CIR|PKWY|STREET|AVENUE|ROAD|DRIVE|LANE|COURT|PLACE)\.?(?:\s+\w+)?)",
+            re.IGNORECASE
+        )
+        # Pattern 2: simpler — just case number then address on same line
+        case_simple=re.compile(
+            r"CASE\s*#\s*(\d+)[^\n]{0,60}?(\d{3,5}\s+[A-Z][A-Za-z\s]{3,30}(?:ST|AVE|RD|DR|BLVD|LN|CT|PL|WAY|TER|CIR|PKWY))",
             re.IGNORECASE
         )
         date_pat=re.compile(r"(?:orders? dated|inspected on)\s+(\d{1,2}[-/]\d{1,2}[-/]\d{2,4})",re.IGNORECASE)
 
-        for m in case_pat.finditer(text):
-            case_num=m.group(1)
+        def try_extract(text_block):
+            for pat in [case_pat, case_simple]:
+                for m in pat.finditer(text_block):
+                    yield m.group(1), clean_text(m.group(2))
+
+        for case_num, raw_addr in try_extract(text):
             if case_num in seen_cases: continue
             seen_cases.add(case_num)
-            raw_addr=clean_text(m.group(2))
 
-            surrounding=text[max(0,m.start()-100):m.end()+600]
+            surrounding=text[max(0,text.find(f"CASE #{case_num}")-100):text.find(f"CASE #{case_num}")+600]
             vdate=""
             dm=date_pat.search(surrounding)
             if dm:
@@ -1454,6 +1462,10 @@ def enrich_with_parcel_data(records,owner_index,last_name_index,first_last_index
     report={"matched":0,"unmatched":0,"with_address":0,"with_mail_address":0,
             "match_methods":defaultdict(int),"sample_unmatched":[],"sample_no_property_match":[]}
     for record in records:
+        # Guard: ensure owner is always a string before matching
+        if not record.owner: record.owner=""
+        if not record.flags: record.flags=[]
+        if not record.distress_sources: record.distress_sources=[]
         try:
             matched,method,ms=fuzzy_match_record(record,owner_index,last_name_index,first_last_index)
             if matched:
@@ -1561,81 +1573,130 @@ def dedupe_records(records):
 # -----------------------------------------------------------------------
 def cross_stack_by_address(records: List[LeadRecord]) -> List[LeadRecord]:
     """
-    Find properties that appear across MULTIPLE separate lead lists.
-    Example: a tax delinquent record + a code violation record at the same address
-    = that property is MORE distressed than either record alone shows.
+    Find properties appearing across MULTIPLE separate lead lists and upgrade to Hot Stack.
 
-    Strategy:
-    1. Build address → list of (source_type, record_index) map
-    2. Any address with 2+ DIFFERENT source types = cross-stack
-    3. Merge distress sources across all records at that address
-    4. Flag every record at that address as Hot Stack with combined sources
-    5. Boost score accordingly
+    Matches by THREE methods (any match counts):
+      1. Normalized address key (street number + name)
+      2. Parcel ID (exact)
+      3. Street number + first word of street name (fuzzy — catches code violations
+         whose addresses may have slightly different formatting)
 
-    Source types that count for stacking:
-      tax_delinquent, foreclosure, lis_pendens, judgment, lien,
-      vacant_home, code_violation, sheriff_sale, probate, mechanic_lien
+    Example stacks we catch:
+      Tax delinquent + Code violation at same address → Hot Stack
+      Sheriff sale + Tax delinquent → Hot Stack
+      Foreclosure filing + Vacant home board → Hot Stack
+      Code violation + Vacant home → Hot Stack
     """
-    # Group records by normalized address key
+    # --- Build lookup indexes ---
+
+    # 1. Address key → record indexes
     addr_map: Dict[str, List[int]] = defaultdict(list)
+    # 2. Parcel ID → record indexes
+    pid_map: Dict[str, List[int]] = defaultdict(list)
+    # 3. Street number+word → record indexes (fuzzy fallback)
+    street_map: Dict[str, List[int]] = defaultdict(list)
+
     for i, r in enumerate(records):
-        if not r.prop_address: continue
-        key = normalize_address_key(r.prop_address)
-        if key: addr_map[key].append(i)
+        # address-based
+        if r.prop_address:
+            key = normalize_address_key(r.prop_address)
+            if key:
+                addr_map[key].append(i)
+                # fuzzy: just street number + first street word
+                parts = key.split()
+                if len(parts) >= 2:
+                    street_map[f"{parts[0]} {parts[1]}"].append(i)
+        # parcel ID-based
+        if r.parcel_id:
+            pid_map[r.parcel_id].append(i)
+
+    # Collect groups of records that share a property
+    # Use sets to avoid double-counting
+    groups: Dict[str, set] = {}
+
+    def add_group(group_key: str, idxs: List[int]):
+        if group_key not in groups:
+            groups[group_key] = set()
+        groups[group_key].update(idxs)
+
+    for key, idxs in addr_map.items():
+        if len(idxs) >= 2: add_group("addr:"+key, idxs)
+    for pid, idxs in pid_map.items():
+        if len(idxs) >= 2: add_group("pid:"+pid, idxs)
+    for sk, idxs in street_map.items():
+        if len(idxs) >= 2: add_group("street:"+sk, idxs)
 
     cross_stacked = 0
-    for key, idxs in addr_map.items():
+    already_stacked: set = set()  # record indexes already upgraded
+
+    for group_key, idx_set in groups.items():
+        idxs = list(idx_set)
         if len(idxs) < 2: continue
 
-        # Collect all unique distress sources across every record at this address
+        # Collect all unique distress sources and doc types across the group
         all_sources: set = set()
         all_flags: set = set()
+        all_doc_types: set = set()
         for i in idxs:
             r = records[i]
             all_sources.update(r.distress_sources or [])
             all_flags.update(r.flags or [])
+            all_doc_types.add(r.doc_type)
 
-        # Only stack if we have 2+ DIFFERENT source types
+        # Only hot-stack if there are 2+ DIFFERENT source types
+        # (don't stack two tax delinquent records for the same address)
         if len(all_sources) < 2: continue
 
-        # Apply merged distress profile to every record at this address
+        # Apply merged distress to every record in the group
         for i in idxs:
             r = records[i]
-            # Merge sources
             merged = list(set(list(r.distress_sources or []) + list(all_sources)))
             r.distress_sources = merged
             r.distress_count = len(merged)
             r.hot_stack = True
 
-            # Add cross-stack flag
-            if "🔥 Hot Stack" not in r.flags:
-                r.flags.append("🔥 Hot Stack")
-            if "📍 Cross-List Match" not in r.flags:
-                r.flags.append("📍 Cross-List Match")
+            if "🔥 Hot Stack" not in r.flags:    r.flags.append("🔥 Hot Stack")
+            if "📍 Cross-List Match" not in r.flags: r.flags.append("📍 Cross-List Match")
 
-            # Add informative flags from other records at this address
-            if "Tax delinquent" in all_flags and "Tax delinquent" not in r.flags:
-                r.flags.append("Tax delinquent")
-            if "Code violation" in all_flags and "Code violation" not in r.flags:
-                r.flags.append("Code violation")
-            if "Vacant home" in all_flags and "Vacant home" not in r.flags:
-                r.flags.append("Vacant home")
-            if "Sheriff sale scheduled" in all_flags and "Sheriff sale scheduled" not in r.flags:
-                r.flags.append("Sheriff sale scheduled")
-            if any("foreclosure" in s.lower() or "lis_pendens" in s for s in all_sources):
+            # Propagate important flags from other records in the group
+            flag_map = {
+                "Tax delinquent":        "Tax delinquent",
+                "Code violation":        "Code violation",
+                "Vacant home":           "Vacant home",
+                "Sheriff sale scheduled":"Sheriff sale scheduled",
+                "Absentee owner":        "Absentee owner",
+                "Probate / estate":      "Probate / estate",
+                "Inherited property":    "Inherited property",
+            }
+            for src_flag, dest_flag in flag_map.items():
+                if src_flag in all_flags and dest_flag not in r.flags:
+                    r.flags.append(dest_flag)
+
+            if any(s in all_sources for s in ["foreclosure","lis_pendens","sheriff_sale"]):
                 if "In foreclosure" not in r.flags: r.flags.append("In foreclosure")
 
-            # Re-score with merged distress
             r = estimate_mortgage_data(r)
             r.score = score_record(r)
             records[i] = r
 
+            if i not in already_stacked:
+                already_stacked.add(i)
+
         cross_stacked += 1
 
+    newly_hot = len(already_stacked)
     logging.info(
-        "Cross-record stacking: %s addresses appear on 2+ lists → upgraded to Hot Stack",
-        cross_stacked
+        "Cross-record stacking: %s property groups appear on 2+ lists → %s records upgraded to Hot Stack",
+        cross_stacked, newly_hot
     )
+
+    # Debug sample — show what got stacked
+    if newly_hot > 0:
+        samples = [(records[i].prop_address, records[i].doc_type, records[i].distress_sources)
+                   for i in list(already_stacked)[:5]]
+        for addr, dt, srcs in samples:
+            logging.info("  Stacked: %s | %s | %s", addr, dt, srcs)
+
     return records
 
 
