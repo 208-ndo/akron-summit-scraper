@@ -69,6 +69,8 @@ VACANT_BUILDING_URL  = "https://www.akronohio.gov/government/boards_and_commissi
 HOUSING_APPEALS_URL  = "https://www.akronohio.gov/government/boards_and_commissions/housing_appeals_board.php"
 SHERIFF_SALES_URL    = "https://www.akronlegalnews.com/notices/sheriff_sale_abstracts"
 DELINQUENT_INDEX_URL = "https://www.akronlegalnews.com/notices/delinquent_taxes"
+RECORDER_TRANSFER_URL = "https://fiscaloffice.summitoh.net/index.php/real-estate/conveyance-data"
+RECORDER_SEARCH_URL   = "https://fiscaloffice.summitoh.net/index.php/real-estate"
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"}
 
@@ -912,6 +914,157 @@ def scrape_probate_leads(parcel_rows:List[dict],mail_by_pid:Dict[str,dict],
         save_debug_json("probate_leads.json", [asdict(r) for r in records[:20]])
     except Exception as e:
         logging.warning("Probate scrape failed: %s", e)
+    return records
+
+
+
+def scrape_recorder_estate_transfers(parcel_rows:List[dict], mail_by_pid:Dict[str,dict],
+                                      delinquent_pid_set:set, vacant_home_keys:set) -> List[LeadRecord]:
+    """
+    Scrape Summit County Fiscal Office conveyance/deed transfer data.
+    Look for transfers where grantor contains estate/administrator keywords.
+    These are properties actively being sold from estates — highest intent probate leads.
+
+    Also scrapes the Akron Legal News real estate transfer section which lists
+    recent deed recordings including estate sales.
+    """
+    records: List[LeadRecord] = []
+    try:
+        logging.info("Scraping recorder estate transfers...")
+
+        # Build last-name → parcel lookup
+        last_name_to_parcels: Dict[str, List[dict]] = {}
+        for row in parcel_rows:
+            owner = build_owner_name(row)
+            if not owner: continue
+            ln = get_last_name(normalize_name(owner))
+            if ln and len(ln) > 2:
+                last_name_to_parcels.setdefault(ln, []).append(row)
+
+        # Estate/administrator keywords in deed grantors
+        ESTATE_KEYWORDS = [
+            "ESTATE OF", "ESTATE", "ADMINISTRATOR", "ADMINISTRATRIX",
+            "EXECUTOR", "EXECUTRIX", "PERSONAL REP", "TRUSTEE OF THE ESTATE",
+            "HEIRS OF", "SURVIVING HEIR",
+        ]
+
+        all_transfer_text = ""
+
+        # Source 1: Akron Legal News real estate transfers
+        transfer_urls = [
+            "https://www.akronlegalnews.com/public_records/real_estate_transfers",
+            "https://www.akronlegalnews.com/public_records/real_estate",
+        ]
+        for turl in transfer_urls:
+            try:
+                resp = retry_request(turl, timeout=30)
+                soup = BeautifulSoup(resp.text, "lxml")
+                text = soup.get_text(" ")
+                if any(kw in text.upper() for kw in ESTATE_KEYWORDS):
+                    all_transfer_text += " " + text
+                    logging.info("Recorder transfers from ALN: %s chars", len(text))
+                    save_debug_text("recorder_transfer_text.txt", text[:8000])
+                    break
+                elif len(text) > 500:
+                    all_transfer_text += " " + text
+            except Exception as e:
+                logging.warning("Recorder transfer URL %s: %s", turl, e)
+
+        # Source 2: Summit County Fiscal Office conveyance data
+        for curl in [RECORDER_TRANSFER_URL, RECORDER_SEARCH_URL]:
+            try:
+                resp = retry_request(curl, timeout=30)
+                soup = BeautifulSoup(resp.text, "lxml")
+                text = soup.get_text(" ")
+                if len(text) > 200:
+                    all_transfer_text += " " + text
+                    logging.info("Recorder fiscal office: %s chars", len(text))
+                    break
+            except Exception as e:
+                logging.warning("Recorder fiscal URL %s: %s", curl, e)
+
+        if not all_transfer_text:
+            logging.info("Recorder: no transfer data available")
+            return records
+
+        save_debug_text("recorder_transfer_text.txt", all_transfer_text[:8000])
+
+        # Parse estate transfers
+        # Pattern: "ESTATE OF JOHN SMITH" or "JOHN SMITH ADMINISTRATOR"
+        estate_grantor_pat = re.compile(
+            r"(?:ESTATE\s+OF\s+|ADMINISTRATOR\s+OF\s+|EXECUTOR\s+OF\s+)"
+            r"([A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+){1,3})",
+            re.IGNORECASE
+        )
+        # Pattern: address + grantor in transfer records
+        # "123 MAIN ST ... SMITH JOHN ESTATE ... $85,000"
+        transfer_pat = re.compile(
+            r"(\d{2,5}\s+[A-Z][A-Za-z\s]{3,30}(?:ST|AVE|RD|DR|BLVD|LN|CT|PL))"
+            r".{0,200}?"
+            r"(ESTATE\s+OF\s+[A-Z][A-Za-z\s]{3,30}|[A-Z][A-Za-z\s]{3,25}\s+ESTATE)",
+            re.IGNORECASE | re.DOTALL
+        )
+
+        seen: set = set()
+
+        # Extract estate names from grantor patterns
+        for m in estate_grantor_pat.finditer(all_transfer_text):
+            name = clean_text(m.group(1))
+            if name in seen or len(name) < 4: continue
+            seen.add(name)
+            surrounding = all_transfer_text[max(0, m.start()-100): m.end()+500]
+
+            # Try to get property address from surrounding text
+            addr_m = re.search(
+                r"(\d{2,5}\s+[A-Z][A-Za-z\s]{3,25}(?:ST|AVE|RD|DR|BLVD|LN|CT|PL))",
+                surrounding, re.IGNORECASE
+            )
+            prop_address = clean_text(addr_m.group(1)) if addr_m else ""
+
+            # Get sale amount
+            amt_m = re.search(r"\$?([\d,]+)", surrounding)
+            try: amt = float(amt_m.group(1).replace(",","")) if amt_m else None
+            except: amt = None
+
+            # Get date
+            dm = re.search(r"(\d{1,2}/\d{1,2}/\d{2,4})", surrounding)
+            vdate = datetime.now().date().isoformat()
+            if dm:
+                for fmt in ("%m/%d/%Y", "%m/%d/%y"):
+                    try: vdate = datetime.strptime(dm.group(1), fmt).date().isoformat(); break
+                    except: continue
+
+            # Skip if older than lookback
+            try:
+                if datetime.fromisoformat(vdate).date() < (datetime.now().date() - timedelta(days=LOOKBACK_DAYS)):
+                    continue
+            except: pass
+
+            # Match against CAMA
+            new_recs = _build_probate_record_from_name(
+                name, "", "", vdate,
+                parcel_rows, mail_by_pid, delinquent_pid_set, vacant_home_keys,
+                last_name_to_parcels, records, "RECORDER"
+            )
+            # Override with known address if found
+            if prop_address:
+                for r in new_recs:
+                    if not r.prop_address:
+                        r.prop_address = prop_address.title()
+                        r.with_address = 1
+            # Override amount
+            if amt and amt > 5000:
+                for r in new_recs:
+                    r.amount = amt
+                    r.last_sale_price = amt
+                    r.last_sale_year = datetime.fromisoformat(vdate).year
+            records.extend(new_recs)
+
+        logging.info("Recorder estate transfers: %s leads found", len(records))
+        save_debug_json("recorder_estate_leads.json", [asdict(r) for r in records[:20]])
+
+    except Exception as e:
+        logging.warning("Recorder estate scrape failed: %s", e)
     return records
 
 
@@ -2538,6 +2691,10 @@ async def main():
     probate_records=await scrape_probate_playwright(parcel_rows,mail_by_pid,delinquent_pid_set,vacant_home_keys)
     if not probate_records:
         probate_records=scrape_probate_leads(parcel_rows,mail_by_pid,delinquent_pid_set,vacant_home_keys)
+    # Recorder: estate deed transfers — catches probate leads from active property sales
+    recorder_estate=scrape_recorder_estate_transfers(parcel_rows,mail_by_pid,delinquent_pid_set,vacant_home_keys)
+    probate_records=probate_records+recorder_estate
+    logging.info("Probate+Recorder combined: %s leads",len(probate_records))
 
     # 8. Distress stacking
     delinquent_addresses=build_delinquent_address_index(parcel_rows,mail_by_pid,delinquent_parcels)
