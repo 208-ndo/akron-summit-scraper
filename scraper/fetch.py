@@ -2021,22 +2021,25 @@ async def scrape_eviction_divorce_records(page)->List[LeadRecord]:
         await page.goto(EVICTION_URL, wait_until="networkidle", timeout=60000)
         await page.wait_for_timeout(5000)  # Blazor needs time to hydrate
 
-        # Extract case data directly from DOM elements
-        # Blazor renders cards/rows with case info — use JS to extract text
+        # Extract case data directly from DOM using JS — handles Blazor rendering
         case_data = await page.evaluate("""() => {
             const results = [];
-            // Try card elements
-            document.querySelectorAll('.card, .case-row, .filing-row, tr, li').forEach(el => {
-                const text = el.innerText || el.textContent || '';
-                if (text.length > 20 && text.length < 500) {
-                    results.push(text.trim());
+            // Get all rows/cards with filing info
+            document.querySelectorAll('tr, li, .card, .card-body, .filing-row, .case-row, [class*="filing"], [class*="case"]').forEach(el => {
+                const text = (el.innerText || el.textContent || '').trim();
+                if (text.length > 10 && text.length < 800) {
+                    results.push(text);
                 }
             });
-            // Also get all text in the main content area
-            const main = document.querySelector('article, main, .content, #content');
-            if (main) results.push(main.innerText || main.textContent || '');
-            return results;
+            // Get full article/main text as fallback
+            const article = document.querySelector('article, section, main');
+            if (article) {
+                const lines = (article.innerText || article.textContent || '').split('\n');
+                lines.forEach(l => { if (l.trim().length > 5) results.push(l.trim()); });
+            }
+            return [...new Set(results)]; // dedupe
         }""")
+        logging.info("Eviction DOM elements extracted: %s", len(case_data or []))
 
         html = await page.content()
         save_debug_text("eviction_page2.html", html[:8000])
@@ -2057,14 +2060,17 @@ async def scrape_eviction_divorce_records(page)->List[LeadRecord]:
         for el in soup.select("tr, .card-body, .filing, li"):
             row_text = clean_text(el.get_text(" "))
             if len(row_text) < 15 or len(row_text) > 600: continue
-            if not any(x in row_text.upper() for x in
-                ["EVICT","FORCIBLE","DETAINER","FED","COMPLAINT","CIVIL"]): continue
+            # Accept any row that looks like a filing (less restrictive)
+            if not any(c.isalpha() for c in row_text): continue
             if row_text in seen: continue
             seen.add(row_text)
 
             # Extract defendant name (tenant being evicted = motivated seller if owns property)
             owner, _, _ = extract_owner_and_grantee(
                 [row_text[i:i+80] for i in range(0, len(row_text), 80)])
+            # Strip timestamps from owner name e.g. "John Smith 04/10/2026 03:11 PM Ot"
+            owner = re.sub(r'\s+\d{1,2}/\d{1,2}/\d{2,4}.*$','',owner).strip()
+            owner = re.sub(r'\s+\d{1,2}:\d{2}.*$','',owner).strip()
             if not owner or owner in BAD_EXACT_OWNERS: owner = "Unknown"
 
             # Extract address from row
