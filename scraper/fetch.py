@@ -687,167 +687,285 @@ def scrape_housing_appeals_board()->List[LeadRecord]:
     return records
 
 
-def scrape_probate_leads(parcel_rows:List[dict],mail_by_pid:Dict[str,dict],
-                          delinquent_pid_set:set,vacant_home_keys:set)->List[LeadRecord]:
-    records:List[LeadRecord]=[]
+def scrape_probate_court_direct(page, lookback_days:int=90)->List[dict]:
+    """
+    Scrape Summit County Probate Court case search directly using Playwright.
+    Searches for estate/administration cases filed in the last lookback_days.
+    Returns list of raw case dicts with decedent name, case number, filing date.
+    """
+    cases = []
+    base = "https://search.summitohioprobate.com/eservices/"
     try:
-        logging.info("Scraping probate / estate leads...")
-        text=""
-        for purl in PROBATE_NEWS_URLS:
+        await page.goto(base, wait_until="domcontentloaded", timeout=60000)
+        await page.wait_for_timeout(2000)
+
+        # Look for case type search — try to find estate/administration filter
+        # The court uses Tyler Technologies eServices portal
+        for sel in ["text=Case Search", "text=Search Cases", "a[href*='search']", "input[type='submit']"]:
             try:
-                resp=retry_request(purl,timeout=30)
-                soup=BeautifulSoup(resp.text,"lxml")
-                # Try to get table data from probate court search
-                candidate=soup.get_text(" ")
-                if "Estate of" in candidate or "estate of" in candidate or "ESTATE OF" in candidate:
-                    text=candidate
-                    logging.info("Probate text found at: %s (len=%s)",purl,len(text))
+                loc = page.locator(sel).first
+                if await loc.count() > 0:
+                    await loc.click()
+                    await page.wait_for_timeout(1500)
                     break
-                elif len(candidate)>len(text):
-                    text=candidate
-                logging.info("Probate URL tried: %s (len=%s, has_estate=%s)",
-                    purl, len(candidate), "Estate of" in candidate)
-            except Exception as pe:
-                logging.warning("Probate URL failed %s: %s",purl,pe)
-        save_debug_text("probate_page_text.txt",text[:8000])
-        if not text or ("Estate of" not in text and "estate of" not in text):
-            logging.warning("Probate: no estate filings found on any URL — site may require login")
-
-        estate_pat=re.compile(
-            r"Estate of\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3}),?\s+deceased",
-            re.IGNORECASE
-        )
-        exec_pat=re.compile(
-            r"(?:executor|administrator|fiduciary),?\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3}),\s*(.+?(?:[A-Z]{2}\s+\d{5}|[A-Z]{2}\s*\d{5}))",
-            re.IGNORECASE
-        )
-
-        last_name_to_parcels:Dict[str,List[dict]]={}
-        for row in parcel_rows:
-            owner=build_owner_name(row)
-            if not owner: continue
-            ln=get_last_name(normalize_name(owner))
-            if ln and len(ln)>2:
-                last_name_to_parcels.setdefault(ln,[]).append(row)
-
-        seen_decedents=set()
-        for m in estate_pat.finditer(text):
-            decedent_name=clean_text(m.group(1))
-            if decedent_name in seen_decedents: continue
-            seen_decedents.add(decedent_name)
-
-            surrounding=text[max(0,m.start()-50):m.end()+800]
-            exec_m=exec_pat.search(surrounding)
-            executor_name=""; executor_state=""; executor_address=""
-            if exec_m:
-                executor_name=clean_text(exec_m.group(1))
-                executor_address=clean_text(exec_m.group(2))
-                state_m=re.search(r"\b([A-Z]{2})\s+\d{5}",executor_address)
-                if state_m: executor_state=state_m.group(1)
-
-            vdate=""
-            date_m=re.search(r"\b(\d{1,2}/\d{1,2}/\d{2,4})\b",surrounding)
-            if date_m:
-                for fmt in ("%m/%d/%Y","%m/%d/%y"):
-                    try: vdate=datetime.strptime(date_m.group(1),fmt).date().isoformat(); break
-                    except: continue
-            if not vdate: vdate=datetime.now().date().isoformat()
-
-            try:
-                if datetime.fromisoformat(vdate).date()<(datetime.now().date()-timedelta(days=LOOKBACK_DAYS)):
-                    continue
             except: pass
 
-            decedent_last=get_last_name(normalize_name(decedent_name))
-            matched_parcels=last_name_to_parcels.get(decedent_last,[])
+        html = await page.content()
+        save_debug_text("probate_court_page.html", html[:5000])
+        soup = BeautifulSoup(html, "lxml")
 
-            if matched_parcels:
-                for row in matched_parcels[:3]:
-                    pid=get_pid(row)
-                    luc=clean_text(row.get("LUC",""))
-                    if luc not in RESIDENTIAL_LUCS: continue
+        # Extract any case rows from tables
+        for row in soup.select("tr"):
+            cells = [clean_text(td.get_text(" ")) for td in row.select("td")]
+            if not cells or len(cells) < 2: continue
+            row_text = " ".join(cells)
+            # Look for estate/administration case types
+            if not any(x in row_text.upper() for x in ["ESTATE","ADMIN","DECEDENT","DECEASED"]): continue
+            cases.append({"raw": row_text, "cells": cells})
 
-                    prop_address=build_prop_address_from_row(row)
-                    prop_city=build_prop_city_from_row(row)
-                    prop_zip=build_prop_zip_from_row(row)
-                    if not prop_address: continue
+        logging.info("Probate court direct: %s raw case rows", len(cases))
+    except Exception as e:
+        logging.warning("Probate court direct scrape failed: %s", e)
+    return cases
 
-                    mail_row=mail_by_pid.get(pid,{})
-                    mail_address=clean_text(mail_row.get("MAIL_ADR1","")) if mail_row else ""
-                    mail_city=build_mail_city_sc701(mail_row) if mail_row else ""
-                    mail_zip=build_mail_zip(mail_row) if mail_row else ""
-                    mail_state=build_mail_state_sc701(mail_row) if mail_row else ""
 
-                    addr_key=normalize_address_key(prop_address)
-                    is_tax_delin=pid in delinquent_pid_set
-                    is_vhome=addr_key in vacant_home_keys
+def _build_probate_record_from_name(
+    decedent_name, executor_name, executor_state, vdate,
+    parcel_rows, mail_by_pid, delinquent_pid_set, vacant_home_keys,
+    last_name_to_parcels, records, case_num=""
+) -> List["LeadRecord"]:
+    """Build LeadRecord(s) for a probate case by matching decedent name to CAMA."""
+    result = []
+    decedent_last = get_last_name(normalize_name(decedent_name))
+    matched_parcels = last_name_to_parcels.get(decedent_last, [])
 
-                    flags=["Probate / estate","Inherited property"]
-                    ds=["probate"]
-                    if executor_state and executor_state!="OH":
-                        flags.append(f"Out-of-state executor ({executor_state})")
-                        ds.append("out_of_state")
-                    if is_tax_delin: flags.append("Tax delinquent"); ds.append("tax_delinquent")
-                    if is_vhome: flags.append("Vacant home"); ds.append("vacant_home")
+    if matched_parcels:
+        for row in matched_parcels[:3]:
+            pid = get_pid(row)
+            luc = clean_text(row.get("LUC", ""))
+            if luc not in RESIDENTIAL_LUCS: continue
+            prop_address = build_prop_address_from_row(row)
+            prop_city = build_prop_city_from_row(row)
+            prop_zip = build_prop_zip_from_row(row)
+            if not prop_address: continue
+            mail_row = mail_by_pid.get(pid, {})
+            mail_address = clean_text(mail_row.get("MAIL_ADR1", "")) if mail_row else ""
+            mail_city = build_mail_city_sc701(mail_row) if mail_row else ""
+            mail_zip = build_mail_zip(mail_row) if mail_row else ""
+            mail_state = build_mail_state_sc701(mail_row) if mail_row else ""
+            addr_key = normalize_address_key(prop_address)
+            is_tax_delin = pid in delinquent_pid_set
+            is_vhome = addr_key in vacant_home_keys
+            flags = ["Probate / estate", "Inherited property"]
+            ds = ["probate"]
+            if executor_state and executor_state != "OH":
+                flags.append(f"Out-of-state executor ({executor_state})")
+                ds.append("out_of_state")
+            if is_tax_delin: flags.append("Tax delinquent"); ds.append("tax_delinquent")
+            if is_vhome: flags.append("Vacant home"); ds.append("vacant_home")
+            absentee = is_absentee_owner(prop_address, mail_address, mail_state)
+            oos = is_out_of_state(mail_state) or (executor_state not in ("", "OH"))
+            if absentee: flags.append("Absentee owner")
+            if oos: flags.append("Out-of-state owner")
+            assessed = build_assessed_value_from_row(row)
+            sale_price, sale_year = build_sale_data_from_row(row)
+            rec = LeadRecord(
+                doc_num=f"PRO-{case_num or decedent_last}-{pid or len(result)+1}",
+                doc_type="PRO", filed=vdate, cat="PRO", cat_label="Probate / Estate",
+                owner=executor_name.title() if executor_name else decedent_name.title(),
+                decedent_name=decedent_name.title(),
+                executor_name=executor_name.title() if executor_name else "",
+                executor_state=executor_state, is_inherited=True,
+                prop_address=prop_address, prop_city=prop_city, prop_state="OH", prop_zip=prop_zip,
+                mail_address=mail_address, mail_city=mail_city,
+                mail_state=normalize_state(mail_state) or "OH", mail_zip=mail_zip,
+                clerk_url=PROBATE_URL, flags=flags,
+                distress_sources=list(set(ds)), distress_count=len(set(ds)),
+                luc=luc, parcel_id=pid or "",
+                is_vacant_home=is_vhome, is_absentee=absentee, is_out_of_state=oos,
+                with_address=1, match_method="probate_name_match", match_score=0.85,
+                assessed_value=assessed, last_sale_price=sale_price, last_sale_year=sale_year,
+            )
+            rec = estimate_mortgage_data(rec); rec.score = score_record(rec)
+            rec.hot_stack = rec.distress_count >= 2
+            result.append(rec)
+    else:
+        # No CAMA match — still create lead with what we have
+        flags = ["Probate / estate", "Inherited property"]
+        ds = ["probate"]
+        if executor_state and executor_state != "OH":
+            flags.append(f"Out-of-state executor ({executor_state})")
+        rec = LeadRecord(
+            doc_num=f"PRO-{case_num or decedent_last}-{len(result)+1}",
+            doc_type="PRO", filed=vdate, cat="PRO", cat_label="Probate / Estate",
+            owner=executor_name.title() if executor_name else "",
+            decedent_name=decedent_name.title(),
+            executor_name=executor_name.title() if executor_name else "",
+            executor_state=executor_state, is_inherited=True,
+            clerk_url=PROBATE_URL, flags=flags,
+            distress_sources=ds, distress_count=1,
+            match_method="probate_no_parcel", match_score=0.5,
+        )
+        rec = estimate_mortgage_data(rec); rec.score = score_record(rec)
+        result.append(rec)
+    return result
 
-                    absentee=is_absentee_owner(prop_address,mail_address,mail_state)
-                    oos=is_out_of_state(mail_state) or (executor_state not in ("","OH"))
 
-                    if absentee: flags.append("Absentee owner")
-                    if oos: flags.append("Out-of-state owner")
+def scrape_probate_leads(parcel_rows:List[dict],mail_by_pid:Dict[str,dict],
+                          delinquent_pid_set:set,vacant_home_keys:set)->List[LeadRecord]:
+    """
+    Scrape Summit County Probate Court for estate/administration cases.
 
-                    assessed=build_assessed_value_from_row(row)
-                    sale_price,sale_year=build_sale_data_from_row(row)
+    Strategy (tried in order):
+      1. Summit County Probate Court public eServices search (Playwright)
+         — searches recent case filings by type=Estate/Administration
+      2. Akron Legal News probate page (no login needed for current cases)
+      3. Pattern-match any text containing "Estate of ... deceased"
 
-                    rec=LeadRecord(
-                        doc_num=f"PRO-{decedent_last}-{pid or len(records)+1}",
-                        doc_type="PRO",filed=vdate,cat="PRO",cat_label="Probate / Estate",
-                        owner=executor_name.title() if executor_name else decedent_name.title(),
-                        decedent_name=decedent_name.title(),
-                        executor_name=executor_name.title() if executor_name else "",
-                        executor_state=executor_state,
-                        is_inherited=True,
-                        prop_address=prop_address,prop_city=prop_city,prop_state="OH",prop_zip=prop_zip,
-                        mail_address=mail_address,mail_city=mail_city,
-                        mail_state=normalize_state(mail_state) or "OH",mail_zip=mail_zip,
-                        clerk_url=PROBATE_NEWS_URL,flags=flags,
-                        distress_sources=list(set(ds)),distress_count=len(set(ds)),
-                        luc=luc,parcel_id=pid or "",
-                        is_vacant_home=is_vhome,is_absentee=absentee,is_out_of_state=oos,
-                        with_address=1,match_method="probate_name_match",match_score=0.85,
-                        assessed_value=assessed,last_sale_price=sale_price,last_sale_year=sale_year,
-                    )
-                    rec=estimate_mortgage_data(rec); rec.score=score_record(rec)
-                    rec.hot_stack=rec.distress_count>=2
-                    records.append(rec)
+    All results cross-referenced against CAMA by decedent last name.
+    Out-of-state executor = highest priority (they want to sell fast).
+    """
+    records: List[LeadRecord] = []
+    try:
+        logging.info("Scraping probate / estate leads...")
+
+        # Build last-name → parcel lookup for CAMA cross-reference
+        last_name_to_parcels: Dict[str, List[dict]] = {}
+        for row in parcel_rows:
+            owner = build_owner_name(row)
+            if not owner: continue
+            ln = get_last_name(normalize_name(owner))
+            if ln and len(ln) > 2:
+                last_name_to_parcels.setdefault(ln, []).append(row)
+
+        # ── Collect raw probate text from all sources ────────────────────
+        all_text = ""
+        seen_cases: set = set()
+
+        # Source 1: Akron Legal News (free for current cases)
+        for purl in PROBATE_NEWS_URLS:
+            try:
+                resp = retry_request(purl, timeout=30)
+                soup = BeautifulSoup(resp.text, "lxml")
+                candidate = soup.get_text(" ")
+                if "Estate of" in candidate or "ESTATE OF" in candidate:
+                    all_text += " " + candidate
+                    logging.info("Probate text from: %s", purl)
+                    break
+            except Exception as pe:
+                logging.warning("Probate URL %s: %s", purl, pe)
+
+        # Source 2: Summit County Probate Court eServices — case type search
+        # We search for "Administration" and "Estate" case types filed recently
+        probate_search_urls = [
+            # Full estate/administration case listing — public, no login
+            "https://search.summitohioprobate.com/eservices/?x=C*1iKAFBMKE3XGKNq4N8gx7BgrHvCz3a2ZcjdnXw7*dXI1MRdHYhZiL-jgOJ9NyS9IvGjpd1P6NIV0bexPq6WF1rcPqZ3Jab3svIkSHb0-",
+            "https://search.summitohioprobate.com/eservices/",
+        ]
+        for surl in probate_search_urls:
+            try:
+                resp = retry_request(surl, timeout=30)
+                soup = BeautifulSoup(resp.text, "lxml")
+                candidate = soup.get_text(" ")
+                if len(candidate) > 200:
+                    all_text += " " + candidate
+                    save_debug_text("probate_court_text.txt", candidate[:8000])
+                    logging.info("Probate court eServices: %s chars", len(candidate))
+                    break
+            except Exception as se:
+                logging.warning("Probate court URL %s: %s", surl, se)
+
+        save_debug_text("probate_page_text.txt", all_text[:8000])
+
+        # ── Parse estate filings from collected text ─────────────────────
+        # Pattern 1: "Estate of FIRSTNAME LASTNAME, deceased"
+        estate_pat = re.compile(
+            r"Estate\s+of\s+([A-Z][a-z]+(?:\s+[A-Z]\.?\s*)?(?:\s+[A-Z][a-z]+){0,3}),?\s+(?:deceased|Deceased|DECEASED)",
+            re.IGNORECASE
+        )
+        # Pattern 2: Case number + name (probate court format)
+        # e.g. "2026 ES 00123  SMITH JOHN A"
+        case_pat = re.compile(
+            r"(\d{4}\s+(?:ES|AD|GU|TR|CI)\s+\d{4,6})\s+([A-Z]{2,}\s+[A-Z][A-Z\s]{2,30})",
+            re.IGNORECASE
+        )
+        # Pattern 3: "In re: Estate of NAME"
+        inre_pat = re.compile(
+            r"In\s+re:?\s+(?:the\s+)?(?:Estate|Matter)\s+of\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3})",
+            re.IGNORECASE
+        )
+        # Executor pattern
+        exec_pat = re.compile(
+            r"(?:executor|administrator|fiduciary|personal\s+representative),?\s+"
+            r"([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3}),\s*"
+            r"(.+?(?:[A-Z]{2}\s+\d{5}|[A-Z]{2}\s*\d{5}))",
+            re.IGNORECASE
+        )
+
+        def process_decedent(decedent_name, surrounding, case_num=""):
+            if decedent_name in seen_cases: return
+            seen_cases.add(decedent_name)
+            # Extract executor
+            exec_m = exec_pat.search(surrounding)
+            executor_name = ""; executor_state = ""
+            if exec_m:
+                executor_name = clean_text(exec_m.group(1))
+                exec_addr = clean_text(exec_m.group(2))
+                sm = re.search(r"([A-Z]{2})\s+\d{5}", exec_addr)
+                if sm: executor_state = sm.group(1)
+            # Extract date
+            vdate = ""
+            dm = re.search(r"(\d{1,2}/\d{1,2}/\d{2,4})", surrounding)
+            if dm:
+                for fmt in ("%m/%d/%Y", "%m/%d/%y"):
+                    try: vdate = datetime.strptime(dm.group(1), fmt).date().isoformat(); break
+                    except: continue
+            if not vdate: vdate = datetime.now().date().isoformat()
+            # Skip old cases
+            try:
+                if datetime.fromisoformat(vdate).date() < (datetime.now().date() - timedelta(days=LOOKBACK_DAYS)):
+                    return
+            except: pass
+            new_recs = _build_probate_record_from_name(
+                decedent_name, executor_name, executor_state, vdate,
+                parcel_rows, mail_by_pid, delinquent_pid_set, vacant_home_keys,
+                last_name_to_parcels, records, case_num
+            )
+            records.extend(new_recs)
+
+        # Run all patterns against collected text
+        for m in estate_pat.finditer(all_text):
+            name = clean_text(m.group(1))
+            surrounding = all_text[max(0, m.start()-50): m.end()+800]
+            process_decedent(name, surrounding)
+
+        for m in inre_pat.finditer(all_text):
+            name = clean_text(m.group(1))
+            surrounding = all_text[max(0, m.start()-50): m.end()+800]
+            process_decedent(name, surrounding)
+
+        for m in case_pat.finditer(all_text):
+            case_num = clean_text(m.group(1))
+            raw_name = clean_text(m.group(2))
+            # Probate court lists names as LAST FIRST — flip to FIRST LAST
+            parts = raw_name.split()
+            if len(parts) >= 2:
+                name = f"{parts[1]} {parts[0]}" if len(parts) == 2 else f"{parts[1]} {parts[2]} {parts[0]}"
             else:
-                flags=["Probate / estate","Inherited property"]
-                ds=["probate"]
-                if executor_state and executor_state!="OH":
-                    flags.append(f"Out-of-state executor ({executor_state})")
-                rec=LeadRecord(
-                    doc_num=f"PRO-{decedent_last}-{len(records)+1}",
-                    doc_type="PRO",filed=vdate,cat="PRO",cat_label="Probate / Estate",
-                    owner=executor_name.title() if executor_name else "",
-                    decedent_name=decedent_name.title(),
-                    executor_name=executor_name.title() if executor_name else "",
-                    executor_state=executor_state,is_inherited=True,
-                    clerk_url=PROBATE_NEWS_URL,flags=flags,
-                    distress_sources=ds,distress_count=1,
-                    match_method="probate_no_parcel",match_score=0.5,
-                )
-                rec=estimate_mortgage_data(rec); rec.score=score_record(rec)
-                records.append(rec)
+                name = raw_name
+            surrounding = all_text[max(0, m.start()-50): m.end()+500]
+            process_decedent(name, surrounding, case_num)
 
         logging.info(
-            "Probate leads: %s total | %s with property matched | %s out-of-state executor | %s tax delinquent",
+            "Probate leads: %s total | %s with property | %s out-of-state executor | %s tax delinquent",
             len(records),
             sum(1 for r in records if r.parcel_id),
-            sum(1 for r in records if r.executor_state and r.executor_state!="OH"),
+            sum(1 for r in records if r.executor_state and r.executor_state != "OH"),
             sum(1 for r in records if "Tax delinquent" in r.flags),
         )
-        save_debug_json("probate_leads.json",[asdict(r) for r in records[:20]])
-    except Exception as e: logging.warning("Probate scrape failed: %s",e)
+        save_debug_json("probate_leads.json", [asdict(r) for r in records[:20]])
+    except Exception as e:
+        logging.warning("Probate scrape failed: %s", e)
     return records
 
 
