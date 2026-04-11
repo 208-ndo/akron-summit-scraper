@@ -376,16 +376,26 @@ def classify_distress_source(doc_type:str)->Optional[str]:
 # -----------------------------------------------------------------------
 def estimate_mortgage_data(record:"LeadRecord")->"LeadRecord":
     signals=[]; sto=0
-    # establish market value
-    market_val=None
-    if record.last_sale_price and record.last_sale_price>5000:
-        yrs=max(0,datetime.now().year-(record.last_sale_year or datetime.now().year))
-        market_val=record.last_sale_price*((1+OH_APPRECIATION)**yrs)
-    elif record.assessed_value and record.assessed_value>5000:
-        market_val=record.assessed_value/0.35  # Ohio assessed = 35% of market
-    elif record.appraised_value and record.appraised_value>5000:
-        market_val=record.appraised_value  # sheriff appraisal = current market
-    if market_val: record.estimated_value=round(market_val,2)
+
+    # ── Establish market value — priority order ──────────────────────────
+    # 1. Already have estimated_value set from CAMA fixed-width (assessed/0.35) → use it
+    # 2. SC750 real sale price adjusted for appreciation → very accurate
+    # 3. Assessed value / 0.35 (Ohio law: assessed = 35% of market)
+    # 4. Sheriff sale appraisal (court-ordered, reliable)
+    market_val = record.estimated_value  # may already be set from CAMA enrich
+
+    if not market_val and record.last_sale_price and record.last_sale_price > 5000:
+        yrs = max(0, datetime.now().year - (record.last_sale_year or datetime.now().year))
+        market_val = record.last_sale_price * ((1 + OH_APPRECIATION) ** yrs)
+
+    if not market_val and record.assessed_value and record.assessed_value > 1000:
+        market_val = record.assessed_value / 0.35
+
+    if not market_val and record.appraised_value and record.appraised_value > 5000:
+        market_val = record.appraised_value  # sheriff appraisal
+
+    if market_val:
+        record.estimated_value = round(market_val, 2)
 
     # estimate remaining mortgage balance
     if record.last_sale_price and record.last_sale_year and record.last_sale_price>5000:
@@ -863,7 +873,7 @@ def scrape_tax_delinquent_parcels()->Dict[str,dict]:
 def discover_cama_downloads()->List[str]:
     logging.info("Discovering CAMA downloads...")
     resp=retry_request(CAMA_PAGE_URL); soup=BeautifulSoup(resp.text,"lxml")
-    wanted={"SC700","SC701","SC702","SC705","SC720","SC731"}; urls=[]
+    wanted={"SC700","SC701","SC702","SC705","SC720","SC731","SC750"}; urls=[]
     for a in soup.select("a[href]"):
         href=clean_text(a.get("href","")); text=clean_text(a.get_text(" ")).upper()
         blob=f"{href} {text}".upper()
@@ -888,18 +898,139 @@ def parse_delimited_text(raw:str)->List[dict]:
         if any(cleaned.values()): rows.append(cleaned)
     return rows
 
+def parse_sc705_fixed_width(raw:str)->List[dict]:
+    """
+    Parse SC705_PARDAT or SC731_PARDATMTD fixed-width format.
+    Key fields extracted with exact byte positions per official layout:
+      PID:       pos 12, len 7
+      LUC:       pos 127, len 4
+      ADRNO:     pos 58, len 11  (street number)
+      ADRDIR:    pos 75, len 2   (direction)
+      ADRSTR:    pos 77, len 30  (street name)
+      ADRSUF:    pos 107, len 8  (street suffix)
+      ACRES:     pos 176, len 14
+      BLDVAL:    pos 231, len 11 (Gross Building Value = assessed building)
+      MISCVAL:   pos 245, len 11 (Misc Building Value)
+      ZIPCD:     pos 365, len 5
+    Market value = (BLDVAL + MISCVAL) / 0.35 since Ohio assessed = 35% market
+    """
+    rows=[]
+    for line in raw.splitlines():
+        if len(line)<50: continue
+        def fld(start,length): return line[start-1:start-1+length].strip()
+        try:
+            pid=fld(12,7)
+            if not pid or not pid.strip('0'): continue
+            bldval_raw=fld(231,11).lstrip('+').strip()
+            miscval_raw=fld(245,11).lstrip('+').strip()
+            try: bldval=int(bldval_raw) if bldval_raw else 0
+            except: bldval=0
+            try: miscval=int(miscval_raw) if miscval_raw else 0
+            except: miscval=0
+            assessed_total=bldval+miscval
+            acres_raw=fld(176,14).lstrip('+').strip()
+            try: acres=float(acres_raw)/10000 if acres_raw else 0  # stored as integer * 10000
+            except: acres=0
+            row={
+                "PARID":pid,
+                "LUC":fld(127,4).strip(),
+                "ADRNO":fld(58,11).lstrip('+').strip(),
+                "ADRDIR":fld(75,2).strip(),
+                "ADRSTR":fld(77,30).strip(),
+                "ADRSUF":fld(107,8).strip(),
+                "ZIPCD":fld(365,5).strip(),
+                "ACRES":str(round(acres,4)) if acres else "",
+                "BLDVAL":str(bldval) if bldval else "",
+                "ASSESSED_TOTAL":str(assessed_total) if assessed_total>100 else "",
+                # market value estimate: assessed / 0.35
+                "EST_MARKET_VALUE":str(round(assessed_total/0.35)) if assessed_total>100 else "",
+            }
+            rows.append(row)
+        except Exception: continue
+    logging.info("Fixed-width SC705/SC731 parsed: %s rows",len(rows))
+    return rows
+
+
+def parse_sc750_sales(raw:str)->Dict[str,dict]:
+    """
+    Parse SC750_NXMPSALES — Non-Exempt Residential Sales.
+    This is a delimited file with actual sale prices for residential properties.
+    Returns dict of parcel_id -> {sale_price, sale_year, sale_date}
+    These are REAL market transactions, more accurate than assessed value estimates.
+    """
+    sales:Dict[str,dict]={}
+    lines=[l.rstrip("\r") for l in raw.splitlines() if clean_text(l)]
+    if len(lines)<2: return sales
+    sample="\n".join(lines[:10]); delim=max(["|","\t",","],key=lambda d:sample.count(d))
+    if sample.count(delim)==0: delim="|"
+    try:
+        reader=csv.DictReader(io.StringIO("\n".join(lines)),delimiter=delim)
+        for row in reader:
+            cleaned={clean_text(k):clean_text(v) for k,v in row.items() if k is not None}
+            pid=safe_pick(cleaned,LIKELY_PID_KEYS)
+            if not pid: continue
+            # find sale price and date columns
+            price=None; year=None; sale_date=""
+            for k,v in cleaned.items():
+                ku=k.upper()
+                if any(x in ku for x in ["SALEPRICE","SALE_PRICE","PRICE","SALVAL","SALEAMT"]):
+                    try:
+                        p=float(re.sub(r"[^0-9.]","",v))
+                        if p>5000: price=p
+                    except: pass
+                if any(x in ku for x in ["SALEDATE","SALE_DATE","CONVDATE","TRANSDATE"]):
+                    sale_date=clean_text(v)
+                    try:
+                        for fmt in ["%m/%d/%Y","%Y-%m-%d","%m-%d-%Y"]:
+                            try: year=datetime.strptime(sale_date,fmt).year; break
+                            except: continue
+                    except: pass
+                if any(x in ku for x in ["SALEYEAR","SALE_YR","CONVYR"]):
+                    try:
+                        y=int(re.sub(r"[^0-9]","",v)[:4])
+                        if 1970<=y<=datetime.now().year: year=y
+                    except: pass
+            if pid and price:
+                # Only keep most recent sale per parcel
+                existing=sales.get(pid)
+                if not existing or (year and existing.get("sale_year",0)<year):
+                    sales[pid]={"sale_price":price,"sale_year":year,"sale_date":sale_date}
+    except Exception as e:
+        logging.warning("SC750 sales parse error: %s",e)
+    logging.info("SC750 non-exempt sales: %s records",len(sales))
+    return sales
+
+
 def read_any_cama_payload(content:bytes,source_name:str)->Dict[str,List[dict]]:
     datasets={}
+    sn_upper=source_name.upper()
     if len(content)>=4 and content[:2]==b"PK":
         with zipfile.ZipFile(io.BytesIO(content)) as z:
             for member in z.namelist():
                 if member.endswith("/"): continue
                 try: raw=z.read(member).decode("utf-8",errors="ignore")
                 except: continue
+                mu=member.upper()
+                # Fixed-width SC705/SC731
+                if any(x in mu for x in ["SC705","SC731"]) and ".DAT" in mu:
+                    rows=parse_sc705_fixed_width(raw)
+                    if rows: datasets[member]=rows; continue
+                # SC750 sales
+                if "SC750" in mu:
+                    sales=parse_sc750_sales(raw)
+                    if sales: datasets[member]=[{"_sc750_sales":True,"data":sales}]; continue
                 rows=parse_delimited_text(raw)
                 if rows: datasets[member]=rows
         return datasets
-    raw=content.decode("utf-8",errors="ignore"); rows=parse_delimited_text(raw)
+    raw=content.decode("utf-8",errors="ignore")
+    # Fixed-width detection
+    if any(x in sn_upper for x in ["SC705","SC731"]):
+        rows=parse_sc705_fixed_width(raw)
+        if rows: datasets[source_name]=rows; return datasets
+    if "SC750" in sn_upper:
+        sales=parse_sc750_sales(raw)
+        if sales: datasets[source_name]=[{"_sc750_sales":True,"data":sales}]; return datasets
+    rows=parse_delimited_text(raw)
     if rows: datasets[source_name]=rows
     return datasets
 
@@ -999,26 +1130,36 @@ def normalize_candidate_record(r:dict)->dict:
         "mail_state":normalize_state(clean_text(r.get("mail_state",""))), "mail_zip":clean_text(r.get("mail_zip","")),
         "legal":clean_text(r.get("legal","")), "luc":clean_text(r.get("luc","")),
         "acres":clean_text(r.get("acres","")),
-        "assessed_value":r.get("assessed_value"), "last_sale_price":r.get("last_sale_price"),
+        "assessed_value":r.get("assessed_value"),
+        "est_market_value":r.get("est_market_value"),  # NEW — from fixed-width SC705/SC731
+        "last_sale_price":r.get("last_sale_price"),
         "last_sale_year":r.get("last_sale_year"),
     }
 
 def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
     urls=discover_cama_downloads()
     own_rows,mail_rows,legal_rows,parcel_rows=[],[],[],[]
+    sc750_sales:Dict[str,dict]={}  # parcel_id -> {sale_price, sale_year}
+
     for url in urls:
         try:
             resp=retry_request(url)
             datasets=read_any_cama_payload(resp.content,Path(url).name)
             for fname,rows in datasets.items():
                 u=fname.upper()
-                if "SC700" in u: own_rows.extend(rows)
+                # SC750 sales — special format, stored as single dict entry
+                if "SC750" in u and rows and rows[0].get("_sc750_sales"):
+                    sc750_sales.update(rows[0]["data"])
+                    logging.info("SC750 sales loaded: %s records",len(rows[0]["data"]))
+                elif "SC700" in u: own_rows.extend(rows)
                 elif "SC701" in u: mail_rows.extend(rows)
                 elif "SC702" in u: legal_rows.extend(rows)
                 elif any(x in u for x in ["SC705","SC731","SC720"]): parcel_rows.extend(rows)
             logging.info("Loaded CAMA %s",url)
         except Exception as e: logging.warning("CAMA %s: %s",url,e)
+
     save_debug_json("sc705_sc731_parcel_sample_rows.json",parcel_rows[:25])
+    logging.info("SC750 non-exempt sales available: %s",len(sc750_sales))
 
     mail_by_pid:Dict[str,dict]={}
     for row in mail_rows:
@@ -1031,15 +1172,51 @@ def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
         if not pid: continue
         parcel_by_id.setdefault(pid,{"parcel_id":pid,"owner_aliases":[]})
         e=parcel_by_id[pid]
-        assessed=build_assessed_value_from_row(row); sale_price,sale_year=build_sale_data_from_row(row)
+
+        # Value from fixed-width fields (SC705/SC731)
+        assessed=None
+        est_market=None
+        # Try new fixed-width parsed fields first
+        at_raw=clean_text(row.get("ASSESSED_TOTAL",""))
+        em_raw=clean_text(row.get("EST_MARKET_VALUE",""))
+        bv_raw=clean_text(row.get("BLDVAL",""))
+        if at_raw:
+            try:
+                at=float(at_raw)
+                if at>100: assessed=at; est_market=round(at/0.35)
+            except: pass
+        elif bv_raw:
+            try:
+                bv=float(bv_raw)
+                if bv>100: assessed=bv; est_market=round(bv/0.35)
+            except: pass
+        if em_raw and not est_market:
+            try:
+                em=float(em_raw)
+                if em>1000: est_market=em
+            except: pass
+        # Fall back to delimited field parser
+        if not assessed:
+            assessed=build_assessed_value_from_row(row)
+            if assessed and assessed>100: est_market=round(assessed/0.35)
+
+        # SC750 real sale price — most accurate market value signal
+        sc750=sc750_sales.get(pid,{})
+        sale_price  = sc750.get("sale_price") or None
+        sale_year   = sc750.get("sale_year") or None
+        # Also try from the row itself
+        if not sale_price:
+            sale_price,sale_year=build_sale_data_from_row(row)
+
         e.update({
             "parcel_id":pid,
             "prop_address":e.get("prop_address","") or build_prop_address_from_row(row),
             "prop_city":e.get("prop_city","") or build_prop_city_from_row(row),
             "prop_zip":e.get("prop_zip","") or build_prop_zip_from_row(row),
             "luc":e.get("luc","") or clean_text(row.get("LUC","")),
-            "acres":e.get("acres","") or clean_text(row.get("ACRES","")),
+            "acres":e.get("acres","") or clean_text(row.get("ACRES","") or row.get("acres","")),
             "assessed_value":e.get("assessed_value") or assessed,
+            "est_market_value":e.get("est_market_value") or est_market,
             "last_sale_price":e.get("last_sale_price") or sale_price,
             "last_sale_year":e.get("last_sale_year") or sale_year,
         })
@@ -1072,6 +1249,12 @@ def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
         e["legal"]=e.get("legal","") or safe_pick(row,LIKELY_LEGAL_KEYS)
         for a in extract_owner_aliases_from_row(row): add_owner_alias(e,a)
 
+    # Log value coverage stats
+    with_market = sum(1 for e in parcel_by_id.values() if e.get("est_market_value"))
+    with_sale   = sum(1 for e in parcel_by_id.values() if e.get("last_sale_price"))
+    logging.info("Parcel value coverage: %s/%s with est market value | %s/%s with sale price",
+                 with_market,len(parcel_by_id),with_sale,len(parcel_by_id))
+
     owner_index=defaultdict(list); last_name_index=defaultdict(list); first_last_index=defaultdict(list)
     seen_pid_last=defaultdict(set); seen_pid_fl=defaultdict(set); seen_pid_own=defaultdict(set)
 
@@ -1103,7 +1286,8 @@ def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
                         if pid: seen_pid_fl[fl].add(pid)
                         first_last_index[fl].append(rec)
 
-    logging.info("Parcel index: %s owner keys | %s parcels | %s mail rows",len(owner_index),len(parcel_rows),len(mail_rows))
+    logging.info("Parcel index: %s owner keys | %s parcels | %s mail rows",
+                 len(owner_index),len(parcel_rows),len(mail_rows))
     return owner_index,last_name_index,first_last_index,parcel_rows,mail_by_pid
 
 
@@ -1148,7 +1332,9 @@ def build_tax_delinquent_leads(delinquent_parcels,parcel_rows,mail_by_pid,vacant
             distress_count=len(ds),luc=luc,acres=acres,is_vacant_home=vhome,
             is_absentee=absentee,is_out_of_state=oos,with_address=1,
             match_method="tax_delinquent_direct",match_score=1.0,parcel_id=pid,
-            assessed_value=assessed,last_sale_price=sale_price,last_sale_year=sale_year,
+            assessed_value=assessed,
+            estimated_value=round(float(clean_text(row.get("EST_MARKET_VALUE","")) or 0)) or None,
+            last_sale_price=sale_price,last_sale_year=sale_year,
         )
         r=estimate_mortgage_data(r); r.score=score_record(r); r.hot_stack=r.distress_count>=2
         leads.append(r)
@@ -1205,7 +1391,9 @@ def build_vacant_home_list(vacant_addresses,parcel_rows,mail_by_pid,delinquent_p
             clerk_url=VACANT_BUILDING_URL,flags=flags,distress_sources=ds,distress_count=len(ds),
             luc=luc,acres=acres,is_vacant_home=True,is_absentee=absentee,is_out_of_state=oos,
             with_address=1,match_method="vacant_home_board",match_score=1.0,parcel_id=pid,
-            assessed_value=assessed,last_sale_price=sale_price,last_sale_year=sale_year,
+            assessed_value=assessed,
+            estimated_value=round(float(clean_text(row.get("EST_MARKET_VALUE","")) or 0)) or None,
+            last_sale_price=sale_price,last_sale_year=sale_year,
         )
         rec=estimate_mortgage_data(rec); rec.score=score_record(rec); rec.hot_stack=rec.distress_count>=2
         records.append(rec)
@@ -1480,9 +1668,10 @@ def enrich_with_parcel_data(records,owner_index,last_name_index,first_last_index
                 record.luc=record.luc or clean_text(matched.get("luc",""))
                 record.acres=record.acres or clean_text(matched.get("acres",""))
                 record.parcel_id=record.parcel_id or clean_text(matched.get("parcel_id",""))
-                if not record.assessed_value: record.assessed_value=matched.get("assessed_value")
-                if not record.last_sale_price: record.last_sale_price=matched.get("last_sale_price")
-                if not record.last_sale_year:  record.last_sale_year=matched.get("last_sale_year")
+                if not record.assessed_value:   record.assessed_value=matched.get("assessed_value")
+                if not record.estimated_value:  record.estimated_value=matched.get("est_market_value")
+                if not record.last_sale_price:  record.last_sale_price=matched.get("last_sale_price")
+                if not record.last_sale_year:   record.last_sale_year=matched.get("last_sale_year")
                 record.match_method=method; record.match_score=ms
                 report["matched"]+=1; report["match_methods"][method]+=1
             else:
