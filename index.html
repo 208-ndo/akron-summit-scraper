@@ -34,11 +34,15 @@
   .stat-num.cool{color:var(--cool);} .stat-num.green{color:var(--accent3);} .stat-num.gold{color:var(--accent);}
   .sdiv{width:1px;background:var(--border);align-self:stretch;margin:0 2px;}
 
-  .tabs-wrap{background:var(--surface);border-bottom:1px solid var(--border);padding:0 24px;overflow-x:auto;scrollbar-width:none;}
-  .tabs-wrap::-webkit-scrollbar{display:none;}
-  .tabs{display:flex;gap:2px;white-space:nowrap;}
+  /* FIX: tabs-wrap scrolls horizontally, never clips */
+  .tabs-wrap{background:var(--surface);border-bottom:1px solid var(--border);
+    padding:0 24px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
+  .tabs-wrap::-webkit-scrollbar{height:3px;}
+  .tabs-wrap::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+  .tabs{display:flex;gap:2px;white-space:nowrap;min-width:max-content;}
   .tab{padding:12px 14px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-    cursor:pointer;border:none;background:none;color:var(--muted);border-bottom:2px solid transparent;transition:all .15s;}
+    cursor:pointer;border:none;background:none;color:var(--muted);border-bottom:2px solid transparent;
+    transition:all .15s;white-space:nowrap;flex-shrink:0;}
   .tab:hover{color:var(--text);}
   .tab.active{color:var(--text);border-bottom-color:var(--accent);}
   .tab .badge{display:inline-flex;align-items:center;justify-content:center;background:var(--border);
@@ -116,7 +120,6 @@
     border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;margin-right:8px;}
   @keyframes spin{to{transform:rotate(360deg)}}
 
-  /* MODAL */
   .mo{position:fixed;inset:0;background:rgba(0,0,0,.87);z-index:200;display:none;
     align-items:center;justify-content:center;padding:20px;}
   .mo.open{display:flex;}
@@ -188,9 +191,12 @@
   <div class="sdiv"></div>
   <div class="stat"><div class="stat-num cool" id="s-subto">–</div><div class="stat-label">🎯 Sub-To</div></div>
   <div class="sdiv"></div>
+  <div class="stat"><div class="stat-num green" id="s-vacland">–</div><div class="stat-label">🌿 Vac Land</div></div>
+  <div class="sdiv"></div>
   <div class="stat"><div class="stat-num" id="s-new">–</div><div class="stat-label">🆕 This Week</div></div>
 </div>
 
+<!-- FIX: ALL tabs present, scrollable container -->
 <div class="tabs-wrap">
   <div class="tabs" id="tabs">
     <button class="tab active" data-tab="all">All Leads <span class="badge" id="b-all">0</span></button>
@@ -206,6 +212,8 @@
     <button class="tab" data-tab="foreclosure">⚠️ Foreclosure <span class="badge" id="b-foreclosure">0</span></button>
     <button class="tab" data-tab="subject_to">🎯 Subject-To <span class="badge" id="b-subject_to">0</span></button>
     <button class="tab" data-tab="prime_subject_to">⭐ Prime Deals <span class="badge" id="b-prime_subject_to">0</span></button>
+    <!-- FIX: Vacant Land tab was missing -->
+    <button class="tab" data-tab="vacant_land">🌿 Vacant Land <span class="badge" id="b-vacant_land">0</span></button>
   </div>
 </div>
 
@@ -228,6 +236,7 @@
     <option value="Absentee owner">📭 Absentee</option>
     <option value="Out-of-state owner">🌎 Out-of-State</option>
     <option value="Vacant home">🏠 Vacant Home</option>
+    <option value="Vacant land">🌿 Vacant Land</option>
     <option value="Tax delinquent">💰 Tax Delinquent</option>
     <option value="Code violation">🏚 Code Violation</option>
     <option value="Inherited">🏛 Inherited</option>
@@ -271,13 +280,6 @@
 </div>
 
 <script>
-// ── path helper ──────────────────────────────────────────────────────────────
-// Works whether dashboard/index.html or root index.html
-function dataPath(file) {
-  // try relative paths: same dir, ../data/, data/
-  return '../data/' + file;
-}
-
 const TAB_FILES = {
   all:             'records.json',
   sheriff_sales:   'sheriff_sales.json',
@@ -292,97 +294,87 @@ const TAB_FILES = {
   foreclosure:     'foreclosure.json',
   subject_to:      'subject_to.json',
   prime_subject_to:'prime_subject_to.json',
+  vacant_land:     'vacant_land.json',   // FIX: was missing
 };
 
-// ── state ────────────────────────────────────────────────────────────────────
-let cache = {};
-let curTab = 'all';
-let curRecs = [];
-let filtered = [];
-let sortCol = 'score';
-let sortDir = -1;
-let rendered = 0;
-const PAGE = 200;
+let cache={}, curTab='all', curRecs=[], filtered=[];
+let sortCol='score', sortDir=-1, rendered=0;
+const PAGE=200;
 
-// ── fetch with fallback paths ────────────────────────────────────────────────
 async function fetchJSON(file) {
-  const paths = ['../data/'+file, 'data/'+file, file];
-  for (const p of paths) {
-    try {
-      const r = await fetch(p);
-      if (r.ok) return await r.json();
-    } catch(e) {}
+  const paths=['../data/'+file,'data/'+file,file];
+  for(const p of paths){
+    try{const r=await fetch(p);if(r.ok)return await r.json();}catch(e){}
   }
   return null;
 }
 
-async function loadTab(tab) {
-  if (cache[tab]) return cache[tab];
-  const j = await fetchJSON(TAB_FILES[tab]);
-  const recs = j ? (j.records || []) : [];
-  cache[tab] = recs;
-  const b = document.getElementById('b-' + tab);
-  if (b) b.textContent = recs.length.toLocaleString();
+async function loadTab(tab){
+  if(cache[tab]) return cache[tab];
+  const j=await fetchJSON(TAB_FILES[tab]);
+  const recs=j?(j.records||[]):[];
+  cache[tab]=recs;
+  const b=document.getElementById('b-'+tab);
+  if(b) b.textContent=recs.length.toLocaleString();
   return recs;
 }
 
-async function loadStats() {
-  const j = await fetchJSON('records.json');
-  if (!j) { document.getElementById('upd').textContent = 'Offline / No data'; return; }
-  const r = j.records || [];
-  document.getElementById('s-total').textContent   = (j.total||0).toLocaleString();
-  document.getElementById('s-sheriff').textContent = (j.sheriff_sale_count||0).toLocaleString();
-  document.getElementById('s-hot').textContent     = (j.hot_stack_count||0).toLocaleString();
-  document.getElementById('s-probate').textContent = (j.probate_count||0).toLocaleString();
-  document.getElementById('s-code').textContent    = (j.code_violation_count||0).toLocaleString();
-  document.getElementById('s-vacant').textContent  = (j.vacant_home_count||0).toLocaleString();
-  document.getElementById('s-tax').textContent     = (j.tax_delinquent_count||0).toLocaleString();
-  document.getElementById('s-absentee').textContent= (j.absentee_count||0).toLocaleString();
-  document.getElementById('s-inherited').textContent = r.filter(x=>x.is_inherited).length.toLocaleString();
-  document.getElementById('s-subto').textContent   = (j.subject_to_count||0).toLocaleString();
-  document.getElementById('s-new').textContent     = r.filter(x=>(x.flags||[]).includes('New this week')).length.toLocaleString();
-  document.getElementById('b-all').textContent     = (j.total||0).toLocaleString();
-  cache['all'] = r;
-  if (j.fetched_at) {
-    const d = new Date(j.fetched_at);
-    document.getElementById('upd').textContent = 'Updated ' + d.toLocaleDateString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});
+async function loadStats(){
+  const j=await fetchJSON('records.json');
+  if(!j){document.getElementById('upd').textContent='Offline / No data';return;}
+  const r=j.records||[];
+  document.getElementById('s-total').textContent    =(j.total||0).toLocaleString();
+  document.getElementById('s-sheriff').textContent  =(j.sheriff_sale_count||0).toLocaleString();
+  document.getElementById('s-hot').textContent      =(j.hot_stack_count||0).toLocaleString();
+  document.getElementById('s-probate').textContent  =(j.probate_count||0).toLocaleString();
+  document.getElementById('s-code').textContent     =(j.code_violation_count||0).toLocaleString();
+  document.getElementById('s-vacant').textContent   =(j.vacant_home_count||0).toLocaleString();
+  document.getElementById('s-tax').textContent      =(j.tax_delinquent_count||0).toLocaleString();
+  document.getElementById('s-absentee').textContent =(j.absentee_count||0).toLocaleString();
+  document.getElementById('s-inherited').textContent=r.filter(x=>x.is_inherited).length.toLocaleString();
+  document.getElementById('s-subto').textContent    =(j.subject_to_count||0).toLocaleString();
+  document.getElementById('s-vacland').textContent  =(j.vacant_land_count||r.filter(x=>x.is_vacant_land).length).toLocaleString();
+  document.getElementById('s-new').textContent      =r.filter(x=>(x.flags||[]).includes('New this week')).length.toLocaleString();
+  document.getElementById('b-all').textContent      =(j.total||0).toLocaleString();
+  cache['all']=r;
+  if(j.fetched_at){
+    const d=new Date(j.fetched_at);
+    document.getElementById('upd').textContent='Updated '+d.toLocaleDateString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});
   }
 }
 
-// ── tabs ─────────────────────────────────────────────────────────────────────
-document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', async () => {
-  document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',async()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
   t.classList.add('active');
-  curTab = t.dataset.tab;
-  document.getElementById('tbody').innerHTML =
+  curTab=t.dataset.tab;
+  document.getElementById('tbody').innerHTML=
     '<tr><td colspan="9"><div class="loading"><span class="spinner"></span>Loading...</div></td></tr>';
-  curRecs = await loadTab(curTab);
+  curRecs=await loadTab(curTab);
   applyFilters();
 }));
 
-// ── filters ──────────────────────────────────────────────────────────────────
-function applyFilters() {
-  const q = document.getElementById('search').value.toLowerCase().trim();
-  const minS = parseInt(document.getElementById('f-score').value)||0;
-  const fl = document.getElementById('f-flag').value.toLowerCase();
-  const ad = document.getElementById('f-addr').value;
-  filtered = curRecs.filter(r => {
-    if (minS && (r.score||0) < minS) return false;
-    if (ad === 'with' && !r.prop_address) return false;
-    if (ad === 'without' && r.prop_address) return false;
-    if (fl) { const f = (r.flags||[]).join(' ').toLowerCase(); if (!f.includes(fl)) return false; }
-    if (q) {
-      const hay = [r.owner,r.prop_address,r.prop_city,r.doc_num,r.doc_type,r.mail_address,
-                   r.decedent_name,r.executor_name,(r.flags||[]).join(' ')].join(' ').toLowerCase();
-      if (!hay.includes(q)) return false;
+function applyFilters(){
+  const q=document.getElementById('search').value.toLowerCase().trim();
+  const minS=parseInt(document.getElementById('f-score').value)||0;
+  const fl=document.getElementById('f-flag').value.toLowerCase();
+  const ad=document.getElementById('f-addr').value;
+  filtered=curRecs.filter(r=>{
+    if(minS&&(r.score||0)<minS) return false;
+    if(ad==='with'&&!r.prop_address) return false;
+    if(ad==='without'&&r.prop_address) return false;
+    if(fl){const f=(r.flags||[]).join(' ').toLowerCase();if(!f.includes(fl))return false;}
+    if(q){
+      const hay=[r.owner,r.prop_address,r.prop_city,r.doc_num,r.doc_type,r.mail_address,
+                 r.decedent_name,r.executor_name,(r.flags||[]).join(' ')].join(' ').toLowerCase();
+      if(!hay.includes(q))return false;
     }
     return true;
   });
-  doSort(); rendered = 0; renderTable();
-  document.getElementById('rec-count').textContent = filtered.length.toLocaleString() + ' records';
+  doSort();rendered=0;renderTable();
+  document.getElementById('rec-count').textContent=filtered.length.toLocaleString()+' records';
 }
 
-function clearFilters() {
+function clearFilters(){
   document.getElementById('search').value='';
   document.getElementById('f-score').value='';
   document.getElementById('f-flag').value='';
@@ -390,60 +382,57 @@ function clearFilters() {
   applyFilters();
 }
 
-// ── sort ──────────────────────────────────────────────────────────────────────
-function sortBy(col, th) {
-  sortDir = sortCol===col ? -sortDir : -1;
-  sortCol = col;
+function sortBy(col,th){
+  sortDir=sortCol===col?-sortDir:-1;sortCol=col;
   document.querySelectorAll('thead th').forEach(x=>x.classList.remove('sorted'));
-  if (th) th.classList.add('sorted');
-  doSort(); rendered=0; renderTable();
+  if(th)th.classList.add('sorted');
+  doSort();rendered=0;renderTable();
 }
 
-function doSort() {
+function doSort(){
   filtered.sort((a,b)=>{
-    let av=a[sortCol], bv=b[sortCol];
-    if(av==null) av=sortDir<0?-Infinity:Infinity;
-    if(bv==null) bv=sortDir<0?-Infinity:Infinity;
-    if(typeof av==='string') return av.localeCompare(bv)*sortDir;
-    return (av-bv)*sortDir;
+    let av=a[sortCol],bv=b[sortCol];
+    if(av==null)av=sortDir<0?-Infinity:Infinity;
+    if(bv==null)bv=sortDir<0?-Infinity:Infinity;
+    if(typeof av==='string')return av.localeCompare(bv)*sortDir;
+    return(av-bv)*sortDir;
   });
 }
 
-// ── render ────────────────────────────────────────────────────────────────────
-function renderTable() {
-  const tbody = document.getElementById('tbody');
-  if (!filtered.length) {
+function renderTable(){
+  const tbody=document.getElementById('tbody');
+  if(!filtered.length){
     tbody.innerHTML='<tr><td colspan="9"><div class="empty"><div class="empty-icon">◎</div><div>No leads found</div></div></td></tr>';
     return;
   }
-  tbody.innerHTML = filtered.slice(0,PAGE).map(rowHTML).join('');
-  if (filtered.length > PAGE) {
-    const s = document.createElement('tr'); s.id='sentinel';
+  tbody.innerHTML=filtered.slice(0,PAGE).map(rowHTML).join('');
+  if(filtered.length>PAGE){
+    const s=document.createElement('tr');s.id='sentinel';
     s.innerHTML='<td colspan="9"><div class="loading" style="padding:14px">Scroll for more...</div></td>';
-    tbody.appendChild(s); rendered=PAGE; observe();
+    tbody.appendChild(s);rendered=PAGE;observe();
   }
 }
 
-function observe() {
-  const s = document.getElementById('sentinel'); if(!s) return;
+function observe(){
+  const s=document.getElementById('sentinel');if(!s)return;
   new IntersectionObserver(entries=>{
-    if(entries[0].isIntersecting) loadMore();
+    if(entries[0].isIntersecting)loadMore();
   },{root:document.querySelector('.table-wrap'),threshold:.1}).observe(s);
 }
 
-function loadMore() {
+function loadMore(){
   const tbody=document.getElementById('tbody');
-  const s=document.getElementById('sentinel'); if(s) s.remove();
+  const s=document.getElementById('sentinel');if(s)s.remove();
   filtered.slice(rendered,rendered+PAGE).forEach(r=>tbody.insertAdjacentHTML('beforeend',rowHTML(r)));
   rendered+=PAGE;
   if(rendered<filtered.length){
     const s=document.createElement('tr');s.id='sentinel';
     s.innerHTML='<td colspan="9"><div class="loading" style="padding:14px">Loading more...</div></td>';
-    tbody.appendChild(s); observe();
+    tbody.appendChild(s);observe();
   }
 }
 
-function rowHTML(r) {
+function rowHTML(r){
   const sc=r.score||0;
   const scls=sc>=80?'sh':sc>=60?'sm':'sl';
   const flags=r.flags||[];
@@ -472,19 +461,19 @@ function rowHTML(r) {
   </tr>`;
 }
 
-function tagHTML(f) {
+function tagHTML(f){
   const fl=f.toLowerCase();
   let c='t-gray';
-  if(fl.includes('hot stack')||fl.includes('sheriff')||fl.includes('foreclos')||fl.includes('⚡')) c='t-hot';
-  else if(fl.includes('tax')||fl.includes('debt')||fl.includes('lien')||fl.includes('judgment')) c='t-warn';
-  else if(fl.includes('absentee')||fl.includes('out-of-state')||fl.includes('inherited')||fl.includes('probate')||fl.includes('executor')) c='t-blue';
-  else if(fl.includes('vacant')||fl.includes('code')||fl.includes('nuisance')||fl.includes('violation')) c='t-purple';
-  else if(fl.includes('new this week')) c='t-green';
-  else if(fl.includes('subject-to')||fl.includes('equity')||fl.includes('prime')) c='t-gold';
+  if(fl.includes('hot stack')||fl.includes('sheriff')||fl.includes('foreclos')||fl.includes('⚡'))c='t-hot';
+  else if(fl.includes('tax')||fl.includes('debt')||fl.includes('lien')||fl.includes('judgment'))c='t-warn';
+  else if(fl.includes('absentee')||fl.includes('out-of-state')||fl.includes('inherited')||fl.includes('probate')||fl.includes('executor'))c='t-blue';
+  else if(fl.includes('vacant')||fl.includes('code')||fl.includes('nuisance')||fl.includes('violation'))c='t-purple';
+  else if(fl.includes('new this week'))c='t-green';
+  else if(fl.includes('subject-to')||fl.includes('equity')||fl.includes('prime'))c='t-gold';
   return `<span class="tag ${c}">${f}</span>`;
 }
 
-function eqBar(eq) {
+function eqBar(eq){
   const pct=Math.min(Math.abs(eq)/150000*100,100);
   const c=eq>=0?'eq-pos':'eq-neg';
   const lbl=eq>=0?`+$${(eq/1000).toFixed(0)}k`:`-$${(Math.abs(eq)/1000).toFixed(0)}k`;
@@ -493,17 +482,16 @@ function eqBar(eq) {
           <div class="eq-lbl" style="color:${col}">${lbl}</div>`;
 }
 
-// ── modal ─────────────────────────────────────────────────────────────────────
-function openModal(rj) {
+function openModal(rj){
   let r;
-  try { r = JSON.parse(rj.replace(/&quot;/g,'"')); } catch(e) { return; }
+  try{r=JSON.parse(rj.replace(/&quot;/g,'"'));}catch(e){return;}
   const flags=r.flags||[];
   const isSheriff=r.doc_type==='SHERIFF';
   const isProbate=r.doc_type==='PRO';
+  const isVacLand=r.doc_type==='VACLAND';
   const eq=r.est_equity!=null?'$'+Number(r.est_equity).toLocaleString():'–';
   const eqCls=r.est_equity!=null?(r.est_equity>=0?'gr':'rd'):'';
   const fd=v=>v!=null?'$'+Number(v).toLocaleString('en-US',{maximumFractionDigits:0}):'–';
-
   const sheriffWarn=isSheriff?`<div class="sheriff-warn">⚡ SHERIFF SALE: ${r.sheriff_sale_date||'TBD'} — Owner must sell or lose everything</div>`:'';
   const probateSec=isProbate?`
     <hr class="mdiv"><div class="msec">Estate Details</div>
@@ -511,7 +499,7 @@ function openModal(rj) {
     <div class="mf"><div class="ml">Executor</div><div class="mv">${r.executor_name||'–'}</div></div>
     <div class="mf"><div class="ml">Executor State</div><div class="mv ${r.executor_state&&r.executor_state!=='OH'?'rd':''}">${r.executor_state||'OH'}</div></div>
   `:'';
-
+  const vacLandNote=isVacLand?`<div class="sheriff-warn" style="background:rgba(74,245,166,.08);border-color:rgba(74,245,166,.3);color:var(--accent3)">🌿 Vacant infill lot — distressed owner, ready to sell</div>`:'';
   document.getElementById('mc').innerHTML=`
     <div class="mh">
       <div><div class="mt">${r.owner||'Unknown Owner'}</div>
@@ -519,7 +507,7 @@ function openModal(rj) {
       <button class="mx" onclick="closeModal()">✕</button>
     </div>
     <div class="mg">
-      ${sheriffWarn}
+      ${sheriffWarn}${vacLandNote}
       <div class="msec">Property</div>
       <div class="mf full"><div class="ml">Property Address</div><div class="mv hi">${r.prop_address||'–'}${r.prop_city?', '+r.prop_city:''} ${r.prop_zip||''}</div></div>
       <div class="mf full"><div class="ml">Mailing Address</div><div class="mv">${r.mail_address||'–'}${r.mail_city?', '+r.mail_city:''} ${r.mail_state||''} ${r.mail_zip||''}</div></div>
@@ -559,109 +547,64 @@ function openModal(rj) {
   document.getElementById('modal').classList.add('open');
 }
 
-function closeModal() { document.getElementById('modal').classList.remove('open'); }
-document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
+function closeModal(){document.getElementById('modal').classList.remove('open');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 
-// ── export ────────────────────────────────────────────────────────────────────
-// ── BatchData / BatchSkipTracing ready format ────────────────────────────────
-// Exact column names BatchData expects for best match rates
-function toBatchDataCSV(rows) {
-  const headers = [
-    'First Name','Last Name',
+function toBatchDataCSV(rows){
+  const headers=['First Name','Last Name',
     'Property Address','Property City','Property State','Property Zip',
     'Mailing Address','Mailing City','Mailing State','Mailing Zip',
-    // Extra context columns (BatchData ignores unknown cols, GHL uses them)
     'Lead Type','Document Type','Date Filed','Document Number','Amount Owed',
     'Seller Score','Subject-To Score','Distress Count','Distress Sources',
-    'Hot Stack','Vacant Home','Absentee Owner','Out-of-State Owner','Inherited',
+    'Hot Stack','Vacant Land','Vacant Home','Absentee Owner','Out-of-State Owner','Inherited',
     'Est Market Value','Est Equity','Est Arrears','Est Payoff','Mortgage Signals',
     'Sheriff Sale Date','Lender','Code Violation Case','Decedent Name','Executor Name','Executor State',
     'Parcel ID','LUC Code','Flags','Public Records URL',
-    // Phone/email cols — blank until skip traced, BatchData fills these in
-    'Phone 1','Phone 1 Type','Phone 2','Phone 2 Type','Phone 3','Phone 3 Type','Email','Skip Trace Source'
-  ];
-
-  function splitName(fullName) {
-    const parts = (fullName||'').trim().split(/\s+/);
-    if (!parts.length) return ['',''];
-    if (parts.length === 1) return [parts[0],''];
-    return [parts[0], parts.slice(1).join(' ')];
-  }
-
-  function fmt(v) {
-    if (v == null) return '';
-    if (Array.isArray(v)) v = v.join('; ');
-    return String(v).replace(/"/g,'""');
-  }
-
-  const lines = rows.map(r => {
-    const [fn, ln] = splitName(r.owner || '');
-    const vals = [
-      fn, ln,
-      r.prop_address||'', r.prop_city||'', r.prop_state||'OH', r.prop_zip||'',
-      r.mail_address||'', r.mail_city||'', r.mail_state||'', r.mail_zip||'',
-      r.cat_label||'', r.doc_type||'', r.filed||'', r.doc_num||'',
+    'Phone 1','Phone 1 Type','Phone 2','Phone 2 Type','Phone 3','Phone 3 Type','Email','Skip Trace Source'];
+  function splitName(n){const p=(n||'').trim().split(/\s+/);if(!p.length)return['',''];if(p.length===1)return[p[0],''];return[p[0],p.slice(1).join(' ')];}
+  function fmt(v){if(v==null)return'';if(Array.isArray(v))v=v.join('; ');return String(v).replace(/"/g,'""');}
+  const lines=rows.map(r=>{
+    const[fn,ln]=splitName(r.owner||'');
+    const vals=[fn,ln,
+      r.prop_address||'',r.prop_city||'',r.prop_state||'OH',r.prop_zip||'',
+      r.mail_address||'',r.mail_city||'',r.mail_state||'',r.mail_zip||'',
+      r.cat_label||'',r.doc_type||'',r.filed||'',r.doc_num||'',
       r.amount!=null?`$${Number(r.amount).toLocaleString()}`:'',
-      r.score||0, r.subject_to_score||0, r.distress_count||0,
-      (r.distress_sources||[]).join('; '),
-      r.hot_stack?'YES':'', r.is_vacant_home?'YES':'',
-      r.is_absentee?'YES':'', r.is_out_of_state?'YES':'', r.is_inherited?'YES':'',
+      r.score||0,r.subject_to_score||0,r.distress_count||0,(r.distress_sources||[]).join('; '),
+      r.hot_stack?'YES':'',r.is_vacant_land?'YES':'',r.is_vacant_home?'YES':'',
+      r.is_absentee?'YES':'',r.is_out_of_state?'YES':'',r.is_inherited?'YES':'',
       r.estimated_value?`$${Number(r.estimated_value).toLocaleString()}`:'',
       r.est_equity!=null?`$${Number(r.est_equity).toLocaleString()}`:'',
       r.est_arrears?`$${Number(r.est_arrears).toLocaleString()}`:'',
       r.est_payoff?`$${Number(r.est_payoff).toLocaleString()}`:'',
       (r.mortgage_signals||[]).join('; '),
-      r.sheriff_sale_date||'', r.lender||'', r.code_violation_case||'',
-      r.decedent_name||'', r.executor_name||'', r.executor_state||'',
-      r.parcel_id||'', r.luc||'',
-      (r.flags||[]).join('; '), r.clerk_url||'',
-      // phones — populated after skip trace
-      (r.phones||[])[0]||'', (r.phone_types||[])[0]||'',
-      (r.phones||[])[1]||'', (r.phone_types||[])[1]||'',
-      (r.phones||[])[2]||'', (r.phone_types||[])[2]||'',
-      (r.emails||[])[0]||'', r.skip_trace_source||''
-    ];
+      r.sheriff_sale_date||'',r.lender||'',r.code_violation_case||'',
+      r.decedent_name||'',r.executor_name||'',r.executor_state||'',
+      r.parcel_id||'',r.luc||'',(r.flags||[]).join('; '),r.clerk_url||'',
+      (r.phones||[])[0]||'',(r.phone_types||[])[0]||'',
+      (r.phones||[])[1]||'',(r.phone_types||[])[1]||'',
+      (r.phones||[])[2]||'',(r.phone_types||[])[2]||'',
+      (r.emails||[])[0]||'',r.skip_trace_source||''];
     return vals.map(v=>`"${fmt(v)}"`).join(',');
   });
-
-  return [headers.map(h=>`"${h}"`).join(','), ...lines].join('\n');
+  return[headers.map(h=>`"${h}"`).join(','),...lines].join('\n');
 }
 
-function download(name,content,type) {
+function download(name,content,type){
   const a=document.createElement('a');
   a.href=URL.createObjectURL(new Blob([content],{type}));
-  a.download=name; a.click();
+  a.download=name;a.click();
 }
+function exportCSV(){const rows=filtered.length?filtered:curRecs;const date=new Date().toISOString().slice(0,10);download(`skip_trace_ready_${date}.csv`,toBatchDataCSV(rows),'text/csv');}
+function exportHotStack(){const rows=(filtered.length?filtered:curRecs).filter(r=>r.hot_stack);if(!rows.length){alert('No Hot Stack leads in current view');return;}const date=new Date().toISOString().slice(0,10);download(`hot_stack_skip_trace_${date}.csv`,toBatchDataCSV(rows),'text/csv');}
+function exportRow(e,r){e.stopPropagation();download(`lead_${r.doc_num||'export'}.csv`,toBatchDataCSV([r]),'text/csv');}
 
-function exportCSV() {
-  // BatchData-ready skip trace format
-  const rows=filtered.length?filtered:curRecs;
-  const date=new Date().toISOString().slice(0,10);
-  download(`skip_trace_ready_${date}.csv`, toBatchDataCSV(rows), 'text/csv');
-}
-
-function exportHotStack() {
-  // Export ONLY hot stack leads — what you upload to BatchData first
-  const rows=(filtered.length?filtered:curRecs).filter(r=>r.hot_stack);
-  if (!rows.length) { alert('No Hot Stack leads in current view'); return; }
-  const date=new Date().toISOString().slice(0,10);
-  download(`hot_stack_skip_trace_${date}.csv`, toBatchDataCSV(rows), 'text/csv');
-}
-
-function exportRow(e,r) {
-  e.stopPropagation();
-  download(`lead_${r.doc_num||'export'}.csv`, toBatchDataCSV([r]), 'text/csv');
-}
-
-// ── init ──────────────────────────────────────────────────────────────────────
-async function init() {
+async function init(){
   await loadStats();
-  curRecs = cache['all'] || [];
+  curRecs=cache['all']||[];
   applyFilters();
-  // preload tab counts in background
-  Object.keys(TAB_FILES).forEach(tab=>{ if(tab!=='all') loadTab(tab); });
+  Object.keys(TAB_FILES).forEach(tab=>{if(tab!=='all')loadTab(tab);});
 }
-
 init();
 </script>
 </body>
