@@ -239,7 +239,8 @@
     <option value="with">With Address</option>
     <option value="without">Without Address</option>
   </select>
-  <button class="btn btn-primary" onclick="exportCSV()">⬇ GHL CSV</button>
+  <button class="btn btn-primary" onclick="exportCSV()" title="Download all visible leads in BatchData skip trace format">⬇ Skip Trace CSV</button>
+  <button class="btn btn-ghost" onclick="exportHotStack()" title="Download only Hot Stack leads for priority skip tracing" style="border-color:var(--hot);color:var(--hot)">🔥 Hot Stack Only</button>
   <button class="btn btn-ghost" onclick="clearFilters()">✕ Clear</button>
   <div class="rec-count" id="rec-count">0 records</div>
 </div>
@@ -562,25 +563,68 @@ function closeModal() { document.getElementById('modal').classList.remove('open'
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
 
 // ── export ────────────────────────────────────────────────────────────────────
-const COLS=['owner','prop_address','prop_city','prop_state','prop_zip',
-  'mail_address','mail_city','mail_state','mail_zip',
-  'doc_type','cat_label','filed','doc_num','amount',
-  'score','subject_to_score','hot_stack','is_vacant_home','is_absentee','is_out_of_state','is_inherited',
-  'assessed_value','estimated_value','last_sale_price','last_sale_year',
-  'est_mortgage_balance','est_equity','est_arrears','est_payoff',
-  'decedent_name','executor_name','executor_state',
-  'sheriff_sale_date','lender','code_violation_case',
-  'parcel_id','luc','distress_count','distress_sources','flags',
-  'phones','emails','clerk_url'];
+// ── BatchData / BatchSkipTracing ready format ────────────────────────────────
+// Exact column names BatchData expects for best match rates
+function toBatchDataCSV(rows) {
+  const headers = [
+    'First Name','Last Name',
+    'Property Address','Property City','Property State','Property Zip',
+    'Mailing Address','Mailing City','Mailing State','Mailing Zip',
+    // Extra context columns (BatchData ignores unknown cols, GHL uses them)
+    'Lead Type','Document Type','Date Filed','Document Number','Amount Owed',
+    'Seller Score','Subject-To Score','Distress Count','Distress Sources',
+    'Hot Stack','Vacant Home','Absentee Owner','Out-of-State Owner','Inherited',
+    'Est Market Value','Est Equity','Est Arrears','Est Payoff','Mortgage Signals',
+    'Sheriff Sale Date','Lender','Code Violation Case','Decedent Name','Executor Name','Executor State',
+    'Parcel ID','LUC Code','Flags','Public Records URL',
+    // Phone/email cols — blank until skip traced, BatchData fills these in
+    'Phone 1','Phone 1 Type','Phone 2','Phone 2 Type','Phone 3','Phone 3 Type','Email','Skip Trace Source'
+  ];
 
-function toCSV(rows) {
-  const hdr=COLS.join(',');
-  const lines=rows.map(r=>COLS.map(c=>{
-    let v=r[c]; if(Array.isArray(v)) v=v.join('; ');
-    if(v==null) v=''; v=String(v).replace(/"/g,'""');
-    return `"${v}"`;
-  }).join(','));
-  return [hdr,...lines].join('\n');
+  function splitName(fullName) {
+    const parts = (fullName||'').trim().split(/\s+/);
+    if (!parts.length) return ['',''];
+    if (parts.length === 1) return [parts[0],''];
+    return [parts[0], parts.slice(1).join(' ')];
+  }
+
+  function fmt(v) {
+    if (v == null) return '';
+    if (Array.isArray(v)) v = v.join('; ');
+    return String(v).replace(/"/g,'""');
+  }
+
+  const lines = rows.map(r => {
+    const [fn, ln] = splitName(r.owner || '');
+    const vals = [
+      fn, ln,
+      r.prop_address||'', r.prop_city||'', r.prop_state||'OH', r.prop_zip||'',
+      r.mail_address||'', r.mail_city||'', r.mail_state||'', r.mail_zip||'',
+      r.cat_label||'', r.doc_type||'', r.filed||'', r.doc_num||'',
+      r.amount!=null?`$${Number(r.amount).toLocaleString()}`:'',
+      r.score||0, r.subject_to_score||0, r.distress_count||0,
+      (r.distress_sources||[]).join('; '),
+      r.hot_stack?'YES':'', r.is_vacant_home?'YES':'',
+      r.is_absentee?'YES':'', r.is_out_of_state?'YES':'', r.is_inherited?'YES':'',
+      r.estimated_value?`$${Number(r.estimated_value).toLocaleString()}`:'',
+      r.est_equity!=null?`$${Number(r.est_equity).toLocaleString()}`:'',
+      r.est_arrears?`$${Number(r.est_arrears).toLocaleString()}`:'',
+      r.est_payoff?`$${Number(r.est_payoff).toLocaleString()}`:'',
+      (r.mortgage_signals||[]).join('; '),
+      r.sheriff_sale_date||'', r.lender||'', r.code_violation_case||'',
+      r.decedent_name||'', r.executor_name||'', r.executor_state||'',
+      r.parcel_id||'', r.luc||'',
+      (r.flags||[]).join('; '), r.clerk_url||'',
+      // phones — populated after skip trace
+      (r.phones||[])[0]||'', (r.phone_types||[])[0]||'',
+      (r.phones||[])[1]||'', (r.phone_types||[])[1]||'',
+      (r.phones||[])[2]||'', (r.phone_types||[])[2]||'',
+      (r.emails||[])[0]||'', r.skip_trace_source||''
+    ];
+    return vals.map(v=>`"${fmt(v)}"`).join(',');
+  });
+
+  return [headers.map(h=>`"${h}"`).join(','), ...lines].join('\n');
 }
 
 function download(name,content,type) {
@@ -590,13 +634,23 @@ function download(name,content,type) {
 }
 
 function exportCSV() {
+  // BatchData-ready skip trace format
   const rows=filtered.length?filtered:curRecs;
-  download('ghl_export_'+new Date().toISOString().slice(0,10)+'.csv',toCSV(rows),'text/csv');
+  const date=new Date().toISOString().slice(0,10);
+  download(`skip_trace_ready_${date}.csv`, toBatchDataCSV(rows), 'text/csv');
+}
+
+function exportHotStack() {
+  // Export ONLY hot stack leads — what you upload to BatchData first
+  const rows=(filtered.length?filtered:curRecs).filter(r=>r.hot_stack);
+  if (!rows.length) { alert('No Hot Stack leads in current view'); return; }
+  const date=new Date().toISOString().slice(0,10);
+  download(`hot_stack_skip_trace_${date}.csv`, toBatchDataCSV(rows), 'text/csv');
 }
 
 function exportRow(e,r) {
   e.stopPropagation();
-  download('lead_'+(r.doc_num||'export')+'.csv',toCSV([r]),'text/csv');
+  download(`lead_${r.doc_num||'export'}.csv`, toBatchDataCSV([r]), 'text/csv');
 }
 
 // ── init ──────────────────────────────────────────────────────────────────────
