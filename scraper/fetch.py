@@ -56,9 +56,11 @@ PENDING_CIVIL_URL    = "https://newcivilfilings.summitoh.net/"
 PROBATE_URL          = "https://search.summitohioprobate.com/eservices/"
 PROBATE_NEWS_URL     = "https://www.akronlegalnews.com/courts/probate_new_cases"
 PROBATE_NEWS_URLS    = [
+    # Summit County Probate Court public search — no login required
+    "https://search.summitohioprobate.com/eservices/?x=C*1iKAFBMKE3XGKNq4N8gx7BgrHvCz3a2ZcjdnXw7*dXI1MRdHYhZiL-jgOJ9NyS9IvGjpd1P6NIV0bexPq6WF1rcPqZ3Jab3svIkSHb0-",
+    "https://search.summitohioprobate.com/eservices/",
+    # Akron Legal News fallback (may require login)
     "https://www.akronlegalnews.com/courts/probate_new_cases",
-    "https://www.akronlegalnews.com/editorial/probate",
-    "https://www.akronlegalnews.com/courts/probate",
 ]
 CAMA_PAGE_URL        = "https://fiscaloffice.summitoh.net/index.php/documents-a-forms/viewcategory/10-cama"
 VACANT_BUILDING_URL  = "https://www.akronohio.gov/government/boards_and_commissions/vacant_building_board.php"
@@ -694,16 +696,22 @@ def scrape_probate_leads(parcel_rows:List[dict],mail_by_pid:Dict[str,dict],
         for purl in PROBATE_NEWS_URLS:
             try:
                 resp=retry_request(purl,timeout=30)
-                candidate=BeautifulSoup(resp.text,"lxml").get_text(" ")
-                if "Estate of" in candidate or "estate of" in candidate:
+                soup=BeautifulSoup(resp.text,"lxml")
+                # Try to get table data from probate court search
+                candidate=soup.get_text(" ")
+                if "Estate of" in candidate or "estate of" in candidate or "ESTATE OF" in candidate:
                     text=candidate
-                    logging.info("Probate text found at: %s",purl)
+                    logging.info("Probate text found at: %s (len=%s)",purl,len(text))
                     break
                 elif len(candidate)>len(text):
-                    text=candidate  # keep longest as fallback
+                    text=candidate
+                logging.info("Probate URL tried: %s (len=%s, has_estate=%s)",
+                    purl, len(candidate), "Estate of" in candidate)
             except Exception as pe:
                 logging.warning("Probate URL failed %s: %s",purl,pe)
-        save_debug_text("probate_page_text.txt",text[:5000])
+        save_debug_text("probate_page_text.txt",text[:8000])
+        if not text or ("Estate of" not in text and "estate of" not in text):
+            logging.warning("Probate: no estate filings found on any URL — site may require login")
 
         estate_pat=re.compile(
             r"Estate of\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3}),?\s+deceased",
