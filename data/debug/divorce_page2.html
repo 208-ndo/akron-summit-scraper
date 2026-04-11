@@ -1,0 +1,111 @@
+<html><head>
+	<meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+		<title>
+			Select CaseID
+		</title>
+
+<style>
+p{
+font-size:9pt;
+font-family:"arial";
+}
+td{
+font-size:9pt;
+font-family:"arial";
+}
+</style>
+<script =="" javascript="">
+
+function CheckStandardFormat(Form)
+	{
+	if (Form.CaseIDpart1.value == "")
+	  {
+	  	alert("Error ! Case ID must be filled in.")
+	  	Form.CaseIDpart1.focus() ;
+	  	return false ;
+	  }
+	}
+	
+function checknodigits_1()
+ {
+		var casestring = document.SelectCaseID.CaseIDpart1.value ;
+		if (casestring.length == 4)
+		{
+			document.SelectCaseID.CaseIDpart2.focus();
+		}
+ }
+ 
+function checknodigits_2()
+ {
+		var casestring = document.SelectCaseID.CaseIDpart2.value ;
+		if (casestring.length == 2)
+		{
+			document.SelectCaseID.CaseIDpart3.focus();
+		}
+ }
+
+function focuson()
+ {
+	document.SelectCaseID.CaseIDpart1.focus() ;
+ }	
+	
+        </script></head>
+<!-- Author : Vivek Mehta and Tung Doan	Company: CGI -->
+<!-- Version: 1.0 Date	 : ------ -->
+
+
+<body bgcolor="#FFFFFF" style="font-family" link="#0000ff" vlink="#0000ff" onload="focuson()">
+	
+<form method="POST" action="SearchByCaseNbrDomesticAction.asp" name="SelectCaseID" onsubmit="return CheckStandardFormat(this)" onreset="focuson()">
+<link href="COC/co.css" rel="stylesheet">
+<table align="TOP" width="100%" cellspacing="0" cellpadding="0">
+	<tbody><tr><td><div class="BANNER1"><b>Tavia Galonski - Summit County Clerk of Courts</b></div></td></tr>
+</tbody></table>
+<br>
+
+<table bgcolor="E3E1BA" width="100%">
+ <tbody><tr>
+	<td><div class="banner2"><b>Search by Domestic Case No.</b></div>
+	</td>
+	<td><div class="banner3"><a href="Home.asp" class="LNK1">Home</a></div>
+	</td>
+ </tr>
+</tbody></table>
+		<br>
+<p>
+
+
+</p><center>
+<table bgcolor="#2D3D79" border="0" cellspacing="0" cellpadding="2">
+		<tbody><tr><td>
+			
+			<input type="hidden" value="name=&quot;myURL&quot;">
+			
+			<input type="hidden" value="name=&quot;From&quot;">
+			<input type="hidden" value="name=&quot;ComingFromWelcomeScreen&quot;">
+      
+	<table bgcolor="ffffee" border="0" cellspacing="0" cellpadding="5" width="700">
+		<tbody><tr>
+			<td>
+		</td></tr><tr>
+			<td colspan="2"><b>Enter Case No.:</b></td>
+			 <td colspan="5">
+			 	<b>DR</b> - <input type="text" name="CaseIDpart1" maxlength="4" size="4" onkeypress="checknodigits_1()">
+			 	- <input type="text" name="CaseIDpart2" maxlength="2" size="2" onkeypress="checknodigits_2()">
+			 	- <input type="text" name="CaseIDpart3" maxlength="5" size="5">
+			 </td>
+		</tr>
+  </tbody></table>
+</td></tr>
+</tbody></table>
+<p align="CENTER"><font color="#009933" face="ARIAL" size="2"> Example: 1999-01-0001 </font> <br> <br>
+</p><center>
+			<input type="submit" value="   OK   " name="Button1">
+			&nbsp;&nbsp;&nbsp;
+			<input type="reset" value=" Cancel " name="Button2">
+
+<table width="100%" cellspacing="0" cellpadding="0">
+	<tbody><tr><td><div class="banner2"><b>Click the back button on the browser to go to previous page.</b></div><p></p></td>
+</tr></tbody></table>
+
+</center></center></form></body></html>
