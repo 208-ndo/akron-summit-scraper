@@ -15,6 +15,13 @@ Data sources (all public, no login required):
 
 Distress Stacking: every property cross-referenced across ALL sources.
 Output: records.json, category JSONs, ghl_export.csv (BatchSkipTracing ready)
+
+FIXES vs previous version:
+  1. SC705 fixed-width parsing now logs a sample line so you can verify byte
+     positions match Summit County's actual layout, and falls back to scanning
+     ALL numeric columns when the hard-coded offsets return 0.
+  2. VacantLandRecord objects are converted to LeadRecord at write time so they
+     appear in records.json / the dashboard nav (Vacant Land tab now shows count).
 """
 import argparse, asyncio, csv, io, json, logging, re, zipfile
 from collections import defaultdict
@@ -111,19 +118,15 @@ class LeadRecord:
     is_vacant_land:bool=False; is_vacant_home:bool=False
     is_absentee:bool=False; is_out_of_state:bool=False
     parcel_id:str=""
-    # phones / email (filled by skip trace later)
     phones:list=field(default_factory=list); phone_types:list=field(default_factory=list)
     emails:list=field(default_factory=list); skip_trace_source:str=""
-    # value / equity
     assessed_value:Optional[float]=None; estimated_value:Optional[float]=None
     last_sale_price:Optional[float]=None; last_sale_year:Optional[int]=None
     est_mortgage_balance:Optional[float]=None; est_equity:Optional[float]=None
     est_arrears:Optional[float]=None; est_payoff:Optional[float]=None
     subject_to_score:int=0; mortgage_signals:List[str]=field(default_factory=list)
-    # source-specific
     sheriff_sale_date:str=""; appraised_value:Optional[float]=None; lender:str=""
     code_violation_case:str=""; code_violation_date:str=""
-    # probate-specific
     decedent_name:str=""; executor_name:str=""; executor_state:str=""
     estate_value:Optional[float]=None; is_inherited:bool=False
 
@@ -134,6 +137,41 @@ class VacantLandRecord:
     owner:str=""; mail_address:str=""; mail_city:str=""; mail_state:str=""; mail_zip:str=""
     luc:str=""; acres:str=""; flags:List[str]=field(default_factory=list); score:int=0
     distress_sources:List[str]=field(default_factory=list); distress_count:int=0
+
+
+def vacant_land_to_lead(vl: VacantLandRecord) -> LeadRecord:
+    """
+    FIX #2 — Convert VacantLandRecord → LeadRecord so vacant land parcels appear
+    in records.json and get picked up by the dashboard nav tab counter.
+    """
+    return LeadRecord(
+        doc_num=f"VACLAND-{vl.parcel_id or vl.prop_address[:20]}",
+        doc_type="VACLAND",
+        cat="VACLAND",
+        cat_label="Vacant Land",
+        filed=datetime.now().date().isoformat(),
+        owner=vl.owner,
+        prop_address=vl.prop_address,
+        prop_city=vl.prop_city,
+        prop_state=vl.prop_state,
+        prop_zip=vl.prop_zip,
+        mail_address=vl.mail_address,
+        mail_city=vl.mail_city,
+        mail_state=vl.mail_state or "OH",
+        mail_zip=vl.mail_zip,
+        luc=vl.luc,
+        acres=vl.acres,
+        flags=list(vl.flags),
+        score=vl.score,
+        distress_sources=list(vl.distress_sources),
+        distress_count=vl.distress_count,
+        hot_stack=vl.distress_count >= 2,
+        is_vacant_land=True,
+        parcel_id=vl.parcel_id,
+        with_address=1 if vl.prop_address else 0,
+        match_method="vacant_land_direct",
+        match_score=1.0,
+    )
 
 
 # -----------------------------------------------------------------------
@@ -377,12 +415,7 @@ def classify_distress_source(doc_type:str)->Optional[str]:
 def estimate_mortgage_data(record:"LeadRecord")->"LeadRecord":
     signals=[]; sto=0
 
-    # ── Establish market value — priority order ──────────────────────────
-    # 1. Already have estimated_value set from CAMA fixed-width (assessed/0.35) → use it
-    # 2. SC750 real sale price adjusted for appreciation → very accurate
-    # 3. Assessed value / 0.35 (Ohio law: assessed = 35% of market)
-    # 4. Sheriff sale appraisal (court-ordered, reliable)
-    market_val = record.estimated_value  # may already be set from CAMA enrich
+    market_val = record.estimated_value
 
     if not market_val and record.last_sale_price and record.last_sale_price > 5000:
         yrs = max(0, datetime.now().year - (record.last_sale_year or datetime.now().year))
@@ -392,12 +425,11 @@ def estimate_mortgage_data(record:"LeadRecord")->"LeadRecord":
         market_val = record.assessed_value / 0.35
 
     if not market_val and record.appraised_value and record.appraised_value > 5000:
-        market_val = record.appraised_value  # sheriff appraisal
+        market_val = record.appraised_value
 
     if market_val:
         record.estimated_value = round(market_val, 2)
 
-    # estimate remaining mortgage balance
     if record.last_sale_price and record.last_sale_year and record.last_sale_price>5000:
         yrs_elapsed=max(0,min(30,datetime.now().year-record.last_sale_year))
         orig=record.last_sale_price*0.80; mr=0.065/12; n=360; paid=yrs_elapsed*12
@@ -409,7 +441,6 @@ def estimate_mortgage_data(record:"LeadRecord")->"LeadRecord":
     if record.estimated_value and record.est_mortgage_balance is not None:
         record.est_equity=round(record.estimated_value-record.est_mortgage_balance,2)
 
-    # arrears and payoff
     if record.doc_type in {"LP","NOFC","TAXDEED","SHERIFF"} and record.amount and record.amount>0:
         record.est_arrears=record.amount
         record.est_payoff=record.est_mortgage_balance or record.amount
@@ -418,7 +449,6 @@ def estimate_mortgage_data(record:"LeadRecord")->"LeadRecord":
         record.est_arrears=(record.est_arrears or 0)+record.amount
         signals.append(f"Tax owed ~${record.amount:,.0f}")
 
-    # subject-to scoring
     if record.est_equity is not None:
         if record.est_equity>50000:   sto+=30; signals.append("High equity 🏦")
         elif record.est_equity>20000: sto+=20; signals.append("Moderate equity")
@@ -461,7 +491,7 @@ def score_record(record:"LeadRecord")->int:
     if "probate / estate" in lf:          fs+=15
     if "vacant home" in lf:               fs+=25
     if "vacant property" in lf:           fs+=15
-    if "sheriff sale scheduled" in lf:    fs+=35   # HIGHEST — days from auction
+    if "sheriff sale scheduled" in lf:    fs+=35
     if "code violation" in lf:            fs+=20
     if "absentee owner" in lf:            fs+=10
     if "out-of-state owner" in lf:        fs+=12
@@ -510,11 +540,6 @@ def scrape_vacant_building_addresses()->List[str]:
 
 
 def scrape_sheriff_sales()->List[LeadRecord]:
-    """
-    Scrape Akron Legal News sheriff sale abstracts.
-    These owners are DAYS from losing everything — highest urgency leads.
-    Includes: address, lender, defendant (owner), appraised value, sale date.
-    """
     records:List[LeadRecord]=[]
     try:
         logging.info("Scraping sheriff sales...")
@@ -526,7 +551,6 @@ def scrape_sheriff_sales()->List[LeadRecord]:
             row_text=" ".join(cells)
             if not row_text or len(row_text)<15: continue
 
-            # detect sale date headers
             dm=re.search(r"Properties for Sale on ([A-Za-z]+ \d+,?\s*\d{4})",row_text,re.IGNORECASE)
             if dm:
                 try: current_sale_date=datetime.strptime(dm.group(1).replace(",","").strip(),"%B %d %Y").date().isoformat()
@@ -538,7 +562,6 @@ def scrape_sheriff_sales()->List[LeadRecord]:
             case_num=clean_text(link.get_text(" "))
             detail_url=requests.compat.urljoin(SHERIFF_SALES_URL,clean_text(link.get("href","")))
 
-            # parse: "CASE - Lender v Owner Property located at ADDR. Appraised at $X"
             m=re.search(
                 r"[-–]\s*(.+?)\s+v\s+(.+?)\s+Property located at\s+(.+?)\.\s+Appraised at\s+\$?([\d,]+)",
                 row_text,re.IGNORECASE
@@ -552,7 +575,6 @@ def scrape_sheriff_sales()->List[LeadRecord]:
                 lender=clean_text(m.group(1)); owner=clean_text(m.group(2))
                 prop_raw=clean_text(m.group(3)); appraised_raw=m.group(4)
 
-            # parse address
             prop_address=""; prop_city=""; prop_zip=""
             parts=[p.strip() for p in prop_raw.split(",")]
             if parts:
@@ -566,7 +588,6 @@ def scrape_sheriff_sales()->List[LeadRecord]:
             try: appraised=float(appraised_raw.replace(",",""))
             except: appraised=None
 
-            # clean owner
             for pat in [r"\bet al\b.*$",r"\baka\b.*$",r"\bunknown\b.*$"]:
                 owner=re.sub(pat,"",owner,flags=re.IGNORECASE).strip()
             owner=re.sub(r"\s+"," ",owner).strip(" ,.-")
@@ -600,10 +621,6 @@ def scrape_sheriff_sales()->List[LeadRecord]:
 
 
 def scrape_housing_appeals_board()->List[LeadRecord]:
-    """
-    Scrape Akron Housing Appeals Board — homes with active code violation orders.
-    Improved address extraction — tries multiple patterns.
-    """
     records:List[LeadRecord]=[]
     try:
         logging.info("Scraping Housing Appeals Board...")
@@ -611,12 +628,10 @@ def scrape_housing_appeals_board()->List[LeadRecord]:
         soup=BeautifulSoup(resp.text,"lxml"); text=soup.get_text(" ")
         seen_cases=set()
 
-        # Pattern 1: "CASE #XXXX – ADDRESS ST"
         case_pat=re.compile(
             r"CASE\s*#\s*(\d+)\s*[–\-]+\s*(?:\([A-Z ]+\)\s*[–\-]+\s*)?(\d{2,5}\s+[A-Z][A-Za-z0-9\s\.]{3,50}(?:ST|AVE|RD|DR|BLVD|LN|CT|PL|WAY|TER|CIR|PKWY|STREET|AVENUE|ROAD|DRIVE|LANE|COURT|PLACE)\.?(?:\s+\w+)?)",
             re.IGNORECASE
         )
-        # Pattern 2: simpler — just case number then address on same line
         case_simple=re.compile(
             r"CASE\s*#\s*(\d+)[^\n]{0,60}?(\d{3,5}\s+[A-Z][A-Za-z\s]{3,30}(?:ST|AVE|RD|DR|BLVD|LN|CT|PL|WAY|TER|CIR|PKWY))",
             re.IGNORECASE
@@ -661,37 +676,22 @@ def scrape_housing_appeals_board()->List[LeadRecord]:
 
 def scrape_probate_leads(parcel_rows:List[dict],mail_by_pid:Dict[str,dict],
                           delinquent_pid_set:set,vacant_home_keys:set)->List[LeadRecord]:
-    """
-    Scrape Summit County Probate Court new estate filings via Akron Legal News.
-    
-    Key signals we look for:
-      - Executor/administrator address is OUT OF STATE → they inherited and don't want it
-      - Decedent's property found in CAMA → we know the address, value, mortgage
-      - Estate property + tax delinquent → they're already behind and just want out
-      - Estate property + vacant home → perfect — empty house, out-of-state heir
-    
-    Strategy: scrape estate name → search CAMA by last name of decedent → 
-              cross-reference with tax delinquent + vacant lists.
-    """
     records:List[LeadRecord]=[]
     try:
         logging.info("Scraping probate / estate leads...")
         resp=retry_request(PROBATE_NEWS_URL,timeout=30); soup=BeautifulSoup(resp.text,"lxml")
         text=soup.get_text(" ")
 
-        # Pattern: "Estate of FIRSTNAME LASTNAME, deceased"
         estate_pat=re.compile(
             r"Estate of\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3}),?\s+deceased",
             re.IGNORECASE
         )
-        # Executor address pattern
         exec_pat=re.compile(
             r"(?:executor|administrator|fiduciary),?\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3}),\s*(.+?(?:[A-Z]{2}\s+\d{5}|[A-Z]{2}\s*\d{5}))",
             re.IGNORECASE
         )
 
-        # Build last-name → parcel lookup for cross-referencing
-        last_name_to_parcels:Dict[str,List[dict]]={} 
+        last_name_to_parcels:Dict[str,List[dict]]={}
         for row in parcel_rows:
             owner=build_owner_name(row)
             if not owner: continue
@@ -706,7 +706,6 @@ def scrape_probate_leads(parcel_rows:List[dict],mail_by_pid:Dict[str,dict],
             seen_decedents.add(decedent_name)
 
             surrounding=text[max(0,m.start()-50):m.end()+800]
-            # extract executor info
             exec_m=exec_pat.search(surrounding)
             executor_name=""; executor_state=""; executor_address=""
             if exec_m:
@@ -715,7 +714,6 @@ def scrape_probate_leads(parcel_rows:List[dict],mail_by_pid:Dict[str,dict],
                 state_m=re.search(r"\b([A-Z]{2})\s+\d{5}",executor_address)
                 if state_m: executor_state=state_m.group(1)
 
-            # extract filing date
             vdate=""
             date_m=re.search(r"\b(\d{1,2}/\d{1,2}/\d{2,4})\b",surrounding)
             if date_m:
@@ -724,22 +722,19 @@ def scrape_probate_leads(parcel_rows:List[dict],mail_by_pid:Dict[str,dict],
                     except: continue
             if not vdate: vdate=datetime.now().date().isoformat()
 
-            # skip if filed > LOOKBACK_DAYS ago
             try:
                 if datetime.fromisoformat(vdate).date()<(datetime.now().date()-timedelta(days=LOOKBACK_DAYS)):
                     continue
             except: pass
 
-            # try to find the decedent's property in CAMA by last name
             decedent_last=get_last_name(normalize_name(decedent_name))
             matched_parcels=last_name_to_parcels.get(decedent_last,[])
 
             if matched_parcels:
-                # create a lead for each matched parcel (usually 1)
-                for row in matched_parcels[:3]:  # cap at 3 matches per name
+                for row in matched_parcels[:3]:
                     pid=get_pid(row)
                     luc=clean_text(row.get("LUC",""))
-                    if luc not in RESIDENTIAL_LUCS: continue  # only residential
+                    if luc not in RESIDENTIAL_LUCS: continue
 
                     prop_address=build_prop_address_from_row(row)
                     prop_city=build_prop_city_from_row(row)
@@ -795,7 +790,6 @@ def scrape_probate_leads(parcel_rows:List[dict],mail_by_pid:Dict[str,dict],
                     rec.hot_stack=rec.distress_count>=2
                     records.append(rec)
             else:
-                # No CAMA match — still create a lead with what we have
                 flags=["Probate / estate","Inherited property"]
                 ds=["probate"]
                 if executor_state and executor_state!="OH":
@@ -898,66 +892,118 @@ def parse_delimited_text(raw:str)->List[dict]:
         if any(cleaned.values()): rows.append(cleaned)
     return rows
 
-def parse_sc705_fixed_width(raw:str)->List[dict]:
+
+# -----------------------------------------------------------------------
+# FIX #1 — SC705 fixed-width parser with debug logging + fallback scanner
+# -----------------------------------------------------------------------
+def parse_sc705_fixed_width(raw: str) -> List[dict]:
     """
     Parse SC705_PARDAT or SC731_PARDATMTD fixed-width format.
-    Key fields extracted with exact byte positions per official layout:
+
+    FIX: Added sample-line debug logging so you can verify byte positions
+    against Summit County's actual file layout.  Also added a fallback
+    numeric-column scanner: if the hard-coded BLDVAL/MISCVAL positions
+    return 0 for every row, we scan ALL columns for plausible value fields
+    and use the largest numeric one as the assessed value.
+
+    Standard layout offsets (1-based):
       PID:       pos 12, len 7
       LUC:       pos 127, len 4
-      ADRNO:     pos 58, len 11  (street number)
-      ADRDIR:    pos 75, len 2   (direction)
-      ADRSTR:    pos 77, len 30  (street name)
-      ADRSUF:    pos 107, len 8  (street suffix)
-      ACRES:     pos 176, len 14
-      BLDVAL:    pos 231, len 11 (Gross Building Value = assessed building)
-      MISCVAL:   pos 245, len 11 (Misc Building Value)
+      ADRNO:     pos 58, len 11
+      ADRDIR:    pos 75, len 2
+      ADRSTR:    pos 77, len 30
+      ADRSUF:    pos 107, len 8
+      ACRES:     pos 176, len 14  (stored as integer × 10000)
+      BLDVAL:    pos 231, len 11
+      MISCVAL:   pos 245, len 11
       ZIPCD:     pos 365, len 5
-    Market value = (BLDVAL + MISCVAL) / 0.35 since Ohio assessed = 35% market
     """
-    rows=[]
+    rows = []
+    logged_sample = False  # only log once per file
+
     for line in raw.splitlines():
-        if len(line)<50: continue
-        def fld(start,length): return line[start-1:start-1+length].strip()
+        if len(line) < 50:
+            continue
+
+        # ── DEBUG: log the first real data line so you can spot-check offsets ──
+        if not logged_sample:
+            logging.info(
+                "SC705 sample line (len=%s): %r ... %r",
+                len(line),
+                line[:80],
+                line[220:260] if len(line) > 260 else line[220:],
+            )
+            logged_sample = True
+
+        def fld(start, length):
+            return line[start - 1: start - 1 + length].strip()
+
         try:
-            pid=fld(12,7)
-            if not pid or not pid.strip('0'): continue
-            bldval_raw=fld(231,11).lstrip('+').strip()
-            miscval_raw=fld(245,11).lstrip('+').strip()
-            try: bldval=int(bldval_raw) if bldval_raw else 0
-            except: bldval=0
-            try: miscval=int(miscval_raw) if miscval_raw else 0
-            except: miscval=0
-            assessed_total=bldval+miscval
-            acres_raw=fld(176,14).lstrip('+').strip()
-            try: acres=float(acres_raw)/10000 if acres_raw else 0  # stored as integer * 10000
-            except: acres=0
-            row={
-                "PARID":pid,
-                "LUC":fld(127,4).strip(),
-                "ADRNO":fld(58,11).lstrip('+').strip(),
-                "ADRDIR":fld(75,2).strip(),
-                "ADRSTR":fld(77,30).strip(),
-                "ADRSUF":fld(107,8).strip(),
-                "ZIPCD":fld(365,5).strip(),
-                "ACRES":str(round(acres,4)) if acres else "",
-                "BLDVAL":str(bldval) if bldval else "",
-                "ASSESSED_TOTAL":str(assessed_total) if assessed_total>100 else "",
-                # market value estimate: assessed / 0.35
-                "EST_MARKET_VALUE":str(round(assessed_total/0.35)) if assessed_total>100 else "",
+            pid = fld(12, 7)
+            if not pid or not pid.strip("0"):
+                continue
+
+            # ── Building + misc assessed value ──────────────────────────────
+            bldval_raw  = fld(231, 11).lstrip("+").strip()
+            miscval_raw = fld(245, 11).lstrip("+").strip()
+            try:    bldval  = int(bldval_raw)  if bldval_raw  else 0
+            except: bldval  = 0
+            try:    miscval = int(miscval_raw) if miscval_raw else 0
+            except: miscval = 0
+            assessed_total = bldval + miscval
+
+            # ── Fallback: if fixed offsets gave nothing, scan numeric columns ─
+            # This handles layout variants where Summit County shifted fields.
+            if assessed_total == 0 and len(line) > 230:
+                # Walk the line in 10-char chunks looking for plausible values
+                best_val = 0
+                for start in range(200, min(len(line) - 10, 400), 10):
+                    chunk = line[start: start + 11].strip().lstrip("+")
+                    try:
+                        v = int(chunk)
+                        if 10000 < v < 50_000_000 and v > best_val:
+                            best_val = v
+                    except:
+                        pass
+                if best_val:
+                    assessed_total = best_val
+                    logging.debug("SC705 fallback value for %s: %s at scan", pid, best_val)
+
+            # ── Acres (stored as integer × 10000 in standard layout) ─────────
+            acres_raw = fld(176, 14).lstrip("+").strip()
+            try:
+                acres = float(acres_raw) / 10000 if acres_raw else 0
+            except:
+                acres = 0
+            # Sanity-check: if acres > 10000 the division was already done
+            if acres > 10000:
+                acres = acres / 10000
+
+            row = {
+                "PARID":  pid,
+                "LUC":    fld(127, 4).strip(),
+                "ADRNO":  fld(58, 11).lstrip("+").strip(),
+                "ADRDIR": fld(75, 2).strip(),
+                "ADRSTR": fld(77, 30).strip(),
+                "ADRSUF": fld(107, 8).strip(),
+                "ZIPCD":  fld(365, 5).strip() if len(line) >= 369 else "",
+                "ACRES":  str(round(acres, 4)) if acres else "",
+                "BLDVAL": str(bldval) if bldval else "",
+                "ASSESSED_TOTAL":  str(assessed_total) if assessed_total > 100 else "",
+                "EST_MARKET_VALUE": str(round(assessed_total / 0.35)) if assessed_total > 100 else "",
             }
             rows.append(row)
-        except Exception: continue
-    logging.info("Fixed-width SC705/SC731 parsed: %s rows",len(rows))
+        except Exception:
+            continue
+
+    logging.info("Fixed-width SC705/SC731 parsed: %s rows", len(rows))
+    with_value = sum(1 for r in rows if r.get("EST_MARKET_VALUE"))
+    logging.info("SC705/SC731 rows with est market value: %s / %s", with_value, len(rows))
     return rows
+# ── end FIX #1 ────────────────────────────────────────────────────────────────
 
 
 def parse_sc750_sales(raw:str)->Dict[str,dict]:
-    """
-    Parse SC750_NXMPSALES — Non-Exempt Residential Sales.
-    This is a delimited file with actual sale prices for residential properties.
-    Returns dict of parcel_id -> {sale_price, sale_year, sale_date}
-    These are REAL market transactions, more accurate than assessed value estimates.
-    """
     sales:Dict[str,dict]={}
     lines=[l.rstrip("\r") for l in raw.splitlines() if clean_text(l)]
     if len(lines)<2: return sales
@@ -969,7 +1015,6 @@ def parse_sc750_sales(raw:str)->Dict[str,dict]:
             cleaned={clean_text(k):clean_text(v) for k,v in row.items() if k is not None}
             pid=safe_pick(cleaned,LIKELY_PID_KEYS)
             if not pid: continue
-            # find sale price and date columns
             price=None; year=None; sale_date=""
             for k,v in cleaned.items():
                 ku=k.upper()
@@ -991,7 +1036,6 @@ def parse_sc750_sales(raw:str)->Dict[str,dict]:
                         if 1970<=y<=datetime.now().year: year=y
                     except: pass
             if pid and price:
-                # Only keep most recent sale per parcel
                 existing=sales.get(pid)
                 if not existing or (year and existing.get("sale_year",0)<year):
                     sales[pid]={"sale_price":price,"sale_year":year,"sale_date":sale_date}
@@ -1011,11 +1055,9 @@ def read_any_cama_payload(content:bytes,source_name:str)->Dict[str,List[dict]]:
                 try: raw=z.read(member).decode("utf-8",errors="ignore")
                 except: continue
                 mu=member.upper()
-                # Fixed-width SC705/SC731
                 if any(x in mu for x in ["SC705","SC731"]) and ".DAT" in mu:
                     rows=parse_sc705_fixed_width(raw)
                     if rows: datasets[member]=rows; continue
-                # SC750 sales
                 if "SC750" in mu:
                     sales=parse_sc750_sales(raw)
                     if sales: datasets[member]=[{"_sc750_sales":True,"data":sales}]; continue
@@ -1023,7 +1065,6 @@ def read_any_cama_payload(content:bytes,source_name:str)->Dict[str,List[dict]]:
                 if rows: datasets[member]=rows
         return datasets
     raw=content.decode("utf-8",errors="ignore")
-    # Fixed-width detection
     if any(x in sn_upper for x in ["SC705","SC731"]):
         rows=parse_sc705_fixed_width(raw)
         if rows: datasets[source_name]=rows; return datasets
@@ -1131,7 +1172,7 @@ def normalize_candidate_record(r:dict)->dict:
         "legal":clean_text(r.get("legal","")), "luc":clean_text(r.get("luc","")),
         "acres":clean_text(r.get("acres","")),
         "assessed_value":r.get("assessed_value"),
-        "est_market_value":r.get("est_market_value"),  # NEW — from fixed-width SC705/SC731
+        "est_market_value":r.get("est_market_value"),
         "last_sale_price":r.get("last_sale_price"),
         "last_sale_year":r.get("last_sale_year"),
     }
@@ -1139,7 +1180,7 @@ def normalize_candidate_record(r:dict)->dict:
 def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
     urls=discover_cama_downloads()
     own_rows,mail_rows,legal_rows,parcel_rows=[],[],[],[]
-    sc750_sales:Dict[str,dict]={}  # parcel_id -> {sale_price, sale_year}
+    sc750_sales:Dict[str,dict]={}
 
     for url in urls:
         try:
@@ -1147,7 +1188,6 @@ def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
             datasets=read_any_cama_payload(resp.content,Path(url).name)
             for fname,rows in datasets.items():
                 u=fname.upper()
-                # SC750 sales — special format, stored as single dict entry
                 if "SC750" in u and rows and rows[0].get("_sc750_sales"):
                     sc750_sales.update(rows[0]["data"])
                     logging.info("SC750 sales loaded: %s records",len(rows[0]["data"]))
@@ -1173,10 +1213,7 @@ def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
         parcel_by_id.setdefault(pid,{"parcel_id":pid,"owner_aliases":[]})
         e=parcel_by_id[pid]
 
-        # Value from fixed-width fields (SC705/SC731)
-        assessed=None
-        est_market=None
-        # Try new fixed-width parsed fields first
+        assessed=None; est_market=None
         at_raw=clean_text(row.get("ASSESSED_TOTAL",""))
         em_raw=clean_text(row.get("EST_MARKET_VALUE",""))
         bv_raw=clean_text(row.get("BLDVAL",""))
@@ -1195,16 +1232,13 @@ def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
                 em=float(em_raw)
                 if em>1000: est_market=em
             except: pass
-        # Fall back to delimited field parser
         if not assessed:
             assessed=build_assessed_value_from_row(row)
             if assessed and assessed>100: est_market=round(assessed/0.35)
 
-        # SC750 real sale price — most accurate market value signal
         sc750=sc750_sales.get(pid,{})
         sale_price  = sc750.get("sale_price") or None
         sale_year   = sc750.get("sale_year") or None
-        # Also try from the row itself
         if not sale_price:
             sale_price,sale_year=build_sale_data_from_row(row)
 
@@ -1249,7 +1283,6 @@ def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
         e["legal"]=e.get("legal","") or safe_pick(row,LIKELY_LEGAL_KEYS)
         for a in extract_owner_aliases_from_row(row): add_owner_alias(e,a)
 
-    # Log value coverage stats
     with_market = sum(1 for e in parcel_by_id.values() if e.get("est_market_value"))
     with_sale   = sum(1 for e in parcel_by_id.values() if e.get("last_sale_price"))
     logging.info("Parcel value coverage: %s/%s with est market value | %s/%s with sale price",
@@ -1650,7 +1683,6 @@ def enrich_with_parcel_data(records,owner_index,last_name_index,first_last_index
     report={"matched":0,"unmatched":0,"with_address":0,"with_mail_address":0,
             "match_methods":defaultdict(int),"sample_unmatched":[],"sample_no_property_match":[]}
     for record in records:
-        # Guard: ensure owner is always a string before matching
         if not record.owner: record.owner=""
         if not record.flags: record.flags=[]
         if not record.distress_sources: record.distress_sources=[]
@@ -1761,46 +1793,21 @@ def dedupe_records(records):
 # CROSS-RECORD ADDRESS STACKING
 # -----------------------------------------------------------------------
 def cross_stack_by_address(records: List[LeadRecord]) -> List[LeadRecord]:
-    """
-    Find properties appearing across MULTIPLE separate lead lists and upgrade to Hot Stack.
-
-    Matches by THREE methods (any match counts):
-      1. Normalized address key (street number + name)
-      2. Parcel ID (exact)
-      3. Street number + first word of street name (fuzzy — catches code violations
-         whose addresses may have slightly different formatting)
-
-    Example stacks we catch:
-      Tax delinquent + Code violation at same address → Hot Stack
-      Sheriff sale + Tax delinquent → Hot Stack
-      Foreclosure filing + Vacant home board → Hot Stack
-      Code violation + Vacant home → Hot Stack
-    """
-    # --- Build lookup indexes ---
-
-    # 1. Address key → record indexes
     addr_map: Dict[str, List[int]] = defaultdict(list)
-    # 2. Parcel ID → record indexes
     pid_map: Dict[str, List[int]] = defaultdict(list)
-    # 3. Street number+word → record indexes (fuzzy fallback)
     street_map: Dict[str, List[int]] = defaultdict(list)
 
     for i, r in enumerate(records):
-        # address-based
         if r.prop_address:
             key = normalize_address_key(r.prop_address)
             if key:
                 addr_map[key].append(i)
-                # fuzzy: just street number + first street word
                 parts = key.split()
                 if len(parts) >= 2:
                     street_map[f"{parts[0]} {parts[1]}"].append(i)
-        # parcel ID-based
         if r.parcel_id:
             pid_map[r.parcel_id].append(i)
 
-    # Collect groups of records that share a property
-    # Use sets to avoid double-counting
     groups: Dict[str, set] = {}
 
     def add_group(group_key: str, idxs: List[int]):
@@ -1816,13 +1823,12 @@ def cross_stack_by_address(records: List[LeadRecord]) -> List[LeadRecord]:
         if len(idxs) >= 2: add_group("street:"+sk, idxs)
 
     cross_stacked = 0
-    already_stacked: set = set()  # record indexes already upgraded
+    already_stacked: set = set()
 
     for group_key, idx_set in groups.items():
         idxs = list(idx_set)
         if len(idxs) < 2: continue
 
-        # Collect all unique distress sources and doc types across the group
         all_sources: set = set()
         all_flags: set = set()
         all_doc_types: set = set()
@@ -1832,11 +1838,8 @@ def cross_stack_by_address(records: List[LeadRecord]) -> List[LeadRecord]:
             all_flags.update(r.flags or [])
             all_doc_types.add(r.doc_type)
 
-        # Only hot-stack if there are 2+ DIFFERENT source types
-        # (don't stack two tax delinquent records for the same address)
         if len(all_sources) < 2: continue
 
-        # Apply merged distress to every record in the group
         for i in idxs:
             r = records[i]
             merged = list(set(list(r.distress_sources or []) + list(all_sources)))
@@ -1847,7 +1850,6 @@ def cross_stack_by_address(records: List[LeadRecord]) -> List[LeadRecord]:
             if "🔥 Hot Stack" not in r.flags:    r.flags.append("🔥 Hot Stack")
             if "📍 Cross-List Match" not in r.flags: r.flags.append("📍 Cross-List Match")
 
-            # Propagate important flags from other records in the group
             flag_map = {
                 "Tax delinquent":        "Tax delinquent",
                 "Code violation":        "Code violation",
@@ -1879,7 +1881,6 @@ def cross_stack_by_address(records: List[LeadRecord]) -> List[LeadRecord]:
         cross_stacked, newly_hot
     )
 
-    # Debug sample — show what got stacked
     if newly_hot > 0:
         samples = [(records[i].prop_address, records[i].doc_type, records[i].distress_sources)
                    for i in list(already_stacked)[:5]]
@@ -1919,6 +1920,8 @@ def build_payload(records):
         "code_violation_count":sum(1 for r in records if r.doc_type=="CODEVIOLATION"),
         "subject_to_count":sum(1 for r in records if r.subject_to_score>=50),
         "prime_subject_to_count":sum(1 for r in records if r.subject_to_score>=70),
+        # FIX #2 — vacant land count now appears in the payload for the dashboard
+        "vacant_land_count":sum(1 for r in records if r.is_vacant_land),
         "records":[asdict(r) for r in records],
     }
 
@@ -1945,6 +1948,8 @@ def write_category_json(records):
         "subject_to":        [r for r in records if r.subject_to_score>=50],
         "prime_subject_to":  [r for r in records if r.subject_to_score>=70],
         "inherited":         [r for r in records if r.is_inherited],
+        # FIX #2 — vacant land now written as a category from the main records list
+        "vacant_land":       [r for r in records if r.is_vacant_land],
     }
     descs={
         "hot_stack":        "🔥 2+ distress signals — highest priority",
@@ -1959,6 +1964,7 @@ def write_category_json(records):
         "subject_to":       "🎯 Subject-to acquisition candidates (score ≥50)",
         "prime_subject_to": "⭐ Prime subject-to deals — high equity + motivated seller (score ≥70)",
         "inherited":        "🏛 Inherited properties — heirs may want quick sale",
+        "vacant_land":      "🌿 Distressed vacant infill lots ≤2ac — tax delinquent or in foreclosure",
     }
     output_paths={
         "hot_stack":        (DATA_DIR/"hot_stack.json",        DASHBOARD_DIR/"hot_stack.json"),
@@ -1973,6 +1979,7 @@ def write_category_json(records):
         "subject_to":       (DATA_DIR/"subject_to.json",       DASHBOARD_DIR/"subject_to.json"),
         "prime_subject_to": (DATA_DIR/"prime_subject_to.json", DASHBOARD_DIR/"prime_subject_to.json"),
         "inherited":        (DATA_DIR/"inherited.json",        DASHBOARD_DIR/"inherited.json"),
+        "vacant_land":      (DATA_DIR/"vacant_land.json",      DASHBOARD_DIR/"vacant_land.json"),
     }
     for cat,recs in categories.items():
         recs_s=sorted(recs,key=lambda r:(r.hot_stack,r.distress_count,r.subject_to_score,r.score),reverse=True)
@@ -1982,12 +1989,13 @@ def write_category_json(records):
         for path in output_paths[cat]: write_json(path,payload)
         logging.info("Wrote %s: %s records",cat,len(recs_s))
 
-def write_vacant_land_json(vacant):
-    payload={"fetched_at":datetime.now(timezone.utc).isoformat(),"source":SOURCE_NAME,
-             "total":len(vacant),"description":"Distressed vacant infill lots ≤2ac",
-             "records":[asdict(r) for r in vacant]}
-    for path in [DATA_DIR/"vacant_land.json",DASHBOARD_DIR/"vacant_land.json"]: write_json(path,payload)
-    logging.info("Wrote vacant land: %s records",len(vacant))
+def write_vacant_land_json(vacant_land_leads: List[LeadRecord]):
+    """Write vacant_land.json — now receives LeadRecords (already written by write_category_json).
+    This function is kept for backward compatibility but is now a no-op since
+    write_category_json handles vacant_land output.
+    """
+    logging.info("Vacant land written via write_category_json: %s records",
+                 sum(1 for r in vacant_land_leads if r.is_vacant_land))
 
 def write_csv(records,csv_path):
     csv_path.parent.mkdir(parents=True,exist_ok=True)
@@ -1997,15 +2005,11 @@ def write_csv(records,csv_path):
         "Lead Type","Document Type","Date Filed","Document Number","Amount/Debt Owed",
         "Seller Score","Subject-To Score","Motivated Seller Flags","Distress Sources","Distress Count",
         "Hot Stack","Vacant Land","Vacant Home","Absentee Owner","Out-of-State Owner","Inherited",
-        # mortgage / equity columns
         "Assessed Value","Est Market Value","Last Sale Price","Last Sale Year",
         "Est Mortgage Balance","Est Equity","Est Arrears","Est Payoff","Mortgage Signals",
-        # probate columns
         "Decedent Name","Executor Name","Executor State",
-        # other
         "Sheriff Sale Date","Lender","Code Violation Case",
         "Parcel ID","LUC Code","Acres","Match Method","Match Score",
-        # skip trace (blank until skip traced)
         "Phone 1","Phone 1 Type","Phone 2","Phone 2 Type","Phone 3","Phone 3 Type",
         "Email","Skip Trace Source",
         "Source","Public Records URL",
@@ -2111,7 +2115,6 @@ async def main():
             pid=addr_to_pid.get(normalize_address_key(r.prop_address))
             if pid: foreclosure_pids.add(pid)
 
-    # Also add sheriff sale addresses to foreclosure pids
     for r in sheriff_records:
         if r.prop_address:
             pid=addr_to_pid.get(normalize_address_key(r.prop_address))
@@ -2124,7 +2127,7 @@ async def main():
         vacant_addresses,parcel_rows,mail_by_pid,delinquent_pid_set,foreclosure_pids
     )
 
-    # 7. Probate — needs vacant_home_keys and delinquent_pid_set for cross-ref
+    # 7. Probate
     probate_records=scrape_probate_leads(parcel_rows,mail_by_pid,delinquent_pid_set,vacant_home_keys)
 
     # 8. Distress stacking
@@ -2135,30 +2138,31 @@ async def main():
     # 9. Tax delinquent residential leads
     tax_delin_leads=build_tax_delinquent_leads(delinquent_parcels,parcel_rows,mail_by_pid,vacant_home_keys)
 
-    # 10. Merge all lead types
+    # 10. Vacant land — build as VacantLandRecord then convert to LeadRecord
+    # FIX #2: converted records go into all_records so the dashboard sees them
+    vacant_land_vlr=build_vacant_land_list(parcel_rows,mail_by_pid,delinquent_pid_set,foreclosure_pids)
+    vacant_land_leads=[vacant_land_to_lead(vl) for vl in vacant_land_vlr]
+    vacant_land_leads.sort(key=lambda r:r.score,reverse=True)
+
+    # 11. Merge all lead types (vacant land now included)
     all_records=(all_records + tax_delin_leads + vacant_home_leads +
-                 sheriff_records + code_vio_records + probate_records)
+                 sheriff_records + code_vio_records + probate_records + vacant_land_leads)
     logging.info("Total before dedupe: %s",len(all_records))
 
-    # 10b. Cross-record address stacking
-    # Find any property address appearing on 2+ different lists and upgrade to Hot Stack
+    # 11b. Cross-record address stacking
     all_records=cross_stack_by_address(all_records)
 
-    # 11. Dedupe + sort (sheriff sales first, then hot stack, then score)
+    # 12. Dedupe + sort
     all_records=dedupe_records(all_records)
     all_records.sort(
         key=lambda r:(r.doc_type=="SHERIFF",r.hot_stack,r.distress_count,r.subject_to_score,r.score,r.filed),
         reverse=True
     )
 
-    # 12. Vacant land
-    vacant_land=build_vacant_land_list(parcel_rows,mail_by_pid,delinquent_pid_set,foreclosure_pids)
-    vacant_land.sort(key=lambda r:r.score,reverse=True)
-
     # 13. Write all outputs
     write_json_outputs(all_records,extra_json_path=Path(args.out_json))
-    write_category_json(all_records)
-    write_vacant_land_json(vacant_land)
+    write_category_json(all_records)           # writes vacant_land.json via category
+    write_vacant_land_json(vacant_land_leads)  # no-op now, kept for compat
     write_csv(all_records,DEFAULT_OUTPUT_CSV_PATH)
     if Path(args.out_csv)!=DEFAULT_OUTPUT_CSV_PATH: write_csv(all_records,Path(args.out_csv))
     write_report(report,Path(args.report))
@@ -2179,7 +2183,7 @@ async def main():
         sum(1 for r in all_records if r.is_inherited),
         sum(1 for r in all_records if r.subject_to_score>=50),
         sum(1 for r in all_records if r.subject_to_score>=70),
-        len(vacant_land),
+        sum(1 for r in all_records if r.is_vacant_land),
     )
 
 if __name__=="__main__":
