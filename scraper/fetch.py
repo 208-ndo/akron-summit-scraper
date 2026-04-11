@@ -75,6 +75,7 @@ EVICTION_URL          = "https://newcivilfilings.summitoh.net/"  # same as clerk
 DIVORCE_URL           = "https://clerk.summitoh.net/RecordsSearch/Disclaimer.asp?toPage=SelectDivision.asp"
 DOMESTIC_CIVIL_URL    = "https://newcivilfilings.summitoh.net/"
 FIRE_PERMIT_URL       = "https://www.akronohio.gov/government/departments/planning/building_permits.php"
+ALN_BUILDING_PERMITS  = "https://www.akronlegalnews.com/publicrecord/building_permits"
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"}
 
@@ -1081,6 +1082,86 @@ def scrape_recorder_estate_transfers(parcel_rows:List[dict], mail_by_pid:Dict[st
     return records
 
 
+
+def scrape_fire_damage_leads()->List[LeadRecord]:
+    """
+    Scrape fire damage / fire repair building permits from:
+    1. Akron Legal News building permits (public, updated daily)
+    2. Akron.gov building permits page
+    Looks for permits with "fire" in the description — these owners need to sell fast.
+    """
+    records: List[LeadRecord] = []
+    try:
+        logging.info("Scraping fire damage permits...")
+        fire_text = ""
+
+        for furl in [ALN_BUILDING_PERMITS, FIRE_PERMIT_URL]:
+            try:
+                resp = retry_request(furl, timeout=20)
+                soup = BeautifulSoup(resp.text, "lxml")
+                text = soup.get_text(" ")
+                if any(x in text.upper() for x in ["FIRE","BURN","SMOKE"]):
+                    fire_text += " " + text
+                    save_debug_text("fire_permits.txt", text[:5000])
+                    logging.info("Fire permits from %s: %s chars", furl, len(text))
+                    break
+                elif len(text) > 300:
+                    fire_text += " " + text
+            except Exception as e:
+                logging.warning("Fire permit URL %s: %s", furl, e)
+
+        if not fire_text:
+            logging.info("Fire damage: no permit data available")
+            return records
+
+        seen = set()
+        soup = BeautifulSoup("<html><body>" + fire_text + "</body></html>", "lxml")
+
+        for row in soup.select("tr, li, p"):
+            row_text = clean_text(row.get_text(" "))
+            if len(row_text) < 10 or len(row_text) > 500: continue
+            if not any(x in row_text.upper() for x in ["FIRE","BURN","SMOKE","RESTORATION"]): continue
+            if row_text in seen: continue
+            seen.add(row_text)
+
+            addr_m = re.search(
+                r"(\d{2,5}\s+[A-Z][A-Za-z\s]{2,25}"
+                r"(?:ST|AVE|RD|DR|BLVD|LN|CT|PL|WAY|TER|CIR)\.?)",
+                row_text, re.IGNORECASE)
+            if not addr_m: continue
+            prop_address = clean_text(addr_m.group(1))
+
+            owner_m = re.search(r"(?:owner|applicant)[:\s]+([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3})", row_text, re.IGNORECASE)
+            owner = clean_text(owner_m.group(1)).title() if owner_m else "Unknown"
+
+            dm = re.search(r"(\d{1,2}/\d{1,2}/\d{2,4})", row_text)
+            filed = datetime.now().date().isoformat()
+            if dm:
+                for fmt in ("%m/%d/%Y", "%m/%d/%y"):
+                    try: filed = datetime.strptime(dm.group(1), fmt).date().isoformat(); break
+                    except: continue
+
+            rec = LeadRecord(
+                doc_num=f"FIRE-{len(records)+1:04d}",
+                doc_type="FIREDMG", cat="FIREDMG", cat_label="Fire Damage",
+                owner=owner, filed=filed,
+                prop_address=prop_address.title(), prop_city="Akron", prop_state="OH",
+                with_address=1,
+                flags=["Fire damage", "Distressed property"],
+                distress_sources=["fire_damage"], distress_count=1,
+                clerk_url=ALN_BUILDING_PERMITS,
+                match_method="fire_permit", match_score=0.8,
+            )
+            rec = estimate_mortgage_data(rec); rec.score = score_record(rec)
+            records.append(rec)
+
+        logging.info("Fire damage leads: %s", len(records))
+        save_debug_json("fire_damage_leads.json", [asdict(r) for r in records[:20]])
+    except Exception as e:
+        logging.warning("Fire damage scrape failed: %s", e)
+    return records
+
+
 def scrape_tax_delinquent_parcels()->Dict[str,dict]:
     parcels:Dict[str,dict]={}
     try:
@@ -2060,8 +2141,9 @@ async def scrape_eviction_divorce_records(page)->List[LeadRecord]:
         for el in soup.select("tr, .card-body, .filing, li"):
             row_text = clean_text(el.get_text(" "))
             if len(row_text) < 15 or len(row_text) > 600: continue
-            # Accept any row that looks like a filing (less restrictive)
-            if not any(c.isalpha() for c in row_text): continue
+            # Filter for civil complaint rows (broad — eviction page only shows civil filings)
+            if not row_text or not any(c.isalpha() for c in row_text): continue
+            if any(x in row_text.upper() for x in ["CHECKBOX","FORM-CHECK","LABEL","INPUT"]): continue
             if row_text in seen: continue
             seen.add(row_text)
 
@@ -2114,9 +2196,9 @@ async def scrape_eviction_divorce_records(page)->List[LeadRecord]:
         logging.info("Scraping divorces from Akron Legal News...")
         divorce_recs = []
         divorce_urls = [
+            "https://www.akronlegalnews.com/courts/domestic_relations_division",
             "https://www.akronlegalnews.com/courts/domestic_relations_new_cases",
             "https://www.akronlegalnews.com/courts/domestic_relations",
-            "https://www.akronlegalnews.com/courts/domestic",
         ]
         for durl in divorce_urls:
             try:
@@ -2132,8 +2214,8 @@ async def scrape_eviction_divorce_records(page)->List[LeadRecord]:
                         cells = [clean_text(td.get_text(" ")) for td in row.select("td")]
                         if not cells or len(cells) < 2: continue
                         row_text = clean_text(" ".join(cells))
-                        if not any(x in row_text.upper() for x in
-                            ["DIVORCE","DISSOLUTION","VS","V."]):continue
+                        # Accept any row with enough content — DR division only shows divorce cases
+                        if len(row_text) < 5: continue
                         owner, grantee, src = extract_owner_and_grantee(cells)
                         if not owner: continue
                         dm = re.search(r"(\d{1,2}/\d{1,2}/\d{2,4})", row_text)
@@ -2704,6 +2786,7 @@ def write_category_json(records):
         "prime_subject_to":  [r for r in records if r.subject_to_score>=70],
         "inherited":         [r for r in records if r.is_inherited],
         "evictions":         [r for r in records if r.doc_type=="EVICTION"],
+        "fire_damage":       [r for r in records if r.doc_type=="FIREDMG"],
         "divorces":          [r for r in records if r.doc_type=="DIVORCE"],
         # FIX #2 — vacant land now written as a category from the main records list
         "vacant_land":       [r for r in records if r.is_vacant_land],
@@ -2722,6 +2805,7 @@ def write_category_json(records):
         "prime_subject_to": "⭐ Prime subject-to deals — high equity + motivated seller (score ≥70)",
         "inherited":        "🏛 Inherited properties — heirs may want quick sale",
         "evictions":        "🚪 Eviction filings — landlords offloading problem properties",
+        "fire_damage":      "🔥 Fire damaged properties — owner needs quick sale for repairs",
         "divorces":         "💔 Divorce filings — forced sale, both parties want out fast",
         "vacant_land":      "🌿 Distressed vacant infill lots ≤2ac — tax delinquent or in foreclosure",
     }
@@ -2739,6 +2823,7 @@ def write_category_json(records):
         "prime_subject_to": (DATA_DIR/"prime_subject_to.json", DASHBOARD_DIR/"prime_subject_to.json"),
         "inherited":        (DATA_DIR/"inherited.json",        DASHBOARD_DIR/"inherited.json"),
         "evictions":        (DATA_DIR/"evictions.json",        DASHBOARD_DIR/"evictions.json"),
+        "fire_damage":      (DATA_DIR/"fire_damage.json",       DASHBOARD_DIR/"fire_damage.json"),
         "divorces":         (DATA_DIR/"divorces.json",         DASHBOARD_DIR/"divorces.json"),
         "vacant_land":      (DATA_DIR/"vacant_land.json",      DASHBOARD_DIR/"vacant_land.json"),
     }
@@ -2916,8 +3001,10 @@ async def main():
     vacant_land_leads.sort(key=lambda r:r.score,reverse=True)
 
     # 11. Merge all lead types (vacant land now included)
+    fire_damage_leads = scrape_fire_damage_leads()
     all_records=(all_records + tax_delin_leads + vacant_home_leads +
-                 sheriff_records + code_vio_records + probate_records + vacant_land_leads)
+                 sheriff_records + code_vio_records + probate_records +
+                 vacant_land_leads + fire_damage_leads)
     logging.info("Total before dedupe: %s",len(all_records))
 
     # 11b. Cross-record address stacking
