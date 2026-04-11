@@ -1,14 +1,14 @@
 {
-  "matched": 19,
-  "unmatched": 40,
-  "with_address": 19,
-  "with_mail_address": 19,
+  "matched": 21,
+  "unmatched": 38,
+  "with_address": 21,
+  "with_mail_address": 21,
   "match_methods": {
+    "no_property_match": 14,
     "exact_name_variant": 16,
-    "unmatched": 28,
-    "no_property_match": 12,
-    "last_name_unique_fallback": 2,
-    "last_name_initial_fallback": 1
+    "last_name_unique_fallback": 3,
+    "last_name_initial_fallback": 2,
+    "unmatched": 24
   },
   "sample_unmatched": [
     {
@@ -104,15 +104,23 @@
       "owner": "Dandrea J Mccall"
     },
     {
-      "doc_num": "CINALLI 04",
-      "owner": "Michael Cinalli"
-    },
-    {
       "doc_num": "FIDUC 04",
       "owner": "Or Fiduc"
     }
   ],
   "sample_no_property_match": [
+    {
+      "doc_num": "SCOTT 04",
+      "owner": "Tammy Scott"
+    },
+    {
+      "doc_num": "DAVIS 04",
+      "owner": "Jada Davis"
+    },
+    {
+      "doc_num": "LAWRENCE 04",
+      "owner": "Rena Lawrence"
+    },
     {
       "doc_num": "COLLINS 04",
       "owner": "Beth Collins"
@@ -156,11 +164,7 @@
     {
       "doc_num": "MILLER 04",
       "owner": "Clifford J Miller"
-    },
-    {
-      "doc_num": "CAMPBELL 04",
-      "owner": "A'Nyah Lanee Campbell"
     }
   ],
-  "generated_at": "2026-04-10T15:40:27.831454+00:00"
+  "generated_at": "2026-04-11T03:07:22.782685+00:00"
 }
