@@ -55,6 +55,11 @@ CLERK_RECORDS_URL    = "https://clerk.summitoh.net/RecordsSearch/Disclaimer.asp?
 PENDING_CIVIL_URL    = "https://newcivilfilings.summitoh.net/"
 PROBATE_URL          = "https://search.summitohioprobate.com/eservices/"
 PROBATE_NEWS_URL     = "https://www.akronlegalnews.com/courts/probate_new_cases"
+PROBATE_NEWS_URLS    = [
+    "https://www.akronlegalnews.com/courts/probate_new_cases",
+    "https://www.akronlegalnews.com/editorial/probate",
+    "https://www.akronlegalnews.com/courts/probate",
+]
 CAMA_PAGE_URL        = "https://fiscaloffice.summitoh.net/index.php/documents-a-forms/viewcategory/10-cama"
 VACANT_BUILDING_URL  = "https://www.akronohio.gov/government/boards_and_commissions/vacant_building_board.php"
 HOUSING_APPEALS_URL  = "https://www.akronohio.gov/government/boards_and_commissions/housing_appeals_board.php"
@@ -444,6 +449,7 @@ def estimate_mortgage_data(record:"LeadRecord")->"LeadRecord":
         # No sale history — assume 50% equity (conservative estimate for tax delinquent/inherited)
         record.est_mortgage_balance=round(record.estimated_value*0.50,2)
         record.est_equity=round(record.estimated_value*0.50,2)
+        record.est_payoff=record.est_mortgage_balance  # FIX: sub-to payoff = mortgage balance
         signals.append("Est. equity (no sale history)")
 
     if record.doc_type in {"LP","NOFC","TAXDEED","SHERIFF"} and record.amount and record.amount>0:
@@ -684,8 +690,20 @@ def scrape_probate_leads(parcel_rows:List[dict],mail_by_pid:Dict[str,dict],
     records:List[LeadRecord]=[]
     try:
         logging.info("Scraping probate / estate leads...")
-        resp=retry_request(PROBATE_NEWS_URL,timeout=30); soup=BeautifulSoup(resp.text,"lxml")
-        text=soup.get_text(" ")
+        text=""
+        for purl in PROBATE_NEWS_URLS:
+            try:
+                resp=retry_request(purl,timeout=30)
+                candidate=BeautifulSoup(resp.text,"lxml").get_text(" ")
+                if "Estate of" in candidate or "estate of" in candidate:
+                    text=candidate
+                    logging.info("Probate text found at: %s",purl)
+                    break
+                elif len(candidate)>len(text):
+                    text=candidate  # keep longest as fallback
+            except Exception as pe:
+                logging.warning("Probate URL failed %s: %s",purl,pe)
+        save_debug_text("probate_page_text.txt",text[:5000])
 
         estate_pat=re.compile(
             r"Estate of\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3}),?\s+deceased",
@@ -1513,12 +1531,16 @@ def build_tax_delinquent_leads(delinquent_parcels,parcel_rows,mail_by_pid,vacant
         est_market=round(assessed/0.35) if assessed else None
         if not est_market and sc720.get("est_market_value"):
             est_market=sc720["est_market_value"]
-        # also pull mailing address from SC720 if SC701 mail row is missing
-        if not mail_address and sc720.get("mail_address"):
-            mail_address=sc720["mail_address"]
-            mail_city=sc720.get("mail_city","") or mail_city
-            mail_state=sc720.get("mail_state","") or mail_state
-            mail_zip=sc720.get("mail_zip","") or mail_zip
+        # Pull mailing from SC720 — prefer SC720 state since SC701 maps everything to OH
+        if sc720.get("mail_address"):
+            if not mail_address:
+                mail_address = sc720["mail_address"]
+                mail_city    = sc720.get("mail_city","") or mail_city
+                mail_zip     = sc720.get("mail_zip","") or mail_zip
+            # Always prefer SC720 state — SC701 STATE field is a code (3=OH) not real state
+            sc720_state = sc720.get("mail_state","")
+            if sc720_state and sc720_state != "OH":
+                mail_state = sc720_state  # real out-of-state owner
         # pull prop_city/zip from SC720 if missing
         if not prop_city and sc720.get("prop_address"):
             pass  # SC720 PROPERTY_ADDRESS is full address, city not separate
@@ -1859,8 +1881,12 @@ def enrich_with_parcel_data(records,owner_index,last_name_index,first_last_index
             "match_methods":defaultdict(int),"sample_unmatched":[],"sample_no_property_match":[]}
     for record in records:
         if not record.owner: record.owner=""
-        if not record.flags: record.flags=[]
-        if not record.distress_sources: record.distress_sources=[]
+        if record.flags is None: record.flags=[]
+        if record.distress_sources is None: record.distress_sources=[]
+        if record.mortgage_signals is None: record.mortgage_signals=[]
+        if record.phones is None: record.phones=[]
+        if record.phone_types is None: record.phone_types=[]
+        if record.emails is None: record.emails=[]
         try:
             matched,method,ms=fuzzy_match_record(record,owner_index,last_name_index,first_last_index)
             if matched:
