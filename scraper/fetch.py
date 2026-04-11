@@ -2011,48 +2011,190 @@ async def scrape_pending_civil_records(page)->List[LeadRecord]:
 async def scrape_eviction_divorce_records(page)->List[LeadRecord]:
     """
     Scrape Summit County eviction (FED) and divorce filings.
-    Evictions: newcivilfilings.summitoh.net — same portal as clerk records
-    Divorce: clerk.summitoh.net domestic relations division
-    Both are high-motivation leads — people need to sell fast.
+
+    Evictions: newcivilfilings.summitoh.net — Blazor SPA, needs JS wait
+    Divorce: clerk.summitoh.net — needs disclaimer click then division select
     """
     records=[]
-    # Evictions — forcible entry & detainer filings
-    try:
-        await page.goto(EVICTION_URL,wait_until="domcontentloaded",timeout=60000)
-        await page.wait_for_timeout(3000)
-        # Try to navigate to FED/Eviction division
-        for sel in ["text=Municipal","text=Eviction","text=FED","text=Forcible","select"]:
-            try:
-                loc=page.locator(sel).first
-                if await loc.count()>0: await loc.click(); await page.wait_for_timeout(1500); break
-            except: pass
-        html=await page.content()
-        eviction_recs=parse_pending_civil_table(html,EVICTION_URL,"EVIC")
-        # Keep only eviction types
-        eviction_recs=[r for r in eviction_recs if r.doc_type=="EVICTION"]
-        records.extend(eviction_recs)
-        logging.info("Eviction records scraped: %s",len(eviction_recs))
-        save_debug_text("eviction_page.html",html[:3000])
-    except Exception as e:
-        logging.warning("Eviction scrape failed: %s",e)
 
-    # Divorce — domestic relations division
+    # ── EVICTIONS ────────────────────────────────────────────────────────
     try:
-        await page.goto(DIVORCE_URL,wait_until="domcontentloaded",timeout=60000)
-        await page.wait_for_timeout(3000)
-        for sel in ["text=Domestic","text=Divorce","text=DR","text=Dissolution","select"]:
-            try:
-                loc=page.locator(sel).first
-                if await loc.count()>0: await loc.click(); await page.wait_for_timeout(2000); break
-            except: pass
+        logging.info("Scraping evictions from newcivilfilings.summitoh.net...")
+        await page.goto(EVICTION_URL, wait_until="networkidle", timeout=60000)
+        await page.wait_for_timeout(4000)  # wait for Blazor to render
+
+        # Save what we got for debugging
         html=await page.content()
-        divorce_recs=parse_pending_civil_table(html,DIVORCE_URL,"DIV")
-        divorce_recs=[r for r in divorce_recs if r.doc_type=="DIVORCE"]
-        records.extend(divorce_recs)
-        logging.info("Divorce records scraped: %s",len(divorce_recs))
-        save_debug_text("divorce_page.html",html[:3000])
+        save_debug_text("eviction_page.html", html[:5000])
+
+        # The site is a Blazor app — look for case type filter or search
+        # Try clicking eviction/FED related options
+        for sel in [
+            "text=Eviction", "text=FED", "text=Forcible Entry",
+            "text=Municipal Court", "text=Barberton", "text=Akron Municipal",
+            "option[value*='evic']", "option[value*='FED']",
+            "select"
+        ]:
+            try:
+                loc = page.locator(sel).first
+                if await loc.count() > 0:
+                    await loc.click()
+                    await page.wait_for_timeout(2000)
+                    break
+            except: pass
+
+        # Wait for any dynamic content to load
+        await page.wait_for_timeout(3000)
+        html = await page.content()
+        save_debug_text("eviction_page2.html", html[:5000])
+
+        # Parse whatever cases are visible
+        soup = BeautifulSoup(html, "lxml")
+        text = soup.get_text(" ")
+
+        # Look for eviction patterns in the page text
+        evic_pat = re.compile(
+            r"(\d{4}[- ][A-Z]{2,4}[- ]\d{4,6}).{0,100}"
+            r"(evict|forcible|detainer|unlawful)",
+            re.IGNORECASE
+        )
+        seen = set()
+        for m in evic_pat.finditer(text):
+            case_num = clean_text(m.group(1))
+            if case_num in seen: continue
+            seen.add(case_num)
+            surrounding = text[max(0, m.start()-50): m.end()+300]
+            owner, _, _ = extract_owner_and_grantee(
+                [surrounding[i:i+60] for i in range(0, len(surrounding), 60)]
+            )
+            if not owner: owner = "Unknown"
+            dm = re.search(r"(\d{1,2}/\d{1,2}/\d{2,4})", surrounding)
+            filed = datetime.now().date().isoformat()
+            if dm:
+                for fmt in ("%m/%d/%Y", "%m/%d/%y"):
+                    try: filed = datetime.strptime(dm.group(1), fmt).date().isoformat(); break
+                    except: continue
+            rec = LeadRecord(
+                doc_num=f"EVIC-{case_num}",
+                doc_type="EVICTION", cat="EVICTION", cat_label="Eviction",
+                owner=owner, filed=filed,
+                flags=["Eviction filed"],
+                distress_sources=["eviction"], distress_count=1,
+                clerk_url=EVICTION_URL,
+                match_method="eviction_direct", match_score=0.9,
+            )
+            rec = estimate_mortgage_data(rec); rec.score = score_record(rec)
+            records.append(rec)
+
+        # Also parse standard table format
+        table_recs = parse_pending_civil_table(html, EVICTION_URL, "EVIC")
+        for r in table_recs:
+            if r.doc_type == "EVICTION" and r.doc_num not in {x.doc_num for x in records}:
+                records.append(r)
+
+        logging.info("Eviction records found: %s", len([r for r in records if r.doc_type=="EVICTION"]))
+
     except Exception as e:
-        logging.warning("Divorce scrape failed: %s",e)
+        logging.warning("Eviction scrape failed: %s", e)
+
+    # ── DIVORCE ──────────────────────────────────────────────────────────
+    try:
+        logging.info("Scraping divorces from clerk.summitoh.net...")
+        await page.goto(DIVORCE_URL, wait_until="domcontentloaded", timeout=60000)
+        await page.wait_for_timeout(3000)
+
+        # Step 1: Accept the disclaimer
+        for sel in [
+            "text=I Agree", "text=Agree", "text=Accept", "text=Continue",
+            "text=Click Here", "input[value*='Agree']", "input[type='submit']",
+            "button[type='submit']", "a[href*='Division']"
+        ]:
+            try:
+                loc = page.locator(sel).first
+                if await loc.count() > 0:
+                    await loc.click()
+                    await page.wait_for_timeout(2000)
+                    logging.info("Disclaimer clicked: %s", sel)
+                    break
+            except: pass
+
+        # Step 2: Select Domestic Relations division
+        for sel in [
+            "text=Domestic Relations", "text=DR Division",
+            "text=Domestic", "option[value*='Domestic']",
+            "option[value*='DR']", "a[href*='Domestic']",
+            "a[href*='DR']"
+        ]:
+            try:
+                loc = page.locator(sel).first
+                if await loc.count() > 0:
+                    await loc.click()
+                    await page.wait_for_timeout(2000)
+                    logging.info("DR division selected: %s", sel)
+                    break
+            except: pass
+
+        # Step 3: Search for recent divorce filings
+        for sel in [
+            "text=Search", "text=Case Search",
+            "input[type='submit']", "button[type='submit']"
+        ]:
+            try:
+                loc = page.locator(sel).first
+                if await loc.count() > 0:
+                    await loc.click()
+                    await page.wait_for_timeout(2000)
+                    break
+            except: pass
+
+        html = await page.content()
+        save_debug_text("divorce_page.html", html[:5000])
+
+        # Parse divorce cases from table
+        divorce_recs = parse_pending_civil_table(html, DIVORCE_URL, "DIV")
+        divorce_recs = [r for r in divorce_recs if r.doc_type == "DIVORCE"]
+
+        # Also look for divorce patterns in text
+        soup = BeautifulSoup(html, "lxml")
+        text = soup.get_text(" ")
+        div_pat = re.compile(
+            r"(\d{4}[- ][A-Z]{2,4}[- ]\d{4,6}).{0,100}"
+            r"(divorce|dissolution|domestic rel)",
+            re.IGNORECASE
+        )
+        seen_div = {r.doc_num for r in divorce_recs}
+        for m in div_pat.finditer(text):
+            case_num = clean_text(m.group(1))
+            key = f"DIV-{case_num}"
+            if key in seen_div: continue
+            seen_div.add(key)
+            surrounding = text[max(0, m.start()-50): m.end()+300]
+            owner, _, _ = extract_owner_and_grantee(
+                [surrounding[i:i+60] for i in range(0, min(len(surrounding), 300), 60)]
+            )
+            if not owner: owner = "Unknown"
+            dm = re.search(r"(\d{1,2}/\d{1,2}/\d{2,4})", surrounding)
+            filed = datetime.now().date().isoformat()
+            if dm:
+                for fmt in ("%m/%d/%Y", "%m/%d/%y"):
+                    try: filed = datetime.strptime(dm.group(1), fmt).date().isoformat(); break
+                    except: continue
+            rec = LeadRecord(
+                doc_num=key, doc_type="DIVORCE", cat="DIVORCE",
+                cat_label="Divorce Filing", owner=owner, filed=filed,
+                flags=["Divorce filing"],
+                distress_sources=["divorce"], distress_count=1,
+                clerk_url=DIVORCE_URL,
+                match_method="divorce_direct", match_score=0.85,
+            )
+            rec = estimate_mortgage_data(rec); rec.score = score_record(rec)
+            divorce_recs.append(rec)
+
+        records.extend(divorce_recs)
+        logging.info("Divorce records found: %s", len(divorce_recs))
+
+    except Exception as e:
+        logging.warning("Divorce scrape failed: %s", e)
 
     return records
 
