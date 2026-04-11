@@ -91,7 +91,7 @@ LIKELY_PROP_ZIP_KEYS  = ["SITE_ZIP","ZIP","SITEZIP","PROPERTY_ZIP","SZIP","USER2
 LIKELY_MAIL_ZIP_KEYS  = ["MAIL_PTR","MAILZIP","ZIP","MZIP","OWNER ZIPCD1","OWNER ZIPCD2","OWNER_ZIPCD1","OWNER_ZIPCD2"]
 LIKELY_LEGAL_KEYS     = ["LEGAL","LEGAL_DESC","LEGALDESCRIPTION","LEGDESC"]
 LIKELY_PID_KEYS       = ["PARID","PARCEL","PAIRD","PARCELID","PARCEL_ID","PID","PARCELNO","PAR_NO","PAR_NUM"]
-LIKELY_VALUE_KEYS     = ["APRTOT","APPRTOT","TOTALVAL","TOTAL_VAL","MKTVAL","MKTVAL1","APPRVAL","TOTALAPPR","APPR_TOT","BLDVAL","LNDVAL","SALVAL","SALEPRICE","SALE_PRICE","LASTSALE"]
+LIKELY_VALUE_KEYS     = ["TAX_VAL","TAXVAL","APRTOT","APPRTOT","TOTALVAL","TOTAL_VAL","MKTVAL","MKTVAL1","APPRVAL","TOTALAPPR","APPR_TOT","BLDVAL","LNDVAL","SALVAL","SALEPRICE","SALE_PRICE","LASTSALE"]
 LIKELY_SALE_YEAR_KEYS = ["SALEYR","SALE_YR","SALEYEAR","CONVYR","CONVEYYR","YRBUILT","YR_BUILT"]
 
 BAD_EXACT_OWNERS     = {"Action","Get Docs","Date Added","Party","Plaintiff","Defendant","Search","Home","Select Division","Welcome","EOY ROLL","LWALKER","AWHITE","NJARJABKA","CL_NJARJABKA","SCLB"}
@@ -1045,6 +1045,99 @@ def parse_sc750_sales(raw:str)->Dict[str,dict]:
     return sales
 
 
+def parse_sc720_values(raw: str) -> Dict[str, dict]:
+    """
+    Parse SC720_DELG — the value/owner roll file.
+    Confirmed columns from Summit County file:
+      PARCEL    = parcel ID (7 digits)
+      TAX_VAL   = assessed value (Ohio assessed = 35% of market)
+      OWNER     = owner last name / company
+      OWNER_A   = owner first name
+      OWNER_C   = owner city
+      OWNER_S   = owner state
+      OWNER_Z   = owner zip
+      TAXBILL_A = mailing address
+      TAXBILL_C = mailing city
+      TAXBILL_S = mailing state
+      TAXBILL_Z = mailing zip
+      PROPERTY  = property address (street)
+      LUC       = land use code
+      MORTCO    = mortgage company
+
+    Returns dict of parcel_id -> value/owner dict.
+    EST_MARKET_VALUE = TAX_VAL / 0.35
+    """
+    values: Dict[str, dict] = []
+    lines = [l.rstrip("\r") for l in raw.splitlines() if clean_text(l)]
+    if len(lines) < 2:
+        return {}
+    sample = "\n".join(lines[:10])
+    delim = max(["|", "\t", ","], key=lambda d: sample.count(d))
+    if sample.count(delim) == 0:
+        delim = ","
+    result: Dict[str, dict] = {}
+    try:
+        reader = csv.DictReader(io.StringIO("\n".join(lines)), delimiter=delim)
+        for row in reader:
+            cleaned = {clean_text(k): clean_text(v) for k, v in row.items() if k is not None}
+            # parcel ID
+            pid = clean_text(cleaned.get("PARCEL", ""))
+            if not pid:
+                pid = safe_pick(cleaned, LIKELY_PID_KEYS)
+            if not pid:
+                continue
+            # assessed value → market value
+            tax_val_raw = clean_text(cleaned.get("TAX_VAL", ""))
+            assessed = None
+            est_market = None
+            if tax_val_raw:
+                try:
+                    v = float(re.sub(r"[^0-9.]", "", tax_val_raw))
+                    if v > 100:
+                        assessed = v
+                        est_market = round(v / 0.35)
+                except:
+                    pass
+            # build owner name from parts
+            owner_parts = [
+                clean_text(cleaned.get("OWNER", "")),
+                clean_text(cleaned.get("OWNER_A", "")),
+            ]
+            owner = " ".join(p for p in owner_parts if p).strip()
+            # property address
+            prop_address = clean_text(cleaned.get("PROPERTY", ""))
+            # mailing info
+            mail_address = clean_text(cleaned.get("TAXBILL_A", ""))
+            mail_city    = clean_text(cleaned.get("TAXBILL_C", ""))
+            mail_state   = clean_text(cleaned.get("TAXBILL_S", ""))
+            mail_zip     = clean_text(cleaned.get("TAXBILL_Z", ""))
+            # owner mailing (fallback)
+            owner_city  = clean_text(cleaned.get("OWNER_C", ""))
+            owner_state = clean_text(cleaned.get("OWNER_S", ""))
+            owner_zip   = clean_text(cleaned.get("OWNER_Z", ""))
+            luc = clean_text(cleaned.get("LUC", ""))
+            result[pid] = {
+                "parcel_id":      pid,
+                "assessed_value": assessed,
+                "est_market_value": est_market,
+                "owner":          owner,
+                "prop_address":   prop_address,
+                "mail_address":   mail_address or clean_text(cleaned.get("OWNER_A", "")),
+                "mail_city":      mail_city or owner_city,
+                "mail_state":     normalize_state(mail_state or owner_state),
+                "mail_zip":       mail_zip or owner_zip,
+                "luc":            luc,
+            }
+    except Exception as e:
+        logging.warning("SC720 parse error: %s", e)
+    with_val = sum(1 for v in result.values() if v.get("est_market_value"))
+    logging.info("SC720 value roll parsed: %s parcels | %s with est market value", len(result), with_val)
+    # save a debug sample
+    sample_list = list(result.values())[:25]
+    save_debug_json("sc720_value_sample.json", sample_list)
+    return result
+
+
 def read_any_cama_payload(content:bytes,source_name:str)->Dict[str,List[dict]]:
     datasets={}
     sn_upper=source_name.upper()
@@ -1061,6 +1154,9 @@ def read_any_cama_payload(content:bytes,source_name:str)->Dict[str,List[dict]]:
                 if "SC750" in mu:
                     sales=parse_sc750_sales(raw)
                     if sales: datasets[member]=[{"_sc750_sales":True,"data":sales}]; continue
+                if "SC720" in mu:
+                    vals=parse_sc720_values(raw)
+                    if vals: datasets[member]=[{"_sc720_values":True,"data":vals}]; continue
                 rows=parse_delimited_text(raw)
                 if rows: datasets[member]=rows
         return datasets
@@ -1071,6 +1167,9 @@ def read_any_cama_payload(content:bytes,source_name:str)->Dict[str,List[dict]]:
     if "SC750" in sn_upper:
         sales=parse_sc750_sales(raw)
         if sales: datasets[source_name]=[{"_sc750_sales":True,"data":sales}]; return datasets
+    if "SC720" in sn_upper:
+        vals=parse_sc720_values(raw)
+        if vals: datasets[source_name]=[{"_sc720_values":True,"data":vals}]; return datasets
     rows=parse_delimited_text(raw)
     if rows: datasets[source_name]=rows
     return datasets
@@ -1181,6 +1280,7 @@ def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
     urls=discover_cama_downloads()
     own_rows,mail_rows,legal_rows,parcel_rows=[],[],[],[]
     sc750_sales:Dict[str,dict]={}
+    sc720_values:Dict[str,dict]={}   # parcel_id -> {assessed_value, est_market_value, owner, ...}
 
     for url in urls:
         try:
@@ -1191,15 +1291,19 @@ def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
                 if "SC750" in u and rows and rows[0].get("_sc750_sales"):
                     sc750_sales.update(rows[0]["data"])
                     logging.info("SC750 sales loaded: %s records",len(rows[0]["data"]))
+                elif "SC720" in u and rows and rows[0].get("_sc720_values"):
+                    sc720_values.update(rows[0]["data"])
+                    logging.info("SC720 value roll loaded: %s records",len(rows[0]["data"]))
                 elif "SC700" in u: own_rows.extend(rows)
                 elif "SC701" in u: mail_rows.extend(rows)
                 elif "SC702" in u: legal_rows.extend(rows)
-                elif any(x in u for x in ["SC705","SC731","SC720"]): parcel_rows.extend(rows)
+                elif any(x in u for x in ["SC705","SC731"]): parcel_rows.extend(rows)
             logging.info("Loaded CAMA %s",url)
         except Exception as e: logging.warning("CAMA %s: %s",url,e)
 
     save_debug_json("sc705_sc731_parcel_sample_rows.json",parcel_rows[:25])
     logging.info("SC750 non-exempt sales available: %s",len(sc750_sales))
+    logging.info("SC720 value roll available: %s parcels",len(sc720_values))
 
     mail_by_pid:Dict[str,dict]={}
     for row in mail_rows:
@@ -1236,6 +1340,14 @@ def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
             assessed=build_assessed_value_from_row(row)
             if assessed and assessed>100: est_market=round(assessed/0.35)
 
+        # SC720 value roll — most reliable source for assessed/market value
+        sc720=sc720_values.get(pid,{})
+        if not assessed and sc720.get("assessed_value"):
+            assessed   = sc720["assessed_value"]
+            est_market = sc720.get("est_market_value")
+        elif not est_market and sc720.get("est_market_value"):
+            est_market = sc720["est_market_value"]
+
         sc750=sc750_sales.get(pid,{})
         sale_price  = sc750.get("sale_price") or None
         sale_year   = sc750.get("sale_year") or None
@@ -1255,6 +1367,39 @@ def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
             "last_sale_year":e.get("last_sale_year") or sale_year,
         })
         for a in extract_owner_aliases_from_row(row): add_owner_alias(e,a)
+
+    # Backfill values from SC720 for all parcels — SC720 is the authoritative value roll
+    for pid, sc720 in sc720_values.items():
+        if pid not in parcel_by_id:
+            # Parcel only in SC720 (not in SC705/SC731) — seed it
+            parcel_by_id[pid] = {
+                "parcel_id": pid,
+                "owner_aliases": [],
+                "prop_address": sc720.get("prop_address", ""),
+                "luc": sc720.get("luc", ""),
+                "assessed_value": sc720.get("assessed_value"),
+                "est_market_value": sc720.get("est_market_value"),
+                "mail_address": sc720.get("mail_address", ""),
+                "mail_city": sc720.get("mail_city", ""),
+                "mail_state": sc720.get("mail_state", ""),
+                "mail_zip": sc720.get("mail_zip", ""),
+            }
+            if sc720.get("owner"):
+                add_owner_alias(parcel_by_id[pid], sc720["owner"])
+        else:
+            e = parcel_by_id[pid]
+            if not e.get("assessed_value") and sc720.get("assessed_value"):
+                e["assessed_value"]  = sc720["assessed_value"]
+                e["est_market_value"] = sc720.get("est_market_value")
+            if not e.get("prop_address") and sc720.get("prop_address"):
+                e["prop_address"] = sc720["prop_address"]
+            if not e.get("mail_address") and sc720.get("mail_address"):
+                e["mail_address"] = sc720["mail_address"]
+                e["mail_city"]    = sc720.get("mail_city", "")
+                e["mail_state"]   = sc720.get("mail_state", "")
+                e["mail_zip"]     = sc720.get("mail_zip", "")
+            if sc720.get("owner"):
+                add_owner_alias(e, sc720["owner"])
 
     for row in own_rows:
         pid=get_pid(row)
