@@ -1557,6 +1557,89 @@ def dedupe_records(records):
 
 
 # -----------------------------------------------------------------------
+# CROSS-RECORD ADDRESS STACKING
+# -----------------------------------------------------------------------
+def cross_stack_by_address(records: List[LeadRecord]) -> List[LeadRecord]:
+    """
+    Find properties that appear across MULTIPLE separate lead lists.
+    Example: a tax delinquent record + a code violation record at the same address
+    = that property is MORE distressed than either record alone shows.
+
+    Strategy:
+    1. Build address → list of (source_type, record_index) map
+    2. Any address with 2+ DIFFERENT source types = cross-stack
+    3. Merge distress sources across all records at that address
+    4. Flag every record at that address as Hot Stack with combined sources
+    5. Boost score accordingly
+
+    Source types that count for stacking:
+      tax_delinquent, foreclosure, lis_pendens, judgment, lien,
+      vacant_home, code_violation, sheriff_sale, probate, mechanic_lien
+    """
+    # Group records by normalized address key
+    addr_map: Dict[str, List[int]] = defaultdict(list)
+    for i, r in enumerate(records):
+        if not r.prop_address: continue
+        key = normalize_address_key(r.prop_address)
+        if key: addr_map[key].append(i)
+
+    cross_stacked = 0
+    for key, idxs in addr_map.items():
+        if len(idxs) < 2: continue
+
+        # Collect all unique distress sources across every record at this address
+        all_sources: set = set()
+        all_flags: set = set()
+        for i in idxs:
+            r = records[i]
+            all_sources.update(r.distress_sources or [])
+            all_flags.update(r.flags or [])
+
+        # Only stack if we have 2+ DIFFERENT source types
+        if len(all_sources) < 2: continue
+
+        # Apply merged distress profile to every record at this address
+        for i in idxs:
+            r = records[i]
+            # Merge sources
+            merged = list(set(list(r.distress_sources or []) + list(all_sources)))
+            r.distress_sources = merged
+            r.distress_count = len(merged)
+            r.hot_stack = True
+
+            # Add cross-stack flag
+            if "🔥 Hot Stack" not in r.flags:
+                r.flags.append("🔥 Hot Stack")
+            if "📍 Cross-List Match" not in r.flags:
+                r.flags.append("📍 Cross-List Match")
+
+            # Add informative flags from other records at this address
+            if "Tax delinquent" in all_flags and "Tax delinquent" not in r.flags:
+                r.flags.append("Tax delinquent")
+            if "Code violation" in all_flags and "Code violation" not in r.flags:
+                r.flags.append("Code violation")
+            if "Vacant home" in all_flags and "Vacant home" not in r.flags:
+                r.flags.append("Vacant home")
+            if "Sheriff sale scheduled" in all_flags and "Sheriff sale scheduled" not in r.flags:
+                r.flags.append("Sheriff sale scheduled")
+            if any("foreclosure" in s.lower() or "lis_pendens" in s for s in all_sources):
+                if "In foreclosure" not in r.flags: r.flags.append("In foreclosure")
+
+            # Re-score with merged distress
+            r = estimate_mortgage_data(r)
+            r.score = score_record(r)
+            records[i] = r
+
+        cross_stacked += 1
+
+    logging.info(
+        "Cross-record stacking: %s addresses appear on 2+ lists → upgraded to Hot Stack",
+        cross_stacked
+    )
+    return records
+
+
+# -----------------------------------------------------------------------
 # OUTPUT
 # -----------------------------------------------------------------------
 def split_name(n):
@@ -1806,6 +1889,10 @@ async def main():
     all_records=(all_records + tax_delin_leads + vacant_home_leads +
                  sheriff_records + code_vio_records + probate_records)
     logging.info("Total before dedupe: %s",len(all_records))
+
+    # 10b. Cross-record address stacking
+    # Find any property address appearing on 2+ different lists and upgrade to Hot Stack
+    all_records=cross_stack_by_address(all_records)
 
     # 11. Dedupe + sort (sheriff sales first, then hot stack, then score)
     all_records=dedupe_records(all_records)
