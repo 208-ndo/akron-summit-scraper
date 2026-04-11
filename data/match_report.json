@@ -1,13 +1,9 @@
 {
-  "matched": 21,
-  "unmatched": 38,
-  "with_address": 21,
-  "with_mail_address": 21,
+  "matched": 0,
+  "unmatched": 24,
+  "with_address": 0,
+  "with_mail_address": 0,
   "match_methods": {
-    "no_property_match": 14,
-    "exact_name_variant": 16,
-    "last_name_unique_fallback": 3,
-    "last_name_initial_fallback": 2,
     "unmatched": 24
   },
   "sample_unmatched": [
@@ -108,63 +104,6 @@
       "owner": "Or Fiduc"
     }
   ],
-  "sample_no_property_match": [
-    {
-      "doc_num": "SCOTT 04",
-      "owner": "Tammy Scott"
-    },
-    {
-      "doc_num": "DAVIS 04",
-      "owner": "Jada Davis"
-    },
-    {
-      "doc_num": "LAWRENCE 04",
-      "owner": "Rena Lawrence"
-    },
-    {
-      "doc_num": "COLLINS 04",
-      "owner": "Beth Collins"
-    },
-    {
-      "doc_num": "COLE 04",
-      "owner": "Lois G Cole"
-    },
-    {
-      "doc_num": "BROWN 04",
-      "owner": "Anjanise Brown"
-    },
-    {
-      "doc_num": "BARTON 04",
-      "owner": "William R Barton"
-    },
-    {
-      "doc_num": "ALI 04",
-      "owner": "Emoun R Ali"
-    },
-    {
-      "doc_num": "KELLEY 04",
-      "owner": "Malia Kelley"
-    },
-    {
-      "doc_num": "GRIFFITH 04",
-      "owner": "Jacquelynn Griffith"
-    },
-    {
-      "doc_num": "GREEN 04",
-      "owner": "Jeremiah Green"
-    },
-    {
-      "doc_num": "FORD 04",
-      "owner": "Caleb Ford"
-    },
-    {
-      "doc_num": "HUGHES 04",
-      "owner": "Lundon R Hughes"
-    },
-    {
-      "doc_num": "MILLER 04",
-      "owner": "Clifford J Miller"
-    }
-  ],
-  "generated_at": "2026-04-11T03:07:22.782685+00:00"
+  "sample_no_property_match": [],
+  "generated_at": "2026-04-11T04:01:31.048201+00:00"
 }

@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-04-11T03:07:22.135836+00:00",
+  "fetched_at": "2026-04-11T04:01:30.360714+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "vacant_homes",
-  "description": "Residential homes on Akron Vacant Building Board",
+  "description": "\ud83c\udfe0 Vacant residential homes (Akron Vacant Building Board)",
   "total": 15,
   "records": [
     {
@@ -45,11 +45,11 @@
       "is_vacant_home": true,
       "is_absentee": true,
       "is_out_of_state": false,
+      "parcel_id": "6723306",
       "phones": [],
       "phone_types": [],
       "emails": [],
       "skip_trace_source": "",
-      "parcel_id": "6723306",
       "assessed_value": null,
       "estimated_value": null,
       "last_sale_price": null,
@@ -62,7 +62,17 @@
       "mortgage_signals": [
         "Absentee owner",
         "Vacant home"
-      ]
+      ],
+      "sheriff_sale_date": "",
+      "appraised_value": null,
+      "lender": "",
+      "code_violation_case": "",
+      "code_violation_date": "",
+      "decedent_name": "",
+      "executor_name": "",
+      "executor_state": "",
+      "estate_value": null,
+      "is_inherited": false
     },
     {
       "doc_num": "VHOME-0109213",
@@ -104,11 +114,11 @@
       "is_vacant_home": true,
       "is_absentee": true,
       "is_out_of_state": false,
+      "parcel_id": "0109213",
       "phones": [],
       "phone_types": [],
       "emails": [],
       "skip_trace_source": "",
-      "parcel_id": "0109213",
       "assessed_value": null,
       "estimated_value": null,
       "last_sale_price": null,
@@ -121,7 +131,17 @@
       "mortgage_signals": [
         "Absentee owner",
         "Vacant home"
-      ]
+      ],
+      "sheriff_sale_date": "",
+      "appraised_value": null,
+      "lender": "",
+      "code_violation_case": "",
+      "code_violation_date": "",
+      "decedent_name": "",
+      "executor_name": "",
+      "executor_state": "",
+      "estate_value": null,
+      "is_inherited": false
     },
     {
       "doc_num": "VHOME-6838102C",
@@ -163,11 +183,11 @@
       "is_vacant_home": true,
       "is_absentee": true,
       "is_out_of_state": false,
+      "parcel_id": "6838102C",
       "phones": [],
       "phone_types": [],
       "emails": [],
       "skip_trace_source": "",
-      "parcel_id": "6838102C",
       "assessed_value": null,
       "estimated_value": null,
       "last_sale_price": null,
@@ -180,7 +200,17 @@
       "mortgage_signals": [
         "Absentee owner",
         "Vacant home"
-      ]
+      ],
+      "sheriff_sale_date": "",
+      "appraised_value": null,
+      "lender": "",
+      "code_violation_case": "",
+      "code_violation_date": "",
+      "decedent_name": "",
+      "executor_name": "",
+      "executor_state": "",
+      "estate_value": null,
+      "is_inherited": false
     },
     {
       "doc_num": "VHOME-6807445",
@@ -222,11 +252,11 @@
       "is_vacant_home": true,
       "is_absentee": true,
       "is_out_of_state": false,
+      "parcel_id": "6807445",
       "phones": [],
       "phone_types": [],
       "emails": [],
       "skip_trace_source": "",
-      "parcel_id": "6807445",
       "assessed_value": null,
       "estimated_value": null,
       "last_sale_price": null,
@@ -239,7 +269,17 @@
       "mortgage_signals": [
         "Absentee owner",
         "Vacant home"
-      ]
+      ],
+      "sheriff_sale_date": "",
+      "appraised_value": null,
+      "lender": "",
+      "code_violation_case": "",
+      "code_violation_date": "",
+      "decedent_name": "",
+      "executor_name": "",
+      "executor_state": "",
+      "estate_value": null,
+      "is_inherited": false
     },
     {
       "doc_num": "VHOME-0109987",
@@ -280,11 +320,11 @@
       "is_vacant_home": true,
       "is_absentee": false,
       "is_out_of_state": false,
+      "parcel_id": "0109987",
       "phones": [],
       "phone_types": [],
       "emails": [],
       "skip_trace_source": "",
-      "parcel_id": "0109987",
       "assessed_value": null,
       "estimated_value": null,
       "last_sale_price": null,
@@ -296,7 +336,17 @@
       "subject_to_score": 20,
       "mortgage_signals": [
         "Vacant home"
-      ]
+      ],
+      "sheriff_sale_date": "",
+      "appraised_value": null,
+      "lender": "",
+      "code_violation_case": "",
+      "code_violation_date": "",
+      "decedent_name": "",
+      "executor_name": "",
+      "executor_state": "",
+      "estate_value": null,
+      "is_inherited": false
     },
     {
       "doc_num": "VHOME-3200028",
@@ -337,11 +387,11 @@
       "is_vacant_home": true,
       "is_absentee": false,
       "is_out_of_state": false,
+      "parcel_id": "3200028",
       "phones": [],
       "phone_types": [],
       "emails": [],
       "skip_trace_source": "",
-      "parcel_id": "3200028",
       "assessed_value": null,
       "estimated_value": null,
       "last_sale_price": null,
@@ -353,7 +403,17 @@
       "subject_to_score": 20,
       "mortgage_signals": [
         "Vacant home"
-      ]
+      ],
+      "sheriff_sale_date": "",
+      "appraised_value": null,
+      "lender": "",
+      "code_violation_case": "",
+      "code_violation_date": "",
+      "decedent_name": "",
+      "executor_name": "",
+      "executor_state": "",
+      "estate_value": null,
+      "is_inherited": false
     },
     {
       "doc_num": "VHOME-0115984",
@@ -394,11 +454,11 @@
       "is_vacant_home": true,
       "is_absentee": false,
       "is_out_of_state": false,
+      "parcel_id": "0115984",
       "phones": [],
       "phone_types": [],
       "emails": [],
       "skip_trace_source": "",
-      "parcel_id": "0115984",
       "assessed_value": null,
       "estimated_value": null,
       "last_sale_price": null,
@@ -410,7 +470,17 @@
       "subject_to_score": 20,
       "mortgage_signals": [
         "Vacant home"
-      ]
+      ],
+      "sheriff_sale_date": "",
+      "appraised_value": null,
+      "lender": "",
+      "code_violation_case": "",
+      "code_violation_date": "",
+      "decedent_name": "",
+      "executor_name": "",
+      "executor_state": "",
+      "estate_value": null,
+      "is_inherited": false
     },
     {
       "doc_num": "VHOME-0100970",
@@ -451,11 +521,11 @@
       "is_vacant_home": true,
       "is_absentee": false,
       "is_out_of_state": false,
+      "parcel_id": "0100970",
       "phones": [],
       "phone_types": [],
       "emails": [],
       "skip_trace_source": "",
-      "parcel_id": "0100970",
       "assessed_value": null,
       "estimated_value": null,
       "last_sale_price": null,
@@ -467,7 +537,17 @@
       "subject_to_score": 20,
       "mortgage_signals": [
         "Vacant home"
-      ]
+      ],
+      "sheriff_sale_date": "",
+      "appraised_value": null,
+      "lender": "",
+      "code_violation_case": "",
+      "code_violation_date": "",
+      "decedent_name": "",
+      "executor_name": "",
+      "executor_state": "",
+      "estate_value": null,
+      "is_inherited": false
     },
     {
       "doc_num": "VHOME-3302270",
@@ -508,11 +588,11 @@
       "is_vacant_home": true,
       "is_absentee": false,
       "is_out_of_state": false,
+      "parcel_id": "3302270",
       "phones": [],
       "phone_types": [],
       "emails": [],
       "skip_trace_source": "",
-      "parcel_id": "3302270",
       "assessed_value": null,
       "estimated_value": null,
       "last_sale_price": null,
@@ -524,7 +604,17 @@
       "subject_to_score": 20,
       "mortgage_signals": [
         "Vacant home"
-      ]
+      ],
+      "sheriff_sale_date": "",
+      "appraised_value": null,
+      "lender": "",
+      "code_violation_case": "",
+      "code_violation_date": "",
+      "decedent_name": "",
+      "executor_name": "",
+      "executor_state": "",
+      "estate_value": null,
+      "is_inherited": false
     },
     {
       "doc_num": "VHOME-3303606",
@@ -565,11 +655,11 @@
       "is_vacant_home": true,
       "is_absentee": false,
       "is_out_of_state": false,
+      "parcel_id": "3303606",
       "phones": [],
       "phone_types": [],
       "emails": [],
       "skip_trace_source": "",
-      "parcel_id": "3303606",
       "assessed_value": null,
       "estimated_value": null,
       "last_sale_price": null,
@@ -581,7 +671,17 @@
       "subject_to_score": 20,
       "mortgage_signals": [
         "Vacant home"
-      ]
+      ],
+      "sheriff_sale_date": "",
+      "appraised_value": null,
+      "lender": "",
+      "code_violation_case": "",
+      "code_violation_date": "",
+      "decedent_name": "",
+      "executor_name": "",
+      "executor_state": "",
+      "estate_value": null,
+      "is_inherited": false
     },
     {
       "doc_num": "VHOME-6847458",
@@ -622,11 +722,11 @@
       "is_vacant_home": true,
       "is_absentee": false,
       "is_out_of_state": false,
+      "parcel_id": "6847458",
       "phones": [],
       "phone_types": [],
       "emails": [],
       "skip_trace_source": "",
-      "parcel_id": "6847458",
       "assessed_value": null,
       "estimated_value": null,
       "last_sale_price": null,
@@ -638,7 +738,17 @@
       "subject_to_score": 20,
       "mortgage_signals": [
         "Vacant home"
-      ]
+      ],
+      "sheriff_sale_date": "",
+      "appraised_value": null,
+      "lender": "",
+      "code_violation_case": "",
+      "code_violation_date": "",
+      "decedent_name": "",
+      "executor_name": "",
+      "executor_state": "",
+      "estate_value": null,
+      "is_inherited": false
     },
     {
       "doc_num": "VHOME-0106938",
@@ -679,11 +789,11 @@
       "is_vacant_home": true,
       "is_absentee": false,
       "is_out_of_state": false,
+      "parcel_id": "0106938",
       "phones": [],
       "phone_types": [],
       "emails": [],
       "skip_trace_source": "",
-      "parcel_id": "0106938",
       "assessed_value": null,
       "estimated_value": null,
       "last_sale_price": null,
@@ -695,7 +805,17 @@
       "subject_to_score": 20,
       "mortgage_signals": [
         "Vacant home"
-      ]
+      ],
+      "sheriff_sale_date": "",
+      "appraised_value": null,
+      "lender": "",
+      "code_violation_case": "",
+      "code_violation_date": "",
+      "decedent_name": "",
+      "executor_name": "",
+      "executor_state": "",
+      "estate_value": null,
+      "is_inherited": false
     },
     {
       "doc_num": "VHOME-6813788",
@@ -736,11 +856,11 @@
       "is_vacant_home": true,
       "is_absentee": false,
       "is_out_of_state": false,
+      "parcel_id": "6813788",
       "phones": [],
       "phone_types": [],
       "emails": [],
       "skip_trace_source": "",
-      "parcel_id": "6813788",
       "assessed_value": null,
       "estimated_value": null,
       "last_sale_price": null,
@@ -752,7 +872,17 @@
       "subject_to_score": 20,
       "mortgage_signals": [
         "Vacant home"
-      ]
+      ],
+      "sheriff_sale_date": "",
+      "appraised_value": null,
+      "lender": "",
+      "code_violation_case": "",
+      "code_violation_date": "",
+      "decedent_name": "",
+      "executor_name": "",
+      "executor_state": "",
+      "estate_value": null,
+      "is_inherited": false
     },
     {
       "doc_num": "VHOME-6859999",
@@ -793,11 +923,11 @@
       "is_vacant_home": true,
       "is_absentee": false,
       "is_out_of_state": false,
+      "parcel_id": "6859999",
       "phones": [],
       "phone_types": [],
       "emails": [],
       "skip_trace_source": "",
-      "parcel_id": "6859999",
       "assessed_value": null,
       "estimated_value": null,
       "last_sale_price": null,
@@ -809,7 +939,17 @@
       "subject_to_score": 20,
       "mortgage_signals": [
         "Vacant home"
-      ]
+      ],
+      "sheriff_sale_date": "",
+      "appraised_value": null,
+      "lender": "",
+      "code_violation_case": "",
+      "code_violation_date": "",
+      "decedent_name": "",
+      "executor_name": "",
+      "executor_state": "",
+      "estate_value": null,
+      "is_inherited": false
     },
     {
       "doc_num": "VHOME-6840494",
@@ -850,11 +990,11 @@
       "is_vacant_home": true,
       "is_absentee": false,
       "is_out_of_state": false,
+      "parcel_id": "6840494",
       "phones": [],
       "phone_types": [],
       "emails": [],
       "skip_trace_source": "",
-      "parcel_id": "6840494",
       "assessed_value": null,
       "estimated_value": null,
       "last_sale_price": null,
@@ -866,7 +1006,17 @@
       "subject_to_score": 20,
       "mortgage_signals": [
         "Vacant home"
-      ]
+      ],
+      "sheriff_sale_date": "",
+      "appraised_value": null,
+      "lender": "",
+      "code_violation_case": "",
+      "code_violation_date": "",
+      "decedent_name": "",
+      "executor_name": "",
+      "executor_state": "",
+      "estate_value": null,
+      "is_inherited": false
     }
   ]
 }
