@@ -1474,14 +1474,15 @@ def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
 
     logging.info("Parcel index: %s owner keys | %s parcels | %s mail rows",
                  len(owner_index),len(parcel_rows),len(mail_rows))
-    return owner_index,last_name_index,first_last_index,parcel_rows,mail_by_pid
+    return owner_index,last_name_index,first_last_index,parcel_rows,mail_by_pid,sc720_values
 
 
 # -----------------------------------------------------------------------
 # LEAD BUILDERS
 # -----------------------------------------------------------------------
-def build_tax_delinquent_leads(delinquent_parcels,parcel_rows,mail_by_pid,vacant_home_keys)->List[LeadRecord]:
+def build_tax_delinquent_leads(delinquent_parcels,parcel_rows,mail_by_pid,vacant_home_keys,sc720_values=None)->List[LeadRecord]:
     leads=[]; skipped=0
+    if sc720_values is None: sc720_values={}
     pid_to_row={get_pid(r):r for r in parcel_rows if get_pid(r)}
     for pid,info in delinquent_parcels.items():
         row=pid_to_row.get(pid)
@@ -1500,6 +1501,22 @@ def build_tax_delinquent_leads(delinquent_parcels,parcel_rows,mail_by_pid,vacant
         owner=info.get("owner",""); amt=info.get("amount_owed",0.0)
         acres=clean_text(row.get("ACRES",""))
         assessed=build_assessed_value_from_row(row); sale_price,sale_year=build_sale_data_from_row(row)
+        # FIX: pull assessed/market value from SC720 if not in SC705 row
+        sc720=sc720_values.get(pid,{})
+        if not assessed and sc720.get("assessed_value"):
+            assessed=sc720["assessed_value"]
+        est_market=round(assessed/0.35) if assessed else None
+        if not est_market and sc720.get("est_market_value"):
+            est_market=sc720["est_market_value"]
+        # also pull mailing address from SC720 if SC701 mail row is missing
+        if not mail_address and sc720.get("mail_address"):
+            mail_address=sc720["mail_address"]
+            mail_city=sc720.get("mail_city","") or mail_city
+            mail_state=sc720.get("mail_state","") or mail_state
+            mail_zip=sc720.get("mail_zip","") or mail_zip
+        # pull prop_city/zip from SC720 if missing
+        if not prop_city and sc720.get("prop_address"):
+            pass  # SC720 PROPERTY_ADDRESS is full address, city not separate
         absentee=is_absentee_owner(prop_address,mail_address,mail_state)
         oos=is_out_of_state(mail_state)
         addr_key=normalize_address_key(prop_address); vhome=addr_key in vacant_home_keys
@@ -1519,7 +1536,7 @@ def build_tax_delinquent_leads(delinquent_parcels,parcel_rows,mail_by_pid,vacant
             is_absentee=absentee,is_out_of_state=oos,with_address=1,
             match_method="tax_delinquent_direct",match_score=1.0,parcel_id=pid,
             assessed_value=assessed,
-            estimated_value=round(float(clean_text(row.get("EST_MARKET_VALUE","")) or 0)) or None,
+            estimated_value=est_market,
             last_sale_price=sale_price,last_sale_year=sale_year,
         )
         r=estimate_mortgage_data(r); r.score=score_record(r); r.hot_stack=r.distress_count>=2
@@ -2239,7 +2256,7 @@ async def main():
     logging.info("=== Akron Summit County — Motivated Seller Intelligence ===")
 
     # 1. CAMA parcel data
-    owner_index,last_name_index,first_last_index,parcel_rows,mail_by_pid=build_parcel_indexes()
+    owner_index,last_name_index,first_last_index,parcel_rows,mail_by_pid,sc720_values=build_parcel_indexes()
 
     # 2. Court records (clerk)
     clerk_records=await scrape_clerk_records()
@@ -2289,7 +2306,7 @@ async def main():
     all_records=apply_distress_stacking(all_records,distress_index,delinquent_addresses,vacant_home_keys)
 
     # 9. Tax delinquent residential leads
-    tax_delin_leads=build_tax_delinquent_leads(delinquent_parcels,parcel_rows,mail_by_pid,vacant_home_keys)
+    tax_delin_leads=build_tax_delinquent_leads(delinquent_parcels,parcel_rows,mail_by_pid,vacant_home_keys,sc720_values)
 
     # 10. Vacant land — build as VacantLandRecord then convert to LeadRecord
     # FIX #2: converted records go into all_records so the dashboard sees them
