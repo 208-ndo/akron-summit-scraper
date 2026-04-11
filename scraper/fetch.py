@@ -1803,7 +1803,7 @@ def better_record(c):
     return s
 
 def alias_list(c):
-    a=list(c.get("owner_aliases") or []); o=clean_text(c.get("owner",""))
+    a=list(c.get("owner_aliases") or []); o=clean_text(c.get("owner","") or "")
     if o and o not in a: a.append(o); return a
 
 def candidate_match_score(ro,c):
@@ -1842,7 +1842,7 @@ def unique_best_by_score(candidates,ro,min_gap=12.0):
     return None
 
 def fuzzy_match_record(record,owner_index,last_name_index,first_last_index):
-    owner=record.owner; is_corp=likely_corporate_name(owner)
+    owner=record.owner or ""; is_corp=likely_corporate_name(owner)
     for v in name_variants(owner):
         if not is_corp and len(tokens_from_name(v))<2: continue
         best=choose_best_candidate(owner_index.get(v,[]),owner)
