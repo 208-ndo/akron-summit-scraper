@@ -174,6 +174,11 @@
   <div class="stat"><div class="stat-num cool" id="s-subto">–</div><div class="stat-label">🎯 Sub-To</div></div><div class="sdiv"></div>
   <div class="stat"><div class="stat-num green" id="s-vacland">–</div><div class="stat-label">🌿 Vac Land</div></div><div class="sdiv"></div>
   <div class="stat"><div class="stat-num" id="s-new">–</div><div class="stat-label">🆕 This Week</div></div>
+  <div class="sdiv"></div>
+  <div class="stat" style="cursor:pointer;min-width:90px;" onclick="toggleDA()">
+    <div class="stat-num green" style="font-size:16px;">🧮</div>
+    <div class="stat-label" style="color:var(--accent3);font-weight:700;">Deal Analyzer</div>
+  </div>
 </div>
 
 <div class="tabs-wrap">
@@ -562,6 +567,26 @@ function dl(name,content){const a=document.createElement('a');a.href=URL.createO
 function exportCSV(){const rows=filtered.length?filtered:curRecs;dl(`skip_trace_${new Date().toISOString().slice(0,10)}.csv`,toBatchDataCSV(rows));}
 function exportHotStack(){const rows=(filtered.length?filtered:curRecs).filter(r=>r.hot_stack);if(!rows.length){alert('No Hot Stack leads');return;}dl(`hot_stack_${new Date().toISOString().slice(0,10)}.csv`,toBatchDataCSV(rows));}
 function exportRow(e,r){e.stopPropagation();dl(`lead_${r.doc_num||'export'}.csv`,toBatchDataCSV([r]));}
+
+// ── Deal Analyzer toggle ─────────────────────────────────────────────────
+function toggleDA(){
+  const page=document.getElementById('deal-analyzer-page');
+  const toolbar=document.querySelector('.toolbar');
+  const tableWrap=document.querySelector('.table-wrap');
+  const isOpen=page.style.display==='block';
+  if(isOpen){
+    page.style.display='none';
+    toolbar.style.display='flex';
+    tableWrap.style.display='block';
+    document.querySelectorAll('.tab').forEach(t=>{if(t.dataset.tab===curTab)t.classList.add('active');});
+  } else {
+    page.style.display='block';
+    toolbar.style.display='none';
+    tableWrap.style.display='none';
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    setTimeout(()=>{document.getElementById('pg-arv').focus();},100);
+  }
+}
 
 // ── Page-level Deal Analyzer ──────────────────────────────────────────────
 const PG_REHAB=[{easy:15000,medium:27500,heavy:45000},{easy:20000,medium:37500,heavy:65000},{easy:30000,medium:57500,heavy:85000},{easy:40000,medium:77500,heavy:105000}];
