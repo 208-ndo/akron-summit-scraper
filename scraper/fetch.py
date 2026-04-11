@@ -1,6 +1,8 @@
 """
 Summit County, Ohio — Lead Scraper  (NO skip tracing — see skip_trace.py)
 Maximizes: tax delinquent · absentee · out-of-state · vacant homes · hot stack
+Enhanced: mortgage balance estimation · subject-to signals · arrears calculation
+         · equity estimator · pre-foreclosure payoff flags
 """
 import argparse, asyncio, csv, io, json, logging, re, zipfile
 from collections import defaultdict
@@ -52,15 +54,18 @@ LEAD_TYPE_MAP = {
 
 VACANT_LAND_LUCS = {"500","501","502","503"}
 RESIDENTIAL_LUCS = {
-    "510","511","512","513","514","515",  # single family
-    "520","521","522","523",              # 2-3 family
-    "530","531","532","533",              # 4+ family
-    "540","541","542",                    # condo
-    "550","551",                          # mobile home
-    "560","561",                          # rural residential
-    "570",                                # seasonal
+    "510","511","512","513","514","515",
+    "520","521","522","523",
+    "530","531","532","533",
+    "540","541","542",
+    "550","551",
+    "560","561",
+    "570",
 }
 MAX_INFILL_ACRES = 2.0
+
+# Ohio average appreciation rate for equity estimation
+OH_ANNUAL_APPRECIATION = 0.04
 
 LIKELY_OWNER_KEYS     = ["OWNER1","OWNER2","OWNER","OWN1","OWNER_NAME","OWNERNAME","OWNERNM","NAME","OWNNAM","OWNER 1","OWNER 2","TAXPAYER","TAXPAYER_NAME","MAILNAME","MAIL_NAME","NAME1","NAME2"]
 LIKELY_PROP_ADDR_KEYS = ["SITE_ADDR","SITEADDR","PROPERTY_ADDRESS","PROPADDR","ADDRESS","LOCADDR","SADDR"]
@@ -69,6 +74,9 @@ LIKELY_PROP_ZIP_KEYS  = ["SITE_ZIP","ZIP","SITEZIP","PROPERTY_ZIP","SZIP","USER2
 LIKELY_MAIL_ZIP_KEYS  = ["MAIL_PTR","MAILZIP","ZIP","MZIP","OWNER ZIPCD1","OWNER ZIPCD2","OWNER_ZIPCD1","OWNER_ZIPCD2"]
 LIKELY_LEGAL_KEYS     = ["LEGAL","LEGAL_DESC","LEGALDESCRIPTION","LEGDESC"]
 LIKELY_PID_KEYS       = ["PARID","PARCEL","PAIRD","PARCELID","PARCEL_ID","PID","PARCELNO","PAR_NO","PAR_NUM"]
+# CAMA assessed value / sale price keys
+LIKELY_VALUE_KEYS     = ["APRTOT","APPRTOT","TOTALVAL","TOTAL_VAL","MKTVAL","MKTVAL1","APPRVAL","TOTALAPPR","APPR_TOT","BLDVAL","LNDVAL","SALVAL","SALEPRICE","SALE_PRICE","LASTSALE"]
+LIKELY_SALE_YEAR_KEYS = ["SALEYR","SALE_YR","SALEYEAR","CONVYR","CONVEYYR","YRBUILT","YR_BUILT"]
 
 BAD_EXACT_OWNERS = {"Action","Get Docs","Date Added","Party","Plaintiff","Defendant","Search","Home","Select Division","Welcome","EOY ROLL","LWALKER","AWHITE","NJARJABKA","CL_NJARJABKA","SCLB"}
 SC701_STATE_CODE_MAP = {"3":"OH","0":"","1":"","2":""}
@@ -93,6 +101,17 @@ class LeadRecord:
     is_absentee:bool=False; is_out_of_state:bool=False
     phones:list=field(default_factory=list); phone_types:list=field(default_factory=list)
     emails:list=field(default_factory=list); skip_trace_source:str=""; parcel_id:str=""
+    # ---- mortgage / equity / subject-to fields ----
+    assessed_value:Optional[float]=None
+    estimated_value:Optional[float]=None
+    last_sale_price:Optional[float]=None
+    last_sale_year:Optional[int]=None
+    est_mortgage_balance:Optional[float]=None
+    est_equity:Optional[float]=None
+    est_arrears:Optional[float]=None
+    est_payoff:Optional[float]=None
+    subject_to_score:int=0
+    mortgage_signals:List[str]=field(default_factory=list)
 
 
 @dataclass
@@ -103,8 +122,13 @@ class VacantLandRecord:
     distress_sources:List[str]=field(default_factory=list); distress_count:int=0
 
 
+# -----------------------------------------------------------------------
+# HELPERS
+# -----------------------------------------------------------------------
 def ensure_dirs():
-    DATA_DIR.mkdir(parents=True,exist_ok=True); DASHBOARD_DIR.mkdir(parents=True,exist_ok=True); DEBUG_DIR.mkdir(parents=True,exist_ok=True)
+    DATA_DIR.mkdir(parents=True,exist_ok=True)
+    DASHBOARD_DIR.mkdir(parents=True,exist_ok=True)
+    DEBUG_DIR.mkdir(parents=True,exist_ok=True)
 
 def log_setup():
     logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s")
@@ -133,17 +157,20 @@ def retry_request(url,attempts=3,timeout=60):
     last=None
     for i in range(1,attempts+1):
         try:
-            r=requests.get(url,headers=HEADERS,timeout=timeout,allow_redirects=True); r.raise_for_status(); return r
+            r=requests.get(url,headers=HEADERS,timeout=timeout,allow_redirects=True)
+            r.raise_for_status(); return r
         except Exception as e: last=e; logging.warning("Request failed (%s/%s) %s: %s",i,attempts,url,e)
     raise last
 
 def normalize_name(n:str)->str:
-    n=clean_text(n).upper(); n=re.sub(r"[^A-Z0-9,&.\- /']"," ",n); return re.sub(r"\s+"," ",n).strip()
+    n=clean_text(n).upper(); n=re.sub(r"[^A-Z0-9,&.\- /']"," ",n)
+    return re.sub(r"\s+"," ",n).strip()
 
 def normalize_person_name(n:str)->str:
     n=normalize_name(n)
     if not n: return ""
-    for p in [r"\bAKA\b.*$",r"\bET AL\b.*$",r"\bUNKNOWN HEIRS OF\b",r"\bUNKNOWN SPOUSE OF\b",r"\bUNKNOWN ADMINISTRATOR\b",r"\bEXECUTOR\b",r"\bFIDUCIARY\b",r"\bJOHN DOE\b",r"\bJANE DOE\b",r"\bTHE\b"]:
+    for p in [r"\bAKA\b.*$",r"\bET AL\b.*$",r"\bUNKNOWN HEIRS OF\b",r"\bUNKNOWN SPOUSE OF\b",
+              r"\bUNKNOWN ADMINISTRATOR\b",r"\bEXECUTOR\b",r"\bFIDUCIARY\b",r"\bJOHN DOE\b",r"\bJANE DOE\b",r"\bTHE\b"]:
         n=re.sub(p,"",n).strip()
     return re.sub(r"\s+"," ",n).strip(" ,.-")
 
@@ -152,7 +179,9 @@ def tokens_from_name(n:str)->List[str]:
     if not n: return []
     return [t for t in re.split(r"[ ,/&.\-]+",n) if t and t not in NOISE_NAME_WORDS]
 
-def likely_corporate_name(n:str)->bool: return any(t in CORP_WORDS for t in set(tokens_from_name(n)))
+def likely_corporate_name(n:str)->bool:
+    return any(t in CORP_WORDS for t in set(tokens_from_name(n)))
+
 def get_last_name(n:str)->str: t=tokens_from_name(n); return t[-1] if t else ""
 def get_first_name(n:str)->str: t=tokens_from_name(n); return t[0] if t else ""
 def get_first_initial(n:str)->str: f=get_first_name(n); return f[:1] if f else ""
@@ -175,14 +204,16 @@ def last_names_compatible(a,b)->bool:
     return a==b or singularize_last_name(a)==singularize_last_name(b)
 
 def build_owner_name(row:dict)->str:
-    o1=clean_text(row.get("OWNER1") or row.get("OWNER 1")); o2=clean_text(row.get("OWNER2") or row.get("OWNER 2"))
+    o1=clean_text(row.get("OWNER1") or row.get("OWNER 1"))
+    o2=clean_text(row.get("OWNER2") or row.get("OWNER 2"))
     if o1 and o2: return re.sub(r"\s+"," ",f"{o1} {o2}".strip())
     return o1 or o2 or safe_pick(row,LIKELY_OWNER_KEYS)
 
 def build_mail_zip(row:dict)->str:
     mp=clean_text(row.get("MAIL_PTR"))
     if mp and re.fullmatch(r"\d{5}",mp): return mp
-    z1=clean_text(row.get("OWNER ZIPCD1") or row.get("OWNER_ZIPCD1")); z2=clean_text(row.get("OWNER ZIPCD2") or row.get("OWNER_ZIPCD2"))
+    z1=clean_text(row.get("OWNER ZIPCD1") or row.get("OWNER_ZIPCD1"))
+    z2=clean_text(row.get("OWNER ZIPCD2") or row.get("OWNER_ZIPCD2"))
     if z1 and z2: return f"{z1}-{z2}"
     return z1 or safe_pick(row,LIKELY_MAIL_ZIP_KEYS)
 
@@ -190,12 +221,13 @@ def build_mail_city_sc701(row:dict)->str:
     n1=clean_text(row.get("NOTE1"))
     if n1 and len(n1)>2 and not re.fullmatch(r"\d+",n1): return n1.title()
     for k in ["MAILCITY","CITY","MCITY"]:
-        v=clean_text(row.get(k))
+        v=clean_text(row.get(k,""))
         if v and len(v)>2 and not re.fullmatch(r"\d+",v): return v.title()
     return ""
 
 def build_mail_state_sc701(row:dict)->str:
-    raw=clean_text(row.get("STATE") or ""); mapped=SC701_STATE_CODE_MAP.get(raw)
+    raw=clean_text(row.get("STATE") or "")
+    mapped=SC701_STATE_CODE_MAP.get(raw)
     if mapped is not None: return mapped
     cleaned=re.sub(r"[^A-Z]","",raw.upper())
     if cleaned in STATE_CODES: return cleaned
@@ -204,7 +236,8 @@ def build_mail_state_sc701(row:dict)->str:
 def split_owner_chunks(name:str)->List[str]:
     raw=normalize_person_name(name)
     if not raw: return []
-    working=re.sub(r"\bET AL\b|\bAKA\b.*$","",raw); working=re.sub(r"\s+"," ",working).strip(" ,;/")
+    working=re.sub(r"\bET AL\b|\bAKA\b.*$","",raw)
+    working=re.sub(r"\s+"," ",working).strip(" ,;/")
     if not working: return []
     parts=re.split(r"\s*(?:;|/|\bAND\b|&)\s*",working)
     seen,result=set(),[]
@@ -216,9 +249,11 @@ def split_owner_chunks(name:str)->List[str]:
 def name_variants(name:str)->List[str]:
     raw=normalize_person_name(name)
     if not raw: return []
-    suffixes={"JR","SR","II","III","IV","V","ETAL","ET","AL"}; joiner_noise={"AND","&","OR"}; variants=set()
+    suffixes={"JR","SR","II","III","IV","V","ETAL","ET","AL"}
+    joiner_noise={"AND","&","OR"}; variants=set()
     for chunk in split_owner_chunks(raw):
-        working=re.sub(r"\bAND\b|\bOR\b|&"," ",chunk.replace(";","").replace("/"," ")); working=re.sub(r"\s+"," ",working).strip()
+        working=re.sub(r"\bAND\b|\bOR\b|&"," ",chunk.replace(";","").replace("/"," "))
+        working=re.sub(r"\s+"," ",working).strip()
         if not working: continue
         variants.update([chunk,working,working.replace(",","")])
         comma_parts=[normalize_person_name(x) for x in chunk.split(",") if normalize_person_name(x)]
@@ -262,7 +297,7 @@ def safe_pick(row:dict,keys:List[str])->str:
     upper_map={str(k).upper():k for k in row.keys()}
     for k in keys:
         if k.upper() in upper_map:
-            v=clean_text(row.get(upper_map[k.upper()]))
+            v=clean_text(row.get(upper_map[k.upper()],""))
             if v: return v
     return ""
 
@@ -323,7 +358,113 @@ def classify_distress_source(doc_type:str)->Optional[str]:
     if dt in {"VACANT","VACLAND","VHOME"}: return "vacant_home"
     return None
 
-def score_record(record:LeadRecord)->int:
+
+# -----------------------------------------------------------------------
+# MORTGAGE / EQUITY / SUBJECT-TO ESTIMATION
+# -----------------------------------------------------------------------
+def estimate_mortgage_data(record: "LeadRecord") -> "LeadRecord":
+    """
+    Estimate mortgage balance, equity, arrears, and subject-to viability.
+
+    Uses CAMA assessed value + last sale price + sale year to estimate:
+    - Current estimated market value (appreciation from sale price)
+    - Remaining mortgage balance (assuming 30yr fixed, avg OH rate ~6.5%)
+    - Estimated equity = market value - mortgage balance
+    - Estimated arrears = filed amount (lis pendens/judgment) or tax debt
+    - Subject-to score = how attractive this is for subject-to acquisition
+
+    All estimates are flagged clearly as estimates.
+    """
+    signals = []
+    subject_to_score = 0
+
+    # Step 1: establish value baseline
+    market_val = None
+    if record.last_sale_price and record.last_sale_price > 5000:
+        years_since_sale = max(0, datetime.now().year - (record.last_sale_year or datetime.now().year))
+        # compound appreciation
+        market_val = record.last_sale_price * ((1 + OH_ANNUAL_APPRECIATION) ** years_since_sale)
+    elif record.assessed_value and record.assessed_value > 5000:
+        # Ohio assessed = 35% of market value
+        market_val = record.assessed_value / 0.35
+
+    if market_val:
+        record.estimated_value = round(market_val, 2)
+
+    # Step 2: estimate mortgage balance
+    # If we have sale price + year, estimate remaining balance on 30yr @ 6.5%
+    if record.last_sale_price and record.last_sale_year and record.last_sale_price > 5000:
+        years_elapsed = max(0, min(30, datetime.now().year - record.last_sale_year))
+        # Assume 80% LTV at origination
+        original_loan = record.last_sale_price * 0.80
+        monthly_rate = 0.065 / 12
+        n_total = 360  # 30 years
+        n_paid = years_elapsed * 12
+        if monthly_rate > 0 and n_paid < n_total:
+            monthly_pmt = original_loan * (monthly_rate * (1+monthly_rate)**n_total) / ((1+monthly_rate)**n_total - 1)
+            balance = original_loan * ((1+monthly_rate)**n_total - (1+monthly_rate)**n_paid) / ((1+monthly_rate)**n_total - 1)
+            record.est_mortgage_balance = round(max(0, balance), 2)
+        elif n_paid >= n_total:
+            record.est_mortgage_balance = 0.0  # paid off
+
+    # Step 3: estimate equity
+    if record.estimated_value and record.est_mortgage_balance is not None:
+        record.est_equity = round(record.estimated_value - record.est_mortgage_balance, 2)
+
+    # Step 4: estimate arrears / payoff
+    # For foreclosure/LP: the filed amount IS the arrears
+    if record.doc_type in {"LP","NOFC","TAXDEED"} and record.amount and record.amount > 0:
+        record.est_arrears = record.amount
+        # Payoff = remaining mortgage balance (arrears are included in balance)
+        record.est_payoff = record.est_mortgage_balance or record.amount
+        signals.append(f"Arrears ~${record.est_arrears:,.0f}")
+
+    # Tax delinquent arrears
+    if "Tax delinquent" in record.flags and record.amount and record.amount > 0:
+        record.est_arrears = (record.est_arrears or 0) + record.amount
+        signals.append(f"Tax owed ~${record.amount:,.0f}")
+
+    # Step 5: subject-to score
+    # High equity = seller can walk away and you take over payments
+    if record.est_equity is not None:
+        if record.est_equity > 50000:
+            subject_to_score += 30; signals.append("High equity 🏦")
+        elif record.est_equity > 20000:
+            subject_to_score += 20; signals.append("Moderate equity")
+        elif record.est_equity > 0:
+            subject_to_score += 10
+        else:
+            signals.append("Underwater ⚠️")
+
+    # Distress = motivated seller
+    if record.doc_type in {"LP","NOFC"}: subject_to_score += 25; signals.append("Active foreclosure")
+    if record.doc_type == "PRO": subject_to_score += 20; signals.append("Estate sale")
+    if record.is_absentee: subject_to_score += 15; signals.append("Absentee owner")
+    if record.is_out_of_state: subject_to_score += 10; signals.append("Out-of-state owner")
+    if record.is_vacant_home: subject_to_score += 20; signals.append("Vacant home")
+    if "Tax delinquent" in record.flags: subject_to_score += 15
+
+    # Low balance relative to value = easy to assume payments
+    if record.est_mortgage_balance and record.estimated_value:
+        ltv = record.est_mortgage_balance / record.estimated_value
+        if ltv < 0.5: subject_to_score += 20; signals.append("Low LTV <50%")
+        elif ltv < 0.7: subject_to_score += 10; signals.append("LTV <70%")
+        elif ltv > 0.95: signals.append("High LTV >95%")
+
+    # Flag subject-to potential
+    if subject_to_score >= 50:
+        if "🎯 Subject-To Candidate" not in record.flags:
+            record.flags.append("🎯 Subject-To Candidate")
+    if subject_to_score >= 70:
+        if "⭐ Prime Subject-To" not in record.flags:
+            record.flags.append("⭐ Prime Subject-To")
+
+    record.subject_to_score = min(subject_to_score, 100)
+    record.mortgage_signals = signals
+    return record
+
+
+def score_record(record:"LeadRecord")->int:
     score=30; lf={f.lower() for f in record.flags}; fs=0
     if "lis pendens" in lf: fs+=20
     if "pre-foreclosure" in lf: fs+=20
@@ -337,7 +478,9 @@ def score_record(record:LeadRecord)->int:
     if "out-of-state owner" in lf: fs+=12
     if "tax delinquent" in lf: fs+=10
     if "high tax debt" in lf: fs+=8
-    score+=min(fs,55)
+    if "🎯 subject-to candidate" in lf: fs+=15
+    if "⭐ prime subject-to" in lf: fs+=20
+    score+=min(fs,60)
     if "lis pendens" in lf and "pre-foreclosure" in lf: score+=20
     if record.amount is not None: score+=15 if record.amount>100000 else (10 if record.amount>50000 else 5)
     if record.filed:
@@ -356,12 +499,14 @@ def score_record(record:LeadRecord)->int:
     return min(score,100)
 
 
-# ---- scrapers ----
+# -----------------------------------------------------------------------
+# SCRAPERS
+# -----------------------------------------------------------------------
 def scrape_vacant_building_addresses()->List[str]:
     addresses=[]
     try:
-        resp=retry_request(VACANT_BUILDING_URL,timeout=30); soup=BeautifulSoup(resp.text,"lxml")
-        text=soup.get_text(" ")
+        resp=retry_request(VACANT_BUILDING_URL,timeout=30)
+        soup=BeautifulSoup(resp.text,"lxml"); text=soup.get_text(" ")
         pat=re.compile(r"\b(\d{2,5})\s+([NSEW]\.?\s+)?([A-Z][A-Za-z\.\s]{2,30})\s+(St|Ave|Rd|Dr|Blvd|Ln|Ct|Pl|Way|Ter|Cir|Pkwy)\.?\b",re.IGNORECASE)
         for m in pat.finditer(text):
             addr=re.sub(r"\s+"," ",m.group(0)).strip().upper()
@@ -377,8 +522,8 @@ def scrape_tax_delinquent_parcels()->Dict[str,dict]:
     parcels:Dict[str,dict]={}
     try:
         logging.info("Scraping Akron Legal News delinquent tax index...")
-        resp=retry_request(DELINQUENT_INDEX_URL,timeout=30); soup=BeautifulSoup(resp.text,"lxml")
-        links=[]
+        resp=retry_request(DELINQUENT_INDEX_URL,timeout=30)
+        soup=BeautifulSoup(resp.text,"lxml"); links=[]
         for a in soup.select("a[href]"):
             href=clean_text(a.get("href",""))
             if "delinquent_taxes_detail" in href:
@@ -387,8 +532,8 @@ def scrape_tax_delinquent_parcels()->Dict[str,dict]:
         logging.info("Found %s delinquent tax section pages",len(links))
         for i,url in enumerate(links):
             try:
-                r2=retry_request(url,timeout=45); soup2=BeautifulSoup(r2.text,"lxml")
-                raw=soup2.get_text(" ")
+                r2=retry_request(url,timeout=45)
+                soup2=BeautifulSoup(r2.text,"lxml"); raw=soup2.get_text(" ")
                 for entry in re.split(r"\s*[•·]\s*",raw):
                     entry=clean_text(entry)
                     if not entry: continue
@@ -415,12 +560,16 @@ def scrape_tax_delinquent_parcels()->Dict[str,dict]:
     save_debug_json("delinquent_parcels.json",list(parcels.values())[:100])
     return parcels
 
+
+# -----------------------------------------------------------------------
+# CAMA
+# -----------------------------------------------------------------------
 def discover_cama_downloads()->List[str]:
     logging.info("Discovering CAMA downloads...")
     resp=retry_request(CAMA_PAGE_URL); soup=BeautifulSoup(resp.text,"lxml")
     wanted={"SC700","SC701","SC702","SC705","SC720","SC731"}; urls=[]
     for a in soup.select("a[href]"):
-        href=clean_text(a.get("href")); text=clean_text(a.get_text(" ")).upper()
+        href=clean_text(a.get("href","")); text=clean_text(a.get_text(" ")).upper()
         blob=f"{href} {text}".upper()
         if not any(c in blob for c in wanted): continue
         full=requests.compat.urljoin(CAMA_PAGE_URL,href)
@@ -434,7 +583,7 @@ def discover_cama_downloads()->List[str]:
 def parse_delimited_text(raw:str)->List[dict]:
     lines=[l.rstrip("\r") for l in raw.splitlines() if clean_text(l)]
     if len(lines)<2: return []
-    candidates=["|","\t",","]
+    candidates=["|","\t","," ]
     sample="\n".join(lines[:10]); delim=max(candidates,key=lambda d:sample.count(d))
     if sample.count(delim)==0: delim="|"
     rows=[]
@@ -446,8 +595,7 @@ def parse_delimited_text(raw:str)->List[dict]:
 def read_any_cama_payload(content:bytes,source_name:str)->Dict[str,List[dict]]:
     datasets={}
     if len(content)>=4 and content[:2]==b"PK":
-        import zipfile as zf
-        with zf.ZipFile(io.BytesIO(content)) as z:
+        with zipfile.ZipFile(io.BytesIO(content)) as z:
             for member in z.namelist():
                 if member.endswith("/"): continue
                 try: raw=z.read(member).decode("utf-8",errors="ignore")
@@ -460,12 +608,12 @@ def read_any_cama_payload(content:bytes,source_name:str)->Dict[str,List[dict]]:
     return datasets
 
 def build_prop_address_from_row(row:dict)->str:
-    parts=[clean_text(row.get(k)) for k in ["ADRNO","ADRADD","ADRDIR","ADRSTR","ADRSUF","ADRSUF2"]]
+    parts=[clean_text(row.get(k,"")) for k in ["ADRNO","ADRADD","ADRDIR","ADRSTR","ADRSUF","ADRSUF2"]]
     addr=" ".join(p for p in parts if p).strip()
     return re.sub(r"\s+"," ",addr) if addr else safe_pick(row,LIKELY_PROP_ADDR_KEYS)
 
 def build_prop_city_from_row(row:dict)->str:
-    return clean_text(row.get("UDATE1")) or clean_text(row.get("CITY")) or safe_pick(row,LIKELY_PROP_CITY_KEYS)
+    return clean_text(row.get("UDATE1","")) or clean_text(row.get("CITY","")) or safe_pick(row,LIKELY_PROP_CITY_KEYS)
 
 def build_prop_zip_from_row(row:dict)->str:
     for k in ["NOTE2","USER2"]:
@@ -475,6 +623,32 @@ def build_prop_zip_from_row(row:dict)->str:
     if m: return m.group(1)
     fb=safe_pick(row,LIKELY_PROP_ZIP_KEYS); m2=re.search(r"(\d{5})",fb)
     return m2.group(1) if m2 else ""
+
+def build_assessed_value_from_row(row:dict)->Optional[float]:
+    """Extract assessed value from CAMA row."""
+    raw=safe_pick(row,LIKELY_VALUE_KEYS)
+    if not raw: return None
+    try:
+        v=float(re.sub(r"[^0-9.]","",raw))
+        return v if v>100 else None
+    except: return None
+
+def build_sale_data_from_row(row:dict)->Tuple[Optional[float],Optional[int]]:
+    """Extract last sale price and year from CAMA row."""
+    price_raw=safe_pick(row,["SALEPRICE","SALE_PRICE","LASTSALE","SALVAL"])
+    year_raw=safe_pick(row,LIKELY_SALE_YEAR_KEYS)
+    price=None; year=None
+    if price_raw:
+        try:
+            p=float(re.sub(r"[^0-9.]","",price_raw))
+            if p>5000: price=p
+        except: pass
+    if year_raw:
+        try:
+            y=int(re.sub(r"[^0-9]","",year_raw)[:4])
+            if 1970<=y<=datetime.now().year: year=y
+        except: pass
+    return price,year
 
 def is_sc701_clerk_code(v:str)->bool:
     v=clean_text(v).upper()
@@ -516,25 +690,39 @@ def add_owner_alias(record,owner_name):
     if not owner_name: return
     record.setdefault("owner_aliases",[])
     if owner_name not in record["owner_aliases"]: record["owner_aliases"].append(owner_name)
-    if not clean_text(record.get("owner")): record["owner"]=owner_name
+    if not clean_text(record.get("owner","")): record["owner"]=owner_name
 
 def normalize_candidate_record(r:dict)->dict:
-    aliases,seen,ca=r.get("owner_aliases") or [],[],[]
+    aliases=r.get("owner_aliases") or []; seen=[]; ca=[]
     for a in aliases:
         a=clean_text(a)
         if a and a not in seen: seen.append(a); ca.append(a)
-    return {"parcel_id":clean_text(r.get("parcel_id")),"owner":clean_text(r.get("owner")),"owner_aliases":ca,
-            "prop_address":clean_text(r.get("prop_address")),"prop_city":clean_text(r.get("prop_city")),"prop_zip":clean_text(r.get("prop_zip")),
-            "mail_address":clean_text(r.get("mail_address")),"mail_city":clean_text(r.get("mail_city")),
-            "mail_state":normalize_state(clean_text(r.get("mail_state"))),"mail_zip":clean_text(r.get("mail_zip")),
-            "legal":clean_text(r.get("legal")),"luc":clean_text(r.get("luc")),"acres":clean_text(r.get("acres"))}
+    return {
+        "parcel_id":clean_text(r.get("parcel_id","")),
+        "owner":clean_text(r.get("owner","")),
+        "owner_aliases":ca,
+        "prop_address":clean_text(r.get("prop_address","")),
+        "prop_city":clean_text(r.get("prop_city","")),
+        "prop_zip":clean_text(r.get("prop_zip","")),
+        "mail_address":clean_text(r.get("mail_address","")),
+        "mail_city":clean_text(r.get("mail_city","")),
+        "mail_state":normalize_state(clean_text(r.get("mail_state",""))),
+        "mail_zip":clean_text(r.get("mail_zip","")),
+        "legal":clean_text(r.get("legal","")),
+        "luc":clean_text(r.get("luc","")),
+        "acres":clean_text(r.get("acres","")),
+        "assessed_value":r.get("assessed_value"),
+        "last_sale_price":r.get("last_sale_price"),
+        "last_sale_year":r.get("last_sale_year"),
+    }
 
 def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
     urls=discover_cama_downloads()
     own_rows,mail_rows,legal_rows,parcel_rows=[],[],[],[]
     for url in urls:
         try:
-            resp=retry_request(url); datasets=read_any_cama_payload(resp.content,Path(url).name)
+            resp=retry_request(url)
+            datasets=read_any_cama_payload(resp.content,Path(url).name)
             for fname,rows in datasets.items():
                 u=fname.upper()
                 if "SC700" in u: own_rows.extend(rows)
@@ -544,78 +732,98 @@ def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
             logging.info("Loaded CAMA %s",url)
         except Exception as e: logging.warning("CAMA %s: %s",url,e)
     save_debug_json("sc705_sc731_parcel_sample_rows.json",parcel_rows[:25])
-    mail_by_pid={};
+
+    mail_by_pid:Dict[str,dict]={}
     for row in mail_rows:
         pid=get_pid(row)
         if pid and pid not in mail_by_pid: mail_by_pid[pid]=row
-    parcel_by_id={}
+
+    parcel_by_id:Dict[str,dict]={}
     for row in parcel_rows:
         pid=get_pid(row)
         if not pid: continue
         parcel_by_id.setdefault(pid,{"parcel_id":pid,"owner_aliases":[]})
         e=parcel_by_id[pid]
-        e.update({"parcel_id":pid,"prop_address":e.get("prop_address") or build_prop_address_from_row(row),
-                  "prop_city":e.get("prop_city") or build_prop_city_from_row(row),
-                  "prop_zip":e.get("prop_zip") or build_prop_zip_from_row(row),
-                  "luc":e.get("luc") or clean_text(row.get("LUC")),"acres":e.get("acres") or clean_text(row.get("ACRES"))})
+        assessed=build_assessed_value_from_row(row)
+        sale_price,sale_year=build_sale_data_from_row(row)
+        e.update({
+            "parcel_id":pid,
+            "prop_address":e.get("prop_address","") or build_prop_address_from_row(row),
+            "prop_city":e.get("prop_city","") or build_prop_city_from_row(row),
+            "prop_zip":e.get("prop_zip","") or build_prop_zip_from_row(row),
+            "luc":e.get("luc","") or clean_text(row.get("LUC","")),
+            "acres":e.get("acres","") or clean_text(row.get("ACRES","")),
+            "assessed_value":e.get("assessed_value") or assessed,
+            "last_sale_price":e.get("last_sale_price") or sale_price,
+            "last_sale_year":e.get("last_sale_year") or sale_year,
+        })
         for a in extract_owner_aliases_from_row(row): add_owner_alias(e,a)
+
     for row in own_rows:
         pid=get_pid(row)
         if not pid: continue
         parcel_by_id.setdefault(pid,{"parcel_id":pid,"owner_aliases":[]})
         for a in extract_owner_aliases_from_row(row): add_owner_alias(parcel_by_id[pid],a)
+
     for row in mail_rows:
         pid=get_pid(row)
         if not pid: continue
         parcel_by_id.setdefault(pid,{"parcel_id":pid,"owner_aliases":[]})
         e=parcel_by_id[pid]
-        ms=clean_text(row.get("MAIL_ADR1")) or safe_pick(row,["MAIL_ADR1","MAIL_ADDR","MAILADR1"])
+        ms=clean_text(row.get("MAIL_ADR1","")) or safe_pick(row,["MAIL_ADR1","MAIL_ADDR","MAILADR1"])
         mc=build_mail_city_sc701(row); mz=build_mail_zip(row); mst=build_mail_state_sc701(row)
-        if not e.get("mail_address") and ms: e["mail_address"]=ms
-        if not e.get("mail_city") and mc: e["mail_city"]=mc
-        if not e.get("mail_zip") and mz: e["mail_zip"]=mz
-        if not e.get("mail_state") and mst: e["mail_state"]=mst
-        if not e.get("prop_city") and mc: e["prop_city"]=mc
+        if not e.get("mail_address","") and ms: e["mail_address"]=ms
+        if not e.get("mail_city","") and mc: e["mail_city"]=mc
+        if not e.get("mail_zip","") and mz: e["mail_zip"]=mz
+        if not e.get("mail_state","") and mst: e["mail_state"]=mst
+        if not e.get("prop_city","") and mc: e["prop_city"]=mc
+
     for row in legal_rows:
         pid=get_pid(row)
         if not pid: continue
         parcel_by_id.setdefault(pid,{"parcel_id":pid,"owner_aliases":[]})
-        e=parcel_by_id[pid]; e["legal"]=e.get("legal") or safe_pick(row,LIKELY_LEGAL_KEYS)
+        e=parcel_by_id[pid]
+        e["legal"]=e.get("legal","") or safe_pick(row,LIKELY_LEGAL_KEYS)
         for a in extract_owner_aliases_from_row(row): add_owner_alias(e,a)
+
     owner_index=defaultdict(list); last_name_index=defaultdict(list); first_last_index=defaultdict(list)
-    normalized_records=[]; seen_pid_last=defaultdict(set); seen_pid_fl=defaultdict(set); seen_pid_own=defaultdict(set)
+    seen_pid_last=defaultdict(set); seen_pid_fl=defaultdict(set); seen_pid_own=defaultdict(set)
+
     for raw_rec in parcel_by_id.values():
         rec=normalize_candidate_record(raw_rec)
         all_aliases=list(rec.get("owner_aliases") or [])
-        owner=clean_text(rec.get("owner"))
+        owner=clean_text(rec.get("owner",""))
         if owner and owner not in all_aliases: all_aliases.append(owner)
         if not all_aliases: continue
-        normalized_records.append(rec)
         for alias in all_aliases:
             is_corp=likely_corporate_name(alias)
             for chunk in (split_owner_chunks(alias) or [alias]):
                 for variant in (name_variants(chunk) or [normalize_person_name(chunk)]):
                     toks=tokens_from_name(variant)
                     if not is_corp and len(toks)<2: continue
-                    pid=rec.get("parcel_id") or ""
+                    pid=rec.get("parcel_id","")
                     if pid and pid in seen_pid_own[variant]: continue
                     if pid: seen_pid_own[variant].add(pid)
                     add_candidate(owner_index,variant,rec)
                 ln=get_last_name(chunk); fn=get_first_name(chunk)
                 if ln:
-                    pid=rec.get("parcel_id") or ""
+                    pid=rec.get("parcel_id","")
                     if not pid or pid not in seen_pid_last[ln]:
                         if pid: seen_pid_last[ln].add(pid)
                         last_name_index[ln].append(rec)
                 if fn and ln:
-                    fl=f"{fn} {ln}"; pid=rec.get("parcel_id") or ""
+                    fl=f"{fn} {ln}"; pid=rec.get("parcel_id","")
                     if not pid or pid not in seen_pid_fl[fl]:
                         if pid: seen_pid_fl[fl].add(pid)
                         first_last_index[fl].append(rec)
+
     logging.info("Parcel index: %s owner keys | %s parcels | %s mail rows",len(owner_index),len(parcel_rows),len(mail_rows))
     return owner_index,last_name_index,first_last_index,parcel_rows,mail_by_pid
 
-# ---- lead builders ----
+
+# -----------------------------------------------------------------------
+# LEAD BUILDERS
+# -----------------------------------------------------------------------
 def build_tax_delinquent_leads(delinquent_parcels,parcel_rows,mail_by_pid,vacant_home_keys)->List[LeadRecord]:
     leads=[]; skipped=0
     pid_to_row={get_pid(r):r for r in parcel_rows if get_pid(r)}
@@ -624,14 +832,19 @@ def build_tax_delinquent_leads(delinquent_parcels,parcel_rows,mail_by_pid,vacant
         if not row: continue
         luc=clean_text(row.get("LUC",""))
         if luc not in RESIDENTIAL_LUCS: skipped+=1; continue
-        prop_address=build_prop_address_from_row(row); prop_city=build_prop_city_from_row(row); prop_zip=build_prop_zip_from_row(row)
+        prop_address=build_prop_address_from_row(row)
+        prop_city=build_prop_city_from_row(row)
+        prop_zip=build_prop_zip_from_row(row)
         if not prop_address: continue
         mail_row=mail_by_pid.get(pid,{})
-        mail_address=clean_text(mail_row.get("MAIL_ADR1",""))
+        mail_address=clean_text(mail_row.get("MAIL_ADR1","")) if mail_row else ""
         mail_city=build_mail_city_sc701(mail_row) if mail_row else ""
         mail_zip=build_mail_zip(mail_row) if mail_row else ""
         mail_state=build_mail_state_sc701(mail_row) if mail_row else "OH"
-        owner=info.get("owner",""); amt=info.get("amount_owed",0.0); acres=clean_text(row.get("ACRES",""))
+        owner=info.get("owner",""); amt=info.get("amount_owed",0.0)
+        acres=clean_text(row.get("ACRES",""))
+        assessed=build_assessed_value_from_row(row)
+        sale_price,sale_year=build_sale_data_from_row(row)
         absentee=is_absentee_owner(prop_address,mail_address,mail_state)
         out_of_state=is_out_of_state(mail_state)
         addr_key=normalize_address_key(prop_address); vhome=addr_key in vacant_home_keys
@@ -641,22 +854,33 @@ def build_tax_delinquent_leads(delinquent_parcels,parcel_rows,mail_by_pid,vacant
         if vhome: flags.append("Vacant home"); ds.append("vacant_home")
         if amt and amt>10000: flags.append("High tax debt")
         if amt and amt>25000: flags.append("Very high tax debt")
-        r=LeadRecord(doc_num=f"TAX-{pid}",doc_type="TAX",cat="TAX",cat_label="Tax Delinquent",
-                     owner=owner.title(),amount=amt,prop_address=prop_address,prop_city=prop_city,
-                     prop_state="OH",prop_zip=prop_zip,mail_address=mail_address,mail_city=mail_city,
-                     mail_state=normalize_state(mail_state) or "OH",mail_zip=mail_zip,
-                     clerk_url=info.get("source_url",""),flags=flags,distress_sources=ds,distress_count=len(ds),
-                     luc=luc,acres=acres,is_vacant_home=vhome,is_absentee=absentee,is_out_of_state=out_of_state,
-                     with_address=1,match_method="tax_delinquent_direct",match_score=1.0,parcel_id=pid)
+        r=LeadRecord(
+            doc_num=f"TAX-{pid}",doc_type="TAX",cat="TAX",cat_label="Tax Delinquent",
+            owner=owner.title(),amount=amt,
+            prop_address=prop_address,prop_city=prop_city,prop_state="OH",prop_zip=prop_zip,
+            mail_address=mail_address,mail_city=mail_city,
+            mail_state=normalize_state(mail_state) or "OH",mail_zip=mail_zip,
+            clerk_url=info.get("source_url",""),flags=flags,distress_sources=ds,
+            distress_count=len(ds),luc=luc,acres=acres,
+            is_vacant_home=vhome,is_absentee=absentee,is_out_of_state=out_of_state,
+            with_address=1,match_method="tax_delinquent_direct",match_score=1.0,parcel_id=pid,
+            assessed_value=assessed,last_sale_price=sale_price,last_sale_year=sale_year,
+        )
+        r=estimate_mortgage_data(r)
         r.score=score_record(r); r.hot_stack=r.distress_count>=2; leads.append(r)
-    logging.info("Tax delinquent: %s residential | %s skipped | %s absentee | %s out-of-state | %s vacant home",
-                 len(leads),skipped,sum(1 for r in leads if r.is_absentee),
-                 sum(1 for r in leads if r.is_out_of_state),sum(1 for r in leads if r.is_vacant_home))
+    logging.info(
+        "Tax delinquent: %s residential | %s skipped | %s absentee | %s out-of-state | %s vacant home | %s subject-to candidates",
+        len(leads),skipped,
+        sum(1 for r in leads if r.is_absentee),
+        sum(1 for r in leads if r.is_out_of_state),
+        sum(1 for r in leads if r.is_vacant_home),
+        sum(1 for r in leads if r.subject_to_score>=50),
+    )
     return leads
 
 def build_vacant_home_list(vacant_addresses,parcel_rows,mail_by_pid,delinquent_pid_set,foreclosure_pids)->Tuple[List[LeadRecord],set]:
     records=[]; matched_keys=set(); seen_pids=set()
-    addr_to_pid={}; pid_to_row={}
+    addr_to_pid:Dict[str,str]={}; pid_to_row:Dict[str,dict]={}
     for row in parcel_rows:
         pid=get_pid(row)
         if not pid: continue
@@ -668,7 +892,7 @@ def build_vacant_home_list(vacant_addresses,parcel_rows,mail_by_pid,delinquent_p
             if key: addr_to_pid[key]=pid
     for va in vacant_addresses:
         key=normalize_address_key(va); pid=addr_to_pid.get(key)
-        if not pid:  # fuzzy fallback
+        if not pid:
             parts=key.split()
             if len(parts)>=2:
                 short=" ".join(parts[:2])
@@ -677,8 +901,12 @@ def build_vacant_home_list(vacant_addresses,parcel_rows,mail_by_pid,delinquent_p
         if not pid or pid in seen_pids: continue
         seen_pids.add(pid); matched_keys.add(key)
         row=pid_to_row.get(pid,{}); luc=clean_text(row.get("LUC",""))
-        prop_address=build_prop_address_from_row(row); prop_city=build_prop_city_from_row(row); prop_zip=build_prop_zip_from_row(row)
+        prop_address=build_prop_address_from_row(row)
+        prop_city=build_prop_city_from_row(row)
+        prop_zip=build_prop_zip_from_row(row)
         acres=clean_text(row.get("ACRES",""))
+        assessed=build_assessed_value_from_row(row)
+        sale_price,sale_year=build_sale_data_from_row(row)
         mail_row=mail_by_pid.get(pid,{})
         mail_address=clean_text(mail_row.get("MAIL_ADR1","")) if mail_row else ""
         mail_city=build_mail_city_sc701(mail_row) if mail_row else ""
@@ -693,13 +921,18 @@ def build_vacant_home_list(vacant_addresses,parcel_rows,mail_by_pid,delinquent_p
         if out_of_state: flags.append("Out-of-state owner")
         if tax_delin: flags.append("Tax delinquent"); ds.append("tax_delinquent")
         if foreclosure: flags.append("In foreclosure"); ds.append("foreclosure")
-        rec=LeadRecord(doc_num=f"VHOME-{pid}",doc_type="VHOME",filed=datetime.now().date().isoformat(),
-                       cat="VHOME",cat_label="Vacant Home",owner=owner.title() if owner else "",
-                       prop_address=prop_address or va.title(),prop_city=prop_city,prop_state="OH",prop_zip=prop_zip,
-                       mail_address=mail_address,mail_city=mail_city,mail_state=normalize_state(mail_state) or "OH",mail_zip=mail_zip,
-                       clerk_url=VACANT_BUILDING_URL,flags=flags,distress_sources=ds,distress_count=len(ds),
-                       luc=luc,acres=acres,is_vacant_home=True,is_absentee=absentee,is_out_of_state=out_of_state,
-                       with_address=1,match_method="vacant_home_board",match_score=1.0,parcel_id=pid)
+        rec=LeadRecord(
+            doc_num=f"VHOME-{pid}",doc_type="VHOME",filed=datetime.now().date().isoformat(),
+            cat="VHOME",cat_label="Vacant Home",owner=owner.title() if owner else "",
+            prop_address=prop_address or va.title(),prop_city=prop_city,prop_state="OH",prop_zip=prop_zip,
+            mail_address=mail_address,mail_city=mail_city,
+            mail_state=normalize_state(mail_state) or "OH",mail_zip=mail_zip,
+            clerk_url=VACANT_BUILDING_URL,flags=flags,distress_sources=ds,distress_count=len(ds),
+            luc=luc,acres=acres,is_vacant_home=True,is_absentee=absentee,is_out_of_state=out_of_state,
+            with_address=1,match_method="vacant_home_board",match_score=1.0,parcel_id=pid,
+            assessed_value=assessed,last_sale_price=sale_price,last_sale_year=sale_year,
+        )
+        rec=estimate_mortgage_data(rec)
         rec.score=score_record(rec); rec.hot_stack=rec.distress_count>=2; records.append(rec)
     logging.info("Vacant homes: %s matched | %s absentee | %s out-of-state | %s tax delin | %s foreclosure",
                  len(records),sum(1 for r in records if r.is_absentee),sum(1 for r in records if r.is_out_of_state),
@@ -709,7 +942,7 @@ def build_vacant_home_list(vacant_addresses,parcel_rows,mail_by_pid,delinquent_p
 def build_vacant_land_list(parcel_rows,mail_by_pid,delinquent_pid_set,foreclosure_pids)->List[VacantLandRecord]:
     vacant=[]; seen=set()
     for row in parcel_rows:
-        luc=clean_text(row.get("LUC")); acres_raw=clean_text(row.get("ACRES"))
+        luc=clean_text(row.get("LUC","")); acres_raw=clean_text(row.get("ACRES",""))
         if not is_infill_lot(luc,acres_raw): continue
         pid=get_pid(row)
         if not pid or pid in seen: continue
@@ -717,20 +950,27 @@ def build_vacant_land_list(parcel_rows,mail_by_pid,delinquent_pid_set,foreclosur
         seen.add(pid)
         prop_address=build_prop_address_from_row(row); prop_zip=build_prop_zip_from_row(row)
         mail_row=mail_by_pid.get(pid,{})
-        ms=clean_text(mail_row.get("MAIL_ADR1")) if mail_row else ""; mc=build_mail_city_sc701(mail_row) if mail_row else ""
-        mz=build_mail_zip(mail_row) if mail_row else ""; mst=build_mail_state_sc701(mail_row) if mail_row else ""
+        ms=clean_text(mail_row.get("MAIL_ADR1","")) if mail_row else ""
+        mc=build_mail_city_sc701(mail_row) if mail_row else ""
+        mz=build_mail_zip(mail_row) if mail_row else ""
+        mst=build_mail_state_sc701(mail_row) if mail_row else ""
         owner=build_owner_name(mail_row) if mail_row else ""
         if not prop_address and not ms: continue
         flags=["Vacant land","Infill lot"]; ds=[]
         if pid in foreclosure_pids: flags.append("🔥 In foreclosure"); ds.append("foreclosure")
         if pid in delinquent_pid_set: flags.append("Tax delinquent"); ds.append("tax_delinquent")
-        vacant.append(VacantLandRecord(parcel_id=pid,prop_address=prop_address,prop_city=mc,prop_state="OH",
-                                       prop_zip=prop_zip,owner=owner,mail_address=ms,mail_city=mc,
-                                       mail_state=mst or "OH",mail_zip=mz,luc=luc,acres=acres_raw,
-                                       flags=flags,score=55 if len(ds)>=2 else 45,distress_sources=ds,distress_count=len(ds)))
+        vacant.append(VacantLandRecord(
+            parcel_id=pid,prop_address=prop_address,prop_city=mc,prop_state="OH",
+            prop_zip=prop_zip,owner=owner,mail_address=ms,mail_city=mc,
+            mail_state=mst or "OH",mail_zip=mz,luc=luc,acres=acres_raw,
+            flags=flags,score=55 if len(ds)>=2 else 45,distress_sources=ds,distress_count=len(ds)
+        ))
     logging.info("Distressed vacant land (infill ≤2ac): %s",len(vacant)); return vacant
 
-# ---- playwright scraping ----
+
+# -----------------------------------------------------------------------
+# PLAYWRIGHT SCRAPING
+# -----------------------------------------------------------------------
 async def click_first_matching(page,selectors):
     for s in selectors:
         try:
@@ -781,7 +1021,8 @@ def split_caption(caption):
 def clean_defendant_name(n):
     n=clean_text(n)
     if not n: return ""
-    for p in [r"\bAKA\b.*$",r"\bET AL\b.*$",r"\bUNKNOWN HEIRS OF\b",r"\bUNKNOWN SPOUSE OF\b",r"\bUNKNOWN ADMINISTRATOR\b",r"\bEXECUTOR\b",r"\bFIDUCIARY\b",r"\bJOHN DOE\b",r"\bJANE DOE\b"]:
+    for p in [r"\bAKA\b.*$",r"\bET AL\b.*$",r"\bUNKNOWN HEIRS OF\b",r"\bUNKNOWN SPOUSE OF\b",
+              r"\bUNKNOWN ADMINISTRATOR\b",r"\bEXECUTOR\b",r"\bFIDUCIARY\b",r"\bJOHN DOE\b",r"\bJANE DOE\b"]:
         n=re.sub(p,"",n,flags=re.IGNORECASE).strip()
     n=re.sub(r"\s+"," ",n).strip(" ,.-")
     return "" if (not n or n in BAD_EXACT_OWNERS) else n
@@ -812,12 +1053,15 @@ def parse_pending_civil_table(html,base_url,prefix)->List[LeadRecord]:
             if not owner: continue
             am=re.search(r"\$[\d,]+(?:\.\d{2})?",rt)
             amt=parse_amount(am.group(0)) if am else None
-            link=row.find("a",href=True); href=clean_text(link.get("href")) if link else ""
+            link=row.find("a",href=True); href=clean_text(link.get("href","")) if link else ""
             dn=extract_case_number(rt,f"{prefix}-T{ti}-R{ri}")
-            rec=LeadRecord(doc_num=dn,doc_type=dt,filed=filed,cat=dt,cat_label=LEAD_TYPE_MAP.get(dt,dt),
-                           owner=owner,grantee=grantee,amount=amt,legal=clean_text(src),
-                           clerk_url=requests.compat.urljoin(base_url,href) if href else base_url)
-            rec.flags=category_flags(dt,owner); ds=classify_distress_source(dt)
+            rec=LeadRecord(
+                doc_num=dn,doc_type=dt,filed=filed,cat=dt,cat_label=LEAD_TYPE_MAP.get(dt,dt),
+                owner=owner,grantee=grantee,amount=amt,legal=clean_text(src),
+                clerk_url=requests.compat.urljoin(base_url,href) if href else base_url,
+            )
+            rec.flags=category_flags(dt,owner)
+            ds=classify_distress_source(dt)
             if ds: rec.distress_sources=[ds]
             rec.score=score_record(rec); records.append(rec)
     return records
@@ -825,10 +1069,13 @@ def parse_pending_civil_table(html,base_url,prefix)->List[LeadRecord]:
 async def scrape_pending_civil_records(page)->List[LeadRecord]:
     records=[]
     try:
-        await page.goto(PENDING_CIVIL_URL,wait_until="domcontentloaded",timeout=90000); await page.wait_for_timeout(4000)
-        h1=await page.content(); save_debug_text("pending_civil_page_1.html",h1); records.extend(parse_pending_civil_table(h1,PENDING_CIVIL_URL,"PCF1"))
+        await page.goto(PENDING_CIVIL_URL,wait_until="domcontentloaded",timeout=90000)
+        await page.wait_for_timeout(4000)
+        h1=await page.content(); save_debug_text("pending_civil_page_1.html",h1)
+        records.extend(parse_pending_civil_table(h1,PENDING_CIVIL_URL,"PCF1"))
         if await click_first_matching(page,["text=Search","text=Begin","text=Continue","input[type='submit']","button","a"]):
-            h2=await page.content(); records.extend(parse_pending_civil_table(h2,PENDING_CIVIL_URL,"PCF2"))
+            h2=await page.content()
+            records.extend(parse_pending_civil_table(h2,PENDING_CIVIL_URL,"PCF2"))
     except Exception as e: logging.warning("Pending civil failed: %s",e)
     return records
 
@@ -837,7 +1084,8 @@ async def scrape_clerk_records()->List[LeadRecord]:
     async with async_playwright() as p:
         browser=await p.chromium.launch(headless=True); page=await browser.new_page()
         try:
-            await page.goto(CLERK_RECORDS_URL,wait_until="domcontentloaded",timeout=90000); await page.wait_for_timeout(4000)
+            await page.goto(CLERK_RECORDS_URL,wait_until="domcontentloaded",timeout=90000)
+            await page.wait_for_timeout(4000)
             if await click_first_matching(page,["text=Click Here","text=Begin","text=Continue","text=Accept","text=Search","input[type='submit']","button","a"]):
                 await click_first_matching(page,["text=Civil","text=General","text=Search","input[type='submit']","button","a"])
             records.extend(await scrape_pending_civil_records(page))
@@ -856,17 +1104,22 @@ async def scrape_probate_records()->List[LeadRecord]:
     async with async_playwright() as p:
         browser=await p.chromium.launch(headless=True); page=await browser.new_page()
         try:
-            await page.goto(PROBATE_URL,wait_until="domcontentloaded",timeout=90000); await page.wait_for_timeout(4000)
+            await page.goto(PROBATE_URL,wait_until="domcontentloaded",timeout=90000)
+            await page.wait_for_timeout(4000)
             if await click_first_matching(page,["text=Click Here","text=Begin","text=Search","a.anchorButton","input[type='submit']","button","a"]):
                 soup=BeautifulSoup(await page.content(),"lxml")
                 for i,row in enumerate(soup.find_all("tr")):
                     text=clean_text(row.get_text(" "))
                     if not any(x in text.upper() for x in ["ESTATE OF","IN THE MATTER OF","GUARDIANSHIP","DECEDENT","FIDUCIARY"]): continue
-                    link=row.find("a",href=True); href=clean_text(link.get("href")) if link else ""
+                    link=row.find("a",href=True); href=clean_text(link.get("href","")) if link else ""
                     filed=try_parse_date(text) or datetime.now().date().isoformat()
-                    rec=LeadRecord(doc_num=f"PRO-TR-{i+1}",doc_type="PRO",filed=filed,cat="PRO",cat_label="Probate / Estate",
-                                   owner=text[:180],clerk_url=requests.compat.urljoin(page.url,href) if href else page.url)
-                    rec.flags=category_flags("PRO",rec.owner); rec.distress_sources=["probate"]
+                    rec=LeadRecord(
+                        doc_num=f"PRO-TR-{i+1}",doc_type="PRO",filed=filed,
+                        cat="PRO",cat_label="Probate / Estate",owner=text[:180],
+                        clerk_url=requests.compat.urljoin(page.url,href) if href else page.url,
+                    )
+                    rec.flags=category_flags("PRO",rec.owner)
+                    rec.distress_sources=["probate"]
                     rec.score=score_record(rec); records.append(rec)
         except Exception as e: logging.warning("Probate scrape failed: %s",e)
         finally: await browser.close()
@@ -877,33 +1130,42 @@ async def scrape_probate_records()->List[LeadRecord]:
         seen.add(key); deduped.append(r)
     logging.info("Probate records: %s",len(deduped)); return deduped
 
-# ---- matching ----
+
+# -----------------------------------------------------------------------
+# PARCEL MATCHING
+# -----------------------------------------------------------------------
 def better_record(c):
     s=0
-    if clean_text(c.get("prop_address")): s+=100
-    if clean_text(c.get("mail_address")): s+=40
-    if clean_text(c.get("mail_zip")): s+=20
-    if clean_text(c.get("mail_city")): s+=15
-    if clean_text(c.get("legal")): s+=15
-    if clean_text(c.get("prop_city")): s+=10
-    if clean_text(c.get("prop_zip")): s+=10
+    if clean_text(c.get("prop_address","")): s+=100
+    if clean_text(c.get("mail_address","")): s+=40
+    if clean_text(c.get("mail_zip","")): s+=20
+    if clean_text(c.get("mail_city","")): s+=15
+    if clean_text(c.get("legal","")): s+=15
+    if clean_text(c.get("prop_city","")): s+=10
+    if clean_text(c.get("prop_zip","")): s+=10
+    if c.get("last_sale_price"): s+=5
+    if c.get("assessed_value"): s+=3
     return s
 
 def alias_list(c):
-    a=list(c.get("owner_aliases") or []); o=clean_text(c.get("owner"))
-    if o and o not in a: a.append(o); return a
+    a=list(c.get("owner_aliases") or [])
+    o=clean_text(c.get("owner",""))
+    if o and o not in a: a.append(o)
+    return a
 
 def candidate_match_score(ro,c):
     best=0.0
     for co in alias_list(c):
         rt=set(tokens_from_name(ro)); ct=set(tokens_from_name(co))
         if not rt or not ct: continue
-        s=len(rt&ct)*10.0; rl,cl=get_last_name(ro),get_last_name(co); rf,cf=get_first_name(ro),get_first_name(co)
+        s=len(rt&ct)*10.0
+        rl,cl=get_last_name(ro),get_last_name(co)
+        rf,cf=get_first_name(ro),get_first_name(co)
         if rl and cl and last_names_compatible(rl,cl): s+=25.0
         if rf and cf and rf==cf: s+=18.0
         elif same_first_name_or_initial(ro,co): s+=10.0
-        if clean_text(c.get("prop_address")): s+=8.0
-        if clean_text(c.get("mail_address")): s+=4.0
+        if clean_text(c.get("prop_address","")): s+=8.0
+        if clean_text(c.get("mail_address","")): s+=4.0
         if s>best: best=s
     return best
 
@@ -911,15 +1173,16 @@ def choose_best_candidate(candidates,ro=""):
     if not candidates: return None
     deduped={}
     for c in candidates:
-        key=clean_text(c.get("parcel_id")) or f"{clean_text(c.get('owner'))}|{clean_text(c.get('prop_address'))}"
+        key=clean_text(c.get("parcel_id","")) or f"{clean_text(c.get('owner',''))}|{clean_text(c.get('prop_address',''))}"
         if key not in deduped or better_record(c)>better_record(deduped[key]): deduped[key]=c
-    return sorted(deduped.values(),key=lambda c:(candidate_match_score(ro,c),better_record(c)),reverse=True)[0]
+    ranked=sorted(deduped.values(),key=lambda c:(candidate_match_score(ro,c),better_record(c)),reverse=True)
+    return ranked[0] if ranked else None
 
 def unique_best_by_score(candidates,ro,min_gap=12.0):
     if not candidates: return None
     deduped={}
     for c in candidates:
-        key=clean_text(c.get("parcel_id")) or f"{clean_text(c.get('owner'))}|{clean_text(c.get('prop_address'))}"
+        key=clean_text(c.get("parcel_id","")) or f"{clean_text(c.get('owner',''))}|{clean_text(c.get('prop_address',''))}"
         if key not in deduped or better_record(c)>better_record(deduped[key]): deduped[key]=c
     ranked=sorted([(c,candidate_match_score(ro,c),better_record(c)) for c in deduped.values()],key=lambda x:(x[1],x[2]),reverse=True)
     if not ranked: return None
@@ -942,13 +1205,17 @@ def fuzzy_match_record(record,owner_index,last_name_index,first_last_index):
         if best: return best,"last_first_variant",0.94
     if ln and not is_corp:
         candidates=last_name_index.get(ln,[])
-        strong=[c for c in candidates if any(last_names_compatible(ln,get_last_name(co)) and len(ot&set(tokens_from_name(co)))>=2 and same_first_name_or_initial(owner,co) for co in alias_list(c))]
+        strong=[c for c in candidates if any(
+            last_names_compatible(ln,get_last_name(co)) and
+            len(ot&set(tokens_from_name(co)))>=2 and
+            same_first_name_or_initial(owner,co)
+            for co in alias_list(c))]
         best=unique_best_by_score(strong,owner,6.0) or choose_best_candidate(strong,owner)
         if best: return best,"token_overlap_strict",0.90
         uc,seen=[],set()
         for c in candidates:
             if not any(last_names_compatible(ln,get_last_name(co)) for co in alias_list(c)): continue
-            k=clean_text(c.get("parcel_id")) or f"{clean_text(c.get('owner'))}|{clean_text(c.get('prop_address'))}"
+            k=clean_text(c.get("parcel_id","")) or f"{clean_text(c.get('owner',''))}|{clean_text(c.get('prop_address',''))}"
             if k in seen: continue
             seen.add(k); uc.append(c)
         if len(uc)==1: return uc[0],"last_name_unique_fallback",0.82
@@ -959,50 +1226,75 @@ def fuzzy_match_record(record,owner_index,last_name_index,first_last_index):
     return None,"unmatched",0.0
 
 def enrich_with_parcel_data(records,owner_index,last_name_index,first_last_index):
-    enriched=[]; report={"matched":0,"unmatched":0,"with_address":0,"with_mail_address":0,"match_methods":defaultdict(int),"sample_unmatched":[],"sample_no_property_match":[]}
+    enriched=[]
+    report={"matched":0,"unmatched":0,"with_address":0,"with_mail_address":0,
+            "match_methods":defaultdict(int),"sample_unmatched":[],"sample_no_property_match":[]}
     for record in records:
         try:
             matched,method,ms=fuzzy_match_record(record,owner_index,last_name_index,first_last_index)
             if matched:
-                record.prop_address=record.prop_address or clean_text(matched.get("prop_address"))
-                record.prop_city=record.prop_city or clean_text(matched.get("prop_city"))
-                record.prop_zip=record.prop_zip or clean_text(matched.get("prop_zip"))
-                record.mail_address=record.mail_address or clean_text(matched.get("mail_address"))
-                record.mail_city=record.mail_city or clean_text(matched.get("mail_city"))
-                record.mail_zip=record.mail_zip or clean_text(matched.get("mail_zip"))
-                record.legal=record.legal or clean_text(matched.get("legal"))
-                record.mail_state=record.mail_state or normalize_state(clean_text(matched.get("mail_state"))) or "OH"
-                record.luc=record.luc or clean_text(matched.get("luc"))
-                record.acres=record.acres or clean_text(matched.get("acres"))
-                record.parcel_id=record.parcel_id or clean_text(matched.get("parcel_id"))
-                record.match_method=method; record.match_score=ms; report["matched"]+=1; report["match_methods"][method]+=1
+                record.prop_address=record.prop_address or clean_text(matched.get("prop_address",""))
+                record.prop_city=record.prop_city or clean_text(matched.get("prop_city",""))
+                record.prop_zip=record.prop_zip or clean_text(matched.get("prop_zip",""))
+                record.mail_address=record.mail_address or clean_text(matched.get("mail_address",""))
+                record.mail_city=record.mail_city or clean_text(matched.get("mail_city",""))
+                record.mail_zip=record.mail_zip or clean_text(matched.get("mail_zip",""))
+                record.legal=record.legal or clean_text(matched.get("legal",""))
+                record.mail_state=record.mail_state or normalize_state(clean_text(matched.get("mail_state",""))) or "OH"
+                record.luc=record.luc or clean_text(matched.get("luc",""))
+                record.acres=record.acres or clean_text(matched.get("acres",""))
+                record.parcel_id=record.parcel_id or clean_text(matched.get("parcel_id",""))
+                # pull value/sale data from matched parcel
+                if not record.assessed_value: record.assessed_value=matched.get("assessed_value")
+                if not record.last_sale_price: record.last_sale_price=matched.get("last_sale_price")
+                if not record.last_sale_year: record.last_sale_year=matched.get("last_sale_year")
+                record.match_method=method; record.match_score=ms
+                report["matched"]+=1; report["match_methods"][method]+=1
             else:
-                record.match_method=method; record.match_score=0.0; report["unmatched"]+=1; report["match_methods"][method]+=1
-                if method=="no_property_match" and len(report["sample_no_property_match"])<25: report["sample_no_property_match"].append({"doc_num":record.doc_num,"owner":record.owner})
-                elif len(report["sample_unmatched"])<25: report["sample_unmatched"].append({"doc_num":record.doc_num,"owner":record.owner})
-            if record.luc in VACANT_LAND_LUCS: record.is_vacant_land=True
-            if "Vacant land" not in record.flags and record.is_vacant_land: record.flags.append("Vacant land")
+                record.match_method=method; record.match_score=0.0
+                report["unmatched"]+=1; report["match_methods"][method]+=1
+                if method=="no_property_match" and len(report["sample_no_property_match"])<25:
+                    report["sample_no_property_match"].append({"doc_num":record.doc_num,"owner":record.owner})
+                elif len(report["sample_unmatched"])<25:
+                    report["sample_unmatched"].append({"doc_num":record.doc_num,"owner":record.owner})
+
+            if record.luc in VACANT_LAND_LUCS:
+                record.is_vacant_land=True
+                if "Vacant land" not in record.flags: record.flags.append("Vacant land")
+
             record.mail_state=normalize_state(record.mail_state) or ("OH" if record.mail_address else "")
             record.with_address=1 if clean_text(record.prop_address) else 0
             record.is_absentee=is_absentee_owner(record.prop_address,record.mail_address,record.mail_state)
             record.is_out_of_state=is_out_of_state(record.mail_state)
+
             if record.is_absentee and "Absentee owner" not in record.flags: record.flags.append("Absentee owner")
             if record.is_out_of_state and "Out-of-state owner" not in record.flags: record.flags.append("Out-of-state owner")
             if record.with_address: report["with_address"]+=1
             if clean_text(record.mail_address): report["with_mail_address"]+=1
+
             record.flags=list(dict.fromkeys(record.flags+category_flags(record.doc_type,record.owner)))
-            if record.match_method=="no_property_match" and "No property match" not in record.flags: record.flags.append("No property match")
-            record.score=score_record(record); enriched.append(record)
+            if record.match_method=="no_property_match" and "No property match" not in record.flags:
+                record.flags.append("No property match")
+
+            # Run mortgage estimation on all enriched records
+            record=estimate_mortgage_data(record)
+            record.score=score_record(record)
+            enriched.append(record)
         except Exception as e:
-            logging.warning("Enrich failed %s: %s",record.doc_num,e)
-            record.with_address=1 if clean_text(record.prop_address) else 0; enriched.append(record)
-    report["match_methods"]=dict(report["match_methods"]); return enriched,report
+            logging.warning("Enrich failed %s: %s",getattr(record,"doc_num","?"),e)
+            try:
+                record.with_address=1 if clean_text(record.prop_address) else 0
+                enriched.append(record)
+            except: pass
+    report["match_methods"]=dict(report["match_methods"])
+    return enriched,report
 
 def build_distress_index(records,vacant_home_keys):
     index=defaultdict(list)
     for r in records:
         if not r.prop_address: continue
-        key=normalize_address_key(r.prop_address); src=classify_distress_source(r.doc_type)
+        key=normalize_address_key(r.prop_address)
+        src=classify_distress_source(r.doc_type)
         if src and src not in index[key]: index[key].append(src)
         if r.luc in VACANT_LAND_LUCS and "vacant_land" not in index[key]: index[key].append("vacant_land")
     for ak in vacant_home_keys:
@@ -1018,14 +1310,18 @@ def build_delinquent_address_index(parcel_rows,mail_by_pid,delinquent_parcels):
         if addr:
             key=normalize_address_key(addr)
             if key:
-                info=delinquent_parcels[pid].copy(); info["prop_address"]=addr; info["prop_zip"]=build_prop_zip_from_row(row); info["luc"]=clean_text(row.get("LUC",""))
+                info=delinquent_parcels[pid].copy()
+                info["prop_address"]=addr
+                info["prop_zip"]=build_prop_zip_from_row(row)
+                info["luc"]=clean_text(row.get("LUC",""))
                 da[key]=info
     logging.info("Mapped %s delinquent addresses",len(da)); return da
 
 def apply_distress_stacking(records,distress_index,delinquent_addresses,vacant_home_keys):
     for r in records:
         if not r.prop_address: continue
-        key=normalize_address_key(r.prop_address); sources=list(distress_index.get(key,[]))
+        key=normalize_address_key(r.prop_address)
+        sources=list(distress_index.get(key,[]))
         di=delinquent_addresses.get(key)
         if di:
             if "tax_delinquent" not in sources: sources.append("tax_delinquent")
@@ -1035,7 +1331,9 @@ def apply_distress_stacking(records,distress_index,delinquent_addresses,vacant_h
             r.is_vacant_home=True
             if "vacant_home" not in sources: sources.append("vacant_home")
             if "Vacant home" not in r.flags: r.flags.append("Vacant home")
-        r.distress_sources=list(set(sources)); r.score=score_record(r)
+        r.distress_sources=list(set(sources))
+        r=estimate_mortgage_data(r)
+        r.score=score_record(r)
     return records
 
 def dedupe_records(records):
@@ -1047,7 +1345,10 @@ def dedupe_records(records):
         seen.add(key); final.append(r)
     return final
 
-# ---- output ----
+
+# -----------------------------------------------------------------------
+# OUTPUT
+# -----------------------------------------------------------------------
 def split_name(n):
     parts=clean_text(n).split()
     if not parts: return "",""
@@ -1055,19 +1356,26 @@ def split_name(n):
     return parts[0]," ".join(parts[1:])
 
 def write_json(path,payload):
-    path.parent.mkdir(parents=True,exist_ok=True); path.write_text(json.dumps(payload,indent=2),encoding="utf-8")
+    path.parent.mkdir(parents=True,exist_ok=True)
+    path.write_text(json.dumps(payload,indent=2),encoding="utf-8")
 
 def build_payload(records):
-    return {"fetched_at":datetime.now(timezone.utc).isoformat(),"source":SOURCE_NAME,
-            "date_range":{"from":(datetime.now()-timedelta(days=LOOKBACK_DAYS)).date().isoformat(),"to":datetime.now().date().isoformat()},
-            "total":len(records),"with_address":sum(1 for r in records if r.prop_address),
-            "with_mail_address":sum(1 for r in records if r.mail_address),
-            "hot_stack_count":sum(1 for r in records if r.hot_stack),
-            "vacant_home_count":sum(1 for r in records if r.is_vacant_home),
-            "absentee_count":sum(1 for r in records if r.is_absentee),
-            "out_of_state_count":sum(1 for r in records if r.is_out_of_state),
-            "tax_delinquent_count":sum(1 for r in records if "Tax delinquent" in r.flags),
-            "records":[asdict(r) for r in records]}
+    return {
+        "fetched_at":datetime.now(timezone.utc).isoformat(),
+        "source":SOURCE_NAME,
+        "date_range":{"from":(datetime.now()-timedelta(days=LOOKBACK_DAYS)).date().isoformat(),"to":datetime.now().date().isoformat()},
+        "total":len(records),
+        "with_address":sum(1 for r in records if r.prop_address),
+        "with_mail_address":sum(1 for r in records if r.mail_address),
+        "hot_stack_count":sum(1 for r in records if r.hot_stack),
+        "vacant_home_count":sum(1 for r in records if r.is_vacant_home),
+        "absentee_count":sum(1 for r in records if r.is_absentee),
+        "out_of_state_count":sum(1 for r in records if r.is_out_of_state),
+        "tax_delinquent_count":sum(1 for r in records if "Tax delinquent" in r.flags),
+        "subject_to_count":sum(1 for r in records if r.subject_to_score>=50),
+        "prime_subject_to_count":sum(1 for r in records if r.subject_to_score>=70),
+        "records":[asdict(r) for r in records],
+    }
 
 def write_json_outputs(records,extra_json_path=None):
     payload=build_payload(records); paths=list(DEFAULT_OUTPUT_JSON_PATHS)
@@ -1087,10 +1395,20 @@ def write_category_json(records):
         "out_of_state":[r for r in records if r.is_out_of_state],
         "foreclosure":[r for r in records if r.doc_type in {"LP","NOFC","TAXDEED"}],
         "probate":[r for r in records if r.doc_type=="PRO"],
+        "subject_to":[r for r in records if r.subject_to_score>=50],
+        "prime_subject_to":[r for r in records if r.subject_to_score>=70],
     }
-    descs={"hot_stack":"2+ distress signals — highest priority","vacant_homes":"Residential homes on Akron Vacant Building Board",
-           "tax_delinquent":"Residential properties with unpaid taxes","absentee":"Owner does not live at property",
-           "out_of_state":"Owner mails from out of state","foreclosure":"Active foreclosure/lis pendens","probate":"Probate / estate filings"}
+    descs={
+        "hot_stack":"2+ distress signals — highest priority",
+        "vacant_homes":"Residential homes on Akron Vacant Building Board",
+        "tax_delinquent":"Residential properties with unpaid taxes",
+        "absentee":"Owner does not live at property",
+        "out_of_state":"Owner mails from out of state",
+        "foreclosure":"Active foreclosure/lis pendens",
+        "probate":"Probate / estate filings",
+        "subject_to":"Subject-to acquisition candidates (score ≥50)",
+        "prime_subject_to":"Prime subject-to deals — high equity + motivated seller (score ≥70)",
+    }
     output_paths={
         "hot_stack":(DEFAULT_STACK_JSON_PATH,DASHBOARD_DIR/"hot_stack.json"),
         "vacant_homes":(DEFAULT_VACANT_HOME_PATH,DASHBOARD_DIR/"vacant_homes.json"),
@@ -1099,49 +1417,85 @@ def write_category_json(records):
         "out_of_state":(DATA_DIR/"out_of_state.json",DASHBOARD_DIR/"out_of_state.json"),
         "foreclosure":(DATA_DIR/"foreclosure.json",DASHBOARD_DIR/"foreclosure.json"),
         "probate":(DATA_DIR/"probate.json",DASHBOARD_DIR/"probate.json"),
+        "subject_to":(DATA_DIR/"subject_to.json",DASHBOARD_DIR/"subject_to.json"),
+        "prime_subject_to":(DATA_DIR/"prime_subject_to.json",DASHBOARD_DIR/"prime_subject_to.json"),
     }
     for cat,recs in categories.items():
-        recs_s=sorted(recs,key=lambda r:(r.hot_stack,r.distress_count,r.score),reverse=True)
-        payload={"fetched_at":datetime.now(timezone.utc).isoformat(),"source":SOURCE_NAME,"category":cat,
-                 "description":descs[cat],"total":len(recs_s),"records":[asdict(r) for r in recs_s]}
+        recs_s=sorted(recs,key=lambda r:(r.hot_stack,r.distress_count,r.subject_to_score,r.score),reverse=True)
+        payload={
+            "fetched_at":datetime.now(timezone.utc).isoformat(),"source":SOURCE_NAME,
+            "category":cat,"description":descs[cat],"total":len(recs_s),
+            "records":[asdict(r) for r in recs_s],
+        }
         for path in output_paths[cat]: write_json(path,payload)
         logging.info("Wrote %s: %s records",cat,len(recs_s))
 
 def write_vacant_land_json(vacant):
     payload={"fetched_at":datetime.now(timezone.utc).isoformat(),"source":SOURCE_NAME,"total":len(vacant),
-             "description":"Distressed vacant infill lots ≤2ac (foreclosure or tax delinquent only)","records":[asdict(r) for r in vacant]}
+             "description":"Distressed vacant infill lots ≤2ac","records":[asdict(r) for r in vacant]}
     for path in [DEFAULT_VACANT_JSON_PATH,DASHBOARD_DIR/"vacant_land.json"]: write_json(path,payload)
     logging.info("Wrote vacant land: %s records",len(vacant))
 
 def write_csv(records,csv_path):
     csv_path.parent.mkdir(parents=True,exist_ok=True)
-    fieldnames=["First Name","Last Name","Mailing Address","Mailing City","Mailing State","Mailing Zip",
-                "Property Address","Property City","Property State","Property Zip","Lead Type","Document Type",
-                "Date Filed","Document Number","Amount/Debt Owed","Seller Score","Motivated Seller Flags",
-                "Distress Sources","Distress Count","Hot Stack","Vacant Land","Vacant Home","Absentee Owner",
-                "Out-of-State Owner","Parcel ID","LUC Code","Acres","Match Method","Match Score",
-                "Phone 1","Phone 1 Type","Phone 2","Phone 2 Type","Phone 3","Phone 3 Type",
-                "Email","Skip Trace Source","Source","Public Records URL"]
+    fieldnames=[
+        "First Name","Last Name","Mailing Address","Mailing City","Mailing State","Mailing Zip",
+        "Property Address","Property City","Property State","Property Zip",
+        "Lead Type","Document Type","Date Filed","Document Number","Amount/Debt Owed",
+        "Seller Score","Motivated Seller Flags","Distress Sources","Distress Count","Hot Stack",
+        "Vacant Land","Vacant Home","Absentee Owner","Out-of-State Owner",
+        # mortgage / equity / subject-to
+        "Assessed Value","Est Market Value","Last Sale Price","Last Sale Year",
+        "Est Mortgage Balance","Est Equity","Est Arrears","Est Payoff",
+        "Subject-To Score","Mortgage Signals",
+        "Parcel ID","LUC Code","Acres","Match Method","Match Score",
+        "Phone 1","Phone 1 Type","Phone 2","Phone 2 Type","Phone 3","Phone 3 Type",
+        "Email","Skip Trace Source","Source","Public Records URL",
+    ]
     with csv_path.open("w",newline="",encoding="utf-8") as f:
         w=csv.DictWriter(f,fieldnames=fieldnames); w.writeheader()
         for r in records:
             fn,ln=split_name(r.owner)
-            w.writerow({"First Name":fn,"Last Name":ln,"Mailing Address":r.mail_address,"Mailing City":r.mail_city,
-                        "Mailing State":r.mail_state,"Mailing Zip":r.mail_zip,"Property Address":r.prop_address,
-                        "Property City":r.prop_city,"Property State":r.prop_state,"Property Zip":r.prop_zip,
-                        "Lead Type":r.cat_label,"Document Type":r.doc_type,"Date Filed":r.filed,"Document Number":r.doc_num,
-                        "Amount/Debt Owed":r.amount if r.amount is not None else "","Seller Score":r.score,
-                        "Motivated Seller Flags":"; ".join(r.flags),"Distress Sources":"; ".join(r.distress_sources),
-                        "Distress Count":r.distress_count,"Hot Stack":"YES" if r.hot_stack else "",
-                        "Vacant Land":"YES" if r.is_vacant_land else "","Vacant Home":"YES" if r.is_vacant_home else "",
-                        "Absentee Owner":"YES" if r.is_absentee else "","Out-of-State Owner":"YES" if r.is_out_of_state else "",
-                        "Parcel ID":r.parcel_id,"LUC Code":r.luc,"Acres":r.acres,
-                        "Match Method":r.match_method,"Match Score":r.match_score,
-                        "Phone 1":r.phones[0] if len(r.phones)>0 else "","Phone 1 Type":r.phone_types[0] if len(r.phone_types)>0 else "",
-                        "Phone 2":r.phones[1] if len(r.phones)>1 else "","Phone 2 Type":r.phone_types[1] if len(r.phone_types)>1 else "",
-                        "Phone 3":r.phones[2] if len(r.phones)>2 else "","Phone 3 Type":r.phone_types[2] if len(r.phone_types)>2 else "",
-                        "Email":r.emails[0] if r.emails else "","Skip Trace Source":r.skip_trace_source,
-                        "Source":SOURCE_NAME,"Public Records URL":r.clerk_url})
+            w.writerow({
+                "First Name":fn,"Last Name":ln,
+                "Mailing Address":r.mail_address,"Mailing City":r.mail_city,
+                "Mailing State":r.mail_state,"Mailing Zip":r.mail_zip,
+                "Property Address":r.prop_address,"Property City":r.prop_city,
+                "Property State":r.prop_state,"Property Zip":r.prop_zip,
+                "Lead Type":r.cat_label,"Document Type":r.doc_type,
+                "Date Filed":r.filed,"Document Number":r.doc_num,
+                "Amount/Debt Owed":r.amount if r.amount is not None else "",
+                "Seller Score":r.score,
+                "Motivated Seller Flags":"; ".join(r.flags),
+                "Distress Sources":"; ".join(r.distress_sources),
+                "Distress Count":r.distress_count,
+                "Hot Stack":"YES" if r.hot_stack else "",
+                "Vacant Land":"YES" if r.is_vacant_land else "",
+                "Vacant Home":"YES" if r.is_vacant_home else "",
+                "Absentee Owner":"YES" if r.is_absentee else "",
+                "Out-of-State Owner":"YES" if r.is_out_of_state else "",
+                "Assessed Value":f"${r.assessed_value:,.0f}" if r.assessed_value else "",
+                "Est Market Value":f"${r.estimated_value:,.0f}" if r.estimated_value else "",
+                "Last Sale Price":f"${r.last_sale_price:,.0f}" if r.last_sale_price else "",
+                "Last Sale Year":r.last_sale_year or "",
+                "Est Mortgage Balance":f"${r.est_mortgage_balance:,.0f}" if r.est_mortgage_balance is not None else "",
+                "Est Equity":f"${r.est_equity:,.0f}" if r.est_equity is not None else "",
+                "Est Arrears":f"${r.est_arrears:,.0f}" if r.est_arrears is not None else "",
+                "Est Payoff":f"${r.est_payoff:,.0f}" if r.est_payoff is not None else "",
+                "Subject-To Score":r.subject_to_score,
+                "Mortgage Signals":"; ".join(r.mortgage_signals),
+                "Parcel ID":r.parcel_id,"LUC Code":r.luc,"Acres":r.acres,
+                "Match Method":r.match_method,"Match Score":r.match_score,
+                "Phone 1":r.phones[0] if len(r.phones)>0 else "",
+                "Phone 1 Type":r.phone_types[0] if len(r.phone_types)>0 else "",
+                "Phone 2":r.phones[1] if len(r.phones)>1 else "",
+                "Phone 2 Type":r.phone_types[1] if len(r.phone_types)>1 else "",
+                "Phone 3":r.phones[2] if len(r.phones)>2 else "",
+                "Phone 3 Type":r.phone_types[2] if len(r.phone_types)>2 else "",
+                "Email":r.emails[0] if r.emails else "",
+                "Skip Trace Source":r.skip_trace_source,
+                "Source":SOURCE_NAME,"Public Records URL":r.clerk_url,
+            })
     logging.info("Wrote CSV: %s",csv_path)
 
 def write_report(report,report_path):
@@ -1157,6 +1511,10 @@ def parse_args():
     p.add_argument("--report",dest="report",default=str(DEFAULT_REPORT_PATH))
     return p.parse_args()
 
+
+# -----------------------------------------------------------------------
+# MAIN
+# -----------------------------------------------------------------------
 async def main():
     args=parse_args(); ensure_dirs(); log_setup()
     logging.info("=== Summit County Scraper (no skip tracing) ===")
@@ -1168,34 +1526,39 @@ async def main():
     delinquent_parcels=scrape_tax_delinquent_parcels()
     delinquent_pid_set=set(delinquent_parcels.keys())
 
-    all_records,report=enrich_with_parcel_data(clerk_records+probate_records,owner_index,last_name_index,first_last_index)
+    all_records,report=enrich_with_parcel_data(
+        clerk_records+probate_records,owner_index,last_name_index,first_last_index
+    )
 
-    pid_to_row={get_pid(r):r for r in parcel_rows if get_pid(r)}
-    addr_to_pid={}
+    addr_to_pid:Dict[str,str]={}
     for row in parcel_rows:
         pid=get_pid(row)
         if not pid: continue
         addr=build_prop_address_from_row(row)
         if addr: addr_to_pid[normalize_address_key(addr)]=pid
 
-    foreclosure_pids=set()
+    foreclosure_pids:set=set()
     for r in all_records:
         if r.doc_type in {"LP","NOFC","TAXDEED"} and r.prop_address:
             pid=addr_to_pid.get(normalize_address_key(r.prop_address))
             if pid: foreclosure_pids.add(pid)
     logging.info("Foreclosure pids: %s",len(foreclosure_pids))
 
-    vacant_home_leads,vacant_home_keys=build_vacant_home_list(vacant_addresses,parcel_rows,mail_by_pid,delinquent_pid_set,foreclosure_pids)
+    vacant_home_leads,vacant_home_keys=build_vacant_home_list(
+        vacant_addresses,parcel_rows,mail_by_pid,delinquent_pid_set,foreclosure_pids
+    )
     delinquent_addresses=build_delinquent_address_index(parcel_rows,mail_by_pid,delinquent_parcels)
     distress_index=build_distress_index(all_records,vacant_home_keys)
     all_records=apply_distress_stacking(all_records,distress_index,delinquent_addresses,vacant_home_keys)
 
-    tax_delin_leads=build_tax_delinquent_leads(delinquent_parcels,parcel_rows,mail_by_pid,vacant_home_keys)
+    tax_delin_leads=build_tax_delinquent_leads(
+        delinquent_parcels,parcel_rows,mail_by_pid,vacant_home_keys
+    )
 
     all_records=all_records+tax_delin_leads+vacant_home_leads
     logging.info("Total before dedupe: %s",len(all_records))
     all_records=dedupe_records(all_records)
-    all_records.sort(key=lambda r:(r.hot_stack,r.distress_count,r.score,r.filed),reverse=True)
+    all_records.sort(key=lambda r:(r.hot_stack,r.distress_count,r.subject_to_score,r.score,r.filed),reverse=True)
 
     vacant_land=build_vacant_land_list(parcel_rows,mail_by_pid,delinquent_pid_set,foreclosure_pids)
     vacant_land.sort(key=lambda r:r.score,reverse=True)
@@ -1207,10 +1570,21 @@ async def main():
     if Path(args.out_csv)!=DEFAULT_OUTPUT_CSV_PATH: write_csv(all_records,Path(args.out_csv))
     write_report(report,Path(args.report))
 
-    logging.info("=== DONE === Total:%s | 🔥 HotStack:%s | 🏚 VacantHomes:%s | 💰 TaxDelin:%s | 📭 Absentee:%s | 🌎 OOS:%s | ⚖️ Foreclosure:%s | 🌿 VacantLand:%s",
-        len(all_records),sum(1 for r in all_records if r.hot_stack),sum(1 for r in all_records if r.is_vacant_home),
-        sum(1 for r in all_records if "Tax delinquent" in r.flags),sum(1 for r in all_records if r.is_absentee),
-        sum(1 for r in all_records if r.is_out_of_state),sum(1 for r in all_records if r.doc_type in {"LP","NOFC","TAXDEED"}),len(vacant_land))
+    logging.info(
+        "=== DONE === Total:%s | 🔥 HotStack:%s | 🏚 VacantHomes:%s | 💰 TaxDelin:%s | "
+        "📭 Absentee:%s | 🌎 OOS:%s | ⚖️ Foreclosure:%s | 🌿 VacantLand:%s | "
+        "🎯 SubjectTo:%s | ⭐ PrimeSubjectTo:%s",
+        len(all_records),
+        sum(1 for r in all_records if r.hot_stack),
+        sum(1 for r in all_records if r.is_vacant_home),
+        sum(1 for r in all_records if "Tax delinquent" in r.flags),
+        sum(1 for r in all_records if r.is_absentee),
+        sum(1 for r in all_records if r.is_out_of_state),
+        sum(1 for r in all_records if r.doc_type in {"LP","NOFC","TAXDEED"}),
+        len(vacant_land),
+        sum(1 for r in all_records if r.subject_to_score>=50),
+        sum(1 for r in all_records if r.subject_to_score>=70),
+    )
 
 if __name__=="__main__":
     asyncio.run(main())
