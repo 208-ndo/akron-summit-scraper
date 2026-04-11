@@ -192,6 +192,7 @@
     <button class="tab" data-tab="subject_to">🎯 Subject-To <span class="badge" id="b-subject_to">0</span></button>
     <button class="tab" data-tab="prime_subject_to">⭐ Prime Deals <span class="badge" id="b-prime_subject_to">0</span></button>
     <button class="tab" data-tab="vacant_land">🌿 Vacant Land <span class="badge" id="b-vacant_land">0</span></button>
+    <button class="tab" data-tab="deal_analyzer" style="color:var(--accent3);border-color:var(--accent3)">🧮 Deal Analyzer</button>
   </div>
 </div>
 
@@ -249,6 +250,65 @@
       <tr><td colspan="9"><div class="loading"><span class="spinner"></span>Loading leads...</div></td></tr>
     </tbody>
   </table>
+</div>
+
+<!-- DEAL ANALYZER FULL PAGE -->
+<div id="deal-analyzer-page" style="display:none;padding:24px;max-width:860px;margin:0 auto;">
+  <div style="font-size:22px;font-weight:800;color:var(--accent);margin-bottom:6px;">🧮 Deal Analyzer</div>
+  <div style="font-size:12px;color:var(--muted);font-family:'Space Mono',monospace;margin-bottom:24px;">Quick MAO calculator — punch in numbers during a call</div>
+  <div class="da-grid" style="max-width:860px;">
+    <div class="da-field">
+      <label>ARV — After Repair Value</label>
+      <input type="number" id="pg-arv" placeholder="e.g. 120000" oninput="pgCalc()" style="font-size:18px;padding:12px;">
+    </div>
+    <div class="da-field">
+      <label>Wholesale Fee</label>
+      <input type="number" id="pg-fee" value="10000" oninput="pgCalc()" style="font-size:18px;padding:12px;">
+    </div>
+    <div class="da-field full">
+      <label>Offer % of ARV &nbsp;<span style="color:var(--muted);font-weight:400;font-size:10px">adjust per market — 70% is standard</span></label>
+      <div class="slider-row" style="margin-top:6px;">
+        <input type="range" id="pg-pct" min="50" max="85" value="70" oninput="document.getElementById('pg-pctv').textContent=this.value+'%';pgCalc()">
+        <div class="slider-val" id="pg-pctv" style="font-size:20px;">70%</div>
+      </div>
+    </div>
+    <div class="da-field full">
+      <label>Condition</label>
+      <div class="cond-btns" style="margin-bottom:10px;">
+        <button class="cond-btn" id="pgc-easy" onclick="pgSetCond('easy',this)" style="font-size:12px;padding:8px 16px;">🟢 Easy — Carpet &amp; Paint</button>
+        <button class="cond-btn active" id="pgc-medium" onclick="pgSetCond('medium',this)" style="font-size:12px;padding:8px 16px;">🟡 Needs Work — Kitchen/Bath</button>
+        <button class="cond-btn" id="pgc-heavy" onclick="pgSetCond('heavy',this)" style="font-size:12px;padding:8px 16px;border-color:var(--hot);color:var(--hot)">🔴 Shit Box — Total Disaster</button>
+      </div>
+      <table class="rtable">
+        <tr><th>Sq Ft</th><th>🟢 Easy</th><th>🟡 Needs Work</th><th>🔴 Shit Box</th></tr>
+        <tr id="pgr0" class="sel" onclick="pgSelRow(0)"><td>Under 1,500 SF</td><td>$15k</td><td>$27.5k</td><td>$45k</td></tr>
+        <tr id="pgr1" onclick="pgSelRow(1)"><td>1,500 – 2,000</td><td>$20k</td><td>$37.5k</td><td>$65k</td></tr>
+        <tr id="pgr2" onclick="pgSelRow(2)"><td>2,000 – 2,500</td><td>$30k</td><td>$57.5k</td><td>$85k</td></tr>
+        <tr id="pgr3" onclick="pgSelRow(3)"><td>2,500+</td><td>$40k</td><td>$77.5k</td><td>$105k</td></tr>
+      </table>
+    </div>
+    <div class="da-field">
+      <label>Rehab $ (editable)</label>
+      <input type="number" id="pg-rehab" value="27500" oninput="pgCalc()" style="font-size:18px;padding:12px;">
+    </div>
+    <div class="da-field">
+      <label>Closing Costs</label>
+      <input type="number" id="pg-closing" value="3000" oninput="pgCalc()" style="font-size:18px;padding:12px;">
+    </div>
+
+    <!-- RESULT -->
+    <div class="da-result" id="pg-res" style="margin-top:8px;padding:28px;">
+      <div class="mao-lbl">Maximum Allowable Offer (MAO)</div>
+      <div class="mao-num" id="pg-mao" style="font-size:52px;">Enter ARV ↑</div>
+      <div class="mao-bd" id="pg-bd" style="font-size:13px;margin-top:14px;"></div>
+      <div class="mao-verdict" id="pg-vd" style="font-size:16px;margin-top:10px;"></div>
+    </div>
+
+    <!-- QUICK RESET -->
+    <div class="da-field full" style="margin-top:4px;">
+      <button class="btn btn-ghost" onclick="pgReset()" style="width:100%">↺ Reset</button>
+    </div>
+  </div>
 </div>
 
 <div class="mo" id="modal" onclick="if(event.target===this)closeModal()">
@@ -502,6 +562,65 @@ function dl(name,content){const a=document.createElement('a');a.href=URL.createO
 function exportCSV(){const rows=filtered.length?filtered:curRecs;dl(`skip_trace_${new Date().toISOString().slice(0,10)}.csv`,toBatchDataCSV(rows));}
 function exportHotStack(){const rows=(filtered.length?filtered:curRecs).filter(r=>r.hot_stack);if(!rows.length){alert('No Hot Stack leads');return;}dl(`hot_stack_${new Date().toISOString().slice(0,10)}.csv`,toBatchDataCSV(rows));}
 function exportRow(e,r){e.stopPropagation();dl(`lead_${r.doc_num||'export'}.csv`,toBatchDataCSV([r]));}
+
+// ── Page-level Deal Analyzer ──────────────────────────────────────────────
+const PG_REHAB=[{easy:15000,medium:27500,heavy:45000},{easy:20000,medium:37500,heavy:65000},{easy:30000,medium:57500,heavy:85000},{easy:40000,medium:77500,heavy:105000}];
+let _pgRow=0,_pgCond='medium';
+
+function pgSelRow(i){
+  _pgRow=i;
+  document.querySelectorAll('[id^="pgr"]').forEach(r=>r.classList.remove('sel'));
+  document.getElementById('pgr'+i).classList.add('sel');
+  document.getElementById('pg-rehab').value=PG_REHAB[i][_pgCond];
+  pgCalc();
+}
+function pgSetCond(cond,btn){
+  _pgCond=cond;
+  document.querySelectorAll('.cond-btn').forEach(b=>{b.classList.remove('active');});
+  btn.classList.add('active');
+  document.getElementById('pg-rehab').value=PG_REHAB[_pgRow][cond];
+  pgCalc();
+}
+function pgCalc(){
+  const arv=parseFloat(document.getElementById('pg-arv')?.value)||0;
+  const pct=parseFloat(document.getElementById('pg-pct')?.value)||70;
+  const rehab=parseFloat(document.getElementById('pg-rehab')?.value)||0;
+  const fee=parseFloat(document.getElementById('pg-fee')?.value)||10000;
+  const closing=parseFloat(document.getElementById('pg-closing')?.value)||3000;
+  if(!arv){document.getElementById('pg-mao').textContent='Enter ARV ↑';document.getElementById('pg-bd').textContent='';document.getElementById('pg-vd').textContent='';return;}
+  const mao=(arv*pct/100)-rehab-fee-closing;
+  const fmt=v=>v>=0?'$'+Math.round(v).toLocaleString():'-$'+Math.round(Math.abs(v)).toLocaleString();
+  document.getElementById('pg-mao').textContent=fmt(mao);
+  document.getElementById('pg-bd').innerHTML=`ARV ${fmt(arv)} × ${pct}% = ${fmt(arv*pct/100)}<br>− Rehab ${fmt(rehab)} &nbsp;− Fee ${fmt(fee)} &nbsp;− Closing ${fmt(closing)}`;
+  const res=document.getElementById('pg-res');
+  const maoEl=document.getElementById('pg-mao');
+  const vd=document.getElementById('pg-vd');
+  res.className='da-result';
+  if(mao>30000){res.classList.add('green');maoEl.style.color='var(--accent3)';vd.textContent='✅ Strong deal — room to move';vd.style.color='var(--accent3)';}
+  else if(mao>0){res.classList.add('yellow');maoEl.style.color='var(--accent)';vd.textContent='⚠️ Tight deal — negotiate hard';vd.style.color='var(--accent)';}
+  else{res.classList.add('red');maoEl.style.color='var(--accent2)';vd.textContent="❌ Numbers don't work — walk away";vd.style.color='var(--accent2)';}
+}
+function pgReset(){
+  document.getElementById('pg-arv').value='';
+  document.getElementById('pg-pct').value=70;
+  document.getElementById('pg-pctv').textContent='70%';
+  _pgRow=0;_pgCond='medium';
+  pgSelRow(0);
+  document.getElementById('pg-mao').textContent='Enter ARV ↑';
+  document.getElementById('pg-bd').textContent='';
+  document.getElementById('pg-vd').textContent='';
+  document.getElementById('pg-res').className='da-result';
+  document.getElementById('pg-arv').focus();
+}
+
+// Override tab click for deal_analyzer tab
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+  const isDeal=t.dataset.tab==='deal_analyzer';
+  document.getElementById('deal-analyzer-page').style.display=isDeal?'block':'none';
+  document.querySelector('.toolbar').style.display=isDeal?'none':'flex';
+  document.querySelector('.table-wrap').style.display=isDeal?'none':'block';
+  if(isDeal){setTimeout(()=>{document.getElementById('pg-arv').focus();},100);}
+}));
 
 async function init(){
   await loadStats();curRecs=cache['all']||[];applyFilters();
