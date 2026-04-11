@@ -199,6 +199,7 @@
     <button class="tab" data-tab="vacant_land">🌿 Vacant Land <span class="badge" id="b-vacant_land">0</span></button>
     <button class="tab" data-tab="evictions">🚪 Evictions <span class="badge" id="b-evictions">0</span></button>
     <button class="tab" data-tab="divorces">💔 Divorces <span class="badge" id="b-divorces">0</span></button>
+    <button class="tab" data-tab="fire_damage">🔥 Fire Damage <span class="badge" id="b-fire_damage">0</span></button>
     <button class="tab" data-tab="deal_analyzer" style="color:var(--accent3);border-color:var(--accent3)">🧮 Deal Analyzer</button>
   </div>
 </div>
@@ -230,6 +231,7 @@
     <option value="New this week">🆕 New This Week</option>
     <option value="Eviction filed">🚪 Eviction</option>
     <option value="Divorce filing">💔 Divorce</option>
+    <option value="Fire damage">🔥 Fire Damage</option>
   </select>
   <select id="f-addr" onchange="applyFilters()">
     <option value="">Address: All</option>
@@ -325,7 +327,7 @@
 </div>
 
 <script>
-const TAB_FILES={all:'records.json',sheriff_sales:'sheriff_sales.json',hot_stack:'hot_stack.json',probate:'probate.json',code_violations:'code_violations.json',vacant_homes:'vacant_homes.json',tax_delinquent:'tax_delinquent.json',absentee:'absentee.json',out_of_state:'out_of_state.json',inherited:'inherited.json',foreclosure:'foreclosure.json',subject_to:'subject_to.json',prime_subject_to:'prime_subject_to.json',vacant_land:'vacant_land.json',evictions:'evictions.json',divorces:'divorces.json'};
+const TAB_FILES={all:'records.json',sheriff_sales:'sheriff_sales.json',hot_stack:'hot_stack.json',probate:'probate.json',code_violations:'code_violations.json',vacant_homes:'vacant_homes.json',tax_delinquent:'tax_delinquent.json',absentee:'absentee.json',out_of_state:'out_of_state.json',inherited:'inherited.json',foreclosure:'foreclosure.json',subject_to:'subject_to.json',prime_subject_to:'prime_subject_to.json',vacant_land:'vacant_land.json',evictions:'evictions.json',divorces:'divorces.json',fire_damage:'fire_damage.json'};
 
 // Rehab cost table from your chart
 const REHAB=[
