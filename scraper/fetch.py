@@ -1872,6 +1872,139 @@ async def scrape_clerk_records()->List[LeadRecord]:
     logging.info("Clerk records: %s",len(deduped)); return deduped
 
 
+async def scrape_probate_playwright(parcel_rows,mail_by_pid,delinquent_pid_set,vacant_home_keys)->List[LeadRecord]:
+    """
+    Scrape Summit County Probate Court eServices using Playwright (handles JS/cookies).
+    Searches for estate/administration cases filed in the last LOOKBACK_DAYS.
+    """
+    records:List[LeadRecord]=[]
+    raw_text=""
+    try:
+        logging.info("Scraping probate court via Playwright...")
+        async with async_playwright() as p:
+            browser=await p.chromium.launch(headless=True)
+            page=await browser.new_page()
+            page.set_default_timeout(30000)
+            try:
+                # Load the probate court case search
+                await page.goto("https://search.summitohioprobate.com/eservices/",
+                                wait_until="domcontentloaded",timeout=60000)
+                await page.wait_for_timeout(3000)
+
+                # Try to navigate to case search
+                for sel in [
+                    "text=Case Search","text=Search","a[href*='case']",
+                    "a[href*='search']","input[type='submit']"
+                ]:
+                    try:
+                        loc=page.locator(sel).first
+                        if await loc.count()>0:
+                            await loc.click(); await page.wait_for_timeout(2000); break
+                    except: pass
+
+                # Try to filter by case type = Estate/Administration
+                for case_type in ["Estate","Administration","ES","AD"]:
+                    for sel in [f"text={case_type}",f"option[value='{case_type}']",
+                                f"option[value='ES']","select"]:
+                        try:
+                            loc=page.locator(sel).first
+                            if await loc.count()>0:
+                                await loc.click(); await page.wait_for_timeout(1000); break
+                        except: pass
+
+                # Set date range to last LOOKBACK_DAYS
+                cutoff=(datetime.now()-timedelta(days=LOOKBACK_DAYS)).strftime("%m/%d/%Y")
+                today=datetime.now().strftime("%m/%d/%Y")
+                for date_sel,val in [("input[placeholder*='From']",cutoff),
+                                      ("input[placeholder*='Start']",cutoff),
+                                      ("input[placeholder*='Begin']",cutoff),
+                                      ("input[name*='from']",cutoff),
+                                      ("input[name*='start']",cutoff)]:
+                    try:
+                        loc=page.locator(date_sel).first
+                        if await loc.count()>0:
+                            await loc.fill(val); break
+                    except: pass
+
+                # Submit search
+                for sel in ["input[type='submit']","button[type='submit']",
+                            "text=Search","text=Submit","button"]:
+                    try:
+                        loc=page.locator(sel).first
+                        if await loc.count()>0:
+                            await loc.click(); await page.wait_for_timeout(3000); break
+                    except: pass
+
+                html=await page.content()
+                raw_text=BeautifulSoup(html,"lxml").get_text(" ")
+                save_debug_text("probate_court_text.txt",raw_text[:8000])
+                logging.info("Probate court Playwright: %s chars, has_estate=%s",
+                    len(raw_text),"estate" in raw_text.lower())
+
+            except Exception as e:
+                logging.warning("Probate Playwright navigation failed: %s",e)
+                raw_text=await page.evaluate("document.body.innerText") if page else ""
+            finally:
+                await browser.close()
+    except Exception as e:
+        logging.warning("Probate Playwright failed: %s",e)
+
+    # Parse any estate names found
+    if raw_text and ("estate" in raw_text.lower() or "deceased" in raw_text.lower()):
+        # Build last-name → parcel lookup
+        last_name_to_parcels:Dict[str,List[dict]]={}
+        for row in parcel_rows:
+            owner=build_owner_name(row)
+            if not owner: continue
+            ln=get_last_name(normalize_name(owner))
+            if ln and len(ln)>2:
+                last_name_to_parcels.setdefault(ln,[]).append(row)
+
+        seen:set=set()
+        estate_pat=re.compile(
+            r"Estate\s+of\s+([A-Z][a-z]+(?:\s+[A-Z]\.?\s*)?(?:\s+[A-Z][a-z]+){0,3}),?\s+(?:deceased|DECEASED)",
+            re.IGNORECASE)
+        case_pat=re.compile(
+            r"(\d{4}\s+(?:ES|AD|GU|TR|CI)\s+\d{4,6})\s+([A-Z]{2,}(?:\s+[A-Z][A-Z\s]{1,25})+)",
+            re.IGNORECASE)
+
+        def add_probate(name,surrounding,case_num=""):
+            if name in seen: return
+            seen.add(name)
+            exec_pat=re.compile(
+                r"(?:executor|administrator|fiduciary|personal\s+representative),?\s+"
+                r"([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3}),\s*"
+                r"(.+?(?:[A-Z]{2}\s+\d{5}))",re.IGNORECASE)
+            exec_m=exec_pat.search(surrounding)
+            executor_name=""; executor_state=""
+            if exec_m:
+                executor_name=clean_text(exec_m.group(1))
+                sm=re.search(r"([A-Z]{2})\s+\d{5}",clean_text(exec_m.group(2)))
+                if sm: executor_state=sm.group(1)
+            dm=re.search(r"(\d{1,2}/\d{1,2}/\d{2,4})",surrounding)
+            vdate=datetime.now().date().isoformat()
+            if dm:
+                for fmt in ("%m/%d/%Y","%m/%d/%y"):
+                    try: vdate=datetime.strptime(dm.group(1),fmt).date().isoformat(); break
+                    except: continue
+            new_recs=_build_probate_record_from_name(
+                name,executor_name,executor_state,vdate,
+                parcel_rows,mail_by_pid,delinquent_pid_set,vacant_home_keys,
+                last_name_to_parcels,records,case_num)
+            records.extend(new_recs)
+
+        for m in estate_pat.finditer(raw_text):
+            add_probate(clean_text(m.group(1)),
+                       raw_text[max(0,m.start()-50):m.end()+600])
+        for m in case_pat.finditer(raw_text):
+            parts=clean_text(m.group(2)).split()
+            name=f"{parts[1]} {parts[0]}" if len(parts)>=2 else clean_text(m.group(2))
+            add_probate(name,raw_text[max(0,m.start()-50):m.end()+400],clean_text(m.group(1)))
+
+    logging.info("Probate (Playwright): %s leads",len(records))
+    return records
+
+
 # -----------------------------------------------------------------------
 # PARCEL MATCHING
 # -----------------------------------------------------------------------
@@ -2413,7 +2546,10 @@ async def main():
     )
 
     # 7. Probate
-    probate_records=scrape_probate_leads(parcel_rows,mail_by_pid,delinquent_pid_set,vacant_home_keys)
+    # Probate: try Playwright first (handles JS), fall back to requests-based
+    probate_records=await scrape_probate_playwright(parcel_rows,mail_by_pid,delinquent_pid_set,vacant_home_keys)
+    if not probate_records:
+        probate_records=scrape_probate_leads(parcel_rows,mail_by_pid,delinquent_pid_set,vacant_home_keys)
 
     # 8. Distress stacking
     delinquent_addresses=build_delinquent_address_index(parcel_rows,mail_by_pid,delinquent_parcels)
