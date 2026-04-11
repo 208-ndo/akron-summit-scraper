@@ -3,14 +3,12 @@ name: Summit County Scraper
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 7 * * *"
-
-permissions:
-  contents: write
+    - cron: '0 8 * * *'  # Daily at 8am UTC
 
 jobs:
   scrape:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
 
     steps:
       - name: Checkout repo
@@ -19,25 +17,29 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: '3.11'
 
       - name: Install Python packages
         run: |
-          python -m pip install --upgrade pip
-          pip install -r scraper/requirements.txt
+          pip install requests beautifulsoup4 lxml playwright
 
       - name: Install Playwright Chromium
         run: |
-          python -m playwright install --with-deps chromium
+          python -m playwright install chromium
+          python -m playwright install-deps chromium
 
       - name: Run scraper
         run: |
-          python scraper/fetch.py --records data/records.json --parcels data/debug/sc705_sc731_parcel_sample_rows.json --owner-index data/debug/owner_values_sample.json --out-json data/records.enriched.json --out-csv data/records.enriched.csv --report data/match_report.json
+          python scraper/fetch.py \
+            --records data/records.json \
+            --out-json data/records.enriched.json \
+            --out-csv data/records.enriched.csv \
+            --report data/match_report.json
 
       - name: Commit updated data files
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data dashboard
-          git diff --cached --quiet || git commit -m "Update scraper output"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ dashboard/
+          git diff --cached --quiet || git commit -m "Update scraper data $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push
