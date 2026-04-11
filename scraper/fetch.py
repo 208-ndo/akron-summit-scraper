@@ -687,48 +687,6 @@ def scrape_housing_appeals_board()->List[LeadRecord]:
     return records
 
 
-def scrape_probate_court_direct(page, lookback_days:int=90)->List[dict]:
-    """
-    Scrape Summit County Probate Court case search directly using Playwright.
-    Searches for estate/administration cases filed in the last lookback_days.
-    Returns list of raw case dicts with decedent name, case number, filing date.
-    """
-    cases = []
-    base = "https://search.summitohioprobate.com/eservices/"
-    try:
-        await page.goto(base, wait_until="domcontentloaded", timeout=60000)
-        await page.wait_for_timeout(2000)
-
-        # Look for case type search — try to find estate/administration filter
-        # The court uses Tyler Technologies eServices portal
-        for sel in ["text=Case Search", "text=Search Cases", "a[href*='search']", "input[type='submit']"]:
-            try:
-                loc = page.locator(sel).first
-                if await loc.count() > 0:
-                    await loc.click()
-                    await page.wait_for_timeout(1500)
-                    break
-            except: pass
-
-        html = await page.content()
-        save_debug_text("probate_court_page.html", html[:5000])
-        soup = BeautifulSoup(html, "lxml")
-
-        # Extract any case rows from tables
-        for row in soup.select("tr"):
-            cells = [clean_text(td.get_text(" ")) for td in row.select("td")]
-            if not cells or len(cells) < 2: continue
-            row_text = " ".join(cells)
-            # Look for estate/administration case types
-            if not any(x in row_text.upper() for x in ["ESTATE","ADMIN","DECEDENT","DECEASED"]): continue
-            cases.append({"raw": row_text, "cells": cells})
-
-        logging.info("Probate court direct: %s raw case rows", len(cases))
-    except Exception as e:
-        logging.warning("Probate court direct scrape failed: %s", e)
-    return cases
-
-
 def _build_probate_record_from_name(
     decedent_name, executor_name, executor_state, vdate,
     parcel_rows, mail_by_pid, delinquent_pid_set, vacant_home_keys,
