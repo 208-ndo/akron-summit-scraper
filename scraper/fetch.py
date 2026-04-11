@@ -2010,87 +2010,91 @@ async def scrape_pending_civil_records(page)->List[LeadRecord]:
 
 async def scrape_eviction_divorce_records(page)->List[LeadRecord]:
     """
-    Scrape Summit County eviction (FED) and divorce filings.
-
-    Evictions: newcivilfilings.summitoh.net — Blazor SPA, needs JS wait
-    Divorce: clerk.summitoh.net — needs disclaimer click then division select
+    Evictions: newcivilfilings.summitoh.net — Blazor SPA with 16 pending cases
+    Divorce: clerk.summitoh.net DR division — navigate directly past disclaimer
     """
     records=[]
 
     # ── EVICTIONS ────────────────────────────────────────────────────────
     try:
-        logging.info("Scraping evictions from newcivilfilings.summitoh.net...")
+        logging.info("Scraping evictions (Blazor app)...")
         await page.goto(EVICTION_URL, wait_until="networkidle", timeout=60000)
-        await page.wait_for_timeout(4000)  # wait for Blazor to render
+        await page.wait_for_timeout(5000)  # Blazor needs time to hydrate
 
-        # Save what we got for debugging
-        html=await page.content()
-        save_debug_text("eviction_page.html", html[:5000])
+        # Extract case data directly from DOM elements
+        # Blazor renders cards/rows with case info — use JS to extract text
+        case_data = await page.evaluate("""() => {
+            const results = [];
+            // Try card elements
+            document.querySelectorAll('.card, .case-row, .filing-row, tr, li').forEach(el => {
+                const text = el.innerText || el.textContent || '';
+                if (text.length > 20 && text.length < 500) {
+                    results.push(text.trim());
+                }
+            });
+            // Also get all text in the main content area
+            const main = document.querySelector('article, main, .content, #content');
+            if (main) results.push(main.innerText || main.textContent || '');
+            return results;
+        }""")
 
-        # The site is a Blazor app — look for case type filter or search
-        # Try clicking eviction/FED related options
-        for sel in [
-            "text=Eviction", "text=FED", "text=Forcible Entry",
-            "text=Municipal Court", "text=Barberton", "text=Akron Municipal",
-            "option[value*='evic']", "option[value*='FED']",
-            "select"
-        ]:
-            try:
-                loc = page.locator(sel).first
-                if await loc.count() > 0:
-                    await loc.click()
-                    await page.wait_for_timeout(2000)
-                    break
-            except: pass
-
-        # Wait for any dynamic content to load
-        await page.wait_for_timeout(3000)
         html = await page.content()
-        save_debug_text("eviction_page2.html", html[:5000])
+        save_debug_text("eviction_page2.html", html[:8000])
 
-        # Parse whatever cases are visible
+        # Parse case data from extracted DOM text
+        all_text = " ".join(str(d) for d in (case_data or []))
         soup = BeautifulSoup(html, "lxml")
-        text = soup.get_text(" ")
+        all_text += " " + soup.get_text(" ")
 
-        # Look for eviction patterns in the page text
-        evic_pat = re.compile(
-            r"(\d{4}[- ][A-Z]{2,4}[- ]\d{4,6}).{0,100}"
-            r"(evict|forcible|detainer|unlawful)",
-            re.IGNORECASE
-        )
+        logging.info("Eviction page text length: %s", len(all_text))
+
+        # Patterns for new civil filings — these are complaint numbers not case numbers
+        # Format on this site: plaintiff v defendant, address, filing type
         seen = set()
-        for m in evic_pat.finditer(text):
-            case_num = clean_text(m.group(1))
-            if case_num in seen: continue
-            seen.add(case_num)
-            surrounding = text[max(0, m.start()-50): m.end()+300]
+
+        # Extract from structured card elements visible in the HTML
+        # The Blazor page shows rows with filing info
+        for el in soup.select("tr, .card-body, .filing, li"):
+            row_text = clean_text(el.get_text(" "))
+            if len(row_text) < 15 or len(row_text) > 600: continue
+            if not any(x in row_text.upper() for x in
+                ["EVICT","FORCIBLE","DETAINER","FED","COMPLAINT","CIVIL"]): continue
+            if row_text in seen: continue
+            seen.add(row_text)
+
+            # Extract defendant name (tenant being evicted = motivated seller if owns property)
             owner, _, _ = extract_owner_and_grantee(
-                [surrounding[i:i+60] for i in range(0, len(surrounding), 60)]
-            )
-            if not owner: owner = "Unknown"
-            dm = re.search(r"(\d{1,2}/\d{1,2}/\d{2,4})", surrounding)
+                [row_text[i:i+80] for i in range(0, len(row_text), 80)])
+            if not owner or owner in BAD_EXACT_OWNERS: owner = "Unknown"
+
+            # Extract address from row
+            addr_m = re.search(
+                r"(\d{2,5}\s+[A-Z][A-Za-z\s]{3,25}"
+                r"(?:ST|AVE|RD|DR|BLVD|LN|CT|PL|WAY|TER|CIR))",
+                row_text, re.IGNORECASE)
+            prop_address = clean_text(addr_m.group(1)) if addr_m else ""
+
+            dm = re.search(r"(\d{1,2}/\d{1,2}/\d{2,4})", row_text)
             filed = datetime.now().date().isoformat()
             if dm:
                 for fmt in ("%m/%d/%Y", "%m/%d/%y"):
                     try: filed = datetime.strptime(dm.group(1), fmt).date().isoformat(); break
                     except: continue
+
+            doc_num = f"EVIC-{len([r for r in records if r.doc_type=='EVICTION'])+1:04d}"
             rec = LeadRecord(
-                doc_num=f"EVIC-{case_num}",
-                doc_type="EVICTION", cat="EVICTION", cat_label="Eviction",
-                owner=owner, filed=filed,
+                doc_num=doc_num, doc_type="EVICTION", cat="EVICTION",
+                cat_label="Eviction", owner=owner, filed=filed,
+                prop_address=prop_address.title() if prop_address else "",
+                prop_city="Akron", prop_state="OH",
+                with_address=1 if prop_address else 0,
                 flags=["Eviction filed"],
                 distress_sources=["eviction"], distress_count=1,
                 clerk_url=EVICTION_URL,
-                match_method="eviction_direct", match_score=0.9,
+                match_method="eviction_blazor", match_score=0.85,
             )
             rec = estimate_mortgage_data(rec); rec.score = score_record(rec)
             records.append(rec)
-
-        # Also parse standard table format
-        table_recs = parse_pending_civil_table(html, EVICTION_URL, "EVIC")
-        for r in table_recs:
-            if r.doc_type == "EVICTION" and r.doc_num not in {x.doc_num for x in records}:
-                records.append(r)
 
         logging.info("Eviction records found: %s", len([r for r in records if r.doc_type=="EVICTION"]))
 
@@ -2100,45 +2104,41 @@ async def scrape_eviction_divorce_records(page)->List[LeadRecord]:
     # ── DIVORCE ──────────────────────────────────────────────────────────
     try:
         logging.info("Scraping divorces from clerk.summitoh.net...")
-        await page.goto(DIVORCE_URL, wait_until="domcontentloaded", timeout=60000)
-        await page.wait_for_timeout(3000)
 
-        # Step 1: Accept the disclaimer
-        for sel in [
-            "text=I Agree", "text=Agree", "text=Accept", "text=Continue",
-            "text=Click Here", "input[value*='Agree']", "input[type='submit']",
-            "button[type='submit']", "a[href*='Division']"
-        ]:
+        # Navigate DIRECTLY to DR division — bypass disclaimer via direct URL
+        # The disclaimer page links to SelectDivision.asp which lists divisions
+        dr_urls = [
+            "https://clerk.summitoh.net/RecordsSearch/SelectDivision.asp",
+            "https://clerk.summitoh.net/RecordsSearch/SearchEntry.asp?Division=DR",
+            "https://clerk.summitoh.net/RecordsSearch/SearchEntry.asp?Division=DOM",
+        ]
+
+        for dr_url in dr_urls:
             try:
-                loc = page.locator(sel).first
-                if await loc.count() > 0:
-                    await loc.click()
-                    await page.wait_for_timeout(2000)
-                    logging.info("Disclaimer clicked: %s", sel)
-                    break
-            except: pass
+                await page.goto(dr_url, wait_until="domcontentloaded", timeout=60000)
+                await page.wait_for_timeout(2000)
+                html = await page.content()
+                text = BeautifulSoup(html, "lxml").get_text(" ")
+                if "domestic" in text.lower() or "division" in text.lower():
+                    logging.info("DR division loaded: %s (%s chars)", dr_url, len(text))
+                    save_debug_text("divorce_page.html", html[:5000])
 
-        # Step 2: Select Domestic Relations division
-        for sel in [
-            "text=Domestic Relations", "text=DR Division",
-            "text=Domestic", "option[value*='Domestic']",
-            "option[value*='DR']", "a[href*='Domestic']",
-            "a[href*='DR']"
-        ]:
-            try:
-                loc = page.locator(sel).first
-                if await loc.count() > 0:
-                    await loc.click()
-                    await page.wait_for_timeout(2000)
-                    logging.info("DR division selected: %s", sel)
+                    # Click domestic relations if division list shown
+                    for sel in ["text=Domestic Relations","text=Domestic","a[href*='DR']","a[href*='DOM']"]:
+                        try:
+                            loc = page.locator(sel).first
+                            if await loc.count() > 0:
+                                await loc.click()
+                                await page.wait_for_timeout(2000)
+                                logging.info("DR clicked: %s", sel)
+                                break
+                        except: pass
                     break
-            except: pass
+            except Exception as e:
+                logging.warning("DR URL %s: %s", dr_url, e)
 
-        # Step 3: Search for recent divorce filings
-        for sel in [
-            "text=Search", "text=Case Search",
-            "input[type='submit']", "button[type='submit']"
-        ]:
+        # After navigation — search for recent DR filings
+        for sel in ["text=Search","input[type='submit']","button[type='submit']"]:
             try:
                 loc = page.locator(sel).first
                 if await loc.count() > 0:
@@ -2148,32 +2148,27 @@ async def scrape_eviction_divorce_records(page)->List[LeadRecord]:
             except: pass
 
         html = await page.content()
-        save_debug_text("divorce_page.html", html[:5000])
+        save_debug_text("divorce_page2.html", html[:5000])
 
-        # Parse divorce cases from table
         divorce_recs = parse_pending_civil_table(html, DIVORCE_URL, "DIV")
         divorce_recs = [r for r in divorce_recs if r.doc_type == "DIVORCE"]
 
-        # Also look for divorce patterns in text
+        # Text pattern fallback
         soup = BeautifulSoup(html, "lxml")
         text = soup.get_text(" ")
-        div_pat = re.compile(
-            r"(\d{4}[- ][A-Z]{2,4}[- ]\d{4,6}).{0,100}"
-            r"(divorce|dissolution|domestic rel)",
-            re.IGNORECASE
-        )
         seen_div = {r.doc_num for r in divorce_recs}
-        for m in div_pat.finditer(text):
-            case_num = clean_text(m.group(1))
-            key = f"DIV-{case_num}"
+
+        for el in soup.select("tr"):
+            row_text = clean_text(el.get_text(" "))
+            if not row_text or len(row_text) < 10: continue
+            if not any(x in row_text.upper() for x in ["DIVORCE","DISSOLUTION","DR-","D.R."]): continue
+            key = f"DIV-{len(divorce_recs)+1:04d}"
             if key in seen_div: continue
             seen_div.add(key)
-            surrounding = text[max(0, m.start()-50): m.end()+300]
             owner, _, _ = extract_owner_and_grantee(
-                [surrounding[i:i+60] for i in range(0, min(len(surrounding), 300), 60)]
-            )
+                [row_text[i:i+80] for i in range(0, min(len(row_text),320), 80)])
             if not owner: owner = "Unknown"
-            dm = re.search(r"(\d{1,2}/\d{1,2}/\d{2,4})", surrounding)
+            dm = re.search(r"(\d{1,2}/\d{1,2}/\d{2,4})", row_text)
             filed = datetime.now().date().isoformat()
             if dm:
                 for fmt in ("%m/%d/%Y", "%m/%d/%y"):
