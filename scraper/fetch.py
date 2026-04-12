@@ -2968,10 +2968,7 @@ async def main():
     probate_records=await scrape_probate_playwright(parcel_rows,mail_by_pid,delinquent_pid_set,vacant_home_keys)
     if not probate_records:
         probate_records=scrape_probate_leads(parcel_rows,mail_by_pid,delinquent_pid_set,vacant_home_keys)
-    # Recorder: estate deed transfers — catches probate leads from active property sales
-    recorder_estate=scrape_recorder_estate_transfers(parcel_rows,mail_by_pid,delinquent_pid_set,vacant_home_keys)
-    probate_records=probate_records+recorder_estate
-    logging.info("Probate+Recorder combined: %s leads",len(probate_records))
+    logging.info("Probate leads total: %s", len(probate_records))
 
     # 8. Distress stacking
     delinquent_addresses=build_delinquent_address_index(parcel_rows,mail_by_pid,delinquent_parcels)
@@ -2988,10 +2985,8 @@ async def main():
     vacant_land_leads.sort(key=lambda r:r.score,reverse=True)
 
     # 11. Merge all lead types (vacant land now included)
-    fire_damage_leads = scrape_fire_damage_leads()
     all_records=(all_records + tax_delin_leads + vacant_home_leads +
-                 sheriff_records + code_vio_records + probate_records +
-                 vacant_land_leads + fire_damage_leads)
+                 sheriff_records + code_vio_records + probate_records + vacant_land_leads)
     logging.info("Total before dedupe: %s",len(all_records))
 
     # 11b. Cross-record address stacking
