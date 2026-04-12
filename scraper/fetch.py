@@ -1095,7 +1095,14 @@ def scrape_fire_damage_leads()->List[LeadRecord]:
         logging.info("Scraping fire damage permits...")
         fire_text = ""
 
-        for furl in [ALN_BUILDING_PERMITS, FIRE_PERMIT_URL]:
+        # ALN building permits is the reliable source
+        # Akron.gov URL may have changed — try several patterns
+        fire_urls = [
+            ALN_BUILDING_PERMITS,
+            "https://www.akronohio.gov/cms/one.aspx?portalId=11693&pageId=16698",
+            "https://www.akronohio.gov/government/departments/planning_and_urban_development/building_division/building_permits.php",
+        ]
+        for furl in fire_urls:
             try:
                 resp = retry_request(furl, timeout=20)
                 soup = BeautifulSoup(resp.text, "lxml")
@@ -2103,23 +2110,9 @@ async def scrape_eviction_divorce_records(page)->List[LeadRecord]:
         await page.wait_for_timeout(5000)  # Blazor needs time to hydrate
 
         # Extract case data directly from DOM using JS — handles Blazor rendering
-        case_data = await page.evaluate("""() => {
-            const results = [];
-            // Get all rows/cards with filing info
-            document.querySelectorAll('tr, li, .card, .card-body, .filing-row, .case-row, [class*="filing"], [class*="case"]').forEach(el => {
-                const text = (el.innerText || el.textContent || '').trim();
-                if (text.length > 10 && text.length < 800) {
-                    results.push(text);
-                }
-            });
-            // Get full article/main text as fallback
-            const article = document.querySelector('article, section, main');
-            if (article) {
-                const lines = (article.innerText || article.textContent || '').split('\n');
-                lines.forEach(l => { if (l.trim().length > 5) results.push(l.trim()); });
-            }
-            return [...new Set(results)]; // dedupe
-        }""")
+        # Use simple JS string — no multiline, no template literals
+        js_extract = "Array.from(document.querySelectorAll('tr,li,.card-body,article,section')).map(e=>(e.innerText||e.textContent||'').trim()).filter(t=>t.length>10&&t.length<600)"
+        case_data = await page.evaluate(js_extract)
         logging.info("Eviction DOM elements extracted: %s", len(case_data or []))
 
         html = await page.content()
@@ -2204,51 +2197,45 @@ async def scrape_eviction_divorce_records(page)->List[LeadRecord]:
             try:
                 resp = retry_request(durl, timeout=20)
                 soup = BeautifulSoup(resp.text, "lxml")
-                text = soup.get_text(" ")
-                save_debug_text("divorce_page.html", resp.text[:5000])
-                logging.info("Divorce ALN URL: %s | %s chars | has_divorce=%s",
-                    durl, len(text), any(x in text.upper() for x in ["DIVORCE","DISSOLUTION","DOMESTIC"]))
-                if len(text) > 300:
-                    # Parse table rows
-                    for row in soup.select("tr"):
-                        cells = [clean_text(td.get_text(" ")) for td in row.select("td")]
-                        if not cells or len(cells) < 2: continue
-                        row_text = clean_text(" ".join(cells))
-                        # Accept any row with enough content — DR division only shows divorce cases
-                        if len(row_text) < 5: continue
-                        owner, grantee, src = extract_owner_and_grantee(cells)
-                        if not owner: continue
-                        dm = re.search(r"(\d{1,2}/\d{1,2}/\d{2,4})", row_text)
-                        filed = datetime.now().date().isoformat()
-                        if dm:
-                            for fmt in ("%m/%d/%Y","%m/%d/%y"):
-                                try: filed=datetime.strptime(dm.group(1),fmt).date().isoformat();break
-                                except: continue
-                        try:
-                            if datetime.fromisoformat(filed).date()<(datetime.now().date()-timedelta(days=LOOKBACK_DAYS)):
-                                continue
-                        except: pass
-                        am = re.search(r"\$[\d,]+",row_text)
-                        amt = parse_amount(am.group(0)) if am else None
-                        dn = extract_case_number(row_text, f"DIV-{len(divorce_recs)+1:04d}")
-                        rec = LeadRecord(
-                            doc_num=dn, doc_type="DIVORCE", cat="DIVORCE",
-                            cat_label="Divorce Filing", owner=owner,
-                            grantee=grantee, filed=filed, amount=amt,
-                            flags=["Divorce filing"],
-                            distress_sources=["divorce"], distress_count=1,
-                            clerk_url=durl,
-                            match_method="divorce_aln", match_score=0.85,
-                        )
-                        rec = estimate_mortgage_data(rec); rec.score = score_record(rec)
-                        divorce_recs.append(rec)
-                    if divorce_recs:
-                        logging.info("Divorce records from ALN: %s", len(divorce_recs))
-                        break
+                full_text = soup.get_text(" ")
+                save_debug_text("divorce_aln_text.txt", full_text[:3000])
+                logging.info("Divorce ALN URL: %s | %s chars", durl, len(full_text))
+                if "no current" in full_text.lower():
+                    logging.info("Divorce ALN: no current cases at %s", durl); break
+                for row in soup.select("tr"):
+                    cells = [clean_text(td.get_text(" ")) for td in row.select("td")]
+                    if not cells or len(cells) < 2: continue
+                    row_text = clean_text(" ".join(cells))
+                    if len(row_text) < 8: continue
+                    if not re.search(r"[A-Z][a-z]+\s+[A-Z][a-z]+", row_text): continue
+                    owner, grantee, src = extract_owner_and_grantee(cells)
+                    if not owner: continue
+                    dm = re.search(r"(\d{1,2}/\d{1,2}/\d{2,4})", row_text)
+                    filed = datetime.now().date().isoformat()
+                    if dm:
+                        for fmt in ("%m/%d/%Y","%m/%d/%y"):
+                            try: filed=datetime.strptime(dm.group(1),fmt).date().isoformat();break
+                            except: continue
+                    try:
+                        if datetime.fromisoformat(filed).date()<(datetime.now().date()-timedelta(days=LOOKBACK_DAYS)):
+                            continue
+                    except: pass
+                    dn = extract_case_number(row_text, f"DIV-{len(divorce_recs)+1:04d}")
+                    rec = LeadRecord(
+                        doc_num=dn, doc_type="DIVORCE", cat="DIVORCE",
+                        cat_label="Divorce Filing", owner=owner,
+                        grantee=grantee, filed=filed,
+                        flags=["Divorce filing"],
+                        distress_sources=["divorce"], distress_count=1,
+                        clerk_url=durl, match_method="divorce_aln", match_score=0.85,
+                    )
+                    rec = estimate_mortgage_data(rec); rec.score = score_record(rec)
+                    divorce_recs.append(rec)
+                if divorce_recs:
+                    logging.info("Divorce records from ALN: %s", len(divorce_recs)); break
             except Exception as de:
                 logging.warning("Divorce URL %s: %s", durl, de)
-
-        records.extend(divorce_recs)
+                records.extend(divorce_recs)
         logging.info("Divorce records found: %s", len(divorce_recs))
 
     except Exception as e:
