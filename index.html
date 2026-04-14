@@ -839,7 +839,17 @@ function mCalc(){
 
 // ── URL HELPERS ────────────────────────────────────────────────
 function zillowUrl(r){const a=encodeURIComponent([r.prop_address,r.prop_city||'Akron','OH',r.prop_zip].filter(Boolean).join(' '));return `https://www.zillow.com/homes/${a}_rb/`;}
-function redfinUrl(r){const a=encodeURIComponent([r.prop_address,r.prop_city||'Akron','OH'].filter(Boolean).join(' '));return `https://www.redfin.com/OH/Akron/search?q=${a}`;}
+function redfinUrl(r){
+  // Redfin working URL: /OH/City/StreetAddr-Zip/home — they 301 to correct listing
+  // If not found they show search results for that area
+  const city=(r.prop_city||'Akron').trim().replace(/\s+/g,'-');
+  const street=(r.prop_address||'').trim().replace(/\s+/g,'-').replace(/[^A-Za-z0-9\-]/g,'');
+  const zip=r.prop_zip||'44301';
+  if(street){
+    return `https://www.redfin.com/OH/${city}/${street}-${zip}/home/0`;
+  }
+  return `https://www.redfin.com/city/1094/OH/Akron`;
+}
 function auditorUrl(r){if(r.parcel_id)return `https://fiscaloffice.summitoh.net/index.php/real-estate/property-search?parcel=${encodeURIComponent(r.parcel_id)}`;return `https://fiscaloffice.summitoh.net/index.php/real-estate/property-search?address=${encodeURIComponent(r.prop_address||'')}`;}
 function googleUrl(r){const a=encodeURIComponent([r.prop_address,r.prop_city||'Akron','OH'].filter(Boolean).join(', '));return `https://www.google.com/maps/search/?api=1&query=${a}`;}
 
