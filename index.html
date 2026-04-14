@@ -534,7 +534,7 @@ let cache={},curTab='all',curRecs=[],filtered=[],sortCol='score',sortDir=-1,rend
 const PAGE=200;
 
 async function fetchJSON(file){
-  for(const p of['../data/'+file,'data/'+file,file]){
+  for(const p of['data/'+file,'../data/'+file,'dashboard/'+file,file]){
     try{const r=await fetch(p);if(r.ok)return await r.json();}catch(e){}
   }
   return null;
@@ -651,7 +651,7 @@ const MODAL_REHAB=[{easy:15000,medium:27500,heavy:45000},{easy:20000,medium:3750
 let _mRow=0,_mCond='medium';
 
 function dealAnalyzerHTML(arv){
-  const rows=MODAL_REHAB.map((row,i)=>`<tr id="dr${i}" onclick="mSelRow(${i})" class="${i===0?'sel':''}"><td>Under/1500/1500–2k/2k–2.5k/2.5k+`.split('/')[i]||'–'</td><td>$${row.easy/1000}k</td><td>$${row.medium/1000}k</td><td>$${row.heavy/1000}k</td></tr>`).join('');
+  const rows='';
   const sqLabels=['Under 1,500 SF','1,500–2,000','2,000–2,500','2,500+'];
   const trows=MODAL_REHAB.map((row,i)=>`<tr id="dr${i}" onclick="mSelRow(${i})" class="${i===0?'sel':''}"><td>${sqLabels[i]}</td><td>$${row.easy/1000}k</td><td>$${(row.medium/1000).toFixed(1).replace('.0','')}k</td><td>$${row.heavy/1000}k</td></tr>`).join('');
   return `<div class="da-wrap">
