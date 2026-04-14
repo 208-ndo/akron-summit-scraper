@@ -828,8 +828,82 @@ function mCalc(){
   else{if(res)res.classList.add('red');if(mEl)mEl.style.color='var(--hot)';if(vd){vd.textContent="❌ Doesn't pencil — walk away";vd.style.color='var(--hot)';}}
 }
 
+// ── URL HELPERS ────────────────────────────────────────────────
+function zillowUrl(r){const a=encodeURIComponent([r.prop_address,r.prop_city||'Akron','OH',r.prop_zip].filter(Boolean).join(' '));return `https://www.zillow.com/homes/${a}_rb/`;}
+function redfinUrl(r){const a=encodeURIComponent([r.prop_address,r.prop_city||'Akron','OH'].filter(Boolean).join(' '));return `https://www.redfin.com/OH/Akron/search?q=${a}`;}
+function auditorUrl(r){if(r.parcel_id)return `https://fiscaloffice.summitoh.net/index.php/real-estate/property-search?parcel=${encodeURIComponent(r.parcel_id)}`;return `https://fiscaloffice.summitoh.net/index.php/real-estate/property-search?address=${encodeURIComponent(r.prop_address||'')}`;}
+function googleUrl(r){const a=encodeURIComponent([r.prop_address,r.prop_city||'Akron','OH'].filter(Boolean).join(', '));return `https://www.google.com/maps/search/?api=1&query=${a}`;}
+
+// ── AI VALUATION ──────────────────────────────────────────────
+async function runAIValuation(propData){
+  const box=document.getElementById('ai-val-result');
+  const btn=document.querySelector('#ai-val-box button');
+  if(!box)return;
+  if(btn){btn.disabled=true;btn.textContent='⏳ Analyzing neighborhood...';}
+  box.innerHTML='<div style="margin-top:10px;padding:10px;font-family:\'Space Mono\',monospace;font-size:11px;color:var(--muted);text-align:center;">Running AI neighborhood analysis...</div>';
+  const {prop_address,prop_city,prop_zip,assessed_value,estimated_value,last_sale_price,last_sale_year,luc,doc_type,distress_count,flags}=propData;
+  const addr=[prop_address,prop_city||'Akron','OH',prop_zip].filter(Boolean).join(', ');
+  const prompt=`You are an expert real estate investor and appraiser specializing in Akron, Ohio distressed properties.
+
+Analyze this property and give a realistic ARV range:
+ADDRESS: ${addr}
+ASSESSED VALUE: ${assessed_value?'$'+Math.round(assessed_value).toLocaleString():'unknown'} (Ohio assesses at ~35% of market)
+CURRENT SYSTEM EST: ${estimated_value?'$'+Math.round(estimated_value).toLocaleString():'unknown'}
+LAST SALE: ${last_sale_price?'$'+Math.round(last_sale_price).toLocaleString()+' ('+(last_sale_year||'?')+')':'no history'}
+LAND USE CODE: ${luc||'residential'}
+DISTRESS TYPE: ${doc_type} (${distress_count} signals)
+FLAGS: ${(flags||[]).join(', ')||'none'}
+
+Steps:
+1. Identify Akron neighborhood (North Hill, South Akron, West Akron, Kenmore, Ellet, Highland Square, Goodyear Heights, Firestone Park, etc.)
+2. Apply tier: A=$120-200k, B=$80-130k, C=$50-90k, D=$30-60k
+3. Assessed/0.35 = rough market value
+4. Apply distress discount 15-25%
+5. Cross-check last sale + appreciation
+
+Respond ONLY with this JSON (no markdown):
+{"neighborhood":"name","tier":"A/B/C/D","tier_reason":"one sentence","arv_low":75000,"arv_base":90000,"arv_high":105000,"distress_discount_pct":20,"distressed_value":72000,"confidence":"high/medium/low","confidence_reason":"one sentence","key_factors":["factor1","factor2","factor3"],"comparable_streets":"1-2 comparable Akron streets","investor_note":"one sharp sentence for a wholesaler"}`;
+  try{
+    const resp=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:600,messages:[{role:'user',content:prompt}]})});
+    const data=await resp.json();
+    const raw=(data.content||[]).map(c=>c.text||'').join('');
+    let val;try{val=JSON.parse(raw.replace(/```json|```/g,'').trim());}catch(e){throw new Error('Parse failed');}
+    const fmt=v=>v?'$'+Math.round(v).toLocaleString():'–';
+    const tc={A:'var(--accent3)',B:'var(--accent)',C:'var(--warm)',D:'var(--hot)'}[val.tier]||'var(--muted)';
+    const cc={high:'var(--accent3)',medium:'var(--accent)',low:'var(--warm)'}[val.confidence]||'var(--muted)';
+    box.innerHTML=`<div style="margin-top:12px;background:var(--surface);border:1px solid var(--border2);border-radius:10px;overflow:hidden;">
+      <div style="background:linear-gradient(135deg,rgba(245,166,35,.12),rgba(74,245,166,.08));padding:12px 16px;border-bottom:1px solid var(--border);">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+          <div><div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:3px;">AI ARV Estimate</div><div style="font-size:28px;font-weight:800;font-family:'Space Mono',monospace;color:var(--accent);">${fmt(val.arv_base)}</div></div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <div style="text-align:center;"><div style="font-size:9px;color:var(--muted);margin-bottom:2px;">LOW</div><div style="font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--accent2);">${fmt(val.arv_low)}</div></div>
+            <div style="color:var(--border);font-size:14px;">→</div>
+            <div style="text-align:center;"><div style="font-size:9px;color:var(--muted);margin-bottom:2px;">HIGH</div><div style="font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--accent3);">${fmt(val.arv_high)}</div></div>
+          </div>
+        </div>
+      </div>
+      <div style="padding:12px 16px;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px;">Neighborhood</div><div style="font-size:13px;font-weight:700;">${val.neighborhood||'–'}</div><div style="font-size:10px;color:var(--muted);margin-top:2px;">${val.comparable_streets||''}</div></div>
+        <div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px;">Tier / Confidence</div><div style="display:flex;gap:6px;align-items:center;"><span style="font-size:16px;font-weight:900;color:${tc};font-family:'Space Mono',monospace;">Tier ${val.tier}</span><span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;background:rgba(255,255,255,.06);color:${cc};">${val.confidence}</span></div><div style="font-size:10px;color:var(--muted);margin-top:2px;">${val.tier_reason||''}</div></div>
+        <div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px;">Distressed Value</div><div style="font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--hot);">${fmt(val.distressed_value)}</div><div style="font-size:10px;color:var(--muted);">−${val.distress_discount_pct||0}% distress discount</div></div>
+        <div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px;">Key Factors</div><div style="font-size:10px;color:var(--muted2);line-height:1.6;">${(val.key_factors||[]).join(' · ')}</div></div>
+        <div style="grid-column:1/-1;background:rgba(245,166,35,.07);border:1px solid rgba(245,166,35,.2);border-radius:7px;padding:9px 12px;"><div style="font-size:9px;color:var(--accent);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">💡 Investor Note</div><div style="font-size:12px;font-style:italic;">${val.investor_note||''}</div></div>
+        <div style="grid-column:1/-1;"><button onclick="useAIArv(${val.arv_base||0})" style="width:100%;padding:8px;border-radius:6px;border:1px solid rgba(245,166,35,.4);background:rgba(245,166,35,.1);color:var(--accent);font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;cursor:pointer;letter-spacing:.05em;">→ Use ${fmt(val.arv_base)} as Base ARV in Deal Analyzer</button></div>
+      </div></div>`;
+    if(btn){btn.disabled=false;btn.textContent='✨ Re-run AI Valuation';}
+  }catch(e){
+    box.innerHTML=`<div style="margin-top:10px;padding:10px;font-family:'Space Mono',monospace;font-size:11px;color:var(--accent2);">Analysis failed — ${e.message}</div>`;
+    if(btn){btn.disabled=false;btn.textContent='✨ Run AI Valuation';}
+  }
+}
+
+function useAIArv(val){
+  const a=document.getElementById('da-arv');if(a){a.value=val;mSyncARVs();mCalc();}
+  const b=document.getElementById('p-arv-base');if(b){b.value=val;pSyncARVs();pCalc();}
+  const w=document.querySelector('.da-wrap');if(w)w.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
 function openModal(rj){
-  let r;try{r=JSON.parse(rj.replace(/&quot;/g,'"'));}catch(e){return;}
   const flags=r.flags||[],isSh=r.doc_type==='SHERIFF',isPro=r.doc_type==='PRO',isVL=r.doc_type==='VACLAND';
   const eq=r.est_equity!=null?'$'+Number(r.est_equity).toLocaleString():'–';
   const eqC=r.est_equity!=null?(r.est_equity>=0?'gr':'rd'):'';
@@ -858,6 +932,25 @@ function openModal(rj){
       <div class="mf"><div class="ml">Est. Arrears</div><div class="mv">${fd(r.est_arrears)}</div></div>
       <div class="mf"><div class="ml">Est. Sub-To Payoff</div><div class="mv hi">${fd(r.est_payoff)}</div></div>
       ${(r.mortgage_signals||[]).length?`<div class="mf full"><div class="ml">Signals</div><div class="mv">${r.mortgage_signals.join(' · ')}</div></div>`:''}
+      ${r.prop_address?`
+      <div class="mf full" style="margin-top:4px;">
+        <div class="ml" style="margin-bottom:6px;">Quick Lookup Links</div>
+        <div style="display:flex;gap:7px;flex-wrap:wrap;">
+          <a href="${zillowUrl(r)}" target="_blank" style="display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:6px;background:rgba(0,100,255,.12);border:1px solid rgba(0,100,255,.3);color:#5b9ef5;font-size:11px;font-weight:700;text-decoration:none;font-family:'Space Mono',monospace;transition:all .15s;" onmouseover="this.style.background='rgba(0,100,255,.22)'" onmouseout="this.style.background='rgba(0,100,255,.12)'">🏠 Zillow</a>
+          <a href="${redfinUrl(r)}" target="_blank" style="display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:6px;background:rgba(220,50,50,.12);border:1px solid rgba(220,50,50,.3);color:#f07070;font-size:11px;font-weight:700;text-decoration:none;font-family:'Space Mono',monospace;transition:all .15s;" onmouseover="this.style.background='rgba(220,50,50,.22)'" onmouseout="this.style.background='rgba(220,50,50,.12)'">📊 Redfin</a>
+          <a href="${auditorUrl(r)}" target="_blank" style="display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:6px;background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.3);color:var(--accent);font-size:11px;font-weight:700;text-decoration:none;font-family:'Space Mono',monospace;transition:all .15s;" onmouseover="this.style.background='rgba(245,166,35,.22)'" onmouseout="this.style.background='rgba(245,166,35,.12)'">🏛 County Auditor</a>
+          <a href="${googleUrl(r)}" target="_blank" style="display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:6px;background:rgba(74,245,166,.1);border:1px solid rgba(74,245,166,.25);color:var(--accent3);font-size:11px;font-weight:700;text-decoration:none;font-family:'Space Mono',monospace;transition:all .15s;" onmouseover="this.style.background='rgba(74,245,166,.2)'" onmouseout="this.style.background='rgba(74,245,166,.1)'">🗺 Street View</a>
+        </div>
+      </div>
+      <div class="mf full" style="margin-top:8px;">
+        <div class="ml" style="margin-bottom:6px;">AI Value Estimator <span style="color:var(--muted);font-weight:400;font-size:9px;letter-spacing:.04em;">— Claude analyzes neighborhood + distress</span></div>
+        <div id="ai-val-box" style="background:var(--bg);border:1px solid var(--border2);border-radius:8px;padding:12px;">
+          <button onclick="runAIValuation(${JSON.stringify({prop_address:r.prop_address,prop_city:r.prop_city,prop_zip:r.prop_zip,assessed_value:r.assessed_value,estimated_value:r.estimated_value,last_sale_price:r.last_sale_price,last_sale_year:r.last_sale_year,luc:r.luc,doc_type:r.doc_type,distress_count:r.distress_count,flags:r.flags}).replace(/"/g,'&quot;')})" style="background:linear-gradient(135deg,rgba(245,166,35,.2),rgba(74,245,166,.15));border:1px solid rgba(245,166,35,.4);border-radius:6px;padding:8px 18px;color:var(--accent);font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;cursor:pointer;letter-spacing:.06em;width:100%;transition:all .2s;" onmouseover="this.style.borderColor='rgba(245,166,35,.7)'" onmouseout="this.style.borderColor='rgba(245,166,35,.4)'">
+            ✨ Run AI Valuation — Get ARV Range + Neighborhood Analysis
+          </button>
+          <div id="ai-val-result" style="margin-top:0;"></div>
+        </div>
+      </div>`:''}      
       <hr class="mdiv">
       ${dealAnalyzerHTML(r.estimated_value||r.appraised_value||0)}
       <hr class="mdiv">
