@@ -300,6 +300,13 @@
   <div class="stat"><div class="stat-num cool" id="s-subto">–</div><div class="stat-label">🎯 Sub-To</div></div><div class="sdiv"></div>
   <div class="stat"><div class="stat-num green" id="s-vacland">–</div><div class="stat-label">🌿 Vac Land</div></div><div class="sdiv"></div>
   <div class="stat"><div class="stat-num" id="s-new">–</div><div class="stat-label">🆕 This Week</div></div>
+  <div class="sdiv"></div>
+  <div class="stat" onclick="openDATab()" style="cursor:pointer;min-width:80px;">
+    <div style="background:rgba(74,245,166,.15);border:1px solid rgba(74,245,166,.4);border-radius:8px;padding:6px 14px;display:flex;flex-direction:column;align-items:center;gap:2px;transition:all .15s;" onmouseover="this.style.background='rgba(74,245,166,.25)'" onmouseout="this.style.background='rgba(74,245,166,.15)'">
+      <div style="font-size:18px;line-height:1;">🧮</div>
+      <div style="font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent3);white-space:nowrap;">Deal Analyzer</div>
+    </div>
+  </div>
 </div>
 
 <div class="tabs-wrap">
@@ -647,72 +654,178 @@ function eqBar(eq){const pct=Math.min(Math.abs(eq)/150000*100,100),c=eq>=0?'eq-p
 // ═══════════════════════════════════════════════════════════════
 // MODAL
 // ═══════════════════════════════════════════════════════════════
-const MODAL_REHAB=[{easy:15000,medium:27500,heavy:45000},{easy:20000,medium:37500,heavy:65000},{easy:30000,medium:57500,heavy:85000},{easy:40000,medium:77500,heavy:105000}];
-let _mRow=0,_mCond='medium';
+
+
+const M_SQFT=[{easy:15000,medium:27500,heavy:45000},{easy:20000,medium:37500,heavy:65000},{easy:30000,medium:57500,heavy:85000},{easy:40000,medium:77500,heavy:105000}];
+const M_ADDONS=[{id:'roof',name:'Roof',range:'+$8k–15k',def:11000},{id:'hvac',name:'HVAC',range:'+$5k–10k',def:7000},{id:'found',name:'Foundation',range:'+$10k–30k',def:18000},{id:'plumb',name:'Plumbing',range:'+$5k–15k',def:8000},{id:'elec',name:'Electrical',range:'+$5k–12k',def:7500},{id:'mold',name:'Mold/Water',range:'+$3k–12k',def:6000},{id:'sewer',name:'Sewer',range:'+$4k–10k',def:6000},{id:'windows',name:'Windows/Doors',range:'+$3k–8k',def:5000}];
+let _mRow=0,_mCond='medium',_mMode='wholesale',_mFlip=false,_mAddons={};
 
 function dealAnalyzerHTML(arv){
-  const rows='';
-  const sqLabels=['Under 1,500 SF','1,500–2,000','2,000–2,500','2,500+'];
-  const trows=MODAL_REHAB.map((row,i)=>`<tr id="dr${i}" onclick="mSelRow(${i})" class="${i===0?'sel':''}"><td>${sqLabels[i]}</td><td>$${row.easy/1000}k</td><td>$${(row.medium/1000).toFixed(1).replace('.0','')}k</td><td>$${row.heavy/1000}k</td></tr>`).join('');
+  const sqL=['Under 1,500 SF','1,500–2,000','2,000–2,500','2,500+'];
+  const trows=M_SQFT.map((r,i)=>`<tr id="mdr${i}" onclick="mSelRow(${i})" class="${i===0?'sel':''}"><td>${sqL[i]}</td><td>$${r.easy/1000}k</td><td>$${(r.medium/1000).toFixed(1).replace('.0','')}k</td><td>$${r.heavy/1000}k</td></tr>`).join('');
+  const inp=(id,val,cb)=>`<input type="number" id="${id}" value="${val}" oninput="${cb}" style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-family:'Space Mono',monospace;font-size:12px;color:var(--text);outline:none;width:100%;">`;
+  const addonHTML=M_ADDONS.map(a=>`<div class="addon-i" id="mdai-${a.id}" onclick="mToggleAddon('${a.id}')" style="padding:8px 10px;"><div class="addon-il"><div class="addon-nm" style="font-size:12px;">${a.name}</div><div class="addon-rng">${a.range}</div></div><div class="addon-ir"><div class="addon-cv" id="mdacv-${a.id}" style="font-size:10px;">$${(a.def/1000).toFixed(0)}k</div><div class="addon-ck" id="mdack-${a.id}" style="width:16px;height:16px;font-size:10px;"></div></div></div>`).join('');
   return `<div class="da-wrap">
-  <div class="da-title">🧮 Deal Analyzer — MAO Calculator</div>
+  <div class="da-title">🧮 Deal Analyzer</div>
+  <div style="display:flex;gap:5px;margin-bottom:12px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:4px;">
+    <button id="mmode-ws" onclick="mSetMode('wholesale',this)" style="flex:1;padding:6px 4px;border-radius:6px;border:1px solid rgba(245,166,35,.4);background:rgba(245,166,35,.1);color:var(--accent);font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.04em;">🏷 Wholesale</button>
+    <button id="mmode-fl" onclick="mSetMode('flip',this)" style="flex:1;padding:6px 4px;border-radius:6px;border:1px solid var(--border);background:none;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.04em;">🔨 Flip</button>
+    <button id="mmode-re" onclick="mSetMode('rental',this)" style="flex:1;padding:6px 4px;border-radius:6px;border:1px solid var(--border);background:none;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.04em;">🏘 Rental</button>
+  </div>
   <div class="da-grid">
-    <div class="da-field"><label>ARV (After Repair Value)</label><input type="number" id="da-arv" value="${Math.round(arv||0)}" oninput="mCalc()"></div>
-    <div class="da-field"><label>Wholesale Fee</label><input type="number" id="da-fee" value="10000" oninput="mCalc()"></div>
-    <div class="da-field full"><label>Offer % of ARV</label>
-      <div class="slider-row"><input type="range" id="da-pct" min="50" max="85" value="70" oninput="document.getElementById('da-pctv').textContent=this.value+'%';mCalc()"><div class="slider-val" id="da-pctv">70%</div></div>
-    </div>
-    <div class="da-field full"><label>Condition</label>
-      <div class="cond-btns">
-        <button class="cond-btn" onclick="mSetCond('easy',this)">🟢 Easy</button>
-        <button class="cond-btn active" onclick="mSetCond('medium',this)">🟡 Needs Work</button>
-        <button class="cond-btn" style="border-color:var(--hot);color:var(--hot)" onclick="mSetCond('heavy',this)">🔴 Full Gut</button>
+    <div class="da-field full">
+      <label>ARV Range</label>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:4px;">
+        <div><div style="font-size:9px;color:var(--muted);margin-bottom:3px;font-family:'Space Mono',monospace;letter-spacing:.06em;">LOW</div>${inp('da-arv-low','','mCalc()')}</div>
+        <div><div style="font-size:9px;color:var(--accent);margin-bottom:3px;font-family:'Space Mono',monospace;letter-spacing:.06em;">BASE ARV ★</div><input type="number" id="da-arv" value="${Math.round(arv||0)}" oninput="mSyncARVs();mCalc()" style="background:var(--bg);border:1px solid rgba(245,166,35,.4);border-radius:6px;padding:7px 10px;font-family:'Space Mono',monospace;font-size:12px;color:var(--text);outline:none;width:100%;"></div>
+        <div><div style="font-size:9px;color:var(--muted);margin-bottom:3px;font-family:'Space Mono',monospace;letter-spacing:.06em;">HIGH</div>${inp('da-arv-high','','mCalc()')}</div>
       </div>
-      <table class="rtable"><tr><th>Sq Ft</th><th>🟢 Easy</th><th>🟡 Needs Work</th><th>🔴 Full Gut</th></tr>${trows}</table>
     </div>
-    <div class="da-field"><label>Rehab $</label><input type="number" id="da-rehab" value="${MODAL_REHAB[0].medium}" oninput="mCalc()"></div>
-    <div class="da-field"><label>Closing Costs</label><input type="number" id="da-closing" value="3000" oninput="mCalc()"></div>
-    <div class="da-result" id="da-res">
+    <div class="da-field full">
+      <label>Offer % of ARV</label>
+      <div class="slider-row"><input type="range" id="da-pct" min="50" max="90" value="70" oninput="document.getElementById('da-pctv').textContent=this.value+'%';mCalc()"><div class="slider-val" id="da-pctv">70%</div></div>
+      <div style="display:flex;gap:4px;margin-top:5px;flex-wrap:wrap;">
+        <button onclick="mSetPct(85)" style="font-family:'Space Mono',monospace;font-size:9px;padding:2px 6px;border-radius:3px;border:1px solid var(--border2);background:none;color:var(--muted);cursor:pointer;">Hot 85%</button>
+        <button onclick="mSetPct(75)" style="font-family:'Space Mono',monospace;font-size:9px;padding:2px 6px;border-radius:3px;border:1px solid var(--border2);background:none;color:var(--muted);cursor:pointer;">Normal 75%</button>
+        <button onclick="mSetPct(70)" style="font-family:'Space Mono',monospace;font-size:9px;padding:2px 6px;border-radius:3px;border:1px solid var(--border2);background:none;color:var(--muted);cursor:pointer;">Std 70%</button>
+        <button onclick="mSetPct(60)" style="font-family:'Space Mono',monospace;font-size:9px;padding:2px 6px;border-radius:3px;border:1px solid var(--border2);background:none;color:var(--muted);cursor:pointer;">Deep 60%</button>
+      </div>
+    </div>
+    <div class="da-field full">
+      <label>Condition</label>
+      <div class="cond-btns" style="margin-top:4px;">
+        <button class="cond-btn" id="mcb-easy" onclick="mSetCond('easy',this)">🟢 Easy</button>
+        <button class="cond-btn active" id="mcb-medium" onclick="mSetCond('medium',this)">🟡 Needs Work</button>
+        <button class="cond-btn" id="mcb-heavy" style="border-color:var(--hot);color:var(--hot)" onclick="mSetCond('heavy',this)">🔴 Full Gut</button>
+      </div>
+      <table class="rtable" style="margin-top:8px;"><tr><th>Sq Ft</th><th>🟢 Easy</th><th>🟡 Needs Work</th><th>🔴 Full Gut</th></tr>${trows}</table>
+    </div>
+    <div class="da-field full">
+      <label>Add-On Repairs</label>
+      <div class="addon-g" style="margin-top:6px;">${addonHTML}</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:8px;border-top:1px solid var(--border);"><div style="font-size:10px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em;">Add-On Total</div><div id="da-addon-total" style="font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--warm);">$0</div></div>
+    </div>
+    <div class="da-field full">
+      <div id="da-flip-tog" onclick="mToggleFlip()" style="display:flex;align-items:center;justify-content:space-between;padding:9px 14px;background:var(--bg);border:1px solid var(--border2);border-radius:7px;cursor:pointer;margin-bottom:8px;">
+        <div><div style="font-size:13px;font-weight:700;font-family:'Barlow Condensed',sans-serif;">Include Flip Costs</div><div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--muted);">Agent % + monthly holding</div></div>
+        <div id="da-flip-pill" style="width:34px;height:19px;border-radius:10px;background:var(--border2);position:relative;transition:background .2s;"><div id="da-flip-knob" style="position:absolute;width:13px;height:13px;border-radius:50%;background:#fff;top:3px;left:3px;transition:transform .2s;"></div></div>
+      </div>
+      <div id="da-flip-det" style="display:none;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+        <div class="da-field"><label>Selling %</label>${inp('da-sell-pct',9,'mCalc()')}</div>
+        <div class="da-field"><label>Hold Months</label>${inp('da-hold-mo',4,'mCalc()')}</div>
+        <div class="da-field"><label>Monthly Hold $</label>${inp('da-hold-cost',1200,'mCalc()')}</div>
+        <div class="da-field"><label>Total Flip Costs</label><input type="number" id="da-flip-total" readonly style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-family:'Space Mono',monospace;font-size:12px;color:var(--warm);outline:none;width:100%;cursor:default;"></div>
+      </div>
+    </div>
+    <div class="da-field"><label>Rehab $</label><input type="number" id="da-rehab" value="${M_SQFT[0].medium}" oninput="mCalc()"></div>
+    <div class="da-field"><label>Fee / Profit</label><input type="number" id="da-fee" value="10000" oninput="mCalc()"></div>
+    <div class="da-field"><label>Closing</label><input type="number" id="da-closing" value="3000" oninput="mCalc()"></div>
+    <div class="da-field"><label>Other</label><input type="number" id="da-other" value="0" oninput="mCalc()"></div>
+    <div class="da-result" id="da-res" style="padding:16px;">
       <div class="mao-lbl">Maximum Allowable Offer (MAO)</div>
-      <div class="mao-num" id="da-mao">–</div>
+      <div class="mao-num" id="da-mao" style="font-size:40px;">–</div>
+      <div id="da-range-row" style="display:none;justify-content:center;gap:18px;margin:8px 0;flex-wrap:wrap;">
+        <div style="text-align:center;"><div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:.08em;">SAFE</div><div id="da-mao-safe" style="font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--accent2);">–</div></div>
+        <div style="text-align:center;"><div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--accent);letter-spacing:.08em;">TARGET</div><div id="da-mao-target" style="font-family:'Space Mono',monospace;font-size:20px;font-weight:800;color:var(--accent);">–</div></div>
+        <div style="text-align:center;"><div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:.08em;">AGGRESSIVE</div><div id="da-mao-aggr" style="font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--accent3);">–</div></div>
+      </div>
       <div class="mao-bd" id="da-bd"></div>
       <div class="mao-verdict" id="da-vd"></div>
     </div>
   </div></div>`;
 }
 
+function mSetMode(m,btn){
+  _mMode=m;
+  ['ws','fl','re'].forEach(k=>{const b=document.getElementById('mmode-'+k);if(!b)return;b.style.borderColor='var(--border)';b.style.background='none';b.style.color='var(--muted)';});
+  const C={wholesale:['rgba(245,166,35,.4)','rgba(245,166,35,.1)','var(--accent)'],flip:['rgba(74,245,166,.4)','rgba(74,245,166,.1)','var(--accent3)'],rental:['rgba(93,142,245,.4)','rgba(93,142,245,.1)','var(--accent4)']};
+  const k=m==='wholesale'?'ws':m==='flip'?'fl':'re';const b=document.getElementById('mmode-'+k);
+  if(b){const[bc,bg,col]=C[m];b.style.borderColor=bc;b.style.background=bg;b.style.color=col;}
+  const P={wholesale:70,flip:70,rental:80};const pct=P[m];
+  const ps=document.getElementById('da-pct');const pv=document.getElementById('da-pctv');
+  if(ps)ps.value=pct;if(pv)pv.textContent=pct+'%';
+  if(m==='flip'&&!_mFlip)mToggleFlip();
+  if(m!=='flip'&&_mFlip)mToggleFlip();
+  mCalc();
+}
+function mSetPct(v){const ps=document.getElementById('da-pct');const pv=document.getElementById('da-pctv');if(ps)ps.value=v;if(pv)pv.textContent=v+'%';mCalc();}
 function mSetCond(c,btn){
   _mCond=c;
   document.querySelectorAll('.cond-btn').forEach(b=>{b.classList.remove('active');b.style.borderColor='';b.style.color='';});
   btn.classList.add('active');
   if(c==='heavy'){btn.style.borderColor='var(--hot)';btn.style.color='var(--hot)';}
-  document.getElementById('da-rehab').value=MODAL_REHAB[_mRow][c];
+  const rh=document.getElementById('da-rehab');if(rh)rh.value=M_SQFT[_mRow][c]+mCalcAddonTotal();
   mCalc();
 }
 function mSelRow(i){
   _mRow=i;
-  document.querySelectorAll('[id^="dr"]').forEach(r=>r.classList.remove('sel'));
-  document.getElementById('dr'+i).classList.add('sel');
-  document.getElementById('da-rehab').value=MODAL_REHAB[i][_mCond];
+  document.querySelectorAll('[id^="mdr"]').forEach(r=>r.classList.remove('sel'));
+  const el=document.getElementById('mdr'+i);if(el)el.classList.add('sel');
+  const rh=document.getElementById('da-rehab');if(rh)rh.value=M_SQFT[i][_mCond]+mCalcAddonTotal();
   mCalc();
 }
+function mToggleAddon(id){
+  _mAddons[id]=!_mAddons[id];
+  const el=document.getElementById('mdai-'+id);const ck=document.getElementById('mdack-'+id);const cv=document.getElementById('mdacv-'+id);
+  const a=M_ADDONS.find(x=>x.id===id);
+  if(_mAddons[id]){if(el)el.classList.add('aon');if(ck)ck.textContent='✓';if(cv)cv.textContent='+$'+(a.def/1000).toFixed(0)+'k';}
+  else{if(el)el.classList.remove('aon');if(ck)ck.textContent='';if(cv)cv.textContent='$'+(a.def/1000).toFixed(0)+'k';}
+  const rh=document.getElementById('da-rehab');if(rh)rh.value=M_SQFT[_mRow][_mCond]+mCalcAddonTotal();
+  const tot=document.getElementById('da-addon-total');const t=mCalcAddonTotal();if(tot)tot.textContent=t>0?'+$'+t.toLocaleString():'$0';
+  mCalc();
+}
+function mCalcAddonTotal(){return M_ADDONS.filter(a=>_mAddons[a.id]).reduce((s,a)=>s+a.def,0);}
+function mToggleFlip(){
+  _mFlip=!_mFlip;
+  const pill=document.getElementById('da-flip-pill');const knob=document.getElementById('da-flip-knob');
+  const tog=document.getElementById('da-flip-tog');const det=document.getElementById('da-flip-det');
+  if(pill)pill.style.background=_mFlip?'var(--accent3)':'var(--border2)';
+  if(knob)knob.style.transform=_mFlip?'translateX(15px)':'translateX(0)';
+  if(tog)tog.style.borderColor=_mFlip?'rgba(74,245,166,.35)':'var(--border2)';
+  if(det)det.style.display=_mFlip?'grid':'none';
+  mCalc();
+}
+function mSyncARVs(){
+  const base=parseFloat(document.getElementById('da-arv')?.value)||0;if(!base)return;
+  const low=document.getElementById('da-arv-low');const high=document.getElementById('da-arv-high');
+  if(low&&!parseFloat(low.value))low.value=Math.round(base*0.94);
+  if(high&&!parseFloat(high.value))high.value=Math.round(base*1.06);
+}
 function mCalc(){
-  const arv=parseFloat(document.getElementById('da-arv')?.value)||0;
+  const arvBase=parseFloat(document.getElementById('da-arv')?.value)||0;
+  const arvLow=parseFloat(document.getElementById('da-arv-low')?.value)||0;
+  const arvHigh=parseFloat(document.getElementById('da-arv-high')?.value)||0;
   const pct=parseFloat(document.getElementById('da-pct')?.value)||70;
   const rehab=parseFloat(document.getElementById('da-rehab')?.value)||0;
   const fee=parseFloat(document.getElementById('da-fee')?.value)||10000;
   const closing=parseFloat(document.getElementById('da-closing')?.value)||3000;
-  if(!arv){document.getElementById('da-mao').textContent='Enter ARV ↑';return;}
-  const mao=(arv*pct/100)-rehab-fee-closing;
+  const other=parseFloat(document.getElementById('da-other')?.value)||0;
+  let flipCost=0;
+  if(_mFlip){
+    const sp=parseFloat(document.getElementById('da-sell-pct')?.value)||9;
+    const hm=parseFloat(document.getElementById('da-hold-mo')?.value)||4;
+    const hc=parseFloat(document.getElementById('da-hold-cost')?.value)||1200;
+    flipCost=(arvBase*sp/100)+(hm*hc);
+    const ft=document.getElementById('da-flip-total');if(ft)ft.value=Math.round(flipCost);
+  }
+  const totalCosts=rehab+fee+closing+other+flipCost;
   const fmt=v=>v>=0?'$'+Math.round(v).toLocaleString():'-$'+Math.round(Math.abs(v)).toLocaleString();
-  document.getElementById('da-mao').textContent=fmt(mao);
-  document.getElementById('da-bd').innerHTML=`ARV ${fmt(arv)} × ${pct}% = ${fmt(arv*pct/100)}<br>− Rehab ${fmt(rehab)} &nbsp;− Fee ${fmt(fee)} &nbsp;− Closing ${fmt(closing)}`;
-  const res=document.getElementById('da-res');const mEl=document.getElementById('da-mao');const vd=document.getElementById('da-vd');
-  res.className='da-result';
-  if(mao>=30000){res.classList.add('green');mEl.style.color='var(--accent3)';vd.textContent='✅ Strong deal — room to move';vd.style.color='var(--accent3)';}
-  else if(mao>=15000){res.classList.add('yellow');mEl.style.color='var(--accent)';vd.textContent='⚠️ Decent — negotiate hard';vd.style.color='var(--accent)';}
-  else if(mao>0){res.classList.add('yellow');mEl.style.color='var(--warm)';vd.textContent='⚡ Tight — seller needs to drop';vd.style.color='var(--warm)';}
-  else{res.classList.add('red');mEl.style.color='var(--hot)';vd.textContent="❌ Doesn't pencil — walk away";vd.style.color='var(--hot)';}
+  if(!arvBase){const m=document.getElementById('da-mao');if(m)m.textContent='Enter ARV ↑';return;}
+  const maoBase=(arvBase*pct/100)-totalCosts;
+  const maoLow=arvLow?(arvLow*pct/100)-totalCosts:null;
+  const maoHigh=arvHigh?(arvHigh*pct/100)-totalCosts:null;
+  const mEl=document.getElementById('da-mao');if(mEl)mEl.textContent=fmt(maoBase);
+  const rr=document.getElementById('da-range-row');
+  if(rr){if(arvLow||arvHigh){rr.style.display='flex';const ms=document.getElementById('da-mao-safe');const mt=document.getElementById('da-mao-target');const ma=document.getElementById('da-mao-aggr');if(ms)ms.textContent=maoLow!=null?fmt(maoLow):'–';if(mt)mt.textContent=fmt(maoBase);if(ma)ma.textContent=maoHigh!=null?fmt(maoHigh):'–';}else{rr.style.display='none';}}
+  let bd=[`ARV ${fmt(arvBase)}×${pct}%=${fmt(arvBase*pct/100)}`,`−Rehab ${fmt(rehab)}`,`−Fee ${fmt(fee)}`,`−Closing ${fmt(closing)}`];
+  if(other)bd.push(`−Other ${fmt(other)}`);if(flipCost)bd.push(`−Flip ${fmt(flipCost)}`);
+  const bdEl=document.getElementById('da-bd');if(bdEl)bdEl.innerHTML=bd.join('&nbsp;·&nbsp;');
+  const res=document.getElementById('da-res');const vd=document.getElementById('da-vd');
+  if(res)res.className='da-result';
+  if(maoBase>=30000){if(res)res.classList.add('green');if(mEl)mEl.style.color='var(--accent3)';if(vd){vd.textContent='✅ Strong deal — room to move';vd.style.color='var(--accent3)';}}
+  else if(maoBase>=15000){if(res)res.classList.add('yellow');if(mEl)mEl.style.color='var(--accent)';if(vd){vd.textContent='⚠️ Decent — negotiate hard';vd.style.color='var(--accent)';}}
+  else if(maoBase>0){if(res)res.classList.add('yellow');if(mEl)mEl.style.color='var(--warm)';if(vd){vd.textContent='⚡ Tight — seller needs to drop';vd.style.color='var(--warm)';}}
+  else{if(res)res.classList.add('red');if(mEl)mEl.style.color='var(--hot)';if(vd){vd.textContent="❌ Doesn't pencil — walk away";vd.style.color='var(--hot)';}}
 }
 
 function openModal(rj){
@@ -767,10 +880,23 @@ function openModal(rj){
       </div>
     </div>`;
   document.getElementById('modal').classList.add('open');
-  setTimeout(()=>{_mRow=0;_mCond='medium';mSelRow(0);mCalc();},60);
+  // Reset modal analyzer state fresh each time
+  setTimeout(()=>{
+    _mRow=0;_mCond='medium';_mMode='wholesale';_mFlip=false;_mAddons={};
+    mSelRow(0);mCalc();
+  },60);
 }
 function closeModal(){document.getElementById('modal').classList.remove('open');}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+function openDATab(){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelector('[data-tab="deal_analyzer"]').classList.add('active');
+  document.getElementById('da-page').style.display='block';
+  document.getElementById('toolbar').style.display='none';
+  document.getElementById('table-wrap').style.display='none';
+  setTimeout(()=>document.getElementById('p-arv-base').focus(),80);
+}
 
 // ═══════════════════════════════════════════════════════════════
 // EXPORT
