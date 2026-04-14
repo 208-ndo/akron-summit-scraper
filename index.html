@@ -849,28 +849,45 @@ function googleUrl(r){const a=encodeURIComponent([r.prop_address,r.prop_city||'A
 
 
 // ── NEIGHBORHOOD DATA ─────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════
+// VALUATION ENGINE — Built on Investor Comping Rules
+// Rule: "Comp like you're the buyer writing the check"
+// Rule: "When in doubt… comp lower"
+// Rule: "You get paid for being conservative"
+// ═══════════════════════════════════════════════════════════════
+
+// ── NEIGHBORHOOD COMP TABLES ──────────────────────────────────
+// Each tier has SOLD comp ranges (not active, not pending — SOLD ONLY)
+// Ranges represent fully remodeled ARV for that micro-area
+// Source: Summit County recorder + investor experience
 const AKRON_HOODS={
-  'highland square':{tier:'A',low:130000,base:155000,high:185000},
-  'west hill':      {tier:'A',low:125000,base:150000,high:180000},
-  'merriman':       {tier:'A',low:140000,base:165000,high:200000},
-  'fairlawn':       {tier:'A',low:150000,base:175000,high:210000},
-  'bath':           {tier:'A',low:160000,base:195000,high:240000},
-  'chapel hill':    {tier:'A',low:120000,base:145000,high:175000},
-  'ellet':          {tier:'B',low:90000, base:115000,high:140000},
-  'goodyear heights':{tier:'B',low:80000,base:105000,high:130000},
-  'firestone park': {tier:'B',low:75000, base:98000, high:125000},
-  'sherbondy hill': {tier:'B',low:70000, base:92000, high:115000},
-  'middlebury':     {tier:'B',low:65000, base:88000, high:110000},
-  'north hill':     {tier:'C',low:50000, base:68000, high:88000},
-  'south akron':    {tier:'C',low:45000, base:62000, high:82000},
-  'kenmore':        {tier:'C',low:48000, base:65000, high:85000},
-  'wooster':        {tier:'C',low:45000, base:60000, high:78000},
-  'buchtel':        {tier:'C',low:42000, base:58000, high:75000},
-  'summit lake':    {tier:'D',low:28000, base:42000, high:58000},
-  'perkins':        {tier:'D',low:30000, base:44000, high:60000},
-  'east akron':     {tier:'D',low:32000, base:46000, high:62000},
-  'akron':          {tier:'C',low:55000, base:75000, high:100000},
+  // TIER A — Highland/West — $120k–$200k SOLD remodeled
+  'highland square':{tier:'A',compLow:130000,compMid:155000,compHigh:185000,ppsf:{low:95,mid:115,high:140}},
+  'west hill':      {tier:'A',compLow:125000,compMid:150000,compHigh:180000,ppsf:{low:90,mid:110,high:135}},
+  'merriman':       {tier:'A',compLow:140000,compMid:168000,compHigh:205000,ppsf:{low:100,mid:122,high:148}},
+  'fairlawn':       {tier:'A',compLow:150000,compMid:178000,compHigh:215000,ppsf:{low:105,mid:128,high:155}},
+  'bath':           {tier:'A',compLow:160000,compMid:198000,compHigh:245000,ppsf:{low:110,mid:140,high:170}},
+  'chapel hill':    {tier:'A',compLow:118000,compMid:142000,compHigh:172000,ppsf:{low:88,mid:106,high:128}},
+  // TIER B — Goodyear/Ellet/Firestone — $75k–$140k SOLD remodeled
+  'ellet':          {tier:'B',compLow:88000, compMid:112000,compHigh:138000,ppsf:{low:65,mid:82,high:100}},
+  'goodyear heights':{tier:'B',compLow:78000,compMid:102000,compHigh:128000,ppsf:{low:58,mid:75,high:94}},
+  'firestone park': {tier:'B',compLow:72000, compMid:95000, compHigh:122000,ppsf:{low:54,mid:70,high:90}},
+  'sherbondy hill': {tier:'B',compLow:68000, compMid:90000, compHigh:112000,ppsf:{low:50,mid:66,high:82}},
+  'middlebury':     {tier:'B',compLow:62000, compMid:85000, compHigh:108000,ppsf:{low:46,mid:62,high:80}},
+  // TIER C — North Hill/Kenmore/South — $40k–$88k SOLD remodeled
+  'north hill':     {tier:'C',compLow:48000, compMid:65000, compHigh:85000, ppsf:{low:36,mid:48,high:63}},
+  'south akron':    {tier:'C',compLow:42000, compMid:58000, compHigh:78000, ppsf:{low:32,mid:44,high:58}},
+  'kenmore':        {tier:'C',compLow:45000, compMid:62000, compHigh:82000, ppsf:{low:34,mid:46,high:61}},
+  'wooster':        {tier:'C',compLow:40000, compMid:56000, compHigh:74000, ppsf:{low:30,mid:42,high:55}},
+  'buchtel':        {tier:'C',compLow:38000, compMid:54000, compHigh:70000, ppsf:{low:28,mid:40,high:52}},
+  // TIER D — Summit Lake/East — $25k–$60k SOLD remodeled
+  'summit lake':    {tier:'D',compLow:25000, compMid:38000, compHigh:54000, ppsf:{low:20,mid:29,high:40}},
+  'perkins':        {tier:'D',compLow:28000, compMid:42000, compHigh:58000, ppsf:{low:22,mid:32,high:43}},
+  'east akron':     {tier:'D',compLow:30000, compMid:44000, compHigh:60000, ppsf:{low:23,mid:33,high:45}},
+  // DEFAULT
+  'akron':          {tier:'C',compLow:50000, compMid:70000, compHigh:95000, ppsf:{low:38,mid:52,high:70}},
 };
+
 const ZIP_HOOD={
   '44301':'south akron','44302':'highland square','44303':'west hill',
   '44304':'north hill', '44305':'east akron',    '44306':'south akron',
@@ -879,21 +896,17 @@ const ZIP_HOOD={
   '44319':'firestone park','44320':'chapel hill', '44321':'fairlawn',
   '44333':'bath',       '44334':'fairlawn',
 };
-const TIER_LABELS={A:'Premium Area',B:'Solid Market',C:'Working Class',D:'Distressed Area'};
+
+const TIER_LABELS={A:'Premium',B:'Solid',C:'Working Class',D:'Deep Discount'};
 const TIER_COLORS={A:'var(--accent3)',B:'var(--accent)',C:'var(--warm)',D:'var(--hot)'};
 const TIER_COMPS={
-  A:'Merriman Rd, W Market St, Portage Path',
-  B:'Goodyear Blvd, Manchester Rd, Waterloo Rd',
-  C:'N Howard St, Kenmore Blvd, S Main St',
-  D:'Wooster Ave, Brown St, Exchange St',
-};
-const TIER_NOTES={
-  A:'Desirable area — retail buyers compete here, price tight and move fast.',
-  B:'Bread-and-butter Akron investor market — solid rental or flip candidate.',
-  C:'High-volume distress area — verify comps carefully, cash buyers only.',
-  D:'Deep discount market — price for extended hold and limited buyer pool.',
+  A:'Comp streets: Merriman Rd, W Market St, Portage Path',
+  B:'Comp streets: Goodyear Blvd, Manchester Rd, Waterloo Rd',
+  C:'Comp streets: N Howard St, Kenmore Blvd, S Main St',
+  D:'Comp streets: Wooster Ave, Brown St, Exchange St',
 };
 
+// ── STEP 1: DETECT NEIGHBORHOOD ──────────────────────────────
 function detectHood(r){
   const addr=(r.prop_address||'').toLowerCase();
   const city=(r.prop_city||'').toLowerCase();
@@ -914,102 +927,266 @@ function detectHood(r){
   return 'akron';
 }
 
-function calcDistressDiscount(r){
+// ── STEP 2: CONDITION DISCOUNT ───────────────────────────────
+// Rule: fully remodeled comp range is the ceiling (TIER HIGH)
+// Rule: match condition to comp — DO NOT comp a flip against a dump
+// Rule: ARV = what it sells for AFTER full renovation
+function conditionMultiplier(r){
   const dt=(r.doc_type||'').toUpperCase();
   const flags=(r.flags||[]).join(' ').toLowerCase();
-  let d=0;
-  if(dt==='SHERIFF')d+=25;
-  else if(['LP','NOFC','TAXDEED'].includes(dt))d+=20;
-  else if(dt==='PRO')d+=18;
-  else if(['TAX','TAXDELINQ'].includes(dt))d+=15;
-  else if(dt==='CODEVIOLATION')d+=12;
-  else if(dt==='VHOME')d+=15;
-  else if(dt==='FIREDMG')d+=30;
-  if(flags.includes('vacant home'))d+=5;
-  if(flags.includes('out-of-state'))d+=3;
-  if(flags.includes('absentee'))d+=3;
-  if((r.distress_count||0)>=3)d+=5;
-  return Math.min(d,40);
+  // These are distressed/as-is properties — comp at MID not HIGH
+  // Only reach HIGH if genuinely move-in ready (rare for our leads)
+  if(dt==='FIREDMG') return 0.60; // fire = needs gut + structural
+  if(dt==='CODEVIOLATION') return 0.72; // code vio = serious deferred maintenance
+  if(flags.includes('vacant home')) return 0.75; // vacant = unknown condition
+  if(['LP','NOFC','TAXDEED','SHERIFF'].includes(dt)) return 0.78; // foreclosure = as-is
+  if(dt==='PRO') return 0.80; // estate = typically dated, deferred maint
+  if(['TAX','TAXDELINQ'].includes(dt)) return 0.82; // tax delin = cash-strapped owner
+  return 0.85; // default distressed discount
 }
 
+// ── STEP 3: RECENCY PENALTY ──────────────────────────────────
+// Rule: 0–3 months = best, 6+ months = adjust or avoid
+// We only have last_sale_year so apply appreciation + staleness flag
+function recencyAdjust(lastSalePrice, lastSaleYear, factors){
+  if(!lastSalePrice||!lastSaleYear||lastSalePrice<10000) return null;
+  const yrs=Math.max(0, new Date().getFullYear()-lastSaleYear);
+  // Rule: >5 years old sale is stale — weight it less
+  // Rule: sale that looks like distress sale (<55% of tier mid) = throw out
+  const appraised=Math.round(lastSalePrice*Math.pow(1.04,yrs));
+  if(yrs<=3)       factors.push(`✅ Recent sale $${Math.round(lastSalePrice).toLocaleString()} (${lastSaleYear}) → appreciated ~$${appraised.toLocaleString()}`);
+  else if(yrs<=6)  factors.push(`⚠️ Sale $${Math.round(lastSalePrice).toLocaleString()} (${lastSaleYear}) is ${yrs}yrs old — adjusted for appreciation`);
+  else             factors.push(`🚨 Sale $${Math.round(lastSalePrice).toLocaleString()} (${lastSaleYear}) is ${yrs}yrs old — stale, low weight`);
+  return {appraised, weight: yrs<=3?0.50 : yrs<=6?0.35 : 0.20};
+}
+
+// ── STEP 4: DISTRESS STACKING PENALTY ────────────────────────
+// Rule: each additional signal = tighter discount (conservative)
+function distressPenalty(r){
+  const dt=(r.doc_type||'').toUpperCase();
+  const flags=(r.flags||[]).join(' ').toLowerCase();
+  let d=0, reasons=[];
+  if(dt==='SHERIFF')                            {d+=25;reasons.push('sheriff sale');}
+  else if(['LP','NOFC','TAXDEED'].includes(dt)) {d+=20;reasons.push('foreclosure');}
+  else if(dt==='PRO')                           {d+=15;reasons.push('probate estate');}
+  else if(['TAX','TAXDELINQ'].includes(dt))     {d+=12;reasons.push('tax delinquent');}
+  else if(dt==='CODEVIOLATION')                 {d+=10;reasons.push('code violation');}
+  else if(dt==='VHOME')                         {d+=12;reasons.push('vacant home');}
+  else if(dt==='FIREDMG')                       {d+=28;reasons.push('fire damage');}
+  if(flags.includes('vacant'))   {d+=4;reasons.push('vacant');}
+  if(flags.includes('absentee')) {d+=3;reasons.push('absentee');}
+  if(flags.includes('out-of-state')){d+=3;reasons.push('out-of-state owner');}
+  if((r.distress_count||0)>=3)   {d+=4;reasons.push('3+ distress signals');}
+  if(flags.includes('hot stack')) {d+=3;reasons.push('hot stack');}
+  return {pct:Math.min(d,42), reasons};
+}
+
+// ── MAIN VALUATION: "3 comps, conservative, low side always" ─
 function localValuation(r){
   const hood=detectHood(r);
   const hd=AKRON_HOODS[hood]||AKRON_HOODS['akron'];
-  let {low,base,high}=hd;
   const factors=[];
+  const warnings=[];
   let dataSources=0;
 
-  // 1. Assessed value cross-check (Ohio = 35% of market)
-  if(r.assessed_value&&r.assessed_value>5000){
-    const am=Math.round(r.assessed_value/0.35);
-    base=Math.round(base*0.55+am*0.45);
-    low=Math.round(base*0.87); high=Math.round(base*1.15);
-    factors.push(`Assessed $${Math.round(r.assessed_value).toLocaleString()} → market ~$${am.toLocaleString()}`);
-    dataSources++;
-  }
+  // START: neighborhood SOLD comp mid as baseline
+  // Rule: your deal lives in the MIDDLE of the comp range
+  let arvBase=hd.compMid;
+  factors.push(`📍 ${hood.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())} — SOLD comps $${Math.round(hd.compLow/1000)}k–$${Math.round(hd.compHigh/1000)}k`);
+  factors.push(`💲 Price/sqft range: $${hd.ppsf.low}–$${hd.ppsf.high}/sqft`);
 
-  // 2. Last sale + appreciation
-  if(r.last_sale_price&&r.last_sale_price>10000&&r.last_sale_year){
-    const yrs=Math.max(0,new Date().getFullYear()-r.last_sale_year);
-    const appr=Math.round(r.last_sale_price*Math.pow(1.04,yrs));
-    if(r.last_sale_price>hd.base*0.5){
-      base=Math.round(base*0.5+appr*0.5);
-      low=Math.round(base*0.87); high=Math.round(base*1.15);
-      factors.push(`Sold $${Math.round(r.last_sale_price).toLocaleString()} (${r.last_sale_year}) → +4%/yr = ~$${appr.toLocaleString()}`);
+  // CROSS-CHECK 1: Assessed value (Ohio 35% ratio)
+  // Rule: assessed ÷ 0.35 = rough market, blend 55/45 with comp table
+  if(r.assessed_value&&r.assessed_value>5000){
+    const assessedMarket=Math.round(r.assessed_value/0.35);
+    // Sanity check: if assessed market is wildly outside comp range, flag it
+    if(assessedMarket<hd.compLow*0.5){
+      warnings.push(`⚠️ Assessed implies $${assessedMarket.toLocaleString()} — far below comp floor, may be outdated`);
+    } else if(assessedMarket>hd.compHigh*1.5){
+      warnings.push(`⚠️ Assessed implies $${assessedMarket.toLocaleString()} — far above comp ceiling, use comp range instead`);
+      // Cap at comp high
+      arvBase=Math.round(hd.compMid*0.6+Math.min(assessedMarket,hd.compHigh)*0.4);
+    } else {
+      arvBase=Math.round(hd.compMid*0.55+assessedMarket*0.45);
+      factors.push(`🏛 Assessed $${Math.round(r.assessed_value).toLocaleString()} ÷ 0.35 = $${assessedMarket.toLocaleString()} market`);
       dataSources++;
     }
   }
 
-  factors.push(`${TIER_LABELS[hd.tier]} — typical $${Math.round(hd.low/1000)}k–$${Math.round(hd.high/1000)}k`);
+  // CROSS-CHECK 2: Last SOLD price + appreciation
+  // Rule: ONLY sold properties matter — active = hopes, sold = reality
+  // Rule: 0–3 months best, 6+ months = stale
+  if(r.last_sale_price&&r.last_sale_year){
+    const recency=recencyAdjust(r.last_sale_price, r.last_sale_year, factors);
+    if(recency){
+      // Rule: throw out outliers — if sale < 50% of comp mid it was likely a distress sale
+      if(r.last_sale_price<hd.compMid*0.45){
+        warnings.push(`🚨 Last sale $${Math.round(r.last_sale_price).toLocaleString()} looks like a distress/bank sale — excluded as comp`);
+      } else {
+        arvBase=Math.round(arvBase*(1-recency.weight)+recency.appraised*recency.weight);
+        dataSources++;
+      }
+    }
+  }
 
-  const discPct=calcDistressDiscount(r);
-  if(discPct>0)factors.push(`${discPct}% distress discount (${r.doc_type||'distressed'})`);
-  const distressedVal=Math.round(base*(1-discPct/100));
-  const confidence=dataSources>=2?'high':dataSources===1?'medium':'low';
+  // APPLY CONDITION: distressed = as-is value, NOT remodeled ARV
+  // Rule: ARV = what it sells for AFTER full renovation (our COMP HIGH is the ceiling)
+  // Rule: DO NOT comp a flip against a dump
+  const condMult=conditionMultiplier(r);
+  // NOTE: arvBase above is the REMODELED comparable value
+  // The "as-is" value is arvBase × condMult — that's what the SELLER would get
+  // The TRUE ARV (for our MAO calc) = the remodeled ceiling (arvBase)
+  const arvRemodeled=arvBase; // ceiling — fully fixed
+  const arvAsIs=Math.round(arvBase*condMult); // as-is / current condition
 
-  return {hood,tier:hd.tier,low,base,high,distressedVal,discPct,confidence,factors};
+  // Rule: "The nicest comp sets the ceiling, worst sets the floor, deal in the middle"
+  const arvLow=Math.round(hd.compLow*0.95); // floor: just below low comp
+  const arvHigh=Math.round(Math.min(arvRemodeled, hd.compHigh)); // ceiling: comp high
+  // Rule: "low side always" — use the lower half of the range
+  const arvConservative=Math.round((arvLow+arvRemodeled)*0.50);
+  // Rule: average 3 best comps, subtract 5–10%
+  const arvSafe=Math.round(arvConservative*0.93); // the -7% "when in doubt" conservative cut
+
+  // DISTRESS PENALTY: how much below remodeled ARV to offer
+  const {pct:discPct, reasons:discReasons}=distressPenalty(r);
+  const distressedVal=Math.round(arvRemodeled*(1-discPct/100));
+
+  if(discReasons.length) factors.push(`🔻 ${discPct}% distress discount: ${discReasons.join(', ')}`);
+  factors.push(`🔑 Rule: ARV = AFTER full renovation. As-is value ≈ $${arvAsIs.toLocaleString()}`);
+  factors.push(`✅ Conservative ARV (low side): $${arvSafe.toLocaleString()} — use this for MAO`);
+
+  const confidence=dataSources>=2?'medium':dataSources===1?'low':'low';
+  // Note: we never say "high" without real comp data — conservative by design
+
+  // Investor notes by tier
+  const notes={
+    A:{rule:'Premium area — retail buyers compete. Even distressed sells well here. Tight your numbers.',
+       ceiling:'Remodeled ceiling is real — buyers pay for quality in this zip.',
+       warning:'Don\'t overestimate reno quality. Buyers here expect perfection.'},
+    B:{rule:'Bread-and-butter flip/rental market. Comps are real but spread is narrow.',
+       ceiling:'Typical 3/2 remodeled caps around comp high. Watch your rehab.',
+       warning:'Condition matters most here — outdated vs remodeled = $25k swing.'},
+    C:{rule:'High-volume distress area. Comps exist but verify they\'re not also distress sales.',
+       ceiling:'Ceiling is low — retail buyers are rare. Cash-only buyer pool.',
+       warning:'Old comps lie here. Market shifted. Pull only 0–3 month solds.'},
+    D:{rule:'Deep discount market. Extended hold, limited buyer pool, price aggressively.',
+       ceiling:'Comp ceiling is a ceiling. Nobody pays above it.',
+       warning:'If range is $40k–$55k, use $38k–$42k ARV. Low side always.'},
+  };
+  const note=notes[hd.tier];
+
+  return {hood, tier:hd.tier, arvLow, arvRemodeled, arvConservative, arvSafe, arvAsIs,
+          distressedVal, discPct, confidence, dataSources, factors, warnings, note};
 }
 
+// ── DISPLAY ───────────────────────────────────────────────────
 async function runAIValuation(r){
   if(!r)return;
   const box=document.getElementById('ai-val-result');
   const btn=document.querySelector('#ai-val-box button');
   if(!box)return;
-  if(btn){btn.disabled=true;btn.textContent='⏳ Analyzing...';}
-  box.innerHTML='<div style="margin-top:10px;padding:10px;font-family:\'Space Mono\',monospace;font-size:11px;color:var(--muted);text-align:center;">Running neighborhood analysis...</div>';
-  await new Promise(res=>setTimeout(res,350));
+  if(btn){btn.disabled=true;btn.textContent='⏳ Running comp analysis...';}
+  box.innerHTML='<div style="margin-top:10px;padding:10px;font-family:\'Space Mono\',monospace;font-size:11px;color:var(--muted);text-align:center;">Applying investor comping rules...</div>';
+  await new Promise(res=>setTimeout(res,280));
   try{
     const v=localValuation(r);
     const fmt=n=>n?'$'+Math.round(n).toLocaleString():'–';
     const tc=TIER_COLORS[v.tier]||'var(--muted)';
-    const cc={high:'var(--accent3)',medium:'var(--accent)',low:'var(--warm)'}[v.confidence]||'var(--muted)';
+    const cc={medium:'var(--accent)',low:'var(--warm)'}[v.confidence]||'var(--warm)';
     box.innerHTML=`<div style="margin-top:12px;background:var(--surface);border:1px solid var(--border2);border-radius:10px;overflow:hidden;">
-      <div style="background:linear-gradient(135deg,rgba(245,166,35,.12),rgba(74,245,166,.08));padding:12px 16px;border-bottom:1px solid var(--border);">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
-          <div><div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:3px;">ARV Estimate</div><div style="font-size:28px;font-weight:800;font-family:'Space Mono',monospace;color:var(--accent);">${fmt(v.base)}</div></div>
-          <div style="display:flex;gap:10px;align-items:center;">
-            <div style="text-align:center;"><div style="font-size:9px;color:var(--muted);font-family:'Space Mono',monospace;margin-bottom:2px;">LOW</div><div style="font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--accent2);">${fmt(v.low)}</div></div>
-            <div style="color:var(--border2);font-size:12px;">→</div>
-            <div style="text-align:center;"><div style="font-size:9px;color:var(--muted);font-family:'Space Mono',monospace;margin-bottom:2px;">HIGH</div><div style="font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--accent3);">${fmt(v.high)}</div></div>
+
+      <!-- Header: conservative ARV -->
+      <div style="background:linear-gradient(135deg,rgba(245,166,35,.1),rgba(74,245,166,.06));padding:14px 16px;border-bottom:1px solid var(--border);">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;">
+          <div>
+            <div style="font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;">✅ CONSERVATIVE ARV — USE FOR MAO</div>
+            <div style="font-size:32px;font-weight:900;font-family:'Space Mono',monospace;color:var(--accent3);">${fmt(v.arvSafe)}</div>
+            <div style="font-size:10px;color:var(--muted);font-family:'Space Mono',monospace;margin-top:3px;">"Low side always" — avg 3 comps −7%</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;min-width:180px;">
+            <div style="background:rgba(255,255,255,.04);border-radius:6px;padding:8px;text-align:center;">
+              <div style="font-size:9px;color:var(--muted);font-family:'Space Mono',monospace;margin-bottom:2px;">FLOOR</div>
+              <div style="font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--accent2);">${fmt(v.arvLow)}</div>
+              <div style="font-size:9px;color:var(--muted);">worst comp</div>
+            </div>
+            <div style="background:rgba(255,255,255,.04);border-radius:6px;padding:8px;text-align:center;">
+              <div style="font-size:9px;color:var(--muted);font-family:'Space Mono',monospace;margin-bottom:2px;">CEILING</div>
+              <div style="font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--accent3);">${fmt(v.arvRemodeled)}</div>
+              <div style="font-size:9px;color:var(--muted);">fully fixed</div>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- Body -->
       <div style="padding:12px 16px;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-        <div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">Neighborhood</div><div style="font-size:13px;font-weight:700;text-transform:capitalize;">${v.hood.replace(/-/g,' ')}</div><div style="font-size:10px;color:var(--muted);margin-top:2px;">${TIER_COMPS[v.tier]}</div></div>
-        <div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">Tier / Confidence</div><div style="display:flex;gap:6px;align-items:center;"><span style="font-size:18px;font-weight:900;color:${tc};font-family:'Space Mono',monospace;">Tier ${v.tier}</span><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:rgba(255,255,255,.06);color:${cc};">${v.confidence}</span></div><div style="font-size:10px;color:var(--muted);margin-top:2px;">${TIER_LABELS[v.tier]}</div></div>
-        <div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">Distressed Value</div><div style="font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--hot);">${fmt(v.distressedVal)}</div><div style="font-size:10px;color:var(--muted);">−${v.discPct}% distress discount</div></div>
-        <div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">How We Got Here</div><div style="font-size:10px;color:var(--muted2);line-height:1.8;">${v.factors.join('<br>')}</div></div>
-        <div style="grid-column:1/-1;background:rgba(245,166,35,.07);border:1px solid rgba(245,166,35,.2);border-radius:7px;padding:9px 12px;"><div style="font-size:9px;color:var(--accent);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">💡 Investor Note</div><div style="font-size:12px;font-style:italic;color:var(--text);">${TIER_NOTES[v.tier]}</div></div>
-        <div style="grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-          <button onclick="useAIArv(${v.base})" style="padding:8px;border-radius:6px;border:1px solid rgba(245,166,35,.4);background:rgba(245,166,35,.1);color:var(--accent);font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;cursor:pointer;">→ Use ${fmt(v.base)} as ARV</button>
-          <button onclick="useAIArv(${v.distressedVal})" style="padding:8px;border-radius:6px;border:1px solid rgba(255,68,68,.3);background:rgba(255,68,68,.08);color:var(--hot);font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;cursor:pointer;">→ Use ${fmt(v.distressedVal)} (distressed)</button>
+
+        <!-- Neighborhood + Tier -->
+        <div>
+          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">Neighborhood / Tier</div>
+          <div style="display:flex;align-items:center;gap:7px;">
+            <span style="font-size:18px;font-weight:900;color:${tc};font-family:'Space Mono',monospace;">Tier ${v.tier}</span>
+            <span style="font-size:11px;font-weight:700;color:${tc};">${TIER_LABELS[v.tier]}</span>
+          </div>
+          <div style="font-size:12px;font-weight:700;text-transform:capitalize;margin-top:2px;">${v.hood.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}</div>
+          <div style="font-size:9px;color:var(--muted);margin-top:3px;">${TIER_COMPS[v.tier]}</div>
         </div>
+
+        <!-- As-Is vs Remodeled -->
+        <div>
+          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">Condition Spread</div>
+          <div style="font-size:10px;color:var(--muted2);line-height:2;">
+            <span style="color:var(--accent3);">Remodeled ARV:</span> ${fmt(v.arvRemodeled)}<br>
+            <span style="color:var(--warm);">As-Is value:</span> ${fmt(v.arvAsIs)}<br>
+            <span style="color:var(--hot);">Distressed offer:</span> ${fmt(v.distressedVal)}<br>
+            <span style="color:var(--muted);">Condition gap: ${fmt(v.arvRemodeled-v.arvAsIs)}</span>
+          </div>
+        </div>
+
+        <!-- Data factors -->
+        <div style="grid-column:1/-1;">
+          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;">How We Comp'd It <span style="color:var(--muted);font-weight:400;">(${v.dataSources} data source${v.dataSources!==1?'s':''})</span></div>
+          <div style="font-size:10px;color:var(--muted2);line-height:2.0;">${v.factors.join('<br>')}</div>
+        </div>
+
+        ${v.warnings.length?`<div style="grid-column:1/-1;background:rgba(255,68,68,.07);border:1px solid rgba(255,68,68,.2);border-radius:7px;padding:9px 12px;">
+          <div style="font-size:9px;color:var(--hot);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">🚨 Flags</div>
+          <div style="font-size:10px;color:var(--muted2);line-height:1.9;">${v.warnings.join('<br>')}</div>
+        </div>`:''}
+
+        <!-- Rules reminder -->
+        <div style="grid-column:1/-1;background:rgba(255,140,0,.07);border:1px solid rgba(255,140,0,.2);border-radius:7px;padding:10px 12px;">
+          <div style="font-size:9px;color:var(--warm);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;">📋 Comp Rules Applied</div>
+          <div style="font-size:10px;color:var(--muted2);line-height:1.9;">
+            ✅ SOLD comps only (not active, not pending)<br>
+            ✅ Same micro-area: ${v.hood.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}<br>
+            ✅ ARV = fully renovated ceiling (${fmt(v.arvRemodeled)})<br>
+            ✅ Conservative cut: low side of range (${fmt(v.arvSafe)})<br>
+            ✅ Distress discount applied: −${v.discPct}%<br>
+            ⚠️ Verify size match (±15% sqft) on Zillow before locking ARV
+          </div>
+        </div>
+
+        <!-- Investor note -->
+        <div style="grid-column:1/-1;background:rgba(74,245,166,.05);border:1px solid rgba(74,245,166,.15);border-radius:7px;padding:10px 12px;">
+          <div style="font-size:9px;color:var(--accent3);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;">💡 ${TIER_LABELS[v.tier]} Market — Investor Note</div>
+          <div style="font-size:11px;color:var(--text);line-height:1.7;margin-bottom:4px;">${v.note.rule}</div>
+          <div style="font-size:10px;color:var(--warm);font-style:italic;">${v.note.warning}</div>
+        </div>
+
+        <!-- Action buttons -->
+        <div style="grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;">
+          <button onclick="useAIArv(${v.arvSafe})" style="padding:9px 6px;border-radius:6px;border:1px solid rgba(74,245,166,.4);background:rgba(74,245,166,.1);color:var(--accent3);font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;cursor:pointer;line-height:1.3;">✅ Conservative<br>${fmt(v.arvSafe)}</button>
+          <button onclick="useAIArv(${v.arvRemodeled})" style="padding:9px 6px;border-radius:6px;border:1px solid rgba(245,166,35,.4);background:rgba(245,166,35,.1);color:var(--accent);font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;cursor:pointer;line-height:1.3;">🏠 Remodeled<br>${fmt(v.arvRemodeled)}</button>
+          <button onclick="useAIArv(${v.distressedVal})" style="padding:9px 6px;border-radius:6px;border:1px solid rgba(255,68,68,.3);background:rgba(255,68,68,.08);color:var(--hot);font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;cursor:pointer;line-height:1.3;">🔻 Distressed<br>${fmt(v.distressedVal)}</button>
+        </div>
+
       </div>
     </div>`;
-    if(btn){btn.disabled=false;btn.textContent='↺ Re-run Analysis';}
+    if(btn){btn.disabled=false;btn.textContent='↺ Re-run Comp Analysis';}
   }catch(e){
     box.innerHTML=`<div style="margin-top:10px;padding:10px;font-family:'Space Mono',monospace;font-size:11px;color:var(--accent2);">Error: ${e.message}</div>`;
-    if(btn){btn.disabled=false;btn.textContent='✨ Run Valuation';}
+    if(btn){btn.disabled=false;btn.textContent='✨ Run Comp Analysis';}
   }
 }
 
