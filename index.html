@@ -626,6 +626,7 @@ function sortBy(col,th){sortDir=sortCol===col?-sortDir:-1;sortCol=col;document.q
 function doSort(){filtered.sort((a,b)=>{let av=a[sortCol],bv=b[sortCol];if(av==null)av=sortDir<0?-Infinity:Infinity;if(bv==null)bv=sortDir<0?-Infinity:Infinity;if(typeof av==='string')return av.localeCompare(bv)*sortDir;return(av-bv)*sortDir;});}
 
 function renderTable(){
+  _rowStore.length = 0; // clear store for fresh IDs each render
   const tbody=document.getElementById('tbody');
   if(!filtered.length){tbody.innerHTML='<tr><td colspan="9"><div class="empty"><div class="empty-icon">◎</div><div>No leads found</div></div></td></tr>';return;}
   tbody.innerHTML=filtered.slice(0,PAGE).map(rowHTML).join('');
@@ -633,6 +634,14 @@ function renderTable(){
 }
 function observe(){const s=document.getElementById('sentinel');if(!s)return;new IntersectionObserver(e=>{if(e[0].isIntersecting)loadMore();},{root:document.getElementById('table-wrap'),threshold:.1}).observe(s);}
 function loadMore(){const tbody=document.getElementById('tbody');const s=document.getElementById('sentinel');if(s)s.remove();filtered.slice(rendered,rendered+PAGE).forEach(r=>tbody.insertAdjacentHTML('beforeend',rowHTML(r)));rendered+=PAGE;if(rendered<filtered.length){const s=document.createElement('tr');s.id='sentinel';s.innerHTML='<td colspan="9"><div class="loading" style="padding:14px">Loading more...</div></td>';tbody.appendChild(s);observe();}}
+
+// Record store — avoids broken JSON-in-HTML-attribute problem
+const _rowStore = [];
+
+function openModalById(id){
+  const r = _rowStore[id];
+  if(r) openModal(r);
+}
 
 function rowHTML(r){
   const sc=r.score||0,scls=sc>=80?'sh':sc>=60?'sm':'sl';
@@ -644,8 +653,8 @@ function rowHTML(r){
   const dec=r.decedent_name?`<div class="owner-sub">Estate of ${r.decedent_name}</div>`:'';
   const sh=r.doc_type==='SHERIFF'&&r.sheriff_sale_date?`<div class="owner-sub" style="color:var(--hot)">⚡ Sale: ${r.sheriff_sale_date}</div>`:'';
   const lnk=r.clerk_url?`<a class="view-btn" href="${r.clerk_url}" target="_blank" onclick="event.stopPropagation()">View</a>`:'<span style="color:var(--muted);font-size:11px">–</span>';
-  const rj=JSON.stringify(r).replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/"/g,'&quot;');
-  return `<tr onclick="openModal('${rj}')"><td><div class="score-badge ${scls}">${sc}</div></td><td style="min-width:190px"><div class="owner-name">${r.owner||'<span style="color:var(--muted)">Unknown</span>'}</div>${dec}${addr}${sh}</td><td class="date-cell">${r.cat_label||r.doc_type||'–'}</td><td class="date-cell">${r.filed||'–'}</td><td class="amount-cell">${amt}</td><td class="date-cell" style="max-width:130px;overflow:hidden;text-overflow:ellipsis">${(r.doc_num||'').slice(0,20)}</td><td style="max-width:340px"><div class="tags">${tags}</div></td><td>${eqH}</td><td>${lnk}</td></tr>`;
+  const rid = _rowStore.push(r) - 1;
+  return `<tr onclick="openModalById(${rid})"><td><div class="score-badge ${scls}">${sc}</div></td><td style="min-width:190px"><div class="owner-name">${r.owner||'<span style="color:var(--muted)">Unknown</span>'}</div>${dec}${addr}${sh}</td><td class="date-cell">${r.cat_label||r.doc_type||'–'}</td><td class="date-cell">${r.filed||'–'}</td><td class="amount-cell">${amt}</td><td class="date-cell" style="max-width:130px;overflow:hidden;text-overflow:ellipsis">${(r.doc_num||'').slice(0,20)}</td><td style="max-width:340px"><div class="tags">${tags}</div></td><td>${eqH}</td><td>${lnk}</td></tr>`;
 }
 
 function tagHTML(f){const fl=f.toLowerCase();let c='t-gray';if(fl.includes('hot stack')||fl.includes('sheriff')||fl.includes('foreclos')||fl.includes('⚡'))c='t-hot';else if(fl.includes('tax')||fl.includes('debt')||fl.includes('lien')||fl.includes('judgment'))c='t-warn';else if(fl.includes('absentee')||fl.includes('out-of-state')||fl.includes('inherited')||fl.includes('probate')||fl.includes('executor'))c='t-blue';else if(fl.includes('vacant')||fl.includes('code')||fl.includes('nuisance')||fl.includes('violation'))c='t-purple';else if(fl.includes('new this week'))c='t-green';else if(fl.includes('subject-to')||fl.includes('equity')||fl.includes('prime'))c='t-gold';return `<span class="tag ${c}">${f}</span>`;}
@@ -903,7 +912,8 @@ function useAIArv(val){
   const w=document.querySelector('.da-wrap');if(w)w.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-function openModal(rj){
+function openModal(r){
+  if(!r||typeof r!=='object')return;
   const flags=r.flags||[],isSh=r.doc_type==='SHERIFF',isPro=r.doc_type==='PRO',isVL=r.doc_type==='VACLAND';
   const eq=r.est_equity!=null?'$'+Number(r.est_equity).toLocaleString():'–';
   const eqC=r.est_equity!=null?(r.est_equity>=0?'gr':'rd'):'';
@@ -945,7 +955,7 @@ function openModal(rj){
       <div class="mf full" style="margin-top:8px;">
         <div class="ml" style="margin-bottom:6px;">AI Value Estimator <span style="color:var(--muted);font-weight:400;font-size:9px;letter-spacing:.04em;">— Claude analyzes neighborhood + distress</span></div>
         <div id="ai-val-box" style="background:var(--bg);border:1px solid var(--border2);border-radius:8px;padding:12px;">
-          <button onclick="runAIValuation(${JSON.stringify({prop_address:r.prop_address,prop_city:r.prop_city,prop_zip:r.prop_zip,assessed_value:r.assessed_value,estimated_value:r.estimated_value,last_sale_price:r.last_sale_price,last_sale_year:r.last_sale_year,luc:r.luc,doc_type:r.doc_type,distress_count:r.distress_count,flags:r.flags}).replace(/"/g,'&quot;')})" style="background:linear-gradient(135deg,rgba(245,166,35,.2),rgba(74,245,166,.15));border:1px solid rgba(245,166,35,.4);border-radius:6px;padding:8px 18px;color:var(--accent);font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;cursor:pointer;letter-spacing:.06em;width:100%;transition:all .2s;" onmouseover="this.style.borderColor='rgba(245,166,35,.7)'" onmouseout="this.style.borderColor='rgba(245,166,35,.4)'">
+          <button onclick="runAIValuation(_lastModalRecord)" style="background:linear-gradient(135deg,rgba(245,166,35,.2),rgba(74,245,166,.15));border:1px solid rgba(245,166,35,.4);border-radius:6px;padding:8px 18px;color:var(--accent);font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;cursor:pointer;letter-spacing:.06em;width:100%;transition:all .2s;" onmouseover="this.style.borderColor='rgba(245,166,35,.7)'" onmouseout="this.style.borderColor='rgba(245,166,35,.4)'">
             ✨ Run AI Valuation — Get ARV Range + Neighborhood Analysis
           </button>
           <div id="ai-val-result" style="margin-top:0;"></div>
@@ -968,11 +978,12 @@ function openModal(rj){
       <div class="mtags">${flags.map(tagHTML).join('')}</div>
       <div class="mact">
         ${r.clerk_url?`<a class="btn btn-primary" href="${r.clerk_url}" target="_blank">View Public Record</a>`:''}
-        <button class="btn btn-ghost" onclick="exportRow(event,${JSON.stringify(r).replace(/"/g,'&quot;')})">Export Row</button>
+        <button class="btn btn-ghost" onclick="exportRow(event,_lastModalRecord)">Export Row</button>
         <button class="btn btn-ghost" onclick="closeModal()">Close</button>
       </div>
     </div>`;
   document.getElementById('modal').classList.add('open');
+  window._lastModalRecord = r;
   // Reset modal analyzer state fresh each time
   setTimeout(()=>{
     _mRow=0;_mCond='medium';_mMode='wholesale';_mFlip=false;_mAddons={};
@@ -1004,7 +1015,7 @@ function toBatchDataCSV(rows){
 function dl(name,content){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([content],{type:'text/csv'}));a.download=name;a.click();}
 function exportCSV(){const rows=filtered.length?filtered:curRecs;dl(`skip_trace_${new Date().toISOString().slice(0,10)}.csv`,toBatchDataCSV(rows));}
 function exportHotStack(){const rows=(filtered.length?filtered:curRecs).filter(r=>r.hot_stack);if(!rows.length){alert('No Hot Stack leads');return;}dl(`hot_stack_${new Date().toISOString().slice(0,10)}.csv`,toBatchDataCSV(rows));}
-function exportRow(e,r){e.stopPropagation();dl(`lead_${r.doc_num||'export'}.csv`,toBatchDataCSV([r]));}
+function exportRow(e,r){e.stopPropagation();if(r&&typeof r==='object')dl(`lead_${r.doc_num||'export'}.csv`,toBatchDataCSV([r]));}
 
 // ═══════════════════════════════════════════════════════════════
 // FULL-PAGE DEAL ANALYZER
