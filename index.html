@@ -840,79 +840,176 @@ function mCalc(){
 // ── URL HELPERS ────────────────────────────────────────────────
 function zillowUrl(r){const a=encodeURIComponent([r.prop_address,r.prop_city||'Akron','OH',r.prop_zip].filter(Boolean).join(' '));return `https://www.zillow.com/homes/${a}_rb/`;}
 function redfinUrl(r){
-  // Redfin working URL: /OH/City/StreetAddr-Zip/home — they 301 to correct listing
-  // If not found they show search results for that area
-  const city=(r.prop_city||'Akron').trim().replace(/\s+/g,'-');
-  const street=(r.prop_address||'').trim().replace(/\s+/g,'-').replace(/[^A-Za-z0-9\-]/g,'');
-  const zip=r.prop_zip||'44301';
-  if(street){
-    return `https://www.redfin.com/OH/${city}/${street}-${zip}/home/0`;
-  }
-  return `https://www.redfin.com/city/1094/OH/Akron`;
+  // Redfin: their search page with address pre-filled — confirmed working
+  const q=encodeURIComponent([r.prop_address,r.prop_city||'Akron','OH',r.prop_zip].filter(Boolean).join(', '));
+  return `https://www.redfin.com/OH/Akron/filter/property-type=house,min-price=10k?q=${q}`;
 }
 function auditorUrl(r){if(r.parcel_id)return `https://fiscaloffice.summitoh.net/index.php/real-estate/property-search?parcel=${encodeURIComponent(r.parcel_id)}`;return `https://fiscaloffice.summitoh.net/index.php/real-estate/property-search?address=${encodeURIComponent(r.prop_address||'')}`;}
 function googleUrl(r){const a=encodeURIComponent([r.prop_address,r.prop_city||'Akron','OH'].filter(Boolean).join(', '));return `https://www.google.com/maps/search/?api=1&query=${a}`;}
 
-// ── AI VALUATION ──────────────────────────────────────────────
-async function runAIValuation(propData){
+
+// ── NEIGHBORHOOD DATA ─────────────────────────────────────────
+const AKRON_HOODS={
+  'highland square':{tier:'A',low:130000,base:155000,high:185000},
+  'west hill':      {tier:'A',low:125000,base:150000,high:180000},
+  'merriman':       {tier:'A',low:140000,base:165000,high:200000},
+  'fairlawn':       {tier:'A',low:150000,base:175000,high:210000},
+  'bath':           {tier:'A',low:160000,base:195000,high:240000},
+  'chapel hill':    {tier:'A',low:120000,base:145000,high:175000},
+  'ellet':          {tier:'B',low:90000, base:115000,high:140000},
+  'goodyear heights':{tier:'B',low:80000,base:105000,high:130000},
+  'firestone park': {tier:'B',low:75000, base:98000, high:125000},
+  'sherbondy hill': {tier:'B',low:70000, base:92000, high:115000},
+  'middlebury':     {tier:'B',low:65000, base:88000, high:110000},
+  'north hill':     {tier:'C',low:50000, base:68000, high:88000},
+  'south akron':    {tier:'C',low:45000, base:62000, high:82000},
+  'kenmore':        {tier:'C',low:48000, base:65000, high:85000},
+  'wooster':        {tier:'C',low:45000, base:60000, high:78000},
+  'buchtel':        {tier:'C',low:42000, base:58000, high:75000},
+  'summit lake':    {tier:'D',low:28000, base:42000, high:58000},
+  'perkins':        {tier:'D',low:30000, base:44000, high:60000},
+  'east akron':     {tier:'D',low:32000, base:46000, high:62000},
+  'akron':          {tier:'C',low:55000, base:75000, high:100000},
+};
+const ZIP_HOOD={
+  '44301':'south akron','44302':'highland square','44303':'west hill',
+  '44304':'north hill', '44305':'east akron',    '44306':'south akron',
+  '44307':'kenmore',    '44308':'akron',          '44310':'north hill',
+  '44312':'ellet',      '44313':'merriman',       '44314':'firestone park',
+  '44319':'firestone park','44320':'chapel hill', '44321':'fairlawn',
+  '44333':'bath',       '44334':'fairlawn',
+};
+const TIER_LABELS={A:'Premium Area',B:'Solid Market',C:'Working Class',D:'Distressed Area'};
+const TIER_COLORS={A:'var(--accent3)',B:'var(--accent)',C:'var(--warm)',D:'var(--hot)'};
+const TIER_COMPS={
+  A:'Merriman Rd, W Market St, Portage Path',
+  B:'Goodyear Blvd, Manchester Rd, Waterloo Rd',
+  C:'N Howard St, Kenmore Blvd, S Main St',
+  D:'Wooster Ave, Brown St, Exchange St',
+};
+const TIER_NOTES={
+  A:'Desirable area — retail buyers compete here, price tight and move fast.',
+  B:'Bread-and-butter Akron investor market — solid rental or flip candidate.',
+  C:'High-volume distress area — verify comps carefully, cash buyers only.',
+  D:'Deep discount market — price for extended hold and limited buyer pool.',
+};
+
+function detectHood(r){
+  const addr=(r.prop_address||'').toLowerCase();
+  const city=(r.prop_city||'').toLowerCase();
+  const zip=(r.prop_zip||'').replace(/\D/g,'').slice(0,5);
+  const clues=[
+    ['highland square','highland square'],['market st','highland square'],
+    ['portage','west hill'],['north hill','north hill'],
+    ['south akron','south akron'],['kenmore','kenmore'],
+    ['goodyear','goodyear heights'],['firestone','firestone park'],
+    ['summit lake','summit lake'],['wooster','wooster'],
+    ['buchtel','buchtel'],['merriman','merriman'],
+    ['bath','bath'],['chapel','chapel hill'],['ellet','ellet'],
+    ['perkins','perkins'],['east akron','east akron'],
+    ['middlebury','middlebury'],['sherbondy','sherbondy hill'],
+  ];
+  for(const[kw,hood]of clues){if(addr.includes(kw)||city.includes(kw))return hood;}
+  if(zip&&ZIP_HOOD[zip])return ZIP_HOOD[zip];
+  return 'akron';
+}
+
+function calcDistressDiscount(r){
+  const dt=(r.doc_type||'').toUpperCase();
+  const flags=(r.flags||[]).join(' ').toLowerCase();
+  let d=0;
+  if(dt==='SHERIFF')d+=25;
+  else if(['LP','NOFC','TAXDEED'].includes(dt))d+=20;
+  else if(dt==='PRO')d+=18;
+  else if(['TAX','TAXDELINQ'].includes(dt))d+=15;
+  else if(dt==='CODEVIOLATION')d+=12;
+  else if(dt==='VHOME')d+=15;
+  else if(dt==='FIREDMG')d+=30;
+  if(flags.includes('vacant home'))d+=5;
+  if(flags.includes('out-of-state'))d+=3;
+  if(flags.includes('absentee'))d+=3;
+  if((r.distress_count||0)>=3)d+=5;
+  return Math.min(d,40);
+}
+
+function localValuation(r){
+  const hood=detectHood(r);
+  const hd=AKRON_HOODS[hood]||AKRON_HOODS['akron'];
+  let {low,base,high}=hd;
+  const factors=[];
+  let dataSources=0;
+
+  // 1. Assessed value cross-check (Ohio = 35% of market)
+  if(r.assessed_value&&r.assessed_value>5000){
+    const am=Math.round(r.assessed_value/0.35);
+    base=Math.round(base*0.55+am*0.45);
+    low=Math.round(base*0.87); high=Math.round(base*1.15);
+    factors.push(`Assessed $${Math.round(r.assessed_value).toLocaleString()} → market ~$${am.toLocaleString()}`);
+    dataSources++;
+  }
+
+  // 2. Last sale + appreciation
+  if(r.last_sale_price&&r.last_sale_price>10000&&r.last_sale_year){
+    const yrs=Math.max(0,new Date().getFullYear()-r.last_sale_year);
+    const appr=Math.round(r.last_sale_price*Math.pow(1.04,yrs));
+    if(r.last_sale_price>hd.base*0.5){
+      base=Math.round(base*0.5+appr*0.5);
+      low=Math.round(base*0.87); high=Math.round(base*1.15);
+      factors.push(`Sold $${Math.round(r.last_sale_price).toLocaleString()} (${r.last_sale_year}) → +4%/yr = ~$${appr.toLocaleString()}`);
+      dataSources++;
+    }
+  }
+
+  factors.push(`${TIER_LABELS[hd.tier]} — typical $${Math.round(hd.low/1000)}k–$${Math.round(hd.high/1000)}k`);
+
+  const discPct=calcDistressDiscount(r);
+  if(discPct>0)factors.push(`${discPct}% distress discount (${r.doc_type||'distressed'})`);
+  const distressedVal=Math.round(base*(1-discPct/100));
+  const confidence=dataSources>=2?'high':dataSources===1?'medium':'low';
+
+  return {hood,tier:hd.tier,low,base,high,distressedVal,discPct,confidence,factors};
+}
+
+async function runAIValuation(r){
+  if(!r)return;
   const box=document.getElementById('ai-val-result');
   const btn=document.querySelector('#ai-val-box button');
   if(!box)return;
-  if(btn){btn.disabled=true;btn.textContent='⏳ Analyzing neighborhood...';}
-  box.innerHTML='<div style="margin-top:10px;padding:10px;font-family:\'Space Mono\',monospace;font-size:11px;color:var(--muted);text-align:center;">Running AI neighborhood analysis...</div>';
-  const {prop_address,prop_city,prop_zip,assessed_value,estimated_value,last_sale_price,last_sale_year,luc,doc_type,distress_count,flags}=propData;
-  const addr=[prop_address,prop_city||'Akron','OH',prop_zip].filter(Boolean).join(', ');
-  const prompt=`You are an expert real estate investor and appraiser specializing in Akron, Ohio distressed properties.
-
-Analyze this property and give a realistic ARV range:
-ADDRESS: ${addr}
-ASSESSED VALUE: ${assessed_value?'$'+Math.round(assessed_value).toLocaleString():'unknown'} (Ohio assesses at ~35% of market)
-CURRENT SYSTEM EST: ${estimated_value?'$'+Math.round(estimated_value).toLocaleString():'unknown'}
-LAST SALE: ${last_sale_price?'$'+Math.round(last_sale_price).toLocaleString()+' ('+(last_sale_year||'?')+')':'no history'}
-LAND USE CODE: ${luc||'residential'}
-DISTRESS TYPE: ${doc_type} (${distress_count} signals)
-FLAGS: ${(flags||[]).join(', ')||'none'}
-
-Steps:
-1. Identify Akron neighborhood (North Hill, South Akron, West Akron, Kenmore, Ellet, Highland Square, Goodyear Heights, Firestone Park, etc.)
-2. Apply tier: A=$120-200k, B=$80-130k, C=$50-90k, D=$30-60k
-3. Assessed/0.35 = rough market value
-4. Apply distress discount 15-25%
-5. Cross-check last sale + appreciation
-
-Respond ONLY with this JSON (no markdown):
-{"neighborhood":"name","tier":"A/B/C/D","tier_reason":"one sentence","arv_low":75000,"arv_base":90000,"arv_high":105000,"distress_discount_pct":20,"distressed_value":72000,"confidence":"high/medium/low","confidence_reason":"one sentence","key_factors":["factor1","factor2","factor3"],"comparable_streets":"1-2 comparable Akron streets","investor_note":"one sharp sentence for a wholesaler"}`;
+  if(btn){btn.disabled=true;btn.textContent='⏳ Analyzing...';}
+  box.innerHTML='<div style="margin-top:10px;padding:10px;font-family:\'Space Mono\',monospace;font-size:11px;color:var(--muted);text-align:center;">Running neighborhood analysis...</div>';
+  await new Promise(res=>setTimeout(res,350));
   try{
-    const resp=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:600,messages:[{role:'user',content:prompt}]})});
-    const data=await resp.json();
-    const raw=(data.content||[]).map(c=>c.text||'').join('');
-    let val;try{val=JSON.parse(raw.replace(/```json|```/g,'').trim());}catch(e){throw new Error('Parse failed');}
-    const fmt=v=>v?'$'+Math.round(v).toLocaleString():'–';
-    const tc={A:'var(--accent3)',B:'var(--accent)',C:'var(--warm)',D:'var(--hot)'}[val.tier]||'var(--muted)';
-    const cc={high:'var(--accent3)',medium:'var(--accent)',low:'var(--warm)'}[val.confidence]||'var(--muted)';
+    const v=localValuation(r);
+    const fmt=n=>n?'$'+Math.round(n).toLocaleString():'–';
+    const tc=TIER_COLORS[v.tier]||'var(--muted)';
+    const cc={high:'var(--accent3)',medium:'var(--accent)',low:'var(--warm)'}[v.confidence]||'var(--muted)';
     box.innerHTML=`<div style="margin-top:12px;background:var(--surface);border:1px solid var(--border2);border-radius:10px;overflow:hidden;">
       <div style="background:linear-gradient(135deg,rgba(245,166,35,.12),rgba(74,245,166,.08));padding:12px 16px;border-bottom:1px solid var(--border);">
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
-          <div><div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:3px;">AI ARV Estimate</div><div style="font-size:28px;font-weight:800;font-family:'Space Mono',monospace;color:var(--accent);">${fmt(val.arv_base)}</div></div>
-          <div style="display:flex;gap:8px;align-items:center;">
-            <div style="text-align:center;"><div style="font-size:9px;color:var(--muted);margin-bottom:2px;">LOW</div><div style="font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--accent2);">${fmt(val.arv_low)}</div></div>
-            <div style="color:var(--border);font-size:14px;">→</div>
-            <div style="text-align:center;"><div style="font-size:9px;color:var(--muted);margin-bottom:2px;">HIGH</div><div style="font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--accent3);">${fmt(val.arv_high)}</div></div>
+          <div><div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:3px;">ARV Estimate</div><div style="font-size:28px;font-weight:800;font-family:'Space Mono',monospace;color:var(--accent);">${fmt(v.base)}</div></div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <div style="text-align:center;"><div style="font-size:9px;color:var(--muted);font-family:'Space Mono',monospace;margin-bottom:2px;">LOW</div><div style="font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--accent2);">${fmt(v.low)}</div></div>
+            <div style="color:var(--border2);font-size:12px;">→</div>
+            <div style="text-align:center;"><div style="font-size:9px;color:var(--muted);font-family:'Space Mono',monospace;margin-bottom:2px;">HIGH</div><div style="font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--accent3);">${fmt(v.high)}</div></div>
           </div>
         </div>
       </div>
       <div style="padding:12px 16px;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-        <div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px;">Neighborhood</div><div style="font-size:13px;font-weight:700;">${val.neighborhood||'–'}</div><div style="font-size:10px;color:var(--muted);margin-top:2px;">${val.comparable_streets||''}</div></div>
-        <div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px;">Tier / Confidence</div><div style="display:flex;gap:6px;align-items:center;"><span style="font-size:16px;font-weight:900;color:${tc};font-family:'Space Mono',monospace;">Tier ${val.tier}</span><span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;background:rgba(255,255,255,.06);color:${cc};">${val.confidence}</span></div><div style="font-size:10px;color:var(--muted);margin-top:2px;">${val.tier_reason||''}</div></div>
-        <div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px;">Distressed Value</div><div style="font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--hot);">${fmt(val.distressed_value)}</div><div style="font-size:10px;color:var(--muted);">−${val.distress_discount_pct||0}% distress discount</div></div>
-        <div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px;">Key Factors</div><div style="font-size:10px;color:var(--muted2);line-height:1.6;">${(val.key_factors||[]).join(' · ')}</div></div>
-        <div style="grid-column:1/-1;background:rgba(245,166,35,.07);border:1px solid rgba(245,166,35,.2);border-radius:7px;padding:9px 12px;"><div style="font-size:9px;color:var(--accent);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">💡 Investor Note</div><div style="font-size:12px;font-style:italic;">${val.investor_note||''}</div></div>
-        <div style="grid-column:1/-1;"><button onclick="useAIArv(${val.arv_base||0})" style="width:100%;padding:8px;border-radius:6px;border:1px solid rgba(245,166,35,.4);background:rgba(245,166,35,.1);color:var(--accent);font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;cursor:pointer;letter-spacing:.05em;">→ Use ${fmt(val.arv_base)} as Base ARV in Deal Analyzer</button></div>
-      </div></div>`;
-    if(btn){btn.disabled=false;btn.textContent='✨ Re-run AI Valuation';}
+        <div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">Neighborhood</div><div style="font-size:13px;font-weight:700;text-transform:capitalize;">${v.hood.replace(/-/g,' ')}</div><div style="font-size:10px;color:var(--muted);margin-top:2px;">${TIER_COMPS[v.tier]}</div></div>
+        <div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">Tier / Confidence</div><div style="display:flex;gap:6px;align-items:center;"><span style="font-size:18px;font-weight:900;color:${tc};font-family:'Space Mono',monospace;">Tier ${v.tier}</span><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:rgba(255,255,255,.06);color:${cc};">${v.confidence}</span></div><div style="font-size:10px;color:var(--muted);margin-top:2px;">${TIER_LABELS[v.tier]}</div></div>
+        <div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">Distressed Value</div><div style="font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--hot);">${fmt(v.distressedVal)}</div><div style="font-size:10px;color:var(--muted);">−${v.discPct}% distress discount</div></div>
+        <div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">How We Got Here</div><div style="font-size:10px;color:var(--muted2);line-height:1.8;">${v.factors.join('<br>')}</div></div>
+        <div style="grid-column:1/-1;background:rgba(245,166,35,.07);border:1px solid rgba(245,166,35,.2);border-radius:7px;padding:9px 12px;"><div style="font-size:9px;color:var(--accent);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">💡 Investor Note</div><div style="font-size:12px;font-style:italic;color:var(--text);">${TIER_NOTES[v.tier]}</div></div>
+        <div style="grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <button onclick="useAIArv(${v.base})" style="padding:8px;border-radius:6px;border:1px solid rgba(245,166,35,.4);background:rgba(245,166,35,.1);color:var(--accent);font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;cursor:pointer;">→ Use ${fmt(v.base)} as ARV</button>
+          <button onclick="useAIArv(${v.distressedVal})" style="padding:8px;border-radius:6px;border:1px solid rgba(255,68,68,.3);background:rgba(255,68,68,.08);color:var(--hot);font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;cursor:pointer;">→ Use ${fmt(v.distressedVal)} (distressed)</button>
+        </div>
+      </div>
+    </div>`;
+    if(btn){btn.disabled=false;btn.textContent='↺ Re-run Analysis';}
   }catch(e){
-    box.innerHTML=`<div style="margin-top:10px;padding:10px;font-family:'Space Mono',monospace;font-size:11px;color:var(--accent2);">Analysis failed — ${e.message}</div>`;
-    if(btn){btn.disabled=false;btn.textContent='✨ Run AI Valuation';}
+    box.innerHTML=`<div style="margin-top:10px;padding:10px;font-family:'Space Mono',monospace;font-size:11px;color:var(--accent2);">Error: ${e.message}</div>`;
+    if(btn){btn.disabled=false;btn.textContent='✨ Run Valuation';}
   }
 }
 
