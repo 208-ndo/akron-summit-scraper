@@ -1062,53 +1062,150 @@ function distressPenalty(r){
   return {pct:Math.min(d,50), reasons};
 }
 
-// ── MAIN VALUATION: TIGHTENED CONSERVATIVE LOGIC ─────────────
+// ── MAIN VALUATION: COMP-FIRST SMART LOGIC ─────────────
 function localValuation(r){
   const hood=detectHood(r);
   const hd=AKRON_HOODS[hood]||AKRON_HOODS['akron'];
   const factors=[];
   const warnings=[];
   let dataSources=0;
+  let dataQuality=0; // 0-100 score for how much to trust assessed+sale vs tier
 
+  // START: neighborhood tier as baseline
   let arvBase=hd.compMid;
   factors.push(`📍 ${hood.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())} — SOLD comps $${Math.round(hd.compLow/1000)}k–$${Math.round(hd.compHigh/1000)}k`);
   factors.push(`💲 Price/sqft range: $${hd.ppsf.low}–$${hd.ppsf.high}/sqft`);
 
+  // STEP 1: Evaluate assessed value quality
+  let assessedMarket=null;
+  let assessedWeight=0;
   if(r.assessed_value&&r.assessed_value>5000){
-    const assessedMarket=Math.round(r.assessed_value/0.35);
+    assessedMarket=Math.round(r.assessed_value/0.35);
+    
+    // Quality check: is assessed reasonable vs tier?
+    const assessedRatio=assessedMarket/hd.compMid;
+    
     if(assessedMarket<hd.compLow*0.6){
       warnings.push(`⚠️ Assessed implies $${assessedMarket.toLocaleString()} — far below comp floor, may be outdated`);
+      assessedWeight=0.1; // almost ignore it
+      dataQuality+=5;
     } else if(assessedMarket>hd.compHigh*1.3){
       warnings.push(`⚠️ Assessed implies $${assessedMarket.toLocaleString()} — far above comp ceiling, use comp range instead`);
-      arvBase=Math.round(hd.compMid*0.7+Math.min(assessedMarket,hd.compHigh)*0.3);
+      assessedWeight=0.2; // cap its influence
+      dataQuality+=10;
+    } else if(assessedRatio>=0.85 && assessedRatio<=1.15){
+      // Assessed aligns with tier - HIGH QUALITY
+      factors.push(`🏛 Assessed $${Math.round(r.assessed_value).toLocaleString()} ÷ 0.35 = $${assessedMarket.toLocaleString()} market — aligns with tier`);
+      assessedWeight=0.45; // strong signal
+      dataQuality+=35;
+      dataSources++;
     } else {
-      arvBase=Math.round(hd.compMid*0.60+assessedMarket*0.40);
+      // Assessed is reasonable but off-center
       factors.push(`🏛 Assessed $${Math.round(r.assessed_value).toLocaleString()} ÷ 0.35 = $${assessedMarket.toLocaleString()} market`);
+      assessedWeight=0.35;
+      dataQuality+=20;
       dataSources++;
     }
   }
 
+  // STEP 2: Evaluate last sale quality
+  let saleAppraised=null;
+  let saleWeight=0;
   if(r.last_sale_price&&r.last_sale_year){
     const recency=recencyAdjust(r.last_sale_price, r.last_sale_year, factors);
-    if(recency){
+    if(recency && recency.weight>0){
+      saleAppraised=recency.appraised;
+      const saleRatio=r.last_sale_price/hd.compMid;
+      
+      // Quality check: is sale reasonable vs tier?
       if(r.last_sale_price<hd.compMid*0.55){
         warnings.push(`🚨 Last sale $${Math.round(r.last_sale_price).toLocaleString()} looks like a distress/bank sale — excluded as comp`);
-      } else if(recency.weight > 0) {
-        arvBase=Math.round(arvBase*(1-recency.weight)+recency.appraised*recency.weight);
+        saleWeight=0; // exclude it
+      } else if(saleRatio>=0.8 && saleRatio<=1.2){
+        // Sale aligns with tier - HIGH QUALITY
+        saleWeight=recency.weight*1.2; // boost recent aligned sales
+        dataQuality+=40;
+        dataSources++;
+      } else {
+        // Sale is reasonable but off-center
+        saleWeight=recency.weight;
+        dataQuality+=25;
         dataSources++;
       }
     }
   }
 
-  const condMult=conditionMultiplier(r);
-  const arvRemodeled=arvBase;
-  const arvAsIs=Math.round(arvBase*condMult);
+  // STEP 3: Check if assessed + sale AGREE with each other
+  let dataAgreement=false;
+  if(assessedMarket && saleAppraised){
+    const agreementRatio=Math.min(assessedMarket,saleAppraised)/Math.max(assessedMarket,saleAppraised);
+    if(agreementRatio>=0.90){
+      // They agree strongly - TRUST THEM
+      dataAgreement=true;
+      dataQuality+=20;
+      factors.push(`✅ Assessed + sale agree closely — high confidence in data`);
+    }
+  }
 
+  // STEP 4: Smart blending based on data quality
+  let arvRemodeled=hd.compMid; // start with tier
+  
+  if(dataQuality>=60 && dataAgreement){
+    // STRONG DATA - trust assessed+sale heavily
+    const propertyValue=assessedMarket||saleAppraised;
+    arvRemodeled=Math.round(hd.compMid*0.25 + propertyValue*0.75);
+    factors.push(`🎯 Strong data quality (${dataQuality}/100) — heavily favoring assessed+sale over tier`);
+  } else if(dataQuality>=40){
+    // GOOD DATA - balanced blend
+    let blendedValue=hd.compMid;
+    let totalWeight=0.5; // tier baseline
+    
+    if(assessedMarket && assessedWeight>0){
+      blendedValue=blendedValue*(1-assessedWeight) + assessedMarket*assessedWeight;
+      totalWeight+=assessedWeight;
+    }
+    if(saleAppraised && saleWeight>0){
+      const currentBlend=blendedValue;
+      blendedValue=Math.round(currentBlend*(1-saleWeight/(totalWeight+saleWeight)) + saleAppraised*(saleWeight/(totalWeight+saleWeight)));
+      totalWeight+=saleWeight;
+    }
+    
+    arvRemodeled=Math.round(blendedValue);
+    factors.push(`📊 Good data quality (${dataQuality}/100) — balanced blend of tier+assessed+sale`);
+  } else if(dataQuality>=20){
+    // WEAK DATA - lean on tier more
+    let blendedValue=hd.compMid*0.65;
+    if(assessedMarket) blendedValue+=assessedMarket*0.20;
+    if(saleAppraised) blendedValue+=saleAppraised*0.15;
+    arvRemodeled=Math.round(blendedValue);
+    factors.push(`⚠️ Weak data quality (${dataQuality}/100) — relying more on tier table`);
+  } else {
+    // VERY WEAK DATA - use tier heavily
+    arvRemodeled=hd.compMid;
+    factors.push(`🚨 Very weak data quality (${dataQuality}/100) — using tier table as primary`);
+  }
+
+  // STEP 5: Apply tier as sanity cap (don't let bad data push beyond neighborhood ceiling)
+  if(arvRemodeled>hd.compHigh*1.1){
+    warnings.push(`⚠️ Calculated ARV $${arvRemodeled.toLocaleString()} exceeds neighborhood ceiling — capping at $${Math.round(hd.compHigh).toLocaleString()}`);
+    arvRemodeled=Math.round(hd.compHigh);
+  }
+  if(arvRemodeled<hd.compLow*0.85){
+    warnings.push(`⚠️ Calculated ARV $${arvRemodeled.toLocaleString()} below neighborhood floor — raising to $${Math.round(hd.compLow*0.90).toLocaleString()}`);
+    arvRemodeled=Math.round(hd.compLow*0.90);
+  }
+
+  // STEP 6: Condition affects AS-IS value, NOT remodeled ceiling
+  const condMult=conditionMultiplier(r);
+  const arvAsIs=Math.round(arvRemodeled*condMult);
+
+  // STEP 7: Conservative ARV = tight MAO anchor (always stays tight)
   const arvLow=Math.round(hd.compLow*0.90);
   const arvHigh=Math.round(Math.min(arvRemodeled, hd.compHigh));
   const arvConservative=Math.round((arvLow+arvRemodeled)*0.48);
   const arvSafe=Math.round(arvConservative*0.90);
 
+  // STEP 8: Distress penalty affects OFFER, not remodeled ARV
   const {pct:discPct, reasons:discReasons}=distressPenalty(r);
   const distressedVal=Math.round(arvRemodeled*(1-discPct/100));
 
@@ -1116,7 +1213,7 @@ function localValuation(r){
   factors.push(`🔑 Rule: ARV = AFTER full renovation. As-is value ≈ $${arvAsIs.toLocaleString()}`);
   factors.push(`✅ Conservative ARV (low side): $${arvSafe.toLocaleString()} — use this for MAO`);
 
-  const confidence=dataSources>=2?'medium':dataSources===1?'low':'very-low';
+  const confidence=dataQuality>=60?'high':dataQuality>=40?'medium':dataQuality>=20?'low':'very-low';
 
   const notes={
     A:{rule:'Premium area — retail buyers compete. Even distressed sells well here. Tight your numbers.',
