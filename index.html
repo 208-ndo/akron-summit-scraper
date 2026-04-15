@@ -994,6 +994,14 @@ const TIER_COMPS={
 
 // ── STEP 1: DETECT NEIGHBORHOOD ──────────────────────────────
 function detectHood(r){
+  console.log('detectHood debug', {
+    prop_address: r.prop_address,
+    prop_city: r.prop_city,
+    prop_zip: r.prop_zip,
+    mail_address: r.mail_address,
+    mail_city: r.mail_city
+  });
+  
   const addr=(r.prop_address||'').toLowerCase();
   const city=(r.prop_city||'').toLowerCase();
   let zip=(r.prop_zip||'').replace(/\D/g,'').slice(0,5);
