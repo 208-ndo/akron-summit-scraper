@@ -1200,20 +1200,51 @@ function localValuation(r){
   let dataAgreement=false;
   // Sale data not available, agreement check bypassed
 
-  // MISMATCH SAFEGUARD: Before smart blending
+  // MISMATCH SAFEGUARD: Multi-Tier Fallback
   if(r.estimated_value && r.estimated_value>5000 && (hoodSource==='default' || hoodConfidence==='low')){
     const estimateRatio=r.estimated_value/effectiveCompHigh;
-    if(estimateRatio>1.3){
-      // Estimated value is 30%+ above tier ceiling AND hood source is weak
+    
+    if(estimateRatio>1.5){
+      // Value is 50%+ above tier ceiling AND hood source is weak - check cross-tier fit
       mismatchDetected=true;
-      warnings.push(`⚠️ Hood detection uncertain (${hoodSource}) — estimated value $${r.estimated_value.toLocaleString()} suggests higher tier possible`);
-      factors.push(`🔍 Mismatch detected: widening ARV band to avoid under-valuation`);
+      let crossTierCeiling=effectiveCompHigh;
+      let suggestedTier='';
       
-      // Widen the LOCAL ceiling to accommodate possible mismatch
-      effectiveCompHigh=Math.round(Math.min(r.estimated_value*1.1, hd.compHigh*1.5));
+      // Tier range constants (conservative mid-points)
+      const TIER_A_MIN=120000, TIER_A_MAX=245000;
+      const TIER_B_MIN=75000,  TIER_B_MAX=140000;
+      const TIER_C_MIN=40000,  TIER_C_MAX=95000;
+      const TIER_D_MIN=25000,  TIER_D_MAX=60000;
       
-      // Lower data quality confidence when hood is uncertain
-      dataQuality=Math.max(5, dataQuality-10);
+      // Check if value fits better in a higher tier
+      if(hd.tier==='D' || hd.tier==='C'){
+        if(r.estimated_value>=TIER_A_MIN){
+          suggestedTier='A';
+          crossTierCeiling=Math.min(r.estimated_value*1.1, TIER_A_MAX);
+        } else if(r.estimated_value>=TIER_B_MIN){
+          suggestedTier='B';
+          crossTierCeiling=Math.min(r.estimated_value*1.1, TIER_B_MAX);
+        }
+      } else if(hd.tier==='B'){
+        if(r.estimated_value>=TIER_A_MIN){
+          suggestedTier='A';
+          crossTierCeiling=Math.min(r.estimated_value*1.1, TIER_A_MAX);
+        }
+      }
+      
+      if(suggestedTier){
+        // Cross-tier match found
+        warnings.push(`⚠️ Hood uncertain (${hoodSource}) — value $${r.estimated_value.toLocaleString()} suggests Tier ${suggestedTier} possible`);
+        factors.push(`🔍 Cross-tier fallback: Tier ${hd.tier} → Tier ${suggestedTier} range (widened ceiling to $${Math.round(crossTierCeiling).toLocaleString()})`);
+        effectiveCompHigh=Math.round(crossTierCeiling);
+        dataQuality=Math.max(5, dataQuality-15); // Heavier penalty for cross-tier uncertainty
+      } else {
+        // No clean tier fit - just widen by 50%
+        warnings.push(`⚠️ Hood uncertain (${hoodSource}) — value $${r.estimated_value.toLocaleString()} above tier ceiling`);
+        factors.push(`🔍 Widening ARV band to avoid under-valuation`);
+        effectiveCompHigh=Math.round(Math.min(r.estimated_value*1.1, hd.compHigh*1.5));
+        dataQuality=Math.max(5, dataQuality-10);
+      }
     }
   }
 
