@@ -409,6 +409,18 @@
   <div class="da-page-title">Deal <span>Analyzer</span></div>
   <div class="da-page-sub">MAO Engine · Live Fee Slider · Seller Ask · Max Assignment Fee · Deal Health</div>
 
+  <!-- AI Valuation Quick Access -->
+  <div style="margin-bottom:14px;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:8px;">
+    <div style="display:grid;grid-template-columns:1fr auto;gap:8px;align-items:end;">
+      <div>
+        <div style="font-size:10px;color:var(--muted);margin-bottom:4px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;">Property Address</div>
+        <input type="text" id="da-addr-search" placeholder="e.g., 700 Glendora Ave" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-family:'Space Mono',monospace;font-size:12px;color:var(--text);outline:none;">
+        <div id="da-addr-msg" style="font-size:10px;color:var(--muted);margin-top:4px;min-height:14px;"></div>
+      </div>
+      <button onclick="runDAValuation()" style="padding:9px 16px;background:linear-gradient(135deg,rgba(245,166,35,.15),rgba(245,166,35,.08));border:1px solid rgba(245,166,35,.4);border-radius:6px;color:var(--accent);font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.06em;white-space:nowrap;">✨ Run AI Valuation</button>
+    </div>
+  </div>
+
   <!-- ROW 1: BUYER MODE + ARV -->
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
 
@@ -1001,6 +1013,60 @@ const TIER_COMPS={
   D:'Comp streets: Wooster Ave, Brown St, Exchange St',
 };
 
+// ── RUN AI VALUATION FROM DEAL ANALYZER ──────────────────────
+function runDAValuation(){
+  const addrInput=document.getElementById('da-addr-search');
+  const msg=document.getElementById('da-addr-msg');
+  const addr=(addrInput?.value||'').trim().toLowerCase();
+  
+  if(!addr){
+    msg.textContent='⚠️ Please enter an address';
+    msg.style.color='var(--hot)';
+    return;
+  }
+  
+  // Search in current loaded records
+  const match=curRecs.find(r=>{
+    const propAddr=(r.prop_address||'').toLowerCase();
+    return propAddr.includes(addr) || addr.includes(propAddr);
+  });
+  
+  if(!match){
+    msg.textContent='❌ No match found in loaded records';
+    msg.style.color='var(--hot)';
+    return;
+  }
+  
+  // Run existing AI valuation logic
+  msg.textContent='⏳ Running AI valuation...';
+  msg.style.color='var(--muted)';
+  
+  try{
+    const v=localValuation(match); // REUSE EXISTING FUNCTION
+    
+    // Auto-fill ARV fields
+    const lowInput=document.getElementById('da-arv-low');
+    const baseInput=document.getElementById('da-arv');
+    const highInput=document.getElementById('da-arv-high');
+    
+    if(lowInput) lowInput.value=Math.round(v.arvSafe); // Conservative/safe ARV
+    if(baseInput) baseInput.value=Math.round(v.arvRemodeled); // Remodeled ARV
+    if(highInput) highInput.value=Math.round(v.arvHigh); // Ceiling ARV
+    
+    // Trigger calculation
+    mSyncARVs();
+    mCalc();
+    
+    // Success message
+    msg.textContent=`✅ ${match.prop_address} — Tier ${v.tier} (${v.confidence} confidence)`;
+    msg.style.color='var(--accent3)';
+  }catch(e){
+    msg.textContent='❌ Valuation failed';
+    msg.style.color='var(--hot)';
+    console.error(e);
+  }
+}
+
 // ── STEP 1: DETECT NEIGHBORHOOD ──────────────────────────────
 function detectHood(r){
   const addr=(r.prop_address||'').toLowerCase();
@@ -1370,7 +1436,7 @@ function localValuation(r){
   };
   const note=notes[hd.tier];
 
-  return {hood, tier:activeTier, arvLow, arvRemodeled, arvConservative, arvSafe, arvAsIs,
+  return {hood, tier:activeTier, arvLow, arvHigh, arvRemodeled, arvConservative, arvSafe, arvAsIs,
           distressedVal, discPct, confidence, dataSources, factors, warnings, note};
 }
 
