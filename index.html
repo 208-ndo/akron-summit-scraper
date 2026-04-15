@@ -983,6 +983,15 @@ const ZIP_HOOD={
   '44333':'bath',       '44334':'fairlawn',
 };
 
+const STREET_HOOD={
+  // Chapel Hill (44320)
+  'glendora':'chapel hill',
+  
+  // Add more validated streets here as you manually test addresses
+  // Example format:
+  // 'street-name':'neighborhood',
+};
+
 const TIER_LABELS={A:'Premium',B:'Solid',C:'Working Class',D:'Deep Discount'};
 const TIER_COLORS={A:'var(--accent3)',B:'var(--accent)',C:'var(--warm)',D:'var(--hot)'};
 const TIER_COMPS={
@@ -994,17 +1003,10 @@ const TIER_COMPS={
 
 // ── STEP 1: DETECT NEIGHBORHOOD ──────────────────────────────
 function detectHood(r){
-  console.log('detectHood debug', {
-    prop_address: r.prop_address,
-    prop_city: r.prop_city,
-    prop_zip: r.prop_zip,
-    mail_address: r.mail_address,
-    mail_city: r.mail_city
-  });
-  
   const addr=(r.prop_address||'').toLowerCase();
   const city=(r.prop_city||'').toLowerCase();
   let zip=(r.prop_zip||'').replace(/\D/g,'').slice(0,5);
+  let matchType='default'; // Track which rule matched
   
   const clues=[
     ['highland square','highland square'],['market st','highland square'],
@@ -1016,25 +1018,49 @@ function detectHood(r){
     ['bath','bath'],['chapel','chapel hill'],['ellet','ellet'],
     ['perkins','perkins'],['east akron','east akron'],
     ['middlebury','middlebury'],['sherbondy','sherbondy hill'],
-    ['glendora','chapel hill'],
   ];
   
-  // Check address/city keywords first
-  for(const[kw,hood]of clues){if(addr.includes(kw)||city.includes(kw))return hood;}
+  // STEP 1: Check address/city keywords first (highest priority)
+  for(const[kw,hood]of clues){
+    if(addr.includes(kw)||city.includes(kw)){
+      matchType='keyword';
+      console.log(`detectHood: ${addr} → ${hood} (${matchType})`);
+      return hood;
+    }
+  }
   
-  // Check prop_zip field
-  if(zip&&ZIP_HOOD[zip])return ZIP_HOOD[zip];
+  // STEP 2: Check prop_zip field
+  if(zip&&ZIP_HOOD[zip]){
+    matchType='zip';
+    console.log(`detectHood: ${addr} → ${ZIP_HOOD[zip]} (${matchType})`);
+    return ZIP_HOOD[zip];
+  }
   
-  // Fallback: try to extract ZIP from any available location string
+  // STEP 3: Fallback - try to extract ZIP from any available location string
   if(!zip){
     const locationStr=[r.prop_address,r.prop_city,r.mail_address,r.mail_city].filter(Boolean).join(' ');
     const match=locationStr.match(/\b(443\d{2})\b/);
     if(match){
       zip=match[1];
-      if(ZIP_HOOD[zip])return ZIP_HOOD[zip];
+      if(ZIP_HOOD[zip]){
+        matchType='zip-extracted';
+        console.log(`detectHood: ${addr} → ${ZIP_HOOD[zip]} (${matchType})`);
+        return ZIP_HOOD[zip];
+      }
     }
   }
   
+  // STEP 4: Check validated STREET_HOOD map
+  for(const[street,hood]of Object.entries(STREET_HOOD)){
+    if(addr.includes(street)){
+      matchType='street';
+      console.log(`detectHood: ${addr} → ${hood} (${matchType})`);
+      return hood;
+    }
+  }
+  
+  // STEP 5: Default fallback
+  console.log(`detectHood: ${addr} → akron (${matchType})`);
   return 'akron';
 }
 
