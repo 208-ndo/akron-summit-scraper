@@ -1,425 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Akron Data - Enhanced Deal Analyzer</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Barlow+Condensed:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<style>
-  :root{--bg:#0a0a0f;--surface:#12121a;--surface2:#1a1a26;--surface3:#1e1e28;--border:#2a2a3a;--border2:#32324a;--accent:#f5a623;--accent2:#e85d4a;--accent3:#4af5a6;--accent4:#5d8ef5;--text:#e8e8f0;--muted:#6b6b8a;--muted2:#9090b0;--hot:#ff4444;--warm:#ff8c00;--cool:#44aaff;}
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-height:100vh;overflow-x:hidden;}
-
-  .topbar{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px;}
-  .brand{display:flex;align-items:center;gap:10px;}
-  .brand-dot{width:10px;height:10px;border-radius:50%;background:var(--accent3);animation:pulse 2s infinite;}
-  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
-  .brand-name{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;}
-  .brand-sub{font-size:11px;color:var(--muted);font-family:'Space Mono',monospace;}
-  .updated{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);}
-
-  .statsbar{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;gap:20px;overflow-x:auto;scrollbar-width:none;}
-  .statsbar::-webkit-scrollbar{display:none;}
-  .stat{display:flex;flex-direction:column;align-items:center;min-width:72px;}
-  .stat-num{font-size:20px;font-weight:800;line-height:1;}
-  .stat-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:3px;white-space:nowrap;}
-  .stat-num.hot{color:var(--hot);}.stat-num.warm{color:var(--warm);}.stat-num.cool{color:var(--cool);}.stat-num.green{color:var(--accent3);}.stat-num.gold{color:var(--accent);}
-  .sdiv{width:1px;background:var(--border);align-self:stretch;margin:0 2px;}
-
-  .tabs-wrap{background:var(--surface);border-bottom:1px solid var(--border);padding:0 24px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
-  .tabs{display:flex;gap:2px;white-space:nowrap;min-width:max-content;}
-  .tab{padding:12px 14px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:none;background:none;color:var(--muted);border-bottom:2px solid transparent;transition:all .15s;white-space:nowrap;flex-shrink:0;}
-  .tab:hover{color:var(--text);}
-  .tab.active{color:var(--text);border-bottom-color:var(--accent);}
-  .tab .badge{display:inline-flex;align-items:center;justify-content:center;background:var(--border);color:var(--muted);border-radius:10px;font-size:10px;font-weight:700;padding:1px 6px;margin-left:5px;min-width:18px;}
-  .tab.active .badge{background:var(--accent);color:#000;}
-  .tab.urgent{color:var(--hot);}
-  .tab.urgent .badge{background:var(--hot);color:#fff;}
-
-  .toolbar{padding:10px 24px;display:flex;gap:8px;align-items:center;border-bottom:1px solid var(--border);background:var(--bg);flex-wrap:wrap;}
-  .search-wrap{position:relative;flex:1;min-width:180px;}
-  .search-wrap input{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:7px 10px 7px 32px;font-family:'Space Mono',monospace;font-size:12px;color:var(--text);outline:none;}
-  .search-wrap input:focus{border-color:var(--accent);}
-  .si{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:13px;}
-  select{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-family:'Space Mono',monospace;font-size:11px;color:var(--text);outline:none;cursor:pointer;}
-  .btn{padding:7px 14px;border-radius:6px;font-family:'Syne',sans-serif;font-size:11px;font-weight:700;cursor:pointer;border:none;letter-spacing:.05em;transition:all .15s;}
-  .btn-primary{background:var(--accent);color:#000;}
-  .btn-ghost{background:var(--surface);border:1px solid var(--border);color:var(--text);}
-  .rec-count{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);margin-left:auto;}
-
-  .table-wrap{overflow:auto;height:calc(100vh - 226px);}
-  table{width:100%;border-collapse:collapse;}
-  thead th{background:var(--surface);padding:9px 14px;text-align:left;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);white-space:nowrap;position:sticky;top:0;z-index:10;cursor:pointer;}
-  tbody tr{border-bottom:1px solid var(--border);cursor:pointer;}
-  tbody tr:hover{background:var(--surface);}
-  tbody td{padding:9px 14px;font-size:13px;}
-  .score-badge{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;font-family:'Space Mono',monospace;}
-  .sh{background:rgba(255,68,68,.15);color:var(--hot);border:1px solid rgba(255,68,68,.3);}
-  .sm{background:rgba(255,140,0,.15);color:var(--warm);border:1px solid rgba(255,140,0,.3);}
-  .sl{background:rgba(74,245,166,.15);color:var(--accent3);border:1px solid rgba(74,245,166,.3);}
-  .owner-name{font-weight:700;font-size:13px;margin-bottom:2px;}
-  .owner-sub{font-size:11px;color:var(--muted);font-family:'Space Mono',monospace;}
-  .amount-cell{font-family:'Space Mono',monospace;font-weight:700;color:var(--accent);}
-  .date-cell{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);}
-  .tags{display:flex;flex-wrap:wrap;gap:3px;}
-  .tag{font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;letter-spacing:.04em;white-space:nowrap;}
-  .t-hot{background:rgba(255,68,68,.2);color:#ff7777;border:1px solid rgba(255,68,68,.3);}
-  .t-warn{background:rgba(255,140,0,.2);color:#ffa040;border:1px solid rgba(255,140,0,.3);}
-  .view-btn{font-size:10px;font-weight:700;padding:4px 9px;border-radius:4px;background:var(--surface2);border:1px solid var(--border);color:var(--muted);cursor:pointer;text-decoration:none;display:inline-block;}
-  .eq-bar{width:72px;height:4px;background:var(--border);border-radius:2px;overflow:hidden;}
-  .eq-fill{height:100%;border-radius:2px;}
-  .eq-pos{background:var(--accent3);}.eq-neg{background:var(--accent2);}
-  .eq-lbl{font-family:'Space Mono',monospace;font-size:10px;margin-top:2px;}
-
-  .mo{position:fixed;inset:0;background:rgba(0,0,0,.87);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;}
-  .mo.open{display:flex;}
-  .mc{background:var(--surface);border:1px solid var(--border);border-radius:12px;width:100%;max-width:900px;max-height:92vh;overflow-y:auto;padding:26px;}
-  .mh{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px;}
-  .mt{font-size:17px;font-weight:800;}
-  .ms{font-size:11px;color:var(--muted);font-family:'Space Mono',monospace;margin-top:3px;}
-  .mx{background:none;border:none;color:var(--muted);cursor:pointer;font-size:18px;}
-  .mg{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-  .mf{display:flex;flex-direction:column;gap:3px;}
-  .mf.full{grid-column:1/-1;}
-  .ml{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
-  .mv{font-size:13px;color:var(--text);font-family:'Space Mono',monospace;}
-  .mv.hi{color:var(--accent);font-weight:700;}
-  .mdiv{grid-column:1/-1;border:none;border-top:1px solid var(--border);margin:2px 0;}
-  .msec{grid-column:1/-1;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-top:2px;}
-
-  .da-wrap{grid-column:1/-1;background:var(--surface2);border:2px solid var(--accent);border-radius:10px;padding:18px;margin-top:12px;}
-  .da-title{font-size:15px;font-weight:800;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
-  .conf-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:12px;font-size:10px;font-weight:700;letter-spacing:.06em;margin-left:auto;}
-  .conf-high{background:rgba(74,245,166,.15);border:1px solid rgba(74,245,166,.4);color:var(--accent3);}
-  .conf-med{background:rgba(245,166,35,.15);border:1px solid rgba(245,166,35,.4);color:var(--accent);}
-  .conf-low{background:rgba(255,68,68,.15);border:1px solid rgba(255,68,68,.4);color:var(--hot);}
-  
-  .decision-banner{grid-column:1/-1;padding:14px 18px;border-radius:8px;margin-bottom:14px;border:2px solid;font-weight:700;display:flex;align-items:center;gap:10px;}
-  .decision-banner.pursue{background:rgba(74,245,166,.1);border-color:rgba(74,245,166,.4);color:var(--accent3);}
-  .decision-banner.review{background:rgba(245,166,35,.1);border-color:rgba(245,166,35,.4);color:var(--accent);}
-  .decision-banner.pass{background:rgba(255,68,68,.1);border-color:rgba(255,68,68,.4);color:var(--hot);}
-  .decision-icon{font-size:24px;}
-  .decision-text{flex:1;}
-  .decision-label{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px;}
-  .decision-reason{font-size:11px;opacity:.9;}
-
-  .mao-grid{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;}
-  .mao-card{padding:14px;border-radius:8px;text-align:center;border:2px solid;}
-  .mao-card.lowball{background:rgba(74,245,166,.08);border-color:rgba(74,245,166,.3);}
-  .mao-card.target{background:rgba(245,166,35,.08);border-color:rgba(245,166,35,.3);}
-  .mao-card.walkaway{background:rgba(255,68,68,.08);border-color:rgba(255,68,68,.3);}
-  .mao-label{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
-  .mao-value{font-size:24px;font-weight:800;font-family:'Space Mono',monospace;margin-bottom:4px;}
-  .mao-card.lowball .mao-value{color:var(--accent3);}
-  .mao-card.target .mao-value{color:var(--accent);}
-  .mao-card.walkaway .mao-value{color:var(--hot);}
-  .mao-detail{font-size:9px;color:var(--muted);font-family:'Space Mono',monospace;}
-
-  .strategy-grid{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;}
-  .strategy-card{padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:8px;}
-  .strategy-card.recommended{border:2px solid var(--accent3);background:rgba(74,245,166,.05);}
-  .strategy-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border);}
-  .strategy-name{font-size:12px;font-weight:700;}
-  .rec-badge-sm{background:var(--accent3);color:#000;padding:2px 6px;border-radius:8px;font-size:9px;font-weight:700;}
-  .strategy-metric{display:flex;justify-content:space-between;padding:4px 0;font-size:10px;}
-  .strategy-outcome{margin-top:8px;padding:6px;background:rgba(255,255,255,.02);border-radius:4px;font-size:9px;color:var(--muted2);}
-
-  @media(max-width:768px){
-    .mg,.mao-grid,.strategy-grid{grid-template-columns:1fr;}
-    .mf.full{grid-column:1;}
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Deal Analyzer</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 { font-size: 36px; margin-bottom: 10px; }
+        
+        .main-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 30px;
+        }
+        
+        .input-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .input-group { display: flex; flex-direction: column; }
+        
+        .input-group label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .input-group input {
+            padding: 10px;
+            border: 2px solid #e5e5e5;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .analyze-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        .analyze-btn:hover { transform: translateY(-2px); }
+        
+        .results {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #e5e5e5;
+            display: none;
+        }
+        
+        .results.show { display: block; }
+        
+        .decision-badge {
+            display: inline-block;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        
+        .pursue { background: #4caf50; color: white; }
+        .review { background: #ff9800; color: white; }
+        .pass { background: #f44336; color: white; }
+        
+        .offer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .offer-card {
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 3px solid;
+        }
+        
+        .offer-card.opener { background: #e8f5e9; border-color: #4caf50; }
+        .offer-card.target { background: #fff3e0; border-color: #ff9800; }
+        .offer-card.walkaway { background: #ffebee; border-color: #f44336; }
+        
+        .offer-card h3 {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .offer-card .value {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .input-grid, .offer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-
-<header class="topbar">
-  <div class="brand">
-    <div class="brand-dot"></div>
-    <div>
-      <div class="brand-name">Akron Data</div>
-      <div class="brand-sub">Enhanced Deal Analyzer • Production Rules</div>
-    </div>
-  </div>
-  <div class="updated" id="upd">Loading...</div>
-</header>
-
-<div class="statsbar">
-  <div class="stat"><div class="stat-num" id="s-total">–</div><div class="stat-label">Total</div></div><div class="sdiv"></div>
-  <div class="stat"><div class="stat-num hot" id="s-sheriff">–</div><div class="stat-label">⚡ Sheriff</div></div><div class="sdiv"></div>
-  <div class="stat"><div class="stat-num hot" id="s-hot">–</div><div class="stat-label">🔥 Hot</div></div><div class="sdiv"></div>
-  <div class="stat"><div class="stat-num warm" id="s-probate">–</div><div class="stat-label">⚖️ Probate</div></div><div class="sdiv"></div>
-  <div class="stat"><div class="stat-num cool" id="s-vacant">–</div><div class="stat-label">🏠 Vacant</div></div><div class="sdiv"></div>
-  <div class="stat"><div class="stat-num gold" id="s-tax">–</div><div class="stat-label">💰 Tax</div></div>
-</div>
-
-<div class="tabs-wrap">
-  <div class="tabs">
-    <button class="tab active" data-tab="all">All Leads <span class="badge" id="b-all">0</span></button>
-    <button class="tab urgent" data-tab="sheriff_sales">⚡ Sheriff <span class="badge" id="b-sheriff">0</span></button>
-    <button class="tab" data-tab="hot_stack">🔥 Hot <span class="badge" id="b-hot">0</span></button>
-  </div>
-</div>
-
-<div class="toolbar">
-  <div class="search-wrap"><span class="si">⌕</span><input type="text" id="search" placeholder="Search..." oninput="applyFilters()"></div>
-  <select id="f-score" onchange="applyFilters()"><option value="">All Scores</option><option value="80">80+</option></select>
-  <button class="btn btn-primary" onclick="exportCSV()">Export CSV</button>
-  <div class="rec-count" id="rec-count">0 records</div>
-</div>
-
-<div class="table-wrap"><table><thead><tr><th>Score</th><th>Owner/Property</th><th>Type</th><th>Filed</th><th>Amount</th><th>Tags</th><th>Equity</th><th>Link</th></tr></thead><tbody id="tbody"><tr><td colspan="8" style="text-align:center;padding:40px;color:var(--muted)">Loading...</td></tr></tbody></table></div>
-
-<div class="mo" id="modal" onclick="if(event.target===this)closeModal()"><div class="mc" id="mc"></div></div>
-
-<script>
-// Store for avoiding JSON-in-HTML
-const _rowStore=[];
-let cache={},curTab='all',curRecs=[],filtered=[];
-
-const TAB_FILES={all:'records.json',sheriff_sales:'sheriff_sales.json',hot_stack:'hot_stack.json'};
-
-async function fetchJSON(file){
-  for(const p of['data/'+file,'../data/'+file,file]){
-    try{const r=await fetch(p);if(r.ok)return await r.json();}catch(e){}
-  }
-  return null;
-}
-
-async function loadTab(tab){
-  if(cache[tab])return cache[tab];
-  const j=await fetchJSON(TAB_FILES[tab]);
-  const recs=j?(j.records||[]):[];
-  cache[tab]=recs;
-  const b=document.getElementById('b-'+tab.replace('_sales',''));
-  if(b)b.textContent=recs.length;
-  return recs;
-}
-
-async function loadStats(){
-  const j=await fetchJSON('records.json');
-  if(!j)return;
-  const r=j.records||[];
-  document.getElementById('s-total').textContent=(j.total||0).toLocaleString();
-  document.getElementById('s-sheriff').textContent=(j.sheriff_sale_count||0).toLocaleString();
-  document.getElementById('s-hot').textContent=(j.hot_stack_count||0).toLocaleString();
-  document.getElementById('s-probate').textContent=(j.probate_count||0).toLocaleString();
-  document.getElementById('s-vacant').textContent=(j.vacant_home_count||0).toLocaleString();
-  document.getElementById('s-tax').textContent=(j.tax_delinquent_count||0).toLocaleString();
-  document.getElementById('b-all').textContent=r.length;
-  cache.all=r;
-  if(j.fetched_at){const d=new Date(j.fetched_at);document.getElementById('upd').textContent='Updated '+d.toLocaleDateString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});}
-}
-
-document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',async()=>{
-  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
-  t.classList.add('active');
-  curTab=t.dataset.tab;
-  curRecs=await loadTab(curTab);
-  applyFilters();
-}));
-
-function applyFilters(){
-  const q=document.getElementById('search').value.toLowerCase();
-  const minS=parseInt(document.getElementById('f-score').value)||0;
-  filtered=curRecs.filter(r=>{
-    if(minS&&(r.score||0)<minS)return false;
-    if(q){const h=[r.owner,r.prop_address,r.doc_num].join(' ').toLowerCase();if(!h.includes(q))return false;}
-    return true;
-  });
-  renderTable();
-  document.getElementById('rec-count').textContent=filtered.length+' records';
-}
-
-function renderTable(){
-  _rowStore.length=0;
-  const tbody=document.getElementById('tbody');
-  if(!filtered.length){tbody.innerHTML='<tr><td colspan="8" style="text-align:center;padding:40px;color:var(--muted)">No leads found</td></tr>';return;}
-  tbody.innerHTML=filtered.slice(0,100).map(rowHTML).join('');
-}
-
-function openModalById(id){const r=_rowStore[id];if(r)openModal(r);}
-
-function rowHTML(r){
-  const sc=r.score||0,scls=sc>=80?'sh':sc>=60?'sm':'sl';
-  const flags=r.flags||[];
-  const tags=flags.slice(0,3).map(f=>`<span class="tag t-${f.includes('Sheriff')||f.includes('Hot')?'hot':'warn'}">${f}</span>`).join('');
-  const eq=r.est_equity,eqH=eq!=null?`<div class="eq-bar"><div class="eq-fill ${eq>=0?'eq-pos':'eq-neg'}" style="width:${Math.min(Math.abs(eq)/150000*100,100)}%"></div></div><div class="eq-lbl" style="color:${eq>=0?'var(--accent3)':'var(--accent2)'}">  ${eq>=0?'+':'-'}$${(Math.abs(eq)/1000).toFixed(0)}k</div>`:'–';
-  const amt=r.amount?'$'+r.amount.toLocaleString():'–';
-  const rid=_rowStore.push(r)-1;
-  return `<tr onclick="openModalById(${rid})"><td><div class="score-badge ${scls}">${sc}</div></td><td><div class="owner-name">${r.owner||'Unknown'}</div><div class="owner-sub">${r.prop_address||'–'}</div></td><td class="date-cell">${r.doc_type||'–'}</td><td class="date-cell">${r.filed||'–'}</td><td class="amount-cell">${amt}</td><td><div class="tags">${tags}</div></td><td>${eqH}</td><td><a class="view-btn" href="#" onclick="event.stopPropagation()">View</a></td></tr>`;
-}
-
-// ═══════════════════════════════════════════════════════════════
-// PRODUCTION DEAL ANALYZER ENGINE
-// ═══════════════════════════════════════════════════════════════
-
-function analyzeProperty(r, sellerAsk=null){
-  // Simple demo version - you can plug in the full dealAnalyzer.unified.js here
-  const arvBase = r.estimated_value || 80000;
-  const rehabCost = 25000;
-  const fee = 10000;
-  const closingCosts = 3000;
-  
-  // Three-tier MAO
-  const lowballMAO = Math.round((arvBase * 0.64) - rehabCost - fee - closingCosts);
-  const targetMAO = Math.round((arvBase * 0.74) - rehabCost - fee - closingCosts);
-  const maxMAO = Math.round((arvBase * 0.82) - rehabCost - fee - closingCosts);
-  
-  // Confidence (based on data available)
-  let confidence = 50;
-  if(r.assessed_value) confidence += 20;
-  if(r.last_sale_price) confidence += 20;
-  if((r.flags||[]).length > 2) confidence += 10;
-  confidence = Math.min(confidence, 100);
-  
-  // Decision
-  let decision = 'NEEDS_REVIEW';
-  let decisionReason = 'Additional analysis recommended';
-  
-  if(sellerAsk && sellerAsk <= maxMAO){
-    decision = 'PURSUE';
-    decisionReason = 'Seller ask within acceptable range';
-  } else if(sellerAsk && sellerAsk > maxMAO * 1.5){
-    decision = 'PASS';
-    decisionReason = 'Seller ask too far above maximum offer';
-  }
-  
-  // Strategy (simple flip analysis)
-  const flipROI = ((arvBase - (targetMAO + rehabCost)) / (targetMAO + rehabCost)) * 100;
-  
-  return {
-    arvBase,
-    lowballMAO,
-    targetMAO,
-    maxMAO,
-    confidence,
-    decision,
-    decisionReason,
-    flipROI: flipROI.toFixed(1),
-    flipProfit: Math.round(arvBase - (targetMAO + rehabCost + closingCosts + fee))
-  };
-}
-
-function openModal(r){
-  if(!r)return;
-  const analysis = analyzeProperty(r);
-  const fmt = v => v>=0 ? '$'+Math.round(v).toLocaleString() : '-$'+Math.round(Math.abs(v)).toLocaleString();
-  
-  const confClass = analysis.confidence >= 70 ? 'conf-high' : analysis.confidence >= 50 ? 'conf-med' : 'conf-low';
-  const confLabel = analysis.confidence >= 70 ? '✓ High' : analysis.confidence >= 50 ? '⚠ Medium' : '⚠ Low';
-  
-  const decClass = analysis.decision === 'PURSUE' ? 'pursue' : analysis.decision === 'PASS' ? 'pass' : 'review';
-  const decIcon = analysis.decision === 'PURSUE' ? '✅' : analysis.decision === 'PASS' ? '❌' : '⚠️';
-  
-  document.getElementById('mc').innerHTML = `
-    <div class="mh">
-      <div><div class="mt">${r.owner||'Unknown'}</div><div class="ms">${r.doc_type} · Score ${r.score||0}</div></div>
-      <button class="mx" onclick="closeModal()">✕</button>
-    </div>
-    
-    <div class="mg">
-      <div class="da-wrap">
-        <div class="da-title">
-          🧮 Production Deal Analyzer
-          <span class="conf-badge ${confClass}">${confLabel} Confidence (${analysis.confidence}/100)</span>
+    <div class="container">
+        <div class="header">
+            <h1>🏠 Real Estate Deal Analyzer</h1>
+            <p>Simple • Fast • Conservative</p>
         </div>
-        
-        <div class="decision-banner ${decClass}">
-          <div class="decision-icon">${decIcon}</div>
-          <div class="decision-text">
-            <div class="decision-label">${analysis.decision}</div>
-            <div class="decision-reason">${analysis.decisionReason}</div>
-          </div>
-        </div>
-        
-        <div class="mao-grid">
-          <div class="mao-card lowball">
-            <div class="mao-label">Lowball (Opener)</div>
-            <div class="mao-value">${fmt(analysis.lowballMAO)}</div>
-            <div class="mao-detail">30% profit target</div>
-          </div>
-          <div class="mao-card target">
-            <div class="mao-label">Target Offer</div>
-            <div class="mao-value">${fmt(analysis.targetMAO)}</div>
-            <div class="mao-detail">20% profit target</div>
-          </div>
-          <div class="mao-card walkaway">
-            <div class="mao-label">Walk-Away (Max)</div>
-            <div class="mao-value">${fmt(analysis.maxMAO)}</div>
-            <div class="mao-detail">12% min profit</div>
-          </div>
-        </div>
-        
-        <div class="strategy-grid">
-          <div class="strategy-card recommended">
-            <div class="strategy-header">
-              <div class="strategy-name">💰 Flip</div>
-              <div class="rec-badge-sm">RECOMMENDED</div>
+
+        <div class="main-card">
+            <h2>Enter Property Details</h2>
+            
+            <div class="input-grid">
+                <div class="input-group">
+                    <label>Seller Asking Price</label>
+                    <input type="number" id="sellerAsk" value="35000">
+                </div>
+                <div class="input-group">
+                    <label>Square Feet</label>
+                    <input type="number" id="sqft" value="1200">
+                </div>
+                <div class="input-group">
+                    <label>Full Baths</label>
+                    <input type="number" id="baths" value="2">
+                </div>
+                <div class="input-group">
+                    <label>Rehab Cost</label>
+                    <input type="number" id="rehab" value="20000">
+                </div>
             </div>
-            <div class="strategy-metric"><span>ROI:</span><strong>${analysis.flipROI}%</strong></div>
-            <div class="strategy-metric"><span>Profit:</span><strong>${fmt(analysis.flipProfit)}</strong></div>
-            <div class="strategy-outcome">Best returns for this deal based on numbers</div>
-          </div>
-          <div class="strategy-card">
-            <div class="strategy-header"><div class="strategy-name">🏘️ Rental</div></div>
-            <div class="strategy-metric"><span>Status:</span><strong>Available</strong></div>
-            <div class="strategy-outcome">Requires rent data for full analysis</div>
-          </div>
-          <div class="strategy-card">
-            <div class="strategy-header"><div class="strategy-name">📋 Terms</div></div>
-            <div class="strategy-metric"><span>Status:</span><strong>Available</strong></div>
-            <div class="strategy-outcome">Seller financing option if gap exists</div>
-          </div>
+
+            <h3 style="margin-top: 20px;">Comps (Enter 2-3 Recent Sold Properties)</h3>
+            
+            <div style="margin-top: 10px;">
+                <h4>Comp #1</h4>
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label>Sold Price</label>
+                        <input type="number" id="comp1price" value="45000">
+                    </div>
+                    <div class="input-group">
+                        <label>Square Feet</label>
+                        <input type="number" id="comp1sqft" value="1150">
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 15px;">
+                <h4>Comp #2</h4>
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label>Sold Price</label>
+                        <input type="number" id="comp2price" value="52000">
+                    </div>
+                    <div class="input-group">
+                        <label>Square Feet</label>
+                        <input type="number" id="comp2sqft" value="1280">
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 15px;">
+                <h4>Comp #3 (Optional)</h4>
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label>Sold Price</label>
+                        <input type="number" id="comp3price" value="48000">
+                    </div>
+                    <div class="input-group">
+                        <label>Square Feet</label>
+                        <input type="number" id="comp3sqft" value="1200">
+                    </div>
+                </div>
+            </div>
+
+            <button class="analyze-btn" onclick="analyze()">📊 Analyze Deal</button>
+
+            <div class="results" id="results"></div>
         </div>
-        
-        <div class="mf full" style="margin-top:10px;padding:10px;background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:6px;">
-          <div style="font-size:10px;font-weight:700;color:var(--accent);margin-bottom:4px;">💡 Analysis Basis</div>
-          <div style="font-size:10px;color:var(--muted2);line-height:1.8;">
-            ARV: ${fmt(analysis.arvBase)} · Rehab: $25k · Fee: $10k · Closing: $3k
-          </div>
-        </div>
-      </div>
-      
-      <hr class="mdiv">
-      <div class="msec">Property Details</div>
-      <div class="mf full"><div class="ml">Address</div><div class="mv hi">${r.prop_address||'–'}</div></div>
-      <div class="mf"><div class="ml">Type</div><div class="mv">${r.doc_type}</div></div>
-      <div class="mf"><div class="ml">Filed</div><div class="mv">${r.filed||'–'}</div></div>
-      <div class="mf"><div class="ml">Amount</div><div class="mv">${r.amount?fmt(r.amount):'–'}</div></div>
-      <div class="mf"><div class="ml">Est. Value</div><div class="mv hi">${r.estimated_value?fmt(r.estimated_value):'–'}</div></div>
     </div>
-  `;
-  document.getElementById('modal').classList.add('open');
-}
 
-function closeModal(){document.getElementById('modal').classList.remove('open');}
+    <script>
+        function analyze() {
+            const sellerAsk = parseFloat(document.getElementById('sellerAsk').value);
+            const sqft = parseFloat(document.getElementById('sqft').value);
+            const baths = parseFloat(document.getElementById('baths').value);
+            const rehab = parseFloat(document.getElementById('rehab').value);
 
-function exportCSV(){
-  const rows = filtered.length ? filtered : curRecs;
-  const csv = [
-    ['Owner','Address','Type','Filed','Amount','Score'].join(','),
-    ...rows.map(r => [
-      r.owner||'',
-      r.prop_address||'',
-      r.doc_type||'',
-      r.filed||'',
-      r.amount||'',
-      r.score||0
-    ].map(v => `"${v}"`).join(','))
-  ].join('\n');
-  
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(new Blob([csv], {type:'text/csv'}));
-  a.download = `leads_${new Date().toISOString().slice(0,10)}.csv`;
-  a.click();
-}
+            // Get comp data
+            const comp1 = {
+                price: parseFloat(document.getElementById('comp1price').value),
+                sqft: parseFloat(document.getElementById('comp1sqft').value)
+            };
+            const comp2 = {
+                price: parseFloat(document.getElementById('comp2price').value),
+                sqft: parseFloat(document.getElementById('comp2sqft').value)
+            };
+            const comp3 = {
+                price: parseFloat(document.getElementById('comp3price').value) || 0,
+                sqft: parseFloat(document.getElementById('comp3sqft').value) || 0
+            };
 
-async function init(){
-  await loadStats();
-  curRecs = cache.all || [];
-  applyFilters();
-}
-init();
-</script>
+            // Simple ARV calculation (average comp price per sqft * subject sqft)
+            let totalPricePerSqft = 0;
+            let compCount = 0;
+
+            if (comp1.price && comp1.sqft) {
+                totalPricePerSqft += comp1.price / comp1.sqft;
+                compCount++;
+            }
+            if (comp2.price && comp2.sqft) {
+                totalPricePerSqft += comp2.price / comp2.sqft;
+                compCount++;
+            }
+            if (comp3.price && comp3.sqft) {
+                totalPricePerSqft += comp3.price / comp3.sqft;
+                compCount++;
+            }
+
+            const avgPricePerSqft = totalPricePerSqft / compCount;
+            const arv = Math.round(avgPricePerSqft * sqft);
+
+            // MAO calculations
+            const sellerCosts = arv * 0.06; // 6%
+            const buyerCosts = arv * 0.03; // 3%
+            const otherCosts = 2500 + 1500 + 1000; // holding + closing + financing
+
+            const lowballMAO = Math.round((arv * 0.64) - rehab - buyerCosts - otherCosts);
+            const targetMAO = Math.round((arv * 0.74) - rehab - buyerCosts - otherCosts);
+            const maxMAO = Math.round((arv * 0.82) - rehab - buyerCosts - otherCosts);
+
+            // Decision logic
+            let decision = 'NEEDS REVIEW';
+            let decisionClass = 'review';
+            let reason = 'Additional analysis recommended';
+
+            if (sellerAsk <= maxMAO) {
+                decision = 'PURSUE';
+                decisionClass = 'pursue';
+                reason = 'Seller ask within acceptable range';
+            } else if (sellerAsk > maxMAO * 1.5) {
+                decision = 'PASS';
+                decisionClass = 'pass';
+                reason = 'Seller ask too far above maximum offer';
+            }
+
+            // Display results
+            const html = `
+                <div class="decision-badge ${decisionClass}">${decision}</div>
+                <p style="font-size: 16px; color: #666; margin-bottom: 20px;">${reason}</p>
+
+                <h3>Estimated ARV: $${arv.toLocaleString()}</h3>
+                <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
+                    Based on ${compCount} comparable sales (Avg: $${avgPricePerSqft.toFixed(0)}/sqft)
+                </p>
+
+                <h3>Your Offer Structure:</h3>
+                <div class="offer-grid">
+                    <div class="offer-card opener">
+                        <h3>Lowball</h3>
+                        <div class="value">$${lowballMAO.toLocaleString()}</div>
+                        <p>30% profit</p>
+                    </div>
+                    <div class="offer-card target">
+                        <h3>Target</h3>
+                        <div class="value">$${targetMAO.toLocaleString()}</div>
+                        <p>20% profit</p>
+                    </div>
+                    <div class="offer-card walkaway">
+                        <h3>Walk-Away</h3>
+                        <div class="value">$${maxMAO.toLocaleString()}</div>
+                        <p>12% minimum</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+                    <p><strong>Seller Ask:</strong> $${sellerAsk.toLocaleString()}</p>
+                    <p><strong>Gap to Max:</strong> $${(sellerAsk - maxMAO).toLocaleString()} 
+                    (${(((sellerAsk - maxMAO) / sellerAsk) * 100).toFixed(0)}%)</p>
+                </div>
+
+                <div style="margin-top: 20px; padding: 15px; background: #e8f4f8; border-radius: 8px;">
+                    <p style="font-size: 13px; color: #666;">
+                        <strong>💡 Quick Tip:</strong> This is a simplified analysis. For full comp analysis with 
+                        classification, confidence scoring, and strategy comparison, use the complete analyzer.
+                    </p>
+                </div>
+            `;
+
+            document.getElementById('results').innerHTML = html;
+            document.getElementById('results').classList.add('show');
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Auto-analyze on load with demo data
+        window.addEventListener('load', function() {
+            setTimeout(analyze, 500);
+        });
+    </script>
 </body>
 </html>
