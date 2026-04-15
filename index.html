@@ -1017,57 +1017,80 @@ function detectHood(r){
 // Rule: fully remodeled comp range is the ceiling (TIER HIGH)
 // Rule: match condition to comp — DO NOT comp a flip against a dump
 // Rule: ARV = what it sells for AFTER full renovation
+// ═══════════════════════════════════════════════════════════════
+// AI ANALYZER PATCH - TIGHTENED COMP LOGIC
+// Replace lines 1020-1166 in your index.html with this code
+// ═══════════════════════════════════════════════════════════════
+
+// ── STEP 2: CONDITION DISCOUNT (TIGHTENED) ───────────────────
+// Rule: Be MORE conservative - distressed properties get LOWER multiples
 function conditionMultiplier(r){
   const dt=(r.doc_type||'').toUpperCase();
   const flags=(r.flags||[]).join(' ').toLowerCase();
-  // These are distressed/as-is properties — comp at MID not HIGH
-  // Only reach HIGH if genuinely move-in ready (rare for our leads)
-  if(dt==='FIREDMG') return 0.60; // fire = needs gut + structural
-  if(dt==='CODEVIOLATION') return 0.72; // code vio = serious deferred maintenance
-  if(flags.includes('vacant home')) return 0.75; // vacant = unknown condition
-  if(['LP','NOFC','TAXDEED','SHERIFF'].includes(dt)) return 0.78; // foreclosure = as-is
-  if(dt==='PRO') return 0.80; // estate = typically dated, deferred maint
-  if(['TAX','TAXDELINQ'].includes(dt)) return 0.82; // tax delin = cash-strapped owner
-  return 0.85; // default distressed discount
+  
+  // TIGHTENED: More aggressive distress penalties
+  if(dt==='FIREDMG') return 0.50; // was 0.60 - fire damage is severe
+  if(dt==='CODEVIOLATION') return 0.65; // was 0.72 - code violations = serious issues
+  if(flags.includes('vacant home')) return 0.68; // was 0.75 - vacant = unknown problems
+  if(['LP','NOFC','TAXDEED','SHERIFF'].includes(dt)) return 0.70; // was 0.78 - foreclosure = as-is
+  if(dt==='PRO') return 0.75; // was 0.80 - probate = deferred maintenance
+  if(['TAX','TAXDELINQ'].includes(dt)) return 0.78; // was 0.82 - tax delinquent
+  return 0.80; // was 0.85 - default distressed discount (more conservative)
 }
 
-// ── STEP 3: RECENCY PENALTY ──────────────────────────────────
-// Rule: 0–3 months = best, 6+ months = adjust or avoid
-// We only have last_sale_year so apply appreciation + staleness flag
+// ── STEP 3: RECENCY PENALTY (TIGHTENED) ──────────────────────
+// Rule: Stepped recency weighting - fresher comps get higher weight
 function recencyAdjust(lastSalePrice, lastSaleYear, factors){
   if(!lastSalePrice||!lastSaleYear||lastSalePrice<10000) return null;
   const yrs=Math.max(0, new Date().getFullYear()-lastSaleYear);
-  // Rule: >5 years old sale is stale — weight it less
-  // Rule: sale that looks like distress sale (<55% of tier mid) = throw out
-  const appraised=Math.round(lastSalePrice*Math.pow(1.04,yrs));
-  if(yrs<=3)       factors.push(`✅ Recent sale $${Math.round(lastSalePrice).toLocaleString()} (${lastSaleYear}) → appreciated ~$${appraised.toLocaleString()}`);
-  else if(yrs<=6)  factors.push(`⚠️ Sale $${Math.round(lastSalePrice).toLocaleString()} (${lastSaleYear}) is ${yrs}yrs old — adjusted for appreciation`);
-  else             factors.push(`🚨 Sale $${Math.round(lastSalePrice).toLocaleString()} (${lastSaleYear}) is ${yrs}yrs old — stale, low weight`);
-  return {appraised, weight: yrs<=3?0.50 : yrs<=6?0.35 : 0.20};
+  
+  // TIGHTENED: Stepped weighting based on age
+  const appraised=Math.round(lastSalePrice*Math.pow(1.03,yrs)); // was 1.04 - lower appreciation
+  
+  if(yrs<=1)       { // 0-12 months - strongest weight
+    factors.push(`✅ Recent sale $${Math.round(lastSalePrice).toLocaleString()} (${lastSaleYear}) → appreciated ~$${appraised.toLocaleString()}`);
+    return {appraised, weight: 0.55}; // fresh comps
+  }
+  else if(yrs<=2)  { // 12-24 months - reduced weight
+    factors.push(`✅ Sale $${Math.round(lastSalePrice).toLocaleString()} (${lastSaleYear}) → ${yrs}yr old, solid comp`);
+    return {appraised, weight: 0.35}; // still good
+  }
+  else if(yrs<=4)  { // 24-48 months - heavily downweighted
+    factors.push(`⚠️ Sale $${Math.round(lastSalePrice).toLocaleString()} (${lastSaleYear}) is ${yrs}yrs old — downweighted`);
+    return {appraised, weight: 0.15}; // heavily reduced
+  }
+  else             { // 48+ months - excluded (truly stale)
+    factors.push(`🚨 Sale $${Math.round(lastSalePrice).toLocaleString()} (${lastSaleYear}) is ${yrs}yrs old — too stale, excluded`);
+    return {appraised, weight: 0.0}; // excluded only when truly old
+  }
 }
 
-// ── STEP 4: DISTRESS STACKING PENALTY ────────────────────────
-// Rule: each additional signal = tighter discount (conservative)
+// ── STEP 4: DISTRESS STACKING PENALTY (TIGHTENED) ────────────
+// Rule: Each signal = MORE discount (more conservative)
 function distressPenalty(r){
   const dt=(r.doc_type||'').toUpperCase();
   const flags=(r.flags||[]).join(' ').toLowerCase();
   let d=0, reasons=[];
-  if(dt==='SHERIFF')                            {d+=25;reasons.push('sheriff sale');}
-  else if(['LP','NOFC','TAXDEED'].includes(dt)) {d+=20;reasons.push('foreclosure');}
-  else if(dt==='PRO')                           {d+=15;reasons.push('probate estate');}
-  else if(['TAX','TAXDELINQ'].includes(dt))     {d+=12;reasons.push('tax delinquent');}
-  else if(dt==='CODEVIOLATION')                 {d+=10;reasons.push('code violation');}
-  else if(dt==='VHOME')                         {d+=12;reasons.push('vacant home');}
-  else if(dt==='FIREDMG')                       {d+=28;reasons.push('fire damage');}
-  if(flags.includes('vacant'))   {d+=4;reasons.push('vacant');}
-  if(flags.includes('absentee')) {d+=3;reasons.push('absentee');}
-  if(flags.includes('out-of-state')){d+=3;reasons.push('out-of-state owner');}
-  if((r.distress_count||0)>=3)   {d+=4;reasons.push('3+ distress signals');}
-  if(flags.includes('hot stack')) {d+=3;reasons.push('hot stack');}
-  return {pct:Math.min(d,42), reasons};
+  
+  // TIGHTENED: Higher penalties per signal
+  if(dt==='SHERIFF')                            {d+=30;reasons.push('sheriff sale');} // was 25
+  else if(['LP','NOFC','TAXDEED'].includes(dt)) {d+=25;reasons.push('foreclosure');} // was 20
+  else if(dt==='PRO')                           {d+=18;reasons.push('probate estate');} // was 15
+  else if(['TAX','TAXDELINQ'].includes(dt))     {d+=15;reasons.push('tax delinquent');} // was 12
+  else if(dt==='CODEVIOLATION')                 {d+=12;reasons.push('code violation');} // was 10
+  else if(dt==='VHOME')                         {d+=15;reasons.push('vacant home');} // was 12
+  else if(dt==='FIREDMG')                       {d+=35;reasons.push('fire damage');} // was 28
+  
+  if(flags.includes('vacant'))   {d+=5;reasons.push('vacant');} // was 4
+  if(flags.includes('absentee')) {d+=4;reasons.push('absentee');} // was 3
+  if(flags.includes('out-of-state')){d+=4;reasons.push('out-of-state owner');} // was 3
+  if((r.distress_count||0)>=3)   {d+=5;reasons.push('3+ distress signals');} // was 4
+  if(flags.includes('hot stack')) {d+=4;reasons.push('hot stack');} // was 3
+  
+  return {pct:Math.min(d,50), reasons}; // was 42 max - now 50% max discount
 }
 
-// ── MAIN VALUATION: "3 comps, conservative, low side always" ─
+// ── MAIN VALUATION: TIGHTENED CONSERVATIVE LOGIC ─────────────
 function localValuation(r){
   const hood=detectHood(r);
   const hd=AKRON_HOODS[hood]||AKRON_HOODS['akron'];
@@ -1076,64 +1099,53 @@ function localValuation(r){
   let dataSources=0;
 
   // START: neighborhood SOLD comp mid as baseline
-  // Rule: your deal lives in the MIDDLE of the comp range
   let arvBase=hd.compMid;
   factors.push(`📍 ${hood.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())} — SOLD comps $${Math.round(hd.compLow/1000)}k–$${Math.round(hd.compHigh/1000)}k`);
   factors.push(`💲 Price/sqft range: $${hd.ppsf.low}–$${hd.ppsf.high}/sqft`);
 
-  // CROSS-CHECK 1: Assessed value (Ohio 35% ratio)
-  // Rule: assessed ÷ 0.35 = rough market, blend 55/45 with comp table
+  // CROSS-CHECK 1: Assessed value (TIGHTENED)
   if(r.assessed_value&&r.assessed_value>5000){
     const assessedMarket=Math.round(r.assessed_value/0.35);
-    // Sanity check: if assessed market is wildly outside comp range, flag it
-    if(assessedMarket<hd.compLow*0.5){
+    
+    // TIGHTENED: Stricter outlier detection
+    if(assessedMarket<hd.compLow*0.6){ // was 0.5 - tighter floor
       warnings.push(`⚠️ Assessed implies $${assessedMarket.toLocaleString()} — far below comp floor, may be outdated`);
-    } else if(assessedMarket>hd.compHigh*1.5){
+    } else if(assessedMarket>hd.compHigh*1.3){ // was 1.5 - tighter ceiling
       warnings.push(`⚠️ Assessed implies $${assessedMarket.toLocaleString()} — far above comp ceiling, use comp range instead`);
-      // Cap at comp high
-      arvBase=Math.round(hd.compMid*0.6+Math.min(assessedMarket,hd.compHigh)*0.4);
+      arvBase=Math.round(hd.compMid*0.7+Math.min(assessedMarket,hd.compHigh)*0.3); // was 0.6/0.4 - more weight to comp table
     } else {
-      arvBase=Math.round(hd.compMid*0.55+assessedMarket*0.45);
+      arvBase=Math.round(hd.compMid*0.60+assessedMarket*0.40); // was 0.55/0.45 - more weight to comp table
       factors.push(`🏛 Assessed $${Math.round(r.assessed_value).toLocaleString()} ÷ 0.35 = $${assessedMarket.toLocaleString()} market`);
       dataSources++;
     }
   }
 
-  // CROSS-CHECK 2: Last SOLD price + appreciation
-  // Rule: ONLY sold properties matter — active = hopes, sold = reality
-  // Rule: 0–3 months best, 6+ months = stale
+  // CROSS-CHECK 2: Last SOLD price + appreciation (TIGHTENED)
   if(r.last_sale_price&&r.last_sale_year){
     const recency=recencyAdjust(r.last_sale_price, r.last_sale_year, factors);
     if(recency){
-      // Rule: throw out outliers — if sale < 50% of comp mid it was likely a distress sale
-      if(r.last_sale_price<hd.compMid*0.45){
+      // TIGHTENED: Stricter distress sale detection
+      if(r.last_sale_price<hd.compMid*0.55){ // was 0.45 - higher threshold
         warnings.push(`🚨 Last sale $${Math.round(r.last_sale_price).toLocaleString()} looks like a distress/bank sale — excluded as comp`);
-      } else {
+      } else if(recency.weight > 0) { // Only blend if weight > 0
         arvBase=Math.round(arvBase*(1-recency.weight)+recency.appraised*recency.weight);
         dataSources++;
       }
     }
   }
 
-  // APPLY CONDITION: distressed = as-is value, NOT remodeled ARV
-  // Rule: ARV = what it sells for AFTER full renovation (our COMP HIGH is the ceiling)
-  // Rule: DO NOT comp a flip against a dump
+  // APPLY CONDITION: TIGHTENED separation
   const condMult=conditionMultiplier(r);
-  // NOTE: arvBase above is the REMODELED comparable value
-  // The "as-is" value is arvBase × condMult — that's what the SELLER would get
-  // The TRUE ARV (for our MAO calc) = the remodeled ceiling (arvBase)
   const arvRemodeled=arvBase; // ceiling — fully fixed
   const arvAsIs=Math.round(arvBase*condMult); // as-is / current condition
 
-  // Rule: "The nicest comp sets the ceiling, worst sets the floor, deal in the middle"
-  const arvLow=Math.round(hd.compLow*0.95); // floor: just below low comp
-  const arvHigh=Math.round(Math.min(arvRemodeled, hd.compHigh)); // ceiling: comp high
-  // Rule: "low side always" — use the lower half of the range
-  const arvConservative=Math.round((arvLow+arvRemodeled)*0.50);
-  // Rule: average 3 best comps, subtract 5–10%
-  const arvSafe=Math.round(arvConservative*0.93); // the -7% "when in doubt" conservative cut
+  // TIGHTENED: More conservative range calculation
+  const arvLow=Math.round(hd.compLow*0.90); // was 0.95 - lower floor
+  const arvHigh=Math.round(Math.min(arvRemodeled, hd.compHigh)); // same
+  const arvConservative=Math.round((arvLow+arvRemodeled)*0.48); // was 0.50 - more conservative
+  const arvSafe=Math.round(arvConservative*0.90); // was 0.93 - MORE conservative cut (-10% instead of -7%)
 
-  // DISTRESS PENALTY: how much below remodeled ARV to offer
+  // DISTRESS PENALTY: TIGHTENED
   const {pct:discPct, reasons:discReasons}=distressPenalty(r);
   const distressedVal=Math.round(arvRemodeled*(1-discPct/100));
 
@@ -1141,10 +1153,10 @@ function localValuation(r){
   factors.push(`🔑 Rule: ARV = AFTER full renovation. As-is value ≈ $${arvAsIs.toLocaleString()}`);
   factors.push(`✅ Conservative ARV (low side): $${arvSafe.toLocaleString()} — use this for MAO`);
 
-  const confidence=dataSources>=2?'medium':dataSources===1?'low':'low';
-  // Note: we never say "high" without real comp data — conservative by design
+  // TIGHTENED: Lower confidence thresholds
+  const confidence=dataSources>=2?'medium':dataSources===1?'low':'very-low'; // was 'low'/'low'
 
-  // Investor notes by tier
+  // Investor notes by tier (unchanged)
   const notes={
     A:{rule:'Premium area — retail buyers compete. Even distressed sells well here. Tight your numbers.',
        ceiling:'Remodeled ceiling is real — buyers pay for quality in this zip.',
