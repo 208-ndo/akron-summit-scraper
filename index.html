@@ -419,6 +419,9 @@
       </div>
       <button onclick="runDAValuation()" style="padding:9px 16px;background:linear-gradient(135deg,rgba(245,166,35,.15),rgba(245,166,35,.08));border:1px solid rgba(245,166,35,.4);border-radius:6px;color:var(--accent);font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.06em;white-space:nowrap;">✨ Run AI Valuation</button>
     </div>
+    
+    <!-- AI Valuation Results Display -->
+    <div id="da-ai-results" style="display:none;margin-top:12px;"></div>
   </div>
 
   <!-- ROW 1: BUYER MODE + ARV -->
@@ -1017,11 +1020,13 @@ const TIER_COMPS={
 function runDAValuation(){
   const addrInput=document.getElementById('da-addr-search');
   const msg=document.getElementById('da-addr-msg');
+  const resultsBox=document.getElementById('da-ai-results');
   const addr=(addrInput?.value||'').trim().toLowerCase();
   
   if(!addr){
     msg.textContent='⚠️ Please enter an address';
     msg.style.color='var(--hot)';
+    resultsBox.style.display='none';
     return;
   }
   
@@ -1034,6 +1039,7 @@ function runDAValuation(){
   if(!match){
     msg.textContent='❌ No match found in loaded records';
     msg.style.color='var(--hot)';
+    resultsBox.style.display='none';
     return;
   }
   
@@ -1049,13 +1055,104 @@ function runDAValuation(){
     const baseInput=document.getElementById('da-arv');
     const highInput=document.getElementById('da-arv-high');
     
-    if(lowInput) lowInput.value=Math.round(v.arvSafe); // Conservative/safe ARV
-    if(baseInput) baseInput.value=Math.round(v.arvRemodeled); // Remodeled ARV
-    if(highInput) highInput.value=Math.round(v.arvHigh); // Ceiling ARV
+    if(lowInput) lowInput.value=Math.round(v.arvSafe);
+    if(baseInput) baseInput.value=Math.round(v.arvRemodeled);
+    if(highInput) highInput.value=Math.round(v.arvHigh);
     
     // Trigger calculation
     mSyncARVs();
     mCalc();
+    
+    // Display full AI breakdown
+    const fmt=n=>'$'+n.toLocaleString();
+    const tc=TIER_COLORS[v.tier]||'var(--muted)';
+    const cc={medium:'var(--accent)',low:'var(--warm)'}[v.confidence]||'var(--warm)';
+    
+    resultsBox.innerHTML=`<div style="background:var(--surface);border:1px solid var(--border2);border-radius:10px;overflow:hidden;">
+
+      <!-- Header: conservative ARV -->
+      <div style="background:linear-gradient(135deg,rgba(245,166,35,.1),rgba(74,245,166,.06));padding:14px 16px;border-bottom:1px solid var(--border);">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;">
+          <div>
+            <div style="font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;">✅ CONSERVATIVE ARV — USE FOR MAO</div>
+            <div style="font-size:32px;font-weight:900;font-family:'Space Mono',monospace;color:var(--accent3);">${fmt(v.arvSafe)}</div>
+            <div style="font-size:10px;color:var(--muted);font-family:'Space Mono',monospace;margin-top:3px;">"Low side always" — avg 3 comps −7%</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;min-width:180px;">
+            <div style="background:rgba(255,255,255,.04);border-radius:6px;padding:8px;text-align:center;">
+              <div style="font-size:9px;color:var(--muted);font-family:'Space Mono',monospace;margin-bottom:2px;">FLOOR</div>
+              <div style="font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--accent2);">${fmt(v.arvLow)}</div>
+              <div style="font-size:9px;color:var(--muted);">worst comp</div>
+            </div>
+            <div style="background:rgba(255,255,255,.04);border-radius:6px;padding:8px;text-align:center;">
+              <div style="font-size:9px;color:var(--muted);font-family:'Space Mono',monospace;margin-bottom:2px;">CEILING</div>
+              <div style="font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--accent3);">${fmt(v.arvRemodeled)}</div>
+              <div style="font-size:9px;color:var(--muted);">fully fixed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div style="padding:12px 16px;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+
+        <!-- Neighborhood + Tier -->
+        <div>
+          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">Neighborhood / Tier</div>
+          <div style="display:flex;align-items:center;gap:7px;">
+            <span style="font-size:18px;font-weight:900;color:${tc};font-family:'Space Mono',monospace;">Tier ${v.tier}</span>
+            <span style="font-size:11px;font-weight:700;color:${tc};">${TIER_LABELS[v.tier]}</span>
+          </div>
+          <div style="font-size:12px;font-weight:700;text-transform:capitalize;margin-top:2px;">${v.hood.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}</div>
+          <div style="font-size:9px;color:var(--muted);margin-top:3px;">${TIER_COMPS[v.tier]}</div>
+        </div>
+
+        <!-- As-Is vs Remodeled -->
+        <div>
+          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">Condition Spread</div>
+          <div style="font-size:10px;color:var(--muted2);line-height:2;">
+            <span style="color:var(--accent3);">Remodeled ARV:</span> ${fmt(v.arvRemodeled)}<br>
+            <span style="color:var(--warm);">As-Is value:</span> ${fmt(v.arvAsIs)}<br>
+            <span style="color:var(--hot);">Distressed offer:</span> ${fmt(v.distressedVal)}<br>
+            <span style="color:var(--muted);">Condition gap: ${fmt(v.arvRemodeled-v.arvAsIs)}</span>
+          </div>
+        </div>
+
+        <!-- Data factors -->
+        <div style="grid-column:1/-1;">
+          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;">How We Comp'd It <span style="color:var(--muted);font-weight:400;">(${v.dataSources} data source${v.dataSources!==1?'s':''})</span></div>
+          <div style="font-size:10px;color:var(--muted2);line-height:2.0;">${v.factors.join('<br>')}</div>
+        </div>
+
+        ${v.warnings.length?`<div style="grid-column:1/-1;background:rgba(255,68,68,.07);border:1px solid rgba(255,68,68,.2);border-radius:7px;padding:9px 12px;">
+          <div style="font-size:9px;color:var(--hot);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">🚨 Flags</div>
+          <div style="font-size:10px;color:var(--muted2);line-height:1.9;">${v.warnings.join('<br>')}</div>
+        </div>`:''}
+
+        <!-- Rules reminder -->
+        <div style="grid-column:1/-1;background:rgba(255,140,0,.07);border:1px solid rgba(255,140,0,.2);border-radius:7px;padding:10px 12px;">
+          <div style="font-size:9px;color:var(--warm);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;">📋 Comp Rules Applied</div>
+          <div style="font-size:10px;color:var(--muted2);line-height:1.9;">
+            ✅ SOLD comps only (not active, not pending)<br>
+            ✅ Same micro-area: ${v.hood.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}<br>
+            ✅ ARV = fully renovated ceiling (${fmt(v.arvRemodeled)})<br>
+            ✅ Conservative cut: low side of range (${fmt(v.arvSafe)})<br>
+            ✅ Distress discount applied: −${v.discPct}%<br>
+            ⚠️ Verify size match (±15% sqft) on Zillow before locking ARV
+          </div>
+        </div>
+
+        <!-- Investor note -->
+        <div style="grid-column:1/-1;background:rgba(74,245,166,.05);border:1px solid rgba(74,245,166,.15);border-radius:7px;padding:10px 12px;">
+          <div style="font-size:9px;color:var(--accent3);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;">💡 ${TIER_LABELS[v.tier]} Market — Investor Note</div>
+          <div style="font-size:11px;color:var(--text);line-height:1.7;margin-bottom:4px;">${v.note.rule}</div>
+          <div style="font-size:10px;color:var(--warm);font-style:italic;">${v.note.warning}</div>
+        </div>
+
+      </div>
+    </div>`;
+    
+    resultsBox.style.display='block';
     
     // Success message
     msg.textContent=`✅ ${match.prop_address} — Tier ${v.tier} (${v.confidence} confidence)`;
@@ -1063,6 +1160,7 @@ function runDAValuation(){
   }catch(e){
     msg.textContent='❌ Valuation failed';
     msg.style.color='var(--hot)';
+    resultsBox.style.display='none';
     console.error(e);
   }
 }
