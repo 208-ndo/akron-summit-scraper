@@ -1065,6 +1065,77 @@ function detectHood(r){
   return {hood:'akron', source:'default', confidence:'low'};
 }
 
+// ── VALUE-FIRST TIER DETECTION ───────────────────────────────
+function smartTierSelection(r, hoodData){
+  const estimate = r.estimated_value || 0;
+  const hoodTier = AKRON_HOODS[hoodData.hood]?.tier || 'C';
+  
+  // Determine tier from value
+  let valueTier = 'C'; // default
+  if(estimate >= 120000) valueTier = 'A';
+  else if(estimate >= 75000) valueTier = 'B';
+  else if(estimate >= 40000) valueTier = 'C';
+  else if(estimate > 0) valueTier = 'D';
+  
+  // Tier priority (higher = better)
+  const tierRank = {A:4, B:3, C:2, D:1};
+  
+  // DECISION LOGIC:
+  let finalTier = hoodTier;
+  let source = 'hood-only';
+  let confidence = hoodData.confidence;
+  let note = '';
+  
+  if(estimate > 5000){
+    // We have value data
+    const valueTierRank = tierRank[valueTier];
+    const hoodTierRank = tierRank[hoodTier];
+    const tierGap = Math.abs(valueTierRank - hoodTierRank);
+    
+    if(hoodData.confidence === 'high' && tierGap <= 1){
+      // Strong hood match, value agrees (or close) - trust hood
+      finalTier = hoodTier;
+      source = 'hood-confirmed';
+      note = `Value $${estimate.toLocaleString()} aligns with ${hoodData.hood} tier`;
+    } else if(valueTierRank > hoodTierRank){
+      // Value suggests HIGHER tier than hood
+      if(tierGap === 1){
+        // One tier difference - blend toward value
+        finalTier = valueTier;
+        source = 'value-upgraded';
+        confidence = 'medium';
+        note = `Value $${estimate.toLocaleString()} suggests Tier ${valueTier} (hood said ${hoodTier})`;
+      } else {
+        // Multi-tier gap - use value, flag uncertainty
+        finalTier = valueTier;
+        source = 'value-override';
+        confidence = 'low';
+        note = `Value $${estimate.toLocaleString()} strongly suggests Tier ${valueTier} (hood said ${hoodTier} - possible mismatch)`;
+      }
+    } else if(hoodTierRank > valueTierRank && hoodData.confidence !== 'high'){
+      // Hood suggests higher tier but with weak confidence - trust value more
+      finalTier = valueTier;
+      source = 'value-primary';
+      confidence = 'medium';
+      note = `Hood uncertain, using value-based Tier ${valueTier}`;
+    } else {
+      // Hood higher tier with strong confidence - trust hood
+      finalTier = hoodTier;
+      source = 'hood-confirmed';
+      note = `Strong hood match overrides value`;
+    }
+  }
+  
+  return {
+    tier: finalTier,
+    source,
+    confidence,
+    note,
+    hoodTier,
+    valueTier: estimate > 5000 ? valueTier : null
+  };
+}
+
 // ── STEP 2: CONDITION DISCOUNT ───────────────────────────────
 // Rule: fully remodeled comp range is the ceiling (TIER HIGH)
 // Rule: match condition to comp — DO NOT comp a flip against a dump
@@ -1114,14 +1185,21 @@ function distressPenalty(r){
   return {pct:Math.min(d,50), reasons};
 }
 
-// ── MAIN VALUATION: COMP-FIRST SMART LOGIC ─────────────
+// ── MAIN VALUATION: VALUE-FIRST SMART LOGIC ─────────────
 function localValuation(r){
   const hoodData=detectHood(r);
   const hood=hoodData.hood;
   const hoodSource=hoodData.source;
   const hoodConfidence=hoodData.confidence;
   
-  const hd=AKRON_HOODS[hood]||AKRON_HOODS['akron'];
+  // VALUE-FIRST TIER SELECTION
+  const tierData=smartTierSelection(r, hoodData);
+  const activeTier=tierData.tier;
+  
+  // Get tier table data for ACTIVE tier (not just hood tier)
+  const tierEntry=Object.entries(AKRON_HOODS).find(([k,v])=>v.tier===activeTier);
+  const hd=tierEntry?tierEntry[1]:AKRON_HOODS['akron'];
+  
   const factors=[];
   const warnings=[];
   let dataSources=0;
@@ -1133,7 +1211,13 @@ function localValuation(r){
 
   // START: neighborhood tier as baseline
   let arvBase=hd.compMid;
-  factors.push(`📍 ${hood.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())} — SOLD comps $${Math.round(hd.compLow/1000)}k–$${Math.round(hd.compHigh/1000)}k`);
+  
+  // Show tier selection logic
+  factors.push(`📍 ${hood.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())} (hood Tier ${tierData.hoodTier})`);
+  if(tierData.note){
+    factors.push(`🎯 ${tierData.note}`);
+  }
+  factors.push(`💲 Using Tier ${activeTier} range: $${Math.round(hd.compLow/1000)}k–$${Math.round(hd.compHigh/1000)}k`);
   factors.push(`💲 Price/sqft range: $${hd.ppsf.low}–$${hd.ppsf.high}/sqft`);
 
   // STEP 1: Evaluate assessed value quality
@@ -1200,58 +1284,7 @@ function localValuation(r){
   let dataAgreement=false;
   // Sale data not available, agreement check bypassed
 
-  // DEBUG: Check trigger conditions
-  factors.push(`🔧 DEBUG: hoodSource=${hoodSource}, hoodConfidence=${hoodConfidence}, estimated_value=$${r.estimated_value||'none'}, effectiveCompHigh=$${effectiveCompHigh}`);
-
-  // MISMATCH SAFEGUARD: Multi-Tier Fallback
-  if(r.estimated_value && r.estimated_value>5000 && (hoodSource==='default' || hoodConfidence!=='high')){
-    factors.push(`🔧 DEBUG: Entered mismatch safeguard check (ratio=${(r.estimated_value/effectiveCompHigh).toFixed(2)})`);
-    const estimateRatio=r.estimated_value/effectiveCompHigh;
-    
-    if(estimateRatio>1.5){
-      // Value is 50%+ above tier ceiling AND hood source is weak - check cross-tier fit
-      factors.push(`🔧 DEBUG: Multi-Tier Fallback TRIGGERED (ratio=${estimateRatio.toFixed(2)}, tier=${hd.tier})`);
-      mismatchDetected=true;
-      let crossTierCeiling=effectiveCompHigh;
-      let suggestedTier='';
-      
-      // Tier range constants (conservative mid-points)
-      const TIER_A_MIN=120000, TIER_A_MAX=245000;
-      const TIER_B_MIN=75000,  TIER_B_MAX=140000;
-      const TIER_C_MIN=40000,  TIER_C_MAX=95000;
-      const TIER_D_MIN=25000,  TIER_D_MAX=60000;
-      
-      // Check if value fits better in a higher tier
-      if(hd.tier==='D' || hd.tier==='C'){
-        if(r.estimated_value>=TIER_A_MIN){
-          suggestedTier='A';
-          crossTierCeiling=Math.min(r.estimated_value*1.1, TIER_A_MAX);
-        } else if(r.estimated_value>=TIER_B_MIN){
-          suggestedTier='B';
-          crossTierCeiling=Math.min(r.estimated_value*1.1, TIER_B_MAX);
-        }
-      } else if(hd.tier==='B'){
-        if(r.estimated_value>=TIER_A_MIN){
-          suggestedTier='A';
-          crossTierCeiling=Math.min(r.estimated_value*1.1, TIER_A_MAX);
-        }
-      }
-      
-      if(suggestedTier){
-        // Cross-tier match found
-        warnings.push(`⚠️ Hood uncertain (${hoodSource}) — value $${r.estimated_value.toLocaleString()} suggests Tier ${suggestedTier} possible`);
-        factors.push(`🔍 Cross-tier fallback: Tier ${hd.tier} → Tier ${suggestedTier} range (widened ceiling to $${Math.round(crossTierCeiling).toLocaleString()})`);
-        effectiveCompHigh=Math.round(crossTierCeiling);
-        dataQuality=Math.max(5, dataQuality-15); // Heavier penalty for cross-tier uncertainty
-      } else {
-        // No clean tier fit - just widen by 50%
-        warnings.push(`⚠️ Hood uncertain (${hoodSource}) — value $${r.estimated_value.toLocaleString()} above tier ceiling`);
-        factors.push(`🔍 Widening ARV band to avoid under-valuation`);
-        effectiveCompHigh=Math.round(Math.min(r.estimated_value*1.1, hd.compHigh*1.5));
-        dataQuality=Math.max(5, dataQuality-10);
-      }
-    }
-  }
+  // NOTE: Old mismatch safeguard removed - now handled by smartTierSelection()
 
   // STEP 4: Smart blending based on data quality
   let arvRemodeled=hd.compMid; // start with tier
@@ -1337,7 +1370,7 @@ function localValuation(r){
   };
   const note=notes[hd.tier];
 
-  return {hood, tier:hd.tier, arvLow, arvRemodeled, arvConservative, arvSafe, arvAsIs,
+  return {hood, tier:activeTier, arvLow, arvRemodeled, arvConservative, arvSafe, arvAsIs,
           distressedVal, discPct, confidence, dataSources, factors, warnings, note};
 }
 
