@@ -1033,7 +1033,7 @@ function detectHood(r){
   if(zip&&ZIP_HOOD[zip]){
     matchType='zip';
     console.log(`detectHood: ${addr} → ${ZIP_HOOD[zip]} (${matchType})`);
-    return {hood:ZIP_HOOD[zip], source:'zip', confidence:'high'};
+    return {hood:ZIP_HOOD[zip], source:'zip', confidence:'medium'};
   }
   
   // STEP 3: Fallback - try to extract ZIP from any available location string
@@ -1204,7 +1204,7 @@ function localValuation(r){
   factors.push(`🔧 DEBUG: hoodSource=${hoodSource}, hoodConfidence=${hoodConfidence}, estimated_value=$${r.estimated_value||'none'}, effectiveCompHigh=$${effectiveCompHigh}`);
 
   // MISMATCH SAFEGUARD: Multi-Tier Fallback
-  if(r.estimated_value && r.estimated_value>5000 && (hoodSource==='default' || hoodConfidence==='low')){
+  if(r.estimated_value && r.estimated_value>5000 && (hoodSource==='default' || hoodConfidence!=='high')){
     factors.push(`🔧 DEBUG: Entered mismatch safeguard check (ratio=${(r.estimated_value/effectiveCompHigh).toFixed(2)})`);
     const estimateRatio=r.estimated_value/effectiveCompHigh;
     
