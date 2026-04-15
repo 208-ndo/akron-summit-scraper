@@ -1200,12 +1200,17 @@ function localValuation(r){
   let dataAgreement=false;
   // Sale data not available, agreement check bypassed
 
+  // DEBUG: Check trigger conditions
+  factors.push(`🔧 DEBUG: hoodSource=${hoodSource}, hoodConfidence=${hoodConfidence}, estimated_value=$${r.estimated_value||'none'}, effectiveCompHigh=$${effectiveCompHigh}`);
+
   // MISMATCH SAFEGUARD: Multi-Tier Fallback
   if(r.estimated_value && r.estimated_value>5000 && (hoodSource==='default' || hoodConfidence==='low')){
+    factors.push(`🔧 DEBUG: Entered mismatch safeguard check (ratio=${(r.estimated_value/effectiveCompHigh).toFixed(2)})`);
     const estimateRatio=r.estimated_value/effectiveCompHigh;
     
     if(estimateRatio>1.5){
       // Value is 50%+ above tier ceiling AND hood source is weak - check cross-tier fit
+      factors.push(`🔧 DEBUG: Multi-Tier Fallback TRIGGERED (ratio=${estimateRatio.toFixed(2)}, tier=${hd.tier})`);
       mismatchDetected=true;
       let crossTierCeiling=effectiveCompHigh;
       let suggestedTier='';
