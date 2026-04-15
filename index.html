@@ -996,7 +996,8 @@ const TIER_COMPS={
 function detectHood(r){
   const addr=(r.prop_address||'').toLowerCase();
   const city=(r.prop_city||'').toLowerCase();
-  const zip=(r.prop_zip||'').replace(/\D/g,'').slice(0,5);
+  let zip=(r.prop_zip||'').replace(/\D/g,'').slice(0,5);
+  
   const clues=[
     ['highland square','highland square'],['market st','highland square'],
     ['portage','west hill'],['north hill','north hill'],
@@ -1008,8 +1009,23 @@ function detectHood(r){
     ['perkins','perkins'],['east akron','east akron'],
     ['middlebury','middlebury'],['sherbondy','sherbondy hill'],
   ];
+  
+  // Check address/city keywords first
   for(const[kw,hood]of clues){if(addr.includes(kw)||city.includes(kw))return hood;}
+  
+  // Check prop_zip field
   if(zip&&ZIP_HOOD[zip])return ZIP_HOOD[zip];
+  
+  // Fallback: try to extract ZIP from any available location string
+  if(!zip){
+    const locationStr=[r.prop_address,r.prop_city,r.mail_address,r.mail_city].filter(Boolean).join(' ');
+    const match=locationStr.match(/\b(443\d{2})\b/);
+    if(match){
+      zip=match[1];
+      if(ZIP_HOOD[zip])return ZIP_HOOD[zip];
+    }
+  }
+  
   return 'akron';
 }
 
@@ -1087,65 +1103,58 @@ function localValuation(r){
     
     if(assessedMarket<hd.compLow*0.6){
       warnings.push(`⚠️ Assessed implies $${assessedMarket.toLocaleString()} — far below comp floor, may be outdated`);
-      assessedWeight=0.1; // almost ignore it
+      assessedWeight=0.1;
       dataQuality+=5;
     } else if(assessedMarket>hd.compHigh*1.3){
       warnings.push(`⚠️ Assessed implies $${assessedMarket.toLocaleString()} — far above comp ceiling, use comp range instead`);
-      assessedWeight=0.2; // cap its influence
+      assessedWeight=0.2;
       dataQuality+=10;
     } else if(assessedRatio>=0.85 && assessedRatio<=1.15){
-      // Assessed aligns with tier - HIGH QUALITY
       factors.push(`🏛 Assessed $${Math.round(r.assessed_value).toLocaleString()} ÷ 0.35 = $${assessedMarket.toLocaleString()} market — aligns with tier`);
-      assessedWeight=0.45; // strong signal
+      assessedWeight=0.45;
       dataQuality+=35;
       dataSources++;
     } else {
-      // Assessed is reasonable but off-center
       factors.push(`🏛 Assessed $${Math.round(r.assessed_value).toLocaleString()} ÷ 0.35 = $${assessedMarket.toLocaleString()} market`);
       assessedWeight=0.35;
       dataQuality+=20;
       dataSources++;
     }
+  } else if(r.estimated_value&&r.estimated_value>5000){
+    // FALLBACK: Use estimated_value as low-confidence proxy (NOT same as assessed)
+    assessedMarket=r.estimated_value;
+    const assessedRatio=assessedMarket/hd.compMid;
+    
+    if(assessedMarket<hd.compLow*0.6){
+      warnings.push(`⚠️ Estimated value $${assessedMarket.toLocaleString()} — far below comp floor, low confidence`);
+      assessedWeight=0.05; // very weak signal
+      dataQuality+=3;
+    } else if(assessedMarket>hd.compHigh*1.3){
+      warnings.push(`⚠️ Estimated value $${assessedMarket.toLocaleString()} — far above comp ceiling, capping influence`);
+      assessedWeight=0.1;
+      dataQuality+=5;
+    } else if(assessedRatio>=0.85 && assessedRatio<=1.15){
+      factors.push(`📊 Estimated value $${assessedMarket.toLocaleString()} — low confidence, aligns with tier`);
+      assessedWeight=0.20; // much weaker than true assessed (was 0.45)
+      dataQuality+=15; // lower quality points (was 35)
+      dataSources++;
+    } else {
+      factors.push(`📊 Estimated value $${assessedMarket.toLocaleString()} — low confidence proxy`);
+      assessedWeight=0.15; // much weaker than true assessed (was 0.35)
+      dataQuality+=10; // lower quality points (was 20)
+      dataSources++;
+    }
   }
 
-  // STEP 2: Evaluate last sale quality
+  // STEP 2: Evaluate last sale quality (DISABLED - fields don't exist in data)
   let saleAppraised=null;
   let saleWeight=0;
-  if(r.last_sale_price&&r.last_sale_year){
-    const recency=recencyAdjust(r.last_sale_price, r.last_sale_year, factors);
-    if(recency && recency.weight>0){
-      saleAppraised=recency.appraised;
-      const saleRatio=r.last_sale_price/hd.compMid;
-      
-      // Quality check: is sale reasonable vs tier?
-      if(r.last_sale_price<hd.compMid*0.55){
-        warnings.push(`🚨 Last sale $${Math.round(r.last_sale_price).toLocaleString()} looks like a distress/bank sale — excluded as comp`);
-        saleWeight=0; // exclude it
-      } else if(saleRatio>=0.8 && saleRatio<=1.2){
-        // Sale aligns with tier - HIGH QUALITY
-        saleWeight=recency.weight*1.2; // boost recent aligned sales
-        dataQuality+=40;
-        dataSources++;
-      } else {
-        // Sale is reasonable but off-center
-        saleWeight=recency.weight;
-        dataQuality+=25;
-        dataSources++;
-      }
-    }
-  }
+  // last_sale_price and last_sale_year fields are not available in scraped data
+  // This section is bypassed until scraper is updated to include these fields
 
-  // STEP 3: Check if assessed + sale AGREE with each other
+  // STEP 3: Check if assessed + sale AGREE with each other (DISABLED - no sale data)
   let dataAgreement=false;
-  if(assessedMarket && saleAppraised){
-    const agreementRatio=Math.min(assessedMarket,saleAppraised)/Math.max(assessedMarket,saleAppraised);
-    if(agreementRatio>=0.90){
-      // They agree strongly - TRUST THEM
-      dataAgreement=true;
-      dataQuality+=20;
-      factors.push(`✅ Assessed + sale agree closely — high confidence in data`);
-    }
-  }
+  // Sale data not available, agreement check bypassed
 
   // STEP 4: Smart blending based on data quality
   let arvRemodeled=hd.compMid; // start with tier
