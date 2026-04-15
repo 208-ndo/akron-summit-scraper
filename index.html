@@ -1006,7 +1006,7 @@ function detectHood(r){
   const addr=(r.prop_address||'').toLowerCase();
   const city=(r.prop_city||'').toLowerCase();
   let zip=(r.prop_zip||'').replace(/\D/g,'').slice(0,5);
-  let matchType='default'; // Track which rule matched
+  let matchType='default';
   
   const clues=[
     ['highland square','highland square'],['market st','highland square'],
@@ -1025,7 +1025,7 @@ function detectHood(r){
     if(addr.includes(kw)||city.includes(kw)){
       matchType='keyword';
       console.log(`detectHood: ${addr} → ${hood} (${matchType})`);
-      return hood;
+      return {hood, source:'keyword', confidence:'high'};
     }
   }
   
@@ -1033,7 +1033,7 @@ function detectHood(r){
   if(zip&&ZIP_HOOD[zip]){
     matchType='zip';
     console.log(`detectHood: ${addr} → ${ZIP_HOOD[zip]} (${matchType})`);
-    return ZIP_HOOD[zip];
+    return {hood:ZIP_HOOD[zip], source:'zip', confidence:'high'};
   }
   
   // STEP 3: Fallback - try to extract ZIP from any available location string
@@ -1045,7 +1045,7 @@ function detectHood(r){
       if(ZIP_HOOD[zip]){
         matchType='zip-extracted';
         console.log(`detectHood: ${addr} → ${ZIP_HOOD[zip]} (${matchType})`);
-        return ZIP_HOOD[zip];
+        return {hood:ZIP_HOOD[zip], source:'zip-extracted', confidence:'medium'};
       }
     }
   }
@@ -1055,13 +1055,14 @@ function detectHood(r){
     if(addr.includes(street)){
       matchType='street';
       console.log(`detectHood: ${addr} → ${hood} (${matchType})`);
-      return hood;
+      return {hood, source:'street', confidence:'medium'};
     }
   }
   
   // STEP 5: Default fallback
+  matchType='default';
   console.log(`detectHood: ${addr} → akron (${matchType})`);
-  return 'akron';
+  return {hood:'akron', source:'default', confidence:'low'};
 }
 
 // ── STEP 2: CONDITION DISCOUNT ───────────────────────────────
@@ -1115,12 +1116,20 @@ function distressPenalty(r){
 
 // ── MAIN VALUATION: COMP-FIRST SMART LOGIC ─────────────
 function localValuation(r){
-  const hood=detectHood(r);
+  const hoodData=detectHood(r);
+  const hood=hoodData.hood;
+  const hoodSource=hoodData.source;
+  const hoodConfidence=hoodData.confidence;
+  
   const hd=AKRON_HOODS[hood]||AKRON_HOODS['akron'];
   const factors=[];
   const warnings=[];
   let dataSources=0;
   let dataQuality=0; // 0-100 score for how much to trust assessed+sale vs tier
+
+  // Local ceiling - DO NOT mutate hd.compHigh
+  let effectiveCompHigh=hd.compHigh;
+  let mismatchDetected=false;
 
   // START: neighborhood tier as baseline
   let arvBase=hd.compMid;
@@ -1191,6 +1200,23 @@ function localValuation(r){
   let dataAgreement=false;
   // Sale data not available, agreement check bypassed
 
+  // MISMATCH SAFEGUARD: Before smart blending
+  if(r.estimated_value && r.estimated_value>5000 && (hoodSource==='default' || hoodConfidence==='low')){
+    const estimateRatio=r.estimated_value/effectiveCompHigh;
+    if(estimateRatio>1.3){
+      // Estimated value is 30%+ above tier ceiling AND hood source is weak
+      mismatchDetected=true;
+      warnings.push(`⚠️ Hood detection uncertain (${hoodSource}) — estimated value $${r.estimated_value.toLocaleString()} suggests higher tier possible`);
+      factors.push(`🔍 Mismatch detected: widening ARV band to avoid under-valuation`);
+      
+      // Widen the LOCAL ceiling to accommodate possible mismatch
+      effectiveCompHigh=Math.round(Math.min(r.estimated_value*1.1, hd.compHigh*1.5));
+      
+      // Lower data quality confidence when hood is uncertain
+      dataQuality=Math.max(5, dataQuality-10);
+    }
+  }
+
   // STEP 4: Smart blending based on data quality
   let arvRemodeled=hd.compMid; // start with tier
   
@@ -1229,10 +1255,10 @@ function localValuation(r){
     factors.push(`🚨 Very weak data quality (${dataQuality}/100) — using tier table as primary`);
   }
 
-  // STEP 5: Apply tier as sanity cap (don't let bad data push beyond neighborhood ceiling)
-  if(arvRemodeled>hd.compHigh*1.1){
-    warnings.push(`⚠️ Calculated ARV $${arvRemodeled.toLocaleString()} exceeds neighborhood ceiling — capping at $${Math.round(hd.compHigh).toLocaleString()}`);
-    arvRemodeled=Math.round(hd.compHigh);
+  // STEP 5: Apply tier as sanity cap (use effectiveCompHigh, not hd.compHigh)
+  if(arvRemodeled>effectiveCompHigh*1.1){
+    warnings.push(`⚠️ Calculated ARV $${arvRemodeled.toLocaleString()} exceeds neighborhood ceiling — capping at $${Math.round(effectiveCompHigh).toLocaleString()}`);
+    arvRemodeled=Math.round(effectiveCompHigh);
   }
   if(arvRemodeled<hd.compLow*0.85){
     warnings.push(`⚠️ Calculated ARV $${arvRemodeled.toLocaleString()} below neighborhood floor — raising to $${Math.round(hd.compLow*0.90).toLocaleString()}`);
@@ -1245,7 +1271,7 @@ function localValuation(r){
 
   // STEP 7: Conservative ARV = tight MAO anchor (always stays tight)
   const arvLow=Math.round(hd.compLow*0.90);
-  const arvHigh=Math.round(Math.min(arvRemodeled, hd.compHigh));
+  const arvHigh=Math.round(Math.min(arvRemodeled, effectiveCompHigh));
   const arvConservative=Math.round((arvLow+arvRemodeled)*0.48);
   const arvSafe=Math.round(arvConservative*0.90);
 
