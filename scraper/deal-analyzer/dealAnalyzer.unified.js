@@ -387,6 +387,7 @@ class MAOCalculator {
       rehabCost: dealParams.rehabCost || 0,
       holdingCosts: dealParams.holdingCosts || 0,
       closingCosts: dealParams.closingCosts || 0,
+      wholesaleFee: dealParams.wholesaleFee || 0,
       lowballProfit: dealParams.lowballProfit || 0.30,
       targetProfit: dealParams.targetProfit || 0.20,
       maxProfit: dealParams.maxProfit || 0.12,
@@ -464,6 +465,9 @@ class MAOCalculator {
     const lowballMAO = this.calculateMAO(sourceARV, this.params.lowballProfit);
     const targetMAO = this.calculateMAO(sourceARV, this.params.targetProfit);
     const maxMAO = this.calculateMAO(sourceARV, this.params.maxProfit);
+    const lowballCashOffer = Math.max(0, lowballMAO - this.params.wholesaleFee);
+    const targetCashOffer = Math.max(0, targetMAO - this.params.wholesaleFee);
+    const maxCashOffer = Math.max(0, maxMAO - this.params.wholesaleFee);
 
     const lowballFormula = this.buildFormula(sourceARV, this.params.lowballProfit, lowballMAO);
     const targetFormula = this.buildFormula(sourceARV, this.params.targetProfit, targetMAO);
@@ -491,6 +495,9 @@ class MAOCalculator {
       lowball_mao: lowballMAO,
       target_mao: targetMAO,
       max_mao: maxMAO,
+      lowball_cash_offer: lowballCashOffer,
+      target_cash_offer: targetCashOffer,
+      max_cash_offer: maxCashOffer,
       source_arv: sourceARV,
       arv_type: arvType,
       buy_basis_reason: buyBasis.reason,
@@ -502,6 +509,7 @@ class MAOCalculator {
         rehab_cost: this.params.rehabCost,
         holding_costs: this.params.holdingCosts,
         closing_costs: this.params.closingCosts,
+        wholesale_fee: this.params.wholesaleFee,
         financing_costs: this.params.financingCosts,
         buyer_costs_pct: this.params.buyerCosts * 100,
         seller_costs_pct: this.params.sellerCosts * 100
