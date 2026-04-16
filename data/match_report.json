@@ -1,12 +1,48 @@
 {
   "matched": 0,
-  "unmatched": 84,
-  "with_address": 10,
+  "unmatched": 69,
+  "with_address": 3,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 84
+    "unmatched": 69
   },
   "sample_unmatched": [
+    {
+      "doc_num": "PCF1-T1-R5",
+      "owner": "Merc Acquisitions Inc"
+    },
+    {
+      "doc_num": "LOCKETT 04",
+      "owner": "Terria Lockett"
+    },
+    {
+      "doc_num": "YORK 04",
+      "owner": "Karen E York"
+    },
+    {
+      "doc_num": "DIMENGO 04",
+      "owner": "Matt Dimengo"
+    },
+    {
+      "doc_num": "COBURN 04",
+      "owner": "Stephen J Coburn"
+    },
+    {
+      "doc_num": "BULGRIN 04",
+      "owner": "Tabitha L Bulgrin"
+    },
+    {
+      "doc_num": "BOND 04",
+      "owner": "Jessica Bond"
+    },
+    {
+      "doc_num": "WINTROW 04",
+      "owner": "Tracie R Baxter-Wintrow"
+    },
+    {
+      "doc_num": "ARGENIO 04",
+      "owner": "Nicole M Argenio"
+    },
     {
       "doc_num": "SBORY 04",
       "owner": "Annette Sbory"
@@ -70,44 +106,8 @@
     {
       "doc_num": "LONGFELLOW 04",
       "owner": "Christopher J Longfellow"
-    },
-    {
-      "doc_num": "PRIEST 04",
-      "owner": "Mariah L. Priest"
-    },
-    {
-      "doc_num": "FIDUCI 04",
-      "owner": "Or Fiduci"
-    },
-    {
-      "doc_num": "BRANNAN 04",
-      "owner": "Stephanie M Brannan"
-    },
-    {
-      "doc_num": "WHITT 04",
-      "owner": "Jason M Whitt"
-    },
-    {
-      "doc_num": "LEVAN 04",
-      "owner": "Daniel Levan"
-    },
-    {
-      "doc_num": "OF 04",
-      "owner": "Kayla Burroughs, As And Heir Of"
-    },
-    {
-      "doc_num": "LLC 04",
-      "owner": "Neonour Transport Llc"
-    },
-    {
-      "doc_num": "WEINBERG 04",
-      "owner": "Virginia Weinberg"
-    },
-    {
-      "doc_num": "HALE 04",
-      "owner": "Paul Hale"
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-04-15T11:45:46.275355+00:00"
+  "generated_at": "2026-04-16T11:50:36.815384+00:00"
 }
