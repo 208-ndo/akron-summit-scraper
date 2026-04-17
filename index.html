@@ -707,9 +707,11 @@ const TRACE_PERSIST_FIELDS=[
 ];
 const TRACERFY_API_BASE=getTracerfyBase();
 const TRACERFY_LIVE_API_PATH='/api/tracerfy/trace';
+const REMOTE_TRACE_STORE_FILE='trace_store.json';
 let traceStore=loadTraceStore();
 let traceQueue=[],traceQueueKeys=new Set(),traceQueueRunning=false,traceQueuePromise=Promise.resolve();
 let canonicalTraceIndex=null,canonicalTraceIndexPromise=null;
+let remoteTraceStoreLoaded=false,remoteTraceStorePromise=null;
 
 function loadTraceStore(){
   try{
@@ -984,14 +986,33 @@ function applyDerivedLeadFields(r){
 }
 
 function getTracedPhones(r){
-  return uniqueList([r.phone_primary,r.phone_secondary]);
+  return uniqueList([r.phone_primary,r.phone_secondary,r.phone_tertiary,r['Phone 1'],r['Phone 2'],r['Phone 3'],...(r.phones||[])]);
+}
+
+function normalizeTraceStatus(value){
+  return String(value||'').trim().toLowerCase();
 }
 
 function hasTracedContact(r){
-  return getTracedPhones(r).length>0||getRecordEmails({
-    email_primary:r.email_primary,
-    emails:[],
-  }).length>0;
+  return getTracedPhones(r).length>0 || getRecordEmails(r).length>0 || !!(r.traced_owner_name||r.traced_mailing_address);
+}
+
+function hasAnyRealTraceData(r){
+  return !!(
+    normalizeTraceStatus(r.skip_trace_status) ||
+    r.traced_owner_name ||
+    r.phone_primary ||
+    r.phone_secondary ||
+    r.phone_tertiary ||
+    (Array.isArray(r.phones) && r.phones.length) ||
+    r.email_primary ||
+    r.Email ||
+    (Array.isArray(r.emails) && r.emails.length) ||
+    r.traced_mailing_address ||
+    r.traced_mailing_city ||
+    r.traced_mailing_state ||
+    r.skip_trace_source
+  );
 }
 
 function getRecordPhones(r){
@@ -1076,7 +1097,12 @@ function isTracerfyEligible(r){
 }
 
 function isSkipTraced(r){
-  return TRACE_SUCCESS_STATUSES.has(String(r.skip_trace_status||''))&&hasTracedContact(r);
+  const status=normalizeTraceStatus(r.skip_trace_status);
+  if(TRACE_SUCCESS_STATUSES.has(status)) return true;
+  if(['no_hit','request_failed','not_found','no_match','no_contact'].includes(status)){
+    return !!(r.skip_trace_timestamp || r.skip_trace_source || hasTracedContact(r));
+  }
+  return hasTracedContact(r);
 }
 
 function hasAnyPhone(r){
@@ -1094,8 +1120,6 @@ function applyStoredTraceData(r){
       changed=true;
     });
     if(changed)saveTraceStore();
-  }
-  if(stored){
     const merged=mergePersistedTraceFields(r,stored);
     Object.assign(r,merged);
   }
@@ -1115,16 +1139,7 @@ function buildCanonicalTraceIndex(records){
   const index={};
   (records||[]).forEach(record=>{
     const normalized=applyStoredTraceData(Object.assign({},record));
-    if(!(
-      normalized.traced_owner_name||
-      normalized.phone_primary||
-      normalized.phone_secondary||
-      normalized.email_primary||
-      normalized.traced_mailing_address||
-      normalized.traced_mailing_city||
-      normalized.traced_mailing_state||
-      normalized.skip_trace_status
-    ))return;
+    if(!hasAnyRealTraceData(normalized))return;
     recordMatchKeys(normalized).forEach(key=>{
       index[key]=normalized;
     });
@@ -1137,6 +1152,7 @@ async function getCanonicalTraceIndex(){
   if(canonicalTraceIndex)return canonicalTraceIndex;
   if(!canonicalTraceIndexPromise){
     canonicalTraceIndexPromise=(async()=>{
+      await loadRemoteTraceStore();
       const payload=await fetchJSON('records.json');
       const records=payload?(payload.records||[]):[];
       return buildCanonicalTraceIndex(records);
@@ -1149,6 +1165,7 @@ async function getCanonicalTraceIndex(){
 }
 
 async function hydrateCanonicalTraceRecords(records){
+  await loadRemoteTraceStore();
   const index=await getCanonicalTraceIndex();
   return (records||[]).map(record=>{
     const normalized=applyStoredTraceData(record);
@@ -1435,6 +1452,27 @@ async function fetchJSON(file){
   return null;
 }
 
+
+async function loadRemoteTraceStore(){
+  if(remoteTraceStoreLoaded)return traceStore;
+  if(remoteTraceStorePromise)return remoteTraceStorePromise;
+  remoteTraceStorePromise=(async()=>{
+    try{
+      const payload=await fetchJSON(REMOTE_TRACE_STORE_FILE);
+      if(payload&&typeof payload==='object'){
+        const incoming=payload.records||payload.trace_store||payload;
+        if(incoming&&typeof incoming==='object'&&!Array.isArray(incoming)){
+          Object.assign(traceStore,incoming);
+          saveTraceStore();
+        }
+      }
+    }catch(e){}
+    remoteTraceStoreLoaded=true;
+    return traceStore;
+  })().finally(()=>{remoteTraceStorePromise=null;});
+  return remoteTraceStorePromise;
+}
+
 function shouldAutoSkipTrace(r){
   if(!tracerfyConfigured())return false;
   if(!isTracerfyEligible(r))return false;
@@ -1525,7 +1563,9 @@ async function processTraceQueue(){
 }
 
 async function loadTab(tab){
+  await loadRemoteTraceStore();
   if(cache[tab]){
+    cache[tab]=await hydrateCanonicalTraceRecords(cache[tab]);
     queueAutoSkipTrace(cache[tab]);
     return cache[tab];
   }
@@ -1545,6 +1585,7 @@ async function loadTab(tab){
 }
 
 async function loadStats(){
+  await loadRemoteTraceStore();
   const j=await fetchJSON('records.json');
   if(!j){document.getElementById('upd').textContent='Offline';return;}
   const r=(j.records||[]).map(applyStoredTraceData);
