@@ -299,11 +299,23 @@
 
 <div class="statsbar">
   <div class="stat"><div class="stat-num" id="s-total">–</div><div class="stat-label">Total</div></div><div class="sdiv"></div>
+  <div class="stat"><div class="stat-num hot" id="s-sheriff">–</div><div class="stat-label">⚡ Sheriff</div></div><div class="sdiv"></div>
+  <div class="stat"><div class="stat-num hot" id="s-hot">–</div><div class="stat-label">🔥 Hot Stack</div></div><div class="sdiv"></div>
+  <div class="stat"><div class="stat-num warm" id="s-probate">–</div><div class="stat-label">⚖️ Probate</div></div><div class="sdiv"></div>
+  <div class="stat"><div class="stat-num warm" id="s-code">–</div><div class="stat-label">🚧 Code Vio</div></div><div class="sdiv"></div>
+  <div class="stat"><div class="stat-num cool" id="s-vacant">–</div><div class="stat-label">🏠 Vacant</div></div><div class="sdiv"></div>
+  <div class="stat"><div class="stat-num gold" id="s-tax">–</div><div class="stat-label">💰 Tax Delin</div></div><div class="sdiv"></div>
+  <div class="stat"><div class="stat-num green" id="s-absentee">–</div><div class="stat-label">📭 Absentee</div></div><div class="sdiv"></div>
+  <div class="stat"><div class="stat-num green" id="s-inherited">–</div><div class="stat-label">🏛 Inherited</div></div><div class="sdiv"></div>
+  <div class="stat"><div class="stat-num cool" id="s-subto">–</div><div class="stat-label">🎯 Sub-To</div></div><div class="sdiv"></div>
+  <div class="stat"><div class="stat-num green" id="s-vacland">–</div><div class="stat-label">🌿 Vac Land</div></div><div class="sdiv"></div>
+  <div class="stat"><div class="stat-num" id="s-new">–</div><div class="stat-label">🆕 This Week</div></div><div class="sdiv"></div>
   <div class="stat"><div class="stat-num cool" id="s-today-pulled">–</div><div class="stat-label">📥 Today Pulled</div></div><div class="sdiv"></div>
   <div class="stat"><div class="stat-num gold" id="s-eligible">–</div><div class="stat-label">✅ Eligible</div></div><div class="sdiv"></div>
   <div class="stat"><div class="stat-num green" id="s-traced-today">–</div><div class="stat-label">📞 Traced Today</div></div><div class="sdiv"></div>
   <div class="stat"><div class="stat-num warm" id="s-no-hit">–</div><div class="stat-label">🚫 No Hit</div></div><div class="sdiv"></div>
-  <div class="stat"><div class="stat-num cool" id="s-credits-left">–</div><div class="stat-label">💳 Credits Left</div></div><div class="sdiv"></div>
+  <div class="stat"><div class="stat-num cool" id="s-credits-left">–</div><div class="stat-label">💳 Credits Left</div></div>
+  <div class="sdiv"></div>
   <div class="stat" onclick="quickFilterSkipped()" style="cursor:pointer;min-width:80px;">
     <div id="skipped-btn" style="background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.4);border-radius:8px;padding:6px 14px;display:flex;flex-direction:column;align-items:center;gap:2px;transition:all .15s;">
       <div style="font-size:18px;line-height:1;">📞</div>
@@ -1595,7 +1607,58 @@ function applyFilters(){
   });
   doSort();rendered=0;renderTable();
   document.getElementById('rec-count').textContent=filtered.length.toLocaleString()+' records';
+  renderTopStats(filtered);
   setSkippedButtonState();
+}
+
+
+function isTodayDateString(v){
+  if(!v) return false;
+  const d = new Date(v);
+  if(isNaN(d)) return false;
+  const now = new Date();
+  return d.getFullYear()===now.getFullYear() &&
+         d.getMonth()===now.getMonth() &&
+         d.getDate()===now.getDate();
+}
+
+function computeTopStats(rows){
+  const stats = {
+    todayPulled: 0,
+    eligible: 0,
+    tracedToday: 0,
+    noHit: 0,
+    creditsLeft: null
+  };
+  const credits = Number(window.TRACERFY_CONFIG && window.TRACERFY_CONFIG.availableCredits);
+  if(Number.isFinite(credits)) stats.creditsLeft = credits;
+
+  for(const r of (rows || [])){
+    try{
+      const filed = String(r.filed || '').trim();
+      const traceTs = String(r.skip_trace_timestamp || '').trim();
+      const status = String(r.skip_trace_status || '').trim().toLowerCase();
+
+      if(isTodayDateString(filed)) stats.todayPulled += 1;
+      if(typeof isTracerfyEligible === 'function' && isTracerfyEligible(r)) stats.eligible += 1;
+      if(isTodayDateString(traceTs) && (status === 'success' || status === 'skipped' || (typeof isSkipTraced==='function' && isSkipTraced(r)))) stats.tracedToday += 1;
+      if(status === 'no_hit' || status === 'no_contact') stats.noHit += 1;
+    }catch(e){}
+  }
+  return stats;
+}
+
+function renderTopStats(rows){
+  const stats = computeTopStats(rows);
+  const setText = (id, val) => {
+    const el = document.getElementById(id);
+    if(el) el.textContent = (val === null || val === undefined || val === '') ? '–' : Number(val).toLocaleString();
+  };
+  setText('s-today-pulled', stats.todayPulled);
+  setText('s-eligible', stats.eligible);
+  setText('s-traced-today', stats.tracedToday);
+  setText('s-no-hit', stats.noHit);
+  setText('s-credits-left', stats.creditsLeft);
 }
 
 function setSkippedButtonState(){
@@ -3264,6 +3327,7 @@ async function init(){
   applyFilters();
   Object.keys(TAB_FILES).forEach(tab=>{if(tab!=='all')loadTab(tab);});
   cleanupBrokenIconText();
+  renderTopStats(filtered&&filtered.length?filtered:(allRecords||records||[]));
   setSkippedButtonState();
 }
 init();
