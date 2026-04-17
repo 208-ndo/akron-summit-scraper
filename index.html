@@ -918,10 +918,59 @@ function applyDerivedLeadFields(r){
   Object.assign(r,normalized,{
     list_count:getListSignals(r).length,
   });
+
   const sellerScore=Number(r.score)||0;
-  const listCount=Number(r.list_count)||0;
+  const listCount=Math.max(
+    Number(r.list_count)||0,
+    Number(r.distress_count)||0
+  );
   const distressCount=Number(r.distress_count)||0;
-  r.skip_trace_eligible=sellerScore>=65 && listCount>=2 && distressCount>=2;
+  const status=String(r.skip_trace_status||'').trim().toLowerCase();
+  const ownerName=String(
+    r.owner ||
+    r.traced_owner_name ||
+    r.executor_name ||
+    r.decedent_name ||
+    ''
+  ).trim();
+  const hasAddress=!!String(r.prop_address||'').trim();
+  const hasCity=!!String(r.prop_city||'').trim();
+  const hasState=!!String(r.prop_state||'').trim();
+
+  const signals=new Set(getListSignals(r));
+
+  const hasOverride=
+    signals.has('sheriff_sale') ||
+    signals.has('foreclosure') ||
+    (signals.has('probate') && signals.has('absentee')) ||
+    (signals.has('tax_delinquent') && signals.has('code_violation')) ||
+    (signals.has('vacant_home') && signals.has('absentee')) ||
+    (signals.has('out_of_state') && (
+      signals.has('code_violation') ||
+      signals.has('tax_delinquent') ||
+      signals.has('probate')
+    ));
+
+  const blockedStatuses=new Set([
+    'success',
+    'skipped_manual',
+    'manual_skip'
+  ]);
+
+  const baseEligible=
+    sellerScore >= 60 &&
+    listCount >= 2 &&
+    distressCount >= 2;
+
+  r.skip_trace_eligible =
+    tracerfyConfigured() &&
+    !blockedStatuses.has(status) &&
+    hasAddress &&
+    hasCity &&
+    hasState &&
+    !!ownerName &&
+    (baseEligible || hasOverride);
+
   return r;
 }
 
@@ -976,7 +1025,45 @@ function getTraceMailingAddress(r){
 }
 
 function isTracerfyEligible(r){
-  return !!r.skip_trace_eligible;
+  if(!r || typeof r!=='object') return false;
+
+  const status=String(r.skip_trace_status||'').trim().toLowerCase();
+  if(['success','skipped_manual','manual_skip'].includes(status)) return false;
+
+  const ownerName=String(
+    r.owner ||
+    r.traced_owner_name ||
+    r.executor_name ||
+    r.decedent_name ||
+    ''
+  ).trim();
+
+  if(!ownerName) return false;
+  if(!String(r.prop_address||'').trim()) return false;
+  if(!String(r.prop_city||'').trim()) return false;
+  if(!String(r.prop_state||'').trim()) return false;
+
+  const signals=new Set(getListSignals(r));
+  const sellerScore=Number(r.score)||0;
+  const listCount=Math.max(
+    Number(r.list_count)||0,
+    Number(r.distress_count)||0
+  );
+  const distressCount=Number(r.distress_count)||0;
+
+  const hasOverride=
+    signals.has('sheriff_sale') ||
+    signals.has('foreclosure') ||
+    (signals.has('probate') && signals.has('absentee')) ||
+    (signals.has('tax_delinquent') && signals.has('code_violation')) ||
+    (signals.has('vacant_home') && signals.has('absentee')) ||
+    (signals.has('out_of_state') && (
+      signals.has('code_violation') ||
+      signals.has('tax_delinquent') ||
+      signals.has('probate')
+    ));
+
+  return (sellerScore >= 60 && listCount >= 2 && distressCount >= 2) || hasOverride;
 }
 
 function isSkipTraced(r){
