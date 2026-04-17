@@ -335,17 +335,17 @@
     <button class="tab" data-tab="code_violations">🚧 Code Violations <span class="badge" id="b-code_violations">0</span></button>
     <button class="tab" data-tab="vacant_homes">🏠 Vacant Homes <span class="badge" id="b-vacant_homes">0</span></button>
     <button class="tab" data-tab="tax_delinquent">💰 Tax Delinquent <span class="badge" id="b-tax_delinquent">0</span></button>
-    <button class="tab" data-tab="absentee">Absentee <span class="badge" id="b-absentee">0</span></button>
+    <button class="tab" data-tab="absentee">📭 Absentee <span class="badge" id="b-absentee">0</span></button>
     <button class="tab" data-tab="out_of_state">🌎 Out-of-State <span class="badge" id="b-out_of_state">0</span></button>
     <button class="tab" data-tab="inherited">🏛 Inherited <span class="badge" id="b-inherited">0</span></button>
-    <button class="tab" data-tab="foreclosure">Foreclosure <span class="badge" id="b-foreclosure">0</span></button>
-    <button class="tab" data-tab="subject_to">Subject-To <span class="badge" id="b-subject_to">0</span></button>
-    <button class="tab" data-tab="prime_subject_to">Prime Deals <span class="badge" id="b-prime_subject_to">0</span></button>
-    <button class="tab" data-tab="vacant_land">Vacant Land <span class="badge" id="b-vacant_land">0</span></button>
-    <button class="tab" data-tab="evictions">Evictions <span class="badge" id="b-evictions">0</span></button>
-    <button class="tab" data-tab="divorces">Divorces <span class="badge" id="b-divorces">0</span></button>
-    <button class="tab" data-tab="fire_damage">Fire Damage <span class="badge" id="b-fire_damage">0</span></button>
-    <button class="tab" data-tab="deal_analyzer" style="color:var(--accent3);font-weight:800;">Deal Analyzer</button>
+    <button class="tab" data-tab="foreclosure">🏚 Foreclosure <span class="badge" id="b-foreclosure">0</span></button>
+    <button class="tab" data-tab="subject_to">🎯 Subject-To <span class="badge" id="b-subject_to">0</span></button>
+    <button class="tab" data-tab="prime_subject_to">⭐ Prime Deals <span class="badge" id="b-prime_subject_to">0</span></button>
+    <button class="tab" data-tab="vacant_land">🌿 Vacant Land <span class="badge" id="b-vacant_land">0</span></button>
+    <button class="tab" data-tab="evictions">🚪 Evictions <span class="badge" id="b-evictions">0</span></button>
+    <button class="tab" data-tab="divorces">💔 Divorces <span class="badge" id="b-divorces">0</span></button>
+    <button class="tab" data-tab="fire_damage">🔥 Fire Damage <span class="badge" id="b-fire_damage">0</span></button>
+    <button class="tab" data-tab="deal_analyzer" style="color:var(--accent3);font-weight:800;">🧮 Deal Analyzer</button>
   </div>
 </div>
 
@@ -426,7 +426,7 @@
 
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     FULL DEAL ANALYZER PAGE â€” MAO ENGINE
+     FULL DEAL ANALYZER PAGE — MAO ENGINE
 â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div id="da-page" style="display:none;overflow-y:auto;height:calc(100vh - 170px);">
 <div class="da-page-inner">
@@ -465,7 +465,7 @@
 
     <!-- ARV -->
     <div class="da-card">
-      <div class="da-sec" style="margin-bottom:10px;">ARV â€” After Repair Value</div>
+      <div class="da-sec" style="margin-bottom:10px;">ARV — After Repair Value</div>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px;">
         <div class="pfield"><label>Low ARV</label><input type="number" id="p-arv-low" placeholder="e.g. 105000" oninput="pCalc()"></div>
         <div class="pfield"><label style="color:var(--accent);">Base ARV ★</label><input type="number" id="p-arv-base" placeholder="e.g. 120000" oninput="pSyncARVs();pCalc()" style="border-color:rgba(245,166,35,.4);"></div>
@@ -553,11 +553,11 @@
   </div>
 
   <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-       MAO ENGINE â€” THE DECISION CENTER
+       MAO ENGINE — THE DECISION CENTER
   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-  <div class="da-sec" style="margin-bottom:14px;">⚡ MAO Engine â€” Live Decision</div>
+  <div class="da-sec" style="margin-bottom:14px;">⚡ MAO Engine — Live Decision</div>
 
-  <!-- WHOLESALE FEE SLIDER â€” right above MAO -->
+  <!-- WHOLESALE FEE SLIDER — right above MAO -->
   <div class="da-card" style="margin-bottom:16px;border-color:rgba(245,166,35,.3);">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
       <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">Wholesale Fee</div>
@@ -645,7 +645,7 @@
     <div class="psp-card" style="background:var(--surface);border:2px solid rgba(74,245,166,.3);border-radius:10px;padding:16px;text-align:center;">
       <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent3);margin-bottom:6px;">Max Wholesale Fee</div>
       <div id="p-max-fee" style="font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:var(--accent3);">–</div>
-      <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);margin-top:3px;">above this â†’ deal breaks</div>
+      <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);margin-top:3px;">above this → deal breaks</div>
     </div>
     <div class="psp-card" style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;">
       <div class="psp-lbl" style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Deal Grade</div>
@@ -1564,7 +1564,7 @@ function renderTable(){
 function observe(){const s=document.getElementById('sentinel');if(!s)return;new IntersectionObserver(e=>{if(e[0].isIntersecting)loadMore();},{root:document.getElementById('table-wrap'),threshold:.1}).observe(s);}
 function loadMore(){const tbody=document.getElementById('tbody');const s=document.getElementById('sentinel');if(s)s.remove();filtered.slice(rendered,rendered+PAGE).forEach(r=>tbody.insertAdjacentHTML('beforeend',rowHTML(r)));rendered+=PAGE;if(rendered<filtered.length){const s=document.createElement('tr');s.id='sentinel';s.innerHTML='<td colspan="9"><div class="loading" style="padding:14px">Loading more...</div></td>';tbody.appendChild(s);observe();}cleanupBrokenIconText(tbody);}
 
-// Record store â€” avoids broken JSON-in-HTML-attribute problem
+// Record store — avoids broken JSON-in-HTML-attribute problem
 const _rowStore = [];
 
 function openModalById(id){
@@ -1791,16 +1791,16 @@ function mCalc(){
   const bdEl=document.getElementById('da-bd');if(bdEl)bdEl.innerHTML=bd.join('&nbsp;·&nbsp;');
   const res=document.getElementById('da-res');const vd=document.getElementById('da-vd');
   if(res)res.className='da-result';
-  if(maoBase>=30000){if(res)res.classList.add('green');if(mEl)mEl.style.color='var(--accent3)';if(vd){vd.textContent='✅ Strong deal â€” room to move';vd.style.color='var(--accent3)';}}
-  else if(maoBase>=15000){if(res)res.classList.add('yellow');if(mEl)mEl.style.color='var(--accent)';if(vd){vd.textContent='⚠️ Decent â€” negotiate hard';vd.style.color='var(--accent)';}}
-  else if(maoBase>0){if(res)res.classList.add('yellow');if(mEl)mEl.style.color='var(--warm)';if(vd){vd.textContent='⚡ Tight â€” seller needs to drop';vd.style.color='var(--warm)';}}
-  else{if(res)res.classList.add('red');if(mEl)mEl.style.color='var(--hot)';if(vd){vd.textContent="âŒ Doesn't pencil â€” walk away";vd.style.color='var(--hot)';}}
+  if(maoBase>=30000){if(res)res.classList.add('green');if(mEl)mEl.style.color='var(--accent3)';if(vd){vd.textContent='✅ Strong deal — room to move';vd.style.color='var(--accent3)';}}
+  else if(maoBase>=15000){if(res)res.classList.add('yellow');if(mEl)mEl.style.color='var(--accent)';if(vd){vd.textContent='⚠️ Decent — negotiate hard';vd.style.color='var(--accent)';}}
+  else if(maoBase>0){if(res)res.classList.add('yellow');if(mEl)mEl.style.color='var(--warm)';if(vd){vd.textContent='⚡ Tight — seller needs to drop';vd.style.color='var(--warm)';}}
+  else{if(res)res.classList.add('red');if(mEl)mEl.style.color='var(--hot)';if(vd){vd.textContent="âŒ Doesn't pencil — walk away";vd.style.color='var(--hot)';}}
 }
 
 // â”€â”€ URL HELPERS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function zillowUrl(r){const a=encodeURIComponent([r.prop_address,r.prop_city||'Akron','OH',r.prop_zip].filter(Boolean).join(' '));return `https://www.zillow.com/homes/${a}_rb/`;}
 function redfinUrl(r){
-  // Redfin: their search page with address pre-filled â€” confirmed working
+  // Redfin: their search page with address pre-filled — confirmed working
   const q=encodeURIComponent([r.prop_address,r.prop_city||'Akron','OH',r.prop_zip].filter(Boolean).join(', '));
   return `https://www.redfin.com/OH/Akron/filter/property-type=house,min-price=10k?q=${q}`;
 }
@@ -1810,37 +1810,37 @@ function googleUrl(r){const a=encodeURIComponent([r.prop_address,r.prop_city||'A
 
 // â”€â”€ NEIGHBORHOOD DATA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// VALUATION ENGINE â€” Built on Investor Comping Rules
+// VALUATION ENGINE — Built on Investor Comping Rules
 // Rule: "Comp like you're the buyer writing the check"
 // Rule: "When in doubtâ€¦ comp lower"
 // Rule: "You get paid for being conservative"
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 // â”€â”€ NEIGHBORHOOD COMP TABLES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-// Each tier has SOLD comp ranges (not active, not pending â€” SOLD ONLY)
+// Each tier has SOLD comp ranges (not active, not pending — SOLD ONLY)
 // Ranges represent fully remodeled ARV for that micro-area
 // Source: Summit County recorder + investor experience
 const AKRON_HOODS={
-  // TIER A â€” Highland/West â€” $120k–$200k SOLD remodeled
+  // TIER A — Highland/West — $120k–$200k SOLD remodeled
   'highland square':{tier:'A',compLow:130000,compMid:155000,compHigh:185000,ppsf:{low:95,mid:115,high:140}},
   'west hill':      {tier:'A',compLow:125000,compMid:150000,compHigh:180000,ppsf:{low:90,mid:110,high:135}},
   'merriman':       {tier:'A',compLow:140000,compMid:168000,compHigh:205000,ppsf:{low:100,mid:122,high:148}},
   'fairlawn':       {tier:'A',compLow:150000,compMid:178000,compHigh:215000,ppsf:{low:105,mid:128,high:155}},
   'bath':           {tier:'A',compLow:160000,compMid:198000,compHigh:245000,ppsf:{low:110,mid:140,high:170}},
   'chapel hill':    {tier:'A',compLow:118000,compMid:142000,compHigh:172000,ppsf:{low:88,mid:106,high:128}},
-  // TIER B â€” Goodyear/Ellet/Firestone â€” $75k–$140k SOLD remodeled
+  // TIER B — Goodyear/Ellet/Firestone — $75k–$140k SOLD remodeled
   'ellet':          {tier:'B',compLow:88000, compMid:112000,compHigh:138000,ppsf:{low:65,mid:82,high:100}},
   'goodyear heights':{tier:'B',compLow:78000,compMid:102000,compHigh:128000,ppsf:{low:58,mid:75,high:94}},
   'firestone park': {tier:'B',compLow:72000, compMid:95000, compHigh:122000,ppsf:{low:54,mid:70,high:90}},
   'sherbondy hill': {tier:'B',compLow:68000, compMid:90000, compHigh:112000,ppsf:{low:50,mid:66,high:82}},
   'middlebury':     {tier:'B',compLow:62000, compMid:85000, compHigh:108000,ppsf:{low:46,mid:62,high:80}},
-  // TIER C â€” North Hill/Kenmore/South â€” $40k–$88k SOLD remodeled
+  // TIER C — North Hill/Kenmore/South — $40k–$88k SOLD remodeled
   'north hill':     {tier:'C',compLow:48000, compMid:65000, compHigh:85000, ppsf:{low:36,mid:48,high:63}},
   'south akron':    {tier:'C',compLow:42000, compMid:58000, compHigh:78000, ppsf:{low:32,mid:44,high:58}},
   'kenmore':        {tier:'C',compLow:45000, compMid:62000, compHigh:82000, ppsf:{low:34,mid:46,high:61}},
   'wooster':        {tier:'C',compLow:40000, compMid:56000, compHigh:74000, ppsf:{low:30,mid:42,high:55}},
   'buchtel':        {tier:'C',compLow:38000, compMid:54000, compHigh:70000, ppsf:{low:28,mid:40,high:52}},
-  // TIER D â€” Summit Lake/East â€” $25k–$60k SOLD remodeled
+  // TIER D — Summit Lake/East — $25k–$60k SOLD remodeled
   'summit lake':    {tier:'D',compLow:25000, compMid:38000, compHigh:54000, ppsf:{low:20,mid:29,high:40}},
   'perkins':        {tier:'D',compLow:28000, compMid:42000, compHigh:58000, ppsf:{low:22,mid:32,high:43}},
   'east akron':     {tier:'D',compLow:30000, compMid:44000, compHigh:60000, ppsf:{low:23,mid:33,high:45}},
@@ -2003,9 +2003,9 @@ function runDAValuation(){
       <div style="background:linear-gradient(135deg,rgba(245,166,35,.1),rgba(74,245,166,.06));padding:14px 16px;border-bottom:1px solid var(--border);">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;">
           <div>
-            <div style="font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;">✅ CONSERVATIVE ARV â€” USE FOR MAO</div>
+            <div style="font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;">✅ CONSERVATIVE ARV — USE FOR MAO</div>
             <div style="font-size:32px;font-weight:900;font-family:'Space Mono',monospace;color:var(--accent3);">${fmt(v.arvSafe)}</div>
-            <div style="font-size:10px;color:var(--muted);font-family:'Space Mono',monospace;margin-top:3px;">"Low side always" â€” avg 3 comps −7%</div>
+            <div style="font-size:10px;color:var(--muted);font-family:'Space Mono',monospace;margin-top:3px;">"Low side always" — avg 3 comps −7%</div>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;min-width:180px;">
             <div style="background:rgba(255,255,255,.04);border-radius:6px;padding:8px;text-align:center;">
@@ -2073,7 +2073,7 @@ function runDAValuation(){
 
         <!-- Investor note -->
         <div style="grid-column:1/-1;background:rgba(74,245,166,.05);border:1px solid rgba(74,245,166,.15);border-radius:7px;padding:10px 12px;">
-          <div style="font-size:9px;color:var(--accent3);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;">💡 ${TIER_LABELS[v.tier]} Market â€” Investor Note</div>
+          <div style="font-size:9px;color:var(--accent3);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;">💡 ${TIER_LABELS[v.tier]} Market — Investor Note</div>
           <div style="font-size:11px;color:var(--text);line-height:1.7;margin-bottom:4px;">${v.note.rule}</div>
           <div style="font-size:10px;color:var(--warm);font-style:italic;">${v.note.warning}</div>
         </div>
@@ -2085,8 +2085,8 @@ function runDAValuation(){
     
     // Success message
     msg.textContent=preserveExistingArvs
-      ? `✅ ${match.prop_address} â€” Tier ${v.tier} (${v.confidence} confidence, kept current ARV values)`
-      : `✅ ${match.prop_address} â€” Tier ${v.tier} (${v.confidence} confidence)`;
+      ? `✅ ${match.prop_address} — Tier ${v.tier} (${v.confidence} confidence, kept current ARV values)`
+      : `✅ ${match.prop_address} — Tier ${v.tier} (${v.confidence} confidence)`;
     msg.style.color='var(--accent3)';
   }catch(e){
     msg.textContent='âŒ Valuation failed';
@@ -2120,7 +2120,7 @@ function detectHood(r, opts={}){
   for(const[kw,hood]of clues){
     if(addr.includes(kw)||city.includes(kw)){
       matchType='keyword';
-      console.log(`detectHood: ${addr} â†’ ${hood} (${matchType})`);
+      console.log(`detectHood: ${addr} → ${hood} (${matchType})`);
       return {hood, source:'keyword', confidence:'high'};
     }
   }
@@ -2128,7 +2128,7 @@ function detectHood(r, opts={}){
   // STEP 2: Check prop_zip field
   if(zip&&ZIP_HOOD[zip]){
     matchType='zip';
-    console.log(`detectHood: ${addr} â†’ ${ZIP_HOOD[zip]} (${matchType})`);
+    console.log(`detectHood: ${addr} → ${ZIP_HOOD[zip]} (${matchType})`);
     return {hood:ZIP_HOOD[zip], source:'zip', confidence:'medium'};
   }
   
@@ -2140,7 +2140,7 @@ function detectHood(r, opts={}){
       zip=match[1];
       if(ZIP_HOOD[zip]){
         matchType='zip-extracted';
-        console.log(`detectHood: ${addr} â†’ ${ZIP_HOOD[zip]} (${matchType})`);
+        console.log(`detectHood: ${addr} → ${ZIP_HOOD[zip]} (${matchType})`);
         return {hood:ZIP_HOOD[zip], source:'zip-extracted', confidence:'medium'};
       }
     }
@@ -2151,7 +2151,7 @@ function detectHood(r, opts={}){
     for(const[street,hood]of Object.entries(STREET_HOOD)){
       if(addr.includes(street)){
         matchType='street';
-        console.log(`detectHood: ${addr} â†’ ${hood} (${matchType})`);
+        console.log(`detectHood: ${addr} → ${hood} (${matchType})`);
         return {hood, source:'street', confidence:'medium'};
       }
     }
@@ -2159,7 +2159,7 @@ function detectHood(r, opts={}){
   
   // STEP 5: Default fallback
   matchType='default';
-  console.log(`detectHood: ${addr} â†’ akron (${matchType})`);
+  console.log(`detectHood: ${addr} → akron (${matchType})`);
   return {hood:'akron', source:'default', confidence:'low'};
 }
 
@@ -2236,7 +2236,7 @@ function smartTierSelection(r, hoodData){
 
 // â”€â”€ STEP 2: CONDITION DISCOUNT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // Rule: fully remodeled comp range is the ceiling (TIER HIGH)
-// Rule: match condition to comp â€” DO NOT comp a flip against a dump
+// Rule: match condition to comp — DO NOT comp a flip against a dump
 // Rule: ARV = what it sells for AFTER full renovation
 
 // â”€â”€ STEP 2: CONDITION DISCOUNT (TIGHTENED) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -2257,10 +2257,10 @@ function recencyAdjust(lastSalePrice, lastSaleYear, factors){
   if(!lastSalePrice||!lastSaleYear||lastSalePrice<10000) return null;
   const yrs=Math.max(0, new Date().getFullYear()-lastSaleYear);
   const appraised=Math.round(lastSalePrice*Math.pow(1.03,yrs));
-  if(yrs<=1)       {factors.push(`✅ Recent sale $${Math.round(lastSalePrice).toLocaleString()} (${lastSaleYear}) â†’ appreciated ~$${appraised.toLocaleString()}`);return {appraised, weight: 0.55};}
-  else if(yrs<=2)  {factors.push(`✅ Sale $${Math.round(lastSalePrice).toLocaleString()} (${lastSaleYear}) â†’ ${yrs}yr old, solid comp`);return {appraised, weight: 0.35};}
-  else if(yrs<=4)  {factors.push(`⚠️ Sale $${Math.round(lastSalePrice).toLocaleString()} (${lastSaleYear}) is ${yrs}yrs old â€” downweighted`);return {appraised, weight: 0.15};}
-  else             {factors.push(`🚨 Sale $${Math.round(lastSalePrice).toLocaleString()} (${lastSaleYear}) is ${yrs}yrs old â€” too stale, excluded`);return {appraised, weight: 0.0};}
+  if(yrs<=1)       {factors.push(`✅ Recent sale $${Math.round(lastSalePrice).toLocaleString()} (${lastSaleYear}) → appreciated ~$${appraised.toLocaleString()}`);return {appraised, weight: 0.55};}
+  else if(yrs<=2)  {factors.push(`✅ Sale $${Math.round(lastSalePrice).toLocaleString()} (${lastSaleYear}) → ${yrs}yr old, solid comp`);return {appraised, weight: 0.35};}
+  else if(yrs<=4)  {factors.push(`⚠️ Sale $${Math.round(lastSalePrice).toLocaleString()} (${lastSaleYear}) is ${yrs}yrs old — downweighted`);return {appraised, weight: 0.15};}
+  else             {factors.push(`🚨 Sale $${Math.round(lastSalePrice).toLocaleString()} (${lastSaleYear}) is ${yrs}yrs old — too stale, excluded`);return {appraised, weight: 0.0};}
 }
 
 // â”€â”€ STEP 4: DISTRESS STACKING PENALTY (TIGHTENED) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -2330,15 +2330,15 @@ function localValuation(r, opts={}){
     const assessedRatio=assessedMarket/hd.compMid;
     
     if(assessedMarket<hd.compLow*0.6){
-      warnings.push(`⚠️ Assessed implies $${assessedMarket.toLocaleString()} â€” far below comp floor, may be outdated`);
+      warnings.push(`⚠️ Assessed implies $${assessedMarket.toLocaleString()} — far below comp floor, may be outdated`);
       assessedWeight=0.1;
       dataQuality+=5;
     } else if(assessedMarket>hd.compHigh*1.3){
-      warnings.push(`⚠️ Assessed implies $${assessedMarket.toLocaleString()} â€” far above comp ceiling, use comp range instead`);
+      warnings.push(`⚠️ Assessed implies $${assessedMarket.toLocaleString()} — far above comp ceiling, use comp range instead`);
       assessedWeight=0.2;
       dataQuality+=10;
     } else if(assessedRatio>=0.85 && assessedRatio<=1.15){
-      factors.push(`🏛 Assessed $${Math.round(r.assessed_value).toLocaleString()} Ã· 0.35 = $${assessedMarket.toLocaleString()} market â€” aligns with tier`);
+      factors.push(`🏛 Assessed $${Math.round(r.assessed_value).toLocaleString()} Ã· 0.35 = $${assessedMarket.toLocaleString()} market — aligns with tier`);
       assessedWeight=0.45;
       dataQuality+=35;
       dataSources++;
@@ -2355,25 +2355,25 @@ function localValuation(r, opts={}){
     const estimatedInRange=assessedMarket>=hd.compLow*0.90 && assessedMarket<=effectiveCompHigh*1.05;
     
     if(assessedMarket<hd.compLow*0.6){
-      warnings.push(`⚠️ Estimated value $${assessedMarket.toLocaleString()} â€” far below comp floor, low confidence`);
+      warnings.push(`⚠️ Estimated value $${assessedMarket.toLocaleString()} — far below comp floor, low confidence`);
       assessedWeight=0.05; // very weak signal
       dataQuality+=3;
     } else if(assessedMarket>hd.compHigh*1.3){
-      warnings.push(`⚠️ Estimated value $${assessedMarket.toLocaleString()} â€” far above comp ceiling, capping influence`);
+      warnings.push(`⚠️ Estimated value $${assessedMarket.toLocaleString()} — far above comp ceiling, capping influence`);
       assessedWeight=0.1;
       dataQuality+=5;
     } else if(assessedRatio>=0.85 && assessedRatio<=1.15){
-      factors.push(`📊 Estimated value $${assessedMarket.toLocaleString()} â€” low confidence, aligns with tier`);
+      factors.push(`📊 Estimated value $${assessedMarket.toLocaleString()} — low confidence, aligns with tier`);
       assessedWeight=0.20; // much weaker than true assessed (was 0.45)
       dataQuality+=20; // enough to enter weak-data blend without treating it like true assessed
       dataSources++;
     } else if(estimatedInRange){
-      factors.push(`📊 Estimated value $${assessedMarket.toLocaleString()} â€” low confidence but plausible for this tier`);
+      factors.push(`📊 Estimated value $${assessedMarket.toLocaleString()} — low confidence but plausible for this tier`);
       assessedWeight=0.18;
       dataQuality+=20; // estimated-only, in-range leads should reach weak-data blend
       dataSources++;
     } else {
-      factors.push(`📊 Estimated value $${assessedMarket.toLocaleString()} â€” low confidence proxy`);
+      factors.push(`📊 Estimated value $${assessedMarket.toLocaleString()} — low confidence proxy`);
       assessedWeight=0.15; // much weaker than true assessed (was 0.35)
       dataQuality+=10; // lower quality points (was 20)
       dataSources++;
@@ -2399,7 +2399,7 @@ function localValuation(r, opts={}){
     // STRONG DATA - trust assessed+sale heavily
     const propertyValue=assessedMarket||saleAppraised;
     arvRemodeled=Math.round(hd.compMid*0.25 + propertyValue*0.75);
-    factors.push(`🎯 Strong data quality (${dataQuality}/100) â€” heavily favoring assessed+sale over tier`);
+    factors.push(`🎯 Strong data quality (${dataQuality}/100) — heavily favoring assessed+sale over tier`);
   } else if(dataQuality>=40){
     // GOOD DATA - balanced blend
     let blendedValue=hd.compMid;
@@ -2416,27 +2416,27 @@ function localValuation(r, opts={}){
     }
     
     arvRemodeled=Math.round(blendedValue);
-    factors.push(`📊 Good data quality (${dataQuality}/100) â€” balanced blend of tier+assessed+sale`);
+    factors.push(`📊 Good data quality (${dataQuality}/100) — balanced blend of tier+assessed+sale`);
   } else if(dataQuality>=20){
     // WEAK DATA - lean on tier more
     let blendedValue=hd.compMid*0.65;
     if(assessedMarket) blendedValue+=assessedMarket*0.20;
     if(saleAppraised) blendedValue+=saleAppraised*0.15;
     arvRemodeled=Math.round(blendedValue);
-    factors.push(`⚠️ Weak data quality (${dataQuality}/100) â€” relying more on tier table`);
+    factors.push(`⚠️ Weak data quality (${dataQuality}/100) — relying more on tier table`);
   } else {
     // VERY WEAK DATA - use tier heavily
     arvRemodeled=hd.compMid;
-    factors.push(`🚨 Very weak data quality (${dataQuality}/100) â€” using tier table as primary`);
+    factors.push(`🚨 Very weak data quality (${dataQuality}/100) — using tier table as primary`);
   }
 
   // STEP 5: Apply tier as sanity cap (use effectiveCompHigh, not hd.compHigh)
   if(arvRemodeled>effectiveCompHigh*1.1){
-    warnings.push(`⚠️ Calculated ARV $${arvRemodeled.toLocaleString()} exceeds neighborhood ceiling â€” capping at $${Math.round(effectiveCompHigh).toLocaleString()}`);
+    warnings.push(`⚠️ Calculated ARV $${arvRemodeled.toLocaleString()} exceeds neighborhood ceiling — capping at $${Math.round(effectiveCompHigh).toLocaleString()}`);
     arvRemodeled=Math.round(effectiveCompHigh);
   }
   if(arvRemodeled<hd.compLow*0.85){
-    warnings.push(`⚠️ Calculated ARV $${arvRemodeled.toLocaleString()} below neighborhood floor â€” raising to $${Math.round(hd.compLow*0.90).toLocaleString()}`);
+    warnings.push(`⚠️ Calculated ARV $${arvRemodeled.toLocaleString()} below neighborhood floor — raising to $${Math.round(hd.compLow*0.90).toLocaleString()}`);
     arvRemodeled=Math.round(hd.compLow*0.90);
   }
 
@@ -2455,20 +2455,20 @@ function localValuation(r, opts={}){
   const distressedVal=Math.round(arvRemodeled*(1-discPct/100));
 
   if(discReasons.length) factors.push(`🔻 ${discPct}% distress discount: ${discReasons.join(', ')}`);
-  factors.push(`🔑 Rule: ARV = AFTER full renovation. As-is value â‰ˆ $${arvAsIs.toLocaleString()}`);
-  factors.push(`✅ Conservative ARV (low side): $${arvSafe.toLocaleString()} â€” use this for MAO`);
+  factors.push(`🔑 Rule: ARV = AFTER full renovation. As-is value ≈ $${arvAsIs.toLocaleString()}`);
+  factors.push(`✅ Conservative ARV (low side): $${arvSafe.toLocaleString()} — use this for MAO`);
 
   const confidence=dataQuality>=60?'high':dataQuality>=40?'medium':dataQuality>=20?'low':'very-low';
 
   const notes={
-    A:{rule:'Premium area â€” retail buyers compete. Even distressed sells well here. Tight your numbers.',
-       ceiling:'Remodeled ceiling is real â€” buyers pay for quality in this zip.',
+    A:{rule:'Premium area — retail buyers compete. Even distressed sells well here. Tight your numbers.',
+       ceiling:'Remodeled ceiling is real — buyers pay for quality in this zip.',
        warning:'Don\'t overestimate reno quality. Buyers here expect perfection.'},
     B:{rule:'Bread-and-butter flip/rental market. Comps are real but spread is narrow.',
        ceiling:'Typical 3/2 remodeled caps around comp high. Watch your rehab.',
-       warning:'Condition matters most here â€” outdated vs remodeled = $25k swing.'},
+       warning:'Condition matters most here — outdated vs remodeled = $25k swing.'},
     C:{rule:'High-volume distress area. Comps exist but verify they\'re not also distress sales.',
-       ceiling:'Ceiling is low â€” retail buyers are rare. Cash-only buyer pool.',
+       ceiling:'Ceiling is low — retail buyers are rare. Cash-only buyer pool.',
        warning:'Old comps lie here. Market shifted. Pull only 0–3 month solds.'},
     D:{rule:'Deep discount market. Extended hold, limited buyer pool, price aggressively.',
        ceiling:'Comp ceiling is a ceiling. Nobody pays above it.',
@@ -2510,9 +2510,9 @@ async function runAIValuation(r){
       <div style="background:linear-gradient(135deg,rgba(245,166,35,.1),rgba(74,245,166,.06));padding:14px 16px;border-bottom:1px solid var(--border);">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;">
           <div>
-            <div style="font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;">✅ CONSERVATIVE ARV â€” USE FOR MAO</div>
+            <div style="font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;">✅ CONSERVATIVE ARV — USE FOR MAO</div>
             <div style="font-size:32px;font-weight:900;font-family:'Space Mono',monospace;color:var(--accent3);">${fmt(v.arvSafe)}</div>
-            <div style="font-size:10px;color:var(--muted);font-family:'Space Mono',monospace;margin-top:3px;">"Low side always" â€” avg 3 comps −7%</div>
+            <div style="font-size:10px;color:var(--muted);font-family:'Space Mono',monospace;margin-top:3px;">"Low side always" — avg 3 comps −7%</div>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;min-width:180px;">
             <div style="background:rgba(255,255,255,.04);border-radius:6px;padding:8px;text-align:center;">
@@ -2580,7 +2580,7 @@ async function runAIValuation(r){
 
         <!-- Investor note -->
         <div style="grid-column:1/-1;background:rgba(74,245,166,.05);border:1px solid rgba(74,245,166,.15);border-radius:7px;padding:10px 12px;">
-          <div style="font-size:9px;color:var(--accent3);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;">💡 ${TIER_LABELS[v.tier]} Market â€” Investor Note</div>
+          <div style="font-size:9px;color:var(--accent3);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;">💡 ${TIER_LABELS[v.tier]} Market — Investor Note</div>
           <div style="font-size:11px;color:var(--text);line-height:1.7;margin-bottom:4px;">${v.note.rule}</div>
           <div style="font-size:10px;color:var(--warm);font-style:italic;">${v.note.warning}</div>
         </div>
@@ -2628,8 +2628,8 @@ function openModal(r){
   const eq=r.est_equity!=null?'$'+Number(r.est_equity).toLocaleString():'–';
   const eqC=r.est_equity!=null?(r.est_equity>=0?'gr':'rd'):'';
   const fd=v=>v!=null?'$'+Number(v).toLocaleString('en-US',{maximumFractionDigits:0}):'–';
-  const shW=isSh?`<div class="sheriff-warn">⚡ SHERIFF SALE: ${r.sheriff_sale_date||'TBD'} â€” Owner must sell or lose everything</div>`:'';
-  const vlW=isVL?`<div class="sheriff-warn" style="background:rgba(74,245,166,.08);border-color:rgba(74,245,166,.3);color:var(--accent3)">🌿 Vacant infill lot â€” distressed owner, ready to sell</div>`:'';
+  const shW=isSh?`<div class="sheriff-warn">⚡ SHERIFF SALE: ${r.sheriff_sale_date||'TBD'} — Owner must sell or lose everything</div>`:'';
+  const vlW=isVL?`<div class="sheriff-warn" style="background:rgba(74,245,166,.08);border-color:rgba(74,245,166,.3);color:var(--accent3)">🌿 Vacant infill lot — distressed owner, ready to sell</div>`:'';
   const proS=isPro?`<hr class="mdiv"><div class="msec">Estate Details</div><div class="mf"><div class="ml">Decedent</div><div class="mv">${r.decedent_name||'–'}</div></div><div class="mf"><div class="ml">Executor</div><div class="mv">${r.executor_name||'–'}</div></div><div class="mf"><div class="ml">Executor State</div><div class="mv ${r.executor_state&&r.executor_state!=='OH'?'rd':''}">${r.executor_state||'OH'}</div></div>`:'';
   const eligible=isTracerfyEligible(r);
   const tracedPhones=getTracedPhones(r);
@@ -2679,10 +2679,10 @@ function openModal(r){
         </div>
       </div>
       <div class="mf full" style="margin-top:8px;">
-        <div class="ml" style="margin-bottom:6px;">AI Value Estimator <span style="color:var(--muted);font-weight:400;font-size:9px;letter-spacing:.04em;">â€” Claude analyzes neighborhood + distress</span></div>
+        <div class="ml" style="margin-bottom:6px;">AI Value Estimator <span style="color:var(--muted);font-weight:400;font-size:9px;letter-spacing:.04em;">— Claude analyzes neighborhood + distress</span></div>
         <div id="ai-val-box" style="background:var(--bg);border:1px solid var(--border2);border-radius:8px;padding:12px;">
           <button onclick="runAIValuation(_lastModalRecord)" style="background:linear-gradient(135deg,rgba(245,166,35,.2),rgba(74,245,166,.15));border:1px solid rgba(245,166,35,.4);border-radius:6px;padding:8px 18px;color:var(--accent);font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;cursor:pointer;letter-spacing:.06em;width:100%;transition:all .2s;" onmouseover="this.style.borderColor='rgba(245,166,35,.7)'" onmouseout="this.style.borderColor='rgba(245,166,35,.4)'">
-            ✨ Run AI Valuation â€” Get ARV Range + Neighborhood Analysis
+            ✨ Run AI Valuation — Get ARV Range + Neighborhood Analysis
           </button>
           <div id="ai-val-result" style="margin-top:0;"></div>
         </div>
@@ -2801,7 +2801,7 @@ const P_ADDONS=[
 ];
 const P_MODE_DESC={
   wholesale:'Wholesale: aggressive discount, fast close. No holding/selling costs. MAO = ARV × % − Rehab − Fee − Closing.',
-  flip:'Flip: full costs included â€” agent/selling fees + holding costs per month. Shows true acquisition max.',
+  flip:'Flip: full costs included — agent/selling fees + holding costs per month. Shows true acquisition max.',
   rental:'Rental: higher buy % allowed (cash flow driven). Fee = target cash-on-cash profit. Seller financing friendly.',
 };
 const P_MODE_PCT={wholesale:70,flip:70,rental:80};
@@ -3153,8 +3153,8 @@ function fixBrokenText(str){
     .replaceAll('✅','✅')
     .replaceAll('✨','✨')
     .replaceAll('â†º','↺')
-    .replaceAll('â†’','→')
-    .replaceAll('â€”','—')
+    .replaceAll('→','→')
+    .replaceAll('—','—')
     .replaceAll('·','·')
     .replaceAll('–','–')
     .replaceAll('â—Ž','◎')
