@@ -23,7 +23,7 @@ FIXES vs previous version:
   2. VacantLandRecord objects are converted to LeadRecord at write time so they
      appear in records.json / the dashboard nav (Vacant Land tab now shows count).
 """
-import argparse, asyncio, csv, io, json, logging, re, zipfile
+import argparse, asyncio, csv, io, json, logging, os, re, zipfile
 from collections import defaultdict
 from dataclasses import dataclass, asdict, field
 from datetime import datetime, timedelta, timezone
@@ -38,6 +38,9 @@ BASE_DIR      = Path(__file__).resolve().parent.parent
 DATA_DIR      = BASE_DIR / "data"
 DASHBOARD_DIR = BASE_DIR / "dashboard"
 DEBUG_DIR     = DATA_DIR / "debug"
+TRACE_STORE_PATH = BASE_DIR / "trace_store.json"
+TRACE_SOURCE  = "Tracerfy"
+
 
 # output paths
 DEFAULT_OUTPUT_JSON_PATHS = [DATA_DIR/"records.json", DASHBOARD_DIR/"records.json"]
@@ -136,6 +139,16 @@ class LeadRecord:
     parcel_id:str=""
     phones:list=field(default_factory=list); phone_types:list=field(default_factory=list)
     emails:list=field(default_factory=list); skip_trace_source:str=""
+    traced_owner_name:str=""; traced_owner:str=""
+    traced_phones:list=field(default_factory=list); traced_phone_types:list=field(default_factory=list)
+    traced_emails:list=field(default_factory=list)
+    phone_primary:str=""; phone_primary_type:str=""
+    phone_secondary:str=""; phone_secondary_type:str=""
+    phone_tertiary:str=""; phone_tertiary_type:str=""
+    email_primary:str=""; traced_email:str=""
+    traced_mailing_address:str=""; traced_mailing_city:str=""; traced_mailing_state:str=""; traced_mailing_zip:str=""
+    skip_trace_status:str=""; skip_trace_timestamp:str=""
+    has_phone:bool=False; has_email:bool=False
     assessed_value:Optional[float]=None; estimated_value:Optional[float]=None
     last_sale_price:Optional[float]=None; last_sale_year:Optional[int]=None
     est_mortgage_balance:Optional[float]=None; est_equity:Optional[float]=None
@@ -2727,6 +2740,220 @@ def write_json(path,payload):
     path.parent.mkdir(parents=True,exist_ok=True)
     path.write_text(json.dumps(payload,indent=2),encoding="utf-8")
 
+
+
+TRACE_STORE_FIELDS = (
+    "traced_owner_name","traced_owner","traced_phones","traced_phone_types","traced_emails",
+    "phones","phone_types","emails",
+    "phone_primary","phone_primary_type","phone_secondary","phone_secondary_type","phone_tertiary","phone_tertiary_type",
+    "email_primary","traced_email",
+    "traced_mailing_address","traced_mailing_city","traced_mailing_state","traced_mailing_zip",
+    "skip_trace_status","skip_trace_source","skip_trace_timestamp","has_phone","has_email",
+    "Phone 1","Phone 1 Type","Phone 2","Phone 2 Type","Phone 3","Phone 3 Type","Email","Skip Trace Source"
+)
+
+def utc_timestamp()->str:
+    return datetime.now(timezone.utc).isoformat().replace("+00:00","Z")
+
+def normalize_match_value(value:str)->str:
+    return re.sub(r"\s+"," ",clean_text(value)).upper()
+
+def normalize_property_address(value:str)->str:
+    return re.sub(r"[^A-Z0-9]+"," ",normalize_match_value(value)).strip()
+
+def lead_key(record:LeadRecord)->str:
+    return "|".join([
+        clean_text(record.doc_num),
+        clean_text(record.parcel_id),
+        normalize_property_address(record.prop_address),
+        clean_text(record.prop_zip),
+    ]).upper()
+
+def legacy_lead_key(record:LeadRecord)->str:
+    return "|".join([
+        clean_text(record.doc_num),
+        clean_text(record.parcel_id),
+        clean_text(record.owner),
+        normalize_property_address(record.prop_address),
+        clean_text(record.prop_zip),
+    ]).upper()
+
+def build_record_match_keys(record:LeadRecord)->List[str]:
+    keys=set()
+    def add(v):
+        vv=normalize_match_value(v)
+        if vv: keys.add(vv)
+    add(lead_key(record)); add(legacy_lead_key(record))
+    pid=clean_text(record.parcel_id)
+    prop_address=normalize_property_address(record.prop_address)
+    prop_city=normalize_match_value(record.prop_city)
+    prop_state=normalize_match_value(record.prop_state)
+    prop_zip=normalize_match_value(record.prop_zip)
+    if pid: add(f"PARCEL:{pid}")
+    if clean_text(record.doc_num) and prop_address:
+        add(f"{clean_text(record.doc_num)}||{prop_address}|")
+    if clean_text(record.doc_num) and clean_text(record.owner) and prop_address:
+        add(f"{clean_text(record.doc_num)}||{clean_text(record.owner)}|{prop_address}|")
+    if prop_address and prop_city and prop_state:
+        add(f"PROPERTY:{prop_address}|{prop_city}|{prop_state}")
+    if prop_address:
+        add(f"PROPERTY_ONLY:{prop_address}")
+    return sorted(keys)
+
+def normalize_trace_entry(entry:dict)->dict:
+    entry=dict(entry or {})
+    def first_str(*keys):
+        for k in keys:
+            v=clean_text(entry.get(k,""))
+            if v: return v
+        return ""
+    phones=[clean_text(x) for x in entry.get("traced_phones",[]) or entry.get("phones",[]) or [] if clean_text(x)]
+    phone_types=[clean_text(x) for x in entry.get("traced_phone_types",[]) or entry.get("phone_types",[]) or [] if clean_text(x)]
+    emails=[clean_text(x) for x in entry.get("traced_emails",[]) or entry.get("emails",[]) or [] if clean_text(x)]
+
+    phone_primary=first_str("phone_primary","Phone 1") or (phones[0] if phones else "")
+    phone_secondary=first_str("phone_secondary","Phone 2") or (phones[1] if len(phones)>1 else "")
+    phone_tertiary=first_str("phone_tertiary","Phone 3") or (phones[2] if len(phones)>2 else "")
+    phone_primary_type=first_str("phone_primary_type","Phone 1 Type") or (phone_types[0] if phone_types else "")
+    phone_secondary_type=first_str("phone_secondary_type","Phone 2 Type") or (phone_types[1] if len(phone_types)>1 else "")
+    phone_tertiary_type=first_str("phone_tertiary_type","Phone 3 Type") or (phone_types[2] if len(phone_types)>2 else "")
+    email_primary=first_str("email_primary","traced_email","Email") or (emails[0] if emails else "")
+    traced_owner_name=first_str("traced_owner_name","traced_owner")
+    if not traced_owner_name and clean_text(entry.get("owner","")):
+        traced_owner_name=clean_text(entry.get("owner",""))
+    has_phone=any([phone_primary,phone_secondary,phone_tertiary])
+    has_email=bool(email_primary)
+    status=first_str("skip_trace_status")
+    if not status:
+        status="success" if (traced_owner_name or has_phone or has_email) else "no_hit"
+    out={
+        "traced_owner_name": traced_owner_name,
+        "traced_owner": traced_owner_name,
+        "traced_phones": [p for p in [phone_primary,phone_secondary,phone_tertiary] if p] or phones,
+        "traced_phone_types": [t for t in [phone_primary_type,phone_secondary_type,phone_tertiary_type] if t] or phone_types,
+        "traced_emails": [email_primary] if email_primary else emails,
+        "phones": [p for p in [phone_primary,phone_secondary,phone_tertiary] if p] or phones,
+        "phone_types": [t for t in [phone_primary_type,phone_secondary_type,phone_tertiary_type] if t] or phone_types,
+        "emails": [email_primary] if email_primary else emails,
+        "phone_primary": phone_primary,
+        "phone_primary_type": phone_primary_type,
+        "phone_secondary": phone_secondary,
+        "phone_secondary_type": phone_secondary_type,
+        "phone_tertiary": phone_tertiary,
+        "phone_tertiary_type": phone_tertiary_type,
+        "email_primary": email_primary,
+        "traced_email": email_primary,
+        "traced_mailing_address": first_str("traced_mailing_address"),
+        "traced_mailing_city": first_str("traced_mailing_city"),
+        "traced_mailing_state": first_str("traced_mailing_state"),
+        "traced_mailing_zip": first_str("traced_mailing_zip"),
+        "skip_trace_status": status,
+        "skip_trace_source": first_str("skip_trace_source","Skip Trace Source") or TRACE_SOURCE,
+        "skip_trace_timestamp": first_str("skip_trace_timestamp") or utc_timestamp(),
+        "has_phone": has_phone,
+        "has_email": has_email,
+        "Phone 1": phone_primary,
+        "Phone 1 Type": phone_primary_type,
+        "Phone 2": phone_secondary,
+        "Phone 2 Type": phone_secondary_type,
+        "Phone 3": phone_tertiary,
+        "Phone 3 Type": phone_tertiary_type,
+        "Email": email_primary,
+        "Skip Trace Source": first_str("skip_trace_source","Skip Trace Source") or TRACE_SOURCE,
+    }
+    return out
+
+def load_trace_store()->Dict[str,dict]:
+    if not TRACE_STORE_PATH.exists(): return {}
+    try:
+        payload=json.loads(TRACE_STORE_PATH.read_text(encoding="utf-8"))
+        return payload if isinstance(payload,dict) else {}
+    except Exception as e:
+        logging.warning("trace_store load failed: %s",e)
+        return {}
+
+def build_trace_store_from_records(records:List[LeadRecord])->Dict[str,dict]:
+    existing=load_trace_store()
+    store=dict(existing)
+    for record in records:
+        trace_entry={}
+        for field in TRACE_STORE_FIELDS:
+            if hasattr(record, field.replace(" ","_").lower()):
+                pass
+        trace_entry = normalize_trace_entry({
+            "traced_owner_name": getattr(record,"traced_owner_name",""),
+            "traced_owner": getattr(record,"traced_owner",""),
+            "traced_phones": list(getattr(record,"traced_phones",[]) or []),
+            "traced_phone_types": list(getattr(record,"traced_phone_types",[]) or []),
+            "traced_emails": list(getattr(record,"traced_emails",[]) or []),
+            "phones": list(getattr(record,"phones",[]) or []),
+            "phone_types": list(getattr(record,"phone_types",[]) or []),
+            "emails": list(getattr(record,"emails",[]) or []),
+            "phone_primary": getattr(record,"phone_primary",""),
+            "phone_primary_type": getattr(record,"phone_primary_type",""),
+            "phone_secondary": getattr(record,"phone_secondary",""),
+            "phone_secondary_type": getattr(record,"phone_secondary_type",""),
+            "phone_tertiary": getattr(record,"phone_tertiary",""),
+            "phone_tertiary_type": getattr(record,"phone_tertiary_type",""),
+            "email_primary": getattr(record,"email_primary",""),
+            "traced_email": getattr(record,"traced_email",""),
+            "traced_mailing_address": getattr(record,"traced_mailing_address",""),
+            "traced_mailing_city": getattr(record,"traced_mailing_city",""),
+            "traced_mailing_state": getattr(record,"traced_mailing_state",""),
+            "traced_mailing_zip": getattr(record,"traced_mailing_zip",""),
+            "skip_trace_status": getattr(record,"skip_trace_status",""),
+            "skip_trace_source": getattr(record,"skip_trace_source",""),
+            "skip_trace_timestamp": getattr(record,"skip_trace_timestamp",""),
+            "has_phone": getattr(record,"has_phone",False),
+            "has_email": getattr(record,"has_email",False),
+            "Phone 1": getattr(record,"phone_primary",""),
+            "Phone 1 Type": getattr(record,"phone_primary_type",""),
+            "Phone 2": getattr(record,"phone_secondary",""),
+            "Phone 2 Type": getattr(record,"phone_secondary_type",""),
+            "Phone 3": getattr(record,"phone_tertiary",""),
+            "Phone 3 Type": getattr(record,"phone_tertiary_type",""),
+            "Email": getattr(record,"email_primary",""),
+            "Skip Trace Source": getattr(record,"skip_trace_source",""),
+        })
+        if not (trace_entry.get("traced_owner_name") or trace_entry.get("has_phone") or trace_entry.get("has_email") or trace_entry.get("skip_trace_status")):
+            continue
+        for key in build_record_match_keys(record):
+            store[key]=dict(trace_entry)
+    return store
+
+def apply_trace_entry_to_record(record:LeadRecord, trace_entry:dict)->LeadRecord:
+    if not trace_entry: return record
+    t=normalize_trace_entry(trace_entry)
+    record.traced_owner_name=t["traced_owner_name"]; record.traced_owner=t["traced_owner"]
+    record.traced_phones=list(t["traced_phones"]); record.traced_phone_types=list(t["traced_phone_types"]); record.traced_emails=list(t["traced_emails"])
+    record.phones=list(t["phones"]); record.phone_types=list(t["phone_types"]); record.emails=list(t["emails"])
+    record.phone_primary=t["phone_primary"]; record.phone_primary_type=t["phone_primary_type"]
+    record.phone_secondary=t["phone_secondary"]; record.phone_secondary_type=t["phone_secondary_type"]
+    record.phone_tertiary=t["phone_tertiary"]; record.phone_tertiary_type=t["phone_tertiary_type"]
+    record.email_primary=t["email_primary"]; record.traced_email=t["traced_email"]
+    record.traced_mailing_address=t["traced_mailing_address"]; record.traced_mailing_city=t["traced_mailing_city"]
+    record.traced_mailing_state=t["traced_mailing_state"]; record.traced_mailing_zip=t["traced_mailing_zip"]
+    record.skip_trace_status=t["skip_trace_status"]; record.skip_trace_source=t["skip_trace_source"]; record.skip_trace_timestamp=t["skip_trace_timestamp"]
+    record.has_phone=t["has_phone"]; record.has_email=t["has_email"]
+    return record
+
+def hydrate_records_from_trace_store(records:List[LeadRecord])->List[LeadRecord]:
+    store=load_trace_store()
+    if not store: return records
+    hydrated=[]
+    for record in records:
+        matched=None
+        for key in build_record_match_keys(record):
+            if key in store:
+                matched=store[key]; break
+        hydrated.append(apply_trace_entry_to_record(record, matched) if matched else record)
+    return hydrated
+
+def write_trace_store(records:List[LeadRecord]):
+    payload=build_trace_store_from_records(records)
+    TRACE_STORE_PATH.write_text(json.dumps(payload,indent=2),encoding="utf-8")
+    logging.info("Wrote trace_store.json with %s keys",len(payload))
+
 def build_payload(records):
     return {
         "fetched_at":datetime.now(timezone.utc).isoformat(), "source":SOURCE_NAME,
@@ -2999,10 +3226,12 @@ async def main():
         reverse=True
     )
 
-    # 13. Write all outputs
+    # 13. Hydrate from existing trace store and write all outputs
+    all_records=hydrate_records_from_trace_store(all_records)
     write_json_outputs(all_records,extra_json_path=Path(args.out_json))
     write_category_json(all_records)           # writes vacant_land.json via category
     write_vacant_land_json(vacant_land_leads)  # no-op now, kept for compat
+    write_trace_store(all_records)
     write_csv(all_records,DEFAULT_OUTPUT_CSV_PATH)
     if Path(args.out_csv)!=DEFAULT_OUTPUT_CSV_PATH: write_csv(all_records,Path(args.out_csv))
     write_report(report,Path(args.report))
