@@ -16,6 +16,12 @@ CONFIG_PATH = ROOT_DIR / "tracerfy.config.js"
 TRACE_FIELDS = (
     "traced_owner_name",
     "traced_owner",
+    "traced_phones",
+    "traced_phone_types",
+    "traced_emails",
+    "phones",
+    "phone_types",
+    "emails",
     "phone_primary",
     "phone_primary_type",
     "phone_secondary",
@@ -130,15 +136,12 @@ def record_match_keys(record):
     prop_city = normalize_match_value(record.get("prop_city"))
     prop_state = normalize_match_value(record.get("prop_state"))
     prop_zip = normalize_match_value(record.get("prop_zip"))
-    keys = []
-    seen = set()
+    keys = set()
 
     def add_key(value):
         key = normalize_match_value(value)
-        if not key or key in seen:
-            return
-        seen.add(key)
-        keys.append(key)
+        if key:
+            keys.add(key)
 
     add_key(lead_key(record))
     add_key(legacy_lead_key(record))
@@ -246,21 +249,6 @@ def apply_derived_lead_fields(record):
     return lead
 
 
-def next_distinct_phone(primary_phone, candidates):
-    for value in unique_list(candidates):
-        if value != primary_phone:
-            return value
-    return ""
-
-
-def next_distinct_value(existing_values, candidates):
-    seen = {str(value or "").strip() for value in existing_values if str(value or "").strip()}
-    for value in unique_list(candidates):
-        if value not in seen:
-            return value
-    return ""
-
-
 def extract_first_nonempty(payload, keys):
     for key in keys:
         value = payload.get(key)
@@ -277,8 +265,17 @@ def first_list_value(*sequences):
     return ""
 
 
+def next_distinct_value(existing_values, candidates):
+    seen = {str(value or "").strip() for value in existing_values if str(value or "").strip()}
+    for value in unique_list(candidates):
+        if value not in seen:
+            return value
+    return ""
+
+
 def apply_trace_field_aliases(record):
     mapped = dict(record)
+
     phone_candidates = unique_list(
         [
             mapped.get("Phone 1"),
@@ -297,6 +294,19 @@ def apply_trace_field_aliases(record):
             *(mapped.get("phones") or []),
         ]
     )
+    phone_type_candidates = unique_list(
+        [
+            mapped.get("Phone 1 Type"),
+            mapped.get("phone_primary_type"),
+            mapped.get("Phone 2 Type"),
+            mapped.get("phone_secondary_type"),
+            mapped.get("Phone 3 Type"),
+            mapped.get("phone_tertiary_type"),
+            *(mapped.get("traced_phone_types") or []),
+            *(mapped.get("phone_types") or []),
+        ]
+    )
+
     primary_phone = extract_first_nonempty(
         mapped, ("phone_primary", "Phone 1", "Phone1", "phone1")
     ) or (phone_candidates[0] if phone_candidates else "")
@@ -306,31 +316,32 @@ def apply_trace_field_aliases(record):
     tertiary_phone = extract_first_nonempty(
         mapped, ("phone_tertiary", "Phone 3", "Phone3", "phone3")
     ) or next_distinct_value([primary_phone, secondary_phone], phone_candidates)
+
     primary_phone_type = extract_first_nonempty(
         mapped, ("phone_primary_type", "Phone 1 Type")
-    ) or first_list_value(
-        [(mapped.get("traced_phone_types") or [""])[0]],
-        [(mapped.get("phone_types") or [""])[0]],
-    )
+    ) or (phone_type_candidates[0] if phone_type_candidates else "")
     secondary_phone_type = extract_first_nonempty(
         mapped, ("phone_secondary_type", "Phone 2 Type")
-    ) or first_list_value(
-        [(mapped.get("traced_phone_types") or ["", ""])[1]],
-        [(mapped.get("phone_types") or ["", ""])[1]],
-    )
+    ) or (phone_type_candidates[1] if len(phone_type_candidates) > 1 else "")
     tertiary_phone_type = extract_first_nonempty(
         mapped, ("phone_tertiary_type", "Phone 3 Type")
-    ) or first_list_value(
-        [(mapped.get("traced_phone_types") or ["", "", ""])[2]],
-        [(mapped.get("phone_types") or ["", "", ""])[2]],
-    )
+    ) or (phone_type_candidates[2] if len(phone_type_candidates) > 2 else "")
+
     traced_owner_name = extract_first_nonempty(
         mapped, ("traced_owner_name", "traced_owner", "Traced Owner")
     )
-    email_primary = extract_first_nonempty(mapped, ("email_primary", "Email", "traced_email")) or first_list_value(
-        mapped.get("traced_emails") or [],
-        mapped.get("emails") or [],
+
+    email_candidates = unique_list(
+        [
+            mapped.get("email_primary"),
+            mapped.get("Email"),
+            mapped.get("traced_email"),
+            *(mapped.get("traced_emails") or []),
+            *(mapped.get("emails") or []),
+        ]
     )
+    email_primary = first_list_value(email_candidates)
+
     traced_mailing_address = extract_first_nonempty(
         mapped, ("traced_mailing_address", "traced_mail_address", "Traced Mailing Address")
     )
@@ -343,12 +354,15 @@ def apply_trace_field_aliases(record):
     traced_mailing_zip = extract_first_nonempty(
         mapped, ("traced_mailing_zip", "traced_mail_zip", "Traced Mailing Zip")
     )
+
     has_phone = mapped.get("has_phone")
     if not isinstance(has_phone, bool):
         has_phone = bool(primary_phone or secondary_phone or tertiary_phone)
+
     has_email = mapped.get("has_email")
     if not isinstance(has_email, bool):
         has_email = bool(email_primary)
+
     skip_traced = mapped.get("skip_traced")
     skip_trace_hit = mapped.get("skip_trace_hit")
     skip_trace_status = extract_first_nonempty(
@@ -359,18 +373,35 @@ def apply_trace_field_aliases(record):
             skip_trace_status = "success" if (has_phone or has_email) else "no_contact"
         elif skip_trace_hit is False:
             skip_trace_status = "no_hit"
+
     skip_trace_source = extract_first_nonempty(
         mapped, ("skip_trace_source", "Skip Trace Source")
     )
-    if not skip_trace_source and (has_phone or has_email or skip_trace_status):
+    if not skip_trace_source and (
+        has_phone or has_email or traced_owner_name or traced_mailing_address or skip_trace_status
+    ):
         skip_trace_source = TRACE_SOURCE
+
     skip_trace_timestamp = extract_first_nonempty(
         mapped, ("skip_trace_timestamp", "skip_trace_at", "Skip Trace Timestamp")
     )
+
+    traced_phones = unique_list([primary_phone, secondary_phone, tertiary_phone] + phone_candidates)
+    traced_phone_types = unique_list(
+        [primary_phone_type, secondary_phone_type, tertiary_phone_type] + phone_type_candidates
+    )
+    traced_emails = unique_list([email_primary] + email_candidates)
+
     mapped.update(
         {
             "traced_owner_name": traced_owner_name,
             "traced_owner": traced_owner_name,
+            "traced_phones": traced_phones,
+            "traced_phone_types": traced_phone_types,
+            "traced_emails": traced_emails,
+            "phones": traced_phones,
+            "phone_types": traced_phone_types,
+            "emails": traced_emails,
             "phone_primary": primary_phone,
             "phone_primary_type": primary_phone_type,
             "phone_secondary": secondary_phone,
@@ -416,6 +447,7 @@ def looks_like_trace_payload(payload):
             "phones",
             "emails",
             "mailing_address",
+            "address",
             "first_name",
             "last_name",
             "full_name",
@@ -438,7 +470,10 @@ def extract_nested_payload(response_data):
         if looks_like_trace_payload(payload):
             return payload
         if isinstance(payload, dict):
-            for key in ("data", "result", "results", "matches", "records", "items"):
+            for key in (
+                "data", "result", "results", "matches", "records", "items",
+                "record", "payload", "response", "person", "owner"
+            ):
                 candidate = payload.get(key)
                 if isinstance(candidate, dict):
                     queue.append(candidate)
@@ -451,14 +486,22 @@ def extract_nested_payload(response_data):
 
 def extract_person_candidates(payload):
     candidates = []
-    for key in ("persons",):
-        value = payload.get(key)
-        if isinstance(value, list):
-            candidates.extend(item for item in value if isinstance(item, dict))
-    for key in ("person", "owner"):
-        value = payload.get(key)
+
+    def add_candidate(value):
         if isinstance(value, dict):
             candidates.append(value)
+        elif isinstance(value, list):
+            candidates.extend(item for item in value if isinstance(item, dict))
+
+    add_candidate(payload.get("persons"))
+    add_candidate(payload.get("matches"))
+    add_candidate(payload.get("records"))
+    add_candidate(payload.get("items"))
+    add_candidate(payload.get("owners"))
+    add_candidate(payload.get("people"))
+    add_candidate(payload.get("person"))
+    add_candidate(payload.get("owner"))
+
     if isinstance(payload, dict):
         candidates.append(payload)
     return candidates
@@ -476,133 +519,196 @@ def extract_person_name(candidate):
     full_name = " ".join(v for v in (first_name, last_name) if v).strip()
     return full_name or extract_first_nonempty(
         candidate,
-        ("owner_name", "full_name", "name", "person_name"),
+        ("owner_name", "full_name", "name", "person_name", "contact_name"),
     )
 
 
 def extract_phone_entries(candidate):
     entries = []
-    for phone in candidate.get("phones") or []:
-        if isinstance(phone, dict):
-            number = extract_first_nonempty(phone, ("number", "phone"))
-            if number:
-                entries.append((number, extract_first_nonempty(phone, ("type", "phone_type"))))
-        else:
-            number = str(phone or "").strip()
-            if number:
-                entries.append((number, ""))
+
+    for key in ("phones", "phone_numbers", "contact_numbers"):
+        values = candidate.get(key) or []
+        for phone in values:
+            if isinstance(phone, dict):
+                number = extract_first_nonempty(
+                    phone,
+                    ("number", "phone", "value", "phone_number", "national", "e164"),
+                )
+                phone_type = extract_first_nonempty(phone, ("type", "phone_type", "label"))
+                if number:
+                    entries.append((number, phone_type))
+            else:
+                number = str(phone or "").strip()
+                if number:
+                    entries.append((number, ""))
+
     fallback_entries = [
         (
-            extract_first_nonempty(candidate, ("primary_phone", "mobile_1", "mobile_2", "landline_1", "phone", "phone_1")),
+            extract_first_nonempty(
+                candidate,
+                (
+                    "primary_phone", "mobile_1", "mobile_2", "landline_1", "phone",
+                    "phone_1", "phone1", "best_phone", "cell_phone", "mobile_phone"
+                ),
+            ),
             extract_first_nonempty(candidate, ("primary_phone_type", "phone_type")),
         ),
         (str(candidate.get("mobile_1") or "").strip(), "mobile"),
         (str(candidate.get("mobile_2") or "").strip(), "mobile"),
         (str(candidate.get("landline_1") or "").strip(), "landline"),
+        (str(candidate.get("phone_2") or candidate.get("phone2") or "").strip(), ""),
+        (str(candidate.get("phone_3") or candidate.get("phone3") or "").strip(), ""),
     ]
     for number, phone_type in fallback_entries:
         if number:
             entries.append((number, phone_type))
+
     unique_entries = []
     seen_numbers = set()
     for number, phone_type in entries:
-        if number in seen_numbers:
+        number = str(number or "").strip()
+        if not number or number in seen_numbers:
             continue
         seen_numbers.add(number)
-        unique_entries.append((number, phone_type))
+        unique_entries.append((number, str(phone_type or "").strip()))
     return unique_entries
 
 
 def extract_email_candidates(candidate):
     emails = []
-    for email in candidate.get("emails") or []:
-        if isinstance(email, dict):
-            value = extract_first_nonempty(email, ("email", "address"))
-        else:
-            value = str(email or "").strip()
-        if value:
-            emails.append(value)
+    for key in ("emails", "email_addresses"):
+        for email in candidate.get(key) or []:
+            if isinstance(email, dict):
+                value = extract_first_nonempty(email, ("email", "address", "value"))
+            else:
+                value = str(email or "").strip()
+            if value:
+                emails.append(value)
     emails.extend(
         [
-            extract_first_nonempty(candidate, ("email_1", "email", "primary_email")),
+            extract_first_nonempty(
+                candidate, ("email_1", "email", "primary_email", "email1", "best_email")
+            ),
         ]
     )
     return unique_list(emails)
 
 
 def extract_mailing_address(candidate):
-    mailing = candidate.get("mailing_address")
-    if isinstance(mailing, dict):
-        return {
-            "address": extract_first_nonempty(mailing, ("address", "address1", "line1", "street")),
-            "city": extract_first_nonempty(mailing, ("city",)),
-            "state": extract_first_nonempty(mailing, ("state",)),
-        }
-    if isinstance(mailing, str) and mailing.strip():
-        return {"address": mailing.strip(), "city": "", "state": ""}
+    for key in ("mailing_address", "mail_address", "address", "property_address"):
+        mailing = candidate.get(key)
+        if isinstance(mailing, dict):
+            return {
+                "address": extract_first_nonempty(
+                    mailing, ("address", "address1", "line1", "street", "full")
+                ),
+                "city": extract_first_nonempty(mailing, ("city",)),
+                "state": extract_first_nonempty(mailing, ("state",)),
+                "zip": extract_first_nonempty(mailing, ("zip", "postal_code", "zipcode")),
+            }
+        if isinstance(mailing, str) and mailing.strip():
+            return {"address": mailing.strip(), "city": "", "state": "", "zip": ""}
+
     return {
         "address": extract_first_nonempty(
-            candidate, ("mail_address", "address_mail", "mail_address_1")
+            candidate,
+            (
+                "mail_address", "address_mail", "mail_address_1", "mailing_address_1",
+                "mailing_street", "street"
+            ),
         ),
-        "city": extract_first_nonempty(candidate, ("mail_city", "mailing_city")),
-        "state": extract_first_nonempty(candidate, ("mail_state", "mailing_state")),
+        "city": extract_first_nonempty(candidate, ("mail_city", "mailing_city", "city")),
+        "state": extract_first_nonempty(candidate, ("mail_state", "mailing_state", "state")),
+        "zip": extract_first_nonempty(
+            candidate, ("mail_zip", "mailing_zip", "zip", "postal_code", "zipcode")
+        ),
     }
 
 
 def map_tracerfy_lookup_response(record, response_data):
     payload = extract_nested_payload(response_data)
     person_candidates = extract_person_candidates(payload)
+
     traced_owner_name = ""
-    phone_entries = []
-    email_candidates = []
-    mailing_address = {"address": "", "city": "", "state": ""}
+    all_phone_entries = []
+    all_email_candidates = []
+    mailing_address = {"address": "", "city": "", "state": "", "zip": ""}
+
     for candidate in person_candidates:
         if not traced_owner_name:
             traced_owner_name = extract_person_name(candidate)
-        if not phone_entries:
-            phone_entries = extract_phone_entries(candidate)
-        if not email_candidates:
-            email_candidates = extract_email_candidates(candidate)
-        if not any(mailing_address.values()):
-            mailing_address = extract_mailing_address(candidate)
-    primary_phone = phone_entries[0][0] if phone_entries else ""
-    primary_type = phone_entries[0][1] if phone_entries else ""
-    secondary_phone = phone_entries[1][0] if len(phone_entries) > 1 else ""
-    secondary_type = phone_entries[1][1] if len(phone_entries) > 1 else ""
-    email_primary = email_candidates[0] if email_candidates else ""
+
+        for number, phone_type in extract_phone_entries(candidate):
+            if number not in [n for n, _ in all_phone_entries]:
+                all_phone_entries.append((number, phone_type))
+
+        for email in extract_email_candidates(candidate):
+            if email not in all_email_candidates:
+                all_email_candidates.append(email)
+
+        if not mailing_address["address"]:
+            mailing = extract_mailing_address(candidate)
+            if any(mailing.values()):
+                mailing_address = mailing
+
+    primary_phone = all_phone_entries[0][0] if len(all_phone_entries) > 0 else ""
+    primary_type = all_phone_entries[0][1] if len(all_phone_entries) > 0 else ""
+    secondary_phone = all_phone_entries[1][0] if len(all_phone_entries) > 1 else ""
+    secondary_type = all_phone_entries[1][1] if len(all_phone_entries) > 1 else ""
+    tertiary_phone = all_phone_entries[2][0] if len(all_phone_entries) > 2 else ""
+    tertiary_type = all_phone_entries[2][1] if len(all_phone_entries) > 2 else ""
+    email_primary = all_email_candidates[0] if all_email_candidates else ""
+
     trace_data = {
         "traced_owner_name": traced_owner_name,
+        "traced_owner": traced_owner_name,
+        "traced_phones": [n for n, _ in all_phone_entries],
+        "traced_phone_types": [t for _, t in all_phone_entries if t],
+        "traced_emails": all_email_candidates,
+        "phones": [n for n, _ in all_phone_entries],
+        "phone_types": [t for _, t in all_phone_entries if t],
+        "emails": all_email_candidates,
         "phone_primary": primary_phone,
         "phone_primary_type": primary_type,
         "phone_secondary": secondary_phone,
         "phone_secondary_type": secondary_type,
+        "phone_tertiary": tertiary_phone,
+        "phone_tertiary_type": tertiary_type,
         "email_primary": email_primary,
+        "traced_email": email_primary,
         "traced_mailing_address": mailing_address["address"],
         "traced_mailing_city": mailing_address["city"],
         "traced_mailing_state": mailing_address["state"],
+        "traced_mailing_zip": mailing_address["zip"],
         "skip_trace_source": TRACE_SOURCE,
         "skip_trace_timestamp": utc_timestamp(),
     }
-    trace_data["has_phone"] = bool(trace_data["phone_primary"] or trace_data["phone_secondary"])
-    trace_data["has_email"] = bool(trace_data["email_primary"])
+    trace_data["has_phone"] = bool(primary_phone or secondary_phone or tertiary_phone)
+    trace_data["has_email"] = bool(email_primary)
+
     had_any_value = any(
         [
             trace_data["traced_owner_name"],
             trace_data["phone_primary"],
             trace_data["phone_secondary"],
+            trace_data["phone_tertiary"],
             trace_data["email_primary"],
             trace_data["traced_mailing_address"],
             trace_data["traced_mailing_city"],
             trace_data["traced_mailing_state"],
+            trace_data["traced_mailing_zip"],
         ]
     )
+
     trace_data["skip_trace_status"] = (
         "success"
-        if trace_data["has_phone"] or trace_data["has_email"]
-        else ("no_contact" if had_any_value else "no_hit")
+        if had_any_value
+        else "no_hit"
     )
+
     if not str(record.get("owner") or "").strip() and trace_data["traced_owner_name"]:
         trace_data["owner"] = trace_data["traced_owner_name"]
+
     return apply_trace_field_aliases(apply_derived_lead_fields({**record, **trace_data}))
 
 
@@ -653,6 +759,8 @@ def extract_trace_payload(record):
         for field in (
             "traced_owner_name",
             "traced_owner",
+            "traced_phones",
+            "traced_emails",
             "phone_primary",
             "phone_secondary",
             "phone_tertiary",
@@ -722,7 +830,7 @@ def sync_dashboard_trace_fields_from_data(match_keys=None):
 
 
 def persist_trace_data(lead, trace_data, explicit_keys=None):
-    keys = record_match_keys(lead)
+    keys = set(record_match_keys(lead))
     for value in explicit_keys or []:
         cleaned = normalize_match_value(value)
         if cleaned:
@@ -800,6 +908,7 @@ class DashboardHandler(SimpleHTTPRequestHandler):
             if not isinstance(lead, dict):
                 raise ValueError("Request body must include a lead object")
             lead = apply_derived_lead_fields(lead)
+
             if not lead.get("skip_trace_eligible"):
                 trace_data = apply_derived_lead_fields(
                     {
@@ -811,14 +920,17 @@ class DashboardHandler(SimpleHTTPRequestHandler):
                 )
                 self.respond_json({"trace_data": trace_data, "updated_files": []})
                 return
+
             if not (lead.get("prop_address") and lead.get("prop_city") and lead.get("prop_state")):
-                trace_data = apply_derived_lead_fields(
-                    {
-                        **lead,
-                        "skip_trace_status": "missing_address",
-                        "skip_trace_source": TRACE_SOURCE,
-                        "skip_trace_timestamp": utc_timestamp(),
-                    }
+                trace_data = apply_trace_field_aliases(
+                    apply_derived_lead_fields(
+                        {
+                            **lead,
+                            "skip_trace_status": "missing_address",
+                            "skip_trace_source": TRACE_SOURCE,
+                            "skip_trace_timestamp": utc_timestamp(),
+                        }
+                    )
                 )
                 updated_files = persist_trace_data(
                     lead,
@@ -827,6 +939,7 @@ class DashboardHandler(SimpleHTTPRequestHandler):
                 )
                 self.respond_json({"trace_data": trace_data, "updated_files": updated_files})
                 return
+
             lookup_request = body.get("trace_lookup") if isinstance(body.get("trace_lookup"), dict) else {}
             if not lookup_request:
                 lookup_request = {
@@ -834,6 +947,7 @@ class DashboardHandler(SimpleHTTPRequestHandler):
                     "city": lead.get("prop_city") or "",
                     "state": lead.get("prop_state") or "",
                 }
+
             response_data = perform_tracerfy_lookup(lookup_request)
             trace_data = map_tracerfy_lookup_response(lead, response_data)
             updated_files = persist_trace_data(
