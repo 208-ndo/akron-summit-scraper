@@ -1447,26 +1447,67 @@ function clearTraceData(r){
 
 async function fetchJSON(file){
   for(const p of['data/'+file,'../data/'+file,'dashboard/'+file,file]){
-    try{const r=await fetch(p);if(r.ok)return await r.json();}catch(e){}
+    try{
+      const r=await fetch(p,{cache:'no-store'});
+      if(r.ok)return await r.json();
+    }catch(e){}
   }
   return null;
 }
 
+function mergeTraceStores(base,incoming){
+  const out=Object.assign({},base||{});
+  if(!incoming||typeof incoming!=='object'||Array.isArray(incoming))return out;
+  Object.entries(incoming).forEach(([key,value])=>{
+    if(!value||typeof value!=='object'||Array.isArray(value))return;
+    out[key]=Object.assign({},out[key]||{},value);
+  });
+  return out;
+}
+
+async function fetchTextFile(file){
+  for(const p of['data/'+file,'../data/'+file,'dashboard/'+file,file]){
+    try{
+      const r=await fetch(p+'?t='+Date.now(),{cache:'no-store'});
+      if(r.ok)return await r.text();
+    }catch(e){}
+  }
+  return '';
+}
+
+function parseLooseTraceStore(text){
+  const raw=String(text||'').trim();
+  if(!raw)return {};
+  try{
+    const parsed=JSON.parse(raw);
+    return parsed&&typeof parsed==='object'&&!Array.isArray(parsed)?parsed:{};
+  }catch(e){}
+  try{
+    const parsed=(new Function('return ('+raw+')'))();
+    return parsed&&typeof parsed==='object'&&!Array.isArray(parsed)?parsed:{};
+  }catch(e){
+    console.warn('trace_store parse failed',e);
+    return {};
+  }
+}
 
 async function loadRemoteTraceStore(){
   if(remoteTraceStoreLoaded)return traceStore;
   if(remoteTraceStorePromise)return remoteTraceStorePromise;
   remoteTraceStorePromise=(async()=>{
     try{
-      const payload=await fetchJSON(REMOTE_TRACE_STORE_FILE);
+      const raw=await fetchTextFile(REMOTE_TRACE_STORE_FILE);
+      const payload=parseLooseTraceStore(raw);
       if(payload&&typeof payload==='object'){
         const incoming=payload.records||payload.trace_store||payload;
         if(incoming&&typeof incoming==='object'&&!Array.isArray(incoming)){
-          Object.assign(traceStore,incoming);
+          traceStore=mergeTraceStores(loadTraceStore(),incoming);
           saveTraceStore();
         }
       }
-    }catch(e){}
+    }catch(e){
+      console.warn('remote trace store load failed',e);
+    }
     remoteTraceStoreLoaded=true;
     return traceStore;
   })().finally(()=>{remoteTraceStorePromise=null;});
