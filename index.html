@@ -311,6 +311,13 @@
   <div class="stat"><div class="stat-num green" id="s-vacland">â€“</div><div class="stat-label">ðŸŒ¿ Vac Land</div></div><div class="sdiv"></div>
   <div class="stat"><div class="stat-num" id="s-new">â€“</div><div class="stat-label">ðŸ†• This Week</div></div>
   <div class="sdiv"></div>
+  <div class="stat" onclick="quickFilterSkipped()" style="cursor:pointer;min-width:80px;">
+    <div id="skipped-btn" style="background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.4);border-radius:8px;padding:6px 14px;display:flex;flex-direction:column;align-items:center;gap:2px;transition:all .15s;">
+      <div style="font-size:18px;line-height:1;">📞</div>
+      <div style="font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);white-space:nowrap;">Skipped</div>
+    </div>
+  </div>
+  <div class="sdiv"></div>
   <div class="stat" onclick="openDATab()" style="cursor:pointer;min-width:80px;">
     <div style="background:rgba(74,245,166,.15);border:1px solid rgba(74,245,166,.4);border-radius:8px;padding:6px 14px;display:flex;flex-direction:column;align-items:center;gap:2px;transition:all .15s;" onmouseover="this.style.background='rgba(74,245,166,.25)'" onmouseout="this.style.background='rgba(74,245,166,.15)'">
       <div style="font-size:18px;line-height:1;">ðŸ§®</div>
@@ -1508,9 +1515,41 @@ function applyFilters(){
   });
   doSort();rendered=0;renderTable();
   document.getElementById('rec-count').textContent=filtered.length.toLocaleString()+' records';
+  setSkippedButtonState();
 }
 
-function clearFilters(){['search','f-score','f-flag','f-addr','f-traced'].forEach(id=>document.getElementById(id).value='');applyFilters();}
+function setSkippedButtonState(){
+  var sel=document.getElementById('f-traced');
+  var btn=document.getElementById('skipped-btn');
+  if(!sel||!btn)return;
+  var on=sel.value==='yes';
+  btn.style.background=on?'rgba(245,166,35,.28)':'rgba(245,166,35,.12)';
+  btn.style.borderColor=on?'rgba(245,166,35,.9)':'rgba(245,166,35,.4)';
+  btn.style.boxShadow=on?'0 0 12px rgba(245,166,35,.3)':'none';
+}
+
+function quickFilterSkipped(){
+  var sel=document.getElementById('f-traced');
+  var btn=document.getElementById('skipped-btn');
+  var on=sel.value==='yes';
+  sel.value=on?'':'yes';
+  if(btn){
+    btn.style.background=on?'rgba(245,166,35,.12)':'rgba(245,166,35,.28)';
+    btn.style.borderColor=on?'rgba(245,166,35,.4)':'rgba(245,166,35,.9)';
+    btn.style.boxShadow=on?'none':'0 0 12px rgba(245,166,35,.3)';
+  }
+  if(!on){
+    var t=document.querySelector('[data-tab="all"]');
+    if(t&&!t.classList.contains('active')){t.click();setTimeout(applyFilters,100);return;}
+  }
+  applyFilters();
+}
+
+function clearFilters(){
+  ['search','f-score','f-flag','f-addr','f-traced'].forEach(id=>document.getElementById(id).value='');
+  setSkippedButtonState();
+  applyFilters();
+}
 function sortBy(col,th){sortDir=sortCol===col?-sortDir:-1;sortCol=col;document.querySelectorAll('thead th').forEach(x=>x.classList.remove('sorted'));if(th)th.classList.add('sorted');doSort();rendered=0;renderTable();}
 function doSort(){filtered.sort((a,b)=>{let av=a[sortCol],bv=b[sortCol];if(av==null)av=sortDir<0?-Infinity:Infinity;if(bv==null)bv=sortDir<0?-Infinity:Infinity;if(typeof av==='string')return av.localeCompare(bv)*sortDir;return(av-bv)*sortDir;});}
 
@@ -3101,9 +3140,12 @@ function fixBrokenText(str){
     .replaceAll('ðŸ›','🏛')
     .replaceAll('âš ï¸','⚠️')
     .replaceAll('âš¡','⚡')
+    .replaceAll('ðŸ†•','🆕')
+    .replaceAll('âš–ï¸','⚖️')
     .replaceAll('ðŸŽ¯','🎯')
     .replaceAll('â­','⭐')
     .replaceAll('ðŸŒ¿','🌿')
+    .replaceAll('ðŸš','🚧')
     .replaceAll('ðŸšª','🚪')
     .replaceAll('ðŸ’”','💔')
     .replaceAll('ðŸ§®','🧮')
@@ -3142,6 +3184,7 @@ async function init(){
   applyFilters();
   Object.keys(TAB_FILES).forEach(tab=>{if(tab!=='all')loadTab(tab);});
   cleanupBrokenIconText();
+  setSkippedButtonState();
 }
 init();
 </script>
