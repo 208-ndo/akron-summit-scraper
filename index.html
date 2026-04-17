@@ -708,7 +708,9 @@ const TRACE_PERSIST_FIELDS=[
 const TRACERFY_API_BASE=getTracerfyBase();
 const TRACERFY_LIVE_API_PATH='/api/tracerfy/trace';
 const REMOTE_TRACE_STORE_FILE='trace_store.json';
-let traceStore=loadTraceStore();
+let localTraceStore=loadTraceStore();
+let remoteTraceStore={};
+let traceStore=mergeTraceStores(remoteTraceStore,localTraceStore);
 let traceQueue=[],traceQueueKeys=new Set(),traceQueueRunning=false,traceQueuePromise=Promise.resolve();
 let canonicalTraceIndex=null,canonicalTraceIndexPromise=null;
 let remoteTraceStoreLoaded=false,remoteTraceStorePromise=null;
@@ -716,15 +718,29 @@ let remoteTraceStoreLoaded=false,remoteTraceStorePromise=null;
 function loadTraceStore(){
   try{
     const raw=localStorage.getItem(TRACE_STORE_KEY);
-    const parsed=raw?JSON.parse(raw):{};
-    return parsed&&typeof parsed==='object'?parsed:{};
+    if(!raw)return {};
+    if(raw.length>400000){
+      try{localStorage.removeItem(TRACE_STORE_KEY);}catch(_){}
+      return {};
+    }
+    const parsed=JSON.parse(raw);
+    return parsed&&typeof parsed==='object'&&!Array.isArray(parsed)?parsed:{};
   }catch(e){
     return {};
   }
 }
 
+function rebuildTraceStore(){
+  traceStore=mergeTraceStores(remoteTraceStore,localTraceStore);
+  return traceStore;
+}
+
 function saveTraceStore(){
-  localStorage.setItem(TRACE_STORE_KEY,JSON.stringify(traceStore));
+  try{
+    localStorage.setItem(TRACE_STORE_KEY,JSON.stringify(localTraceStore||{}));
+  }catch(e){
+    console.warn('local trace store save skipped',e);
+  }
 }
 
 function leadKey(r){
@@ -1113,13 +1129,6 @@ function applyStoredTraceData(r){
   const keys=recordMatchKeys(r);
   const stored=keys.map(key=>traceStore[key]).find(Boolean);
   if(stored){
-    let changed=false;
-    keys.forEach(key=>{
-      if(traceStore[key]===stored)return;
-      traceStore[key]=stored;
-      changed=true;
-    });
-    if(changed)saveTraceStore();
     const merged=mergePersistedTraceFields(r,stored);
     Object.assign(r,merged);
   }
@@ -1408,18 +1417,18 @@ function persistTraceData(r,traceData){
     if(merged[field]!==undefined)acc[field]=merged[field];
     return acc;
   },{});
-  const persistedTrace=recordMatchKeys(merged).map(key=>traceStore[key]).find(Boolean)||{};
-  Object.keys(persistedTrace).forEach(key=>delete persistedTrace[key]);
+  const persistedTrace={};
   Object.assign(persistedTrace,persistedPayload);
   recordMatchKeys(merged).forEach(key=>{
-    traceStore[key]=persistedTrace;
+    localTraceStore[key]=Object.assign({},persistedTrace);
   });
+  rebuildTraceStore();
   saveTraceStore();
   Object.assign(r,merged);
   Object.values(cache).forEach(records=>{
     (records||[]).forEach(record=>{
       if(record===r)return;
-      if(recordMatchKeys(record).some(key=>traceStore[key]===persistedTrace)){
+      if(recordMatchKeys(record).some(key=>traceStore[key]&&recordMatchKeys(merged).includes(key))){
         Object.assign(record,mergePersistedTraceFields(record,persistedTrace));
       }
     });
@@ -1429,8 +1438,9 @@ function persistTraceData(r,traceData){
 
 function clearTraceData(r){
   recordMatchKeys(r).forEach(key=>{
-    delete traceStore[key];
+    delete localTraceStore[key];
   });
+  rebuildTraceStore();
   saveTraceStore();
   [
     'traced_owner_name','phone_primary','phone_primary_type','phone_secondary','phone_secondary_type',
@@ -1501,8 +1511,8 @@ async function loadRemoteTraceStore(){
       if(payload&&typeof payload==='object'){
         const incoming=payload.records||payload.trace_store||payload;
         if(incoming&&typeof incoming==='object'&&!Array.isArray(incoming)){
-          traceStore=mergeTraceStores(loadTraceStore(),incoming);
-          saveTraceStore();
+          remoteTraceStore=incoming;
+          rebuildTraceStore();
         }
       }
     }catch(e){
