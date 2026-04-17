@@ -27,6 +27,10 @@
   .stat-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:3px;white-space:nowrap;}
   .stat-num.hot{color:var(--hot);}.stat-num.warm{color:var(--warm);}.stat-num.cool{color:var(--cool);}.stat-num.green{color:var(--accent3);}.stat-num.gold{color:var(--accent);}
   .sdiv{width:1px;background:var(--border);align-self:stretch;margin:0 2px;}
+  /* Safe top-bar cleanup: keep stat IDs for JS, hide clutter visually only */
+  .statsbar.compact .stat.hide-stat,
+  .statsbar.compact .sdiv.hide-sdiv{display:none;}
+
 
   /* â”€â”€ TABS â”€â”€ */
   .tabs-wrap{background:var(--surface);border-bottom:1px solid var(--border);padding:0 24px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
@@ -297,19 +301,19 @@
   <div class="updated" id="upd">Loading...</div>
 </header>
 
-<div class="statsbar">
+<div class="statsbar compact">
   <div class="stat"><div class="stat-num" id="s-total">–</div><div class="stat-label">Total</div></div><div class="sdiv"></div>
-  <div class="stat"><div class="stat-num hot" id="s-sheriff">–</div><div class="stat-label">⚡ Sheriff</div></div><div class="sdiv"></div>
-  <div class="stat"><div class="stat-num hot" id="s-hot">–</div><div class="stat-label">🔥 Hot Stack</div></div><div class="sdiv"></div>
-  <div class="stat"><div class="stat-num warm" id="s-probate">–</div><div class="stat-label">⚖️ Probate</div></div><div class="sdiv"></div>
-  <div class="stat"><div class="stat-num warm" id="s-code">–</div><div class="stat-label">🚧 Code Vio</div></div><div class="sdiv"></div>
-  <div class="stat"><div class="stat-num cool" id="s-vacant">–</div><div class="stat-label">🏠 Vacant</div></div><div class="sdiv"></div>
-  <div class="stat"><div class="stat-num gold" id="s-tax">–</div><div class="stat-label">💰 Tax Delin</div></div><div class="sdiv"></div>
-  <div class="stat"><div class="stat-num green" id="s-absentee">–</div><div class="stat-label">📭 Absentee</div></div><div class="sdiv"></div>
-  <div class="stat"><div class="stat-num green" id="s-inherited">–</div><div class="stat-label">🏛 Inherited</div></div><div class="sdiv"></div>
-  <div class="stat"><div class="stat-num cool" id="s-subto">–</div><div class="stat-label">🎯 Sub-To</div></div><div class="sdiv"></div>
-  <div class="stat"><div class="stat-num green" id="s-vacland">–</div><div class="stat-label">🌿 Vac Land</div></div><div class="sdiv"></div>
-  <div class="stat"><div class="stat-num" id="s-new">–</div><div class="stat-label">🆕 This Week</div></div><div class="sdiv"></div>
+  <div class="stat hide-stat"><div class="stat-num hot" id="s-sheriff">–</div><div class="stat-label">⚡ Sheriff</div></div><div class="sdiv hide-sdiv"></div>
+  <div class="stat hide-stat"><div class="stat-num hot" id="s-hot">–</div><div class="stat-label">🔥 Hot Stack</div></div><div class="sdiv hide-sdiv"></div>
+  <div class="stat hide-stat"><div class="stat-num warm" id="s-probate">–</div><div class="stat-label">⚖️ Probate</div></div><div class="sdiv hide-sdiv"></div>
+  <div class="stat hide-stat"><div class="stat-num warm" id="s-code">–</div><div class="stat-label">🚧 Code Vio</div></div><div class="sdiv hide-sdiv"></div>
+  <div class="stat hide-stat"><div class="stat-num cool" id="s-vacant">–</div><div class="stat-label">🏠 Vacant</div></div><div class="sdiv hide-sdiv"></div>
+  <div class="stat hide-stat"><div class="stat-num gold" id="s-tax">–</div><div class="stat-label">💰 Tax Delin</div></div><div class="sdiv hide-sdiv"></div>
+  <div class="stat hide-stat"><div class="stat-num green" id="s-absentee">–</div><div class="stat-label">📭 Absentee</div></div><div class="sdiv hide-sdiv"></div>
+  <div class="stat hide-stat"><div class="stat-num green" id="s-inherited">–</div><div class="stat-label">🏛 Inherited</div></div><div class="sdiv hide-sdiv"></div>
+  <div class="stat hide-stat"><div class="stat-num cool" id="s-subto">–</div><div class="stat-label">🎯 Sub-To</div></div><div class="sdiv hide-sdiv"></div>
+  <div class="stat hide-stat"><div class="stat-num green" id="s-vacland">–</div><div class="stat-label">🌿 Vac Land</div></div><div class="sdiv hide-sdiv"></div>
+  <div class="stat hide-stat"><div class="stat-num" id="s-new">–</div><div class="stat-label">🆕 This Week</div></div><div class="sdiv hide-sdiv"></div>
   <div class="stat"><div class="stat-num cool" id="s-today-pulled">–</div><div class="stat-label">📥 Today Pulled</div></div><div class="sdiv"></div>
   <div class="stat"><div class="stat-num gold" id="s-eligible">–</div><div class="stat-label">✅ Eligible</div></div><div class="sdiv"></div>
   <div class="stat"><div class="stat-num green" id="s-traced-today">–</div><div class="stat-label">📞 Traced Today</div></div><div class="sdiv"></div>
