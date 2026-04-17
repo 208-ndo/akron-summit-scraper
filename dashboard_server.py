@@ -1,6 +1,8 @@
 from datetime import datetime
 import json
+import os
 import re
+import subprocess
 import tempfile
 import urllib.error
 import urllib.request
@@ -13,6 +15,13 @@ ROOT_DIR = Path(__file__).resolve().parent
 DATA_DIR = ROOT_DIR / "data"
 DASHBOARD_DIR = ROOT_DIR / "dashboard"
 CONFIG_PATH = ROOT_DIR / "tracerfy.config.js"
+TRACE_STORE_PATH = ROOT_DIR / "trace_store.json"
+TRACE_SOURCE = "Tracerfy"
+
+# Auto-push controls
+AUTO_PUSH_ENABLED = os.getenv("AUTO_PUSH_ENABLED", "1").strip().lower() not in {"0", "false", "no"}
+AUTO_PUSH_BRANCH = os.getenv("AUTO_PUSH_BRANCH", "main").strip() or "main"
+
 TRACE_FIELDS = (
     "traced_owner_name",
     "traced_owner",
@@ -48,7 +57,8 @@ TRACE_FIELDS = (
     "Email",
     "Skip Trace Source",
 )
-TRACE_SOURCE = "Tracerfy"
+
+TRACE_STORE_FIELDS = tuple(dict.fromkeys(TRACE_FIELDS + ("lead_key", "legacy_lead_key")))
 
 
 def utc_timestamp():
@@ -700,11 +710,7 @@ def map_tracerfy_lookup_response(record, response_data):
         ]
     )
 
-    trace_data["skip_trace_status"] = (
-        "success"
-        if had_any_value
-        else "no_hit"
-    )
+    trace_data["skip_trace_status"] = "success" if had_any_value else "no_hit"
 
     if not str(record.get("owner") or "").strip() and trace_data["traced_owner_name"]:
         trace_data["owner"] = trace_data["traced_owner_name"]
@@ -719,6 +725,52 @@ def atomic_write_json(path, payload):
         handle.write("\n")
         temp_path = Path(handle.name)
     temp_path.replace(path)
+
+
+def load_trace_store():
+    if not TRACE_STORE_PATH.exists():
+        return {}
+    try:
+        payload = json.loads(TRACE_STORE_PATH.read_text(encoding="utf-8"))
+        return payload if isinstance(payload, dict) else {}
+    except json.JSONDecodeError:
+        return {}
+
+
+def build_trace_store_entry(trace_data, lead=None):
+    lead = lead if isinstance(lead, dict) else {}
+    entry = {}
+
+    for field in TRACE_STORE_FIELDS:
+        value = trace_data.get(field)
+        if value is None:
+            continue
+        entry[field] = value
+
+    entry["skip_trace_source"] = entry.get("skip_trace_source") or TRACE_SOURCE
+    entry["skip_trace_timestamp"] = entry.get("skip_trace_timestamp") or utc_timestamp()
+    entry["lead_key"] = lead_key(lead)
+    entry["legacy_lead_key"] = legacy_lead_key(lead)
+
+    normalized = apply_trace_field_aliases(apply_derived_lead_fields(entry))
+    return {field: normalized[field] for field in TRACE_STORE_FIELDS if field in normalized}
+
+
+def update_trace_store(lead, trace_data, explicit_keys=None):
+    store = load_trace_store()
+    entry = build_trace_store_entry(trace_data, lead)
+
+    keys = set(record_match_keys(lead))
+    for value in explicit_keys or []:
+        cleaned = normalize_match_value(value)
+        if cleaned:
+            keys.add(cleaned)
+
+    for key in keys:
+        store[key] = entry
+
+    atomic_write_json(TRACE_STORE_PATH, store)
+    return ["trace_store.json"]
 
 
 def iter_lead_json_paths():
@@ -835,7 +887,11 @@ def persist_trace_data(lead, trace_data, explicit_keys=None):
         cleaned = normalize_match_value(value)
         if cleaned:
             keys.add(cleaned)
+
     updated_files = []
+    trace_store_files = update_trace_store(lead, trace_data, explicit_keys)
+    updated_files.extend(trace_store_files)
+
     for path in iter_lead_json_paths():
         payload = json.loads(path.read_text(encoding="utf-8"))
         records, _ = get_records_payload(payload)
@@ -853,10 +909,77 @@ def persist_trace_data(lead, trace_data, explicit_keys=None):
         if changed:
             atomic_write_json(path, payload)
             updated_files.append(str(path.relative_to(ROOT_DIR)).replace("\\", "/"))
+
     for path in sync_dashboard_trace_fields_from_data(keys):
         if path not in updated_files:
             updated_files.append(path)
+
     return updated_files
+
+
+def git_run(*args):
+    return subprocess.run(
+        ["git", *args],
+        cwd=ROOT_DIR,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+
+def auto_commit_and_push(updated_files):
+    if not AUTO_PUSH_ENABLED or not updated_files:
+        return {"attempted": False, "message": "Auto-push disabled or no updated files."}
+
+    files_to_add = sorted(set(updated_files + ["trace_store.json"]))
+    add_result = git_run("add", *files_to_add)
+    if add_result.returncode != 0:
+        return {
+            "attempted": True,
+            "ok": False,
+            "step": "git add",
+            "message": add_result.stderr.strip() or add_result.stdout.strip() or "git add failed",
+        }
+
+    status_result = git_run("status", "--porcelain")
+    if status_result.returncode != 0:
+        return {
+            "attempted": True,
+            "ok": False,
+            "step": "git status",
+            "message": status_result.stderr.strip() or status_result.stdout.strip() or "git status failed",
+        }
+
+    if not status_result.stdout.strip():
+        return {"attempted": True, "ok": True, "message": "No git changes to commit."}
+
+    commit_message = f"Update trace store {datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')}"
+    commit_result = git_run("commit", "-m", commit_message)
+    if commit_result.returncode != 0:
+        commit_output = (commit_result.stderr.strip() or commit_result.stdout.strip() or "").lower()
+        if "nothing to commit" in commit_output:
+            return {"attempted": True, "ok": True, "message": "Nothing new to commit."}
+        return {
+            "attempted": True,
+            "ok": False,
+            "step": "git commit",
+            "message": commit_result.stderr.strip() or commit_result.stdout.strip() or "git commit failed",
+        }
+
+    push_result = git_run("push", "origin", AUTO_PUSH_BRANCH)
+    if push_result.returncode != 0:
+        return {
+            "attempted": True,
+            "ok": False,
+            "step": "git push",
+            "message": push_result.stderr.strip() or push_result.stdout.strip() or "git push failed",
+        }
+
+    return {
+        "attempted": True,
+        "ok": True,
+        "message": f"Pushed to origin/{AUTO_PUSH_BRANCH}.",
+    }
 
 
 def perform_tracerfy_lookup(lookup_request):
@@ -918,7 +1041,7 @@ class DashboardHandler(SimpleHTTPRequestHandler):
                         "skip_trace_timestamp": lead.get("skip_trace_timestamp") or "",
                     }
                 )
-                self.respond_json({"trace_data": trace_data, "updated_files": []})
+                self.respond_json({"trace_data": trace_data, "updated_files": [], "git": {"attempted": False}})
                 return
 
             if not (lead.get("prop_address") and lead.get("prop_city") and lead.get("prop_state")):
@@ -937,7 +1060,8 @@ class DashboardHandler(SimpleHTTPRequestHandler):
                     trace_data,
                     [body.get("lead_key"), body.get("legacy_lead_key")],
                 )
-                self.respond_json({"trace_data": trace_data, "updated_files": updated_files})
+                git_result = auto_commit_and_push(updated_files)
+                self.respond_json({"trace_data": trace_data, "updated_files": updated_files, "git": git_result})
                 return
 
             lookup_request = body.get("trace_lookup") if isinstance(body.get("trace_lookup"), dict) else {}
@@ -955,10 +1079,12 @@ class DashboardHandler(SimpleHTTPRequestHandler):
                 trace_data,
                 [body.get("lead_key"), body.get("legacy_lead_key")],
             )
+            git_result = auto_commit_and_push(updated_files)
             self.respond_json(
                 {
                     "trace_data": trace_data,
                     "updated_files": updated_files,
+                    "git": git_result,
                 }
             )
         except Exception as exc:  # noqa: BLE001
@@ -976,9 +1102,12 @@ class DashboardHandler(SimpleHTTPRequestHandler):
 def main():
     host = "127.0.0.1"
     port = 8765
+    if not TRACE_STORE_PATH.exists():
+        atomic_write_json(TRACE_STORE_PATH, {})
     sync_dashboard_trace_fields_from_data()
     server = ThreadingHTTPServer((host, port), DashboardHandler)
     print(f"Serving dashboard at http://{host}:{port}")
+    print(f"Auto-push enabled: {AUTO_PUSH_ENABLED} -> origin/{AUTO_PUSH_BRANCH}")
     server.serve_forever()
 
 
