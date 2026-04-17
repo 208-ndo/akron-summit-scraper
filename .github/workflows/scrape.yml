@@ -10,9 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -28,6 +33,12 @@ jobs:
           python -m playwright install chromium
           python -m playwright install-deps chromium
 
+      - name: Ensure trace_store.json exists
+        run: |
+          if [ ! -f trace_store.json ]; then
+            echo "{}" > trace_store.json
+          fi
+
       - name: Run scraper
         run: |
           python scraper/fetch.py \
@@ -40,6 +51,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/ dashboard/
+          git add data/ dashboard/ trace_store.json
           git diff --cached --quiet || git commit -m "Update scraper data $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push
