@@ -971,6 +971,7 @@ function applyDerivedLeadFields(r){
     !!ownerName &&
     (baseEligible || hasOverride);
 
+  r.trace_reason=getTraceReasonLabel(r);
   return r;
 }
 
@@ -1184,6 +1185,51 @@ function getTracerfyApiKey(){
 function tracerfyConfigured(){
   return !!getTracerfyApiKey();
 }
+
+function tracerfyHasCredits(){
+  const credits=Number(window.TRACERFY_CONFIG&&window.TRACERFY_CONFIG.availableCredits);
+  if(Number.isFinite(credits)) return credits>0;
+  return true;
+}
+
+function getTraceReason(r){
+  const status=String(r.skip_trace_status||'').trim().toLowerCase();
+  if(isSkipTraced(r)||TRACE_SUCCESS_STATUSES.has(status)) return 'already_traced';
+  if(r._trace_loading) return 'eligible';
+  if(!tracerfyConfigured()) return 'not_configured';
+  if(!tracerfyHasCredits()) return 'no_credits';
+
+  const sellerScore=Number(r.score)||0;
+  const distressCount=Number(r.distress_count)||0;
+  const ownerName=String(
+    r.owner ||
+    r.traced_owner_name ||
+    r.executor_name ||
+    r.decedent_name ||
+    ''
+  ).trim();
+
+  if(!ownerName || !String(r.prop_address||'').trim() || !String(r.prop_city||'').trim() || !String(r.prop_state||'').trim()){
+    return 'missing_required_data';
+  }
+  if(distressCount < 2) return 'only_1_distress_source';
+  if(sellerScore < 60) return 'below_score_threshold';
+  return 'eligible';
+}
+
+function getTraceReasonLabel(r){
+  const reason=getTraceReason(r);
+  switch(reason){
+    case 'already_traced': return 'already_traced';
+    case 'only_1_distress_source': return 'only_1_distress_source';
+    case 'below_score_threshold': return 'below_score_threshold';
+    case 'missing_required_data': return 'missing_required_data';
+    case 'no_credits': return 'no_credits';
+    case 'not_configured': return 'not_configured';
+    default: return 'eligible';
+  }
+}
+
 
 function getTracerfyLiveApiCandidates(){
   const candidates=[];
@@ -2698,14 +2744,17 @@ function getSkipTraceStatusLabel(r){
   if(isSkipTraced(r)){
     return `Skipped${r.skip_trace_timestamp?` ${new Date(r.skip_trace_timestamp).toLocaleDateString('en-US',{month:'short',day:'numeric'})}`:''}`;
   }
-  if(r._trace_loading)return 'Tracing via Tracerfy...';
+  if(r._trace_loading)return 'Tracing via Tracerfy.';
   if(r.skip_trace_status==='no_contact')return 'Trace returned no usable phone or email';
   if(r.skip_trace_status==='no_hit')return 'Tracerfy returned no match';
   if(r.skip_trace_status==='missing_address')return 'Eligible but missing property address';
   if(r.skip_trace_status==='request_failed')return 'Tracerfy request failed';
-  if(!isTracerfyEligible(r))return 'Requires Seller Score 65+ and 2+ lists/distress';
-  if(!tracerfyConfigured())return 'Tracerfy not configured';
-  if(!(r.prop_address&&r.prop_city&&r.prop_state))return 'Eligible but missing property address, city, or state';
+  const reason=getTraceReason(r);
+  if(reason==='only_1_distress_source')return 'Requires 2+ true distress sources';
+  if(reason==='below_score_threshold')return 'Requires Seller Score 60+';
+  if(reason==='missing_required_data')return 'Missing owner or property address/city/state';
+  if(reason==='no_credits')return 'Tracerfy credits depleted';
+  if(reason==='not_configured')return 'Tracerfy not configured';
   return 'Awaiting automatic Tracerfy trace';
 }
 
@@ -2730,6 +2779,7 @@ function openModal(r){
       <div class="mf full"><div class="ml">Property Address</div><div class="mv hi">${r.prop_address||'–'}${r.prop_city?', '+r.prop_city:''} ${r.prop_zip||''}</div></div>
       <div class="mf full"><div class="ml">Mailing Address</div><div class="mv">${getPreferredMailingLine(r)||'–'}</div></div>
       <div class="mf full"><div class="ml">Skip Trace Status</div><div class="mv ${eligible?'hi':''}">${traceStatus}</div></div>
+      <div class="mf"><div class="ml">Trace Reason</div><div class="mv">${getTraceReasonLabel(r)}</div></div>
       <div class="mf"><div class="ml">List Count</div><div class="mv hi">${r.list_count||0}</div></div>
       <div class="mf"><div class="ml">Trace Eligible</div><div class="mv ${eligible?'gr':''}">${eligible?'Yes':'No'}</div></div>
       <div class="mf"><div class="ml">Parcel ID</div><div class="mv">${r.parcel_id||'–'}</div></div>
