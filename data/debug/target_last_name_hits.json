@@ -1,0 +1,2062 @@
+{
+  "SIPE": [],
+  "DARDENNE": [],
+  "CSASZAR": [],
+  "BOSTIC": [],
+  "BECTON": [],
+  "ESOLA": [],
+  "ASAMOAH": [],
+  "ARMSTEAD": [],
+  "FUSCO": [],
+  "FENDER": [],
+  "ELEKES": [],
+  "FARREY": [],
+  "HACHA": [],
+  "PULLIN": [],
+  "PRIM": [],
+  "PFAHLER": [],
+  "PEARSON": [],
+  "PARMER": [],
+  "NEFFENGER": [],
+  "MOUNTS": [],
+  "MOHLER": [],
+  "MCCALL": [],
+  "COLLINS": [
+    {
+      "owner": "MAAG HOLLY A COLLINS",
+      "owner_aliases": [
+        "MAAG HOLLY A COLLINS"
+      ],
+      "prop_address": "1568 WILSONWAY DR",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "1568 WILSONWAY DR",
+      "mail_city": "Barberton",
+      "mail_state": "OH",
+      "mail_zip": "44203",
+      "parcel_id": "0110085"
+    },
+    {
+      "owner": "CHLEBINA JENNIFER M COLLINS",
+      "owner_aliases": [
+        "CHLEBINA JENNIFER M COLLINS"
+      ],
+      "prop_address": "3378 WILKINSON DR",
+      "prop_city": "AKRON",
+      "prop_zip": "44333",
+      "mail_address": "3378 WILKINSON DR",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44333",
+      "parcel_id": "0901780"
+    },
+    {
+      "owner": "GUNN JACQUELYN COLLINS",
+      "owner_aliases": [
+        "GUNN JACQUELYN COLLINS"
+      ],
+      "prop_address": "718 APACHE RUN",
+      "prop_city": "MACEDONIA",
+      "prop_zip": "44056",
+      "mail_address": "718 APACHE RUN",
+      "mail_city": "Macedonia",
+      "mail_state": "OH",
+      "mail_zip": "44056",
+      "parcel_id": "3302126"
+    },
+    {
+      "owner": "WALKER COLLINS",
+      "owner_aliases": [
+        "WALKER COLLINS"
+      ],
+      "prop_address": "242 AVONDALE DR",
+      "prop_city": "AKRON",
+      "prop_zip": "44313",
+      "mail_address": "242 AVONDALE DR",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44313",
+      "parcel_id": "6749700"
+    },
+    {
+      "owner": "POWE BILLY COLLINS",
+      "owner_aliases": [
+        "POWE BILLY COLLINS"
+      ],
+      "prop_address": "1044 GREENWOOD AVE",
+      "prop_city": "AKRON",
+      "prop_zip": "44320",
+      "mail_address": "PO BOX 8122",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44320",
+      "parcel_id": "6838710"
+    }
+  ],
+  "COLE": [
+    {
+      "owner": "OSBORNE COLE",
+      "owner_aliases": [
+        "OSBORNE COLE"
+      ],
+      "prop_address": "24 18TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "24 18TH ST",
+      "mail_city": "Barberton",
+      "mail_state": "OH",
+      "mail_zip": "44203",
+      "parcel_id": "0100669"
+    },
+    {
+      "owner": "SOMMERS COLE",
+      "owner_aliases": [
+        "SOMMERS COLE"
+      ],
+      "prop_address": "2420 25TH ST",
+      "prop_city": "CUYAHOGA FA",
+      "prop_zip": "44223",
+      "mail_address": "385 COUNTY LINE ROAD WEST STE 200",
+      "mail_city": "Westerville",
+      "mail_state": "OH",
+      "mail_zip": "43082",
+      "parcel_id": "0201033"
+    },
+    {
+      "owner": "MCDOUGAL COLE",
+      "owner_aliases": [
+        "MCDOUGAL COLE"
+      ],
+      "prop_address": "419 PIERCE AVE",
+      "prop_city": "CUYAHOGA FA",
+      "prop_zip": "",
+      "mail_address": "419 PIERCE AVE",
+      "mail_city": "Cuyahoga Falls",
+      "mail_state": "OH",
+      "mail_zip": "44221",
+      "parcel_id": "0207164"
+    },
+    {
+      "owner": "CUTLER MARK COLE TRUSTEE",
+      "owner_aliases": [
+        "CUTLER MARK COLE TRUSTEE"
+      ],
+      "prop_address": "2303 21ST ST",
+      "prop_city": "CUYAHOGA FA",
+      "prop_zip": "44223",
+      "mail_address": "2303 21ST ST",
+      "mail_city": "Cuyahoga Falls",
+      "mail_state": "OH",
+      "mail_zip": "44223",
+      "parcel_id": "0208519"
+    },
+    {
+      "owner": "MOXIE TYLON COLE",
+      "owner_aliases": [
+        "MOXIE TYLON COLE"
+      ],
+      "prop_address": "2796 MULL AVE",
+      "prop_city": "COPLEY",
+      "prop_zip": "44321",
+      "mail_address": "2796 MULL AVE # D",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44321",
+      "parcel_id": "1505063"
+    },
+    {
+      "owner": "BOWERS ROBERT COLE",
+      "owner_aliases": [
+        "BOWERS ROBERT COLE"
+      ],
+      "prop_address": "4725 HAUGHTON CT",
+      "prop_city": "STOW",
+      "prop_zip": "44224",
+      "mail_address": "4725 HAUGHTON CT",
+      "mail_city": "Stow",
+      "mail_state": "OH",
+      "mail_zip": "44224",
+      "parcel_id": "5618337"
+    },
+    {
+      "owner": "KUSZMAUL COLE",
+      "owner_aliases": [
+        "KUSZMAUL COLE"
+      ],
+      "prop_address": "83 ELMWOOD DR",
+      "prop_city": "TALLMADGE",
+      "prop_zip": "44278",
+      "mail_address": "83 ELMWOOD DR",
+      "mail_city": "Tallmadge",
+      "mail_state": "OH",
+      "mail_zip": "44278",
+      "parcel_id": "6004222"
+    },
+    {
+      "owner": "WOODS COLE",
+      "owner_aliases": [
+        "WOODS COLE"
+      ],
+      "prop_address": "2200 NEWTON ST",
+      "prop_city": "AKRON",
+      "prop_zip": "44305",
+      "mail_address": "2200 NEWTON ST",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44305",
+      "parcel_id": "6705059"
+    },
+    {
+      "owner": "DEVINNEY COLE",
+      "owner_aliases": [
+        "DEVINNEY COLE"
+      ],
+      "prop_address": "2906 TRENTON RD",
+      "prop_city": "AKRON",
+      "prop_zip": "44312",
+      "mail_address": "2906 TRENTON RD",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44312",
+      "parcel_id": "6722297"
+    },
+    {
+      "owner": "COLLIER COLE",
+      "owner_aliases": [
+        "COLLIER COLE"
+      ],
+      "prop_address": "571 REYNOLDS AVE",
+      "prop_city": "AKRON",
+      "prop_zip": "44313",
+      "mail_address": "571 REYNOLDS AVE",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44313",
+      "parcel_id": "6746711"
+    },
+    {
+      "owner": "BRINLEY ETHAN COLE",
+      "owner_aliases": [
+        "BRINLEY ETHAN COLE"
+      ],
+      "prop_address": "904 HUNT ST",
+      "prop_city": "AKRON",
+      "prop_zip": "44306",
+      "mail_address": "904 HUNT ST",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44306",
+      "parcel_id": "6823713"
+    },
+    {
+      "owner": "GRIFFIN COLE",
+      "owner_aliases": [
+        "GRIFFIN COLE"
+      ],
+      "prop_address": "560 MALVERN RD",
+      "prop_city": "AKRON",
+      "prop_zip": "44303",
+      "mail_address": "560 MALVERN RD",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44303",
+      "parcel_id": "6847174"
+    },
+    {
+      "owner": "ROLLOFSON COLE",
+      "owner_aliases": [
+        "ROLLOFSON COLE"
+      ],
+      "prop_address": "185 EASTHOLM AVE",
+      "prop_city": "AKRON",
+      "prop_zip": "44312",
+      "mail_address": "21220 ALAMINOS DR",
+      "mail_city": "Santa Clarita",
+      "mail_state": "",
+      "mail_zip": "91350",
+      "parcel_id": "6862277"
+    }
+  ],
+  "BROWN": [
+    {
+      "owner": "RAYMAN ROBERT BROWN TRUSTEE",
+      "owner_aliases": [
+        "RAYMAN ROBERT BROWN TRUSTEE"
+      ],
+      "prop_address": "2437 17TH ST",
+      "prop_city": "CUYAHOGA FA",
+      "prop_zip": "44223",
+      "mail_address": "2437 17TH ST",
+      "mail_city": "Cuyahoga Falls",
+      "mail_state": "OH",
+      "mail_zip": "44223",
+      "parcel_id": "0208857"
+    },
+    {
+      "owner": "BROWN THOMAS F BROWN",
+      "owner_aliases": [
+        "BROWN THOMAS F BROWN"
+      ],
+      "prop_address": "570 CROSSINGS CIR",
+      "prop_city": "TALLMADGE",
+      "prop_zip": "44278",
+      "mail_address": "570 CROSSINGS CIR",
+      "mail_city": "Tallmadge",
+      "mail_state": "OH",
+      "mail_zip": "44278",
+      "parcel_id": "6009499"
+    },
+    {
+      "owner": "BEECHER OTIS BROWN",
+      "owner_aliases": [
+        "BEECHER OTIS BROWN"
+      ],
+      "prop_address": "786 LEONARD ST",
+      "prop_city": "AKRON",
+      "prop_zip": "44307",
+      "mail_address": "874 MAY ST",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44311",
+      "parcel_id": "6706533"
+    },
+    {
+      "owner": "BROWN AND WILLIAMS CONSTRUCTION",
+      "owner_aliases": [
+        "BROWN AND WILLIAMS CONSTRUCTION"
+      ],
+      "prop_address": "41 E DALTON ST",
+      "prop_city": "AKRON",
+      "prop_zip": "44310",
+      "mail_address": "PO BOX 22269",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44302",
+      "parcel_id": "6738593"
+    },
+    {
+      "owner": "JOHNSON THEA BROWN",
+      "owner_aliases": [
+        "JOHNSON THEA BROWN"
+      ],
+      "prop_address": "940 SNYDER ST",
+      "prop_city": "AKRON",
+      "prop_zip": "44307",
+      "mail_address": "PO BOX 8408",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44320",
+      "parcel_id": "6815352"
+    },
+    {
+      "owner": "SMITH REBIE LAVERNE BROWN",
+      "owner_aliases": [
+        "SMITH REBIE LAVERNE BROWN"
+      ],
+      "prop_address": "888 & 890 HAMLIN ST",
+      "prop_city": "AKRON",
+      "prop_zip": "44320",
+      "mail_address": "888 HAMLIN ST",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44320",
+      "parcel_id": "6820918"
+    },
+    {
+      "owner": "JOHNSON THEA BROWN",
+      "owner_aliases": [
+        "JOHNSON THEA BROWN"
+      ],
+      "prop_address": "1654 IDLEWOOD AVE",
+      "prop_city": "AKRON",
+      "prop_zip": "44313",
+      "mail_address": "1654 IDLEWOOD AVE",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44313",
+      "parcel_id": "6834037"
+    }
+  ],
+  "BARTON": [
+    {
+      "owner": "HAMILTON BARTON",
+      "owner_aliases": [
+        "HAMILTON BARTON"
+      ],
+      "prop_address": "400 MARK DR",
+      "prop_city": "TALLMADGE",
+      "prop_zip": "44278",
+      "mail_address": "400 MARK DR",
+      "mail_city": "Tallmadge",
+      "mail_state": "OH",
+      "mail_zip": "44278",
+      "parcel_id": "6003358"
+    },
+    {
+      "owner": "SNYDER DARRYL BARTON",
+      "owner_aliases": [
+        "SNYDER DARRYL BARTON"
+      ],
+      "prop_address": "1136 TULIP ST",
+      "prop_city": "AKRON",
+      "prop_zip": "44301",
+      "mail_address": "PO BOX 2923",
+      "mail_city": "North Canton",
+      "mail_state": "OH",
+      "mail_zip": "44720",
+      "parcel_id": "6833358"
+    }
+  ],
+  "ALI": [
+    {
+      "owner": "ALHERIMI YASER ALI",
+      "owner_aliases": [
+        "ALHERIMI YASER ALI"
+      ],
+      "prop_address": "656 WOOSTER RD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "",
+      "mail_address": "636 N WOOSTER RD",
+      "mail_city": "Barberton",
+      "mail_state": "OH",
+      "mail_zip": "44203",
+      "parcel_id": "0109439"
+    },
+    {
+      "owner": "ELMULAIKI SALAHUDDIN ALI",
+      "owner_aliases": [
+        "ELMULAIKI SALAHUDDIN ALI"
+      ],
+      "prop_address": "3139 PRIOR DR",
+      "prop_city": "CUYAHOGA FA",
+      "prop_zip": "44223",
+      "mail_address": "3139 PRIOR DR",
+      "mail_city": "Cuyahoga Falls",
+      "mail_state": "OH",
+      "mail_zip": "44223",
+      "parcel_id": "0207126"
+    },
+    {
+      "owner": "KANAWATI ALI",
+      "owner_aliases": [
+        "KANAWATI ALI"
+      ],
+      "prop_address": "6070 IANWOOD CIR",
+      "prop_city": "PENINSULA",
+      "prop_zip": "44264",
+      "mail_address": "6070 IANWOOD CIR",
+      "mail_city": "Peninsula",
+      "mail_state": "OH",
+      "mail_zip": "44264",
+      "parcel_id": "1200552"
+    },
+    {
+      "owner": "SAIFANASSOUR ALI",
+      "owner_aliases": [
+        "SAIFANASSOUR ALI"
+      ],
+      "prop_address": "3910 BOSWORTH DR",
+      "prop_city": "AKRON",
+      "prop_zip": "44321",
+      "mail_address": "3910 BOSWORTH DR",
+      "mail_city": "Akron",
+      "mail_state": "",
+      "mail_zip": "44321",
+      "parcel_id": "1507743"
+    },
+    {
+      "owner": "MIRHAIDARI ALI",
+      "owner_aliases": [
+        "MIRHAIDARI ALI"
+      ],
+      "prop_address": "1652 MELANIE DR",
+      "prop_city": "UNIONTOWN",
+      "prop_zip": "44685",
+      "mail_address": "1652 MELANIE DR",
+      "mail_city": "Uniontown",
+      "mail_state": "OH",
+      "mail_zip": "44685",
+      "parcel_id": "2807715"
+    },
+    {
+      "owner": "SALEHI EWAZ ALI",
+      "owner_aliases": [
+        "SALEHI EWAZ ALI"
+      ],
+      "prop_address": "560 AMBERLEY DR",
+      "prop_city": "UNIONTOWN",
+      "prop_zip": "44685",
+      "mail_address": "560 AMBERLEY DR",
+      "mail_city": "Uniontown",
+      "mail_state": "",
+      "mail_zip": "44685",
+      "parcel_id": "2815367"
+    },
+    {
+      "owner": "SHAKIR ALI",
+      "owner_aliases": [
+        "SHAKIR ALI"
+      ],
+      "prop_address": "189 BRANDYWINE DR",
+      "prop_city": "HUDSON",
+      "prop_zip": "44236",
+      "mail_address": "189 BRANDYWINE DR",
+      "mail_city": "Hudson",
+      "mail_state": "OH",
+      "mail_zip": "44236",
+      "parcel_id": "3203164"
+    },
+    {
+      "owner": "NAJM RIHAM ALI",
+      "owner_aliases": [
+        "NAJM RIHAM ALI"
+      ],
+      "prop_address": "21 SALT CREEK RUN",
+      "prop_city": "PENINSULA",
+      "prop_zip": "44264",
+      "mail_address": "PO BOX 972",
+      "mail_city": "Cuyahoga Falls",
+      "mail_state": "OH",
+      "mail_zip": "44223",
+      "parcel_id": "3700646"
+    },
+    {
+      "owner": "NAJM RIHAM ALI",
+      "owner_aliases": [
+        "NAJM RIHAM ALI"
+      ],
+      "prop_address": "4595 PRESERVE CIR",
+      "prop_city": "PENINSULA",
+      "prop_zip": "44264",
+      "mail_address": "PO BOX 972",
+      "mail_city": "Cuyahoga Falls",
+      "mail_state": "",
+      "mail_zip": "44223",
+      "parcel_id": "3700663"
+    },
+    {
+      "owner": "NAJM RIHAM ALI",
+      "owner_aliases": [
+        "NAJM RIHAM ALI"
+      ],
+      "prop_address": "21 SALT CREEK RUN",
+      "prop_city": "PENINSULA",
+      "prop_zip": "44264",
+      "mail_address": "PO BOX 972",
+      "mail_city": "Cuyahoga Falls",
+      "mail_state": "OH",
+      "mail_zip": "44223",
+      "parcel_id": "3700730"
+    },
+    {
+      "owner": "NAJM RIHAM ALI",
+      "owner_aliases": [
+        "NAJM RIHAM ALI"
+      ],
+      "prop_address": "4595 PRESERVE CIR",
+      "prop_city": "PENINSULA",
+      "prop_zip": "44264",
+      "mail_address": "PO BOX 972",
+      "mail_city": "Cuyahoga Falls",
+      "mail_state": "OH",
+      "mail_zip": "44223",
+      "parcel_id": "3700776"
+    },
+    {
+      "owner": "ASSAR ALI",
+      "owner_aliases": [
+        "ASSAR ALI"
+      ],
+      "prop_address": "8082 AUGUSTA LN",
+      "prop_city": "NORTHFIELD",
+      "prop_zip": "44067",
+      "mail_address": "8082 AUGUSTA LN",
+      "mail_city": "Northfield",
+      "mail_state": "OH",
+      "mail_zip": "44067",
+      "parcel_id": "4504293"
+    },
+    {
+      "owner": "ALHERIMI YASER ALI",
+      "owner_aliases": [
+        "ALHERIMI YASER ALI"
+      ],
+      "prop_address": "3018 UNION ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "636 WOOSTER RD N",
+      "mail_city": "Barberton",
+      "mail_state": "OH",
+      "mail_zip": "44203",
+      "parcel_id": "4604452"
+    },
+    {
+      "owner": "MILUSH ALI",
+      "owner_aliases": [
+        "MILUSH ALI"
+      ],
+      "prop_address": "134 DONOVAN AVE",
+      "prop_city": "MOGADORE",
+      "prop_zip": "44260",
+      "mail_address": "134 DONOVAN AVE",
+      "mail_city": "Mogadore",
+      "mail_state": "OH",
+      "mail_zip": "44260",
+      "parcel_id": "5500886"
+    },
+    {
+      "owner": "MUHAMMAD FAIROZA ALI",
+      "owner_aliases": [
+        "MUHAMMAD FAIROZA ALI"
+      ],
+      "prop_address": "1940 KING DR",
+      "prop_city": "STOW",
+      "prop_zip": "44224",
+      "mail_address": "1940 KING DR",
+      "mail_city": "Stow",
+      "mail_state": "OH",
+      "mail_zip": "44224",
+      "parcel_id": "5606116"
+    },
+    {
+      "owner": "HAJJAFAR ALI",
+      "owner_aliases": [
+        "HAJJAFAR ALI"
+      ],
+      "prop_address": "70 BARTON DR",
+      "prop_city": "MUNROE FALL",
+      "prop_zip": "",
+      "mail_address": "70 BARTON DR",
+      "mail_city": "Munroe Falls",
+      "mail_state": "OH",
+      "mail_zip": "44262",
+      "parcel_id": "5800917"
+    },
+    {
+      "owner": "RIZVI ALI",
+      "owner_aliases": [
+        "RIZVI ALI"
+      ],
+      "prop_address": "2101 ETON ST",
+      "prop_city": "TWINSBURG",
+      "prop_zip": "44087",
+      "mail_address": "1387 SENECA BLVD BROADVIEW",
+      "mail_city": "Broadview Heights",
+      "mail_state": "OH",
+      "mail_zip": "44147",
+      "parcel_id": "6200061"
+    },
+    {
+      "owner": "RIZVI ALI",
+      "owner_aliases": [
+        "RIZVI ALI"
+      ],
+      "prop_address": "2101 ETON ST",
+      "prop_city": "TWINSBURG",
+      "prop_zip": "44087",
+      "mail_address": "1387 SENECA BLVD BROADVIEW",
+      "mail_city": "Broadview Heights",
+      "mail_state": "OH",
+      "mail_zip": "44147",
+      "parcel_id": "6204803"
+    },
+    {
+      "owner": "ALQADHI ALI",
+      "owner_aliases": [
+        "ALQADHI ALI"
+      ],
+      "prop_address": "7764 OAK MEADOW DR",
+      "prop_city": "HUDSON",
+      "prop_zip": "44236",
+      "mail_address": "7764 OAK MEADOW DR",
+      "mail_city": "Hudson",
+      "mail_state": "OH",
+      "mail_zip": "44236",
+      "parcel_id": "6205140"
+    },
+    {
+      "owner": "MIRHAIDARI ALI",
+      "owner_aliases": [
+        "MIRHAIDARI ALI"
+      ],
+      "prop_address": "457 BAIRD ST",
+      "prop_city": "AKRON",
+      "prop_zip": "44311",
+      "mail_address": "1693 LIBERTY DR",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44313",
+      "parcel_id": "6700220"
+    },
+    {
+      "owner": "MIRHAIDARI ALI",
+      "owner_aliases": [
+        "MIRHAIDARI ALI"
+      ],
+      "prop_address": "677 UPSON ST",
+      "prop_city": "AKRON",
+      "prop_zip": "44305",
+      "mail_address": "1693 LIBERTY DR",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44313",
+      "parcel_id": "6703479"
+    },
+    {
+      "owner": "ELMULAIKI SALAHUDDIN ALI",
+      "owner_aliases": [
+        "ELMULAIKI SALAHUDDIN ALI"
+      ],
+      "prop_address": "677 SCHILLER AVE",
+      "prop_city": "AKRON",
+      "prop_zip": "44310",
+      "mail_address": "456 MIDDLESTONE WAY",
+      "mail_city": "Cuyahoga Falls",
+      "mail_state": "OH",
+      "mail_zip": "44223",
+      "parcel_id": "6707790"
+    },
+    {
+      "owner": "MIRHAIDARI ALI",
+      "owner_aliases": [
+        "MIRHAIDARI ALI"
+      ],
+      "prop_address": "15 W DALTON ST",
+      "prop_city": "AKRON",
+      "prop_zip": "44310",
+      "mail_address": "1693 LIBERTY DR",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44313",
+      "parcel_id": "6713178"
+    },
+    {
+      "owner": "MIRHAIDARI ALI",
+      "owner_aliases": [
+        "MIRHAIDARI ALI"
+      ],
+      "prop_address": "192 S ARLINGTON ST",
+      "prop_city": "AKRON",
+      "prop_zip": "44306",
+      "mail_address": "1693 LIBERTY DR",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44313",
+      "parcel_id": "6722081"
+    },
+    {
+      "owner": "MIRHAIDAIR ALI",
+      "owner_aliases": [
+        "MIRHAIDAIR ALI"
+      ],
+      "prop_address": "1103 LAIRD ST",
+      "prop_city": "AKRON",
+      "prop_zip": "44305",
+      "mail_address": "1693 LIBERTY DR",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44313",
+      "parcel_id": "6724372"
+    }
+  ],
+  "KELLEY": [
+    {
+      "owner": "BLAIR SHANNON KELLEY",
+      "owner_aliases": [
+        "BLAIR SHANNON KELLEY"
+      ],
+      "prop_address": "1711 GRANT AVE",
+      "prop_city": "CUYAHOGA FA",
+      "prop_zip": "44223",
+      "mail_address": "1711 GRANT AVE",
+      "mail_city": "Cuyahoga Falls",
+      "mail_state": "OH",
+      "mail_zip": "44223",
+      "parcel_id": "0201460"
+    },
+    {
+      "owner": "GRIESMER KELLEY TRUSTEE",
+      "owner_aliases": [
+        "GRIESMER KELLEY TRUSTEE"
+      ],
+      "prop_address": "GRANGER RD",
+      "prop_city": "AKRON",
+      "prop_zip": "44333",
+      "mail_address": "3552 GRANGER RD",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44333",
+      "parcel_id": "0401113"
+    },
+    {
+      "owner": "GRIESMER KELLEY TRUSTEE",
+      "owner_aliases": [
+        "GRIESMER KELLEY TRUSTEE"
+      ],
+      "prop_address": "3552 GRANGER RD",
+      "prop_city": "AKRON",
+      "prop_zip": "44333",
+      "mail_address": "3552 GRANGER RD",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44333",
+      "parcel_id": "0401114"
+    },
+    {
+      "owner": "GRIESMER KELLEY TRUSTEE",
+      "owner_aliases": [
+        "GRIESMER KELLEY TRUSTEE"
+      ],
+      "prop_address": "GRANGER RD",
+      "prop_city": "AKRON",
+      "prop_zip": "44333",
+      "mail_address": "3552 GRANGER RD",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44333",
+      "parcel_id": "0401115"
+    },
+    {
+      "owner": "GRIESMER KELLEY TRUSTEE",
+      "owner_aliases": [
+        "GRIESMER KELLEY TRUSTEE"
+      ],
+      "prop_address": "GRANGER GHENT RD",
+      "prop_city": "Akron",
+      "prop_zip": "",
+      "mail_address": "3552 GRANGER RD",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44333",
+      "parcel_id": "0401116"
+    },
+    {
+      "owner": "LLOYD KELLEY",
+      "owner_aliases": [
+        "LLOYD KELLEY"
+      ],
+      "prop_address": "3584 ELMHURST CIR",
+      "prop_city": "UNIONTOWN",
+      "prop_zip": "44685",
+      "mail_address": "3584 ELMHURST CIR",
+      "mail_city": "Uniontown",
+      "mail_state": "",
+      "mail_zip": "44685",
+      "parcel_id": "2815168"
+    },
+    {
+      "owner": "HOLLANDER KELLEY",
+      "owner_aliases": [
+        "HOLLANDER KELLEY"
+      ],
+      "prop_address": "771 NORTHBRIDGE CT",
+      "prop_city": "MACEDONIA",
+      "prop_zip": "44056",
+      "mail_address": "771 NORTHBRIDGE CT",
+      "mail_city": "Macedonia",
+      "mail_state": "OH",
+      "mail_zip": "44056",
+      "parcel_id": "3311354"
+    },
+    {
+      "owner": "LAVELY H KELLEY",
+      "owner_aliases": [
+        "LAVELY H KELLEY"
+      ],
+      "prop_address": "1855 HAMDEN LN",
+      "prop_city": "STOW",
+      "prop_zip": "44224",
+      "mail_address": "1855 HAMDEN LN UNIT 35",
+      "mail_city": "Stow",
+      "mail_state": "OH",
+      "mail_zip": "44224",
+      "parcel_id": "5617549"
+    },
+    {
+      "owner": "JOHNSON LYNDA M KELLEY",
+      "owner_aliases": [
+        "JOHNSON LYNDA M KELLEY"
+      ],
+      "prop_address": "868 WINNEFELD WAY",
+      "prop_city": "AKRON",
+      "prop_zip": "44320",
+      "mail_address": "520 NOBLE AVE",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44320",
+      "parcel_id": "6747414"
+    },
+    {
+      "owner": "ROSS KELLEY",
+      "owner_aliases": [
+        "ROSS KELLEY"
+      ],
+      "prop_address": "1182 MOUNT VERNON AVE",
+      "prop_city": "AKRON",
+      "prop_zip": "44310",
+      "mail_address": "1182 MT VERNON AVE",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44310",
+      "parcel_id": "6839215"
+    }
+  ],
+  "GRIFFITH": [
+    {
+      "owner": "ALLEN GRIFFITH",
+      "owner_aliases": [
+        "ALLEN GRIFFITH"
+      ],
+      "prop_address": "2964 STEFFAN WOODS DR",
+      "prop_city": "TWINSBURG",
+      "prop_zip": "44087",
+      "mail_address": "2964 STEFFAN WOODS DR",
+      "mail_city": "Twinsburg",
+      "mail_state": "",
+      "mail_zip": "44087",
+      "parcel_id": "6206015"
+    },
+    {
+      "owner": "MORRIS JANICE GRIFFITH",
+      "owner_aliases": [
+        "MORRIS JANICE GRIFFITH"
+      ],
+      "prop_address": "668 CORLEY ST",
+      "prop_city": "AKRON",
+      "prop_zip": "44306",
+      "mail_address": "668 CORLEY ST",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44306",
+      "parcel_id": "6738797"
+    }
+  ],
+  "GREEN": [
+    {
+      "owner": "CITY OF GREEN",
+      "owner_aliases": [
+        "CITY OF GREEN"
+      ],
+      "prop_address": "WONDER LAKE DR",
+      "prop_city": "Green",
+      "prop_zip": "",
+      "mail_address": "P O BOX 278",
+      "mail_city": "Green",
+      "mail_state": "OH",
+      "mail_zip": "44232",
+      "parcel_id": "2800014"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "owner_aliases": [
+        "CITY OF GREEN"
+      ],
+      "prop_address": "WONDER LAKE DR",
+      "prop_city": "Green",
+      "prop_zip": "",
+      "mail_address": "P O BOX 278",
+      "mail_city": "Green",
+      "mail_state": "OH",
+      "mail_zip": "44232",
+      "parcel_id": "2800015"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "owner_aliases": [
+        "CITY OF GREEN"
+      ],
+      "prop_address": "2520 WISE RD",
+      "prop_city": "NORTH CANTO",
+      "prop_zip": "44720",
+      "mail_address": "P O BOX 278",
+      "mail_city": "Green",
+      "mail_state": "OH",
+      "mail_zip": "44232",
+      "parcel_id": "2800178"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "owner_aliases": [
+        "CITY OF GREEN"
+      ],
+      "prop_address": "MASSILLON RD",
+      "prop_city": "NORTH CANTO",
+      "prop_zip": "44720",
+      "mail_address": "P O BOX 278",
+      "mail_city": "Green",
+      "mail_state": "OH",
+      "mail_zip": "44232",
+      "parcel_id": "2800251"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "owner_aliases": [
+        "CITY OF GREEN"
+      ],
+      "prop_address": "4820 THURSBY RD",
+      "prop_city": "NORTH CANTO",
+      "prop_zip": "44720",
+      "mail_address": "P O BOX 278",
+      "mail_city": "Green",
+      "mail_state": "OH",
+      "mail_zip": "44232",
+      "parcel_id": "2800609"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "owner_aliases": [
+        "CITY OF GREEN"
+      ],
+      "prop_address": "5290 MASSILLON RD",
+      "prop_city": "NORTH CANTO",
+      "prop_zip": "44720",
+      "mail_address": "P O BOX 278",
+      "mail_city": "Green",
+      "mail_state": "OH",
+      "mail_zip": "44232",
+      "parcel_id": "2800636"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "owner_aliases": [
+        "CITY OF GREEN"
+      ],
+      "prop_address": "4777 MASSILLON RD",
+      "prop_city": "NORTH CANTO",
+      "prop_zip": "44720",
+      "mail_address": "P O BOX 278",
+      "mail_city": "Green",
+      "mail_state": "OH",
+      "mail_zip": "44232",
+      "parcel_id": "2800764"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "owner_aliases": [
+        "CITY OF GREEN"
+      ],
+      "prop_address": "4875 S ARLINGTON RD",
+      "prop_city": "NORTH CANTO",
+      "prop_zip": "44720",
+      "mail_address": "P O BOX 278",
+      "mail_city": "Green",
+      "mail_state": "OH",
+      "mail_zip": "44232",
+      "parcel_id": "2801357"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "owner_aliases": [
+        "CITY OF GREEN"
+      ],
+      "prop_address": "EVERHART DR",
+      "prop_city": "Green",
+      "prop_zip": "",
+      "mail_address": "P O BOX 278",
+      "mail_city": "Green",
+      "mail_state": "OH",
+      "mail_zip": "44232",
+      "parcel_id": "2801462"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "owner_aliases": [
+        "CITY OF GREEN"
+      ],
+      "prop_address": "EVERHART DR",
+      "prop_city": "Green",
+      "prop_zip": "",
+      "mail_address": "P O BOX 278",
+      "mail_city": "Green",
+      "mail_state": "OH",
+      "mail_zip": "44232",
+      "parcel_id": "2801463"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "owner_aliases": [
+        "CITY OF GREEN"
+      ],
+      "prop_address": "2639 WISE RD",
+      "prop_city": "Green",
+      "prop_zip": "",
+      "mail_address": "P O BOX 278",
+      "mail_city": "Green",
+      "mail_state": "OH",
+      "mail_zip": "44232",
+      "parcel_id": "2802143"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "owner_aliases": [
+        "CITY OF GREEN"
+      ],
+      "prop_address": "1595 STEIN RD",
+      "prop_city": "AKRON",
+      "prop_zip": "44312",
+      "mail_address": "1755 TOWN PARK BLVD",
+      "mail_city": "Green",
+      "mail_state": "OH",
+      "mail_zip": "44232",
+      "parcel_id": "2802504"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "owner_aliases": [
+        "CITY OF GREEN"
+      ],
+      "prop_address": "1595 STEIN RD",
+      "prop_city": "AKRON",
+      "prop_zip": "44312",
+      "mail_address": "1755 TOWN PARK BLVD",
+      "mail_city": "Green",
+      "mail_state": "OH",
+      "mail_zip": "44232",
+      "parcel_id": "2802505"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "owner_aliases": [
+        "CITY OF GREEN"
+      ],
+      "prop_address": "3800 S ARLINGTON RD",
+      "prop_city": "UNIONTOWN",
+      "prop_zip": "44685",
+      "mail_address": "1755 TOWN PARK BLVD",
+      "mail_city": "Uniontown",
+      "mail_state": "OH",
+      "mail_zip": "44685",
+      "parcel_id": "2802587"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "owner_aliases": [
+        "CITY OF GREEN"
+      ],
+      "prop_address": "1364 E TURKEYFOOT LK RD",
+      "prop_city": "AKRON",
+      "prop_zip": "44312",
+      "mail_address": "P O BOX 278",
+      "mail_city": "Green",
+      "mail_state": "OH",
+      "mail_zip": "44232",
+      "parcel_id": "2802613"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "owner_aliases": [
+        "CITY OF GREEN"
+      ],
+      "prop_address": "4735 -4745 MASSILLON RD",
+      "prop_city": "GREEN",
+      "prop_zip": "44232",
+      "mail_address": "P O BOX 278",
+      "mail_city": "Green",
+      "mail_state": "OH",
+      "mail_zip": "44232",
+      "parcel_id": "2802662"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "owner_aliases": [
+        "CITY OF GREEN"
+      ],
+      "prop_address": "1795 STEESE RD",
+      "prop_city": "UNIONTOWN",
+      "prop_zip": "44685",
+      "mail_address": "P O BOX 278",
+      "mail_city": "Green",
+      "mail_state": "OH",
+      "mail_zip": "44232",
+      "parcel_id": "2802856"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "owner_aliases": [
+        "CITY OF GREEN"
+      ],
+      "prop_address": "3189 KREIGHBAUM RD",
+      "prop_city": "UNIONTOWN",
+      "prop_zip": "44685",
+      "mail_address": "P O BOX 278",
+      "mail_city": "Green",
+      "mail_state": "OH",
+      "mail_zip": "44232",
+      "parcel_id": "2804005"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "owner_aliases": [
+        "CITY OF GREEN"
+      ],
+      "prop_address": "4745 MASSILLON RD",
+      "prop_city": "NORTH CANTO",
+      "prop_zip": "44720",
+      "mail_address": "P O BOX 278",
+      "mail_city": "Green",
+      "mail_state": "OH",
+      "mail_zip": "44232",
+      "parcel_id": "2804705"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "owner_aliases": [
+        "CITY OF GREEN"
+      ],
+      "prop_address": "4735 MASSILLON RD",
+      "prop_city": "NORTH CANTO",
+      "prop_zip": "44720",
+      "mail_address": "P O BOX 278",
+      "mail_city": "Green",
+      "mail_state": "OH",
+      "mail_zip": "44232",
+      "parcel_id": "2804707"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "owner_aliases": [
+        "CITY OF GREEN"
+      ],
+      "prop_address": "3220 MASSILLON RD",
+      "prop_city": "AKRON",
+      "prop_zip": "44312",
+      "mail_address": "P O BOX 278",
+      "mail_city": "Green",
+      "mail_state": "OH",
+      "mail_zip": "44232",
+      "parcel_id": "2804944"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "owner_aliases": [
+        "CITY OF GREEN"
+      ],
+      "prop_address": "4310 & 4312 MASSILLON RD",
+      "prop_city": "NORTH CANTO",
+      "prop_zip": "44720",
+      "mail_address": "P O BOX 278",
+      "mail_city": "Green",
+      "mail_state": "OH",
+      "mail_zip": "44232",
+      "parcel_id": "2806304"
+    },
+    {
+      "owner": "CHAPEL IN GREEN",
+      "owner_aliases": [
+        "CHAPEL IN GREEN"
+      ],
+      "prop_address": "MASSILLON RD",
+      "prop_city": "UNIONTOWN",
+      "prop_zip": "44685",
+      "mail_address": "135 FIR HILL",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44304",
+      "parcel_id": "2806681"
+    },
+    {
+      "owner": "CHAPEL IN GREEN",
+      "owner_aliases": [
+        "CHAPEL IN GREEN"
+      ],
+      "prop_address": "MASSILLON RD",
+      "prop_city": "UNIONTOWN",
+      "prop_zip": "44685",
+      "mail_address": "135 FIR HILL",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44304",
+      "parcel_id": "2806683"
+    },
+    {
+      "owner": "CITY OF GREEN",
+      "owner_aliases": [
+        "CITY OF GREEN"
+      ],
+      "prop_address": "COTTAGE GROVE RD",
+      "prop_city": "UNIONTOWN",
+      "prop_zip": "44685",
+      "mail_address": "755 TOWN PARK BLVD PO BOX 278",
+      "mail_city": "Green",
+      "mail_state": "OH",
+      "mail_zip": "44232",
+      "parcel_id": "2807332"
+    }
+  ],
+  "FORD": [
+    {
+      "owner": "SKILES JEFFREY FORD",
+      "owner_aliases": [
+        "SKILES JEFFREY FORD"
+      ],
+      "prop_address": "2018 PARTRIDGE MEADOWS CT",
+      "prop_city": "HUDSON",
+      "prop_zip": "44236",
+      "mail_address": "2018 PARTRIDGE MEADOWS CT",
+      "mail_city": "Hudson",
+      "mail_state": "OH",
+      "mail_zip": "44236",
+      "parcel_id": "3004350"
+    },
+    {
+      "owner": "OLINDO FORD",
+      "owner_aliases": [
+        "OLINDO FORD"
+      ],
+      "prop_address": "1915 BURLINGTON RD",
+      "prop_city": "AKRON",
+      "prop_zip": "44313",
+      "mail_address": "1915 BURLINGTON RD",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44313",
+      "parcel_id": "6841230"
+    }
+  ],
+  "HUGHES": [
+    {
+      "owner": "HUGHES VICKI L HUGHES TRUSTEE",
+      "owner_aliases": [
+        "HUGHES VICKI L HUGHES TRUSTEE"
+      ],
+      "prop_address": "3380 HENDON CIR",
+      "prop_city": "CUYAHOGA FA",
+      "prop_zip": "44221",
+      "mail_address": "3380 HENDON CIR",
+      "mail_city": "Cuyahoga Falls",
+      "mail_state": "OH",
+      "mail_zip": "44221",
+      "parcel_id": "0203498"
+    },
+    {
+      "owner": "ROBINSON GREGORY HUGHES",
+      "owner_aliases": [
+        "ROBINSON GREGORY HUGHES"
+      ],
+      "prop_address": "S MAIN ST",
+      "prop_city": "Akron",
+      "prop_zip": "",
+      "mail_address": "4505 S MAIN ST",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44319",
+      "parcel_id": "2815061"
+    },
+    {
+      "owner": "ROBINSON GREGORY HUGHES",
+      "owner_aliases": [
+        "ROBINSON GREGORY HUGHES"
+      ],
+      "prop_address": "4505 S MAIN ST",
+      "prop_city": "AKRON",
+      "prop_zip": "44319",
+      "mail_address": "4505 S MAIN ST",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44319",
+      "parcel_id": "2815062"
+    }
+  ],
+  "MILLER": [
+    {
+      "owner": "WHEATON MARNA MILLER TRUSTEE",
+      "owner_aliases": [
+        "WHEATON MARNA MILLER TRUSTEE"
+      ],
+      "prop_address": "4461 RIDGE CREST DR",
+      "prop_city": "COPLEY",
+      "prop_zip": "44321",
+      "mail_address": "4461 RIDGE CREST DR",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44321",
+      "parcel_id": "1506834"
+    },
+    {
+      "owner": "RICHARDSON DEBORAH MILLER",
+      "owner_aliases": [
+        "RICHARDSON DEBORAH MILLER"
+      ],
+      "prop_address": "1324 TIMBER RIDGE DR",
+      "prop_city": "MACEDONIA",
+      "prop_zip": "44056",
+      "mail_address": "1324 TIMBER RIDGE DR",
+      "mail_city": "Macedonia",
+      "mail_state": "OH",
+      "mail_zip": "44056",
+      "parcel_id": "3310693"
+    },
+    {
+      "owner": "DUBIAGA DIANE L MILLER",
+      "owner_aliases": [
+        "DUBIAGA DIANE L MILLER"
+      ],
+      "prop_address": "3595 FIVE OAKS DR",
+      "prop_city": "RICHFIELD",
+      "prop_zip": "44286",
+      "mail_address": "3595 FIVE OAKS DR",
+      "mail_city": "Richfield",
+      "mail_state": "OH",
+      "mail_zip": "44286",
+      "parcel_id": "5001217"
+    },
+    {
+      "owner": "WOLSTEIN BERTRAM L TRUSTEE & MILLER",
+      "owner_aliases": [
+        "WOLSTEIN BERTRAM L TRUSTEE & MILLER",
+        "MICHAEL TRUSTEE & CAPPADORA BENJAMIN F",
+        "WOLSTEIN BERTRAM L TRUSTEE & MILLER MICHAEL TRUSTEE & CAPPADORA BENJAMIN F"
+      ],
+      "prop_address": "DUTTON DR",
+      "prop_city": "TWINSBURG",
+      "prop_zip": "44087",
+      "mail_address": "C/O STEVE MARTON",
+      "mail_city": "Chagrin Falls",
+      "mail_state": "OH",
+      "mail_zip": "44022",
+      "parcel_id": "6404393"
+    },
+    {
+      "owner": "BOYD DONALD MILLER AND LILLIE MAY",
+      "owner_aliases": [
+        "BOYD DONALD MILLER AND LILLIE MAY"
+      ],
+      "prop_address": "340 SUMATRA AVE",
+      "prop_city": "AKRON",
+      "prop_zip": "44305",
+      "mail_address": "340 SUMATRA AVE",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44305",
+      "parcel_id": "6710183"
+    },
+    {
+      "owner": "DAWSON DIANE L MILLER",
+      "owner_aliases": [
+        "DAWSON DIANE L MILLER"
+      ],
+      "prop_address": "2781 RISING MEADOW DR",
+      "prop_city": "AKRON",
+      "prop_zip": "44333",
+      "mail_address": "2781 RISING MEADOW DR",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44333",
+      "parcel_id": "6760320"
+    },
+    {
+      "owner": "ROANE MARILYN MILLER",
+      "owner_aliases": [
+        "ROANE MARILYN MILLER"
+      ],
+      "prop_address": "691 DORCHESTER RD",
+      "prop_city": "AKRON",
+      "prop_zip": "44320",
+      "mail_address": "337 FIELDCREST DR",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44333",
+      "parcel_id": "6803781"
+    },
+    {
+      "owner": "ROANE MARILYN MILLER",
+      "owner_aliases": [
+        "ROANE MARILYN MILLER"
+      ],
+      "prop_address": "VICTORIA AVE",
+      "prop_city": "AKRON",
+      "prop_zip": "44310",
+      "mail_address": "337 FIELDCREST DR",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44333",
+      "parcel_id": "6810711"
+    },
+    {
+      "owner": "ROANE MARILYN MILLER",
+      "owner_aliases": [
+        "ROANE MARILYN MILLER"
+      ],
+      "prop_address": "840 PACKARD DR",
+      "prop_city": "AKRON",
+      "prop_zip": "44320",
+      "mail_address": "840 PACKARD DR",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44320",
+      "parcel_id": "6810785"
+    },
+    {
+      "owner": "ROANE MARILYN MILLER",
+      "owner_aliases": [
+        "ROANE MARILYN MILLER"
+      ],
+      "prop_address": "1011 HERBERICH AVE",
+      "prop_city": "AKRON",
+      "prop_zip": "44301",
+      "mail_address": "337 FIELDCREST DR",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44333",
+      "parcel_id": "6846100"
+    },
+    {
+      "owner": "ROANE MARILYN MILLER",
+      "owner_aliases": [
+        "ROANE MARILYN MILLER"
+      ],
+      "prop_address": "655 VICTORIA AVE",
+      "prop_city": "AKRON",
+      "prop_zip": "44310",
+      "mail_address": "337 FIELDCREST DR",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44333",
+      "parcel_id": "6846528"
+    },
+    {
+      "owner": "BLUM CAROL MILLER",
+      "owner_aliases": [
+        "BLUM CAROL MILLER"
+      ],
+      "prop_address": "1845 BROOKWOOD DR",
+      "prop_city": "AKRON",
+      "prop_zip": "",
+      "mail_address": "1845 BROOKWOOD DR",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44313",
+      "parcel_id": "7000619"
+    }
+  ],
+  "MCKINNEY": [
+    {
+      "owner": "JOHNSON KATHERINE MCKINNEY",
+      "owner_aliases": [
+        "JOHNSON KATHERINE MCKINNEY"
+      ],
+      "prop_address": "734 HUNTERS TRL",
+      "prop_city": "AKRON",
+      "prop_zip": "44313",
+      "mail_address": "734 HUNTERS TRL",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44313",
+      "parcel_id": "7002053"
+    }
+  ],
+  "CAMPBELL": [
+    {
+      "owner": "FAHRNEY BLAKE CAMPBELL",
+      "owner_aliases": [
+        "FAHRNEY BLAKE CAMPBELL"
+      ],
+      "prop_address": "7643 N 4TH AVE",
+      "prop_city": "CLINTON",
+      "prop_zip": "44216",
+      "mail_address": "7643 N 4TH AVE",
+      "mail_city": "Clinton",
+      "mail_state": "OH",
+      "mail_zip": "44216",
+      "parcel_id": "2700303"
+    },
+    {
+      "owner": "FAHRNEY BLAKE CAMPBELL",
+      "owner_aliases": [
+        "FAHRNEY BLAKE CAMPBELL"
+      ],
+      "prop_address": "7643 N 4TH AVE",
+      "prop_city": "CLINTON",
+      "prop_zip": "44216",
+      "mail_address": "7643 N 4TH AVE",
+      "mail_city": "Clinton",
+      "mail_state": "OH",
+      "mail_zip": "44216",
+      "parcel_id": "2700304"
+    },
+    {
+      "owner": "FAHRNEY BLAKE CAMPBELL",
+      "owner_aliases": [
+        "FAHRNEY BLAKE CAMPBELL"
+      ],
+      "prop_address": "N 4TH AVE",
+      "prop_city": "CLINTON",
+      "prop_zip": "44216",
+      "mail_address": "7643 N 4TH AVE",
+      "mail_city": "Clinton",
+      "mail_state": "OH",
+      "mail_zip": "44216",
+      "parcel_id": "2700305"
+    },
+    {
+      "owner": "FAHRNEY BLAKE CAMPBELL",
+      "owner_aliases": [
+        "FAHRNEY BLAKE CAMPBELL"
+      ],
+      "prop_address": "N 4TH AVE",
+      "prop_city": "CLINTON",
+      "prop_zip": "44216",
+      "mail_address": "7643 N 4TH AVE",
+      "mail_city": "Clinton",
+      "mail_state": "OH",
+      "mail_zip": "44216",
+      "parcel_id": "2700306"
+    },
+    {
+      "owner": "SURBLIS AGNES CAMPBELL",
+      "owner_aliases": [
+        "SURBLIS AGNES CAMPBELL"
+      ],
+      "prop_address": "3135 IMREK DR",
+      "prop_city": "AKRON",
+      "prop_zip": "44312",
+      "mail_address": "3135 IMREK DR",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44312",
+      "parcel_id": "2806540"
+    }
+  ],
+  "RICE": [
+    {
+      "owner": "WASHINGTON MARGARET RICE",
+      "owner_aliases": [
+        "WASHINGTON MARGARET RICE"
+      ],
+      "prop_address": "9635 E IDLEWOOD DR",
+      "prop_city": "TWINSBURG",
+      "prop_zip": "44087",
+      "mail_address": "9635 E IDLEWOOD DR # 14",
+      "mail_city": "Twinsburg",
+      "mail_state": "OH",
+      "mail_zip": "44087",
+      "parcel_id": "6405208"
+    },
+    {
+      "owner": "SCOTT SYLVIA RICE",
+      "owner_aliases": [
+        "SCOTT SYLVIA RICE"
+      ],
+      "prop_address": "668 DEERING DR",
+      "prop_city": "AKRON",
+      "prop_zip": "44313",
+      "mail_address": "668 DEERING DR",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44313",
+      "parcel_id": "6706938"
+    }
+  ],
+  "SCOTT": [
+    {
+      "owner": "KEITH KYLE SCOTT",
+      "owner_aliases": [
+        "KEITH KYLE SCOTT"
+      ],
+      "prop_address": "654 FAIRVIEW AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "654 FAIRVIEW AVE",
+      "mail_city": "Barberton",
+      "mail_state": "OH",
+      "mail_zip": "44203",
+      "parcel_id": "0100293"
+    },
+    {
+      "owner": "GRUBER SCOTT",
+      "owner_aliases": [
+        "GRUBER SCOTT"
+      ],
+      "prop_address": "682 PAIGE AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "680 W PAIGE AVE",
+      "mail_city": "Barberton",
+      "mail_state": "OH",
+      "mail_zip": "44203",
+      "parcel_id": "0100692"
+    },
+    {
+      "owner": "HAYNES SCOTT",
+      "owner_aliases": [
+        "HAYNES SCOTT"
+      ],
+      "prop_address": "219 15TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "219 15TH ST NW",
+      "mail_city": "Barberton",
+      "mail_state": "OH",
+      "mail_zip": "44203",
+      "parcel_id": "0101419"
+    },
+    {
+      "owner": "RICHARDS RORY SCOTT",
+      "owner_aliases": [
+        "RICHARDS RORY SCOTT"
+      ],
+      "prop_address": "260 E TUSCARAWAS AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "1396 W NIMISILA RD",
+      "mail_city": "Clinton",
+      "mail_state": "OH",
+      "mail_zip": "44216",
+      "parcel_id": "0101859"
+    },
+    {
+      "owner": "ROWAN DONALD SCOTT",
+      "owner_aliases": [
+        "ROWAN DONALD SCOTT"
+      ],
+      "prop_address": "1270 CENTRAL AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "2010 REIMER RD",
+      "mail_city": "Wadsworth",
+      "mail_state": "OH",
+      "mail_zip": "44281",
+      "parcel_id": "0103341"
+    },
+    {
+      "owner": "ROWAN DONALD SCOTT",
+      "owner_aliases": [
+        "ROWAN DONALD SCOTT"
+      ],
+      "prop_address": "CENTRAL AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "2010 REIMER RD",
+      "mail_city": "Wadsworth",
+      "mail_state": "OH",
+      "mail_zip": "44281",
+      "parcel_id": "0103342"
+    },
+    {
+      "owner": "REYNOLDS SCOTT",
+      "owner_aliases": [
+        "REYNOLDS SCOTT"
+      ],
+      "prop_address": "35 TAYLOR RD",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "35 TAYLOR RD",
+      "mail_city": "Barberton",
+      "mail_state": "OH",
+      "mail_zip": "44203",
+      "parcel_id": "0104370"
+    },
+    {
+      "owner": "DOERFLER BRADLEY SCOTT",
+      "owner_aliases": [
+        "DOERFLER BRADLEY SCOTT"
+      ],
+      "prop_address": "846 CANNA CIR",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "846 CANNA CIR",
+      "mail_city": "Barberton",
+      "mail_state": "OH",
+      "mail_zip": "44203",
+      "parcel_id": "0104789"
+    },
+    {
+      "owner": "KELLEY WILLIAM SCOTT",
+      "owner_aliases": [
+        "KELLEY WILLIAM SCOTT"
+      ],
+      "prop_address": "689 E LAKE AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "689 E LAKE AVE",
+      "mail_city": "Barberton",
+      "mail_state": "OH",
+      "mail_zip": "44203",
+      "parcel_id": "0106795"
+    },
+    {
+      "owner": "BRANDON SCOTT",
+      "owner_aliases": [
+        "BRANDON SCOTT"
+      ],
+      "prop_address": "84 BROWN ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "1857 DERBYSHIRE DR",
+      "mail_city": "Las Vegas",
+      "mail_state": "OH",
+      "mail_zip": "89117",
+      "parcel_id": "0107192"
+    },
+    {
+      "owner": "PATTERSON PATRICK SCOTT",
+      "owner_aliases": [
+        "PATTERSON PATRICK SCOTT"
+      ],
+      "prop_address": "194 29TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "194 29TH ST NW",
+      "mail_city": "Barberton",
+      "mail_state": "OH",
+      "mail_zip": "44203",
+      "parcel_id": "0107219"
+    },
+    {
+      "owner": "BENEDUM SCOTT",
+      "owner_aliases": [
+        "BENEDUM SCOTT"
+      ],
+      "prop_address": "37 NEW ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "37 NEW ST",
+      "mail_city": "Barberton",
+      "mail_state": "OH",
+      "mail_zip": "44203",
+      "parcel_id": "0107820"
+    },
+    {
+      "owner": "KOVACS SCOTT",
+      "owner_aliases": [
+        "KOVACS SCOTT"
+      ],
+      "prop_address": "97 30TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "PO BOX 32",
+      "mail_city": "New Franklin",
+      "mail_state": "OH",
+      "mail_zip": "44216",
+      "parcel_id": "0108598"
+    },
+    {
+      "owner": "BRAY SCOTT",
+      "owner_aliases": [
+        "BRAY SCOTT"
+      ],
+      "prop_address": "166 28TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "166 28TH ST NW",
+      "mail_city": "Barberton",
+      "mail_state": "OH",
+      "mail_zip": "44203",
+      "parcel_id": "0108721"
+    },
+    {
+      "owner": "BRAY SCOTT",
+      "owner_aliases": [
+        "BRAY SCOTT"
+      ],
+      "prop_address": "28TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "166 28TH ST NW",
+      "mail_city": "Barberton",
+      "mail_state": "OH",
+      "mail_zip": "44203",
+      "parcel_id": "0108722"
+    },
+    {
+      "owner": "BRANN SCOTT",
+      "owner_aliases": [
+        "BRANN SCOTT"
+      ],
+      "prop_address": "30 15TH ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "3600 ELM RD",
+      "mail_city": "Stow",
+      "mail_state": "OH",
+      "mail_zip": "44224",
+      "parcel_id": "0109191"
+    },
+    {
+      "owner": "HAYS SCOTT",
+      "owner_aliases": [
+        "HAYS SCOTT"
+      ],
+      "prop_address": "1240 PROSPECT ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "1240 PROSPECT ST",
+      "mail_city": "Barberton",
+      "mail_state": "OH",
+      "mail_zip": "44203",
+      "parcel_id": "0109232"
+    },
+    {
+      "owner": "SAYRE BRADLEY SCOTT",
+      "owner_aliases": [
+        "SAYRE BRADLEY SCOTT"
+      ],
+      "prop_address": "1336 BENTON ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "1336 BENTON ST",
+      "mail_city": "Barberton",
+      "mail_state": "OH",
+      "mail_zip": "44203",
+      "parcel_id": "0109572"
+    },
+    {
+      "owner": "THOMPSON WILLIS SCOTT TRUSTEE",
+      "owner_aliases": [
+        "THOMPSON WILLIS SCOTT TRUSTEE"
+      ],
+      "prop_address": "537 FAIRVIEW AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "537 FAIRVIEW AVE",
+      "mail_city": "Barberton",
+      "mail_state": "OH",
+      "mail_zip": "44203",
+      "parcel_id": "0109619"
+    },
+    {
+      "owner": "THOMPSON WILLIS SCOTT TRUSTEE",
+      "owner_aliases": [
+        "THOMPSON WILLIS SCOTT TRUSTEE"
+      ],
+      "prop_address": "537 FAIRVIEW AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "537 FAIRVIEW AVE",
+      "mail_city": "Barberton",
+      "mail_state": "OH",
+      "mail_zip": "44203",
+      "parcel_id": "0109620"
+    },
+    {
+      "owner": "THOMPSON WILLIS SCOTT TRUSTEE",
+      "owner_aliases": [
+        "THOMPSON WILLIS SCOTT TRUSTEE"
+      ],
+      "prop_address": "537 FAIRVIEW AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "537 FAIRVIEW AVE",
+      "mail_city": "Barberton",
+      "mail_state": "OH",
+      "mail_zip": "44203",
+      "parcel_id": "0109621"
+    },
+    {
+      "owner": "WHITED SCOTT",
+      "owner_aliases": [
+        "WHITED SCOTT"
+      ],
+      "prop_address": "39 NW 31ST ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "3169 SKYLINE DR",
+      "mail_city": "Clinton",
+      "mail_state": "OH",
+      "mail_zip": "44216",
+      "parcel_id": "0110105"
+    },
+    {
+      "owner": "BOYD SCOTT",
+      "owner_aliases": [
+        "BOYD SCOTT"
+      ],
+      "prop_address": "701 MESA VERDE DR",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "1240 BOARDMAN CANFIELD RD",
+      "mail_city": "Boardman",
+      "mail_state": "OH",
+      "mail_zip": "44512",
+      "parcel_id": "0110304"
+    },
+    {
+      "owner": "GOUGLER BRANDON SCOTT",
+      "owner_aliases": [
+        "GOUGLER BRANDON SCOTT"
+      ],
+      "prop_address": "529 E HOPOCAN AVE",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "529 E HOPOCAN AVE",
+      "mail_city": "Barberton",
+      "mail_state": "OH",
+      "mail_zip": "44203",
+      "parcel_id": "0110311"
+    },
+    {
+      "owner": "SMITH DANIEL SCOTT",
+      "owner_aliases": [
+        "SMITH DANIEL SCOTT"
+      ],
+      "prop_address": "667 WASHINGTON AVE",
+      "prop_city": "Barberton",
+      "prop_zip": "",
+      "mail_address": "667 WASHINGTON AVE",
+      "mail_city": "Barberton",
+      "mail_state": "OH",
+      "mail_zip": "44203",
+      "parcel_id": "0110352"
+    }
+  ],
+  "FERNANDEZ": [
+    {
+      "owner": "SEMPRIT EFRAIN FERNANDEZ",
+      "owner_aliases": [
+        "SEMPRIT EFRAIN FERNANDEZ"
+      ],
+      "prop_address": "5207 FREDERICK ST",
+      "prop_city": "BARBERTON",
+      "prop_zip": "44203",
+      "mail_address": "5207 FREDERICK ST",
+      "mail_city": "Barberton",
+      "mail_state": "",
+      "mail_zip": "44203",
+      "parcel_id": "0116586"
+    },
+    {
+      "owner": "CALDERON NORMA IDAL FERNANDEZ",
+      "owner_aliases": [
+        "CALDERON NORMA IDAL FERNANDEZ"
+      ],
+      "prop_address": "2575 MYERSVILLE RD",
+      "prop_city": "UNIONTOWN",
+      "prop_zip": "44685",
+      "mail_address": "2575 MYERSVILLE RD",
+      "mail_city": "Uniontown",
+      "mail_state": "OH",
+      "mail_zip": "44685",
+      "parcel_id": "5110122"
+    },
+    {
+      "owner": "LARIOS ROSA E FERNANDEZ",
+      "owner_aliases": [
+        "LARIOS ROSA E FERNANDEZ"
+      ],
+      "prop_address": "940 PEERLESS AVE",
+      "prop_city": "AKRON",
+      "prop_zip": "44320",
+      "mail_address": "868 CHALKER ST",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44310",
+      "parcel_id": "6803640"
+    },
+    {
+      "owner": "CALDERON NORMA IDALIA FERNANDEZ",
+      "owner_aliases": [
+        "CALDERON NORMA IDALIA FERNANDEZ"
+      ],
+      "prop_address": "162 HAROLD ST",
+      "prop_city": "AKRON",
+      "prop_zip": "44310",
+      "mail_address": "97 NORTH THOMAS RD",
+      "mail_city": "Tallmadge",
+      "mail_state": "OH",
+      "mail_zip": "44278",
+      "parcel_id": "6828204"
+    }
+  ],
+  "KANDIKO": [],
+  "CINALLI": []
+}

@@ -1,0 +1,45 @@
+name: Summit County Scraper
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 8 * * *'  # Daily at 8am UTC
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python packages
+        run: |
+          pip install requests beautifulsoup4 lxml playwright
+
+      - name: Install Playwright Chromium
+        run: |
+          python -m playwright install chromium
+          python -m playwright install-deps chromium
+
+      - name: Run scraper
+        run: |
+          python scraper/fetch.py \
+            --records data/records.json \
+            --out-json data/records.enriched.json \
+            --out-csv data/records.enriched.csv \
+            --report data/match_report.json
+
+      - name: Commit updated data files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ dashboard/
+          git diff --cached --quiet || git commit -m "Update scraper data $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push

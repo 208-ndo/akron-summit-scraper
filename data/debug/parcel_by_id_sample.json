@@ -1,0 +1,852 @@
+[
+  {
+    "parcel_id": "0100001",
+    "owner": "WAGNER THOMAS",
+    "owner_aliases": [
+      "WAGNER THOMAS"
+    ],
+    "prop_address": "168 SW 31ST ST",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "168 SW 31ST ST",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "500",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100002",
+    "owner": "ABBOTT DAVID J",
+    "owner_aliases": [
+      "ABBOTT DAVID J"
+    ],
+    "prop_address": "860 N SUMMIT ST",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "860 N SUMMIT ST",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100003",
+    "owner": "ABBOTT DAVID J",
+    "owner_aliases": [
+      "ABBOTT DAVID J"
+    ],
+    "prop_address": "860 N SUMMIT ST",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "860 N SUMMIT ST",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "500",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100004",
+    "owner": "BUNN DEBRA A",
+    "owner_aliases": [
+      "BUNN DEBRA A"
+    ],
+    "prop_address": "673 N AZALEA BLVD",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "673 N AZALEA BLVD",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100005",
+    "owner": "ENDRESS NED R III",
+    "owner_aliases": [
+      "ENDRESS NED R III"
+    ],
+    "prop_address": "BELCHER AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "5822 NEW ALBANY RD",
+    "mail_city": "New Albany",
+    "mail_state": "OH",
+    "mail_zip": "43054",
+    "legal": "",
+    "luc": "500",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100006",
+    "owner": "LMRK OWNER 1 LLC",
+    "owner_aliases": [
+      "LMRK OWNER 1 LLC"
+    ],
+    "prop_address": "348 W STATE ST",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "345 HERITAGE AVE #130",
+    "mail_city": "Portsmouth",
+    "mail_state": "OH",
+    "mail_zip": "03802",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100007",
+    "owner": "CAMPBELL COLLEEN M",
+    "owner_aliases": [
+      "CAMPBELL COLLEEN M"
+    ],
+    "prop_address": "CHARLES AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "3636 MINOR RD",
+    "mail_city": "Copley",
+    "mail_state": "OH",
+    "mail_zip": "44321",
+    "legal": "",
+    "luc": "500",
+    "acres": ".1700"
+  },
+  {
+    "parcel_id": "0100008",
+    "owner": "MITCHELL SUSAN",
+    "owner_aliases": [
+      "MITCHELL SUSAN"
+    ],
+    "prop_address": "336 MORGAN ST",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "336 MORGAN AVE",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100009",
+    "owner": "OGLE DANE ANDREW",
+    "owner_aliases": [
+      "OGLE DANE ANDREW"
+    ],
+    "prop_address": "626 ORCHARD AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "626 ORCHARD AVE",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100010",
+    "owner": "PLETCHER ROY",
+    "owner_aliases": [
+      "PLETCHER ROY"
+    ],
+    "prop_address": "252 19TH ST",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "252 19TH ST",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100011",
+    "owner": "SIEGENTHALER DIANA J TRUSTEE",
+    "owner_aliases": [
+      "SIEGENTHALER DIANA J TRUSTEE"
+    ],
+    "prop_address": "1366 BENTON ST",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "6788 AKRON AVE NW",
+    "mail_city": "Canal Fulton",
+    "mail_state": "OH",
+    "mail_zip": "44614",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100012",
+    "owner": "PINEWICK GROUP LLC",
+    "owner_aliases": [
+      "PINEWICK GROUP LLC"
+    ],
+    "prop_address": "288 & 290 5TH ST",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "410 E PINEHURST ST",
+    "mail_city": "Sidney",
+    "mail_state": "OH",
+    "mail_zip": "45365",
+    "legal": "",
+    "luc": "401",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100013",
+    "owner": "MCCLOSKEY SCOTT C",
+    "owner_aliases": [
+      "MCCLOSKEY SCOTT C"
+    ],
+    "prop_address": "209 E PARK AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "3 FORT GRAHAM CT",
+    "mail_city": "Missouri City",
+    "mail_state": "OH",
+    "mail_zip": "77459",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100014",
+    "owner": "MCCLOSKEY SCOTT C",
+    "owner_aliases": [
+      "MCCLOSKEY SCOTT C"
+    ],
+    "prop_address": "E PARK AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "3 FORT GRAHAM CT",
+    "mail_city": "Missouri City",
+    "mail_state": "OH",
+    "mail_zip": "77459",
+    "legal": "",
+    "luc": "500",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100015",
+    "owner": "MCCLOSKEY SCOTT C",
+    "owner_aliases": [
+      "MCCLOSKEY SCOTT C"
+    ],
+    "prop_address": "209 E PARK AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "3 FORT GRAHAM CT",
+    "mail_city": "Missouri City",
+    "mail_state": "OH",
+    "mail_zip": "77459",
+    "legal": "",
+    "luc": "500",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100016",
+    "owner": "MCCLOSKEY SCOTT C",
+    "owner_aliases": [
+      "MCCLOSKEY SCOTT C"
+    ],
+    "prop_address": "E PARK AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "3 FORT GRAHAM CT",
+    "mail_city": "Missouri City",
+    "mail_state": "OH",
+    "mail_zip": "77459",
+    "legal": "",
+    "luc": "500",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100017",
+    "owner": "CASH AUSTIN RICHARD BRIAN LEE",
+    "owner_aliases": [
+      "CASH AUSTIN RICHARD BRIAN LEE"
+    ],
+    "prop_address": "79 YONKER ST",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "79 YONKER ST",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ".1200"
+  },
+  {
+    "parcel_id": "0100018",
+    "owner": "ADAMS THOMAS M",
+    "owner_aliases": [
+      "ADAMS THOMAS M"
+    ],
+    "prop_address": "1692 WOOSTER RD",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "1692 WOOSTER RD W",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100019",
+    "owner": "PORTER TIMOTHY J",
+    "owner_aliases": [
+      "PORTER TIMOTHY J"
+    ],
+    "prop_address": "218 W STATE ST",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "47 5TH ST NE",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100020",
+    "owner": "ADAMS WILLIAM C",
+    "owner_aliases": [
+      "ADAMS WILLIAM C"
+    ],
+    "prop_address": "580 E HOPOCAN AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "580 E HOPOCAN AVE",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100021",
+    "owner": "GEORGE LISA",
+    "owner_aliases": [
+      "GEORGE LISA"
+    ],
+    "prop_address": "68 ANTLES AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "68 ANTLES AVE",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100022",
+    "owner": "STEWART JANET M",
+    "owner_aliases": [
+      "STEWART JANET M"
+    ],
+    "prop_address": "413 E TUSCARAWAS AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "413 E TUSCARAWAS AVE",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100023",
+    "owner": "ANDERS BURDEEN A TRUSTEE",
+    "owner_aliases": [
+      "ANDERS BURDEEN A TRUSTEE"
+    ],
+    "prop_address": "601 E FORD AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "556 E TUSCARAWAS AVE",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100024",
+    "owner": "CRAIG ASHLEY TRUSTEE",
+    "owner_aliases": [
+      "CRAIG ASHLEY TRUSTEE"
+    ],
+    "prop_address": "742 E CASSELL AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "742 E CASSELL AVE",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100025",
+    "owner": "SOMMER JENNIFER S",
+    "owner_aliases": [
+      "SOMMER JENNIFER S"
+    ],
+    "prop_address": "873 WISTERIA DR",
+    "prop_city": "BARBERTON",
+    "prop_zip": "",
+    "mail_address": "6673 WISTERIA DR",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100026",
+    "owner": "BELILES JANAN",
+    "owner_aliases": [
+      "BELILES JANAN"
+    ],
+    "prop_address": "221 29TH ST",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "221 29TH ST NW",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100027",
+    "owner": "ROMESBURG WILLIAM ALLEN",
+    "owner_aliases": [
+      "ROMESBURG WILLIAM ALLEN"
+    ],
+    "prop_address": "129 FRITZ ST",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "129 FRITZ ST",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "500",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100028",
+    "owner": "ROMESBURG WILLIAM ALLEN",
+    "owner_aliases": [
+      "ROMESBURG WILLIAM ALLEN"
+    ],
+    "prop_address": "129 FRITZ ST",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "129 FRITZ ST",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100029",
+    "owner": "CRUZAN DREAM RENTALS LLC",
+    "owner_aliases": [
+      "CRUZAN DREAM RENTALS LLC"
+    ],
+    "prop_address": "194 E TUSCARAWAS AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "3111 RIVIERA BAY CT",
+    "mail_city": "Oviedo",
+    "mail_state": "OH",
+    "mail_zip": "32765",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100030",
+    "owner": "HAYDEN CARRIE L",
+    "owner_aliases": [
+      "HAYDEN CARRIE L"
+    ],
+    "prop_address": "520 PRINCETON AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "520 PRINCETON AVE",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100031",
+    "owner": "FLOCKER HARRY J",
+    "owner_aliases": [
+      "FLOCKER HARRY J"
+    ],
+    "prop_address": "1349 GRAND BLVD",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "1349 GRAND BLVD",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100032",
+    "owner": "KMA CAPITAL LLC",
+    "owner_aliases": [
+      "KMA CAPITAL LLC"
+    ],
+    "prop_address": "435 17TH ST",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "PO BOX 13101",
+    "mail_city": "Akron",
+    "mail_state": "OH",
+    "mail_zip": "44333",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100034",
+    "owner": "DILLON DONALD W",
+    "owner_aliases": [
+      "DILLON DONALD W"
+    ],
+    "prop_address": "1170 BENTON ST",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "1170 BENTON ST",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100035",
+    "owner": "BARNES BARRY",
+    "owner_aliases": [
+      "BARNES BARRY"
+    ],
+    "prop_address": "1102 BELLEVIEW AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "16127 GALEHOUSE RD",
+    "mail_city": "Doylestown",
+    "mail_state": "OH",
+    "mail_zip": "44230",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100036",
+    "owner": "PORTAGE FINANCIAL SERVICES LLC",
+    "owner_aliases": [
+      "PORTAGE FINANCIAL SERVICES LLC"
+    ],
+    "prop_address": "532 W HOPOCAN AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "2927 CHAMBERLAIN RD",
+    "mail_city": "Fairlawn",
+    "mail_state": "OH",
+    "mail_zip": "44333",
+    "legal": "",
+    "luc": "500",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100036T",
+    "owner": "PORTAGE FINANCIAL SERVICES LLC",
+    "owner_aliases": [
+      "PORTAGE FINANCIAL SERVICES LLC"
+    ],
+    "prop_address": "532 W HOPOCAN AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "2927 CHAMBERLAIN RD",
+    "mail_city": "Fairlawn",
+    "mail_state": "",
+    "mail_zip": "44333",
+    "legal": "",
+    "luc": "720",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100037",
+    "owner": "FUNK DONALD T",
+    "owner_aliases": [
+      "FUNK DONALD T"
+    ],
+    "prop_address": "321 VAN ST",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "321 VAN ST",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100038",
+    "owner": "CITY OF BARBERTON",
+    "owner_aliases": [
+      "CITY OF BARBERTON"
+    ],
+    "prop_address": "898 ROBINSON AVE",
+    "prop_city": "E BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "576 W PARK AVE",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "640",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100040",
+    "owner": "BENNETT ANTON W",
+    "owner_aliases": [
+      "BENNETT ANTON W"
+    ],
+    "prop_address": "537 WASHINGTON AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "537 WASHINGTON AVE",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100041",
+    "owner": "EBEY GEORGE W",
+    "owner_aliases": [
+      "EBEY GEORGE W"
+    ],
+    "prop_address": "304 E LAKE AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "304 EAST LAKE AVE",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100042",
+    "owner": "HILLYER RAYLAN P",
+    "owner_aliases": [
+      "HILLYER RAYLAN P"
+    ],
+    "prop_address": "308 E LAKE AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "308 E LAKE AVE",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100043",
+    "owner": "STULTS TIMOTHY A",
+    "owner_aliases": [
+      "STULTS TIMOTHY A"
+    ],
+    "prop_address": "300 E LAKE AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "300 E LAKE AVE",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100044",
+    "owner": "SPANGLER LAURA",
+    "owner_aliases": [
+      "SPANGLER LAURA"
+    ],
+    "prop_address": "314 E LAKE AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "314 E LAKE AVE",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100045",
+    "owner": "CLEMENTS BRIAN A",
+    "owner_aliases": [
+      "CLEMENTS BRIAN A"
+    ],
+    "prop_address": "259 19TH ST",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "259 19TH ST NW",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100046",
+    "owner": "SENDERAK JOHN D",
+    "owner_aliases": [
+      "SENDERAK JOHN D"
+    ],
+    "prop_address": "444 17TH ST",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "3135 HILLCREST DR",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100047",
+    "owner": "SCOTT IAN",
+    "owner_aliases": [
+      "SCOTT IAN"
+    ],
+    "prop_address": "1226 BENTON ST",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "1226 BENTON ST",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100048",
+    "owner": "SCOTT IAN",
+    "owner_aliases": [
+      "SCOTT IAN"
+    ],
+    "prop_address": "BENTON ST",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "1226 BENTON ST",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "500",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100049",
+    "owner": "WILLIAMS WILLIE R",
+    "owner_aliases": [
+      "WILLIAMS WILLIE R"
+    ],
+    "prop_address": "188 ELSON AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "1220 MILLHAVEN DR",
+    "mail_city": "Akron",
+    "mail_state": "OH",
+    "mail_zip": "44321",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100053",
+    "owner": "AKERS CHRISTOPHER",
+    "owner_aliases": [
+      "AKERS CHRISTOPHER"
+    ],
+    "prop_address": "213 E FORD AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "213 E FORD AVE",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  },
+  {
+    "parcel_id": "0100054",
+    "owner": "SAVAGE SEAN",
+    "owner_aliases": [
+      "SAVAGE SEAN"
+    ],
+    "prop_address": "488 GRANDVIEW AVE",
+    "prop_city": "BARBERTON",
+    "prop_zip": "44203",
+    "mail_address": "488 GRANDVIEW AVE",
+    "mail_city": "Barberton",
+    "mail_state": "OH",
+    "mail_zip": "44203",
+    "legal": "",
+    "luc": "510",
+    "acres": ""
+  }
+]

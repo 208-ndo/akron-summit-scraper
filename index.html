@@ -1,0 +1,3149 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akron Data</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Barlow+Condensed:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0a0a0f;--surface:#12121a;--surface2:#1a1a26;--surface3:#1e1e28;--border:#2a2a3a;--border2:#32324a;--accent:#f5a623;--accent2:#e85d4a;--accent3:#4af5a6;--accent4:#5d8ef5;--text:#e8e8f0;--muted:#6b6b8a;--muted2:#9090b0;--hot:#ff4444;--warm:#ff8c00;--cool:#44aaff;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-height:100vh;overflow-x:hidden;}
+
+  /* â”€â”€ TOPBAR â”€â”€ */
+  .topbar{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-dot{width:10px;height:10px;border-radius:50%;background:var(--accent3);animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+  .brand-name{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;}
+  .brand-sub{font-size:11px;color:var(--muted);font-family:'Space Mono',monospace;}
+  .updated{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);}
+
+  /* â”€â”€ STATSBAR â”€â”€ */
+  .statsbar{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;gap:20px;overflow-x:auto;scrollbar-width:none;}
+  .statsbar::-webkit-scrollbar{display:none;}
+  .stat{display:flex;flex-direction:column;align-items:center;min-width:72px;}
+  .stat-num{font-size:20px;font-weight:800;line-height:1;}
+  .stat-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:3px;white-space:nowrap;}
+  .stat-num.hot{color:var(--hot);}.stat-num.warm{color:var(--warm);}.stat-num.cool{color:var(--cool);}.stat-num.green{color:var(--accent3);}.stat-num.gold{color:var(--accent);}
+  .sdiv{width:1px;background:var(--border);align-self:stretch;margin:0 2px;}
+
+  /* â”€â”€ TABS â”€â”€ */
+  .tabs-wrap{background:var(--surface);border-bottom:1px solid var(--border);padding:0 24px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
+  .tabs-wrap::-webkit-scrollbar{height:3px;}
+  .tabs-wrap::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+  .tabs{display:flex;gap:2px;white-space:nowrap;min-width:max-content;}
+  .tab{padding:12px 14px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:none;background:none;color:var(--muted);border-bottom:2px solid transparent;transition:all .15s;white-space:nowrap;flex-shrink:0;}
+  .tab:hover{color:var(--text);}
+  .tab.active{color:var(--text);border-bottom-color:var(--accent);}
+  .tab .badge{display:inline-flex;align-items:center;justify-content:center;background:var(--border);color:var(--muted);border-radius:10px;font-size:10px;font-weight:700;padding:1px 6px;margin-left:5px;min-width:18px;}
+  .tab.active .badge{background:var(--accent);color:#000;}
+  .tab.urgent{color:var(--hot);}
+  .tab.urgent .badge{background:var(--hot);color:#fff;}
+
+  /* â”€â”€ TOOLBAR â”€â”€ */
+  .toolbar{padding:10px 24px;display:flex;gap:8px;align-items:center;border-bottom:1px solid var(--border);background:var(--bg);flex-wrap:wrap;}
+  .search-wrap{position:relative;flex:1;min-width:180px;}
+  .search-wrap input{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:7px 10px 7px 32px;font-family:'Space Mono',monospace;font-size:12px;color:var(--text);outline:none;}
+  .search-wrap input:focus{border-color:var(--accent);}
+  .search-wrap input::placeholder{color:var(--muted);}
+  .si{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:13px;}
+  select{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-family:'Space Mono',monospace;font-size:11px;color:var(--text);outline:none;cursor:pointer;}
+  select:focus{border-color:var(--accent);}
+  .btn{padding:7px 14px;border-radius:6px;font-family:'Syne',sans-serif;font-size:11px;font-weight:700;cursor:pointer;border:none;letter-spacing:.05em;transition:all .15s;}
+  .btn-primary{background:var(--accent);color:#000;}
+  .btn-primary:hover{background:#f0b040;}
+  .btn-ghost{background:var(--surface);border:1px solid var(--border);color:var(--text);}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+  .rec-count{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);margin-left:auto;white-space:nowrap;}
+
+  /* â”€â”€ TABLE â”€â”€ */
+  .table-wrap{overflow:auto;height:calc(100vh - 226px);}
+  table{width:100%;border-collapse:collapse;}
+  thead th{background:var(--surface);padding:9px 14px;text-align:left;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);white-space:nowrap;position:sticky;top:0;z-index:10;cursor:pointer;user-select:none;}
+  thead th:hover{color:var(--text);}
+  thead th.sorted{color:var(--accent);}
+  tbody tr{border-bottom:1px solid var(--border);transition:background .1s;cursor:pointer;}
+  tbody tr:hover{background:var(--surface);}
+  tbody td{padding:9px 14px;font-size:13px;vertical-align:middle;}
+  .score-badge{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;font-family:'Space Mono',monospace;}
+  .sh{background:rgba(255,68,68,.15);color:var(--hot);border:1px solid rgba(255,68,68,.3);}
+  .sm{background:rgba(255,140,0,.15);color:var(--warm);border:1px solid rgba(255,140,0,.3);}
+  .sl{background:rgba(74,245,166,.15);color:var(--accent3);border:1px solid rgba(74,245,166,.3);}
+  .owner-name{font-weight:700;font-size:13px;margin-bottom:2px;}
+  .owner-sub{font-size:11px;color:var(--muted);font-family:'Space Mono',monospace;}
+  .owner-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:4px;}
+  .lead-indicator{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted2);font-family:'Space Mono',monospace;}
+  .lead-indicator::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--border2);}
+  .lead-indicator.ready{color:var(--accent3);}
+  .lead-indicator.ready::before{background:var(--accent3);}
+  .lead-indicator.traced{color:var(--accent);}
+  .lead-indicator.traced::before{background:var(--accent);}
+  .lead-indicator.blocked{color:var(--muted);}
+  .lead-indicator.blocked::before{background:var(--muted);}
+  .amount-cell{font-family:'Space Mono',monospace;font-weight:700;color:var(--accent);}
+  .date-cell{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);}
+  .tags{display:flex;flex-wrap:wrap;gap:3px;}
+  .tag{font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;letter-spacing:.04em;white-space:nowrap;}
+  .t-hot{background:rgba(255,68,68,.2);color:#ff7777;border:1px solid rgba(255,68,68,.3);}
+  .t-warn{background:rgba(255,140,0,.2);color:#ffa040;border:1px solid rgba(255,140,0,.3);}
+  .t-blue{background:rgba(93,142,245,.2);color:#8ab4ff;border:1px solid rgba(93,142,245,.3);}
+  .t-green{background:rgba(74,245,166,.2);color:#50e8a0;border:1px solid rgba(74,245,166,.3);}
+  .t-purple{background:rgba(180,80,255,.2);color:#c080ff;border:1px solid rgba(180,80,255,.3);}
+  .t-gray{background:rgba(107,107,138,.2);color:#9090b0;border:1px solid rgba(107,107,138,.3);}
+  .t-gold{background:rgba(245,166,35,.2);color:#f5c060;border:1px solid rgba(245,166,35,.3);}
+  .view-btn{font-size:10px;font-weight:700;padding:4px 9px;border-radius:4px;background:var(--surface2);border:1px solid var(--border);color:var(--muted);cursor:pointer;text-decoration:none;display:inline-block;transition:all .15s;letter-spacing:.04em;}
+  .view-btn:hover{border-color:var(--accent);color:var(--accent);}
+  .eq-bar{width:72px;height:4px;background:var(--border);border-radius:2px;overflow:hidden;}
+  .eq-fill{height:100%;border-radius:2px;}
+  .eq-pos{background:var(--accent3);}.eq-neg{background:var(--accent2);}
+  .eq-lbl{font-family:'Space Mono',monospace;font-size:10px;margin-top:2px;}
+  .empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:200px;color:var(--muted);gap:8px;}
+  .empty-icon{font-size:28px;opacity:.3;}
+  .loading{text-align:center;padding:36px;color:var(--muted);font-family:'Space Mono',monospace;font-size:12px;}
+  .spinner{display:inline-block;width:14px;height:14px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;margin-right:8px;}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  /* â”€â”€ MODAL â”€â”€ */
+  .mo{position:fixed;inset:0;background:rgba(0,0,0,.87);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;}
+  .mo.open{display:flex;}
+  .mc{background:var(--surface);border:1px solid var(--border);border-radius:12px;width:100%;max-width:780px;max-height:92vh;overflow-y:auto;padding:26px;}
+  .mh{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px;}
+  .mt{font-size:17px;font-weight:800;}
+  .ms{font-size:11px;color:var(--muted);font-family:'Space Mono',monospace;margin-top:3px;}
+  .mx{background:none;border:none;color:var(--muted);cursor:pointer;font-size:18px;padding:0;}
+  .mx:hover{color:var(--text);}
+  .mg{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .mf{display:flex;flex-direction:column;gap:3px;}
+  .mf.full{grid-column:1/-1;}
+  .ml{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+  .mv{font-size:13px;color:var(--text);font-family:'Space Mono',monospace;}
+  .mv.hi{color:var(--accent);font-weight:700;}
+  .mv.gr{color:var(--accent3);}
+  .mv.rd{color:var(--accent2);}
+  .mdiv{grid-column:1/-1;border:none;border-top:1px solid var(--border);margin:2px 0;}
+  .msec{grid-column:1/-1;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-top:2px;}
+  .mtags{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:5px;}
+  .mact{grid-column:1/-1;display:flex;gap:8px;margin-top:6px;flex-wrap:wrap;}
+  .sheriff-warn{background:rgba(255,68,68,.1);border:1px solid rgba(255,68,68,.3);border-radius:7px;padding:9px 14px;grid-column:1/-1;display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--hot);}
+
+  /* â”€â”€ MODAL INLINE DEAL ANALYZER (compact) â”€â”€ */
+  .da-wrap{grid-column:1/-1;background:var(--surface2);border:1px solid var(--accent);border-radius:10px;padding:18px;margin-top:2px;}
+  .da-title{font-size:13px;font-weight:800;color:var(--accent);margin-bottom:14px;}
+  .da-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .da-field{display:flex;flex-direction:column;gap:4px;}
+  .da-field.full{grid-column:1/-1;}
+  .da-field label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+  .da-field input,.da-field select{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-family:'Space Mono',monospace;font-size:12px;color:var(--text);outline:none;width:100%;}
+  .da-field input:focus{border-color:var(--accent);}
+  .slider-row{display:flex;align-items:center;gap:10px;}
+  .slider-row input[type=range]{flex:1;accent-color:var(--accent);cursor:pointer;}
+  .slider-val{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--accent);min-width:42px;text-align:right;}
+  .cond-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;}
+  .cond-btn{padding:5px 12px;border-radius:6px;font-size:10px;font-weight:700;cursor:pointer;border:1px solid var(--border);background:var(--bg);color:var(--muted);transition:all .15s;}
+  .cond-btn.active{background:var(--accent);color:#000;border-color:var(--accent);}
+  .rtable{width:100%;border-collapse:collapse;border:1px solid var(--border);border-radius:7px;overflow:hidden;}
+  .rtable th{background:var(--bg);padding:7px 10px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;border-bottom:1px solid var(--border);}
+  .rtable td{padding:7px 10px;font-size:11px;font-family:'Space Mono',monospace;border-bottom:1px solid var(--border);cursor:pointer;transition:background .1s;}
+  .rtable tr:last-child td{border-bottom:none;}
+  .rtable tr:hover td{background:var(--surface);}
+  .rtable tr.sel td{background:rgba(245,166,35,.1);color:var(--accent);font-weight:700;}
+  .rtable td:first-child{color:var(--muted);}
+  .da-result{grid-column:1/-1;border-radius:8px;padding:18px;text-align:center;border:2px solid var(--border);transition:all .25s;margin-top:4px;}
+  .da-result.green{background:rgba(74,245,166,.07);border-color:rgba(74,245,166,.35);}
+  .da-result.yellow{background:rgba(245,166,35,.07);border-color:rgba(245,166,35,.35);}
+  .da-result.red{background:rgba(232,93,74,.07);border-color:rgba(232,93,74,.35);}
+  .mao-lbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+  .mao-num{font-size:36px;font-weight:800;font-family:'Space Mono',monospace;line-height:1;}
+  .mao-bd{font-size:11px;font-family:'Space Mono',monospace;color:var(--muted);margin-top:10px;line-height:1.8;}
+  .mao-verdict{font-size:13px;font-weight:700;margin-top:8px;}
+
+  /* â”€â”€ FULL DEAL ANALYZER PAGE â”€â”€ */
+  #da-page{display:none;overflow-y:auto;height:calc(100vh - 170px);}
+  .da-page-inner{max-width:900px;margin:0 auto;padding:28px 24px 60px;}
+  .da-page-title{font-size:38px;font-weight:900;line-height:1;letter-spacing:.02em;margin-bottom:6px;font-family:'Barlow Condensed',sans-serif;}
+  .da-page-title span{color:var(--accent);}
+  .da-page-sub{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:28px;}
+
+  /* Mode bar */
+  .da-mode-bar{display:flex;gap:8px;margin-bottom:20px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:6px;}
+  .da-mode-btn{flex:1;padding:10px 16px;border-radius:7px;border:none;background:none;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;transition:all .18s;}
+  .da-mode-btn:hover{color:var(--text);}
+  .da-mode-btn.active{background:var(--surface3);color:var(--text);border:1px solid var(--border2);}
+  .da-mode-btn.active.ws{color:var(--accent);border-color:rgba(245,166,35,.4);}
+  .da-mode-btn.active.fl{color:var(--accent3);border-color:rgba(74,245,166,.4);}
+  .da-mode-btn.active.re{color:var(--accent4);border-color:rgba(93,142,245,.4);}
+  .da-mode-desc{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:24px;padding:10px 14px;background:var(--surface);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;}
+
+  /* Section header */
+  .da-sec{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .da-sec::after{content:'';flex:1;height:1px;background:var(--border);}
+
+  /* Cards */
+  .da-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:18px;}
+  .pfield{display:flex;flex-direction:column;gap:5px;}
+  .pfield label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+  .pfield input,.pfield select{background:var(--surface2);border:1px solid var(--border2);border-radius:7px;padding:10px 14px;font-family:'Space Mono',monospace;font-size:14px;color:var(--text);outline:none;transition:border-color .15s;width:100%;}
+  .pfield input:focus{border-color:var(--accent);}
+  .pfield input::placeholder{color:var(--muted);font-size:12px;}
+  .pg2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .pg3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .pslider-row{display:flex;align-items:center;gap:12px;margin-top:4px;}
+  .pslider-row input[type=range]{flex:1;accent-color:var(--accent);cursor:pointer;}
+  .pslider-val{font-family:'Space Mono',monospace;font-size:18px;font-weight:700;color:var(--accent);min-width:46px;text-align:right;}
+  .presets{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;}
+  .ppreset{font-family:'Space Mono',monospace;font-size:10px;padding:3px 9px;border-radius:4px;border:1px solid var(--border2);background:none;color:var(--muted);cursor:pointer;transition:all .15s;}
+  .ppreset:hover{border-color:var(--accent);color:var(--accent);}
+
+  /* Condition buttons */
+  .pcond-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+  .pcond-btn{flex:1;min-width:140px;padding:9px 14px;border-radius:8px;border:1px solid var(--border2);background:var(--surface2);color:var(--muted2);font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s;text-align:center;}
+  .pcond-btn.ae{background:rgba(74,245,166,.12);border-color:rgba(74,245,166,.5);color:var(--accent3);}
+  .pcond-btn.am{background:rgba(245,166,35,.12);border-color:rgba(245,166,35,.5);color:var(--accent);}
+  .pcond-btn.ah{background:rgba(255,68,68,.12);border-color:rgba(255,68,68,.5);color:var(--hot);}
+
+  /* Sqft table */
+  .psqft{width:100%;border-collapse:collapse;margin-top:4px;}
+  .psqft th{text-align:left;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:7px 12px;border-bottom:1px solid var(--border);}
+  .psqft td{padding:8px 12px;font-family:'Space Mono',monospace;font-size:12px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .12s;}
+  .psqft tr:last-child td{border-bottom:none;}
+  .psqft tr:hover td{background:var(--surface2);}
+  .psqft tr.psel td{background:rgba(245,166,35,.1);color:var(--accent);font-weight:700;}
+  .psqft td:first-child{color:var(--muted2);}
+
+  /* Add-on grid */
+  .addon-g{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .addon-i{display:flex;align-items:center;justify-content:space-between;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;cursor:pointer;transition:all .15s;gap:8px;}
+  .addon-i:hover{border-color:var(--border2);}
+  .addon-i.aon{border-color:rgba(255,140,0,.4);background:rgba(255,140,0,.07);}
+  .addon-il{display:flex;flex-direction:column;gap:2px;}
+  .addon-nm{font-size:13px;font-weight:700;color:var(--text);transition:color .15s;font-family:'Barlow Condensed',sans-serif;}
+  .addon-i.aon .addon-nm{color:var(--warm);}
+  .addon-rng{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);}
+  .addon-ir{display:flex;align-items:center;gap:8px;}
+  .addon-ck{width:18px;height:18px;border:2px solid var(--border2);border-radius:4px;background:none;display:flex;align-items:center;justify-content:center;font-size:11px;transition:all .15s;flex-shrink:0;}
+  .addon-i.aon .addon-ck{background:var(--warm);border-color:var(--warm);color:#000;}
+  .addon-cv{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);min-width:40px;text-align:right;}
+  .addon-i.aon .addon-cv{color:var(--warm);font-weight:700;}
+
+  /* Toggle */
+  .ptog-row{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--surface2);border:1px solid var(--border2);border-radius:8px;cursor:pointer;transition:all .15s;margin-bottom:14px;}
+  .ptog-row.on{border-color:rgba(74,245,166,.35);background:rgba(74,245,166,.05);}
+  .ptog-lbl{font-size:14px;font-weight:700;font-family:'Barlow Condensed',sans-serif;}
+  .ptog-sub{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);margin-top:2px;}
+  .ptog-pill{width:40px;height:22px;border-radius:11px;background:var(--border2);position:relative;transition:background .2s;}
+  .ptog-pill.on{background:var(--accent3);}
+  .ptog-pill::after{content:'';position:absolute;width:16px;height:16px;border-radius:50%;background:#fff;top:3px;left:3px;transition:transform .2s;}
+  .ptog-pill.on::after{transform:translateX(18px);}
+  .pflip-det{display:none;}
+  .pflip-det.show{display:grid;}
+
+  /* Result */
+  .pres-card{background:var(--surface);border:2px solid var(--border);border-radius:12px;padding:28px;text-align:center;transition:all .25s;margin-bottom:18px;}
+  .pres-card.green{border-color:rgba(74,245,166,.4);background:rgba(74,245,166,.05);}
+  .pres-card.yellow{border-color:rgba(245,166,35,.4);background:rgba(245,166,35,.05);}
+  .pres-card.red{border-color:rgba(255,68,68,.4);background:rgba(255,68,68,.05);}
+  .pgbadge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px;border:1px solid var(--border2);margin-bottom:12px;color:var(--muted);}
+  .pgbadge.green{border-color:rgba(74,245,166,.4);color:var(--accent3);}
+  .pgbadge.yellow{border-color:rgba(245,166,35,.4);color:var(--accent);}
+  .pgbadge.red{border-color:rgba(255,68,68,.4);color:var(--hot);}
+  .pmao-lbl{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+  .pmao-main{font-family:'Space Mono',monospace;font-size:52px;font-weight:700;line-height:1;margin-bottom:6px;}
+  .pmao-range{display:flex;gap:20px;justify-content:center;margin-bottom:14px;flex-wrap:wrap;}
+  .pmao-ri{text-align:center;}
+  .pmao-rl{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:3px;}
+  .pmao-rv{font-family:'Space Mono',monospace;font-size:16px;font-weight:700;}
+  .pmao-bd{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);line-height:2;margin-bottom:10px;}
+  .pmao-bd b{color:var(--muted2);}
+  .pvtext{font-size:18px;font-weight:800;margin-bottom:4px;font-family:'Barlow Condensed',sans-serif;}
+  .pvsub{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);}
+
+  /* Spread */
+  .pspread{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px;}
+  .psp-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;}
+  .psp-lbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+  .psp-val{font-family:'Space Mono',monospace;font-size:20px;font-weight:700;}
+  .psp-sub{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);margin-top:3px;}
+  .preset-btn-reset{width:100%;padding:12px;background:none;border:1px solid var(--border2);border-radius:8px;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:.05em;cursor:pointer;transition:all .15s;}
+  .preset-btn-reset:hover{border-color:var(--accent);color:var(--accent);}
+
+  ::-webkit-scrollbar{width:5px;height:5px;}
+  ::-webkit-scrollbar-track{background:var(--bg);}
+  ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--muted);}
+
+  @media(max-width:768px){
+    .mg,.da-grid,.pg2,.pg3,.pspread{grid-template-columns:1fr;}
+    .mf.full,.da-field.full,.da-result{grid-column:1;}
+    .statsbar{gap:14px;}.stat-num{font-size:16px;}
+    .addon-g{grid-template-columns:1fr;}
+    .pmao-main{font-size:36px;}
+    .da-page-inner{padding:18px 14px 60px;}
+    .pflip-det{grid-template-columns:1fr!important;}
+  }
+</style>
+<script src="tracerfy.config.js"></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-dot"></div>
+    <div>
+      <div class="brand-name">Akron Data</div>
+      <div class="brand-sub">Motivated Seller Intelligence</div>
+    </div>
+  </div>
+  <div class="updated" id="upd">Loading...</div>
+</header>
+
+<div class="statsbar">
+  <div class="stat"><div class="stat-num" id="s-total">â€“</div><div class="stat-label">Total</div></div><div class="sdiv"></div>
+  <div class="stat"><div class="stat-num hot" id="s-sheriff">â€“</div><div class="stat-label">âš¡ Sheriff</div></div><div class="sdiv"></div>
+  <div class="stat"><div class="stat-num hot" id="s-hot">â€“</div><div class="stat-label">ðŸ”¥ Hot Stack</div></div><div class="sdiv"></div>
+  <div class="stat"><div class="stat-num warm" id="s-probate">â€“</div><div class="stat-label">âš–ï¸ Probate</div></div><div class="sdiv"></div>
+  <div class="stat"><div class="stat-num warm" id="s-code">â€“</div><div class="stat-label">ðŸš Code Vio</div></div><div class="sdiv"></div>
+  <div class="stat"><div class="stat-num cool" id="s-vacant">â€“</div><div class="stat-label">ðŸ  Vacant</div></div><div class="sdiv"></div>
+  <div class="stat"><div class="stat-num gold" id="s-tax">â€“</div><div class="stat-label">ðŸ’° Tax Delin</div></div><div class="sdiv"></div>
+  <div class="stat"><div class="stat-num green" id="s-absentee">â€“</div><div class="stat-label">ðŸ“­ Absentee</div></div><div class="sdiv"></div>
+  <div class="stat"><div class="stat-num green" id="s-inherited">â€“</div><div class="stat-label">ðŸ› Inherited</div></div><div class="sdiv"></div>
+  <div class="stat"><div class="stat-num cool" id="s-subto">â€“</div><div class="stat-label">ðŸŽ¯ Sub-To</div></div><div class="sdiv"></div>
+  <div class="stat"><div class="stat-num green" id="s-vacland">â€“</div><div class="stat-label">ðŸŒ¿ Vac Land</div></div><div class="sdiv"></div>
+  <div class="stat"><div class="stat-num" id="s-new">â€“</div><div class="stat-label">ðŸ†• This Week</div></div>
+  <div class="sdiv"></div>
+  <div class="stat" onclick="openDATab()" style="cursor:pointer;min-width:80px;">
+    <div style="background:rgba(74,245,166,.15);border:1px solid rgba(74,245,166,.4);border-radius:8px;padding:6px 14px;display:flex;flex-direction:column;align-items:center;gap:2px;transition:all .15s;" onmouseover="this.style.background='rgba(74,245,166,.25)'" onmouseout="this.style.background='rgba(74,245,166,.15)'">
+      <div style="font-size:18px;line-height:1;">ðŸ§®</div>
+      <div style="font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent3);white-space:nowrap;">Deal Analyzer</div>
+    </div>
+  </div>
+</div>
+
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab active" data-tab="all">All Leads <span class="badge" id="b-all">0</span></button>
+    <button class="tab urgent" data-tab="sheriff_sales">âš¡ Sheriff Sales <span class="badge" id="b-sheriff_sales">0</span></button>
+    <button class="tab" data-tab="hot_stack">ðŸ”¥ Hot Stack <span class="badge" id="b-hot_stack">0</span></button>
+    <button class="tab" data-tab="probate">âš–ï¸ Probate <span class="badge" id="b-probate">0</span></button>
+    <button class="tab" data-tab="code_violations">ðŸš Code Violations <span class="badge" id="b-code_violations">0</span></button>
+    <button class="tab" data-tab="vacant_homes">ðŸ  Vacant Homes <span class="badge" id="b-vacant_homes">0</span></button>
+    <button class="tab" data-tab="tax_delinquent">ðŸ’° Tax Delinquent <span class="badge" id="b-tax_delinquent">0</span></button>
+    <button class="tab" data-tab="absentee">Absentee <span class="badge" id="b-absentee">0</span></button>
+    <button class="tab" data-tab="out_of_state">Out-of-State <span class="badge" id="b-out_of_state">0</span></button>
+    <button class="tab" data-tab="inherited">Inherited <span class="badge" id="b-inherited">0</span></button>
+    <button class="tab" data-tab="foreclosure">Foreclosure <span class="badge" id="b-foreclosure">0</span></button>
+    <button class="tab" data-tab="subject_to">Subject-To <span class="badge" id="b-subject_to">0</span></button>
+    <button class="tab" data-tab="prime_subject_to">Prime Deals <span class="badge" id="b-prime_subject_to">0</span></button>
+    <button class="tab" data-tab="vacant_land">Vacant Land <span class="badge" id="b-vacant_land">0</span></button>
+    <button class="tab" data-tab="evictions">Evictions <span class="badge" id="b-evictions">0</span></button>
+    <button class="tab" data-tab="divorces">Divorces <span class="badge" id="b-divorces">0</span></button>
+    <button class="tab" data-tab="fire_damage">Fire Damage <span class="badge" id="b-fire_damage">0</span></button>
+    <button class="tab" data-tab="deal_analyzer" style="color:var(--accent3);font-weight:800;">Deal Analyzer</button>
+  </div>
+</div>
+
+<div class="toolbar" id="toolbar">
+  <div class="search-wrap">
+    <span class="si">&#8981;</span>
+    <input type="text" id="search" placeholder="Search owner, address, doc number..." oninput="applyFilters()">
+  </div>
+  <select id="f-score" onchange="applyFilters()">
+    <option value="">All Scores</option>
+    <option value="80">Score 80+</option>
+    <option value="70">Score 70+</option>
+    <option value="60">Score 60+</option>
+    <option value="50">Score 50+</option>
+  </select>
+  <select id="f-flag" onchange="applyFilters()">
+    <option value="">All Flags</option>
+    <option value="Hot Stack">ðŸ”¥ Hot Stack</option>
+    <option value="Sheriff sale">âš¡ Sheriff Sale</option>
+    <option value="Absentee owner">ðŸ“­ Absentee</option>
+    <option value="Out-of-state owner">ðŸŒŽ Out-of-State</option>
+    <option value="Vacant home">ðŸ  Vacant Home</option>
+    <option value="Vacant land">ðŸŒ¿ Vacant Land</option>
+    <option value="Tax delinquent">ðŸ’° Tax Delinquent</option>
+    <option value="Code violation">ðŸš Code Violation</option>
+    <option value="Inherited">ðŸ› Inherited</option>
+    <option value="Subject-To">ðŸŽ¯ Subject-To</option>
+    <option value="New this week">ðŸ†• New This Week</option>
+    <option value="Eviction filed">ðŸšª Eviction</option>
+    <option value="Divorce filing">ðŸ’” Divorce</option>
+    <option value="Fire damage">ðŸ”¥ Fire Damage</option>
+  </select>
+  <select id="f-addr" onchange="applyFilters()">
+    <option value="">Address: All</option>
+    <option value="with">With Address</option>
+    <option value="without">Without Address</option>
+  </select>
+  <select id="f-traced" onchange="applyFilters()">
+    <option value="">Skipped: All</option>
+    <option value="yes">Skipped</option>
+    <option value="no">Not Skipped</option>
+  </select>
+  <select aria-hidden="true" tabindex="-1" disabled style="opacity:0;pointer-events:none;">
+    <option>Spacer</option>
+  </select>
+  <button class="btn btn-primary" onclick="exportCSV()">Skip Trace CSV</button>
+  <button class="btn btn-ghost" onclick="exportHotStack()" style="border-color:var(--hot);color:var(--hot)">Hot Stack Only</button>
+  <button class="btn btn-ghost" onclick="clearFilters()">Clear</button>
+  <div class="rec-count" id="rec-count">0 records</div>
+</div>
+
+<!-- LEADS TABLE -->
+<div class="table-wrap" id="table-wrap">
+  <table>
+    <thead><tr>
+      <th onclick="sortBy('score',this)">Score</th>
+      <th onclick="sortBy('owner',this)">Owner / Property</th>
+      <th onclick="sortBy('cat_label',this)">Type</th>
+      <th onclick="sortBy('filed',this)">Filed</th>
+      <th onclick="sortBy('amount',this)">Amount</th>
+      <th onclick="sortBy('doc_num',this)">Doc #</th>
+      <th>Tags</th>
+      <th>Equity Est.</th>
+      <th>Link</th>
+    </tr></thead>
+    <tbody id="tbody">
+      <tr><td colspan="9"><div class="loading"><span class="spinner"></span>Loading leads...</div></td></tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     FULL DEAL ANALYZER PAGE â€” MAO ENGINE
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div id="da-page" style="display:none;overflow-y:auto;height:calc(100vh - 170px);">
+<div class="da-page-inner">
+
+  <div class="da-page-title">Deal <span>Analyzer</span></div>
+  <div class="da-page-sub">MAO Engine Â· Live Wholesale Fee Slider Â· Seller Ask Â· Max Wholesale Fee Â· Deal Health</div>
+
+  <!-- AI Valuation Quick Access -->
+  <div style="margin-bottom:14px;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:8px;">
+    <div style="display:grid;grid-template-columns:1fr auto;gap:8px;align-items:end;">
+      <div>
+        <div style="font-size:10px;color:var(--muted);margin-bottom:4px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;">Property Address</div>
+        <input type="text" id="da-addr-search" placeholder="e.g., 700 Glendora Ave" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-family:'Space Mono',monospace;font-size:12px;color:var(--text);outline:none;">
+        <div id="da-addr-msg" style="font-size:10px;color:var(--muted);margin-top:4px;min-height:14px;"></div>
+      </div>
+      <button onclick="runDAValuation()" style="padding:9px 16px;background:linear-gradient(135deg,rgba(245,166,35,.15),rgba(245,166,35,.08));border:1px solid rgba(245,166,35,.4);border-radius:6px;color:var(--accent);font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.06em;white-space:nowrap;">âœ¨ Run AI Valuation</button>
+    </div>
+    
+    <!-- AI Valuation Results Display -->
+    <div id="da-ai-results" style="display:none;margin-top:12px;"></div>
+  </div>
+
+  <!-- ROW 1: BUYER MODE + ARV -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+
+    <!-- Buyer Mode -->
+    <div class="da-card">
+      <div class="da-sec" style="margin-bottom:10px;">Buyer Mode</div>
+      <div class="da-mode-bar" style="margin-bottom:10px;">
+        <button class="da-mode-btn ws active" id="pmode-ws" onclick="pSetMode('wholesale',this)">ðŸ· Wholesale</button>
+        <button class="da-mode-btn fl" id="pmode-fl" onclick="pSetMode('flip',this)">ðŸ”¨ Flip</button>
+        <button class="da-mode-btn re" id="pmode-re" onclick="pSetMode('rental',this)">ðŸ˜ Rental</button>
+      </div>
+      <div id="p-mode-desc" style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);padding:8px 12px;background:var(--bg);border-left:3px solid var(--accent);border-radius:0 5px 5px 0;">Wholesale: MAO = ARV Ã— % âˆ’ Rehab âˆ’ Fee âˆ’ Closing</div>
+    </div>
+
+    <!-- ARV -->
+    <div class="da-card">
+      <div class="da-sec" style="margin-bottom:10px;">ARV â€” After Repair Value</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px;">
+        <div class="pfield"><label>Low ARV</label><input type="number" id="p-arv-low" placeholder="e.g. 105000" oninput="pCalc()"></div>
+        <div class="pfield"><label style="color:var(--accent);">Base ARV â˜…</label><input type="number" id="p-arv-base" placeholder="e.g. 120000" oninput="pSyncARVs();pCalc()" style="border-color:rgba(245,166,35,.4);"></div>
+        <div class="pfield"><label>High ARV</label><input type="number" id="p-arv-high" placeholder="e.g. 135000" oninput="pCalc()"></div>
+      </div>
+      <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);">â˜… Base drives MAO. Low/High = safe vs aggressive range.</div>
+    </div>
+  </div>
+
+  <!-- ROW 2: OFFER % + CONDITION -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+
+    <!-- Offer % Slider -->
+    <div class="da-card">
+      <div class="da-sec" style="margin-bottom:10px;">Investor Buy Box</div>
+      <div class="pfield" style="margin-bottom:8px;">
+        <label>Offer % of ARV</label>
+        <div class="pslider-row">
+          <input type="range" id="p-pct" min="50" max="90" value="70" oninput="document.getElementById('p-pctv').textContent=this.value+'%';pCalc()">
+          <div class="pslider-val" id="p-pctv">70%</div>
+        </div>
+        <div class="presets" style="margin-top:6px;">
+          <button class="ppreset" onclick="pSetPreset(85)">Hot 85%</button>
+          <button class="ppreset" onclick="pSetPreset(75)">Normal 75%</button>
+          <button class="ppreset" onclick="pSetPreset(70)">Std 70%</button>
+          <button class="ppreset" onclick="pSetPreset(65)">Risky 65%</button>
+          <button class="ppreset" onclick="pSetPreset(60)">Deep 60%</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Condition + Sqft -->
+    <div class="da-card">
+      <div class="da-sec" style="margin-bottom:10px;">Condition &amp; Size</div>
+      <div class="pcond-row" style="margin-bottom:8px;">
+        <button class="pcond-btn" id="pcb-easy" onclick="pSetCond('easy',this)">ðŸŸ¢ Easy</button>
+        <button class="pcond-btn am" id="pcb-medium" onclick="pSetCond('medium',this)">ðŸŸ¡ Needs Work</button>
+        <button class="pcond-btn" id="pcb-heavy" onclick="pSetCond('heavy',this)">ðŸ”´ Full Gut</button>
+      </div>
+      <table class="psqft">
+        <thead><tr><th>Sq Ft</th><th style="color:var(--accent3)">ðŸŸ¢</th><th style="color:var(--accent)">ðŸŸ¡</th><th style="color:var(--hot)">ðŸ”´</th></tr></thead>
+        <tbody>
+          <tr id="psr0" onclick="pSelSqft(0)"><td>Under 1,500</td><td>$15k</td><td>$27.5k</td><td>$45k</td></tr>
+          <tr id="psr1" onclick="pSelSqft(1)"><td>1,500â€“2,000</td><td>$20k</td><td>$37.5k</td><td>$65k</td></tr>
+          <tr id="psr2" onclick="pSelSqft(2)"><td>2,000â€“2,500</td><td>$30k</td><td>$57.5k</td><td>$85k</td></tr>
+          <tr id="psr3" onclick="pSelSqft(3)"><td>2,500+</td><td>$40k</td><td>$77.5k</td><td>$105k</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ROW 3: ADD-ONS + COSTS -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+
+    <!-- Add-On Repairs -->
+    <div class="da-card">
+      <div class="da-sec" style="margin-bottom:8px;">Add-On Repairs</div>
+      <div class="addon-g" id="p-addon-grid"></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:10px;border-top:1px solid var(--border);">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);">Add-On Total</div>
+        <div style="font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--warm);" id="p-addon-total">$0</div>
+      </div>
+    </div>
+
+    <!-- Costs -->
+    <div class="da-card">
+      <div class="da-sec" style="margin-bottom:8px;">Fixed Costs</div>
+      <div class="ptog-row" id="p-flip-tog" onclick="pToggleFlip()" style="margin-bottom:10px;">
+        <div><div class="ptog-lbl">Include Flip Costs</div><div class="ptog-sub">Agent % + monthly holding</div></div>
+        <div class="ptog-pill" id="p-flip-pill"></div>
+      </div>
+      <div class="pflip-det pg2" id="p-flip-det" style="margin-bottom:10px;">
+        <div class="pfield"><label>Selling %</label><input type="number" id="p-sell-pct" value="9" step="0.5" oninput="pCalc()"></div>
+        <div class="pfield"><label>Hold Months</label><input type="number" id="p-hold-mo" value="4" oninput="pCalc()"></div>
+        <div class="pfield"><label>Monthly Hold $</label><input type="number" id="p-hold-cost" value="1200" oninput="pCalc()"></div>
+        <div class="pfield"><label>Flip Total</label><input type="number" id="p-flip-total" readonly style="color:var(--warm);cursor:default;"></div>
+      </div>
+      <div class="pg2">
+        <div class="pfield"><label>Rehab $</label><input type="number" id="p-rehab" value="27500" oninput="pCalc()"></div>
+        <div class="pfield"><label>Closing Costs</label><input type="number" id="p-closing" value="3000" oninput="pCalc()"></div>
+        <div class="pfield"><label>Other</label><input type="number" id="p-other" value="0" oninput="pCalc()"></div>
+        <div class="pfield"><label>Total Fixed Costs</label><input id="p-fixed-display" readonly style="background:var(--bg);border:1px solid var(--border);border-radius:7px;padding:10px 14px;font-family:'Space Mono',monospace;font-size:13px;color:var(--accent2);width:100%;cursor:default;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       MAO ENGINE â€” THE DECISION CENTER
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <div class="da-sec" style="margin-bottom:14px;">âš¡ MAO Engine â€” Live Decision</div>
+
+  <!-- WHOLESALE FEE SLIDER â€” right above MAO -->
+  <div class="da-card" style="margin-bottom:16px;border-color:rgba(245,166,35,.3);">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+      <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">Wholesale Fee</div>
+      <div style="font-family:'Space Mono',monospace;font-size:22px;font-weight:900;color:var(--accent);" id="p-fee-display">$10,000</div>
+    </div>
+    <input type="range" id="p-fee-slider" min="1000" max="30000" step="500" value="10000"
+      oninput="document.getElementById('p-fee-display').textContent='$'+Number(this.value).toLocaleString();document.getElementById('p-fee').value=this.value;pCalc()"
+      style="width:100%;accent-color:var(--accent);cursor:pointer;margin-bottom:10px;">
+    <div style="display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:9px;color:var(--muted);margin-bottom:10px;">
+      <span>$1k</span><span>$5k</span><span>$10k</span><span>$15k</span><span>$20k</span><span>$25k</span><span>$30k</span>
+    </div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;">
+      <button onclick="pSetFee(5000)"  style="flex:1;padding:6px;border-radius:5px;border:1px solid var(--border2);background:none;color:var(--muted);font-family:'Space Mono',monospace;font-size:11px;font-weight:700;cursor:pointer;transition:all .12s;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--muted)'">$5k</button>
+      <button onclick="pSetFee(10000)" style="flex:1;padding:6px;border-radius:5px;border:1px solid var(--border2);background:none;color:var(--muted);font-family:'Space Mono',monospace;font-size:11px;font-weight:700;cursor:pointer;transition:all .12s;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--muted)'">$10k</button>
+      <button onclick="pSetFee(15000)" style="flex:1;padding:6px;border-radius:5px;border:1px solid var(--border2);background:none;color:var(--muted);font-family:'Space Mono',monospace;font-size:11px;font-weight:700;cursor:pointer;transition:all .12s;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--muted)'">$15k</button>
+      <button onclick="pSetFee(20000)" style="flex:1;padding:6px;border-radius:5px;border:1px solid var(--border2);background:none;color:var(--muted);font-family:'Space Mono',monospace;font-size:11px;font-weight:700;cursor:pointer;transition:all .12s;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--muted)'">$20k</button>
+      <button onclick="pSetFee(25000)" style="flex:1;padding:6px;border-radius:5px;border:1px solid var(--border2);background:none;color:var(--muted);font-family:'Space Mono',monospace;font-size:11px;font-weight:700;cursor:pointer;transition:all .12s;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--muted)'">$25k</button>
+    </div>
+    <!-- Fee mode presets -->
+    <div style="display:flex;gap:6px;margin-top:8px;">
+      <button onclick="pSetFee(7500)"  style="flex:1;padding:5px;border-radius:5px;border:1px solid rgba(74,245,166,.3);background:rgba(74,245,166,.07);color:var(--accent3);font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;cursor:pointer;">ðŸŸ¢ Conservative $7.5k</button>
+      <button onclick="pSetFee(12500)" style="flex:1;padding:5px;border-radius:5px;border:1px solid rgba(245,166,35,.3);background:rgba(245,166,35,.07);color:var(--accent);font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;cursor:pointer;">ðŸŸ¡ Standard $12.5k</button>
+      <button onclick="pSetFee(20000)" style="flex:1;padding:5px;border-radius:5px;border:1px solid rgba(255,68,68,.3);background:rgba(255,68,68,.07);color:var(--hot);font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;cursor:pointer;">ðŸ”´ Aggressive $20k</button>
+    </div>
+    <div class="pfield" style="margin-top:10px;">
+      <label>Wholesale Fee $</label>
+      <input type="number" id="p-fee" value="10000" min="0" step="500"
+        oninput="const v=Math.max(0,Number(this.value)||0);this.value=v;document.getElementById('p-fee-slider').value=v;document.getElementById('p-fee-display').textContent='$'+v.toLocaleString();pCalc()">
+    </div>
+    <div id="p-fee-health" style="margin-top:12px;"></div>
+  </div>
+
+  <!-- SELLER ASK + DEAL PICTURE -->
+  <div class="da-card" style="margin-bottom:16px;">
+    <div class="da-sec" style="margin-bottom:10px;">Seller Negotiation</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px;">
+      <div class="pfield">
+        <label>Seller Asking Price</label>
+        <input type="number" id="p-seller-ask" placeholder="e.g. 45000" oninput="pCalc()" style="border-color:rgba(232,93,74,.35);">
+      </div>
+      <div class="pfield">
+        <label>Your Cash Offer</label>
+        <input id="p-your-offer" readonly style="background:var(--bg);border:1px solid var(--border);border-radius:7px;padding:10px 14px;font-family:'Space Mono',monospace;font-size:13px;color:var(--accent3);width:100%;cursor:default;font-weight:700;">
+      </div>
+      <div class="pfield">
+        <label>Your Spread</label>
+        <input id="p-your-spread" readonly style="background:var(--bg);border:1px solid var(--border);border-radius:7px;padding:10px 14px;font-family:'Space Mono',monospace;font-size:13px;color:var(--accent);width:100%;cursor:default;font-weight:700;">
+      </div>
+    </div>
+    <!-- Deal picture -->
+    <div id="p-deal-picture" style="display:none;background:var(--bg);border:1px solid var(--border2);border-radius:8px;padding:12px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">Deal Picture</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;text-align:center;">
+        <div><div style="font-size:9px;color:var(--muted);margin-bottom:3px;">Your Cash Offer</div><div style="font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--accent2);" id="dp-pay">â€“</div></div>
+        <div><div style="font-size:9px;color:var(--muted);margin-bottom:3px;">Wholesale Fee</div><div style="font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--accent);" id="dp-fee">â€“</div></div>
+        <div><div style="font-size:9px;color:var(--muted);margin-bottom:3px;">Buyer Pays</div><div style="font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--accent3);" id="dp-buyer">â€“</div></div>
+        <div><div style="font-size:9px;color:var(--muted);margin-bottom:3px;">Gap to Close</div><div style="font-family:'Space Mono',monospace;font-size:14px;font-weight:700;" id="dp-gap">â€“</div></div>
+      </div>
+      <div id="dp-verdict" style="margin-top:8px;font-size:12px;font-weight:700;text-align:center;padding:6px;border-radius:5px;"></div>
+    </div>
+  </div>
+
+  <!-- MAIN MAO BOX -->
+  <div class="pres-card" id="p-res-card" style="margin-bottom:16px;">
+    <div class="pgbadge" id="p-grade-badge">Enter ARV to calculate</div>
+    <div class="pmao-lbl">Maximum Allowable Offer (MAO)</div>
+    <div class="pmao-main" id="p-mao-main" style="color:var(--muted);">â€“ â€“ â€“</div>
+    <div class="pmao-range" id="p-mao-range" style="display:none;">
+      <div class="pmao-ri"><div class="pmao-rl">Low Ball</div><div class="pmao-rv" id="p-mao-safe" style="color:var(--accent2);">â€“</div></div>
+      <div class="pmao-ri"><div class="pmao-rl" style="color:var(--accent);">Target â˜…</div><div class="pmao-rv" id="p-mao-target" style="color:var(--accent);font-size:22px;font-weight:800;">â€“</div></div>
+      <div class="pmao-ri"><div class="pmao-rl">Max MAO</div><div class="pmao-rv" id="p-mao-aggr" style="color:var(--accent3);">â€“</div></div>
+    </div>
+    <div class="pmao-bd" id="p-mao-bd"></div>
+    <div class="pvtext" id="p-vtext"></div>
+    <div class="pvsub" id="p-vsub"></div>
+  </div>
+
+  <!-- MAX ASSIGNMENT FEE + DEAL STATS -->
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px;" id="p-stats-row" style="display:none;">
+    <div class="psp-card" style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;">
+      <div class="psp-lbl" style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Total Costs</div>
+      <div class="psp-val" id="p-sp-costs" style="font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:var(--accent2);">â€“</div>
+      <div class="psp-sub" style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);margin-top:3px;">all in (excl. fee)</div>
+    </div>
+    <div class="psp-card" style="background:var(--surface);border:2px solid rgba(74,245,166,.3);border-radius:10px;padding:16px;text-align:center;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent3);margin-bottom:6px;">Max Wholesale Fee</div>
+      <div id="p-max-fee" style="font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:var(--accent3);">â€“</div>
+      <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);margin-top:3px;">above this â†’ deal breaks</div>
+    </div>
+    <div class="psp-card" style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;">
+      <div class="psp-lbl" style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Deal Grade</div>
+      <div class="psp-val" id="p-sp-grade" style="font-family:'Space Mono',monospace;font-size:20px;font-weight:700;">â€“</div>
+      <div class="psp-sub" id="p-sp-gsub" style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);margin-top:3px;">â€“</div>
+    </div>
+  </div>
+
+  <button class="preset-btn-reset" onclick="pResetAll()">â†º Reset Everything</button>
+</div>
+</div>
+
+<!-- LEAD DETAIL MODAL -->
+<div class="mo" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="mc" id="mc"></div>
+</div>
+<script>
+const TAB_FILES={all:'records.json',sheriff_sales:'sheriff_sales.json',hot_stack:'hot_stack.json',probate:'probate.json',code_violations:'code_violations.json',vacant_homes:'vacant_homes.json',tax_delinquent:'tax_delinquent.json',absentee:'absentee.json',out_of_state:'out_of_state.json',inherited:'inherited.json',foreclosure:'foreclosure.json',subject_to:'subject_to.json',prime_subject_to:'prime_subject_to.json',vacant_land:'vacant_land.json',evictions:'evictions.json',divorces:'divorces.json',fire_damage:'fire_damage.json'};
+
+let cache={},curTab='all',curRecs=[],filtered=[],sortCol='score',sortDir=-1,rendered=0;
+const PAGE=200;
+const TRACE_STORE_KEY='akron_tracerfy_trace_store_v2';
+const TRACERFY_DEFAULT_BASE='https://tracerfy.com/v1/api';
+const TRACE_SUCCESS_STATUSES=new Set(['success']);
+const TRACE_FINAL_STATUSES=new Set(['success','no_contact','no_hit','missing_address']);
+const TRACE_SOURCE='Tracerfy';
+const TRACE_PERSIST_FIELDS=[
+  'traced_owner_name',
+  'phone_primary',
+  'phone_primary_type',
+  'phone_secondary',
+  'phone_secondary_type',
+  'email_primary',
+  'traced_mailing_address',
+  'traced_mailing_city',
+  'traced_mailing_state',
+  'skip_trace_status',
+  'skip_trace_source',
+  'has_phone',
+  'has_email',
+  'skip_trace_timestamp',
+  'Phone 1',
+  'Phone 1 Type',
+  'Phone 2',
+  'Phone 2 Type',
+  'Phone 3',
+  'Phone 3 Type',
+  'Email',
+  'Skip Trace Source',
+];
+const TRACERFY_API_BASE=getTracerfyBase();
+const TRACERFY_LIVE_API_PATH='/api/tracerfy/trace';
+let traceStore=loadTraceStore();
+let traceQueue=[],traceQueueKeys=new Set(),traceQueueRunning=false,traceQueuePromise=Promise.resolve();
+let canonicalTraceIndex=null,canonicalTraceIndexPromise=null;
+
+function loadTraceStore(){
+  try{
+    const raw=localStorage.getItem(TRACE_STORE_KEY);
+    const parsed=raw?JSON.parse(raw):{};
+    return parsed&&typeof parsed==='object'?parsed:{};
+  }catch(e){
+    return {};
+  }
+}
+
+function saveTraceStore(){
+  localStorage.setItem(TRACE_STORE_KEY,JSON.stringify(traceStore));
+}
+
+function leadKey(r){
+  return [r.doc_num||'',r.parcel_id||'',normalizePropertyAddress(r.prop_address),r.prop_zip||''].join('|').toUpperCase();
+}
+
+function legacyLeadKey(r){
+  return [r.doc_num||'',r.parcel_id||'',r.owner||'',normalizePropertyAddress(r.prop_address),r.prop_zip||''].join('|').toUpperCase();
+}
+
+function cleanConfigValue(value){
+  const cleaned=String(value||'').trim();
+  if(!cleaned)return '';
+  if(/^TRACERFY_/i.test(cleaned)||/^REPLACE_/i.test(cleaned))return '';
+  return cleaned;
+}
+
+function getTracerfyBase(){
+  return (cleanConfigValue(window.TRACERFY_CONFIG&&window.TRACERFY_CONFIG.apiBase)||TRACERFY_DEFAULT_BASE).replace(/\/$/,'');
+}
+
+function uniqueList(items){
+  return [...new Set((items||[]).map(v=>String(v||'').trim()).filter(Boolean))];
+}
+
+function normalizeMatchValue(value){
+  return String(value||'').trim().replace(/\s+/g,' ').toUpperCase();
+}
+
+function normalizeAddressValue(value){
+  return normalizeMatchValue(value).replace(/[^A-Z0-9]+/g,' ').trim();
+}
+
+function normalizePropertyAddress(value){
+  const tokens=normalizeAddressValue(value).split(/\s+/).filter(Boolean);
+  while(tokens.length>2&&/^\d+$/.test(tokens[tokens.length-1]))tokens.pop();
+  return tokens.join(' ');
+}
+
+function nextDistinctValue(existing,candidates){
+  return uniqueList(candidates).find(value=>value&&!existing.includes(value))||'';
+}
+
+function firstTruthyValue(values){
+  return values.map(value=>String(value||'').trim()).find(Boolean)||'';
+}
+
+function traceBool(value){
+  if(typeof value==='boolean')return value;
+  if(value==null)return null;
+  const normalized=String(value).trim().toLowerCase();
+  if(!normalized)return null;
+  if(['true','yes','y','1','success'].includes(normalized))return true;
+  if(['false','no','n','0'].includes(normalized))return false;
+  return null;
+}
+
+function normalizeListLabel(value){
+  const label=String(value||'').trim().toLowerCase();
+  if(!label)return '';
+  if(label.includes('hot stack')||label.includes('new this week')||label.includes('candidate'))return '';
+  if(label.includes('sheriff'))return 'sheriff_sale';
+  if(label.includes('foreclos'))return 'foreclosure';
+  if(label.includes('tax delin'))return 'tax_delinquent';
+  if(label.includes('code viol')||label.includes('nuisance'))return 'code_violation';
+  if(label.includes('absentee'))return 'absentee';
+  if(label.includes('out-of-state')||label.includes('out of state'))return 'out_of_state';
+  if(label.includes('vacant land'))return 'vacant_land';
+  if(label.includes('vacant home')||label.includes('vacant building'))return 'vacant_home';
+  if(label.includes('inherited'))return 'inherited';
+  if(label.includes('probate')||label.includes('estate'))return 'probate';
+  if(label.includes('subject-to')||label.includes('subject to'))return 'subject_to';
+  if(label.includes('eviction'))return 'eviction';
+  if(label.includes('divorce'))return 'divorce';
+  if(label.includes('fire damage'))return 'fire_damage';
+  return label.replace(/[^a-z0-9]+/g,'_').replace(/^_+|_+$/g,'');
+}
+
+function getListSignals(r){
+  const signals=new Set();
+  uniqueList(r.distress_sources).forEach(v=>{const k=normalizeListLabel(v);if(k)signals.add(k);});
+  uniqueList(r.flags).forEach(v=>{const k=normalizeListLabel(v);if(k)signals.add(k);});
+  if(r.is_absentee)signals.add('absentee');
+  if(r.is_out_of_state)signals.add('out_of_state');
+  if(r.is_inherited)signals.add('inherited');
+  if(r.is_vacant_home)signals.add('vacant_home');
+  if(r.is_vacant_land)signals.add('vacant_land');
+  if(r.doc_type==='SHERIFF')signals.add('sheriff_sale');
+  if(r.doc_type==='PRO')signals.add('probate');
+  if((r.cat_label||'').toLowerCase().includes('subject-to'))signals.add('subject_to');
+  return [...signals];
+}
+
+function normalizeTraceRecord(data){
+  const phones=uniqueList([
+    data['Phone 1'],
+    data.Phone1,
+    data.phone1,
+    data.phone_primary,
+    data['Phone 2'],
+    data.Phone2,
+    data.phone2,
+    data.phone_secondary,
+    data['Phone 3'],
+    data.Phone3,
+    data.phone3,
+    data.phone_tertiary,
+    ...(data.traced_phones||[]),
+    ...(data.phones||[]),
+  ]);
+  const primaryPhone=firstTruthyValue([data.phone_primary,data['Phone 1'],data.Phone1,data.phone1,phones[0]]);
+  const secondaryPhone=firstTruthyValue([
+    data.phone_secondary,
+    data['Phone 2'],
+    data.Phone2,
+    data.phone2,
+    nextDistinctValue([primaryPhone],phones),
+  ]);
+  const tertiaryPhone=firstTruthyValue([
+    data.phone_tertiary,
+    data['Phone 3'],
+    data.Phone3,
+    data.phone3,
+    nextDistinctValue([primaryPhone,secondaryPhone],phones),
+  ]);
+  const phoneTypes=uniqueList([
+    data['Phone 1 Type'],
+    data.phone_primary_type,
+    (data.traced_phone_types||[])[0],
+    (data.phone_types||[])[0],
+    data['Phone 2 Type'],
+    data.phone_secondary_type,
+    (data.traced_phone_types||[])[1],
+    (data.phone_types||[])[1],
+    data['Phone 3 Type'],
+    data.phone_tertiary_type,
+    (data.traced_phone_types||[])[2],
+    (data.phone_types||[])[2],
+  ]);
+  const primaryPhoneType=firstTruthyValue([data.phone_primary_type,data['Phone 1 Type'],(data.traced_phone_types||[])[0],(data.phone_types||[])[0],phoneTypes[0]]);
+  const secondaryPhoneType=firstTruthyValue([data.phone_secondary_type,data['Phone 2 Type'],(data.traced_phone_types||[])[1],(data.phone_types||[])[1],phoneTypes[1]]);
+  const tertiaryPhoneType=firstTruthyValue([data.phone_tertiary_type,data['Phone 3 Type'],(data.traced_phone_types||[])[2],(data.phone_types||[])[2],phoneTypes[2]]);
+  const emailPrimary=data.email_primary||data.traced_email||data.Email||uniqueList(data.traced_emails||[])[0]||uniqueList(data.emails||[])[0]||'';
+  const tracedOwnerName=data.traced_owner_name||data.traced_owner||data['Traced Owner']||'';
+  const hasPhone=traceBool(data.has_phone);
+  const hasEmail=traceBool(data.has_email);
+  const skipTraced=traceBool(data.skip_traced);
+  const skipTraceHit=traceBool(data.skip_trace_hit);
+  const resolvedHasPhone=hasPhone??!!primaryPhone;
+  const resolvedHasEmail=hasEmail??!!emailPrimary;
+  const status=data.skip_trace_status||data['Skip Trace Status']||(skipTraced?(resolvedHasPhone||resolvedHasEmail?'success':'no_contact'):(skipTraceHit===false?'no_hit':''));
+  const skipTraceSource=data.skip_trace_source||data['Skip Trace Source']||TRACE_SOURCE;
+  return Object.assign({},data,{
+    traced_owner_name:tracedOwnerName,
+    phone_primary:primaryPhone,
+    phone_primary_type:primaryPhoneType,
+    phone_secondary:secondaryPhone,
+    phone_secondary_type:secondaryPhoneType,
+    email_primary:emailPrimary,
+    traced_mailing_address:data.traced_mailing_address||data.traced_mail_address||data['Traced Mailing Address']||'',
+    traced_mailing_city:data.traced_mailing_city||data.traced_mail_city||'',
+    traced_mailing_state:data.traced_mailing_state||data.traced_mail_state||'',
+    skip_trace_status:status,
+    skip_trace_source:skipTraceSource,
+    skip_trace_timestamp:data.skip_trace_timestamp||data.skip_trace_at||data['Skip Trace Timestamp']||'',
+    has_phone:resolvedHasPhone,
+    has_email:resolvedHasEmail,
+    'Phone 1':primaryPhone,
+    'Phone 1 Type':primaryPhoneType,
+    'Phone 2':secondaryPhone,
+    'Phone 2 Type':secondaryPhoneType,
+    'Phone 3':tertiaryPhone,
+    'Phone 3 Type':tertiaryPhoneType,
+    Email:emailPrimary,
+    'Skip Trace Source':skipTraceSource,
+  });
+}
+
+function recordMatchKeys(record){
+  const r=record&&typeof record==='object'?record:{};
+  const parcelId=normalizeMatchValue(r.parcel_id);
+  const propAddress=normalizePropertyAddress(r.prop_address);
+  const propCity=normalizeMatchValue(r.prop_city);
+  const propState=normalizeMatchValue(r.prop_state);
+  const keys=[];
+  const seen=new Set();
+  const addKey=value=>{
+    const key=normalizeMatchValue(value);
+    if(!key||seen.has(key))return;
+    seen.add(key);
+    keys.push(key);
+  };
+  addKey(leadKey(r));
+  addKey(legacyLeadKey(r));
+  if(parcelId)addKey(`PARCEL:${parcelId}`);
+  if(propAddress&&propCity&&propState)addKey(`PROPERTY:${propAddress}|${propCity}|${propState}`);
+  return keys;
+}
+
+function applyDerivedLeadFields(r){
+  const normalized=normalizeTraceRecord(r);
+  Object.assign(r,normalized,{
+    list_count:getListSignals(r).length,
+  });
+  const sellerScore=Number(r.score)||0;
+  const listCount=Number(r.list_count)||0;
+  const distressCount=Number(r.distress_count)||0;
+  r.skip_trace_eligible=sellerScore>=65 && listCount>=2 && distressCount>=2;
+  return r;
+}
+
+function getTracedPhones(r){
+  return uniqueList([r.phone_primary,r.phone_secondary]);
+}
+
+function hasTracedContact(r){
+  return getTracedPhones(r).length>0||getRecordEmails({
+    email_primary:r.email_primary,
+    emails:[],
+  }).length>0;
+}
+
+function getRecordPhones(r){
+  return uniqueList([
+    r.phone_primary,
+    r.phone_secondary,
+    r.phone_tertiary,
+    r['Phone 1'],
+    r['Phone 2'],
+    r['Phone 3'],
+    r.Phone1,
+    r.Phone2,
+    r.Phone3,
+    r.phone1,
+    r.phone2,
+    r.phone3,
+    ...(r.phones||[]),
+  ]);
+}
+
+function getRecordPhoneTypes(r){
+  return uniqueList([
+    r.phone_primary&&r.phone_primary_type?r.phone_primary_type:'',
+    r.phone_secondary&&r.phone_secondary_type?r.phone_secondary_type:'',
+    r.phone_tertiary&&r.phone_tertiary_type?r.phone_tertiary_type:'',
+    r['Phone 1']&&r['Phone 1 Type']?r['Phone 1 Type']:'',
+    r['Phone 2']&&r['Phone 2 Type']?r['Phone 2 Type']:'',
+    r['Phone 3']&&r['Phone 3 Type']?r['Phone 3 Type']:'',
+    ...(r.phone_types||[]),
+  ]);
+}
+
+function getRecordEmails(r){
+  return uniqueList([r.email_primary,r.Email,r.traced_email,...(r.emails||[])]);
+}
+
+function getTraceMailingAddress(r){
+  if(!(r.traced_mailing_address||r.traced_mailing_city||r.traced_mailing_state))return '';
+  return [r.traced_mailing_address,[r.traced_mailing_city,r.traced_mailing_state].filter(Boolean).join(', ')].filter(Boolean).join(' ').replace(/\s+,/g,',');
+}
+
+function isTracerfyEligible(r){
+  return !!r.skip_trace_eligible;
+}
+
+function isSkipTraced(r){
+  return TRACE_SUCCESS_STATUSES.has(String(r.skip_trace_status||''))&&hasTracedContact(r);
+}
+
+function hasAnyPhone(r){
+  return getRecordPhones(r).length>0;
+}
+
+function applyStoredTraceData(r){
+  const keys=recordMatchKeys(r);
+  const stored=keys.map(key=>traceStore[key]).find(Boolean);
+  if(stored){
+    let changed=false;
+    keys.forEach(key=>{
+      if(traceStore[key]===stored)return;
+      traceStore[key]=stored;
+      changed=true;
+    });
+    if(changed)saveTraceStore();
+  }
+  if(stored){
+    const merged=mergePersistedTraceFields(r,stored);
+    Object.assign(r,merged);
+  }
+  return applyDerivedLeadFields(r);
+}
+
+function mergePersistedTraceFields(target,source){
+  if(!source||typeof source!=='object')return applyDerivedLeadFields(target);
+  const merged=Object.assign({},target);
+  TRACE_PERSIST_FIELDS.forEach(field=>{
+    if(source[field]!==undefined&&source[field]!==null&&source[field]!=='')merged[field]=source[field];
+  });
+  return applyDerivedLeadFields(merged);
+}
+
+function buildCanonicalTraceIndex(records){
+  const index={};
+  (records||[]).forEach(record=>{
+    const normalized=applyStoredTraceData(Object.assign({},record));
+    if(!(
+      normalized.traced_owner_name||
+      normalized.phone_primary||
+      normalized.phone_secondary||
+      normalized.email_primary||
+      normalized.traced_mailing_address||
+      normalized.traced_mailing_city||
+      normalized.traced_mailing_state||
+      normalized.skip_trace_status
+    ))return;
+    recordMatchKeys(normalized).forEach(key=>{
+      index[key]=normalized;
+    });
+  });
+  canonicalTraceIndex=index;
+  return canonicalTraceIndex;
+}
+
+async function getCanonicalTraceIndex(){
+  if(canonicalTraceIndex)return canonicalTraceIndex;
+  if(!canonicalTraceIndexPromise){
+    canonicalTraceIndexPromise=(async()=>{
+      const payload=await fetchJSON('records.json');
+      const records=payload?(payload.records||[]):[];
+      return buildCanonicalTraceIndex(records);
+    })().finally(()=>{
+      canonicalTraceIndexPromise=null;
+    });
+  }
+  canonicalTraceIndex=await canonicalTraceIndexPromise;
+  return canonicalTraceIndex||{};
+}
+
+async function hydrateCanonicalTraceRecords(records){
+  const index=await getCanonicalTraceIndex();
+  return (records||[]).map(record=>{
+    const normalized=applyStoredTraceData(record);
+    const match=recordMatchKeys(normalized).map(key=>index[key]).find(Boolean);
+    return match?mergePersistedTraceFields(normalized,match):normalized;
+  });
+}
+
+function getPreferredOwner(r){
+  return r.traced_owner_name||r.owner||'';
+}
+
+function getPreferredMailingAddress(r){
+  return r.traced_mailing_address||r.mail_address||'';
+}
+
+function getPreferredMailingCity(r){
+  return r.traced_mailing_city||r.mail_city||'';
+}
+
+function getPreferredMailingState(r){
+  return r.traced_mailing_state||r.mail_state||'';
+}
+
+function getPreferredMailingZip(r){
+  return r.traced_mailing_zip||r.mail_zip||'';
+}
+
+function getPreferredMailingLine(r){
+  const address=getPreferredMailingAddress(r);
+  const city=getPreferredMailingCity(r);
+  const state=getPreferredMailingState(r);
+  const zip=getPreferredMailingZip(r);
+  if(!(address||city||state||zip))return '';
+  return `${address||'–'}${city?', '+city:''} ${state||''} ${zip||''}`.trim();
+}
+
+function getTracerfyApiKey(){
+  return cleanConfigValue(window.TRACERFY_CONFIG&&(window.TRACERFY_CONFIG.apiKey||window.TRACERFY_CONFIG.apiToken));
+}
+
+function tracerfyConfigured(){
+  return !!getTracerfyApiKey();
+}
+
+function getTracerfyLiveApiCandidates(){
+  const candidates=[];
+  const configuredLiveBase=cleanConfigValue(window.TRACERFY_CONFIG&&window.TRACERFY_CONFIG.liveApiBase);
+  const normalizedConfiguredBase=configuredLiveBase.replace(/\/$/,'');
+  if(normalizedConfiguredBase)candidates.push(`${normalizedConfiguredBase}${TRACERFY_LIVE_API_PATH}`);
+  if(window.location&&/^https?:$/i.test(window.location.protocol)){
+    candidates.push(`${window.location.origin}${TRACERFY_LIVE_API_PATH}`);
+  }
+  candidates.push(`http://127.0.0.1:8765${TRACERFY_LIVE_API_PATH}`);
+  return uniqueList(candidates);
+}
+
+function buildTracerfyLookupRequest(r){
+  return {
+    address:r.prop_address||'',
+    city:r.prop_city||'',
+    state:r.prop_state||'',
+  };
+}
+
+function nextDistinctPhone(primaryPhone,candidates){
+  return uniqueList(candidates).find(v=>v&&v!==primaryPhone)||'';
+}
+
+function extractFirstNonempty(payload,keys){
+  if(!payload||typeof payload!=='object')return '';
+  for(const key of keys){
+    const value=payload[key];
+    if(typeof value==='string'&&value.trim())return value.trim();
+  }
+  return '';
+}
+
+function looksLikeTracePayload(payload){
+  if(!payload||typeof payload!=='object')return false;
+  if(Array.isArray(payload.persons)&&payload.persons.length)return true;
+  if(payload.person&&typeof payload.person==='object')return true;
+  if(payload.owner&&typeof payload.owner==='object')return true;
+  return ['phones','emails','mailing_address','first_name','last_name','full_name','name','owner_name','person_name'].some(key=>key in payload);
+}
+
+function extractNestedTracePayload(responseData){
+  const queue=[responseData];
+  const seen=new Set();
+  while(queue.length){
+    const payload=queue.shift();
+    if(!payload||typeof payload!=='object')continue;
+    if(seen.has(payload))continue;
+    seen.add(payload);
+    if(looksLikeTracePayload(payload))return payload;
+    if(Array.isArray(payload)){
+      payload.forEach(item=>{if(item&&typeof item==='object')queue.push(item);});
+      continue;
+    }
+    ['data','result','results','matches','records','items'].forEach(key=>{
+      const candidate=payload[key];
+      if(Array.isArray(candidate))candidate.forEach(item=>{if(item&&typeof item==='object')queue.push(item);});
+      else if(candidate&&typeof candidate==='object')queue.push(candidate);
+    });
+  }
+  return responseData&&typeof responseData==='object'?responseData:{};
+}
+
+function extractPersonCandidates(payload){
+  const candidates=[];
+  if(Array.isArray(payload.persons))payload.persons.forEach(item=>{if(item&&typeof item==='object')candidates.push(item);});
+  ['person','owner'].forEach(key=>{
+    if(payload[key]&&typeof payload[key]==='object')candidates.push(payload[key]);
+  });
+  if(payload&&typeof payload==='object'&&!Array.isArray(payload))candidates.push(payload);
+  return candidates;
+}
+
+function extractPersonName(candidate){
+  const firstName=extractFirstNonempty(candidate,['first_name','firstname','owner_first_name','person_first_name']);
+  const lastName=extractFirstNonempty(candidate,['last_name','lastname','owner_last_name','person_last_name']);
+  return [firstName,lastName].filter(Boolean).join(' ').trim()||extractFirstNonempty(candidate,['owner_name','full_name','name','person_name']);
+}
+
+function extractPhoneEntries(candidate){
+  const entries=[];
+  (candidate.phones||[]).forEach(phone=>{
+    if(phone&&typeof phone==='object'){
+      const number=extractFirstNonempty(phone,['number','phone']);
+      if(number)entries.push([number,extractFirstNonempty(phone,['type','phone_type'])]);
+      return;
+    }
+    const number=String(phone||'').trim();
+    if(number)entries.push([number,'']);
+  });
+  [
+    [extractFirstNonempty(candidate,['primary_phone','mobile_1','mobile_2','landline_1','phone','phone_1']),extractFirstNonempty(candidate,['primary_phone_type','phone_type'])],
+    [String(candidate.mobile_1||'').trim(),'mobile'],
+    [String(candidate.mobile_2||'').trim(),'mobile'],
+    [String(candidate.landline_1||'').trim(),'landline'],
+  ].forEach(([number,phoneType])=>{
+    if(number)entries.push([number,phoneType]);
+  });
+  const seen=new Set();
+  return entries.filter(([number])=>{
+    if(seen.has(number))return false;
+    seen.add(number);
+    return true;
+  });
+}
+
+function extractEmailCandidates(candidate){
+  const emails=[];
+  (candidate.emails||[]).forEach(email=>{
+    const value=email&&typeof email==='object'
+      ? extractFirstNonempty(email,['email','address'])
+      : String(email||'').trim();
+    if(value)emails.push(value);
+  });
+  emails.push(extractFirstNonempty(candidate,['email_1','email','primary_email']));
+  return uniqueList(emails);
+}
+
+function extractMailingAddress(candidate){
+  const mailing=candidate.mailing_address;
+  if(mailing&&typeof mailing==='object'){
+    return {
+      address:extractFirstNonempty(mailing,['address','address1','line1','street']),
+      city:extractFirstNonempty(mailing,['city']),
+      state:extractFirstNonempty(mailing,['state']),
+    };
+  }
+  if(typeof mailing==='string'&&mailing.trim()){
+    return {address:mailing.trim(),city:'',state:''};
+  }
+  return {
+    address:extractFirstNonempty(candidate,['mail_address','address_mail','mail_address_1']),
+    city:extractFirstNonempty(candidate,['mail_city','mailing_city']),
+    state:extractFirstNonempty(candidate,['mail_state','mailing_state']),
+  };
+}
+
+function mapTracerfyLookupResponse(r,resp){
+  const payload=extractNestedTracePayload(resp);
+  const candidates=extractPersonCandidates(payload);
+  let tracedOwnerName='';
+  let phoneEntries=[];
+  let emailCandidates=[];
+  let mailingAddress={address:'',city:'',state:''};
+  candidates.forEach(candidate=>{
+    if(!tracedOwnerName)tracedOwnerName=extractPersonName(candidate);
+    if(!phoneEntries.length)phoneEntries=extractPhoneEntries(candidate);
+    if(!emailCandidates.length)emailCandidates=extractEmailCandidates(candidate);
+    if(!(mailingAddress.address||mailingAddress.city||mailingAddress.state))mailingAddress=extractMailingAddress(candidate);
+  });
+  const primaryPhone=phoneEntries[0]?.[0]||'';
+  const secondaryPhone=phoneEntries[1]?.[0]||'';
+  const emailPrimary=emailCandidates[0]||'';
+  const hasPhone=!!(primaryPhone||secondaryPhone);
+  const hasEmail=!!emailPrimary;
+  const hadAnyMappedValue=!!(
+    tracedOwnerName||primaryPhone||secondaryPhone||emailPrimary||
+    mailingAddress.address||mailingAddress.city||mailingAddress.state
+  );
+  const traceData={
+    traced_owner_name:tracedOwnerName,
+    phone_primary:primaryPhone,
+    phone_primary_type:phoneEntries[0]?.[1]||'',
+    phone_secondary:secondaryPhone,
+    phone_secondary_type:phoneEntries[1]?.[1]||'',
+    email_primary:emailPrimary,
+    traced_mailing_address:mailingAddress.address,
+    traced_mailing_city:mailingAddress.city,
+    traced_mailing_state:mailingAddress.state,
+    skip_trace_status:hasPhone||hasEmail?'success':(hadAnyMappedValue?'no_contact':'no_hit'),
+    skip_trace_source:TRACE_SOURCE,
+    has_phone:hasPhone,
+    has_email:hasEmail,
+    skip_trace_timestamp:new Date().toISOString(),
+    skip_trace_eligible:isTracerfyEligible(r),
+  };
+  if(!String(r.owner||'').trim()&&tracedOwnerName)traceData.owner=tracedOwnerName;
+  return applyDerivedLeadFields(traceData);
+}
+
+function persistTraceData(r,traceData){
+  const safeTraceData=!TRACE_SUCCESS_STATUSES.has(String(traceData.skip_trace_status||''))
+    ? Object.assign({
+      phone_primary:'',
+      phone_primary_type:'',
+      phone_secondary:'',
+      phone_secondary_type:'',
+      email_primary:'',
+      has_phone:false,
+      has_email:false,
+    },traceData)
+    : traceData;
+  const merged=applyDerivedLeadFields(Object.assign({},r,safeTraceData));
+  const persistedPayload=TRACE_PERSIST_FIELDS.reduce((acc,field)=>{
+    if(merged[field]!==undefined)acc[field]=merged[field];
+    return acc;
+  },{});
+  const persistedTrace=recordMatchKeys(merged).map(key=>traceStore[key]).find(Boolean)||{};
+  Object.keys(persistedTrace).forEach(key=>delete persistedTrace[key]);
+  Object.assign(persistedTrace,persistedPayload);
+  recordMatchKeys(merged).forEach(key=>{
+    traceStore[key]=persistedTrace;
+  });
+  saveTraceStore();
+  Object.assign(r,merged);
+  Object.values(cache).forEach(records=>{
+    (records||[]).forEach(record=>{
+      if(record===r)return;
+      if(recordMatchKeys(record).some(key=>traceStore[key]===persistedTrace)){
+        Object.assign(record,mergePersistedTraceFields(record,persistedTrace));
+      }
+    });
+  });
+  if(window._lastModalRecord===r)window._lastModalRecord=r;
+}
+
+function clearTraceData(r){
+  recordMatchKeys(r).forEach(key=>{
+    delete traceStore[key];
+  });
+  saveTraceStore();
+  [
+    'traced_owner_name','phone_primary','phone_primary_type','phone_secondary','phone_secondary_type',
+    'email_primary','traced_mailing_address','traced_mailing_city','traced_mailing_state',
+    'skip_trace_status','skip_trace_source','has_phone','has_email','skip_trace_timestamp',
+    'Phone 1','Phone 1 Type','Phone 2','Phone 2 Type','Phone 3','Phone 3 Type','Email','Skip Trace Source'
+  ].forEach(k=>{
+    if(Array.isArray(r[k]))r[k]=[];
+    else if(typeof r[k]==='boolean')r[k]=false;
+    else r[k]='';
+  });
+  applyDerivedLeadFields(r);
+}
+
+async function fetchJSON(file){
+  for(const p of['data/'+file,'../data/'+file,'dashboard/'+file,file]){
+    try{const r=await fetch(p);if(r.ok)return await r.json();}catch(e){}
+  }
+  return null;
+}
+
+function shouldAutoSkipTrace(r){
+  if(!tracerfyConfigured())return false;
+  if(!isTracerfyEligible(r))return false;
+  if(!(r.prop_address&&r.prop_city&&r.prop_state))return false;
+  if(TRACE_FINAL_STATUSES.has(String(r.skip_trace_status||'')))return false;
+  return true;
+}
+
+function queueAutoSkipTrace(records){
+  records.forEach(r=>{
+    if(!shouldAutoSkipTrace(r))return;
+    const key=leadKey(r);
+    if(traceQueueKeys.has(key))return;
+    traceQueueKeys.add(key);
+    traceQueue.push(r);
+  });
+  return processTraceQueue();
+}
+
+async function requestTracerfyTrace(r){
+  const livePayload={
+    lead:r,
+    lead_key:leadKey(r),
+    legacy_lead_key:legacyLeadKey(r),
+    trace_lookup:buildTracerfyLookupRequest(r),
+  };
+  for(const url of getTracerfyLiveApiCandidates()){
+    try{
+      const resp=await fetch(url,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(livePayload),
+      });
+      if(!resp.ok)throw new Error(`Tracerfy live trace failed (${resp.status})`);
+      const payload=await resp.json();
+      if(payload&&payload.trace_data)return applyDerivedLeadFields(payload.trace_data);
+      if(payload&&payload.data)return mapTracerfyLookupResponse(r,payload);
+      throw new Error('Tracerfy live trace returned no trace payload');
+    }catch(err){
+      const message=String(err&&err.message||err||'');
+      if(!/Failed to fetch|NetworkError|load failed|ERR_CONNECTION_REFUSED|404|405/i.test(message))throw err;
+    }
+  }
+  const resp=await fetch(`${TRACERFY_API_BASE}/trace/lookup/`,{
+    method:'POST',
+    headers:{
+      'Authorization':`Bearer ${getTracerfyApiKey()}`,
+      'Content-Type':'application/json',
+    },
+    body:JSON.stringify(buildTracerfyLookupRequest(r)),
+  });
+  if(!resp.ok)throw new Error(`Tracerfy lookup failed (${resp.status})`);
+  return mapTracerfyLookupResponse(r,await resp.json());
+}
+
+async function processTraceQueue(){
+  if(traceQueueRunning)return traceQueuePromise;
+  traceQueueRunning=true;
+  traceQueuePromise=(async()=>{
+    while(traceQueue.length){
+      const r=traceQueue.shift();
+      traceQueueKeys.delete(leadKey(r));
+      if(!shouldAutoSkipTrace(r))continue;
+      r._trace_loading=true;
+      if(window._lastModalRecord===r)openModal(r);
+      try{
+        persistTraceData(r,await requestTracerfyTrace(r));
+      }catch(err){
+        persistTraceData(r,{
+          skip_trace_status:'request_failed',
+          skip_trace_source:TRACE_SOURCE,
+          has_phone:false,
+          has_email:false,
+          skip_trace_timestamp:new Date().toISOString(),
+          skip_trace_eligible:isTracerfyEligible(r),
+        });
+      }finally{
+        delete r._trace_loading;
+        if(window._lastModalRecord===r)openModal(r);
+        applyFilters();
+        await new Promise(resolve=>setTimeout(resolve,120));
+      }
+    }
+  })().finally(()=>{
+    traceQueueRunning=false;
+  });
+  return traceQueuePromise;
+}
+
+async function loadTab(tab){
+  if(cache[tab]){
+    queueAutoSkipTrace(cache[tab]);
+    return cache[tab];
+  }
+  const j=await fetchJSON(TAB_FILES[tab]);
+  let recs=j?(j.records||[]):[];
+  if(tab==='all'){
+    recs=recs.map(applyStoredTraceData);
+    buildCanonicalTraceIndex(recs);
+  }else{
+    recs=await hydrateCanonicalTraceRecords(recs);
+  }
+  cache[tab]=recs;
+  const b=document.getElementById('b-'+tab);
+  if(b)b.textContent=recs.length.toLocaleString();
+  queueAutoSkipTrace(recs);
+  return recs;
+}
+
+async function loadStats(){
+  const j=await fetchJSON('records.json');
+  if(!j){document.getElementById('upd').textContent='Offline';return;}
+  const r=(j.records||[]).map(applyStoredTraceData);
+  buildCanonicalTraceIndex(r);
+  document.getElementById('s-total').textContent=(j.total||0).toLocaleString();
+  document.getElementById('s-sheriff').textContent=(j.sheriff_sale_count||0).toLocaleString();
+  document.getElementById('s-hot').textContent=(j.hot_stack_count||0).toLocaleString();
+  document.getElementById('s-probate').textContent=(j.probate_count||0).toLocaleString();
+  document.getElementById('s-code').textContent=(j.code_violation_count||0).toLocaleString();
+  document.getElementById('s-vacant').textContent=(j.vacant_home_count||0).toLocaleString();
+  document.getElementById('s-tax').textContent=(j.tax_delinquent_count||0).toLocaleString();
+  document.getElementById('s-absentee').textContent=(j.absentee_count||0).toLocaleString();
+  document.getElementById('s-inherited').textContent=r.filter(x=>x.is_inherited).length.toLocaleString();
+  document.getElementById('s-subto').textContent=(j.subject_to_count||0).toLocaleString();
+  document.getElementById('s-vacland').textContent=(j.vacant_land_count||r.filter(x=>x.is_vacant_land).length).toLocaleString();
+  document.getElementById('s-new').textContent=r.filter(x=>(x.flags||[]).includes('New this week')).length.toLocaleString();
+  document.getElementById('b-all').textContent=(j.total||0).toLocaleString();
+  cache['all']=r;
+  queueAutoSkipTrace(r);
+  if(j.fetched_at){const d=new Date(j.fetched_at);document.getElementById('upd').textContent='Updated '+d.toLocaleDateString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});}
+}
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// TAB SWITCHING
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',async()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  curTab=t.dataset.tab;
+
+  const isDeal=curTab==='deal_analyzer';
+  document.getElementById('da-page').style.display=isDeal?'block':'none';
+  document.getElementById('toolbar').style.display=isDeal?'none':'flex';
+  document.getElementById('table-wrap').style.display=isDeal?'none':'block';
+
+  if(isDeal){
+    setTimeout(()=>document.getElementById('p-arv-base').focus(),80);
+    return;
+  }
+
+  document.getElementById('tbody').innerHTML='<tr><td colspan="9"><div class="loading"><span class="spinner"></span>Loading...</div></td></tr>';
+  curRecs=await loadTab(curTab);
+  applyFilters();
+}));
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// FILTERS + SORT + RENDER
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+function applyFilters(){
+  const q=document.getElementById('search').value.toLowerCase().trim();
+  const minS=parseInt(document.getElementById('f-score').value)||0;
+  const fl=document.getElementById('f-flag').value.toLowerCase();
+  const ad=document.getElementById('f-addr').value;
+  const traced=document.getElementById('f-traced').value;
+  filtered=curRecs.filter(r=>{
+    if(minS&&(r.score||0)<minS)return false;
+    if(ad==='with'&&!r.prop_address)return false;
+    if(ad==='without'&&r.prop_address)return false;
+    if(traced==='yes'&&!isSkipTraced(r))return false;
+    if(traced==='no'&&isSkipTraced(r))return false;
+    if(fl&&!(r.flags||[]).join(' ').toLowerCase().includes(fl))return false;
+    if(q){const hay=[r.owner,r.traced_owner_name,r.prop_address,r.prop_city,r.doc_num,r.doc_type,r.mail_address,r.traced_mailing_address,r.decedent_name,r.executor_name,(r.flags||[]).join(' '),getRecordPhones(r).join(' '),getRecordEmails(r).join(' ')].join(' ').toLowerCase();if(!hay.includes(q))return false;}
+    return true;
+  });
+  doSort();rendered=0;renderTable();
+  document.getElementById('rec-count').textContent=filtered.length.toLocaleString()+' records';
+}
+
+function clearFilters(){['search','f-score','f-flag','f-addr','f-traced'].forEach(id=>document.getElementById(id).value='');applyFilters();}
+function sortBy(col,th){sortDir=sortCol===col?-sortDir:-1;sortCol=col;document.querySelectorAll('thead th').forEach(x=>x.classList.remove('sorted'));if(th)th.classList.add('sorted');doSort();rendered=0;renderTable();}
+function doSort(){filtered.sort((a,b)=>{let av=a[sortCol],bv=b[sortCol];if(av==null)av=sortDir<0?-Infinity:Infinity;if(bv==null)bv=sortDir<0?-Infinity:Infinity;if(typeof av==='string')return av.localeCompare(bv)*sortDir;return(av-bv)*sortDir;});}
+
+function renderTable(){
+  _rowStore.length = 0; // clear store for fresh IDs each render
+  const tbody=document.getElementById('tbody');
+  if(!filtered.length){tbody.innerHTML='<tr><td colspan="9"><div class="empty"><div class="empty-icon">â—Ž</div><div>No leads found</div></div></td></tr>';return;}
+  tbody.innerHTML=filtered.slice(0,PAGE).map(rowHTML).join('');
+  if(filtered.length>PAGE){const s=document.createElement('tr');s.id='sentinel';s.innerHTML='<td colspan="9"><div class="loading" style="padding:14px">Scroll for more...</div></td>';tbody.appendChild(s);rendered=PAGE;observe();}
+  cleanupBrokenIconText(tbody);
+}
+function observe(){const s=document.getElementById('sentinel');if(!s)return;new IntersectionObserver(e=>{if(e[0].isIntersecting)loadMore();},{root:document.getElementById('table-wrap'),threshold:.1}).observe(s);}
+function loadMore(){const tbody=document.getElementById('tbody');const s=document.getElementById('sentinel');if(s)s.remove();filtered.slice(rendered,rendered+PAGE).forEach(r=>tbody.insertAdjacentHTML('beforeend',rowHTML(r)));rendered+=PAGE;if(rendered<filtered.length){const s=document.createElement('tr');s.id='sentinel';s.innerHTML='<td colspan="9"><div class="loading" style="padding:14px">Loading more...</div></td>';tbody.appendChild(s);observe();}cleanupBrokenIconText(tbody);}
+
+// Record store â€” avoids broken JSON-in-HTML-attribute problem
+const _rowStore = [];
+
+function openModalById(id){
+  const r = _rowStore[id];
+  if(r) openModal(r);
+}
+
+function rowHTML(r){
+  const sc=r.score||0,scls=sc>=80?'sh':sc>=60?'sm':'sl';
+  const flags=r.flags||[];
+  const tracedTag=isSkipTraced(r)?'<span class="tag t-green">&#128222; Skipped</span>':'';
+  const tags=flags.slice(0,5).map(tagHTML).join('')+(flags.length>5?`<span class="tag t-gray">+${flags.length-5}</span>`:'')+tracedTag;
+  const eq=r.est_equity,eqH=eq!=null?eqBar(eq):'<span style="color:var(--muted);font-size:11px">â€“</span>';
+  const amt=r.amount!=null?'$'+Number(r.amount).toLocaleString('en-US',{maximumFractionDigits:0}):'â€“';
+  const addr=r.prop_address?`<div class="owner-sub">${r.prop_address}${r.prop_city?', '+r.prop_city:''}</div>`:'';
+  const dec=r.decedent_name?`<div class="owner-sub">Estate of ${r.decedent_name}</div>`:'';
+  const sh=r.doc_type==='SHERIFF'&&r.sheriff_sale_date?`<div class="owner-sub" style="color:var(--hot)">âš¡ Sale: ${r.sheriff_sale_date}</div>`:'';
+  const lnk=r.clerk_url?`<a class="view-btn" href="${r.clerk_url}" target="_blank" onclick="event.stopPropagation()">View</a>`:'<span style="color:var(--muted);font-size:11px">â€“</span>';
+  const rid = _rowStore.push(r) - 1;
+  return `<tr onclick="openModalById(${rid})"><td><div class="score-badge ${scls}">${sc}</div></td><td style="min-width:190px"><div class="owner-name">${getPreferredOwner(r)||'<span style="color:var(--muted)">Unknown</span>'}</div>${dec}${addr}${sh}</td><td class="date-cell">${r.cat_label||r.doc_type||'â€“'}</td><td class="date-cell">${r.filed||'â€“'}</td><td class="amount-cell">${amt}</td><td class="date-cell" style="max-width:130px;overflow:hidden;text-overflow:ellipsis">${(r.doc_num||'').slice(0,20)}</td><td style="max-width:340px"><div class="tags">${tags}</div></td><td>${eqH}</td><td>${lnk}</td></tr>`;
+}
+
+function tagHTML(f){const fl=f.toLowerCase();let c='t-gray';if(fl.includes('hot stack')||fl.includes('sheriff')||fl.includes('foreclos')||fl.includes('âš¡'))c='t-hot';else if(fl.includes('tax')||fl.includes('debt')||fl.includes('lien')||fl.includes('judgment'))c='t-warn';else if(fl.includes('absentee')||fl.includes('out-of-state')||fl.includes('inherited')||fl.includes('probate')||fl.includes('executor'))c='t-blue';else if(fl.includes('vacant')||fl.includes('code')||fl.includes('nuisance')||fl.includes('violation'))c='t-purple';else if(fl.includes('new this week'))c='t-green';else if(fl.includes('subject-to')||fl.includes('equity')||fl.includes('prime'))c='t-gold';return `<span class="tag ${c}">${f}</span>`;}
+function eqBar(eq){const pct=Math.min(Math.abs(eq)/150000*100,100),c=eq>=0?'eq-pos':'eq-neg',lbl=eq>=0?`+$${(eq/1000).toFixed(0)}k`:`-$${(Math.abs(eq)/1000).toFixed(0)}k`,col=eq>=0?'var(--accent3)':'var(--accent2)';return `<div class="eq-bar"><div class="eq-fill ${c}" style="width:${pct}%"></div></div><div class="eq-lbl" style="color:${col}">${lbl}</div>`;}
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// MODAL
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+
+const M_SQFT=[{easy:15000,medium:27500,heavy:45000},{easy:20000,medium:37500,heavy:65000},{easy:30000,medium:57500,heavy:85000},{easy:40000,medium:77500,heavy:105000}];
+const M_ADDONS=[{id:'roof',name:'Roof',range:'+$8kâ€“15k',def:11000},{id:'hvac',name:'HVAC',range:'+$5kâ€“10k',def:7000},{id:'found',name:'Foundation',range:'+$10kâ€“30k',def:18000},{id:'plumb',name:'Plumbing',range:'+$5kâ€“15k',def:8000},{id:'elec',name:'Electrical',range:'+$5kâ€“12k',def:7500},{id:'mold',name:'Mold/Water',range:'+$3kâ€“12k',def:6000},{id:'sewer',name:'Sewer',range:'+$4kâ€“10k',def:6000},{id:'windows',name:'Windows/Doors',range:'+$3kâ€“8k',def:5000}];
+let _mRow=0,_mCond='medium',_mMode='wholesale',_mFlip=false,_mAddons={};
+
+function dealAnalyzerHTML(arv){
+  const sqL=['Under 1,500 SF','1,500â€“2,000','2,000â€“2,500','2,500+'];
+  const trows=M_SQFT.map((r,i)=>`<tr id="mdr${i}" onclick="mSelRow(${i})" class="${i===0?'sel':''}"><td>${sqL[i]}</td><td>$${r.easy/1000}k</td><td>$${(r.medium/1000).toFixed(1).replace('.0','')}k</td><td>$${r.heavy/1000}k</td></tr>`).join('');
+  const inp=(id,val,cb)=>`<input type="number" id="${id}" value="${val}" oninput="${cb}" style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-family:'Space Mono',monospace;font-size:12px;color:var(--text);outline:none;width:100%;">`;
+  const addonHTML=M_ADDONS.map(a=>`<div class="addon-i" id="mdai-${a.id}" onclick="mToggleAddon('${a.id}')" style="padding:8px 10px;"><div class="addon-il"><div class="addon-nm" style="font-size:12px;">${a.name}</div><div class="addon-rng">${a.range}</div></div><div class="addon-ir"><div class="addon-cv" id="mdacv-${a.id}" style="font-size:10px;">$${(a.def/1000).toFixed(0)}k</div><div class="addon-ck" id="mdack-${a.id}" style="width:16px;height:16px;font-size:10px;"></div></div></div>`).join('');
+  return `<div class="da-wrap">
+  <div class="da-title">ðŸ§® Deal Analyzer</div>
+  <div style="display:flex;gap:5px;margin-bottom:12px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:4px;">
+    <button id="mmode-ws" onclick="mSetMode('wholesale',this)" style="flex:1;padding:6px 4px;border-radius:6px;border:1px solid rgba(245,166,35,.4);background:rgba(245,166,35,.1);color:var(--accent);font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.04em;">ðŸ· Wholesale</button>
+    <button id="mmode-fl" onclick="mSetMode('flip',this)" style="flex:1;padding:6px 4px;border-radius:6px;border:1px solid var(--border);background:none;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.04em;">ðŸ”¨ Flip</button>
+    <button id="mmode-re" onclick="mSetMode('rental',this)" style="flex:1;padding:6px 4px;border-radius:6px;border:1px solid var(--border);background:none;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.04em;">ðŸ˜ Rental</button>
+  </div>
+  <div class="da-grid">
+    <div class="da-field full">
+      <label>ARV Range</label>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:4px;">
+        <div><div style="font-size:9px;color:var(--muted);margin-bottom:3px;font-family:'Space Mono',monospace;letter-spacing:.06em;">LOW</div>${inp('da-arv-low','','mCalc()')}</div>
+        <div><div style="font-size:9px;color:var(--accent);margin-bottom:3px;font-family:'Space Mono',monospace;letter-spacing:.06em;">BASE ARV â˜…</div><input type="number" id="da-arv" value="${Math.round(arv||0)}" oninput="mSyncARVs();mCalc()" style="background:var(--bg);border:1px solid rgba(245,166,35,.4);border-radius:6px;padding:7px 10px;font-family:'Space Mono',monospace;font-size:12px;color:var(--text);outline:none;width:100%;"></div>
+        <div><div style="font-size:9px;color:var(--muted);margin-bottom:3px;font-family:'Space Mono',monospace;letter-spacing:.06em;">HIGH</div>${inp('da-arv-high','','mCalc()')}</div>
+      </div>
+    </div>
+    <div class="da-field full">
+      <label>Offer % of ARV</label>
+      <div class="slider-row"><input type="range" id="da-pct" min="50" max="90" value="70" oninput="document.getElementById('da-pctv').textContent=this.value+'%';mCalc()"><div class="slider-val" id="da-pctv">70%</div></div>
+      <div style="display:flex;gap:4px;margin-top:5px;flex-wrap:wrap;">
+        <button onclick="mSetPct(85)" style="font-family:'Space Mono',monospace;font-size:9px;padding:2px 6px;border-radius:3px;border:1px solid var(--border2);background:none;color:var(--muted);cursor:pointer;">Hot 85%</button>
+        <button onclick="mSetPct(75)" style="font-family:'Space Mono',monospace;font-size:9px;padding:2px 6px;border-radius:3px;border:1px solid var(--border2);background:none;color:var(--muted);cursor:pointer;">Normal 75%</button>
+        <button onclick="mSetPct(70)" style="font-family:'Space Mono',monospace;font-size:9px;padding:2px 6px;border-radius:3px;border:1px solid var(--border2);background:none;color:var(--muted);cursor:pointer;">Std 70%</button>
+        <button onclick="mSetPct(60)" style="font-family:'Space Mono',monospace;font-size:9px;padding:2px 6px;border-radius:3px;border:1px solid var(--border2);background:none;color:var(--muted);cursor:pointer;">Deep 60%</button>
+      </div>
+    </div>
+    <div class="da-field full">
+      <label>Condition</label>
+      <div class="cond-btns" style="margin-top:4px;">
+        <button class="cond-btn" id="mcb-easy" onclick="mSetCond('easy',this)">ðŸŸ¢ Easy</button>
+        <button class="cond-btn active" id="mcb-medium" onclick="mSetCond('medium',this)">ðŸŸ¡ Needs Work</button>
+        <button class="cond-btn" id="mcb-heavy" style="border-color:var(--hot);color:var(--hot)" onclick="mSetCond('heavy',this)">ðŸ”´ Full Gut</button>
+      </div>
+      <table class="rtable" style="margin-top:8px;"><tr><th>Sq Ft</th><th>ðŸŸ¢ Easy</th><th>ðŸŸ¡ Needs Work</th><th>ðŸ”´ Full Gut</th></tr>${trows}</table>
+    </div>
+    <div class="da-field full">
+      <label>Add-On Repairs</label>
+      <div class="addon-g" style="margin-top:6px;">${addonHTML}</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:8px;border-top:1px solid var(--border);"><div style="font-size:10px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em;">Add-On Total</div><div id="da-addon-total" style="font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--warm);">$0</div></div>
+    </div>
+    <div class="da-field full">
+      <div id="da-flip-tog" onclick="mToggleFlip()" style="display:flex;align-items:center;justify-content:space-between;padding:9px 14px;background:var(--bg);border:1px solid var(--border2);border-radius:7px;cursor:pointer;margin-bottom:8px;">
+        <div><div style="font-size:13px;font-weight:700;font-family:'Barlow Condensed',sans-serif;">Include Flip Costs</div><div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--muted);">Agent % + monthly holding</div></div>
+        <div id="da-flip-pill" style="width:34px;height:19px;border-radius:10px;background:var(--border2);position:relative;transition:background .2s;"><div id="da-flip-knob" style="position:absolute;width:13px;height:13px;border-radius:50%;background:#fff;top:3px;left:3px;transition:transform .2s;"></div></div>
+      </div>
+      <div id="da-flip-det" style="display:none;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+        <div class="da-field"><label>Selling %</label>${inp('da-sell-pct',9,'mCalc()')}</div>
+        <div class="da-field"><label>Hold Months</label>${inp('da-hold-mo',4,'mCalc()')}</div>
+        <div class="da-field"><label>Monthly Hold $</label>${inp('da-hold-cost',1200,'mCalc()')}</div>
+        <div class="da-field"><label>Total Flip Costs</label><input type="number" id="da-flip-total" readonly style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-family:'Space Mono',monospace;font-size:12px;color:var(--warm);outline:none;width:100%;cursor:default;"></div>
+      </div>
+    </div>
+    <div class="da-field"><label>Rehab $</label><input type="number" id="da-rehab" value="${M_SQFT[0].medium}" oninput="mCalc()"></div>
+    <div class="da-field"><label>Fee / Profit</label><input type="number" id="da-fee" value="10000" oninput="mCalc()"></div>
+    <div class="da-field"><label>Closing</label><input type="number" id="da-closing" value="3000" oninput="mCalc()"></div>
+    <div class="da-field"><label>Other</label><input type="number" id="da-other" value="0" oninput="mCalc()"></div>
+    <div class="da-result" id="da-res" style="padding:16px;">
+      <div class="mao-lbl">Maximum Allowable Offer (MAO)</div>
+      <div class="mao-num" id="da-mao" style="font-size:40px;">â€“</div>
+      <div id="da-range-row" style="display:none;justify-content:center;gap:18px;margin:8px 0;flex-wrap:wrap;">
+        <div style="text-align:center;"><div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:.08em;">Low Ball</div><div id="da-mao-safe" style="font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--accent2);">â€“</div></div>
+        <div style="text-align:center;"><div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--accent);letter-spacing:.08em;">Target</div><div id="da-mao-target" style="font-family:'Space Mono',monospace;font-size:20px;font-weight:800;color:var(--accent);">â€“</div></div>
+        <div style="text-align:center;"><div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:.08em;">Max MAO</div><div id="da-mao-aggr" style="font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--accent3);">â€“</div></div>
+      </div>
+      <div class="mao-bd" id="da-bd"></div>
+      <div class="mao-verdict" id="da-vd"></div>
+    </div>
+  </div></div>`;
+}
+
+function mSetMode(m,btn){
+  _mMode=m;
+  ['ws','fl','re'].forEach(k=>{const b=document.getElementById('mmode-'+k);if(!b)return;b.style.borderColor='var(--border)';b.style.background='none';b.style.color='var(--muted)';});
+  const C={wholesale:['rgba(245,166,35,.4)','rgba(245,166,35,.1)','var(--accent)'],flip:['rgba(74,245,166,.4)','rgba(74,245,166,.1)','var(--accent3)'],rental:['rgba(93,142,245,.4)','rgba(93,142,245,.1)','var(--accent4)']};
+  const k=m==='wholesale'?'ws':m==='flip'?'fl':'re';const b=document.getElementById('mmode-'+k);
+  if(b){const[bc,bg,col]=C[m];b.style.borderColor=bc;b.style.background=bg;b.style.color=col;}
+  const P={wholesale:70,flip:70,rental:80};const pct=P[m];
+  const ps=document.getElementById('da-pct');const pv=document.getElementById('da-pctv');
+  if(ps)ps.value=pct;if(pv)pv.textContent=pct+'%';
+  if(m==='flip'&&!_mFlip)mToggleFlip();
+  if(m!=='flip'&&_mFlip)mToggleFlip();
+  mCalc();
+}
+function mSetPct(v){const ps=document.getElementById('da-pct');const pv=document.getElementById('da-pctv');if(ps)ps.value=v;if(pv)pv.textContent=v+'%';mCalc();}
+function mSetCond(c,btn){
+  _mCond=c;
+  document.querySelectorAll('.cond-btn').forEach(b=>{b.classList.remove('active');b.style.borderColor='';b.style.color='';});
+  btn.classList.add('active');
+  if(c==='heavy'){btn.style.borderColor='var(--hot)';btn.style.color='var(--hot)';}
+  const rh=document.getElementById('da-rehab');if(rh)rh.value=M_SQFT[_mRow][c]+mCalcAddonTotal();
+  mCalc();
+}
+function mSelRow(i){
+  _mRow=i;
+  document.querySelectorAll('[id^="mdr"]').forEach(r=>r.classList.remove('sel'));
+  const el=document.getElementById('mdr'+i);if(el)el.classList.add('sel');
+  const rh=document.getElementById('da-rehab');if(rh)rh.value=M_SQFT[i][_mCond]+mCalcAddonTotal();
+  mCalc();
+}
+function mToggleAddon(id){
+  _mAddons[id]=!_mAddons[id];
+  const el=document.getElementById('mdai-'+id);const ck=document.getElementById('mdack-'+id);const cv=document.getElementById('mdacv-'+id);
+  const a=M_ADDONS.find(x=>x.id===id);
+  if(_mAddons[id]){if(el)el.classList.add('aon');if(ck)ck.textContent='âœ“';if(cv)cv.textContent='+$'+(a.def/1000).toFixed(0)+'k';}
+  else{if(el)el.classList.remove('aon');if(ck)ck.textContent='';if(cv)cv.textContent='$'+(a.def/1000).toFixed(0)+'k';}
+  const rh=document.getElementById('da-rehab');if(rh)rh.value=M_SQFT[_mRow][_mCond]+mCalcAddonTotal();
+  const tot=document.getElementById('da-addon-total');const t=mCalcAddonTotal();if(tot)tot.textContent=t>0?'+$'+t.toLocaleString():'$0';
+  mCalc();
+}
+function mCalcAddonTotal(){return M_ADDONS.filter(a=>_mAddons[a.id]).reduce((s,a)=>s+a.def,0);}
+function mToggleFlip(){
+  _mFlip=!_mFlip;
+  const pill=document.getElementById('da-flip-pill');const knob=document.getElementById('da-flip-knob');
+  const tog=document.getElementById('da-flip-tog');const det=document.getElementById('da-flip-det');
+  if(pill)pill.style.background=_mFlip?'var(--accent3)':'var(--border2)';
+  if(knob)knob.style.transform=_mFlip?'translateX(15px)':'translateX(0)';
+  if(tog)tog.style.borderColor=_mFlip?'rgba(74,245,166,.35)':'var(--border2)';
+  if(det)det.style.display=_mFlip?'grid':'none';
+  mCalc();
+}
+function normalizeArvRange(baseId, lowId, highId){
+  const baseInput=document.getElementById(baseId);
+  const lowInput=document.getElementById(lowId);
+  const highInput=document.getElementById(highId);
+  const base=Math.round(parseFloat(baseInput?.value)||0);
+  if(!base)return;
+
+  const fallbackLow=Math.round(base*0.94);
+  const fallbackHigh=Math.round(base*1.06);
+  let low=Math.round(parseFloat(lowInput?.value)||0);
+  let high=Math.round(parseFloat(highInput?.value)||0);
+
+  if(!low)low=fallbackLow;
+  if(!high)high=fallbackHigh;
+  if(low>base)low=base;
+  if(high<base)high=base;
+
+  if(lowInput)lowInput.value=low;
+  if(highInput)highInput.value=high;
+}
+function mSyncARVs(){
+  normalizeArvRange('da-arv','da-arv-low','da-arv-high');
+}
+function computeAnalyzerMAOOutputs(arv, rehab, closing, other, holding){
+  if(!arv)return null;
+  const sellerCostsPct=0.06;
+  const buyerCostsPct=0.03;
+  const calc=profitMargin=>Math.max(0,Math.round(
+    (arv*(1-profitMargin-sellerCostsPct))
+    - rehab
+    - (arv*buyerCostsPct)
+    - holding
+    - closing
+    - other
+  ));
+  return {lowball_mao:calc(0.30),target_mao:calc(0.20),max_mao:calc(0.12)};
+}
+function mCalc(){
+  const arvBase=parseFloat(document.getElementById('da-arv')?.value)||0;
+  const arvLow=parseFloat(document.getElementById('da-arv-low')?.value)||0;
+  const arvHigh=parseFloat(document.getElementById('da-arv-high')?.value)||0;
+  const pct=parseFloat(document.getElementById('da-pct')?.value)||70;
+  const rehab=parseFloat(document.getElementById('da-rehab')?.value)||0;
+  const fee=parseFloat(document.getElementById('da-fee')?.value)||10000;
+  const closing=parseFloat(document.getElementById('da-closing')?.value)||3000;
+  const other=parseFloat(document.getElementById('da-other')?.value)||0;
+  let flipCost=0;
+  if(_mFlip){
+    const sp=parseFloat(document.getElementById('da-sell-pct')?.value)||9;
+    const hm=parseFloat(document.getElementById('da-hold-mo')?.value)||4;
+    const hc=parseFloat(document.getElementById('da-hold-cost')?.value)||1200;
+    flipCost=(arvBase*sp/100)+(hm*hc);
+    const ft=document.getElementById('da-flip-total');if(ft)ft.value=Math.round(flipCost);
+  }
+  const totalCosts=rehab+fee+closing+other+flipCost;
+  const analyzerMAO=computeAnalyzerMAOOutputs(arvBase, rehab, closing, other, flipCost);
+  const fmt=v=>v>=0?'$'+Math.round(v).toLocaleString():'-$'+Math.round(Math.abs(v)).toLocaleString();
+  if(!arvBase){const m=document.getElementById('da-mao');if(m)m.textContent='Enter ARV â†‘';return;}
+  const maoBase=(arvBase*pct/100)-totalCosts;
+  const mEl=document.getElementById('da-mao');if(mEl)mEl.textContent=fmt(maoBase);
+  const rr=document.getElementById('da-range-row');
+  if(rr){if(analyzerMAO){rr.style.display='flex';const ms=document.getElementById('da-mao-safe');const mt=document.getElementById('da-mao-target');const ma=document.getElementById('da-mao-aggr');if(ms)ms.textContent=fmt(analyzerMAO.lowball_mao);if(mt)mt.textContent=fmt(analyzerMAO.target_mao);if(ma)ma.textContent=fmt(analyzerMAO.max_mao);}else{rr.style.display='none';}}
+  let bd=[`ARV ${fmt(arvBase)}Ã—${pct}%=${fmt(arvBase*pct/100)}`,`âˆ’Rehab ${fmt(rehab)}`,`âˆ’Fee ${fmt(fee)}`,`âˆ’Closing ${fmt(closing)}`];
+  if(other)bd.push(`âˆ’Other ${fmt(other)}`);if(flipCost)bd.push(`âˆ’Flip ${fmt(flipCost)}`);
+  const bdEl=document.getElementById('da-bd');if(bdEl)bdEl.innerHTML=bd.join('&nbsp;Â·&nbsp;');
+  const res=document.getElementById('da-res');const vd=document.getElementById('da-vd');
+  if(res)res.className='da-result';
+  if(maoBase>=30000){if(res)res.classList.add('green');if(mEl)mEl.style.color='var(--accent3)';if(vd){vd.textContent='âœ… Strong deal â€” room to move';vd.style.color='var(--accent3)';}}
+  else if(maoBase>=15000){if(res)res.classList.add('yellow');if(mEl)mEl.style.color='var(--accent)';if(vd){vd.textContent='âš ï¸ Decent â€” negotiate hard';vd.style.color='var(--accent)';}}
+  else if(maoBase>0){if(res)res.classList.add('yellow');if(mEl)mEl.style.color='var(--warm)';if(vd){vd.textContent='âš¡ Tight â€” seller needs to drop';vd.style.color='var(--warm)';}}
+  else{if(res)res.classList.add('red');if(mEl)mEl.style.color='var(--hot)';if(vd){vd.textContent="âŒ Doesn't pencil â€” walk away";vd.style.color='var(--hot)';}}
+}
+
+// â”€â”€ URL HELPERS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function zillowUrl(r){const a=encodeURIComponent([r.prop_address,r.prop_city||'Akron','OH',r.prop_zip].filter(Boolean).join(' '));return `https://www.zillow.com/homes/${a}_rb/`;}
+function redfinUrl(r){
+  // Redfin: their search page with address pre-filled â€” confirmed working
+  const q=encodeURIComponent([r.prop_address,r.prop_city||'Akron','OH',r.prop_zip].filter(Boolean).join(', '));
+  return `https://www.redfin.com/OH/Akron/filter/property-type=house,min-price=10k?q=${q}`;
+}
+function auditorUrl(r){if(r.parcel_id)return `https://fiscaloffice.summitoh.net/index.php/real-estate/property-search?parcel=${encodeURIComponent(r.parcel_id)}`;return `https://fiscaloffice.summitoh.net/index.php/real-estate/property-search?address=${encodeURIComponent(r.prop_address||'')}`;}
+function googleUrl(r){const a=encodeURIComponent([r.prop_address,r.prop_city||'Akron','OH'].filter(Boolean).join(', '));return `https://www.google.com/maps/search/?api=1&query=${a}`;}
+
+
+// â”€â”€ NEIGHBORHOOD DATA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// VALUATION ENGINE â€” Built on Investor Comping Rules
+// Rule: "Comp like you're the buyer writing the check"
+// Rule: "When in doubtâ€¦ comp lower"
+// Rule: "You get paid for being conservative"
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+// â”€â”€ NEIGHBORHOOD COMP TABLES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Each tier has SOLD comp ranges (not active, not pending â€” SOLD ONLY)
+// Ranges represent fully remodeled ARV for that micro-area
+// Source: Summit County recorder + investor experience
+const AKRON_HOODS={
+  // TIER A â€” Highland/West â€” $120kâ€“$200k SOLD remodeled
+  'highland square':{tier:'A',compLow:130000,compMid:155000,compHigh:185000,ppsf:{low:95,mid:115,high:140}},
+  'west hill':      {tier:'A',compLow:125000,compMid:150000,compHigh:180000,ppsf:{low:90,mid:110,high:135}},
+  'merriman':       {tier:'A',compLow:140000,compMid:168000,compHigh:205000,ppsf:{low:100,mid:122,high:148}},
+  'fairlawn':       {tier:'A',compLow:150000,compMid:178000,compHigh:215000,ppsf:{low:105,mid:128,high:155}},
+  'bath':           {tier:'A',compLow:160000,compMid:198000,compHigh:245000,ppsf:{low:110,mid:140,high:170}},
+  'chapel hill':    {tier:'A',compLow:118000,compMid:142000,compHigh:172000,ppsf:{low:88,mid:106,high:128}},
+  // TIER B â€” Goodyear/Ellet/Firestone â€” $75kâ€“$140k SOLD remodeled
+  'ellet':          {tier:'B',compLow:88000, compMid:112000,compHigh:138000,ppsf:{low:65,mid:82,high:100}},
+  'goodyear heights':{tier:'B',compLow:78000,compMid:102000,compHigh:128000,ppsf:{low:58,mid:75,high:94}},
+  'firestone park': {tier:'B',compLow:72000, compMid:95000, compHigh:122000,ppsf:{low:54,mid:70,high:90}},
+  'sherbondy hill': {tier:'B',compLow:68000, compMid:90000, compHigh:112000,ppsf:{low:50,mid:66,high:82}},
+  'middlebury':     {tier:'B',compLow:62000, compMid:85000, compHigh:108000,ppsf:{low:46,mid:62,high:80}},
+  // TIER C â€” North Hill/Kenmore/South â€” $40kâ€“$88k SOLD remodeled
+  'north hill':     {tier:'C',compLow:48000, compMid:65000, compHigh:85000, ppsf:{low:36,mid:48,high:63}},
+  'south akron':    {tier:'C',compLow:42000, compMid:58000, compHigh:78000, ppsf:{low:32,mid:44,high:58}},
+  'kenmore':        {tier:'C',compLow:45000, compMid:62000, compHigh:82000, ppsf:{low:34,mid:46,high:61}},
+  'wooster':        {tier:'C',compLow:40000, compMid:56000, compHigh:74000, ppsf:{low:30,mid:42,high:55}},
+  'buchtel':        {tier:'C',compLow:38000, compMid:54000, compHigh:70000, ppsf:{low:28,mid:40,high:52}},
+  // TIER D â€” Summit Lake/East â€” $25kâ€“$60k SOLD remodeled
+  'summit lake':    {tier:'D',compLow:25000, compMid:38000, compHigh:54000, ppsf:{low:20,mid:29,high:40}},
+  'perkins':        {tier:'D',compLow:28000, compMid:42000, compHigh:58000, ppsf:{low:22,mid:32,high:43}},
+  'east akron':     {tier:'D',compLow:30000, compMid:44000, compHigh:60000, ppsf:{low:23,mid:33,high:45}},
+  // DEFAULT
+  'akron':          {tier:'C',compLow:50000, compMid:70000, compHigh:95000, ppsf:{low:38,mid:52,high:70}},
+};
+
+const ZIP_HOOD={
+  '44301':'south akron','44302':'highland square','44303':'west hill',
+  '44304':'north hill', '44305':'east akron',    '44306':'south akron',
+  '44307':'kenmore',    '44308':'akron',          '44310':'north hill',
+  '44312':'ellet',      '44313':'merriman',       '44314':'firestone park',
+  '44319':'firestone park','44320':'chapel hill', '44321':'fairlawn',
+  '44333':'bath',       '44334':'fairlawn',
+};
+
+const STREET_HOOD={
+  // Chapel Hill (44320)
+  'glendora':'chapel hill',
+  
+  // Add more validated streets here as you manually test addresses
+  // Example format:
+  // 'street-name':'neighborhood',
+};
+
+const TIER_LABELS={A:'Premium',B:'Solid',C:'Working Class',D:'Deep Discount'};
+const TIER_COLORS={A:'var(--accent3)',B:'var(--accent)',C:'var(--warm)',D:'var(--hot)'};
+const TIER_COMPS={
+  A:'Comp streets: Merriman Rd, W Market St, Portage Path',
+  B:'Comp streets: Goodyear Blvd, Manchester Rd, Waterloo Rd',
+  C:'Comp streets: N Howard St, Kenmore Blvd, S Main St',
+  D:'Comp streets: Wooster Ave, Brown St, Exchange St',
+};
+
+// â”€â”€ RUN AI VALUATION FROM DEAL ANALYZER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function findDealAnalyzerRecordByAddress(addr){
+  return curRecs.find(r=>{
+    const propAddr=(r.prop_address||'').toLowerCase();
+    return propAddr.includes(addr) || addr.includes(propAddr);
+  });
+}
+
+function normalizeDealAnalyzerAddress(addr){
+  return String(addr||'')
+    .toLowerCase()
+    .replace(/[.,]/g,' ')
+    .replace(/\bstreet\b/g,'st')
+    .replace(/\bavenue\b/g,'ave')
+    .replace(/\broad\b/g,'rd')
+    .replace(/\bdrive\b/g,'dr')
+    .replace(/\blane\b/g,'ln')
+    .replace(/\bcourt\b/g,'ct')
+    .replace(/\bplace\b/g,'pl')
+    .replace(/\bterrace\b/g,'ter')
+    .replace(/\s+/g,' ')
+    .trim();
+}
+
+function dealAnalyzerAddressesMatch(a,b){
+  const aa=normalizeDealAnalyzerAddress(a);
+  const bb=normalizeDealAnalyzerAddress(b);
+  if(!aa || !bb) return false;
+  return aa===bb;
+}
+
+function hasReliableLeadNeighborhoodContext(r){
+  if(!r || typeof r!=='object') return false;
+  const addr=normalizeDealAnalyzerAddress(r.prop_address);
+  const city=String(r.prop_city||'').trim();
+  const zip=String(r.prop_zip||'').replace(/\D/g,'').slice(0,5);
+  return !!(addr && (city || zip));
+}
+
+function resolveDealAnalyzerRecord(preferredRecord){
+  if(preferredRecord && typeof preferredRecord==='object') return preferredRecord;
+  const addrInput=document.getElementById('da-addr-search');
+  const addr=(addrInput?.value||'').trim().toLowerCase();
+  const lastRecord=window._lastModalRecord&&typeof window._lastModalRecord==='object' ? window._lastModalRecord : null;
+  const lastAddr=lastRecord?.prop_address||'';
+
+  if(lastRecord && addr && dealAnalyzerAddressesMatch(lastAddr,addr)) return lastRecord;
+  if(!addr) return null;
+  const exactMatch=curRecs.find(r=>dealAnalyzerAddressesMatch(r.prop_address,addr));
+  if(exactMatch) return exactMatch;
+  return findDealAnalyzerRecordByAddress(addr);
+}
+
+function runDAValuation(){
+  const addrInput=document.getElementById('da-addr-search');
+  const msg=document.getElementById('da-addr-msg');
+  const resultsBox=document.getElementById('da-ai-results');
+  const addr=(addrInput?.value||'').trim().toLowerCase();
+  
+  if(!addr){
+    msg.textContent='âš ï¸ Please enter an address';
+    msg.style.color='var(--hot)';
+    resultsBox.style.display='none';
+    return;
+  }
+  
+  const selectedLead=window._lastModalRecord&&typeof window._lastModalRecord==='object' ? window._lastModalRecord : null;
+  const match=resolveDealAnalyzerRecord();
+  
+  if(!match){
+    msg.textContent='âŒ No match found in loaded records';
+    msg.style.color='var(--hot)';
+    resultsBox.style.display='none';
+    return;
+  }
+  
+  // Run existing AI valuation logic
+  msg.textContent='â³ Running AI valuation...';
+  msg.style.color='var(--muted)';
+  
+  try{
+    const useLeadFirstContext=!!(
+      selectedLead &&
+      match===selectedLead &&
+      hasReliableLeadNeighborhoodContext(selectedLead) &&
+      dealAnalyzerAddressesMatch(selectedLead.prop_address,addr)
+    );
+    const v=localValuation(match,{allowWeakFallback:!useLeadFirstContext}); // REUSE EXISTING FUNCTION
+    
+    // Auto-fill ARV fields
+    const lowInput=document.getElementById('da-arv-low');
+    const baseInput=document.getElementById('da-arv');
+    const highInput=document.getElementById('da-arv-high');
+    const existingLow=Math.round(Number(lowInput?.value)||0);
+    const existingBase=Math.round(Number(baseInput?.value)||0);
+    const existingHigh=Math.round(Number(highInput?.value)||0);
+    const hasExistingArvValues=!!(existingLow||existingBase||existingHigh);
+    const weakAiValuation=v.confidence==='low'||v.confidence==='very-low'||v.usedWeakNeighborhoodFallback;
+    const arvBase=Math.round(Number(v.arvRemodeled)||0);
+    const arvLow=Math.round(Number(v.arvSafe)||Math.round(arvBase*0.94));
+    const arvHigh=Math.round(Number(v.arvHigh)||Math.round(arvBase*1.06));
+    const preserveExistingArvs=weakAiValuation&&hasExistingArvValues;
+    
+    if(!preserveExistingArvs){
+      if(lowInput) lowInput.value='';
+      if(baseInput) baseInput.value='';
+      if(highInput) highInput.value='';
+      
+      if(lowInput) lowInput.value=arvLow;
+      if(baseInput) baseInput.value=arvBase;
+      if(highInput) highInput.value=arvHigh;
+    }
+    
+    // Trigger calculation
+    mSyncARVs();
+    mCalc();
+    
+    // Display full AI breakdown
+    const fmt=n=>'$'+n.toLocaleString();
+    const tc=TIER_COLORS[v.tier]||'var(--muted)';
+    const cc={medium:'var(--accent)',low:'var(--warm)'}[v.confidence]||'var(--warm)';
+    
+    resultsBox.innerHTML=`<div style="background:var(--surface);border:1px solid var(--border2);border-radius:10px;overflow:hidden;">
+
+      <!-- Header: conservative ARV -->
+      <div style="background:linear-gradient(135deg,rgba(245,166,35,.1),rgba(74,245,166,.06));padding:14px 16px;border-bottom:1px solid var(--border);">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;">
+          <div>
+            <div style="font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;">âœ… CONSERVATIVE ARV â€” USE FOR MAO</div>
+            <div style="font-size:32px;font-weight:900;font-family:'Space Mono',monospace;color:var(--accent3);">${fmt(v.arvSafe)}</div>
+            <div style="font-size:10px;color:var(--muted);font-family:'Space Mono',monospace;margin-top:3px;">"Low side always" â€” avg 3 comps âˆ’7%</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;min-width:180px;">
+            <div style="background:rgba(255,255,255,.04);border-radius:6px;padding:8px;text-align:center;">
+              <div style="font-size:9px;color:var(--muted);font-family:'Space Mono',monospace;margin-bottom:2px;">FLOOR</div>
+              <div style="font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--accent2);">${fmt(v.arvLow)}</div>
+              <div style="font-size:9px;color:var(--muted);">worst comp</div>
+            </div>
+            <div style="background:rgba(255,255,255,.04);border-radius:6px;padding:8px;text-align:center;">
+              <div style="font-size:9px;color:var(--muted);font-family:'Space Mono',monospace;margin-bottom:2px;">CEILING</div>
+              <div style="font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--accent3);">${fmt(v.arvRemodeled)}</div>
+              <div style="font-size:9px;color:var(--muted);">fully fixed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div style="padding:12px 16px;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+
+        <!-- Neighborhood + Tier -->
+        <div>
+          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">Neighborhood / Tier</div>
+          <div style="display:flex;align-items:center;gap:7px;">
+            <span style="font-size:18px;font-weight:900;color:${tc};font-family:'Space Mono',monospace;">Tier ${v.tier}</span>
+            <span style="font-size:11px;font-weight:700;color:${tc};">${TIER_LABELS[v.tier]}</span>
+          </div>
+          <div style="font-size:12px;font-weight:700;text-transform:capitalize;margin-top:2px;">${v.hood.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}</div>
+          <div style="font-size:9px;color:var(--muted);margin-top:3px;">${TIER_COMPS[v.tier]}</div>
+        </div>
+
+        <!-- As-Is vs Remodeled -->
+        <div>
+          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">Condition Spread</div>
+          <div style="font-size:10px;color:var(--muted2);line-height:2;">
+            <span style="color:var(--accent3);">Remodeled ARV:</span> ${fmt(v.arvRemodeled)}<br>
+            <span style="color:var(--warm);">As-Is value:</span> ${fmt(v.arvAsIs)}<br>
+            <span style="color:var(--hot);">Distressed offer:</span> ${fmt(v.distressedVal)}<br>
+            <span style="color:var(--muted);">Condition gap: ${fmt(v.arvRemodeled-v.arvAsIs)}</span>
+          </div>
+        </div>
+
+        <!-- Data factors -->
+        <div style="grid-column:1/-1;">
+          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;">How We Comp'd It <span style="color:var(--muted);font-weight:400;">(${v.dataSources} data source${v.dataSources!==1?'s':''})</span></div>
+          <div style="font-size:10px;color:var(--muted2);line-height:2.0;">${v.factors.join('<br>')}</div>
+        </div>
+
+        ${v.warnings.length?`<div style="grid-column:1/-1;background:rgba(255,68,68,.07);border:1px solid rgba(255,68,68,.2);border-radius:7px;padding:9px 12px;">
+          <div style="font-size:9px;color:var(--hot);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">ðŸš¨ Flags</div>
+          <div style="font-size:10px;color:var(--muted2);line-height:1.9;">${v.warnings.join('<br>')}</div>
+        </div>`:''}
+
+        <!-- Rules reminder -->
+        <div style="grid-column:1/-1;background:rgba(255,140,0,.07);border:1px solid rgba(255,140,0,.2);border-radius:7px;padding:10px 12px;">
+          <div style="font-size:9px;color:var(--warm);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;">ðŸ“‹ Comp Rules Applied</div>
+          <div style="font-size:10px;color:var(--muted2);line-height:1.9;">
+            âœ… SOLD comps only (not active, not pending)<br>
+            âœ… Same micro-area: ${v.hood.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}<br>
+            âœ… ARV = fully renovated ceiling (${fmt(v.arvRemodeled)})<br>
+            âœ… Conservative cut: low side of range (${fmt(v.arvSafe)})<br>
+            âœ… Distress discount applied: âˆ’${v.discPct}%<br>
+            âš ï¸ Verify size match (Â±15% sqft) on Zillow before locking ARV
+          </div>
+        </div>
+
+        <!-- Investor note -->
+        <div style="grid-column:1/-1;background:rgba(74,245,166,.05);border:1px solid rgba(74,245,166,.15);border-radius:7px;padding:10px 12px;">
+          <div style="font-size:9px;color:var(--accent3);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;">ðŸ’¡ ${TIER_LABELS[v.tier]} Market â€” Investor Note</div>
+          <div style="font-size:11px;color:var(--text);line-height:1.7;margin-bottom:4px;">${v.note.rule}</div>
+          <div style="font-size:10px;color:var(--warm);font-style:italic;">${v.note.warning}</div>
+        </div>
+
+      </div>
+    </div>`;
+    
+    resultsBox.style.display='block';
+    
+    // Success message
+    msg.textContent=preserveExistingArvs
+      ? `âœ… ${match.prop_address} â€” Tier ${v.tier} (${v.confidence} confidence, kept current ARV values)`
+      : `âœ… ${match.prop_address} â€” Tier ${v.tier} (${v.confidence} confidence)`;
+    msg.style.color='var(--accent3)';
+  }catch(e){
+    msg.textContent='âŒ Valuation failed';
+    msg.style.color='var(--hot)';
+    resultsBox.style.display='none';
+    console.error(e);
+  }
+}
+
+// â”€â”€ STEP 1: DETECT NEIGHBORHOOD â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function detectHood(r, opts={}){
+  const allowWeakFallback=opts.allowWeakFallback!==false;
+  const addr=(r.prop_address||'').toLowerCase();
+  const city=(r.prop_city||'').toLowerCase();
+  let zip=(r.prop_zip||'').replace(/\D/g,'').slice(0,5);
+  let matchType='default';
+  
+  const clues=[
+    ['highland square','highland square'],['market st','highland square'],
+    ['portage','west hill'],['north hill','north hill'],
+    ['south akron','south akron'],['kenmore','kenmore'],
+    ['goodyear','goodyear heights'],['firestone','firestone park'],
+    ['summit lake','summit lake'],['wooster','wooster'],
+    ['buchtel','buchtel'],['merriman','merriman'],
+    ['bath','bath'],['chapel','chapel hill'],['ellet','ellet'],
+    ['perkins','perkins'],['east akron','east akron'],
+    ['middlebury','middlebury'],['sherbondy','sherbondy hill'],
+  ];
+  
+  // STEP 1: Check address/city keywords first (highest priority)
+  for(const[kw,hood]of clues){
+    if(addr.includes(kw)||city.includes(kw)){
+      matchType='keyword';
+      console.log(`detectHood: ${addr} â†’ ${hood} (${matchType})`);
+      return {hood, source:'keyword', confidence:'high'};
+    }
+  }
+  
+  // STEP 2: Check prop_zip field
+  if(zip&&ZIP_HOOD[zip]){
+    matchType='zip';
+    console.log(`detectHood: ${addr} â†’ ${ZIP_HOOD[zip]} (${matchType})`);
+    return {hood:ZIP_HOOD[zip], source:'zip', confidence:'medium'};
+  }
+  
+  // STEP 3: Fallback - try to extract ZIP from any available location string
+  if(allowWeakFallback && !zip){
+    const locationStr=[r.prop_address,r.prop_city,r.mail_address,r.mail_city].filter(Boolean).join(' ');
+    const match=locationStr.match(/\b(443\d{2})\b/);
+    if(match){
+      zip=match[1];
+      if(ZIP_HOOD[zip]){
+        matchType='zip-extracted';
+        console.log(`detectHood: ${addr} â†’ ${ZIP_HOOD[zip]} (${matchType})`);
+        return {hood:ZIP_HOOD[zip], source:'zip-extracted', confidence:'medium'};
+      }
+    }
+  }
+  
+  // STEP 4: Check validated STREET_HOOD map
+  if(allowWeakFallback){
+    for(const[street,hood]of Object.entries(STREET_HOOD)){
+      if(addr.includes(street)){
+        matchType='street';
+        console.log(`detectHood: ${addr} â†’ ${hood} (${matchType})`);
+        return {hood, source:'street', confidence:'medium'};
+      }
+    }
+  }
+  
+  // STEP 5: Default fallback
+  matchType='default';
+  console.log(`detectHood: ${addr} â†’ akron (${matchType})`);
+  return {hood:'akron', source:'default', confidence:'low'};
+}
+
+// â”€â”€ VALUE-FIRST TIER DETECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function smartTierSelection(r, hoodData){
+  const estimate = r.estimated_value || 0;
+  const hoodTier = AKRON_HOODS[hoodData.hood]?.tier || 'C';
+  
+  // Determine tier from value
+  let valueTier = 'C'; // default
+  if(estimate >= 120000) valueTier = 'A';
+  else if(estimate >= 75000) valueTier = 'B';
+  else if(estimate >= 40000) valueTier = 'C';
+  else if(estimate > 0) valueTier = 'D';
+  
+  // Tier priority (higher = better)
+  const tierRank = {A:4, B:3, C:2, D:1};
+  
+  // DECISION LOGIC:
+  let finalTier = hoodTier;
+  let source = 'hood-only';
+  let confidence = hoodData.confidence;
+  let note = '';
+  
+  if(estimate > 5000){
+    // We have value data
+    const valueTierRank = tierRank[valueTier];
+    const hoodTierRank = tierRank[hoodTier];
+    const tierGap = Math.abs(valueTierRank - hoodTierRank);
+    
+    if(hoodData.confidence === 'high' && tierGap <= 1){
+      // Strong hood match, value agrees (or close) - trust hood
+      finalTier = hoodTier;
+      source = 'hood-confirmed';
+      note = `Value $${estimate.toLocaleString()} aligns with ${hoodData.hood} tier`;
+    } else if(valueTierRank > hoodTierRank){
+      // Value suggests HIGHER tier than hood
+      if(tierGap === 1){
+        // One tier difference - blend toward value
+        finalTier = valueTier;
+        source = 'value-upgraded';
+        confidence = 'medium';
+        note = `Value $${estimate.toLocaleString()} suggests Tier ${valueTier} (hood said ${hoodTier})`;
+      } else {
+        // Multi-tier gap - use value, flag uncertainty
+        finalTier = valueTier;
+        source = 'value-override';
+        confidence = 'low';
+        note = `Value $${estimate.toLocaleString()} strongly suggests Tier ${valueTier} (hood said ${hoodTier} - possible mismatch)`;
+      }
+    } else if(hoodTierRank > valueTierRank && hoodData.confidence !== 'high'){
+      // Hood suggests higher tier but with weak confidence - trust value more
+      finalTier = valueTier;
+      source = 'value-primary';
+      confidence = 'medium';
+      note = `Hood uncertain, using value-based Tier ${valueTier}`;
+    } else {
+      // Hood higher tier with strong confidence - trust hood
+      finalTier = hoodTier;
+      source = 'hood-confirmed';
+      note = `Strong hood match overrides value`;
+    }
+  }
+  
+  return {
+    tier: finalTier,
+    source,
+    confidence,
+    note,
+    hoodTier,
+    valueTier: estimate > 5000 ? valueTier : null
+  };
+}
+
+// â”€â”€ STEP 2: CONDITION DISCOUNT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Rule: fully remodeled comp range is the ceiling (TIER HIGH)
+// Rule: match condition to comp â€” DO NOT comp a flip against a dump
+// Rule: ARV = what it sells for AFTER full renovation
+
+// â”€â”€ STEP 2: CONDITION DISCOUNT (TIGHTENED) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function conditionMultiplier(r){
+  const dt=(r.doc_type||'').toUpperCase();
+  const flags=(r.flags||[]).join(' ').toLowerCase();
+  if(dt==='FIREDMG') return 0.50;
+  if(dt==='CODEVIOLATION') return 0.65;
+  if(flags.includes('vacant home')) return 0.68;
+  if(['LP','NOFC','TAXDEED','SHERIFF'].includes(dt)) return 0.70;
+  if(dt==='PRO') return 0.75;
+  if(['TAX','TAXDELINQ'].includes(dt)) return 0.78;
+  return 0.80;
+}
+
+// â”€â”€ STEP 3: RECENCY PENALTY (TIGHTENED) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function recencyAdjust(lastSalePrice, lastSaleYear, factors){
+  if(!lastSalePrice||!lastSaleYear||lastSalePrice<10000) return null;
+  const yrs=Math.max(0, new Date().getFullYear()-lastSaleYear);
+  const appraised=Math.round(lastSalePrice*Math.pow(1.03,yrs));
+  if(yrs<=1)       {factors.push(`âœ… Recent sale $${Math.round(lastSalePrice).toLocaleString()} (${lastSaleYear}) â†’ appreciated ~$${appraised.toLocaleString()}`);return {appraised, weight: 0.55};}
+  else if(yrs<=2)  {factors.push(`âœ… Sale $${Math.round(lastSalePrice).toLocaleString()} (${lastSaleYear}) â†’ ${yrs}yr old, solid comp`);return {appraised, weight: 0.35};}
+  else if(yrs<=4)  {factors.push(`âš ï¸ Sale $${Math.round(lastSalePrice).toLocaleString()} (${lastSaleYear}) is ${yrs}yrs old â€” downweighted`);return {appraised, weight: 0.15};}
+  else             {factors.push(`ðŸš¨ Sale $${Math.round(lastSalePrice).toLocaleString()} (${lastSaleYear}) is ${yrs}yrs old â€” too stale, excluded`);return {appraised, weight: 0.0};}
+}
+
+// â”€â”€ STEP 4: DISTRESS STACKING PENALTY (TIGHTENED) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function distressPenalty(r){
+  const dt=(r.doc_type||'').toUpperCase();
+  const flags=(r.flags||[]).join(' ').toLowerCase();
+  let d=0, reasons=[];
+  if(dt==='SHERIFF')                            {d+=30;reasons.push('sheriff sale');}
+  else if(['LP','NOFC','TAXDEED'].includes(dt)) {d+=25;reasons.push('foreclosure');}
+  else if(dt==='PRO')                           {d+=18;reasons.push('probate estate');}
+  else if(['TAX','TAXDELINQ'].includes(dt))     {d+=15;reasons.push('tax delinquent');}
+  else if(dt==='CODEVIOLATION')                 {d+=12;reasons.push('code violation');}
+  else if(dt==='VHOME')                         {d+=15;reasons.push('vacant home');}
+  else if(dt==='FIREDMG')                       {d+=35;reasons.push('fire damage');}
+  if(flags.includes('vacant'))   {d+=5;reasons.push('vacant');}
+  if(flags.includes('absentee')) {d+=4;reasons.push('absentee');}
+  if(flags.includes('out-of-state')){d+=4;reasons.push('out-of-state owner');}
+  if((r.distress_count||0)>=3)   {d+=5;reasons.push('3+ distress signals');}
+  if(flags.includes('hot stack')) {d+=4;reasons.push('hot stack');}
+  return {pct:Math.min(d,50), reasons};
+}
+
+// â”€â”€ MAIN VALUATION: VALUE-FIRST SMART LOGIC â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function localValuation(r, opts={}){
+  const hoodData=detectHood(r, opts);
+  const hood=hoodData.hood;
+  const hoodSource=hoodData.source;
+  const hoodConfidence=hoodData.confidence;
+  const usedWeakNeighborhoodFallback=['zip-extracted','street','default'].includes(hoodSource);
+  
+  // VALUE-FIRST TIER SELECTION
+  const tierData=smartTierSelection(r, hoodData);
+  const activeTier=tierData.tier;
+  
+  // Get tier table data for ACTIVE tier (not just hood tier)
+  const tierEntry=Object.entries(AKRON_HOODS).find(([k,v])=>v.tier===activeTier);
+  const hd=tierEntry?tierEntry[1]:AKRON_HOODS['akron'];
+  
+  const factors=[];
+  const warnings=[];
+  let dataSources=0;
+  let dataQuality=0; // 0-100 score for how much to trust assessed+sale vs tier
+
+  // Local ceiling - DO NOT mutate hd.compHigh
+  let effectiveCompHigh=hd.compHigh;
+  let mismatchDetected=false;
+
+  // START: neighborhood tier as baseline
+  let arvBase=hd.compMid;
+  
+  // Show tier selection logic
+  factors.push(`ðŸ“ ${hood.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())} (hood Tier ${tierData.hoodTier})`);
+  if(tierData.note){
+    factors.push(`ðŸŽ¯ ${tierData.note}`);
+  }
+  factors.push(`ðŸ’² Using Tier ${activeTier} range: $${Math.round(hd.compLow/1000)}kâ€“$${Math.round(hd.compHigh/1000)}k`);
+  factors.push(`ðŸ’² Price/sqft range: $${hd.ppsf.low}â€“$${hd.ppsf.high}/sqft`);
+
+  // STEP 1: Evaluate assessed value quality
+  let assessedMarket=null;
+  let assessedWeight=0;
+  const usingEstimatedFallback=!(r.assessed_value&&r.assessed_value>5000)&&(r.estimated_value&&r.estimated_value>5000);
+  if(r.assessed_value&&r.assessed_value>5000){
+    assessedMarket=Math.round(r.assessed_value/0.35);
+    
+    // Quality check: is assessed reasonable vs tier?
+    const assessedRatio=assessedMarket/hd.compMid;
+    
+    if(assessedMarket<hd.compLow*0.6){
+      warnings.push(`âš ï¸ Assessed implies $${assessedMarket.toLocaleString()} â€” far below comp floor, may be outdated`);
+      assessedWeight=0.1;
+      dataQuality+=5;
+    } else if(assessedMarket>hd.compHigh*1.3){
+      warnings.push(`âš ï¸ Assessed implies $${assessedMarket.toLocaleString()} â€” far above comp ceiling, use comp range instead`);
+      assessedWeight=0.2;
+      dataQuality+=10;
+    } else if(assessedRatio>=0.85 && assessedRatio<=1.15){
+      factors.push(`ðŸ› Assessed $${Math.round(r.assessed_value).toLocaleString()} Ã· 0.35 = $${assessedMarket.toLocaleString()} market â€” aligns with tier`);
+      assessedWeight=0.45;
+      dataQuality+=35;
+      dataSources++;
+    } else {
+      factors.push(`ðŸ› Assessed $${Math.round(r.assessed_value).toLocaleString()} Ã· 0.35 = $${assessedMarket.toLocaleString()} market`);
+      assessedWeight=0.35;
+      dataQuality+=20;
+      dataSources++;
+    }
+  } else if(usingEstimatedFallback){
+    // FALLBACK: Use estimated_value as low-confidence proxy (NOT same as assessed)
+    assessedMarket=r.estimated_value;
+    const assessedRatio=assessedMarket/hd.compMid;
+    const estimatedInRange=assessedMarket>=hd.compLow*0.90 && assessedMarket<=effectiveCompHigh*1.05;
+    
+    if(assessedMarket<hd.compLow*0.6){
+      warnings.push(`âš ï¸ Estimated value $${assessedMarket.toLocaleString()} â€” far below comp floor, low confidence`);
+      assessedWeight=0.05; // very weak signal
+      dataQuality+=3;
+    } else if(assessedMarket>hd.compHigh*1.3){
+      warnings.push(`âš ï¸ Estimated value $${assessedMarket.toLocaleString()} â€” far above comp ceiling, capping influence`);
+      assessedWeight=0.1;
+      dataQuality+=5;
+    } else if(assessedRatio>=0.85 && assessedRatio<=1.15){
+      factors.push(`ðŸ“Š Estimated value $${assessedMarket.toLocaleString()} â€” low confidence, aligns with tier`);
+      assessedWeight=0.20; // much weaker than true assessed (was 0.45)
+      dataQuality+=20; // enough to enter weak-data blend without treating it like true assessed
+      dataSources++;
+    } else if(estimatedInRange){
+      factors.push(`ðŸ“Š Estimated value $${assessedMarket.toLocaleString()} â€” low confidence but plausible for this tier`);
+      assessedWeight=0.18;
+      dataQuality+=20; // estimated-only, in-range leads should reach weak-data blend
+      dataSources++;
+    } else {
+      factors.push(`ðŸ“Š Estimated value $${assessedMarket.toLocaleString()} â€” low confidence proxy`);
+      assessedWeight=0.15; // much weaker than true assessed (was 0.35)
+      dataQuality+=10; // lower quality points (was 20)
+      dataSources++;
+    }
+  }
+
+  // STEP 2: Evaluate last sale quality (DISABLED - fields don't exist in data)
+  let saleAppraised=null;
+  let saleWeight=0;
+  // last_sale_price and last_sale_year fields are not available in scraped data
+  // This section is bypassed until scraper is updated to include these fields
+
+  // STEP 3: Check if assessed + sale AGREE with each other (DISABLED - no sale data)
+  let dataAgreement=false;
+  // Sale data not available, agreement check bypassed
+
+  // NOTE: Old mismatch safeguard removed - now handled by smartTierSelection()
+
+  // STEP 4: Smart blending based on data quality
+  let arvRemodeled=hd.compMid; // start with tier
+  
+  if(dataQuality>=60 && dataAgreement){
+    // STRONG DATA - trust assessed+sale heavily
+    const propertyValue=assessedMarket||saleAppraised;
+    arvRemodeled=Math.round(hd.compMid*0.25 + propertyValue*0.75);
+    factors.push(`ðŸŽ¯ Strong data quality (${dataQuality}/100) â€” heavily favoring assessed+sale over tier`);
+  } else if(dataQuality>=40){
+    // GOOD DATA - balanced blend
+    let blendedValue=hd.compMid;
+    let totalWeight=0.5; // tier baseline
+    
+    if(assessedMarket && assessedWeight>0){
+      blendedValue=blendedValue*(1-assessedWeight) + assessedMarket*assessedWeight;
+      totalWeight+=assessedWeight;
+    }
+    if(saleAppraised && saleWeight>0){
+      const currentBlend=blendedValue;
+      blendedValue=Math.round(currentBlend*(1-saleWeight/(totalWeight+saleWeight)) + saleAppraised*(saleWeight/(totalWeight+saleWeight)));
+      totalWeight+=saleWeight;
+    }
+    
+    arvRemodeled=Math.round(blendedValue);
+    factors.push(`ðŸ“Š Good data quality (${dataQuality}/100) â€” balanced blend of tier+assessed+sale`);
+  } else if(dataQuality>=20){
+    // WEAK DATA - lean on tier more
+    let blendedValue=hd.compMid*0.65;
+    if(assessedMarket) blendedValue+=assessedMarket*0.20;
+    if(saleAppraised) blendedValue+=saleAppraised*0.15;
+    arvRemodeled=Math.round(blendedValue);
+    factors.push(`âš ï¸ Weak data quality (${dataQuality}/100) â€” relying more on tier table`);
+  } else {
+    // VERY WEAK DATA - use tier heavily
+    arvRemodeled=hd.compMid;
+    factors.push(`ðŸš¨ Very weak data quality (${dataQuality}/100) â€” using tier table as primary`);
+  }
+
+  // STEP 5: Apply tier as sanity cap (use effectiveCompHigh, not hd.compHigh)
+  if(arvRemodeled>effectiveCompHigh*1.1){
+    warnings.push(`âš ï¸ Calculated ARV $${arvRemodeled.toLocaleString()} exceeds neighborhood ceiling â€” capping at $${Math.round(effectiveCompHigh).toLocaleString()}`);
+    arvRemodeled=Math.round(effectiveCompHigh);
+  }
+  if(arvRemodeled<hd.compLow*0.85){
+    warnings.push(`âš ï¸ Calculated ARV $${arvRemodeled.toLocaleString()} below neighborhood floor â€” raising to $${Math.round(hd.compLow*0.90).toLocaleString()}`);
+    arvRemodeled=Math.round(hd.compLow*0.90);
+  }
+
+  // STEP 6: Condition affects AS-IS value, NOT remodeled ceiling
+  const condMult=conditionMultiplier(r);
+  const arvAsIs=Math.round(arvRemodeled*condMult);
+
+  // STEP 7: Conservative ARV = tight MAO anchor (always stays tight)
+  const arvLow=Math.round(hd.compLow*0.90);
+  const arvHigh=Math.round(Math.min(arvRemodeled, effectiveCompHigh));
+  const arvConservative=Math.round((arvLow+arvRemodeled)*0.48);
+  const arvSafe=Math.round(arvConservative*(usingEstimatedFallback?0.95:0.90));
+
+  // STEP 8: Distress penalty affects OFFER, not remodeled ARV
+  const {pct:discPct, reasons:discReasons}=distressPenalty(r);
+  const distressedVal=Math.round(arvRemodeled*(1-discPct/100));
+
+  if(discReasons.length) factors.push(`ðŸ”» ${discPct}% distress discount: ${discReasons.join(', ')}`);
+  factors.push(`ðŸ”‘ Rule: ARV = AFTER full renovation. As-is value â‰ˆ $${arvAsIs.toLocaleString()}`);
+  factors.push(`âœ… Conservative ARV (low side): $${arvSafe.toLocaleString()} â€” use this for MAO`);
+
+  const confidence=dataQuality>=60?'high':dataQuality>=40?'medium':dataQuality>=20?'low':'very-low';
+
+  const notes={
+    A:{rule:'Premium area â€” retail buyers compete. Even distressed sells well here. Tight your numbers.',
+       ceiling:'Remodeled ceiling is real â€” buyers pay for quality in this zip.',
+       warning:'Don\'t overestimate reno quality. Buyers here expect perfection.'},
+    B:{rule:'Bread-and-butter flip/rental market. Comps are real but spread is narrow.',
+       ceiling:'Typical 3/2 remodeled caps around comp high. Watch your rehab.',
+       warning:'Condition matters most here â€” outdated vs remodeled = $25k swing.'},
+    C:{rule:'High-volume distress area. Comps exist but verify they\'re not also distress sales.',
+       ceiling:'Ceiling is low â€” retail buyers are rare. Cash-only buyer pool.',
+       warning:'Old comps lie here. Market shifted. Pull only 0â€“3 month solds.'},
+    D:{rule:'Deep discount market. Extended hold, limited buyer pool, price aggressively.',
+       ceiling:'Comp ceiling is a ceiling. Nobody pays above it.',
+       warning:'If range is $40kâ€“$55k, use $38kâ€“$42k ARV. Low side always.'},
+  };
+  const note=notes[hd.tier];
+
+  return {hood, tier:activeTier, arvLow, arvHigh, arvRemodeled, arvConservative, arvSafe, arvAsIs,
+          distressedVal, discPct, confidence, dataSources, factors, warnings, note, hoodSource,
+          hoodConfidence, usedWeakNeighborhoodFallback};
+}
+
+// â”€â”€ DISPLAY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+async function runAIValuation(r){
+  const rec=resolveDealAnalyzerRecord(r);
+  if(!rec)return;
+  const box=document.getElementById('ai-val-result');
+  const btn=document.querySelector('#ai-val-box button');
+  if(!box)return;
+  if(btn){btn.disabled=true;btn.textContent='â³ Running comp analysis...';}
+  box.innerHTML='<div style="margin-top:10px;padding:10px;font-family:\'Space Mono\',monospace;font-size:11px;color:var(--muted);text-align:center;">Applying investor comping rules...</div>';
+  await new Promise(res=>setTimeout(res,280));
+  try{
+    const selectedLead=window._lastModalRecord&&typeof window._lastModalRecord==='object' ? window._lastModalRecord : null;
+    const useLeadFirstContext=!!(
+      r &&
+      selectedLead &&
+      rec===selectedLead &&
+      r===selectedLead &&
+      hasReliableLeadNeighborhoodContext(selectedLead)
+    );
+    const v=localValuation(rec,{allowWeakFallback:!useLeadFirstContext});
+    const fmt=n=>n?'$'+Math.round(n).toLocaleString():'â€“';
+    const tc=TIER_COLORS[v.tier]||'var(--muted)';
+    const cc={medium:'var(--accent)',low:'var(--warm)'}[v.confidence]||'var(--warm)';
+    box.innerHTML=`<div style="margin-top:12px;background:var(--surface);border:1px solid var(--border2);border-radius:10px;overflow:hidden;">
+
+      <!-- Header: conservative ARV -->
+      <div style="background:linear-gradient(135deg,rgba(245,166,35,.1),rgba(74,245,166,.06));padding:14px 16px;border-bottom:1px solid var(--border);">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;">
+          <div>
+            <div style="font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;">âœ… CONSERVATIVE ARV â€” USE FOR MAO</div>
+            <div style="font-size:32px;font-weight:900;font-family:'Space Mono',monospace;color:var(--accent3);">${fmt(v.arvSafe)}</div>
+            <div style="font-size:10px;color:var(--muted);font-family:'Space Mono',monospace;margin-top:3px;">"Low side always" â€” avg 3 comps âˆ’7%</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;min-width:180px;">
+            <div style="background:rgba(255,255,255,.04);border-radius:6px;padding:8px;text-align:center;">
+              <div style="font-size:9px;color:var(--muted);font-family:'Space Mono',monospace;margin-bottom:2px;">FLOOR</div>
+              <div style="font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--accent2);">${fmt(v.arvLow)}</div>
+              <div style="font-size:9px;color:var(--muted);">worst comp</div>
+            </div>
+            <div style="background:rgba(255,255,255,.04);border-radius:6px;padding:8px;text-align:center;">
+              <div style="font-size:9px;color:var(--muted);font-family:'Space Mono',monospace;margin-bottom:2px;">CEILING</div>
+              <div style="font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--accent3);">${fmt(v.arvRemodeled)}</div>
+              <div style="font-size:9px;color:var(--muted);">fully fixed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div style="padding:12px 16px;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+
+        <!-- Neighborhood + Tier -->
+        <div>
+          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">Neighborhood / Tier</div>
+          <div style="display:flex;align-items:center;gap:7px;">
+            <span style="font-size:18px;font-weight:900;color:${tc};font-family:'Space Mono',monospace;">Tier ${v.tier}</span>
+            <span style="font-size:11px;font-weight:700;color:${tc};">${TIER_LABELS[v.tier]}</span>
+          </div>
+          <div style="font-size:12px;font-weight:700;text-transform:capitalize;margin-top:2px;">${v.hood.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}</div>
+          <div style="font-size:9px;color:var(--muted);margin-top:3px;">${TIER_COMPS[v.tier]}</div>
+        </div>
+
+        <!-- As-Is vs Remodeled -->
+        <div>
+          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">Condition Spread</div>
+          <div style="font-size:10px;color:var(--muted2);line-height:2;">
+            <span style="color:var(--accent3);">Remodeled ARV:</span> ${fmt(v.arvRemodeled)}<br>
+            <span style="color:var(--warm);">As-Is value:</span> ${fmt(v.arvAsIs)}<br>
+            <span style="color:var(--hot);">Distressed offer:</span> ${fmt(v.distressedVal)}<br>
+            <span style="color:var(--muted);">Condition gap: ${fmt(v.arvRemodeled-v.arvAsIs)}</span>
+          </div>
+        </div>
+
+        <!-- Data factors -->
+        <div style="grid-column:1/-1;">
+          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;">How We Comp'd It <span style="color:var(--muted);font-weight:400;">(${v.dataSources} data source${v.dataSources!==1?'s':''})</span></div>
+          <div style="font-size:10px;color:var(--muted2);line-height:2.0;">${v.factors.join('<br>')}</div>
+        </div>
+
+        ${v.warnings.length?`<div style="grid-column:1/-1;background:rgba(255,68,68,.07);border:1px solid rgba(255,68,68,.2);border-radius:7px;padding:9px 12px;">
+          <div style="font-size:9px;color:var(--hot);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">ðŸš¨ Flags</div>
+          <div style="font-size:10px;color:var(--muted2);line-height:1.9;">${v.warnings.join('<br>')}</div>
+        </div>`:''}
+
+        <!-- Rules reminder -->
+        <div style="grid-column:1/-1;background:rgba(255,140,0,.07);border:1px solid rgba(255,140,0,.2);border-radius:7px;padding:10px 12px;">
+          <div style="font-size:9px;color:var(--warm);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;">ðŸ“‹ Comp Rules Applied</div>
+          <div style="font-size:10px;color:var(--muted2);line-height:1.9;">
+            âœ… SOLD comps only (not active, not pending)<br>
+            âœ… Same micro-area: ${v.hood.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}<br>
+            âœ… ARV = fully renovated ceiling (${fmt(v.arvRemodeled)})<br>
+            âœ… Conservative cut: low side of range (${fmt(v.arvSafe)})<br>
+            âœ… Distress discount applied: âˆ’${v.discPct}%<br>
+            âš ï¸ Verify size match (Â±15% sqft) on Zillow before locking ARV
+          </div>
+        </div>
+
+        <!-- Investor note -->
+        <div style="grid-column:1/-1;background:rgba(74,245,166,.05);border:1px solid rgba(74,245,166,.15);border-radius:7px;padding:10px 12px;">
+          <div style="font-size:9px;color:var(--accent3);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;">ðŸ’¡ ${TIER_LABELS[v.tier]} Market â€” Investor Note</div>
+          <div style="font-size:11px;color:var(--text);line-height:1.7;margin-bottom:4px;">${v.note.rule}</div>
+          <div style="font-size:10px;color:var(--warm);font-style:italic;">${v.note.warning}</div>
+        </div>
+
+        <!-- Action buttons -->
+        <div style="grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;">
+          <button onclick="useAIArv(${v.arvSafe})" style="padding:9px 6px;border-radius:6px;border:1px solid rgba(74,245,166,.4);background:rgba(74,245,166,.1);color:var(--accent3);font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;cursor:pointer;line-height:1.3;">âœ… Conservative<br>${fmt(v.arvSafe)}</button>
+          <button onclick="useAIArv(${v.arvRemodeled})" style="padding:9px 6px;border-radius:6px;border:1px solid rgba(245,166,35,.4);background:rgba(245,166,35,.1);color:var(--accent);font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;cursor:pointer;line-height:1.3;">ðŸ  Remodeled<br>${fmt(v.arvRemodeled)}</button>
+          <button onclick="useAIArv(${v.distressedVal})" style="padding:9px 6px;border-radius:6px;border:1px solid rgba(255,68,68,.3);background:rgba(255,68,68,.08);color:var(--hot);font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;cursor:pointer;line-height:1.3;">ðŸ”» Distressed<br>${fmt(v.distressedVal)}</button>
+        </div>
+
+      </div>
+    </div>`;
+    if(btn){btn.disabled=false;btn.textContent='â†º Re-run Comp Analysis';}
+  }catch(e){
+    box.innerHTML=`<div style="margin-top:10px;padding:10px;font-family:'Space Mono',monospace;font-size:11px;color:var(--accent2);">Error: ${e.message}</div>`;
+    if(btn){btn.disabled=false;btn.textContent='âœ¨ Run Comp Analysis';}
+  }
+}
+
+function useAIArv(val){
+  const a=document.getElementById('da-arv');if(a){a.value=val;mSyncARVs();mCalc();}
+  const b=document.getElementById('p-arv-base');if(b){b.value=val;pSyncARVs();pCalc();}
+  const w=document.querySelector('.da-wrap');if(w)w.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function getSkipTraceStatusLabel(r){
+  if(isSkipTraced(r)){
+    return `Skipped${r.skip_trace_timestamp?` ${new Date(r.skip_trace_timestamp).toLocaleDateString('en-US',{month:'short',day:'numeric'})}`:''}`;
+  }
+  if(r._trace_loading)return 'Tracing via Tracerfy...';
+  if(r.skip_trace_status==='no_contact')return 'Trace returned no usable phone or email';
+  if(r.skip_trace_status==='no_hit')return 'Tracerfy returned no match';
+  if(r.skip_trace_status==='missing_address')return 'Eligible but missing property address';
+  if(r.skip_trace_status==='request_failed')return 'Tracerfy request failed';
+  if(!isTracerfyEligible(r))return 'Requires Seller Score 65+ and 2+ lists/distress';
+  if(!tracerfyConfigured())return 'Tracerfy not configured';
+  if(!(r.prop_address&&r.prop_city&&r.prop_state))return 'Eligible but missing property address, city, or state';
+  return 'Awaiting automatic Tracerfy trace';
+}
+
+function openModal(r){
+  if(!r||typeof r!=='object')return;
+  const flags=r.flags||[],isSh=r.doc_type==='SHERIFF',isPro=r.doc_type==='PRO',isVL=r.doc_type==='VACLAND';
+  const eq=r.est_equity!=null?'$'+Number(r.est_equity).toLocaleString():'â€“';
+  const eqC=r.est_equity!=null?(r.est_equity>=0?'gr':'rd'):'';
+  const fd=v=>v!=null?'$'+Number(v).toLocaleString('en-US',{maximumFractionDigits:0}):'â€“';
+  const shW=isSh?`<div class="sheriff-warn">âš¡ SHERIFF SALE: ${r.sheriff_sale_date||'TBD'} â€” Owner must sell or lose everything</div>`:'';
+  const vlW=isVL?`<div class="sheriff-warn" style="background:rgba(74,245,166,.08);border-color:rgba(74,245,166,.3);color:var(--accent3)">ðŸŒ¿ Vacant infill lot â€” distressed owner, ready to sell</div>`:'';
+  const proS=isPro?`<hr class="mdiv"><div class="msec">Estate Details</div><div class="mf"><div class="ml">Decedent</div><div class="mv">${r.decedent_name||'â€“'}</div></div><div class="mf"><div class="ml">Executor</div><div class="mv">${r.executor_name||'â€“'}</div></div><div class="mf"><div class="ml">Executor State</div><div class="mv ${r.executor_state&&r.executor_state!=='OH'?'rd':''}">${r.executor_state||'OH'}</div></div>`:'';
+  const eligible=isTracerfyEligible(r);
+  const tracedPhones=getTracedPhones(r);
+  const tracedMail=getTraceMailingAddress(r);
+  const traceStatus=getSkipTraceStatusLabel(r);
+  document.getElementById('mc').innerHTML=`
+    <div class="mh"><div><div class="mt">${getPreferredOwner(r)||'Unknown Owner'}</div><div class="ms">${r.cat_label||r.doc_type} Â· Score ${r.score||0} Â· Sub-To ${r.subject_to_score||0}</div></div><button class="mx" onclick="closeModal()">âœ•</button></div>
+    <div class="mg">
+      ${shW}${vlW}
+      <div class="msec">Property</div>
+      <div class="mf full"><div class="ml">Property Address</div><div class="mv hi">${r.prop_address||'â€“'}${r.prop_city?', '+r.prop_city:''} ${r.prop_zip||''}</div></div>
+      <div class="mf full"><div class="ml">Mailing Address</div><div class="mv">${getPreferredMailingLine(r)||'â€“'}</div></div>
+      <div class="mf full"><div class="ml">Skip Trace Status</div><div class="mv ${eligible?'hi':''}">${traceStatus}</div></div>
+      <div class="mf"><div class="ml">List Count</div><div class="mv hi">${r.list_count||0}</div></div>
+      <div class="mf"><div class="ml">Trace Eligible</div><div class="mv ${eligible?'gr':''}">${eligible?'Yes':'No'}</div></div>
+      <div class="mf"><div class="ml">Parcel ID</div><div class="mv">${r.parcel_id||'â€“'}</div></div>
+      <div class="mf"><div class="ml">LUC / Acres</div><div class="mv">${r.luc||'â€“'} / ${r.acres||'â€“'}</div></div>
+      <div class="mf"><div class="ml">Lender</div><div class="mv">${r.lender||'â€“'}</div></div>
+      <div class="mf"><div class="ml">Distress Count</div><div class="mv hi">${r.distress_count||0} sources</div></div>
+      <hr class="mdiv">
+      <div class="msec">Traced Contact</div>
+      <div class="mf"><div class="ml">Traced Owner</div><div class="mv">${r.traced_owner_name||'â€“'}</div></div>
+      <div class="mf"><div class="ml">Phones</div><div class="mv">${tracedPhones.join(' Â· ')||'â€“'}</div></div>
+      <div class="mf"><div class="ml">Phone Types</div><div class="mv">${getRecordPhoneTypes(r).join(' Â· ')||'â€“'}</div></div>
+      <div class="mf"><div class="ml">Email</div><div class="mv">${r.email_primary||'â€“'}</div></div>
+      <div class="mf full"><div class="ml">Traced Mailing Address</div><div class="mv">${tracedMail||'â€“'}</div></div>
+      ${r.skip_trace_source?`<div class="mf"><div class="ml">Trace Source</div><div class="mv">${r.skip_trace_source}</div></div>`:''}
+      ${r.skip_trace_timestamp?`<div class="mf"><div class="ml">Trace Timestamp</div><div class="mv">${new Date(r.skip_trace_timestamp).toLocaleString()}</div></div>`:''}
+      <hr class="mdiv">
+      <div class="msec">Value &amp; Equity</div>
+      <div class="mf"><div class="ml">Assessed Value</div><div class="mv">${fd(r.assessed_value)}</div></div>
+      <div class="mf"><div class="ml">Est. Market Value</div><div class="mv hi">${fd(r.estimated_value)}</div></div>
+      <div class="mf"><div class="ml">Last Sale</div><div class="mv">${fd(r.last_sale_price)} ${r.last_sale_year?'('+r.last_sale_year+')':''}</div></div>
+      <div class="mf"><div class="ml">Est. Mortgage Bal.</div><div class="mv">${fd(r.est_mortgage_balance)}</div></div>
+      <div class="mf"><div class="ml">Est. Equity</div><div class="mv ${eqC}">${eq}</div></div>
+      <div class="mf"><div class="ml">Est. Arrears</div><div class="mv">${fd(r.est_arrears)}</div></div>
+      <div class="mf"><div class="ml">Est. Sub-To Payoff</div><div class="mv hi">${fd(r.est_payoff)}</div></div>
+      ${(r.mortgage_signals||[]).length?`<div class="mf full"><div class="ml">Signals</div><div class="mv">${r.mortgage_signals.join(' Â· ')}</div></div>`:''}
+      ${r.prop_address?`
+      <div class="mf full" style="margin-top:4px;">
+        <div class="ml" style="margin-bottom:6px;">Quick Lookup Links</div>
+        <div style="display:flex;gap:7px;flex-wrap:wrap;">
+          <a href="${zillowUrl(r)}" target="_blank" style="display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:6px;background:rgba(0,100,255,.12);border:1px solid rgba(0,100,255,.3);color:#5b9ef5;font-size:11px;font-weight:700;text-decoration:none;font-family:'Space Mono',monospace;transition:all .15s;" onmouseover="this.style.background='rgba(0,100,255,.22)'" onmouseout="this.style.background='rgba(0,100,255,.12)'">ðŸ  Zillow</a>
+          <a href="${redfinUrl(r)}" target="_blank" style="display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:6px;background:rgba(220,50,50,.12);border:1px solid rgba(220,50,50,.3);color:#f07070;font-size:11px;font-weight:700;text-decoration:none;font-family:'Space Mono',monospace;transition:all .15s;" onmouseover="this.style.background='rgba(220,50,50,.22)'" onmouseout="this.style.background='rgba(220,50,50,.12)'">ðŸ“Š Redfin</a>
+          <a href="${auditorUrl(r)}" target="_blank" style="display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:6px;background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.3);color:var(--accent);font-size:11px;font-weight:700;text-decoration:none;font-family:'Space Mono',monospace;transition:all .15s;" onmouseover="this.style.background='rgba(245,166,35,.22)'" onmouseout="this.style.background='rgba(245,166,35,.12)'">ðŸ› County Auditor</a>
+          <a href="${googleUrl(r)}" target="_blank" style="display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:6px;background:rgba(74,245,166,.1);border:1px solid rgba(74,245,166,.25);color:var(--accent3);font-size:11px;font-weight:700;text-decoration:none;font-family:'Space Mono',monospace;transition:all .15s;" onmouseover="this.style.background='rgba(74,245,166,.2)'" onmouseout="this.style.background='rgba(74,245,166,.1)'">ðŸ—º Street View</a>
+        </div>
+      </div>
+      <div class="mf full" style="margin-top:8px;">
+        <div class="ml" style="margin-bottom:6px;">AI Value Estimator <span style="color:var(--muted);font-weight:400;font-size:9px;letter-spacing:.04em;">â€” Claude analyzes neighborhood + distress</span></div>
+        <div id="ai-val-box" style="background:var(--bg);border:1px solid var(--border2);border-radius:8px;padding:12px;">
+          <button onclick="runAIValuation(_lastModalRecord)" style="background:linear-gradient(135deg,rgba(245,166,35,.2),rgba(74,245,166,.15));border:1px solid rgba(245,166,35,.4);border-radius:6px;padding:8px 18px;color:var(--accent);font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;cursor:pointer;letter-spacing:.06em;width:100%;transition:all .2s;" onmouseover="this.style.borderColor='rgba(245,166,35,.7)'" onmouseout="this.style.borderColor='rgba(245,166,35,.4)'">
+            âœ¨ Run AI Valuation â€” Get ARV Range + Neighborhood Analysis
+          </button>
+          <div id="ai-val-result" style="margin-top:0;"></div>
+        </div>
+      </div>`:''}      
+      <hr class="mdiv">
+      ${dealAnalyzerHTML(r.estimated_value||r.appraised_value||0)}
+      <hr class="mdiv">
+      <div class="msec">Filing Details</div>
+      <div class="mf"><div class="ml">Type</div><div class="mv">${r.cat_label||r.doc_type}</div></div>
+      <div class="mf"><div class="ml">Date Filed</div><div class="mv">${r.filed||'â€“'}</div></div>
+      <div class="mf"><div class="ml">Doc Number</div><div class="mv">${r.doc_num||'â€“'}</div></div>
+      <div class="mf"><div class="ml">Amount</div><div class="mv">${fd(r.amount)}</div></div>
+      ${r.sheriff_sale_date?`<div class="mf"><div class="ml">Sheriff Sale Date</div><div class="mv rd">${r.sheriff_sale_date}</div></div>`:''}
+      ${r.code_violation_case?`<div class="mf"><div class="ml">Code Violation</div><div class="mv">${r.code_violation_case}</div></div>`:''}
+      ${proS}
+      <hr class="mdiv">
+      <div class="msec">Distress Sources</div>
+      <div class="mf full"><div class="ml">Sources</div><div class="mv">${(r.distress_sources||[]).join(' Â· ')||'â€“'}</div></div>
+      <div class="mtags">${flags.map(tagHTML).join('')}</div>
+      <div class="mact">
+        ${r.clerk_url?`<a class="btn btn-primary" href="${r.clerk_url}" target="_blank">View Public Record</a>`:''}
+        <button class="btn btn-ghost" onclick="exportRow(event,_lastModalRecord)">Export Row</button>
+        <button class="btn btn-ghost" onclick="closeModal()">Close</button>
+      </div>
+      ${!tracerfyConfigured()?`<div class="mf full"><div class="mv" style="color:var(--muted);font-size:11px;">Tracerfy is disabled until <code>tracerfy.config.js</code> provides <code>apiKey</code>.</div></div>`:''}
+    </div>`;
+  document.getElementById('modal').classList.add('open');
+  cleanupBrokenIconText(document.getElementById('mc'));
+  window._lastModalRecord = r;
+  // Reset modal analyzer state fresh each time
+  setTimeout(()=>{
+    _mRow=0;_mCond='medium';_mMode='wholesale';_mFlip=false;_mAddons={};
+    mSelRow(0);mCalc();
+  },60);
+}
+function closeModal(){document.getElementById('modal').classList.remove('open');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+function openDATab(){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelector('[data-tab="deal_analyzer"]').classList.add('active');
+  document.getElementById('da-page').style.display='block';
+  document.getElementById('toolbar').style.display='none';
+  document.getElementById('table-wrap').style.display='none';
+  const addrInput=document.getElementById('da-addr-search');
+  const selectedAddr=window._lastModalRecord?.prop_address||'';
+  if(addrInput && selectedAddr) addrInput.value=selectedAddr;
+  setTimeout(()=>document.getElementById('p-arv-base').focus(),80);
+}
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// EXPORT
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+function toBatchDataCSV(rows){
+  const H=['First Name','Last Name','Property Address','Property City','Property State','Property Zip','Mailing Address','Mailing City','Mailing State','Mailing Zip','Lead Type','Document Type','Date Filed','Document Number','Amount Owed','Seller Score','Subject-To Score','Distress Count','Distress Sources','Hot Stack','Vacant Land','Vacant Home','Absentee Owner','Out-of-State Owner','Inherited','Est Market Value','Est Equity','Est Arrears','Est Payoff','Mortgage Signals','Sheriff Sale Date','Lender','Code Violation Case','Decedent Name','Executor Name','Executor State','Parcel ID','LUC Code','Flags','Public Records URL','Phone 1','Phone 1 Type','Phone 2','Phone 2 Type','Phone 3','Phone 3 Type','Email','Skip Trace Source','Skip Traced','Has Phone','Traced Owner','Traced Mailing Address','Traced Mailing City','Traced Mailing State','Traced Mailing Zip','Traced Email','Skip Trace Status','Skip Trace Timestamp','List Count','Skip Trace Eligible','Has Email'];
+  const sp=n=>{const p=(n||'').trim().split(/\s+/);return p.length<2?[p[0]||'','']:[p[0],p.slice(1).join(' ')];};
+  const fm=v=>{if(v==null)return'';if(Array.isArray(v))v=v.join('; ');return String(v).replace(/"/g,'""');};
+  const exportPhones=trace=>[
+    trace.phone_primary||trace['Phone 1']||trace.Phone1||trace.phone1||'',
+    trace.phone_secondary||trace['Phone 2']||trace.Phone2||trace.phone2||'',
+    trace.phone_tertiary||trace['Phone 3']||trace.Phone3||trace.phone3||'',
+  ];
+  const exportPhoneTypes=trace=>{
+    const phones=exportPhones(trace);
+    return [
+      phones[0]?firstTruthyValue([trace.phone_primary_type,trace['Phone 1 Type'],(trace.traced_phone_types||[])[0],(trace.phone_types||[])[0]]):'',
+      phones[1]?firstTruthyValue([trace.phone_secondary_type,trace['Phone 2 Type'],(trace.traced_phone_types||[])[1],(trace.phone_types||[])[1]]):'',
+      phones[2]?firstTruthyValue([trace.phone_tertiary_type,trace['Phone 3 Type'],(trace.traced_phone_types||[])[2],(trace.phone_types||[])[2]]):'',
+    ];
+  };
+  const exportMailingZip=trace=>{
+    const usingTracedMailing=!!(trace.traced_mailing_address||trace.traced_mailing_city||trace.traced_mailing_state||trace.traced_mailing_zip);
+    return usingTracedMailing?(trace.traced_mailing_zip||''):(trace.mail_zip||'');
+  };
+  const lines=rows.map(r=>{const trace=normalizeTraceRecord(r);const[fn,ln]=sp(getPreferredOwner(trace));const phones=exportPhones(trace);const phoneTypes=exportPhoneTypes(trace);const emails=getRecordEmails(trace);return[fn,ln,trace.prop_address||'',trace.prop_city||'',trace.prop_state||'OH',trace.prop_zip||'',getPreferredMailingAddress(trace),getPreferredMailingCity(trace),getPreferredMailingState(trace),exportMailingZip(trace),trace.cat_label||'',trace.doc_type||'',trace.filed||'',trace.doc_num||'',trace.amount!=null?`$${Number(trace.amount).toLocaleString()}`:'',trace.score||0,trace.subject_to_score||0,trace.distress_count||0,(trace.distress_sources||[]).join('; '),trace.hot_stack?'YES':'',trace.is_vacant_land?'YES':'',trace.is_vacant_home?'YES':'',trace.is_absentee?'YES':'',trace.is_out_of_state?'YES':'',trace.is_inherited?'YES':'',trace.estimated_value?`$${Number(trace.estimated_value).toLocaleString()}`:'',trace.est_equity!=null?`$${Number(trace.est_equity).toLocaleString()}`:'',trace.est_arrears?`$${Number(trace.est_arrears).toLocaleString()}`:'',trace.est_payoff?`$${Number(trace.est_payoff).toLocaleString()}`:'',(trace.mortgage_signals||[]).join('; '),trace.sheriff_sale_date||'',trace.lender||'',trace.code_violation_case||'',trace.decedent_name||'',trace.executor_name||'',trace.executor_state||'',trace.parcel_id||'',trace.luc||'',(trace.flags||[]).join('; '),trace.clerk_url||'',phones[0]||'',phoneTypes[0]||'',phones[1]||'',phoneTypes[1]||'',phones[2]||'',phoneTypes[2]||'',emails[0]||'',trace.skip_trace_source||'',isSkipTraced(trace)?'YES':'',trace.has_phone?'YES':'',trace.traced_owner_name||'',trace.traced_mailing_address||'',trace.traced_mailing_city||'',trace.traced_mailing_state||'',trace.traced_mailing_zip||'',trace.email_primary||trace.traced_email||'',trace.skip_trace_status||'',trace.skip_trace_timestamp||'',trace.list_count||0,trace.skip_trace_eligible?'YES':'NO',trace.has_email?'YES':'NO'].map(v=>`"${fm(v)}"`).join(',');});
+  return[H.map(h=>`"${h}"`).join(','),...lines].join('\n');
+}
+function dl(name,content){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([content],{type:'text/csv'}));a.download=name;a.click();}
+async function runLiveTraceForRows(rows){
+  const targets=(rows||[]).filter(r=>shouldAutoSkipTrace(r)&&!r._trace_loading);
+  if(!targets.length)return;
+  await queueAutoSkipTrace(targets);
+}
+async function exportCSV(){
+  const rows=filtered.length?filtered:curRecs;
+  await runLiveTraceForRows(rows);
+  dl(`skip_trace_${new Date().toISOString().slice(0,10)}.csv`,toBatchDataCSV(rows));
+}
+function exportHotStack(){const rows=(filtered.length?filtered:curRecs).filter(r=>r.hot_stack);if(!rows.length){alert('No Hot Stack leads');return;}dl(`hot_stack_${new Date().toISOString().slice(0,10)}.csv`,toBatchDataCSV(rows));}
+async function exportRow(e,r){
+  e.stopPropagation();
+  if(r&&typeof r==='object'){
+    await runLiveTraceForRows([r]);
+    dl(`lead_${r.doc_num||'export'}.csv`,toBatchDataCSV([r]));
+  }
+}
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// FULL-PAGE DEAL ANALYZER
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+const P_SQFT=[
+  {easy:15000,medium:27500,heavy:45000},
+  {easy:20000,medium:37500,heavy:65000},
+  {easy:30000,medium:57500,heavy:85000},
+  {easy:40000,medium:77500,heavy:105000},
+];
+const P_ADDONS=[
+  {id:'roof',   name:'Roof',             range:'+$8kâ€“15k', def:11000},
+  {id:'hvac',   name:'HVAC',             range:'+$5kâ€“10k', def:7000 },
+  {id:'found',  name:'Foundation',       range:'+$10kâ€“30k',def:18000},
+  {id:'plumb',  name:'Plumbing',         range:'+$5kâ€“15k', def:8000 },
+  {id:'elec',   name:'Electrical',       range:'+$5kâ€“12k', def:7500 },
+  {id:'mold',   name:'Mold / Water',     range:'+$3kâ€“12k', def:6000 },
+  {id:'sewer',  name:'Sewer Line',       range:'+$4kâ€“10k', def:6000 },
+  {id:'windows',name:'Windows / Doors',  range:'+$3kâ€“8k',  def:5000 },
+];
+const P_MODE_DESC={
+  wholesale:'Wholesale: aggressive discount, fast close. No holding/selling costs. MAO = ARV Ã— % âˆ’ Rehab âˆ’ Fee âˆ’ Closing.',
+  flip:'Flip: full costs included â€” agent/selling fees + holding costs per month. Shows true acquisition max.',
+  rental:'Rental: higher buy % allowed (cash flow driven). Fee = target cash-on-cash profit. Seller financing friendly.',
+};
+const P_MODE_PCT={wholesale:70,flip:70,rental:80};
+
+let pMode='wholesale',pCond='medium',pSqRow=0,pFlipOn=false,pAddons={};
+
+// build addon grid
+(function(){
+  const g=document.getElementById('p-addon-grid');
+  if(!g)return;
+  g.innerHTML=P_ADDONS.map(a=>`
+    <div class="addon-i" id="pai-${a.id}" onclick="pToggleAddon('${a.id}')">
+      <div class="addon-il"><div class="addon-nm">${a.name}</div><div class="addon-rng">${a.range}</div></div>
+      <div class="addon-ir">
+        <div class="addon-cv" id="pacv-${a.id}">$${(a.def/1000).toFixed(0)}k</div>
+        <div class="addon-ck" id="pack-${a.id}"></div>
+      </div>
+    </div>`).join('');
+  pSelSqft(0);
+  pHighlightSqft();
+})();
+
+function pSetMode(m,btn){
+  pMode=m;
+  document.querySelectorAll('.da-mode-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('p-mode-desc').textContent=P_MODE_DESC[m];
+  const pct=P_MODE_PCT[m];
+  document.getElementById('p-pct').value=pct;
+  document.getElementById('p-pctv').textContent=pct+'%';
+  if(m==='flip'&&!pFlipOn)pToggleFlip();
+  if(m!=='flip'&&pFlipOn)pToggleFlip();
+  pCalc();
+}
+function pSetPreset(v){document.getElementById('p-pct').value=v;document.getElementById('p-pctv').textContent=v+'%';pCalc();}
+function pSetCond(c,btn){
+  pCond=c;
+  document.querySelectorAll('.pcond-btn').forEach(b=>b.classList.remove('ae','am','ah'));
+  btn.classList.add(c==='easy'?'ae':c==='medium'?'am':'ah');
+  pSetRehabFromTable();pCalc();
+}
+function pSelSqft(i){pSqRow=i;pHighlightSqft();pSetRehabFromTable();pCalc();}
+function pHighlightSqft(){
+  document.querySelectorAll('[id^="psr"]').forEach(r=>r.classList.remove('psel'));
+  const el=document.getElementById('psr'+pSqRow);
+  if(el)el.classList.add('psel');
+}
+function pSetRehabFromTable(){
+  const base=P_SQFT[pSqRow][pCond];
+  const add=pCalcAddonTotal();
+  document.getElementById('p-rehab').value=base+add;
+  pUpdateAddonTotal();
+}
+function pToggleAddon(id){
+  pAddons[id]=!pAddons[id];
+  const el=document.getElementById('pai-'+id);
+  const ck=document.getElementById('pack-'+id);
+  const cv=document.getElementById('pacv-'+id);
+  const a=P_ADDONS.find(x=>x.id===id);
+  if(pAddons[id]){el.classList.add('aon');ck.textContent='âœ“';cv.textContent='+$'+(a.def/1000).toFixed(0)+'k';}
+  else{el.classList.remove('aon');ck.textContent='';cv.textContent='$'+(a.def/1000).toFixed(0)+'k';}
+  pSetRehabFromTable();pCalc();
+}
+function pCalcAddonTotal(){return P_ADDONS.filter(a=>pAddons[a.id]).reduce((s,a)=>s+a.def,0);}
+function pUpdateAddonTotal(){const t=pCalcAddonTotal();document.getElementById('p-addon-total').textContent=t>0?'+$'+t.toLocaleString():'$0';}
+function pToggleFlip(){
+  pFlipOn=!pFlipOn;
+  document.getElementById('p-flip-pill').classList.toggle('on',pFlipOn);
+  document.getElementById('p-flip-tog').classList.toggle('on',pFlipOn);
+  document.getElementById('p-flip-det').classList.toggle('show',pFlipOn);
+  pCalc();
+}
+function pSyncARVs(){
+  normalizeArvRange('p-arv-base','p-arv-low','p-arv-high');
+}
+
+// ── FEE SLIDER HELPER ─────────────────────────────────────────
+function pSetFee(val){
+  const slider=document.getElementById('p-fee-slider');
+  const disp=document.getElementById('p-fee-display');
+  const inp=document.getElementById('p-fee');
+  if(slider)slider.value=val;
+  if(disp)disp.textContent='$'+val.toLocaleString();
+  if(inp)inp.value=val;
+  pCalc();
+}
+
+// ── FULL MAO ENGINE ───────────────────────────────────────────
+function pCalc(){
+  const arvBase = parseFloat(document.getElementById('p-arv-base').value)||0;
+  const arvLow  = parseFloat(document.getElementById('p-arv-low').value)||0;
+  const arvHigh = parseFloat(document.getElementById('p-arv-high').value)||0;
+  const pct     = parseFloat(document.getElementById('p-pct').value)||70;
+  const rehab   = parseFloat(document.getElementById('p-rehab').value)||0;
+  const fee     = parseFloat(document.getElementById('p-fee')?.value||document.getElementById('p-fee-slider')?.value)||10000;
+  const closing = parseFloat(document.getElementById('p-closing').value)||0;
+  const other   = parseFloat(document.getElementById('p-other').value)||0;
+  const sellerAsk = parseFloat(document.getElementById('p-seller-ask').value)||0;
+
+  const feeInp = document.getElementById('p-fee'); if(feeInp) feeInp.value = fee;
+  const feeSlider = document.getElementById('p-fee-slider'); if(feeSlider) feeSlider.value = fee;
+  const feeDisp = document.getElementById('p-fee-display'); if(feeDisp) feeDisp.textContent = '$'+Math.round(fee).toLocaleString();
+
+  let flipCost = 0;
+  if(pFlipOn){
+    const sp = parseFloat(document.getElementById('p-sell-pct').value)||9;
+    const hm = parseFloat(document.getElementById('p-hold-mo').value)||4;
+    const hc = parseFloat(document.getElementById('p-hold-cost').value)||1200;
+    flipCost = (arvBase*sp/100) + (hm*hc);
+    const ft = document.getElementById('p-flip-total'); if(ft) ft.value = Math.round(flipCost);
+  }
+
+  const fixedCosts = rehab + closing + other + flipCost;
+  const totalCosts = fixedCosts + fee;
+  const analyzerMAO = computeAnalyzerMAOOutputs(arvBase, rehab, closing, other, flipCost);
+
+  const fd = document.getElementById('p-fixed-display');
+  if(fd) fd.value = '$'+Math.round(fixedCosts).toLocaleString();
+
+  const fmt = v => v>=0 ? '$'+Math.round(v).toLocaleString() : '-$'+Math.round(Math.abs(v)).toLocaleString();
+
+  if(!arvBase){ pResetResult(); return; }
+
+  const maoBase = (arvBase*pct/100) - totalCosts;
+  const cashOfferBase = Math.max(0, maoBase - fee);
+
+  const baseWithoutFee = (arvBase*pct/100) - fixedCosts;
+  const maxFee = sellerAsk > 0
+    ? baseWithoutFee - sellerAsk
+    : baseWithoutFee;
+
+  const mm = document.getElementById('p-mao-main');
+  if(mm) mm.textContent = fmt(maoBase);
+
+  const rr = document.getElementById('p-mao-range');
+  if(rr){
+    if(analyzerMAO){
+      rr.style.display='flex';
+      const ms=document.getElementById('p-mao-safe'); if(ms) ms.textContent=fmt(analyzerMAO.lowball_mao);
+      const mt=document.getElementById('p-mao-target'); if(mt) mt.textContent=fmt(analyzerMAO.target_mao);
+      const ma=document.getElementById('p-mao-aggr'); if(ma) ma.textContent=fmt(analyzerMAO.max_mao);
+    } else {
+      rr.style.display='none';
+    }
+  }
+
+  let bd = [`ARV ${fmt(arvBase)} × ${pct}% = ${fmt(arvBase*pct/100)}`,
+            `− Rehab ${fmt(rehab)}`, `− Wholesale Fee ${fmt(fee)}`, `− Closing ${fmt(closing)}`];
+  if(other) bd.push(`− Other ${fmt(other)}`);
+  if(flipCost) bd.push(`− Flip ${fmt(flipCost)}`);
+  const bdEl = document.getElementById('p-mao-bd');
+  if(bdEl) bdEl.innerHTML = bd.map(p=>`<b>${p}</b>`).join('&nbsp;·&nbsp;');
+
+  const card  = document.getElementById('p-res-card');
+  const badge = document.getElementById('p-grade-badge');
+  const vt    = document.getElementById('p-vtext');
+  const vs    = document.getElementById('p-vsub');
+  if(card) card.classList.remove('green','yellow','red');
+  if(badge) badge.classList.remove('green','yellow','red');
+
+  if(maoBase >= 30000){
+    if(card) card.classList.add('green');
+    if(badge){ badge.classList.add('green'); badge.textContent='✅ Strong Deal — Move Fast'; }
+    if(mm) mm.style.color='var(--accent3)';
+    if(vt){ vt.textContent='Room to negotiate — this deal works'; vt.style.color='var(--accent3)'; }
+    if(vs) vs.textContent=`At $${Math.round(fee/1000)}k wholesale fee your buyer-side MAO is ${fmt(maoBase)} and your cash offer is ${fmt(cashOfferBase)}. Could flex fee up to ${fmt(maxFee>0?Math.floor(maxFee/500)*500:fee)} and still work.`;
+  } else if(maoBase >= 15000){
+    if(card) card.classList.add('yellow');
+    if(badge){ badge.classList.add('yellow'); badge.textContent='⚠️ Decent — Negotiate Hard'; }
+    if(mm) mm.style.color='var(--accent)';
+    if(vt){ vt.textContent='Workable — push seller down, or drop your wholesale fee'; vt.style.color='var(--accent)'; }
+    if(vs) vs.textContent=`Drop wholesale fee to $${Math.max(0,Math.round((fee-5000)/500)*500).toLocaleString()} → buyer-side MAO becomes ${fmt((arvBase*pct/100)-fixedCosts-(fee-5000))}. Or get seller ${fmt(Math.max(0,15000-maoBase))} lower.`;
+  } else if(maoBase > 0){
+    if(card) card.classList.add('yellow');
+    if(badge){ badge.classList.add('yellow'); badge.textContent='⚡ Tight — Grind It'; }
+    if(mm) mm.style.color='var(--warm)';
+    if(vt){ vt.textContent='Thin deal — only works with seller motivation + low wholesale fee'; vt.style.color='var(--warm)'; }
+    if(vs) vs.textContent=`Try wholesale fee at $5k → buyer-side MAO ${fmt((arvBase*pct/100)-fixedCosts-5000)}. Seller needs to be at or below your cash offer of ${fmt(cashOfferBase)}.`;
+  } else {
+    if(card) card.classList.add('red');
+    if(badge){ badge.classList.add('red'); badge.textContent='❌ Dead Deal — Walk Away'; }
+    if(mm) mm.style.color='var(--hot)';
+    if(vt){ vt.textContent="Numbers don't work at any wholesale fee — walk or renegotiate ARV"; vt.style.color='var(--hot)'; }
+    const breakEvenFee = Math.max(0, Math.floor(((arvBase*pct/100)-fixedCosts)/500)*500);
+    if(vs) vs.textContent=`${fmt(Math.abs(maoBase))} underwater. Would need wholesale fee ≤ $${breakEvenFee.toLocaleString()} or ARV ${fmt(arvBase+(Math.abs(maoBase)/(pct/100)))} to break even.`;
+  }
+
+  const sr = document.getElementById('p-stats-row');
+  if(sr) sr.style.display='grid';
+
+  const costEl = document.getElementById('p-sp-costs');
+  if(costEl) costEl.textContent = fmt(fixedCosts);
+
+  const maxFeeEl = document.getElementById('p-max-fee');
+  if(maxFeeEl){
+    if(maxFee > 0){
+      maxFeeEl.textContent = fmt(Math.floor(maxFee/500)*500);
+      maxFeeEl.style.color = maxFee > fee ? 'var(--accent3)' : 'var(--hot)';
+    } else {
+      maxFeeEl.textContent = '❌ No room';
+      maxFeeEl.style.color = 'var(--hot)';
+    }
+  }
+
+  const ge = document.getElementById('p-sp-grade');
+  const gs = document.getElementById('p-sp-gsub');
+  if(maoBase>=30000){ if(ge){ge.textContent='A';ge.style.color='var(--accent3)';} if(gs)gs.textContent='Institutional'; }
+  else if(maoBase>=15000){ if(ge){ge.textContent='B';ge.style.color='var(--accent)';} if(gs)gs.textContent='Workable'; }
+  else if(maoBase>0){ if(ge){ge.textContent='C';ge.style.color='var(--warm)';} if(gs)gs.textContent='Stretch'; }
+  else{ if(ge){ge.textContent='F';ge.style.color='var(--hot)';} if(gs)gs.textContent='Walk Away'; }
+
+  if(arvBase){
+    const feePoints = [3000,5000,7500,10000,12500,15000,18000,20000,25000];
+    const rows = feePoints.map(f=>{
+      const m = (arvBase*pct/100) - fixedCosts - f;
+      const isCurrent = f === Math.round(fee/500)*500 || Math.abs(f-fee)<1000;
+      let icon,label,col;
+      if(m>=30000){icon='🟢';label='Strong';col='var(--accent3)';}
+      else if(m>=15000){icon='🟡';label='Decent';col='var(--accent)';}
+      else if(m>=5000){icon='🟠';label='Tight';col='var(--warm)';}
+      else if(m>=0){icon='🔴';label='Barely';col='var(--hot)';}
+      else{icon='💀';label='Dead';col='var(--muted)';}
+      const highlight=isCurrent?`background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.3);font-weight:700;`:`background:var(--bg);border:1px solid var(--border);`;
+      return `<div style="${highlight}border-radius:6px;padding:6px 10px;display:grid;grid-template-columns:22px 52px 1fr 80px;align-items:center;gap:4px;">
+        <span style="font-size:13px;">${icon}</span>
+        <span style="font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);">$${(f/1000).toFixed(1).replace('.0','')}k fee</span>
+        <span style="font-family:'Space Mono',monospace;font-size:12px;color:${col};">MAO ${m>=0?'$'+Math.round(m).toLocaleString():'-$'+Math.round(Math.abs(m)).toLocaleString()}</span>
+        <span style="font-size:10px;font-weight:700;color:${col};text-align:right;">${label}${isCurrent?' ◀':''}</span>
+      </div>`;
+    });
+    const fhEl = document.getElementById('p-fee-health');
+    if(fhEl) fhEl.innerHTML = `
+      <div style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Wholesale Fee vs Deal Health — Slide to see live</div>
+      <div style="display:flex;flex-direction:column;gap:3px;">${rows.join('')}</div>
+      <div style="margin-top:8px;padding:7px 10px;background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.15);border-radius:6px;font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);line-height:1.7;">
+        📞 <span style="color:var(--accent3);font-weight:700;">On the phone:</span> "I'm around ${fmt(cashOfferBase > 0 ? cashOfferBase : 0)}... if it's clean maybe ${fmt(Math.max(0, cashOfferBase + 3000))}"
+        &nbsp;·&nbsp; Max wholesale fee at this deal: <span style="color:var(--accent3);font-weight:700;">${maxFee>0?fmt(Math.floor(maxFee/500)*500):'No room'}</span>
+      </div>`;
+  }
+
+  const dpBox = document.getElementById('p-deal-picture');
+  const yourOffer = document.getElementById('p-your-offer');
+  const yourSpread = document.getElementById('p-your-spread');
+
+  if(yourOffer) yourOffer.value = arvBase ? fmt(cashOfferBase) : '–';
+
+  if(sellerAsk > 0 && arvBase){
+    const actualSpread = maoBase - sellerAsk;
+    const buyerPays   = maoBase;
+    const gap         = sellerAsk - cashOfferBase;
+
+    if(yourSpread) yourSpread.value = actualSpread >= 0 ? fmt(actualSpread) : '❌ Overpaying';
+
+    if(dpBox){
+      dpBox.style.display='block';
+      const dpPay  = document.getElementById('dp-pay');
+      const dpFee  = document.getElementById('dp-fee');
+      const dpBuyer= document.getElementById('dp-buyer');
+      const dpGap  = document.getElementById('dp-gap');
+      const dpVerd = document.getElementById('dp-verdict');
+
+      if(dpPay) dpPay.textContent = fmt(cashOfferBase);
+      if(dpFee) dpFee.textContent = fmt(fee);
+      if(dpBuyer) dpBuyer.textContent = fmt(buyerPays);
+
+      if(gap <= 0){
+        if(dpGap){ dpGap.textContent = fmt(Math.abs(gap))+' room'; dpGap.style.color='var(--accent3)'; }
+        if(dpVerd){
+          dpVerd.style.background='rgba(74,245,166,.1)';
+          dpVerd.style.color='var(--accent3)';
+          dpVerd.textContent = gap === 0 ? '✅ Seller at exactly your cash offer' : `✅ Seller ${fmt(Math.abs(gap))} below your cash offer — spread stays separate from wholesale fee`;
+        }
+      } else {
+        if(dpGap){ dpGap.textContent = fmt(gap)+' gap'; dpGap.style.color='var(--hot)'; }
+        if(dpVerd){
+          dpVerd.style.background='rgba(255,68,68,.1)';
+          dpVerd.style.color='var(--hot)';
+          dpVerd.textContent = `⚡ Seller needs to drop ${fmt(gap)} to hit your cash offer of ${fmt(cashOfferBase)}`;
+        }
+      }
+    }
+  } else {
+    if(yourSpread) yourSpread.value = '–';
+    if(dpBox) dpBox.style.display='none';
+  }
+}
+
+function pResetResult(){
+  const ids=['p-mao-main','p-mao-bd','p-vtext','p-vsub'];
+  ids.forEach(id=>{ const el=document.getElementById(id); if(el)el.textContent=''; });
+  const mm=document.getElementById('p-mao-main'); if(mm){mm.textContent='– – –';mm.style.color='var(--muted)';}
+  const rr=document.getElementById('p-mao-range'); if(rr)rr.style.display='none';
+  const gb=document.getElementById('p-grade-badge'); if(gb){gb.textContent='Enter ARV to calculate';gb.classList.remove('green','yellow','red');}
+  const rc=document.getElementById('p-res-card'); if(rc)rc.classList.remove('green','yellow','red');
+  const sr=document.getElementById('p-stats-row'); if(sr)sr.style.display='none';
+  const fh=document.getElementById('p-fee-health'); if(fh)fh.innerHTML='';
+  const dp=document.getElementById('p-deal-picture'); if(dp)dp.style.display='none';
+  const yo=document.getElementById('p-your-offer'); if(yo)yo.value='';
+  const ys=document.getElementById('p-your-spread'); if(ys)ys.value='';
+}
+
+function pResetAll(){
+  ['p-arv-base','p-arv-low','p-arv-high','p-seller-ask'].forEach(id=>{
+    const el=document.getElementById(id); if(el)el.value='';
+  });
+  document.getElementById('p-pct').value=70;
+  document.getElementById('p-pctv').textContent='70%';
+  pSetFee(10000);
+  pSqRow=0; pCond='medium';
+  document.querySelectorAll('.pcond-btn').forEach(b=>b.classList.remove('ae','am','ah'));
+  const pcbm=document.getElementById('pcb-medium'); if(pcbm)pcbm.classList.add('am');
+  pHighlightSqft();
+  const pr=document.getElementById('p-rehab'); if(pr)pr.value=P_SQFT[0].medium;
+  const pc=document.getElementById('p-closing'); if(pc)pc.value=3000;
+  const po=document.getElementById('p-other'); if(po)po.value=0;
+  if(pFlipOn)pToggleFlip();
+  Object.keys(pAddons).forEach(id=>{
+    pAddons[id]=false;
+    document.getElementById('pai-'+id)?.classList.remove('aon');
+    const ck=document.getElementById('pack-'+id); if(ck)ck.textContent='';
+    const cv=document.getElementById('pacv-'+id);
+    const a=P_ADDONS.find(x=>x.id===id);
+    if(cv&&a)cv.textContent='$'+(a.def/1000).toFixed(0)+'k';
+  });
+  pUpdateAddonTotal();
+  pResetResult();
+  const ab=document.getElementById('p-arv-base'); if(ab)ab.focus();
+}
+
+function fixBrokenText(str){
+  if(typeof str!=='string' || !str)return str;
+  return str
+    .replaceAll('ðŸ”¥','🔥')
+    .replaceAll('ðŸ“­','📭')
+    .replaceAll('ðŸŒŽ','🌎')
+    .replaceAll('ðŸ›','🏛')
+    .replaceAll('âš ï¸','⚠️')
+    .replaceAll('âš¡','⚡')
+    .replaceAll('ðŸŽ¯','🎯')
+    .replaceAll('â­','⭐')
+    .replaceAll('ðŸŒ¿','🌿')
+    .replaceAll('ðŸšª','🚪')
+    .replaceAll('ðŸ’”','💔')
+    .replaceAll('ðŸ§®','🧮')
+    .replaceAll('âœ•','✕')
+    .replaceAll('âœ…','✅')
+    .replaceAll('âœ¨','✨')
+    .replaceAll('â†º','↺')
+    .replaceAll('â†’','→')
+    .replaceAll('â€”','—')
+    .replaceAll('Â·','·')
+    .replaceAll('â€“','–')
+    .replaceAll('â—Ž','◎')
+    .replaceAll('â‰¥','≥')
+    .replaceAll('âˆ’','−')
+    .replaceAll('ðŸ ','🏠')
+    .replaceAll('ðŸ“Š','📊')
+    .replaceAll('ðŸ—º','🗺')
+    .replaceAll('ðŸ”»','🔻');
+}
+
+function cleanupBrokenIconText(root=document.body){
+  if(!root)return;
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+  const nodes=[];
+  while(walker.nextNode())nodes.push(walker.currentNode);
+  nodes.forEach(node=>{
+    const fixed=fixBrokenText(node.nodeValue);
+    if(fixed!==node.nodeValue)node.nodeValue=fixed;
+  });
+}
+
+// ── BOOT ──────────────────────────────────────────────────────
+async function init(){
+  await loadStats();
+  curRecs=cache['all']||[];
+  applyFilters();
+  Object.keys(TAB_FILES).forEach(tab=>{if(tab!=='all')loadTab(tab);});
+  cleanupBrokenIconText();
+}
+init();
+</script>
+</body>
+</html>
