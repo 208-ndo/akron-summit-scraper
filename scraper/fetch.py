@@ -1678,37 +1678,73 @@ def load_property_access_cache()->Dict[str,dict]:
 def save_property_access_cache(cache:Dict[str,dict]):
     write_json(PROPERTY_ACCESS_CACHE_PATH,cache)
 
+def has_property_access_metrics(payload:dict)->bool:
+    return isinstance(payload,dict) and any(
+        payload.get(key) is not None for key in ("bedrooms","bathrooms","square_feet")
+    )
+
+_PROPERTY_ACCESS_SUCCESS_LOGGED = False
+_PROPERTY_ACCESS_HTML_SNIPPET_LOGGED = False
+
+def extract_property_access_html_snippet(html:str)->str:
+    if not html:
+        return ""
+    patterns=[
+        r"Bedrooms",
+        r"Bed\s*Rms",
+        r"Full\s*Baths",
+        r"Baths\s*Full",
+        r"Square\s*Feet",
+        r"Living\s*Area",
+        r"GLA",
+    ]
+    match=None
+    for pattern in patterns:
+        match=re.search(pattern,html,re.IGNORECASE)
+        if match:
+            break
+    if not match:
+        return ""
+    start=max(0,match.start()-400)
+    end=min(len(html),match.end()+1200)
+    snippet=html[start:end]
+    return re.sub(r"\s+"," ",snippet).strip()
+
 def parse_property_access_metrics(html:str)->dict:
+    global _PROPERTY_ACCESS_SUCCESS_LOGGED, _PROPERTY_ACCESS_HTML_SNIPPET_LOGGED
     if not clean_text(html):
         return {}
     text=BeautifulSoup(html,"lxml").get_text("\n",strip=True)
-    compact=clean_text(text)
-    if "system is currently unavailable" in compact.lower():
-        return {}
+    lines=[clean_text(line) for line in text.splitlines() if clean_text(line)]
 
-    def metric(patterns, parser):
-        for pattern in patterns:
-            match=re.search(pattern,compact,re.IGNORECASE)
-            if match:
-                parsed=parser(match.group(1))
-                if parsed is not None:
-                    return parsed
+    def normalize_metric_label(value:str)->str:
+        return re.sub(r"[^a-z0-9]","",clean_text(value).lower())
+
+    def metric_from_lines(label_terms, parser):
+        normalized_terms=[normalize_metric_label(term) for term in label_terms]
+        for idx,line in enumerate(lines):
+            line_normalized=normalize_metric_label(line)
+            for term in normalized_terms:
+                if term and line_normalized.startswith(term):
+                    remainder=line[len(line) - len(line.lstrip()):]
+                    parsed=parser(re.sub(r"^[^0-9.]+","",line).strip())
+                    if parsed is not None:
+                        return parsed
+                if term and term in line_normalized and idx+1 < len(lines):
+                    parsed=parser(lines[idx+1])
+                    if parsed is not None:
+                        return parsed
         return None
 
-    bedrooms=metric([r"\bBedrooms\s+([0-9.]+)\b"],parse_bedrooms)
-    square_feet=metric(
-        [
-            r"\bSquare\s+Feet\s+([0-9,]+)\b",
-            r"\bLiving\s+Area(?:\s*\(Sq(?:uare)?\s*Ft\))?\s+([0-9,]+)\b",
-            r"\bGFLA\s+([0-9,]+)\b",
-        ],
-        parse_square_feet,
-    )
-    full_baths=metric([r"\bFull\s+Baths\s+([0-9.]+)\b"],parse_bathrooms)
-    half_baths=metric([r"\bHalf\s+Baths\s+([0-9.]+)\b"],parse_bathrooms)
+    bedrooms=metric_from_lines(["bedrooms","bed rms","bed"],parse_bedrooms)
+    square_feet=metric_from_lines(["square feet","living area","gla","sq","living"],parse_square_feet)
+    if square_feet is None:
+        square_feet=metric_from_lines(["gfla"],parse_square_feet)
+    full_baths=metric_from_lines(["full baths","baths full","full bath","bath full"],parse_bathrooms)
+    half_baths=metric_from_lines(["half baths","baths half","half bath","bath half"],parse_bathrooms)
     bathrooms=(full_baths or 0)+(0.5*(half_baths or 0))
     if bathrooms==0:
-        bathrooms=metric([r"\bBathrooms\s+([0-9.]+)\b",r"\bBaths\s+([0-9.]+)\b"],parse_bathrooms)
+        bathrooms=metric_from_lines(["bathrooms","baths","bath"],parse_bathrooms)
 
     result={}
     if bedrooms is not None:
@@ -1717,6 +1753,14 @@ def parse_property_access_metrics(html:str)->dict:
         result["bathrooms"]=bathrooms
     if square_feet is not None:
         result["square_feet"]=square_feet
+    if has_property_access_metrics(result) and not _PROPERTY_ACCESS_SUCCESS_LOGGED:
+        logging.info("Property Access parsed metrics sample: %s",result)
+        _PROPERTY_ACCESS_SUCCESS_LOGGED=True
+    if has_property_access_metrics(result) and not _PROPERTY_ACCESS_HTML_SNIPPET_LOGGED:
+        snippet=extract_property_access_html_snippet(html)
+        if snippet:
+            logging.info("Property Access raw HTML snippet sample: %s",snippet)
+            _PROPERTY_ACCESS_HTML_SNIPPET_LOGGED=True
     return result
 
 def fetch_property_access_metrics_for_pin(pin:str, session:Optional[requests.Session]=None)->dict:
@@ -1742,7 +1786,7 @@ def enrich_records_from_property_access(records:List[LeadRecord])->List[LeadReco
         if not pid:
             continue
         cached=cache.get(pid)
-        if isinstance(cached,dict):
+        if has_property_access_metrics(cached):
             if record.bedrooms is None and cached.get("bedrooms") is not None:
                 record.bedrooms=cached.get("bedrooms")
             if record.bathrooms is None and cached.get("bathrooms") is not None:
@@ -1764,7 +1808,7 @@ def enrich_records_from_property_access(records:List[LeadRecord])->List[LeadReco
         if not pid:
             continue
         cached=cache.get(pid)
-        if isinstance(cached,dict):
+        if has_property_access_metrics(cached):
             continue
         elapsed=time.monotonic()-last_request_at
         if last_request_at and elapsed<PROPERTY_ACCESS_THROTTLE_SECONDS:
@@ -1779,7 +1823,7 @@ def enrich_records_from_property_access(records:List[LeadRecord])->List[LeadReco
         if not pid:
             continue
         cached=cache.get(pid,{})
-        if not isinstance(cached,dict):
+        if not has_property_access_metrics(cached):
             continue
         if record.bedrooms is None and cached.get("bedrooms") is not None:
             record.bedrooms=cached.get("bedrooms")

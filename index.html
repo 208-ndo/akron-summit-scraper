@@ -394,10 +394,9 @@
   </select>
   <select id="f-traced" onchange="applyFilters()">
     <option value="">Skip Trace: All</option>
-    <option value="pending_skip">Pending Skip</option>
+    <option value="pending_skip">Skipped / Not Traced Yet</option>
     <option value="skip_traced">Skip Traced</option>
     <option value="skip_failed">Skip Failed</option>
-    <option value="ineligible">Ineligible</option>
   </select>
   <select aria-hidden="true" tabindex="-1" disabled style="opacity:0;pointer-events:none;">
     <option>Spacer</option>
@@ -682,6 +681,7 @@ const TRACE_STORE_KEY='akron_tracerfy_trace_store_v2';
 const TRACERFY_DEFAULT_BASE='https://tracerfy.com/v1/api';
 const TRACE_SUCCESS_STATUSES=new Set(['success']);
 const TRACE_FINAL_STATUSES=new Set(['success','no_contact','no_hit','missing_address']);
+const TRACE_FAILURE_STATUSES=new Set(['no_contact','no_hit','request_failed','not_found','no_match','missing_address']);
 const TRACE_SOURCE='Tracerfy';
 const TRACE_PERSIST_FIELDS=[
   'traced_owner_name',
@@ -894,7 +894,17 @@ function normalizeTraceRecord(data){
   const resolvedHasPhone=hasPhone??!!primaryPhone;
   const resolvedHasEmail=hasEmail??!!emailPrimary;
   const status=data.skip_trace_status||data['Skip Trace Status']||(skipTraced?(resolvedHasPhone||resolvedHasEmail?'success':'no_contact'):(skipTraceHit===false?'no_hit':''));
-  const skipTraceSource=data.skip_trace_source||data['Skip Trace Source']||TRACE_SOURCE;
+  const hasTraceEvidence=!!(
+    status ||
+    data.skip_trace_timestamp ||
+    data.skip_trace_at ||
+    tracedOwnerName ||
+    resolvedHasPhone ||
+    resolvedHasEmail ||
+    data.traced_mailing_address ||
+    data.traced_mail_address
+  );
+  const skipTraceSource=data.skip_trace_source||data['Skip Trace Source']||(hasTraceEvidence?TRACE_SOURCE:'');
   return Object.assign({},data,{
     traced_owner_name:tracedOwnerName,
     phone_primary:primaryPhone,
@@ -1117,18 +1127,13 @@ function isTracerfyEligible(r){
 function isSkipTraced(r){
   const status=normalizeTraceStatus(r.skip_trace_status);
   if(TRACE_SUCCESS_STATUSES.has(status)) return true;
-  if(['no_hit','request_failed','not_found','no_match','no_contact'].includes(status)){
-    return !!(r.skip_trace_timestamp || r.skip_trace_source || hasTracedContact(r));
-  }
   return hasTracedContact(r);
 }
 
 function getSkipBucket(r){
-  if(hasTracedContact(r)) return 'skip_traced';
+  if(isSkipTraced(r)) return 'skip_traced';
   const status=normalizeTraceStatus(r.skip_trace_status);
-  if(['no_hit','no_contact','request_failed','not_found','no_match','missing_address'].includes(status)) return 'skip_failed';
-  if((r.skip_trace_timestamp||r.skip_trace_source)&&!hasTracedContact(r)) return 'skip_failed';
-  if(!isTracerfyEligible(r)) return 'ineligible';
+  if(TRACE_FAILURE_STATUSES.has(status)) return 'skip_failed';
   return 'pending_skip';
 }
 
@@ -1733,7 +1738,7 @@ function applyFilters(){
   const minS=parseInt(document.getElementById('f-score').value)||0;
   const fl=document.getElementById('f-flag').value.toLowerCase();
   const ad=document.getElementById('f-addr').value;
-  const traced=document.getElementById('f-traced').value;
+  const traced=(document.getElementById('f-traced').value==='ineligible'?'pending_skip':document.getElementById('f-traced').value);
   filtered=curRecs.filter(r=>{
     if(minS&&(r.score||0)<minS)return false;
     if(ad==='with'&&!r.prop_address)return false;
