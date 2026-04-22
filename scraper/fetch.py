@@ -23,7 +23,7 @@ FIXES vs previous version:
   2. VacantLandRecord objects are converted to LeadRecord at write time so they
      appear in records.json / the dashboard nav (Vacant Land tab now shows count).
 """
-import argparse, asyncio, csv, io, json, logging, os, re, zipfile
+import argparse, asyncio, csv, io, json, logging, os, re, time, zipfile
 from collections import defaultdict
 from dataclasses import dataclass, asdict, field
 from datetime import datetime, timedelta, timezone
@@ -40,6 +40,9 @@ DASHBOARD_DIR = BASE_DIR / "dashboard"
 DEBUG_DIR     = DATA_DIR / "debug"
 TRACE_STORE_PATH = BASE_DIR / "trace_store.json"
 TRACE_SOURCE  = "Tracerfy"
+PROPERTY_ACCESS_CACHE_PATH = DATA_DIR / "property_access_cache.json"
+PROPERTY_ACCESS_BASE_URL = "https://propertyaccess.summitoh.net/Datalets/Datalet.aspx?UseSearch=no&pin={pin}"
+PROPERTY_ACCESS_THROTTLE_SECONDS = float(os.getenv("PROPERTY_ACCESS_THROTTLE_SECONDS", "0.6"))
 
 
 # output paths
@@ -158,6 +161,8 @@ class LeadRecord:
     code_violation_case:str=""; code_violation_date:str=""
     decedent_name:str=""; executor_name:str=""; executor_state:str=""
     estate_value:Optional[float]=None; is_inherited:bool=False
+    bedrooms:Optional[float]=None; bathrooms:Optional[float]=None
+    square_feet:Optional[int]=None
 
 
 @dataclass
@@ -1585,6 +1590,209 @@ def build_sale_data_from_row(row:dict)->Tuple[Optional[float],Optional[int]]:
         except: pass
     return price,year
 
+def parse_floatish(value)->Optional[float]:
+    text=clean_text(value)
+    if not text:
+        return None
+    cleaned=re.sub(r"[^0-9.]","",text)
+    if not cleaned:
+        return None
+    try:
+        return float(cleaned)
+    except:
+        return None
+
+def parse_square_feet(value)->Optional[int]:
+    parsed=parse_floatish(value)
+    if parsed is None:
+        return None
+    sqft=int(round(parsed))
+    return sqft if 200<=sqft<=20000 else None
+
+def parse_bedrooms(value)->Optional[float]:
+    parsed=parse_floatish(value)
+    if parsed is None:
+        return None
+    return parsed if 0<parsed<=20 else None
+
+def parse_bathrooms(value)->Optional[float]:
+    parsed=parse_floatish(value)
+    if parsed is None:
+        return None
+    return parsed if 0<parsed<=20 else None
+
+def first_numeric_from_keys(row:dict, keys:List[str], parser)->Optional[float]:
+    upper_map={str(k).upper().replace(" ","").replace("_","").replace("-",""): v for k,v in row.items()}
+    for key in keys:
+        value=upper_map.get(key.upper().replace(" ","").replace("_","").replace("-",""))
+        if value in (None,""):
+            continue
+        parsed=parser(value)
+        if parsed is not None:
+            return parsed
+    return None
+
+def build_property_details_from_row(row:dict)->Tuple[Optional[float],Optional[float],Optional[int]]:
+    bedrooms=first_numeric_from_keys(
+        row,
+        [
+            "BEDROOMS","BEDROOM","BEDS","BEDS","MBD","TOTBED","TOTBEDS",
+            "TOTBR","NUMBED","NUMBEDS",
+        ],
+        parse_bedrooms,
+    )
+    bathrooms=first_numeric_from_keys(
+        row,
+        [
+            "BATHROOMS","BATHROOM","BATHS","BATH","TOTBATH","TOTALBATH",
+            "TBATH","BTH","FBTH","FULLBATH","FULLBATHS",
+        ],
+        parse_bathrooms,
+    )
+    if bathrooms is None:
+        full_baths=first_numeric_from_keys(row,["FULLBATH","FULLBATHS","FBTH"],parse_bathrooms)
+        half_baths=first_numeric_from_keys(row,["HALFBATH","HALFBATHS","HBTH"],parse_bathrooms)
+        if full_baths is not None or half_baths is not None:
+            bathrooms=(full_baths or 0)+(0.5*(half_baths or 0))
+    square_feet=first_numeric_from_keys(
+        row,
+        [
+            "SQUAREFEET","SQUAREFOOTAGE","SQFT","LIVINGSQFT","LIVINGAREA",
+            "LIVINGAREASQFT","GLA","FINISHEDAREA","BLDGROSD","BLDGROSV",
+            "GROSSAREA","GROSSLIVINGAREA","TOTLIVINGAREA",
+        ],
+        parse_square_feet,
+    )
+    return bedrooms,bathrooms,square_feet
+
+def load_property_access_cache()->Dict[str,dict]:
+    if not PROPERTY_ACCESS_CACHE_PATH.exists():
+        return {}
+    try:
+        payload=json.loads(PROPERTY_ACCESS_CACHE_PATH.read_text(encoding="utf-8"))
+        return payload if isinstance(payload,dict) else {}
+    except Exception as e:
+        logging.warning("Property Access cache load failed: %s",e)
+        return {}
+
+def save_property_access_cache(cache:Dict[str,dict]):
+    write_json(PROPERTY_ACCESS_CACHE_PATH,cache)
+
+def parse_property_access_metrics(html:str)->dict:
+    if not clean_text(html):
+        return {}
+    text=BeautifulSoup(html,"lxml").get_text("\n",strip=True)
+    compact=clean_text(text)
+    if "system is currently unavailable" in compact.lower():
+        return {}
+
+    def metric(patterns, parser):
+        for pattern in patterns:
+            match=re.search(pattern,compact,re.IGNORECASE)
+            if match:
+                parsed=parser(match.group(1))
+                if parsed is not None:
+                    return parsed
+        return None
+
+    bedrooms=metric([r"\bBedrooms\s+([0-9.]+)\b"],parse_bedrooms)
+    square_feet=metric(
+        [
+            r"\bSquare\s+Feet\s+([0-9,]+)\b",
+            r"\bLiving\s+Area(?:\s*\(Sq(?:uare)?\s*Ft\))?\s+([0-9,]+)\b",
+            r"\bGFLA\s+([0-9,]+)\b",
+        ],
+        parse_square_feet,
+    )
+    full_baths=metric([r"\bFull\s+Baths\s+([0-9.]+)\b"],parse_bathrooms)
+    half_baths=metric([r"\bHalf\s+Baths\s+([0-9.]+)\b"],parse_bathrooms)
+    bathrooms=(full_baths or 0)+(0.5*(half_baths or 0))
+    if bathrooms==0:
+        bathrooms=metric([r"\bBathrooms\s+([0-9.]+)\b",r"\bBaths\s+([0-9.]+)\b"],parse_bathrooms)
+
+    result={}
+    if bedrooms is not None:
+        result["bedrooms"]=bedrooms
+    if bathrooms is not None:
+        result["bathrooms"]=bathrooms
+    if square_feet is not None:
+        result["square_feet"]=square_feet
+    return result
+
+def fetch_property_access_metrics_for_pin(pin:str, session:Optional[requests.Session]=None)->dict:
+    pin=clean_text(pin)
+    if not pin:
+        return {}
+    url=PROPERTY_ACCESS_BASE_URL.format(pin=pin)
+    try:
+        client=session or requests.Session()
+        response=client.get(url,headers=HEADERS,timeout=30,allow_redirects=True)
+        response.raise_for_status()
+        return parse_property_access_metrics(response.text)
+    except Exception as e:
+        logging.warning("Property Access fetch failed for %s: %s",pin,e)
+        return {}
+
+def enrich_records_from_property_access(records:List[LeadRecord])->List[LeadRecord]:
+    cache=load_property_access_cache()
+    updated_cache=False
+    missing=[]
+    for record in records:
+        pid=clean_text(record.parcel_id)
+        if not pid:
+            continue
+        cached=cache.get(pid)
+        if isinstance(cached,dict):
+            if record.bedrooms is None and cached.get("bedrooms") is not None:
+                record.bedrooms=cached.get("bedrooms")
+            if record.bathrooms is None and cached.get("bathrooms") is not None:
+                record.bathrooms=cached.get("bathrooms")
+            if not record.square_feet and cached.get("square_feet") is not None:
+                record.square_feet=cached.get("square_feet")
+        if record.bedrooms is None or record.bathrooms is None or not record.square_feet:
+            missing.append(record)
+
+    if not missing:
+        logging.info("Property Access enrichment: all parcel metrics satisfied from cache")
+        return records
+
+    logging.info("Property Access enrichment: %s parcel lookups queued",len({clean_text(r.parcel_id) for r in missing if clean_text(r.parcel_id)}))
+    session=requests.Session()
+    last_request_at=0.0
+    for record in missing:
+        pid=clean_text(record.parcel_id)
+        if not pid:
+            continue
+        cached=cache.get(pid)
+        if isinstance(cached,dict):
+            continue
+        elapsed=time.monotonic()-last_request_at
+        if last_request_at and elapsed<PROPERTY_ACCESS_THROTTLE_SECONDS:
+            time.sleep(PROPERTY_ACCESS_THROTTLE_SECONDS-elapsed)
+        metrics=fetch_property_access_metrics_for_pin(pid,session=session)
+        last_request_at=time.monotonic()
+        cache[pid]=metrics
+        updated_cache=True
+
+    for record in records:
+        pid=clean_text(record.parcel_id)
+        if not pid:
+            continue
+        cached=cache.get(pid,{})
+        if not isinstance(cached,dict):
+            continue
+        if record.bedrooms is None and cached.get("bedrooms") is not None:
+            record.bedrooms=cached.get("bedrooms")
+        if record.bathrooms is None and cached.get("bathrooms") is not None:
+            record.bathrooms=cached.get("bathrooms")
+        if not record.square_feet and cached.get("square_feet") is not None:
+            record.square_feet=cached.get("square_feet")
+
+    if updated_cache:
+        save_property_access_cache(cache)
+        logging.info("Property Access cache updated: %s entries",len(cache))
+    return records
+
 def is_sc701_clerk_code(v:str)->bool:
     v=clean_text(v).upper()
     if not v: return True
@@ -1644,6 +1852,9 @@ def normalize_candidate_record(r:dict)->dict:
         "est_market_value":r.get("est_market_value"),
         "last_sale_price":r.get("last_sale_price"),
         "last_sale_year":r.get("last_sale_year"),
+        "bedrooms":r.get("bedrooms"),
+        "bathrooms":r.get("bathrooms"),
+        "square_feet":r.get("square_feet"),
     }
 
 def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
@@ -1723,6 +1934,7 @@ def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
         sale_year   = sc750.get("sale_year") or None
         if not sale_price:
             sale_price,sale_year=build_sale_data_from_row(row)
+        bedrooms,bathrooms,square_feet=build_property_details_from_row(row)
 
         e.update({
             "parcel_id":pid,
@@ -1735,6 +1947,9 @@ def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
             "est_market_value":e.get("est_market_value") or est_market,
             "last_sale_price":e.get("last_sale_price") or sale_price,
             "last_sale_year":e.get("last_sale_year") or sale_year,
+            "bedrooms":e.get("bedrooms") or bedrooms,
+            "bathrooms":e.get("bathrooms") or bathrooms,
+            "square_feet":e.get("square_feet") or square_feet,
         })
         for a in extract_owner_aliases_from_row(row): add_owner_alias(e,a)
 
@@ -1863,6 +2078,7 @@ def build_tax_delinquent_leads(delinquent_parcels,parcel_rows,mail_by_pid,vacant
         owner=info.get("owner",""); amt=info.get("amount_owed",0.0)
         acres=clean_text(row.get("ACRES",""))
         assessed=build_assessed_value_from_row(row); sale_price,sale_year=build_sale_data_from_row(row)
+        bedrooms,bathrooms,square_feet=build_property_details_from_row(row)
         # FIX: pull assessed/market value from SC720 if not in SC705 row
         sc720=sc720_values.get(pid,{})
         if not assessed and sc720.get("assessed_value"):
@@ -1904,6 +2120,7 @@ def build_tax_delinquent_leads(delinquent_parcels,parcel_rows,mail_by_pid,vacant
             assessed_value=assessed,
             estimated_value=est_market,
             last_sale_price=sale_price,last_sale_year=sale_year,
+            bedrooms=bedrooms,bathrooms=bathrooms,square_feet=square_feet,
         )
         r=estimate_mortgage_data(r); r.score=score_record(r); r.hot_stack=r.distress_count>=2
         leads.append(r)
@@ -1938,6 +2155,7 @@ def build_vacant_home_list(vacant_addresses,parcel_rows,mail_by_pid,delinquent_p
         prop_address=build_prop_address_from_row(row); prop_city=build_prop_city_from_row(row)
         prop_zip=build_prop_zip_from_row(row); acres=clean_text(row.get("ACRES",""))
         assessed=build_assessed_value_from_row(row); sale_price,sale_year=build_sale_data_from_row(row)
+        bedrooms,bathrooms,square_feet=build_property_details_from_row(row)
         mail_row=mail_by_pid.get(pid,{})
         mail_address=clean_text(mail_row.get("MAIL_ADR1","")) if mail_row else ""
         mail_city=build_mail_city_sc701(mail_row) if mail_row else ""
@@ -1963,6 +2181,7 @@ def build_vacant_home_list(vacant_addresses,parcel_rows,mail_by_pid,delinquent_p
             assessed_value=assessed,
             estimated_value=round(float(clean_text(row.get("EST_MARKET_VALUE","")) or 0)) or None,
             last_sale_price=sale_price,last_sale_year=sale_year,
+            bedrooms=bedrooms,bathrooms=bathrooms,square_feet=square_feet,
         )
         rec=estimate_mortgage_data(rec); rec.score=score_record(rec); rec.hot_stack=rec.distress_count>=2
         records.append(rec)
@@ -2541,6 +2760,9 @@ def enrich_with_parcel_data(records,owner_index,last_name_index,first_last_index
                 if not record.estimated_value:  record.estimated_value=matched.get("est_market_value")
                 if not record.last_sale_price:  record.last_sale_price=matched.get("last_sale_price")
                 if not record.last_sale_year:   record.last_sale_year=matched.get("last_sale_year")
+                if record.bedrooms is None:     record.bedrooms=matched.get("bedrooms")
+                if record.bathrooms is None:    record.bathrooms=matched.get("bathrooms")
+                if not record.square_feet:      record.square_feet=matched.get("square_feet")
                 record.match_method=method; record.match_score=ms
                 report["matched"]+=1; report["match_methods"][method]+=1
             else:
@@ -3062,6 +3284,7 @@ def write_csv(records,csv_path):
     fieldnames=[
         "First Name","Last Name","Mailing Address","Mailing City","Mailing State","Mailing Zip",
         "Property Address","Property City","Property State","Property Zip",
+        "Bedrooms","Bathrooms","Square Feet",
         "Lead Type","Document Type","Date Filed","Document Number","Amount/Debt Owed",
         "Seller Score","Subject-To Score","Motivated Seller Flags","Distress Sources","Distress Count",
         "Hot Stack","Vacant Land","Vacant Home","Absentee Owner","Out-of-State Owner","Inherited",
@@ -3084,6 +3307,9 @@ def write_csv(records,csv_path):
                 "Mailing State":r.mail_state,"Mailing Zip":r.mail_zip,
                 "Property Address":r.prop_address,"Property City":r.prop_city,
                 "Property State":r.prop_state,"Property Zip":r.prop_zip,
+                "Bedrooms":r.bedrooms if r.bedrooms is not None else "",
+                "Bathrooms":r.bathrooms if r.bathrooms is not None else "",
+                "Square Feet":r.square_feet if r.square_feet is not None else "",
                 "Lead Type":r.cat_label,"Document Type":r.doc_type,
                 "Date Filed":r.filed,"Document Number":r.doc_num,
                 "Amount/Debt Owed":f"${r.amount:,.2f}" if r.amount is not None else "",
@@ -3226,7 +3452,10 @@ async def main():
         reverse=True
     )
 
-    # 13. Hydrate from existing trace store and write all outputs
+    # 13. Parcel-level enrichment from Summit County Property Access
+    all_records=enrich_records_from_property_access(all_records)
+
+    # 14. Hydrate from existing trace store and write all outputs
     all_records=hydrate_records_from_trace_store(all_records)
     write_json_outputs(all_records,extra_json_path=Path(args.out_json))
     write_category_json(all_records)           # writes vacant_land.json via category

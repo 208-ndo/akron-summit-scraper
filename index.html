@@ -1210,6 +1210,35 @@ function getPreferredMailingState(r){
   return r.traced_mailing_state||r.mail_state||'';
 }
 
+function formatFactValue(value, suffix=''){
+  if(value===null||value===undefined||value==='') return '';
+  if(typeof value==='number'){
+    const formatted=Number.isInteger(value)
+      ? value.toLocaleString('en-US')
+      : value.toLocaleString('en-US',{maximumFractionDigits:1});
+    return `${formatted}${suffix}`;
+  }
+  const text=String(value).trim();
+  return text ? `${text}${suffix}` : '';
+}
+
+function propertyFactsArray(r){
+  const facts=[];
+  const bedrooms=formatFactValue(r.bedrooms,' bd');
+  const bathrooms=formatFactValue(r.bathrooms,' ba');
+  const squareFeet=formatFactValue(r.square_feet,' sqft');
+  if(bedrooms)facts.push(bedrooms);
+  if(bathrooms)facts.push(bathrooms);
+  if(squareFeet)facts.push(squareFeet);
+  return facts;
+}
+
+function propertyFactsHTML(r){
+  const facts=propertyFactsArray(r);
+  if(!facts.length)return '';
+  return `<div class="owner-meta"><span class="lead-indicator">${facts.join(' · ')}</span></div>`;
+}
+
 function getPreferredMailingZip(r){
   return r.traced_mailing_zip||r.mail_zip||'';
 }
@@ -1834,7 +1863,9 @@ function rowHTML(r){
   const tags=flags.slice(0,5).map(tagHTML).join('')+(flags.length>5?`<span class="tag t-gray">+${flags.length-5}</span>`:'')+tracedTag;
   const eq=r.est_equity,eqH=eq!=null?eqBar(eq):'<span style="color:var(--muted);font-size:11px">–</span>';
   const amt=r.amount!=null?'$'+Number(r.amount).toLocaleString('en-US',{maximumFractionDigits:0}):'–';
-  const addr=r.prop_address?`<div class="owner-sub">${r.prop_address}${r.prop_city?', '+r.prop_city:''}</div>`:'';
+  const addr=r.prop_address
+    ? `<div class="owner-sub">${r.prop_address}${r.prop_city?', '+r.prop_city:''}</div>${propertyFactsHTML(r)}`
+    : propertyFactsHTML(r);
   const dec=r.decedent_name?`<div class="owner-sub">Estate of ${r.decedent_name}</div>`:'';
   const sh=r.doc_type==='SHERIFF'&&r.sheriff_sale_date?`<div class="owner-sub" style="color:var(--hot)">⚡ Sale: ${r.sheriff_sale_date}</div>`:'';
   const lnk=r.clerk_url?`<a class="view-btn" href="${r.clerk_url}" target="_blank" onclick="event.stopPropagation()">View</a>`:'<span style="color:var(--muted);font-size:11px">–</span>';
@@ -3024,7 +3055,7 @@ function openDATab(){
 // EXPORT
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 function toBatchDataCSV(rows){
-  const H=['First Name','Last Name','Property Address','Property City','Property State','Property Zip','Mailing Address','Mailing City','Mailing State','Mailing Zip','Lead Type','Document Type','Date Filed','Document Number','Amount Owed','Seller Score','Subject-To Score','Distress Count','Distress Sources','Hot Stack','Vacant Land','Vacant Home','Absentee Owner','Out-of-State Owner','Inherited','Est Market Value','Est Equity','Est Arrears','Est Payoff','Mortgage Signals','Sheriff Sale Date','Lender','Code Violation Case','Decedent Name','Executor Name','Executor State','Parcel ID','LUC Code','Flags','Public Records URL','Phone 1','Phone 1 Type','Phone 2','Phone 2 Type','Phone 3','Phone 3 Type','Email','Skip Trace Source','Skip Traced','Has Phone','Traced Owner','Traced Mailing Address','Traced Mailing City','Traced Mailing State','Traced Mailing Zip','Traced Email','Skip Trace Status','Skip Trace Timestamp','List Count','Skip Trace Eligible','Has Email'];
+  const H=['First Name','Last Name','Property Address','Property City','Property State','Property Zip','Mailing Address','Mailing City','Mailing State','Mailing Zip','Bedrooms','Bathrooms','Square Feet','Lead Type','Document Type','Date Filed','Document Number','Amount Owed','Seller Score','Subject-To Score','Distress Count','Distress Sources','Hot Stack','Vacant Land','Vacant Home','Absentee Owner','Out-of-State Owner','Inherited','Est Market Value','Est Equity','Est Arrears','Est Payoff','Mortgage Signals','Sheriff Sale Date','Lender','Code Violation Case','Decedent Name','Executor Name','Executor State','Parcel ID','LUC Code','Flags','Public Records URL','Phone 1','Phone 1 Type','Phone 2','Phone 2 Type','Phone 3','Phone 3 Type','Email','Skip Trace Source','Skip Traced','Has Phone','Traced Owner','Traced Mailing Address','Traced Mailing City','Traced Mailing State','Traced Mailing Zip','Traced Email','Skip Trace Status','Skip Trace Timestamp','List Count','Skip Trace Eligible','Has Email'];
   const sp=n=>{const p=(n||'').trim().split(/\s+/);return p.length<2?[p[0]||'','']:[p[0],p.slice(1).join(' ')];};
   const fm=v=>{if(v==null)return'';if(Array.isArray(v))v=v.join('; ');return String(v).replace(/"/g,'""');};
   const exportPhones=trace=>[
@@ -3044,7 +3075,7 @@ function toBatchDataCSV(rows){
     const usingTracedMailing=!!(trace.traced_mailing_address||trace.traced_mailing_city||trace.traced_mailing_state||trace.traced_mailing_zip);
     return usingTracedMailing?(trace.traced_mailing_zip||''):(trace.mail_zip||'');
   };
-  const lines=rows.map(r=>{const trace=normalizeTraceRecord(r);const[fn,ln]=sp(getPreferredOwner(trace));const phones=exportPhones(trace);const phoneTypes=exportPhoneTypes(trace);const emails=getRecordEmails(trace);return[fn,ln,trace.prop_address||'',trace.prop_city||'',trace.prop_state||'OH',trace.prop_zip||'',getPreferredMailingAddress(trace),getPreferredMailingCity(trace),getPreferredMailingState(trace),exportMailingZip(trace),trace.cat_label||'',trace.doc_type||'',trace.filed||'',trace.doc_num||'',trace.amount!=null?`$${Number(trace.amount).toLocaleString()}`:'',trace.score||0,trace.subject_to_score||0,trace.distress_count||0,(trace.distress_sources||[]).join('; '),trace.hot_stack?'YES':'',trace.is_vacant_land?'YES':'',trace.is_vacant_home?'YES':'',trace.is_absentee?'YES':'',trace.is_out_of_state?'YES':'',trace.is_inherited?'YES':'',trace.estimated_value?`$${Number(trace.estimated_value).toLocaleString()}`:'',trace.est_equity!=null?`$${Number(trace.est_equity).toLocaleString()}`:'',trace.est_arrears?`$${Number(trace.est_arrears).toLocaleString()}`:'',trace.est_payoff?`$${Number(trace.est_payoff).toLocaleString()}`:'',(trace.mortgage_signals||[]).join('; '),trace.sheriff_sale_date||'',trace.lender||'',trace.code_violation_case||'',trace.decedent_name||'',trace.executor_name||'',trace.executor_state||'',trace.parcel_id||'',trace.luc||'',(trace.flags||[]).join('; '),trace.clerk_url||'',phones[0]||'',phoneTypes[0]||'',phones[1]||'',phoneTypes[1]||'',phones[2]||'',phoneTypes[2]||'',emails[0]||'',trace.skip_trace_source||'',isSkipTraced(trace)?'YES':'',trace.has_phone?'YES':'',trace.traced_owner_name||'',trace.traced_mailing_address||'',trace.traced_mailing_city||'',trace.traced_mailing_state||'',trace.traced_mailing_zip||'',trace.email_primary||trace.traced_email||'',trace.skip_trace_status||'',trace.skip_trace_timestamp||'',trace.list_count||0,trace.skip_trace_eligible?'YES':'NO',trace.has_email?'YES':'NO'].map(v=>`"${fm(v)}"`).join(',');});
+  const lines=rows.map(r=>{const trace=normalizeTraceRecord(r);const[fn,ln]=sp(getPreferredOwner(trace));const phones=exportPhones(trace);const phoneTypes=exportPhoneTypes(trace);const emails=getRecordEmails(trace);return[fn,ln,trace.prop_address||'',trace.prop_city||'',trace.prop_state||'OH',trace.prop_zip||'',getPreferredMailingAddress(trace),getPreferredMailingCity(trace),getPreferredMailingState(trace),exportMailingZip(trace),trace.bedrooms??'',trace.bathrooms??'',trace.square_feet??'',trace.cat_label||'',trace.doc_type||'',trace.filed||'',trace.doc_num||'',trace.amount!=null?`$${Number(trace.amount).toLocaleString()}`:'',trace.score||0,trace.subject_to_score||0,trace.distress_count||0,(trace.distress_sources||[]).join('; '),trace.hot_stack?'YES':'',trace.is_vacant_land?'YES':'',trace.is_vacant_home?'YES':'',trace.is_absentee?'YES':'',trace.is_out_of_state?'YES':'',trace.is_inherited?'YES':'',trace.estimated_value?`$${Number(trace.estimated_value).toLocaleString()}`:'',trace.est_equity!=null?`$${Number(trace.est_equity).toLocaleString()}`:'',trace.est_arrears?`$${Number(trace.est_arrears).toLocaleString()}`:'',trace.est_payoff?`$${Number(trace.est_payoff).toLocaleString()}`:'',(trace.mortgage_signals||[]).join('; '),trace.sheriff_sale_date||'',trace.lender||'',trace.code_violation_case||'',trace.decedent_name||'',trace.executor_name||'',trace.executor_state||'',trace.parcel_id||'',trace.luc||'',(trace.flags||[]).join('; '),trace.clerk_url||'',phones[0]||'',phoneTypes[0]||'',phones[1]||'',phoneTypes[1]||'',phones[2]||'',phoneTypes[2]||'',emails[0]||'',trace.skip_trace_source||'',isSkipTraced(trace)?'YES':'',trace.has_phone?'YES':'',trace.traced_owner_name||'',trace.traced_mailing_address||'',trace.traced_mailing_city||'',trace.traced_mailing_state||'',trace.traced_mailing_zip||'',trace.email_primary||trace.traced_email||'',trace.skip_trace_status||'',trace.skip_trace_timestamp||'',trace.list_count||0,trace.skip_trace_eligible?'YES':'NO',trace.has_email?'YES':'NO'].map(v=>`"${fm(v)}"`).join(',');});
   return[H.map(h=>`"${h}"`).join(','),...lines].join('\n');
 }
 function dl(name,content){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([content],{type:'text/csv'}));a.download=name;a.click();}

@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-04-20T12:08:17.729631+00:00",
+  "fetched_at": "2026-04-22T05:11:19.180071+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "prime_subject_to",
   "description": "\u2b50 Prime subject-to deals \u2014 high equity + motivated seller (score \u226570)",
-  "total": 507,
+  "total": 508,
   "records": [
     {
       "doc_num": "TAX-6806188",
@@ -39,8 +39,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -100,7 +100,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6807870",
@@ -137,8 +140,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -206,7 +209,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6803791",
@@ -306,7 +312,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6810699",
@@ -410,7 +419,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6818631",
@@ -514,7 +526,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6821692",
@@ -618,7 +633,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6821718",
@@ -714,7 +732,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6821719",
@@ -818,7 +839,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6825412",
@@ -922,7 +946,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6827099",
@@ -1026,7 +1053,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6828524",
@@ -1130,7 +1160,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6831010",
@@ -1226,7 +1259,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6831678",
@@ -1330,7 +1366,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6700134",
@@ -1434,7 +1473,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6703592",
@@ -1538,7 +1580,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6707406",
@@ -1642,7 +1687,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6707465",
@@ -1738,7 +1786,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6709979",
@@ -1842,7 +1893,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6715259",
@@ -1938,7 +1992,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6717547",
@@ -2042,7 +2099,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6720646",
@@ -2146,7 +2206,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6728555",
@@ -2250,7 +2313,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6729837",
@@ -2354,7 +2420,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6733702",
@@ -2450,7 +2519,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6739756",
@@ -2554,7 +2626,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-7001475",
@@ -2658,7 +2733,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0102204",
@@ -2762,7 +2840,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0106736",
@@ -2866,7 +2947,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0109965",
@@ -2970,7 +3054,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0114517",
@@ -3074,7 +3161,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0407701",
@@ -3179,7 +3269,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1506550",
@@ -3283,7 +3376,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1903217",
@@ -3387,7 +3483,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1903929",
@@ -3491,7 +3590,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2200143",
@@ -3595,7 +3697,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0202010",
@@ -3699,7 +3804,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0207392",
@@ -3803,7 +3911,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0214476",
@@ -3907,7 +4018,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-3501260",
@@ -4011,7 +4125,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2802882",
@@ -4115,7 +4232,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2806839",
@@ -4219,7 +4339,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2812981",
@@ -4323,7 +4446,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-3006028",
@@ -4423,7 +4549,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5402255",
@@ -4527,7 +4656,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-3313469",
@@ -4631,7 +4763,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2302610",
@@ -4735,7 +4870,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-4000230",
@@ -4839,7 +4977,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6600514",
@@ -4943,7 +5084,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5001668",
@@ -5047,7 +5191,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-4501552",
@@ -5151,7 +5298,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5105998",
@@ -5251,7 +5401,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5107120",
@@ -5355,7 +5508,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5108057",
@@ -5459,7 +5615,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5602993",
@@ -5563,7 +5722,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5603572",
@@ -5667,7 +5829,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5603769",
@@ -5771,7 +5936,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5607210",
@@ -5875,7 +6043,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6000604",
@@ -5979,7 +6150,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6001426",
@@ -6083,7 +6257,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6401024",
@@ -6187,7 +6364,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6403748",
@@ -6291,7 +6471,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6800571",
@@ -6395,7 +6578,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6801683",
@@ -6499,7 +6685,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6802965",
@@ -6603,7 +6792,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6803847",
@@ -6707,7 +6899,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6804798",
@@ -6811,7 +7006,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6805371",
@@ -6915,7 +7113,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6806268",
@@ -7019,7 +7220,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6806526",
@@ -7123,7 +7327,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6807310",
@@ -7227,7 +7434,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6807637",
@@ -7331,7 +7541,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6808414",
@@ -7435,7 +7648,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6809129",
@@ -7539,7 +7755,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6809586",
@@ -7643,7 +7862,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6811071",
@@ -7747,7 +7969,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6811352",
@@ -7851,7 +8076,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6811393",
@@ -7955,7 +8183,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6811801",
@@ -8059,7 +8290,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6814776",
@@ -8163,7 +8397,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6815319",
@@ -8267,7 +8504,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6817359",
@@ -8371,7 +8611,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6818614",
@@ -8475,7 +8718,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6818804",
@@ -8579,7 +8825,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6819136",
@@ -8683,7 +8932,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6819825",
@@ -8787,7 +9039,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6820127",
@@ -8891,7 +9146,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6820699",
@@ -8995,7 +9253,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6820836",
@@ -9099,7 +9360,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6820919",
@@ -9203,7 +9467,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6821044",
@@ -9307,7 +9574,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6822980",
@@ -9411,7 +9681,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6823162",
@@ -9515,7 +9788,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6824344",
@@ -9619,7 +9895,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6824741",
@@ -9719,7 +9998,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6825519",
@@ -9823,7 +10105,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6826560",
@@ -9927,7 +10212,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6827351",
@@ -10031,7 +10319,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6827471",
@@ -10135,7 +10426,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6827639",
@@ -10239,7 +10533,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6827703",
@@ -10343,7 +10640,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6828250",
@@ -10447,7 +10747,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6828379",
@@ -10551,7 +10854,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6830306",
@@ -10655,7 +10961,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6830604",
@@ -10759,7 +11068,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6831533",
@@ -10863,7 +11175,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6831598",
@@ -10967,7 +11282,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6831718",
@@ -11071,7 +11389,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6831847",
@@ -11175,7 +11496,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6832093",
@@ -11279,7 +11603,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6833076",
@@ -11383,7 +11710,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6833428",
@@ -11487,7 +11817,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6833584",
@@ -11591,7 +11924,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6835513",
@@ -11691,7 +12027,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6835641",
@@ -11795,7 +12134,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6836987",
@@ -11899,7 +12241,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6837552",
@@ -12003,7 +12348,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6837584",
@@ -12107,7 +12455,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6837968",
@@ -12211,7 +12562,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6837991",
@@ -12315,7 +12669,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6838135",
@@ -12419,7 +12776,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6839491",
@@ -12523,7 +12883,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6840440",
@@ -12627,7 +12990,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6842342",
@@ -12731,7 +13097,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6842499",
@@ -12835,7 +13204,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6700212",
@@ -12939,7 +13311,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6701970",
@@ -13043,7 +13418,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6701982",
@@ -13143,7 +13521,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6703342",
@@ -13247,7 +13628,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6703809",
@@ -13351,7 +13735,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6704231",
@@ -13455,7 +13842,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6704764",
@@ -13559,7 +13949,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6705052",
@@ -13663,7 +14056,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6705992",
@@ -13767,7 +14163,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6706351",
@@ -13871,7 +14270,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6706680",
@@ -13975,7 +14377,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6706786",
@@ -14079,7 +14484,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6706997",
@@ -14183,7 +14591,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6707081",
@@ -14287,7 +14698,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6707100",
@@ -14391,7 +14805,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6707946",
@@ -14495,7 +14912,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6711362",
@@ -14599,7 +15019,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6712313",
@@ -14703,7 +15126,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6712475",
@@ -14807,7 +15233,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6713334",
@@ -14911,7 +15340,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6713788",
@@ -15015,7 +15447,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6713795",
@@ -15111,7 +15546,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6714170",
@@ -15215,7 +15653,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6714635",
@@ -15319,7 +15760,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6715978",
@@ -15423,7 +15867,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6717598",
@@ -15527,7 +15974,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6717713",
@@ -15631,7 +16081,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6718514",
@@ -15735,7 +16188,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6718843",
@@ -15839,7 +16295,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6718852",
@@ -15943,7 +16402,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6720207",
@@ -16047,7 +16509,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6720835",
@@ -16151,7 +16616,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6721136",
@@ -16255,7 +16723,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6721650",
@@ -16359,7 +16830,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6722278",
@@ -16463,7 +16937,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6722601",
@@ -16567,7 +17044,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6722924",
@@ -16671,7 +17151,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6724232",
@@ -16775,7 +17258,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6724414",
@@ -16879,7 +17365,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6725858",
@@ -16975,7 +17464,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6727302",
@@ -17079,7 +17571,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6728033",
@@ -17183,7 +17678,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6728048",
@@ -17287,7 +17785,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6729727",
@@ -17391,7 +17892,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6730174",
@@ -17487,7 +17991,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": 310
     },
     {
       "doc_num": "TAX-6730967",
@@ -17583,7 +18090,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6731260",
@@ -17679,7 +18189,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6731761",
@@ -17775,7 +18288,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6732275",
@@ -17871,7 +18387,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6732669",
@@ -17967,7 +18486,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6733324",
@@ -18063,7 +18585,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6733856",
@@ -18159,7 +18684,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6735463",
@@ -18255,7 +18783,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6735871",
@@ -18351,7 +18882,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6736754",
@@ -18447,7 +18981,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6737210",
@@ -18543,7 +19080,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6737261",
@@ -18639,7 +19179,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6738450",
@@ -18735,7 +19278,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6738755",
@@ -18831,7 +19377,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6740714",
@@ -18927,7 +19476,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6741660",
@@ -19023,7 +19575,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6741784",
@@ -19119,7 +19674,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0103233",
@@ -19215,7 +19773,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0108688",
@@ -19311,7 +19872,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0108976",
@@ -19407,7 +19971,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1504562",
@@ -19503,7 +20070,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1902668",
@@ -19599,7 +20169,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1903230",
@@ -19694,7 +20267,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1904346",
@@ -19790,7 +20366,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1907719",
@@ -19886,7 +20465,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2601970",
@@ -19981,7 +20563,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-4000891",
@@ -20077,7 +20662,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-4606254",
@@ -20173,7 +20761,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-4800686",
@@ -20268,7 +20859,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-4802704",
@@ -20363,7 +20957,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5108201",
@@ -20459,7 +21056,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5619132",
@@ -20554,7 +21154,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6800520",
@@ -20648,7 +21251,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6800770",
@@ -20742,7 +21348,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6801144",
@@ -20836,7 +21445,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6801181",
@@ -20930,7 +21542,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6801628",
@@ -21024,7 +21639,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6802421",
@@ -21118,7 +21736,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6802448",
@@ -21212,7 +21833,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6803277",
@@ -21306,7 +21930,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6804006",
@@ -21400,7 +22027,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6804505",
@@ -21494,7 +22124,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6805667",
@@ -21588,7 +22221,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6806158",
@@ -21682,7 +22318,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6806865",
@@ -21776,7 +22415,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6809350",
@@ -21870,7 +22512,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6809430",
@@ -21964,7 +22609,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6809680",
@@ -22058,7 +22706,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6811485",
@@ -22152,7 +22803,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6815202",
@@ -22246,7 +22900,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6817537",
@@ -22340,7 +22997,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6818959",
@@ -22434,7 +23094,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6819557",
@@ -22528,7 +23191,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6820421",
@@ -22622,7 +23288,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6820679",
@@ -22716,7 +23385,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6821533",
@@ -22810,7 +23482,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6821852",
@@ -22904,7 +23579,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6823498",
@@ -22998,7 +23676,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6824457",
@@ -23092,7 +23773,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6828059",
@@ -23186,7 +23870,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6829273",
@@ -23280,7 +23967,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6829297",
@@ -23374,7 +24064,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6829307",
@@ -23468,7 +24161,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6830523",
@@ -23562,7 +24258,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6831551",
@@ -23656,7 +24355,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6831744",
@@ -23750,7 +24452,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6833844",
@@ -23844,7 +24549,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6834119",
@@ -23938,7 +24646,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6836500",
@@ -24032,7 +24743,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6836570",
@@ -24126,7 +24840,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6836614",
@@ -24220,7 +24937,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6837340",
@@ -24314,7 +25034,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6837381",
@@ -24408,7 +25131,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6838517",
@@ -24502,7 +25228,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6839479",
@@ -24596,7 +25325,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6839878",
@@ -24690,7 +25422,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6840167",
@@ -24784,7 +25519,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6840948",
@@ -24878,7 +25616,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6842812",
@@ -24972,7 +25713,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6842992",
@@ -25066,7 +25810,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6700116",
@@ -25160,7 +25907,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6703362",
@@ -25254,7 +26004,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6705538",
@@ -25348,7 +26101,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6707261",
@@ -25442,7 +26198,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6707444",
@@ -25536,7 +26295,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6708069",
@@ -25630,7 +26392,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6709831",
@@ -25724,7 +26489,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6710410",
@@ -25818,7 +26586,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6711941",
@@ -25912,7 +26683,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6712001",
@@ -26006,7 +26780,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6712841",
@@ -26100,7 +26877,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6717763",
@@ -26194,7 +26974,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6719009",
@@ -26288,7 +27071,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6719639",
@@ -26382,7 +27168,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6721063",
@@ -26476,7 +27265,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6722088",
@@ -26570,7 +27362,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6722652",
@@ -26664,7 +27459,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6723568",
@@ -26758,7 +27556,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6725300",
@@ -26852,7 +27653,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6726201",
@@ -26946,7 +27750,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6728679",
@@ -27040,7 +27847,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6731917",
@@ -27134,7 +27944,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6732138",
@@ -27228,7 +28041,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6733201",
@@ -27322,7 +28138,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6733897",
@@ -27416,7 +28235,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6734857",
@@ -27510,7 +28332,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6734982",
@@ -27604,7 +28429,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6737020",
@@ -27698,7 +28526,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6737407",
@@ -27792,7 +28623,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6738282",
@@ -27886,7 +28720,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6740868",
@@ -27980,7 +28817,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6741981",
@@ -28074,7 +28914,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6742238",
@@ -28168,7 +29011,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-7000711",
@@ -28262,7 +29108,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-7001229",
@@ -28356,7 +29205,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-7001256",
@@ -28450,7 +29302,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0101187",
@@ -28544,7 +29399,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0101360",
@@ -28638,7 +29496,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0101362",
@@ -28732,7 +29593,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0103026",
@@ -28826,7 +29690,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0103206",
@@ -28920,7 +29787,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0103264",
@@ -29014,7 +29884,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0103373",
@@ -29108,7 +29981,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0103535",
@@ -29202,7 +30078,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0105473",
@@ -29296,7 +30175,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0105846",
@@ -29390,7 +30272,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0106554",
@@ -29484,7 +30369,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0107000",
@@ -29578,7 +30466,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0107182",
@@ -29672,7 +30563,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0107362",
@@ -29766,7 +30660,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0107813",
@@ -29860,7 +30757,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0107911",
@@ -29954,7 +30854,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0108400",
@@ -30048,7 +30951,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0108526",
@@ -30142,7 +31048,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0110308",
@@ -30236,7 +31145,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0110798",
@@ -30330,7 +31242,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0112504",
@@ -30424,7 +31339,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0112848",
@@ -30518,7 +31436,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0114869",
@@ -30612,7 +31533,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0115466",
@@ -30706,7 +31630,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0115738",
@@ -30800,7 +31727,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0400429",
@@ -30894,7 +31824,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0401064",
@@ -30988,7 +31921,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0401862",
@@ -31082,7 +32018,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0401912",
@@ -31176,7 +32115,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0402753",
@@ -31270,7 +32212,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0405689",
@@ -31364,7 +32309,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0406565",
@@ -31458,7 +32406,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0407608",
@@ -31552,7 +32503,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1300193",
@@ -31646,7 +32600,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1300470",
@@ -31740,7 +32697,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1300477",
@@ -31834,7 +32794,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1300690",
@@ -31928,7 +32891,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0700253",
@@ -32022,7 +32988,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2700138",
@@ -32116,7 +33085,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2701681",
@@ -32210,7 +33182,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1500160",
@@ -32304,7 +33279,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1500406",
@@ -32398,7 +33376,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1500755",
@@ -32492,7 +33473,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1500923",
@@ -32586,7 +33570,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1503941",
@@ -32680,7 +33667,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1505020",
@@ -32774,7 +33764,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1506365",
@@ -32868,7 +33861,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1508147",
@@ -32962,7 +33958,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1508675",
@@ -33056,7 +34055,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1900465",
@@ -33150,7 +34152,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1902434",
@@ -33244,7 +34249,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1903202",
@@ -33338,7 +34346,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1905391",
@@ -33432,7 +34443,107 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
+    },
+    {
+      "doc_num": "TAX-1907264",
+      "doc_type": "TAX",
+      "filed": "",
+      "cat": "TAX",
+      "cat_label": "Tax Delinquent",
+      "owner": "Walczak Christopher M Geo Davis #1",
+      "grantee": "",
+      "amount": 3095.5,
+      "legal": "",
+      "prop_address": "686 PORTAGE LAKES DR",
+      "prop_city": "AKRON",
+      "prop_state": "OH",
+      "prop_zip": "",
+      "mail_address": "660 ISLE VIEW DR",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44319",
+      "clerk_url": "https://www.akronlegalnews.com/notices/delinquent_taxes_detail/7977",
+      "flags": [
+        "Tax delinquent",
+        "Residential",
+        "Absentee owner",
+        "\ud83c\udfaf Subject-To Candidate",
+        "\u2b50 Prime Subject-To"
+      ],
+      "score": 98,
+      "match_method": "tax_delinquent_direct",
+      "match_score": 1.0,
+      "with_address": 1,
+      "distress_sources": [
+        "tax_delinquent"
+      ],
+      "distress_count": 1,
+      "hot_stack": false,
+      "luc": "510",
+      "acres": "",
+      "is_vacant_land": false,
+      "is_vacant_home": false,
+      "is_absentee": true,
+      "is_out_of_state": false,
+      "parcel_id": "1907264",
+      "phones": [],
+      "phone_types": [],
+      "emails": [],
+      "skip_trace_source": "Tracerfy",
+      "traced_owner_name": "",
+      "traced_owner": "",
+      "traced_phones": [],
+      "traced_phone_types": [],
+      "traced_emails": [],
+      "phone_primary": "",
+      "phone_primary_type": "",
+      "phone_secondary": "",
+      "phone_secondary_type": "",
+      "phone_tertiary": "",
+      "phone_tertiary_type": "",
+      "email_primary": "",
+      "traced_email": "",
+      "traced_mailing_address": "",
+      "traced_mailing_city": "",
+      "traced_mailing_state": "",
+      "traced_mailing_zip": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-17T19:42:26.079721Z",
+      "has_phone": false,
+      "has_email": false,
+      "assessed_value": 43590.0,
+      "estimated_value": 124543,
+      "last_sale_price": null,
+      "last_sale_year": null,
+      "est_mortgage_balance": 62271.5,
+      "est_equity": 62271.5,
+      "est_arrears": 3095.5,
+      "est_payoff": 62271.5,
+      "subject_to_score": 70,
+      "mortgage_signals": [
+        "Est. equity (no sale history)",
+        "Tax owed ~$3,096",
+        "High equity \ud83c\udfe6",
+        "Absentee owner",
+        "LTV <70%"
+      ],
+      "sheriff_sale_date": "",
+      "appraised_value": null,
+      "lender": "",
+      "code_violation_case": "",
+      "code_violation_date": "",
+      "decedent_name": "",
+      "executor_name": "",
+      "executor_state": "",
+      "estate_value": null,
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1907563",
@@ -33526,7 +34637,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1907658",
@@ -33620,7 +34734,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1908382",
@@ -33714,7 +34831,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1908912",
@@ -33808,7 +34928,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1908995",
@@ -33902,7 +35025,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1909526",
@@ -33996,7 +35122,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1910381",
@@ -34090,7 +35219,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1910582",
@@ -34184,7 +35316,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2200382",
@@ -34278,7 +35413,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0200812",
@@ -34372,7 +35510,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0202508",
@@ -34466,7 +35607,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0203030",
@@ -34560,7 +35704,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0204054",
@@ -34654,7 +35801,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0205247",
@@ -34748,7 +35898,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0207134",
@@ -34842,7 +35995,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0208727",
@@ -34936,7 +36092,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0208940",
@@ -35030,7 +36189,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0209163",
@@ -35124,7 +36286,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0209385",
@@ -35218,7 +36383,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0210551",
@@ -35312,7 +36480,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0212757",
@@ -35406,7 +36577,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0213119",
@@ -35500,7 +36674,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0213192",
@@ -35594,7 +36771,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0214200",
@@ -35688,7 +36868,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0215010",
@@ -35782,7 +36965,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0215187",
@@ -35876,7 +37062,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0215268",
@@ -35970,7 +37159,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0215633",
@@ -36064,7 +37256,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0216150",
@@ -36158,7 +37353,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0217768",
@@ -36252,7 +37450,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0218044",
@@ -36346,7 +37547,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0218965",
@@ -36440,7 +37644,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0219714",
@@ -36534,7 +37741,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-3700521",
@@ -36628,7 +37838,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-3502921",
@@ -36722,7 +37935,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-3503839",
@@ -36816,7 +38032,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-3505828",
@@ -36910,7 +38129,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0900903",
@@ -37004,7 +38226,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0901072",
@@ -37098,7 +38323,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0901730",
@@ -37192,7 +38420,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0902137",
@@ -37286,7 +38517,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-0903596",
@@ -37380,7 +38614,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2800201",
@@ -37474,7 +38711,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2800413",
@@ -37568,7 +38808,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2800753",
@@ -37662,7 +38905,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2800780",
@@ -37756,7 +39002,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2801496",
@@ -37850,7 +39099,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2801777",
@@ -37944,7 +39196,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2802100",
@@ -38038,7 +39293,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2802677",
@@ -38132,7 +39390,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2802745",
@@ -38226,7 +39487,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2803162",
@@ -38320,7 +39584,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2803788",
@@ -38414,7 +39681,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2804014",
@@ -38508,7 +39778,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2804127",
@@ -38602,7 +39875,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2804170",
@@ -38696,7 +39972,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2804897",
@@ -38790,7 +40069,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2805302",
@@ -38884,7 +40166,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2805845",
@@ -38978,7 +40263,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2806000",
@@ -39072,7 +40360,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2806604",
@@ -39166,7 +40457,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2806945",
@@ -39260,7 +40554,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2807855",
@@ -39354,7 +40651,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2807902",
@@ -39448,7 +40748,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2808596",
@@ -39542,7 +40845,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2808952",
@@ -39636,7 +40942,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2810859",
@@ -39730,7 +41039,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2812057",
@@ -39824,7 +41136,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2813614",
@@ -39918,7 +41233,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2816592",
@@ -40012,7 +41330,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-3001691",
@@ -40106,7 +41427,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-3002042",
@@ -40200,7 +41524,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-3005358",
@@ -40294,7 +41621,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-3007406",
@@ -40388,7 +41718,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-3010105",
@@ -40482,7 +41815,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-3200836",
@@ -40576,7 +41912,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5400384",
@@ -40670,7 +42009,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5401371",
@@ -40764,7 +42106,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5401910",
@@ -40858,7 +42203,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5402512",
@@ -40952,7 +42300,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-3300940",
@@ -41046,7 +42397,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-3301890",
@@ -41140,7 +42494,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-3301979",
@@ -41234,7 +42591,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-3311050",
@@ -41328,7 +42688,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-3313409",
@@ -41422,7 +42785,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5500347",
@@ -41516,7 +42882,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5501369",
@@ -41610,7 +42979,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5800668",
@@ -41704,7 +43076,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2601047",
@@ -41798,7 +43173,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2601134",
@@ -41892,7 +43270,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2601163",
@@ -41986,7 +43367,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2300820",
@@ -42080,7 +43464,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2302183",
@@ -42174,7 +43561,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2303854",
@@ -42268,7 +43658,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2304057",
@@ -42362,7 +43755,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2304137",
@@ -42456,7 +43852,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2304616",
@@ -42550,7 +43949,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2304692",
@@ -42644,7 +44046,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2305606",
@@ -42738,7 +44143,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2500303",
@@ -42832,7 +44240,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2500603",
@@ -42926,7 +44337,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2500893",
@@ -43020,7 +44434,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-4000881",
@@ -43114,7 +44531,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-4000988",
@@ -43208,7 +44628,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-4101513",
@@ -43302,7 +44725,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-4600420",
@@ -43396,7 +44822,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-4600745",
@@ -43490,7 +44919,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-4601442",
@@ -43584,7 +45016,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-4602086",
@@ -43678,7 +45113,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-4602728",
@@ -43772,7 +45210,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-4603628",
@@ -43866,7 +45307,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-4604299",
@@ -43960,7 +45404,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-4607506",
@@ -44054,7 +45501,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1100565",
@@ -44148,7 +45598,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-1110609",
@@ -44242,7 +45695,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6500706",
@@ -44336,7 +45792,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-4800488",
@@ -44430,7 +45889,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5002201",
@@ -44524,7 +45986,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-4500818",
@@ -44618,7 +46083,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-4505289",
@@ -44712,7 +46180,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5701391",
@@ -44806,7 +46277,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5101171",
@@ -44900,7 +46374,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5102559",
@@ -44994,7 +46471,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5103471",
@@ -45088,7 +46568,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5106734",
@@ -45182,7 +46665,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5106756",
@@ -45276,7 +46762,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5109844",
@@ -45370,7 +46859,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5109990",
@@ -45464,7 +46956,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5600290",
@@ -45558,7 +47053,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5600959",
@@ -45652,7 +47150,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5601117",
@@ -45746,7 +47247,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5602656",
@@ -45840,7 +47344,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5603261",
@@ -45934,7 +47441,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5603919",
@@ -46028,7 +47538,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5604007",
@@ -46122,7 +47635,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5604377",
@@ -46216,7 +47732,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5604491",
@@ -46310,7 +47829,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5605157",
@@ -46404,7 +47926,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5605877",
@@ -46498,7 +48023,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5605945",
@@ -46592,7 +48120,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5607289",
@@ -46686,7 +48217,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5608302",
@@ -46780,7 +48314,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5608322",
@@ -46874,7 +48411,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5608410",
@@ -46968,7 +48508,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5608675",
@@ -47062,7 +48605,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5608859",
@@ -47156,7 +48702,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5610137",
@@ -47250,7 +48799,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5610651",
@@ -47344,7 +48896,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5611049",
@@ -47438,7 +48993,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5614539",
@@ -47532,7 +49090,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-5617582",
@@ -47626,7 +49187,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6001833",
@@ -47720,7 +49284,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6002775",
@@ -47814,7 +49381,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6003592",
@@ -47908,7 +49478,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6004781",
@@ -48002,7 +49575,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6005335",
@@ -48096,7 +49672,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6007375",
@@ -48190,7 +49769,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6008120",
@@ -48284,7 +49866,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6400625",
@@ -48378,7 +49963,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6400723",
@@ -48394,10 +49982,10 @@
       "prop_city": "TWINSBURG",
       "prop_state": "OH",
       "prop_zip": "44087",
-      "mail_address": "483 INVERNESS COURT",
-      "mail_city": "Hudson",
+      "mail_address": "700 GLEN EDEN CT",
+      "mail_city": "Aurora",
       "mail_state": "OH",
-      "mail_zip": "44236",
+      "mail_zip": "44202",
       "clerk_url": "https://www.akronlegalnews.com/notices/delinquent_taxes_detail/8007",
       "flags": [
         "Tax delinquent",
@@ -48472,7 +50060,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6400848",
@@ -48566,7 +50157,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6401532",
@@ -48660,7 +50254,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6401852",
@@ -48754,7 +50351,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6404044",
@@ -48848,7 +50448,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6405181",
@@ -48942,7 +50545,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6407677",
@@ -49036,7 +50642,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6408774",
@@ -49130,7 +50739,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6200822",
@@ -49224,7 +50836,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6201563",
@@ -49318,7 +50933,10 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null
     }
   ]
 }
