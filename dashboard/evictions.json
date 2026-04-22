@@ -88,7 +88,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0017",
@@ -173,7 +183,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0023",
@@ -258,7 +278,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0029",
@@ -343,7 +373,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0031",
@@ -428,7 +468,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0001",
@@ -513,7 +563,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0002",
@@ -598,7 +658,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0003",
@@ -683,7 +753,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0004",
@@ -768,7 +848,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0005",
@@ -853,7 +943,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0006",
@@ -938,7 +1038,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0007",
@@ -1023,7 +1133,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0008",
@@ -1108,7 +1228,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0009",
@@ -1193,7 +1323,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0010",
@@ -1278,7 +1418,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0011",
@@ -1363,7 +1513,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0012",
@@ -1448,7 +1608,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0013",
@@ -1533,7 +1703,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0014",
@@ -1618,7 +1798,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0015",
@@ -1703,7 +1893,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0018",
@@ -1789,7 +1989,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0019",
@@ -1874,7 +2084,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0020",
@@ -1959,7 +2179,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0021",
@@ -2044,7 +2274,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0022",
@@ -2129,7 +2369,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0024",
@@ -2214,7 +2464,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0025",
@@ -2299,7 +2559,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0026",
@@ -2384,7 +2654,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0027",
@@ -2469,7 +2749,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0028",
@@ -2554,7 +2844,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0030",
@@ -2639,7 +2939,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0032",
@@ -2725,7 +3035,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0033",
@@ -2810,7 +3130,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0034",
@@ -2895,7 +3225,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0035",
@@ -2981,7 +3321,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0036",
@@ -3066,7 +3416,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "EVIC-0037",
@@ -3151,7 +3511,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 1,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     }
   ]
 }

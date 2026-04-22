@@ -323,7 +323,7 @@
   <div class="stat" onclick="quickFilterSkipped()" style="cursor:pointer;min-width:80px;">
     <div id="skipped-btn" style="background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.4);border-radius:8px;padding:6px 14px;display:flex;flex-direction:column;align-items:center;gap:2px;transition:all .15s;">
       <div style="font-size:18px;line-height:1;">📞</div>
-      <div style="font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);white-space:nowrap;">Skipped</div>
+      <div style="font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);white-space:nowrap;">Skip Traced</div>
     </div>
   </div>
   <div class="sdiv"></div>
@@ -393,9 +393,11 @@
     <option value="without">Without Address</option>
   </select>
   <select id="f-traced" onchange="applyFilters()">
-    <option value="">Skipped: All</option>
-    <option value="yes">Skipped</option>
-    <option value="no">Not Skipped</option>
+    <option value="">Skip Trace: All</option>
+    <option value="pending_skip">Pending Skip</option>
+    <option value="skip_traced">Skip Traced</option>
+    <option value="skip_failed">Skip Failed</option>
+    <option value="ineligible">Ineligible</option>
   </select>
   <select aria-hidden="true" tabindex="-1" disabled style="opacity:0;pointer-events:none;">
     <option>Spacer</option>
@@ -433,7 +435,7 @@
 
 
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
 <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      FULL DEAL ANALYZER PAGE — MAO ENGINE
 â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
@@ -1121,6 +1123,15 @@ function isSkipTraced(r){
   return hasTracedContact(r);
 }
 
+function getSkipBucket(r){
+  if(hasTracedContact(r)) return 'skip_traced';
+  const status=normalizeTraceStatus(r.skip_trace_status);
+  if(['no_hit','no_contact','request_failed','not_found','no_match','missing_address'].includes(status)) return 'skip_failed';
+  if((r.skip_trace_timestamp||r.skip_trace_source)&&!hasTracedContact(r)) return 'skip_failed';
+  if(!isTracerfyEligible(r)) return 'ineligible';
+  return 'pending_skip';
+}
+
 function hasAnyPhone(r){
   return getRecordPhones(r).length>0;
 }
@@ -1635,10 +1646,13 @@ async function loadTab(tab){
   return recs;
 }
 
+let LAST_SCRAPE_META = { fetched_at: '', total: 0 };
+
 async function loadStats(){
   await loadRemoteTraceStore();
   const j=await fetchJSON('records.json');
   if(!j){document.getElementById('upd').textContent='Offline';return;}
+  LAST_SCRAPE_META = { fetched_at: j.fetched_at || '', total: j.total || 0 };
   const r=(j.records||[]).map(applyStoredTraceData);
   buildCanonicalTraceIndex(r);
   document.getElementById('s-total').textContent=(j.total||0).toLocaleString();
@@ -1695,8 +1709,7 @@ function applyFilters(){
     if(minS&&(r.score||0)<minS)return false;
     if(ad==='with'&&!r.prop_address)return false;
     if(ad==='without'&&r.prop_address)return false;
-    if(traced==='yes'&&!isSkipTraced(r))return false;
-    if(traced==='no'&&isSkipTraced(r))return false;
+    if(traced && getSkipBucket(r) !== traced) return false;
     if(fl&&!(r.flags||[]).join(' ').toLowerCase().includes(fl))return false;
     if(q){const hay=[r.owner,r.traced_owner_name,r.prop_address,r.prop_city,r.doc_num,r.doc_type,r.mail_address,r.traced_mailing_address,r.decedent_name,r.executor_name,(r.flags||[]).join(' '),getRecordPhones(r).join(' '),getRecordEmails(r).join(' ')].join(' ').toLowerCase();if(!hay.includes(q))return false;}
     return true;
@@ -1735,12 +1748,14 @@ function computeTopStats(rows){
       const traceTs = String(r.skip_trace_timestamp || '').trim();
       const status = String(r.skip_trace_status || '').trim().toLowerCase();
 
-      if(isTodayDateString(filed)) stats.todayPulled += 1;
       if(typeof isTracerfyEligible === 'function' && isTracerfyEligible(r)) stats.eligible += 1;
       if(isTodayDateString(traceTs) && (status === 'success' || status === 'skipped' || (typeof isSkipTraced==='function' && isSkipTraced(r)))) stats.tracedToday += 1;
       if(status === 'no_hit' || status === 'no_contact') stats.noHit += 1;
     }catch(e){}
   }
+  stats.todayPulled = (LAST_SCRAPE_META.fetched_at && isTodayDateString(LAST_SCRAPE_META.fetched_at))
+    ? LAST_SCRAPE_META.total
+    : 0;
   return stats;
 }
 
@@ -1761,7 +1776,7 @@ function setSkippedButtonState(){
   var sel=document.getElementById('f-traced');
   var btn=document.getElementById('skipped-btn');
   if(!sel||!btn)return;
-  var on=sel.value==='yes';
+  var on=sel.value==='skip_traced';
   btn.style.background=on?'rgba(245,166,35,.28)':'rgba(245,166,35,.12)';
   btn.style.borderColor=on?'rgba(245,166,35,.9)':'rgba(245,166,35,.4)';
   btn.style.boxShadow=on?'0 0 12px rgba(245,166,35,.3)':'none';
@@ -1770,8 +1785,8 @@ function setSkippedButtonState(){
 function quickFilterSkipped(){
   var sel=document.getElementById('f-traced');
   var btn=document.getElementById('skipped-btn');
-  var on=sel.value==='yes';
-  sel.value=on?'':'yes';
+  var on=sel.value==='skip_traced';
+  sel.value=on?'':'skip_traced';
   if(btn){
     btn.style.background=on?'rgba(245,166,35,.12)':'rgba(245,166,35,.28)';
     btn.style.borderColor=on?'rgba(245,166,35,.4)':'rgba(245,166,35,.9)';
@@ -1795,7 +1810,7 @@ function doSort(){filtered.sort((a,b)=>{let av=a[sortCol],bv=b[sortCol];if(av==n
 function renderTable(){
   _rowStore.length = 0; // clear store for fresh IDs each render
   const tbody=document.getElementById('tbody');
-  if(!filtered.length){tbody.innerHTML='<tr><td colspan="9"><div class="empty"><div class="empty-icon">â—Ž</div><div>No leads found</div></div></td></tr>';return;}
+  if(!filtered.length){tbody.innerHTML='<tr><td colspan="9"><div class="empty"><div class="empty-icon">&#9678;</div><div>No leads found</div></div></td></tr>';return;}
   tbody.innerHTML=filtered.slice(0,PAGE).map(rowHTML).join('');
   if(filtered.length>PAGE){const s=document.createElement('tr');s.id='sentinel';s.innerHTML='<td colspan="9"><div class="loading" style="padding:14px">Scroll for more...</div></td>';tbody.appendChild(s);rendered=PAGE;observe();}
   cleanupBrokenIconText(tbody);
@@ -1814,7 +1829,8 @@ function openModalById(id){
 function rowHTML(r){
   const sc=r.score||0,scls=sc>=80?'sh':sc>=60?'sm':'sl';
   const flags=r.flags||[];
-  const tracedTag=isSkipTraced(r)?'<span class="tag t-green">&#128222; Skipped</span>':'';
+  const _bkt=getSkipBucket(r);
+  const tracedTag = _bkt==='skip_traced' ? '<span class="tag t-green">&#128222; Skip Traced</span>' : _bkt==='skip_failed' ? '<span class="tag t-red">Skip Failed</span>' : '';
   const tags=flags.slice(0,5).map(tagHTML).join('')+(flags.length>5?`<span class="tag t-gray">+${flags.length-5}</span>`:'')+tracedTag;
   const eq=r.est_equity,eqH=eq!=null?eqBar(eq):'<span style="color:var(--muted);font-size:11px">–</span>';
   const amt=r.amount!=null?'$'+Number(r.amount).toLocaleString('en-US',{maximumFractionDigits:0}):'–';
@@ -2000,6 +2016,50 @@ function computeAnalyzerMAOOutputs(arv, rehab, closing, other, holding){
   ));
   return {lowball_mao:calc(0.30),target_mao:calc(0.20),max_mao:calc(0.12)};
 }
+
+function computeDealAnalyzerCore(i){
+  const arvBase = Number(i.arvBase) || 0;
+  const pct     = Number(i.pct) || 70;
+  const rehab   = Number(i.rehab) || 0;
+  const fee     = Number(i.fee) || 0;
+  const closing = Number(i.closing) || 0;
+  const other   = Number(i.other) || 0;
+  const sellerAsk = Number(i.sellerAsk) || 0;
+  let flipCost = 0;
+  if(i.flipOn){
+    const sp = Number(i.sellPct)    || 9;
+    const hm = Number(i.holdMonths) || 4;
+    const hc = Number(i.holdCost)   || 1200;
+    flipCost = (arvBase * sp / 100) + (hm * hc);
+  }
+  const fixedCosts     = rehab + closing + other + flipCost;
+  const totalCosts     = fixedCosts + fee;
+  const gross          = arvBase * pct / 100;
+  const maoBase        = gross - totalCosts;
+  const cashOfferBase  = Math.max(0, maoBase - fee);
+  const baseWithoutFee = gross - fixedCosts;
+  const maxFee         = sellerAsk > 0 ? (baseWithoutFee - sellerAsk) : baseWithoutFee;
+  let verdictBucket;
+  if(maoBase >= 30000)      verdictBucket = 'strong';
+  else if(maoBase >= 15000) verdictBucket = 'decent';
+  else if(maoBase > 0)      verdictBucket = 'tight';
+  else                      verdictBucket = 'nodeal';
+  const maoAtPct = (p) => Math.max(0, Math.round(
+    arvBase * p/100 - rehab - fee - closing - other - flipCost
+  ));
+  const range = {
+    lowball_mao: maoAtPct(Math.max(50, pct - 5)),
+    target_mao:  maoAtPct(pct),
+    max_mao:     maoAtPct(Math.min(90, pct + 5)),
+  };
+  return {
+    arvBase, pct, rehab, fee, closing, other,
+    flipCost, fixedCosts, totalCosts, gross,
+    maoBase, cashOfferBase, baseWithoutFee, maxFee,
+    verdictBucket, range
+  };
+}
+
 function mCalc(){
   const arvBase=parseFloat(document.getElementById('da-arv')?.value)||0;
   const arvLow=parseFloat(document.getElementById('da-arv-low')?.value)||0;
@@ -2009,30 +2069,30 @@ function mCalc(){
   const fee=parseFloat(document.getElementById('da-fee')?.value)||10000;
   const closing=parseFloat(document.getElementById('da-closing')?.value)||3000;
   const other=parseFloat(document.getElementById('da-other')?.value)||0;
-  let flipCost=0;
+  let flipSellPct=0,flipHoldMo=0,flipHoldCost=0;
   if(_mFlip){
-    const sp=parseFloat(document.getElementById('da-sell-pct')?.value)||9;
-    const hm=parseFloat(document.getElementById('da-hold-mo')?.value)||4;
-    const hc=parseFloat(document.getElementById('da-hold-cost')?.value)||1200;
-    flipCost=(arvBase*sp/100)+(hm*hc);
-    const ft=document.getElementById('da-flip-total');if(ft)ft.value=Math.round(flipCost);
+    flipSellPct=parseFloat(document.getElementById('da-sell-pct')?.value)||9;
+    flipHoldMo=parseFloat(document.getElementById('da-hold-mo')?.value)||4;
+    flipHoldCost=parseFloat(document.getElementById('da-hold-cost')?.value)||1200;
   }
-  const totalCosts=rehab+fee+closing+other+flipCost;
-  const analyzerMAO=computeAnalyzerMAOOutputs(arvBase, rehab, closing, other, flipCost);
+  const core=computeDealAnalyzerCore({arvBase,pct,rehab,fee,closing,other,flipOn:_mFlip,sellPct:flipSellPct,holdMonths:flipHoldMo,holdCost:flipHoldCost});
+  const flipCost=core.flipCost;
+  if(_mFlip){const ft=document.getElementById('da-flip-total');if(ft)ft.value=Math.round(flipCost);}
+  const analyzerMAO=core.range;
   const fmt=v=>v>=0?'$'+Math.round(v).toLocaleString():'-$'+Math.round(Math.abs(v)).toLocaleString();
   if(!arvBase){const m=document.getElementById('da-mao');if(m)m.textContent='Enter ARV â†‘';return;}
-  const maoBase=(arvBase*pct/100)-totalCosts;
+  const maoBase=core.maoBase;
   const mEl=document.getElementById('da-mao');if(mEl)mEl.textContent=fmt(maoBase);
   const rr=document.getElementById('da-range-row');
   if(rr){if(analyzerMAO){rr.style.display='flex';const ms=document.getElementById('da-mao-safe');const mt=document.getElementById('da-mao-target');const ma=document.getElementById('da-mao-aggr');if(ms)ms.textContent=fmt(analyzerMAO.lowball_mao);if(mt)mt.textContent=fmt(analyzerMAO.target_mao);if(ma)ma.textContent=fmt(analyzerMAO.max_mao);}else{rr.style.display='none';}}
-  let bd=[`ARV ${fmt(arvBase)}×${pct}%=${fmt(arvBase*pct/100)}`,`−Rehab ${fmt(rehab)}`,`−Fee ${fmt(fee)}`,`−Closing ${fmt(closing)}`];
+  let bd=[`ARV ${fmt(arvBase)}×${pct}%=${fmt(core.gross)}`,`−Rehab ${fmt(rehab)}`,`−Fee ${fmt(fee)}`,`−Closing ${fmt(closing)}`];
   if(other)bd.push(`−Other ${fmt(other)}`);if(flipCost)bd.push(`−Flip ${fmt(flipCost)}`);
   const bdEl=document.getElementById('da-bd');if(bdEl)bdEl.innerHTML=bd.join('&nbsp;·&nbsp;');
   const res=document.getElementById('da-res');const vd=document.getElementById('da-vd');
   if(res)res.className='da-result';
-  if(maoBase>=30000){if(res)res.classList.add('green');if(mEl)mEl.style.color='var(--accent3)';if(vd){vd.textContent='✅ Strong deal — room to move';vd.style.color='var(--accent3)';}}
-  else if(maoBase>=15000){if(res)res.classList.add('yellow');if(mEl)mEl.style.color='var(--accent)';if(vd){vd.textContent='⚠️ Decent — negotiate hard';vd.style.color='var(--accent)';}}
-  else if(maoBase>0){if(res)res.classList.add('yellow');if(mEl)mEl.style.color='var(--warm)';if(vd){vd.textContent='⚡ Tight — seller needs to drop';vd.style.color='var(--warm)';}}
+  if(core.verdictBucket==='strong'){if(res)res.classList.add('green');if(mEl)mEl.style.color='var(--accent3)';if(vd){vd.textContent='✅ Strong deal — room to move';vd.style.color='var(--accent3)';}}
+  else if(core.verdictBucket==='decent'){if(res)res.classList.add('yellow');if(mEl)mEl.style.color='var(--accent)';if(vd){vd.textContent='⚠️ Decent — negotiate hard';vd.style.color='var(--accent)';}}
+  else if(core.verdictBucket==='tight'){if(res)res.classList.add('yellow');if(mEl)mEl.style.color='var(--warm)';if(vd){vd.textContent='⚡ Tight — seller needs to drop';vd.style.color='var(--warm)';}}
   else{if(res)res.classList.add('red');if(mEl)mEl.style.color='var(--hot)';if(vd){vd.textContent="âŒ Doesn't pencil — walk away";vd.style.color='var(--hot)';}}
 }
 
@@ -2523,6 +2583,18 @@ function distressPenalty(r){
 }
 
 // â”€â”€ MAIN VALUATION: VALUE-FIRST SMART LOGIC â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function computeArvForRecord(r){
+  if(r && typeof r==='object'){
+    try{
+      const hd=detectHood(r);
+      const tier=hd && hd.source!=='default' ? AKRON_HOODS[hd.hood] : null;
+      if(tier && tier.compMid>0) return {arvBase:Math.max(tier.compMid, Math.round(tier.compLow*0.90)), source:'comps'};
+    }catch(e){}
+  }
+  const avm=(r && (r.appraised_value || r.estimated_value || (r.assessed_value?r.assessed_value/0.35:0))) || 0;
+  return {arvBase:Math.round(avm), source:'avm'};
+}
+
 function localValuation(r, opts={}){
   const hoodData=detectHood(r, opts);
   const hood=hoodData.hood;
@@ -2632,49 +2704,17 @@ function localValuation(r, opts={}){
   // NOTE: Old mismatch safeguard removed - now handled by smartTierSelection()
 
   // STEP 4: Smart blending based on data quality
-  let arvRemodeled=hd.compMid; // start with tier
+  let arvRemodeled=Math.round(hd.compHigh*0.92); // start with tier
   
-  if(dataQuality>=60 && dataAgreement){
-    // STRONG DATA - trust assessed+sale heavily
-    const propertyValue=assessedMarket||saleAppraised;
-    arvRemodeled=Math.round(hd.compMid*0.25 + propertyValue*0.75);
-    factors.push(`🎯 Strong data quality (${dataQuality}/100) — heavily favoring assessed+sale over tier`);
-  } else if(dataQuality>=40){
-    // GOOD DATA - balanced blend
-    let blendedValue=hd.compMid;
-    let totalWeight=0.5; // tier baseline
-    
-    if(assessedMarket && assessedWeight>0){
-      blendedValue=blendedValue*(1-assessedWeight) + assessedMarket*assessedWeight;
-      totalWeight+=assessedWeight;
-    }
-    if(saleAppraised && saleWeight>0){
-      const currentBlend=blendedValue;
-      blendedValue=Math.round(currentBlend*(1-saleWeight/(totalWeight+saleWeight)) + saleAppraised*(saleWeight/(totalWeight+saleWeight)));
-      totalWeight+=saleWeight;
-    }
-    
-    arvRemodeled=Math.round(blendedValue);
-    factors.push(`📊 Good data quality (${dataQuality}/100) — balanced blend of tier+assessed+sale`);
-  } else if(dataQuality>=20){
-    // WEAK DATA - lean on tier more
-    let blendedValue=hd.compMid*0.65;
-    if(assessedMarket) blendedValue+=assessedMarket*0.20;
-    if(saleAppraised) blendedValue+=saleAppraised*0.15;
-    arvRemodeled=Math.round(blendedValue);
-    factors.push(`⚠️ Weak data quality (${dataQuality}/100) — relying more on tier table`);
-  } else {
-    // VERY WEAK DATA - use tier heavily
-    arvRemodeled=hd.compMid;
-    factors.push(`🚨 Very weak data quality (${dataQuality}/100) — using tier table as primary`);
-  }
+  arvRemodeled=Math.round(hd.compHigh*0.92);
+  factors.push(`📊 Pure comps (tier midpoint) — data quality ${dataQuality}/100`);
 
   // STEP 5: Apply tier as sanity cap (use effectiveCompHigh, not hd.compHigh)
   if(arvRemodeled>effectiveCompHigh*1.1){
     warnings.push(`⚠️ Calculated ARV $${arvRemodeled.toLocaleString()} exceeds neighborhood ceiling — capping at $${Math.round(effectiveCompHigh).toLocaleString()}`);
     arvRemodeled=Math.round(effectiveCompHigh);
   }
-  if(arvRemodeled<hd.compLow*0.85){
+  if(arvRemodeled<hd.compLow*0.90){
     warnings.push(`⚠️ Calculated ARV $${arvRemodeled.toLocaleString()} below neighborhood floor — raising to $${Math.round(hd.compLow*0.90).toLocaleString()}`);
     arvRemodeled=Math.round(hd.compLow*0.90);
   }
@@ -2686,7 +2726,7 @@ function localValuation(r, opts={}){
   // STEP 7: Conservative ARV = tight MAO anchor (always stays tight)
   const arvLow=Math.round(hd.compLow*0.90);
   const arvHigh=Math.round(Math.min(arvRemodeled, effectiveCompHigh));
-  const arvConservative=Math.round((arvLow+arvRemodeled)*0.48);
+  const arvConservative=Math.round(arvRemodeled*0.95);
   const arvSafe=Math.round(arvConservative*(usingEstimatedFallback?0.95:0.90));
 
   // STEP 8: Distress penalty affects OFFER, not remodeled ARV
@@ -2847,18 +2887,26 @@ function useAIArv(val){
 }
 
 function getSkipTraceStatusLabel(r){
-  if(isSkipTraced(r)){
-    return `Skipped${r.skip_trace_timestamp?` ${new Date(r.skip_trace_timestamp).toLocaleDateString('en-US',{month:'short',day:'numeric'})}`:''}`;
+  if(r._trace_loading) return 'Tracing via Tracerfy...';
+  const bkt=getSkipBucket(r);
+  if(bkt==='skip_traced'){
+    return `Skip Traced${r.skip_trace_timestamp?` ${new Date(r.skip_trace_timestamp).toLocaleDateString('en-US',{month:'short',day:'numeric'})}`:''}`;
   }
-  if(r._trace_loading)return 'Tracing via Tracerfy...';
-  if(r.skip_trace_status==='no_contact')return 'Trace returned no usable phone or email';
-  if(r.skip_trace_status==='no_hit')return 'Tracerfy returned no match';
-  if(r.skip_trace_status==='missing_address')return 'Eligible but missing property address';
-  if(r.skip_trace_status==='request_failed')return 'Tracerfy request failed';
-  if(!isTracerfyEligible(r))return 'Requires Seller Score 65+ and 2+ lists/distress';
-  if(!tracerfyConfigured())return 'Tracerfy not configured';
-  if(!(r.prop_address&&r.prop_city&&r.prop_state))return 'Eligible but missing property address, city, or state';
-  return 'Awaiting automatic Tracerfy trace';
+  if(bkt==='skip_failed'){
+    const s=normalizeTraceStatus(r.skip_trace_status);
+    if(s==='no_hit'||s==='no_match'||s==='not_found') return 'Skip Failed - no match';
+    if(s==='no_contact') return 'Skip Failed - no usable phone or email';
+    if(s==='missing_address') return 'Skip Failed - missing property address';
+    if(s==='request_failed') return 'Skip Failed - Tracerfy request failed';
+    return 'Skip Failed';
+  }
+  if(bkt==='ineligible'){
+    if(!isTracerfyEligible(r)) return 'Ineligible - requires Seller Score 65+ and 2+ lists/distress';
+    return 'Ineligible';
+  }
+  if(!tracerfyConfigured()) return 'Pending Skip - Tracerfy not configured';
+  if(!(r.prop_address&&r.prop_city&&r.prop_state)) return 'Pending Skip - missing property address, city, or state';
+  return 'Pending Skip - awaiting automatic Tracerfy trace';
 }
 
 function openModal(r){
@@ -2927,7 +2975,7 @@ function openModal(r){
         </div>
       </div>`:''}      
       <hr class="mdiv">
-      ${dealAnalyzerHTML(r.estimated_value||r.appraised_value||0)}
+      ${dealAnalyzerHTML(computeArvForRecord(r).arvBase)}
       <hr class="mdiv">
       <div class="msec">Filing Details</div>
       <div class="mf"><div class="ml">Type</div><div class="mv">${r.cat_label||r.doc_type}</div></div>
@@ -3144,18 +3192,17 @@ function pCalc(){
   const feeSlider = document.getElementById('p-fee-slider'); if(feeSlider) feeSlider.value = fee;
   const feeDisp = document.getElementById('p-fee-display'); if(feeDisp) feeDisp.textContent = '$'+Math.round(fee).toLocaleString();
 
-  let flipCost = 0;
+  let flipSellPct=0, flipHoldMo=0, flipHoldCost=0;
   if(pFlipOn){
-    const sp = parseFloat(document.getElementById('p-sell-pct').value)||9;
-    const hm = parseFloat(document.getElementById('p-hold-mo').value)||4;
-    const hc = parseFloat(document.getElementById('p-hold-cost').value)||1200;
-    flipCost = (arvBase*sp/100) + (hm*hc);
-    const ft = document.getElementById('p-flip-total'); if(ft) ft.value = Math.round(flipCost);
+    flipSellPct = parseFloat(document.getElementById('p-sell-pct').value)||9;
+    flipHoldMo  = parseFloat(document.getElementById('p-hold-mo').value)||4;
+    flipHoldCost= parseFloat(document.getElementById('p-hold-cost').value)||1200;
   }
-
-  const fixedCosts = rehab + closing + other + flipCost;
-  const totalCosts = fixedCosts + fee;
-  const analyzerMAO = computeAnalyzerMAOOutputs(arvBase, rehab, closing, other, flipCost);
+  const core = computeDealAnalyzerCore({arvBase,pct,rehab,fee,closing,other,sellerAsk,flipOn:pFlipOn,sellPct:flipSellPct,holdMonths:flipHoldMo,holdCost:flipHoldCost});
+  const flipCost = core.flipCost;
+  if(pFlipOn){ const ft = document.getElementById('p-flip-total'); if(ft) ft.value = Math.round(flipCost); }
+  const fixedCosts = core.fixedCosts;
+  const analyzerMAO = core.range;
 
   const fd = document.getElementById('p-fixed-display');
   if(fd) fd.value = '$'+Math.round(fixedCosts).toLocaleString();
@@ -3164,13 +3211,9 @@ function pCalc(){
 
   if(!arvBase){ pResetResult(); return; }
 
-  const maoBase = (arvBase*pct/100) - totalCosts;
-  const cashOfferBase = Math.max(0, maoBase - fee);
-
-  const baseWithoutFee = (arvBase*pct/100) - fixedCosts;
-  const maxFee = sellerAsk > 0
-    ? baseWithoutFee - sellerAsk
-    : baseWithoutFee;
+  const maoBase = core.maoBase;
+  const cashOfferBase = core.cashOfferBase;
+  const maxFee = core.maxFee;
 
   const mm = document.getElementById('p-mao-main');
   if(mm) mm.textContent = fmt(maoBase);
@@ -3187,7 +3230,7 @@ function pCalc(){
     }
   }
 
-  let bd = [`ARV ${fmt(arvBase)} × ${pct}% = ${fmt(arvBase*pct/100)}`,
+  let bd = [`ARV ${fmt(arvBase)} × ${pct}% = ${fmt(core.gross)}`,
             `− Rehab ${fmt(rehab)}`, `− Wholesale Fee ${fmt(fee)}`, `− Closing ${fmt(closing)}`];
   if(other) bd.push(`− Other ${fmt(other)}`);
   if(flipCost) bd.push(`− Flip ${fmt(flipCost)}`);
@@ -3201,19 +3244,19 @@ function pCalc(){
   if(card) card.classList.remove('green','yellow','red');
   if(badge) badge.classList.remove('green','yellow','red');
 
-  if(maoBase >= 30000){
+  if(core.verdictBucket === 'strong'){
     if(card) card.classList.add('green');
     if(badge){ badge.classList.add('green'); badge.textContent='✅ Strong Deal — Move Fast'; }
     if(mm) mm.style.color='var(--accent3)';
     if(vt){ vt.textContent='Room to negotiate — this deal works'; vt.style.color='var(--accent3)'; }
     if(vs) vs.textContent=`At $${Math.round(fee/1000)}k wholesale fee your buyer-side MAO is ${fmt(maoBase)} and your cash offer is ${fmt(cashOfferBase)}. Could flex fee up to ${fmt(maxFee>0?Math.floor(maxFee/500)*500:fee)} and still work.`;
-  } else if(maoBase >= 15000){
+  } else if(core.verdictBucket === 'decent'){
     if(card) card.classList.add('yellow');
     if(badge){ badge.classList.add('yellow'); badge.textContent='⚠️ Decent — Negotiate Hard'; }
     if(mm) mm.style.color='var(--accent)';
     if(vt){ vt.textContent='Workable — push seller down, or drop your wholesale fee'; vt.style.color='var(--accent)'; }
     if(vs) vs.textContent=`Drop wholesale fee to $${Math.max(0,Math.round((fee-5000)/500)*500).toLocaleString()} → buyer-side MAO becomes ${fmt((arvBase*pct/100)-fixedCosts-(fee-5000))}. Or get seller ${fmt(Math.max(0,15000-maoBase))} lower.`;
-  } else if(maoBase > 0){
+  } else if(core.verdictBucket === 'tight'){
     if(card) card.classList.add('yellow');
     if(badge){ badge.classList.add('yellow'); badge.textContent='⚡ Tight — Grind It'; }
     if(mm) mm.style.color='var(--warm)';

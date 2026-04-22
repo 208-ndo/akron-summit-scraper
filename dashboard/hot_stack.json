@@ -100,7 +100,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 6,
+      "skip_trace_eligible": true,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "TAX-6807870",
@@ -206,7 +216,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 7,
+      "skip_trace_eligible": true,
+      "Phone 1": "2163768658",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2024 11 5136",
@@ -308,7 +328,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "3308420706",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 04 1596",
@@ -410,7 +440,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "3306066580",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2024 10 4359",
@@ -504,7 +544,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2024 05 1991",
@@ -606,7 +656,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "4406667058",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 06 2866",
@@ -708,7 +768,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "3303221672",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2024 08 3472",
@@ -810,7 +880,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "3308440404",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2024 07 2953",
@@ -904,7 +984,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 07 3028",
@@ -1006,7 +1096,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "2348139377",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2024 12 5264",
@@ -1108,7 +1208,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "3303224265",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 11 5614",
@@ -1210,7 +1320,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "3306993290",
+      "Phone 1 Type": "Landline",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 05 2013",
@@ -1304,7 +1424,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 05 2322",
@@ -1398,7 +1528,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 10 4879",
@@ -1500,7 +1640,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "3304729975",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 11 5263",
@@ -1602,7 +1752,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "3306344265",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 07 3153",
@@ -1704,7 +1864,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "3305230291",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 09 4310",
@@ -1798,7 +1968,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2026 01 0059",
@@ -1900,7 +2080,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "3303278364",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 08 4036",
@@ -2002,7 +2192,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "3309331960",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 02 0544",
@@ -2104,7 +2304,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "2166306147",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 05 2316",
@@ -2198,7 +2408,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "TAX-6840395",
@@ -2300,7 +2520,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 4,
+      "skip_trace_eligible": true,
+      "Phone 1": "3307014407",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "TAX-6713973",
@@ -2347,25 +2577,17 @@
       "is_absentee": true,
       "is_out_of_state": false,
       "parcel_id": "6713973",
-      "phones": [
-        "2343039488"
-      ],
-      "phone_types": [
-        "Mobile"
-      ],
+      "phones": [],
+      "phone_types": [],
       "emails": [],
       "skip_trace_source": "Tracerfy",
-      "traced_owner_name": "Rosa Scott",
-      "traced_owner": "Rosa Scott",
-      "traced_phones": [
-        "2343039488"
-      ],
-      "traced_phone_types": [
-        "Mobile"
-      ],
+      "traced_owner_name": "",
+      "traced_owner": "",
+      "traced_phones": [],
+      "traced_phone_types": [],
       "traced_emails": [],
-      "phone_primary": "2343039488",
-      "phone_primary_type": "Mobile",
+      "phone_primary": "",
+      "phone_primary_type": "",
       "phone_secondary": "",
       "phone_secondary_type": "",
       "phone_tertiary": "",
@@ -2376,9 +2598,9 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "success",
-      "skip_trace_timestamp": "2026-04-17T19:42:23.084205Z",
-      "has_phone": true,
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-17T19:42:25.953694Z",
+      "has_phone": false,
       "has_email": false,
       "assessed_value": 2980.0,
       "estimated_value": 8514,
@@ -2403,7 +2625,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 5,
+      "skip_trace_eligible": true,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "TAX-6725033",
@@ -2506,7 +2738,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 5,
+      "skip_trace_eligible": true,
+      "Phone 1": "5132270297",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 11 5571",
@@ -2608,7 +2850,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "3308815998",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 10 5208",
@@ -2710,7 +2962,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "3308128376",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 12 5839",
@@ -2812,7 +3074,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "3307347329",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 09 4317",
@@ -2914,7 +3186,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "3602864338",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 11 5437",
@@ -3016,7 +3298,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "9544243136",
+      "Phone 1 Type": "Landline",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 07 3162",
@@ -3118,7 +3410,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "3304666677",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2024 12 5388",
@@ -3220,7 +3522,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "3306127431",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 03 1000",
@@ -3322,7 +3634,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "2674997139",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2019 07 2763",
@@ -3424,7 +3746,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "3302896395",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2024 09 3879",
@@ -3526,7 +3858,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "2167732575",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 02 0891",
@@ -3628,7 +3970,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "3304752146",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 04 1874",
@@ -3722,7 +4074,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "TAX-6706402",
@@ -3768,25 +4130,17 @@
       "is_absentee": false,
       "is_out_of_state": false,
       "parcel_id": "6706402",
-      "phones": [
-        "3307866559"
-      ],
-      "phone_types": [
-        "Mobile"
-      ],
+      "phones": [],
+      "phone_types": [],
       "emails": [],
       "skip_trace_source": "Tracerfy",
-      "traced_owner_name": "Brooke Keller",
-      "traced_owner": "Brooke Keller",
-      "traced_phones": [
-        "3307866559"
-      ],
-      "traced_phone_types": [
-        "Mobile"
-      ],
+      "traced_owner_name": "",
+      "traced_owner": "",
+      "traced_phones": [],
+      "traced_phone_types": [],
       "traced_emails": [],
-      "phone_primary": "3307866559",
-      "phone_primary_type": "Mobile",
+      "phone_primary": "",
+      "phone_primary_type": "",
       "phone_secondary": "",
       "phone_secondary_type": "",
       "phone_tertiary": "",
@@ -3797,9 +4151,9 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "success",
-      "skip_trace_timestamp": "2026-04-17T19:42:23.084369Z",
-      "has_phone": true,
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-17T19:42:25.953774Z",
+      "has_phone": false,
       "has_email": false,
       "assessed_value": 15650.0,
       "estimated_value": 44714,
@@ -3824,7 +4178,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 4,
+      "skip_trace_eligible": true,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2024 06 2269",
@@ -3916,7 +4280,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 05 2430",
@@ -4008,7 +4382,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CV2025 03 1449",
@@ -4108,7 +4492,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": true,
+      "Phone 1": "9478006575",
+      "Phone 1 Type": "Mobile",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CODEVIOLATION-6053",
@@ -4201,7 +4595,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 5,
+      "skip_trace_eligible": true,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CODEVIOLATION-0549",
@@ -4294,7 +4698,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 5,
+      "skip_trace_eligible": true,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CODEVIOLATION-6148",
@@ -4387,7 +4801,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 5,
+      "skip_trace_eligible": true,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CODEVIOLATION-6159",
@@ -4480,7 +4904,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 5,
+      "skip_trace_eligible": true,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "CODEVIOLATION-6155",
@@ -4572,7 +5006,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 4,
+      "skip_trace_eligible": true,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     }
   ]
 }

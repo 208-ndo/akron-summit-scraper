@@ -93,7 +93,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 3,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "VHOME-0109213",
@@ -183,7 +193,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 3,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "VHOME-6838102C",
@@ -273,7 +293,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 3,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "VHOME-6807445",
@@ -363,7 +393,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 3,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "VHOME-0109987",
@@ -451,7 +491,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "VHOME-3200028",
@@ -539,7 +589,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "VHOME-0115984",
@@ -627,7 +687,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "VHOME-0100970",
@@ -715,7 +785,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "VHOME-3302270",
@@ -803,7 +883,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "VHOME-3303606",
@@ -891,7 +981,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "VHOME-6847458",
@@ -979,7 +1079,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "VHOME-0106938",
@@ -1067,7 +1177,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "VHOME-6813788",
@@ -1155,7 +1275,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "VHOME-6859999",
@@ -1243,7 +1373,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     },
     {
       "doc_num": "VHOME-6840494",
@@ -1331,7 +1471,17 @@
       "executor_name": "",
       "executor_state": "",
       "estate_value": null,
-      "is_inherited": false
+      "is_inherited": false,
+      "list_count": 2,
+      "skip_trace_eligible": false,
+      "Phone 1": "",
+      "Phone 1 Type": "",
+      "Phone 2": "",
+      "Phone 2 Type": "",
+      "Phone 3": "",
+      "Phone 3 Type": "",
+      "Email": "",
+      "Skip Trace Source": "Tracerfy"
     }
   ]
 }
