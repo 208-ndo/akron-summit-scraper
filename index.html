@@ -1241,11 +1241,39 @@ function propertyFactsArray(r){
 function propertyFactsHTML(r){
   const facts=propertyFactsArray(r);
   if(!facts.length)return '';
-  return `<div class="owner-meta"><span class="lead-indicator">${facts.join(' · ')}</span></div>`;
+  return `<div class="owner-sub">${facts.join(' · ')}</div>`;
 }
 
 function getPreferredMailingZip(r){
   return r.traced_mailing_zip||r.mail_zip||'';
+}
+
+function propertyFactsText(r, separator=' / '){
+  const facts=propertyFactsArray(r);
+  return facts.length ? facts.join(separator) : '';
+}
+
+function propertyFactsHTML(r){
+  const text=propertyFactsText(r,' / ');
+  if(!text)return '';
+  return `<div class="owner-sub">${text}</div>`;
+}
+
+function syncModalPropertyFacts(r){
+  const root=document.getElementById('mc');
+  if(!root)return;
+  root.querySelectorAll('.mf').forEach(field=>{
+    const label=field.querySelector('.ml');
+    const value=field.querySelector('.mv');
+    if(!label||!value)return;
+    const labelText=(label.textContent||'').trim();
+    if(labelText==='Beds / Baths'){
+      const text=[formatFactValue(r.bedrooms,' bd'),formatFactValue(r.bathrooms,' ba')].filter(Boolean).join(' / ');
+      value.textContent=text||'-';
+    }else if(labelText==='Square Feet'){
+      value.textContent=formatFactValue(r.square_feet,' sqft')||'-';
+    }
+  });
 }
 
 function getPreferredMailingLine(r){
@@ -2963,6 +2991,8 @@ function openModal(r){
     <div class="mg">
       ${shW}${vlW}
       <div class="msec">Property</div>
+      <div class="mf"><div class="ml">Beds / Baths</div><div class="mv">${[formatFactValue(r.bedrooms,' bd'),formatFactValue(r.bathrooms,' ba')].filter(Boolean).join(' · ')||'â€“'}</div></div>
+      <div class="mf"><div class="ml">Square Feet</div><div class="mv">${formatFactValue(r.square_feet,' sqft')||'â€“'}</div></div>
       <div class="mf full"><div class="ml">Property Address</div><div class="mv hi">${r.prop_address||'–'}${r.prop_city?', '+r.prop_city:''} ${r.prop_zip||''}</div></div>
       <div class="mf full"><div class="ml">Mailing Address</div><div class="mv">${getPreferredMailingLine(r)||'–'}</div></div>
       <div class="mf full"><div class="ml">Skip Trace Status</div><div class="mv ${eligible?'hi':''}">${traceStatus}</div></div>
@@ -3033,6 +3063,7 @@ function openModal(r){
       ${!tracerfyConfigured()?`<div class="mf full"><div class="mv" style="color:var(--muted);font-size:11px;">Tracerfy is disabled until <code>tracerfy.config.js</code> provides <code>apiKey</code>.</div></div>`:''}
     </div>`;
   document.getElementById('modal').classList.add('open');
+  syncModalPropertyFacts(r);
   cleanupBrokenIconText(document.getElementById('mc'));
   window._lastModalRecord = r;
   // Reset modal analyzer state fresh each time
