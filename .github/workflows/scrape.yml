@@ -45,7 +45,8 @@ jobs:
             --records data/records.json \
             --out-json data/records.enriched.json \
             --out-csv data/records.enriched.csv \
-            --report data/match_report.json
+            --report data/match_report.json \
+            --property-access-scope priority
 
       - name: Commit updated data files
         run: |

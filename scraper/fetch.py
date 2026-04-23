@@ -33,6 +33,7 @@ from typing import Dict, List, Optional, Tuple
 import requests
 from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
+from dashboard_server import perform_tracerfy_lookup, map_tracerfy_lookup_response
 
 BASE_DIR      = Path(__file__).resolve().parent.parent
 DATA_DIR      = BASE_DIR / "data"
@@ -43,6 +44,7 @@ TRACE_SOURCE  = "Tracerfy"
 PROPERTY_ACCESS_CACHE_PATH = DATA_DIR / "property_access_cache.json"
 PROPERTY_ACCESS_BASE_URL = "https://propertyaccess.summitoh.net/Datalets/Datalet.aspx?UseSearch=no&pin={pin}"
 PROPERTY_ACCESS_THROTTLE_SECONDS = float(os.getenv("PROPERTY_ACCESS_THROTTLE_SECONDS", "0.6"))
+AUTO_SKIP_TRACE_THROTTLE_SECONDS = float(os.getenv("AUTO_SKIP_TRACE_THROTTLE_SECONDS", "0.35"))
 
 
 # output paths
@@ -1777,10 +1779,34 @@ def fetch_property_access_metrics_for_pin(pin:str, session:Optional[requests.Ses
         logging.warning("Property Access fetch failed for %s: %s",pin,e)
         return {}
 
-def enrich_records_from_property_access(records:List[LeadRecord])->List[LeadRecord]:
+def property_access_scope_default()->str:
+    return "priority" if os.getenv("GITHUB_ACTIONS","").strip().lower()=="true" else "full"
+
+def record_missing_property_facts(record:LeadRecord)->bool:
+    return record.bedrooms is None or record.bathrooms is None or not record.square_feet
+
+def record_has_strong_distress(record:LeadRecord)->bool:
+    return bool(record.hot_stack or (record.distress_count or 0) >= 2)
+
+def should_fetch_property_access_record(record:LeadRecord, scope:str)->bool:
+    if not clean_text(record.parcel_id) or not record_missing_property_facts(record):
+        return False
+    if scope=="off":
+        return False
+    if scope=="full":
+        return True
+    return bool(
+        record.hot_stack
+        or (record.score or 0) >= 80
+        or record_has_strong_distress(record)
+    )
+
+def enrich_records_from_property_access(records:List[LeadRecord], scope:str="auto")->List[LeadRecord]:
+    resolved_scope=property_access_scope_default() if scope=="auto" else scope
     cache=load_property_access_cache()
     updated_cache=False
     missing=[]
+    queued=[]
     for record in records:
         pid=clean_text(record.parcel_id)
         if not pid:
@@ -1793,30 +1819,39 @@ def enrich_records_from_property_access(records:List[LeadRecord])->List[LeadReco
                 record.bathrooms=cached.get("bathrooms")
             if not record.square_feet and cached.get("square_feet") is not None:
                 record.square_feet=cached.get("square_feet")
-        if record.bedrooms is None or record.bathrooms is None or not record.square_feet:
+        if record_missing_property_facts(record):
             missing.append(record)
+            if should_fetch_property_access_record(record,resolved_scope):
+                queued.append(record)
 
     if not missing:
         logging.info("Property Access enrichment: all parcel metrics satisfied from cache")
         return records
 
-    logging.info("Property Access enrichment: %s parcel lookups queued",len({clean_text(r.parcel_id) for r in missing if clean_text(r.parcel_id)}))
-    session=requests.Session()
-    last_request_at=0.0
-    for record in missing:
-        pid=clean_text(record.parcel_id)
-        if not pid:
-            continue
-        cached=cache.get(pid)
-        if has_property_access_metrics(cached):
-            continue
-        elapsed=time.monotonic()-last_request_at
-        if last_request_at and elapsed<PROPERTY_ACCESS_THROTTLE_SECONDS:
-            time.sleep(PROPERTY_ACCESS_THROTTLE_SECONDS-elapsed)
-        metrics=fetch_property_access_metrics_for_pin(pid,session=session)
-        last_request_at=time.monotonic()
-        cache[pid]=metrics
-        updated_cache=True
+    queued_pids={clean_text(r.parcel_id) for r in queued if clean_text(r.parcel_id)}
+    logging.info(
+        "Property Access enrichment scope=%s missing=%s queued=%s",
+        resolved_scope,
+        len({clean_text(r.parcel_id) for r in missing if clean_text(r.parcel_id)}),
+        len(queued_pids),
+    )
+    if queued_pids:
+        session=requests.Session()
+        last_request_at=0.0
+        for record in queued:
+            pid=clean_text(record.parcel_id)
+            if not pid:
+                continue
+            cached=cache.get(pid)
+            if has_property_access_metrics(cached):
+                continue
+            elapsed=time.monotonic()-last_request_at
+            if last_request_at and elapsed<PROPERTY_ACCESS_THROTTLE_SECONDS:
+                time.sleep(PROPERTY_ACCESS_THROTTLE_SECONDS-elapsed)
+            metrics=fetch_property_access_metrics_for_pin(pid,session=session)
+            last_request_at=time.monotonic()
+            cache[pid]=metrics
+            updated_cache=True
 
     for record in records:
         pid=clean_text(record.parcel_id)
@@ -3215,6 +3250,63 @@ def hydrate_records_from_trace_store(records:List[LeadRecord])->List[LeadRecord]
         hydrated.append(apply_trace_entry_to_record(record, matched) if matched else record)
     return hydrated
 
+def should_auto_skip_trace_record(record:LeadRecord)->bool:
+    status=clean_text(getattr(record,"skip_trace_status","")).lower()
+    if status in {"success","no_hit","no_contact","missing_address","request_failed","not_found","no_match"}:
+        return False
+    if any([
+        clean_text(getattr(record,"phone_primary","")),
+        clean_text(getattr(record,"phone_secondary","")),
+        clean_text(getattr(record,"phone_tertiary","")),
+        clean_text(getattr(record,"email_primary","")),
+        clean_text(getattr(record,"traced_owner_name","")),
+    ]):
+        return False
+    return all([
+        clean_text(getattr(record,"prop_address","")),
+        clean_text(getattr(record,"prop_city","")),
+        clean_text(getattr(record,"prop_state","")),
+    ])
+
+def auto_skip_trace_records(records:List[LeadRecord])->List[LeadRecord]:
+    pending=[record for record in records if should_auto_skip_trace_record(record)]
+    if not pending:
+        logging.info("Auto skip trace: no pending records")
+        return records
+
+    logging.info("Auto skip trace: tracing %s records via Tracerfy",len(pending))
+    traced=0
+    failed=0
+    last_request_at=0.0
+
+    for record in pending:
+        elapsed=time.monotonic()-last_request_at
+        if last_request_at and elapsed<AUTO_SKIP_TRACE_THROTTLE_SECONDS:
+            time.sleep(AUTO_SKIP_TRACE_THROTTLE_SECONDS-elapsed)
+        try:
+            trace_data=map_tracerfy_lookup_response(
+                asdict(record),
+                perform_tracerfy_lookup({
+                    "address": record.prop_address,
+                    "city": record.prop_city,
+                    "state": record.prop_state or "OH",
+                }),
+            )
+            apply_trace_entry_to_record(record, trace_data)
+            traced+=1
+        except Exception as e:
+            record.skip_trace_status="request_failed"
+            record.skip_trace_source=TRACE_SOURCE
+            record.skip_trace_timestamp=utc_timestamp()
+            record.has_phone=False
+            record.has_email=False
+            failed+=1
+            logging.warning("Auto skip trace failed for %s (%s): %s",record.doc_num or record.parcel_id or record.prop_address,record.prop_address,e)
+        last_request_at=time.monotonic()
+
+    logging.info("Auto skip trace complete: %s traced | %s failed",traced,failed)
+    return records
+
 def write_trace_store(records:List[LeadRecord]):
     payload=build_trace_store_from_records(records)
     TRACE_STORE_PATH.write_text(json.dumps(payload,indent=2),encoding="utf-8")
@@ -3405,6 +3497,7 @@ def parse_args():
     p.add_argument("--out-json",dest="out_json",default=str(DEFAULT_ENRICHED_JSON_PATH))
     p.add_argument("--out-csv",dest="out_csv",default=str(DEFAULT_ENRICHED_CSV_PATH))
     p.add_argument("--report",dest="report",default=str(DEFAULT_REPORT_PATH))
+    p.add_argument("--property-access-scope",choices=["auto","full","priority","off"],default="auto")
     return p.parse_args()
 
 
@@ -3497,10 +3590,11 @@ async def main():
     )
 
     # 13. Parcel-level enrichment from Summit County Property Access
-    all_records=enrich_records_from_property_access(all_records)
+    all_records=enrich_records_from_property_access(all_records,scope=args.property_access_scope)
 
-    # 14. Hydrate from existing trace store and write all outputs
+    # 14. Hydrate from existing trace store, then auto skip trace remaining records
     all_records=hydrate_records_from_trace_store(all_records)
+    all_records=auto_skip_trace_records(all_records)
     write_json_outputs(all_records,extra_json_path=Path(args.out_json))
     write_category_json(all_records)           # writes vacant_land.json via category
     write_vacant_land_json(vacant_land_leads)  # no-op now, kept for compat

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-22T05:11:18.611048+00:00",
+  "fetched_at": "2026-04-23T02:03:30.332240+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "hot_stack",
   "description": "\ud83d\udd25 2+ distress signals \u2014 highest priority",
@@ -101,9 +101,9 @@
       "executor_state": "",
       "estate_value": null,
       "is_inherited": false,
-      "bedrooms": null,
-      "bathrooms": null,
-      "square_feet": null
+      "bedrooms": 3.0,
+      "bathrooms": 1.0,
+      "square_feet": 1422
     },
     {
       "doc_num": "TAX-6807870",
@@ -210,9 +210,9 @@
       "executor_state": "",
       "estate_value": null,
       "is_inherited": false,
-      "bedrooms": null,
-      "bathrooms": null,
-      "square_feet": null
+      "bedrooms": 2.0,
+      "bathrooms": 1.5,
+      "square_feet": 960
     },
     {
       "doc_num": "CV2024 10 4359",
@@ -2545,9 +2545,9 @@
       "executor_state": "",
       "estate_value": null,
       "is_inherited": false,
-      "bedrooms": null,
-      "bathrooms": null,
-      "square_feet": null
+      "bedrooms": 2.0,
+      "bathrooms": 1.0,
+      "square_feet": 1584
     },
     {
       "doc_num": "TAX-6713973",
@@ -2651,9 +2651,9 @@
       "executor_state": "",
       "estate_value": null,
       "is_inherited": false,
-      "bedrooms": null,
-      "bathrooms": null,
-      "square_feet": null
+      "bedrooms": 2.0,
+      "bathrooms": 1.0,
+      "square_feet": 602
     },
     {
       "doc_num": "TAX-6725033",
@@ -2757,9 +2757,9 @@
       "executor_state": "",
       "estate_value": null,
       "is_inherited": false,
-      "bedrooms": null,
-      "bathrooms": null,
-      "square_feet": null
+      "bedrooms": 3.0,
+      "bathrooms": 1.0,
+      "square_feet": 1200
     },
     {
       "doc_num": "CV2025 09 4317",
@@ -4284,9 +4284,9 @@
       "executor_state": "",
       "estate_value": null,
       "is_inherited": false,
-      "bedrooms": null,
-      "bathrooms": null,
-      "square_feet": null
+      "bedrooms": 3.0,
+      "bathrooms": 2.0,
+      "square_feet": 1577
     },
     {
       "doc_num": "CV2024 06 2269",
