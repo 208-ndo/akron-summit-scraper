@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-23T02:03:30.343063+00:00",
+  "fetched_at": "2026-04-23T13:53:11.210334+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "code_violations",
   "description": "\ud83c\udfda City-declared nuisance / housing code violations \u2014 repair or sell",
@@ -38,8 +38,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -99,17 +99,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 5,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-0549",
@@ -144,8 +134,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -205,17 +195,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 5,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6148",
@@ -250,8 +230,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -311,17 +291,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 5,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6159",
@@ -356,8 +326,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -417,17 +387,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 5,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6155",
@@ -461,8 +421,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -522,17 +482,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6102",
@@ -623,17 +573,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6124",
@@ -724,17 +664,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6125",
@@ -825,17 +755,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6126",
@@ -926,17 +846,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6127",
@@ -1027,17 +937,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6128",
@@ -1128,17 +1028,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6129",
@@ -1229,17 +1119,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6130",
@@ -1330,17 +1210,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6131",
@@ -1431,17 +1301,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6132",
@@ -1532,17 +1392,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6133",
@@ -1633,17 +1483,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6134",
@@ -1734,17 +1574,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6135",
@@ -1835,17 +1665,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-0547",
@@ -1936,17 +1756,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-0548",
@@ -2037,17 +1847,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6136",
@@ -2138,17 +1938,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6137",
@@ -2239,17 +2029,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6138",
@@ -2340,17 +2120,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6139",
@@ -2441,17 +2211,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6140",
@@ -2542,17 +2302,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6141",
@@ -2643,17 +2393,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6142",
@@ -2744,17 +2484,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6143",
@@ -2845,17 +2575,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-0550",
@@ -2946,17 +2666,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6144",
@@ -3047,17 +2757,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6145",
@@ -3148,17 +2848,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6146",
@@ -3249,17 +2939,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6147",
@@ -3350,17 +3030,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6149",
@@ -3451,17 +3121,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-0551",
@@ -3552,17 +3212,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6150",
@@ -3653,17 +3303,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6151",
@@ -3754,17 +3394,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6152",
@@ -3855,17 +3485,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6153",
@@ -3956,17 +3576,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6156",
@@ -4057,17 +3667,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6157",
@@ -4158,17 +3758,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6158",
@@ -4259,17 +3849,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6160",
@@ -4360,17 +3940,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6161",
@@ -4461,17 +4031,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-0552",
@@ -4562,17 +4122,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6162",
@@ -4663,17 +4213,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6163",
@@ -4764,17 +4304,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6164",
@@ -4865,17 +4395,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6165",
@@ -4966,17 +4486,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6166",
@@ -5067,17 +4577,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6167",
@@ -5168,17 +4668,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6168",
@@ -5269,17 +4759,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6169",
@@ -5370,17 +4850,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6170",
@@ -5471,17 +4941,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6172",
@@ -5572,17 +5032,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6173",
@@ -5673,17 +5123,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6174",
@@ -5774,17 +5214,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6175",
@@ -5875,17 +5305,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6176",
@@ -5976,17 +5396,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6177",
@@ -6077,17 +5487,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6178",
@@ -6178,17 +5578,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6179",
@@ -6279,17 +5669,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6181",
@@ -6380,17 +5760,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6182",
@@ -6481,17 +5851,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6183",
@@ -6582,17 +5942,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6184",
@@ -6683,17 +6033,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6185",
@@ -6784,17 +6124,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6186",
@@ -6885,17 +6215,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6187",
@@ -6986,17 +6306,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6188",
@@ -7087,17 +6397,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6189",
@@ -7188,17 +6488,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6190",
@@ -7289,17 +6579,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6191",
@@ -7390,17 +6670,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6180",
@@ -7491,17 +6761,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     }
   ]
 }

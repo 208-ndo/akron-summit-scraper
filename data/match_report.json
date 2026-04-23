@@ -1,12 +1,20 @@
 {
   "matched": 0,
-  "unmatched": 58,
-  "with_address": 14,
+  "unmatched": 55,
+  "with_address": 12,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 58
+    "unmatched": 55
   },
   "sample_unmatched": [
+    {
+      "doc_num": "PERDEW 04",
+      "owner": "Marvin Perdew"
+    },
+    {
+      "doc_num": "ROUSE 04",
+      "owner": "Gene Rouse"
+    },
     {
       "doc_num": "YATES 04",
       "owner": "Wanda Hicks-Yates"
@@ -14,10 +22,6 @@
     {
       "doc_num": "HOSKINS 04",
       "owner": "Hobart Virgil Hoskins"
-    },
-    {
-      "doc_num": "ROUSE 04",
-      "owner": "Gene Rouse"
     },
     {
       "doc_num": "SCHWARZ 04",
@@ -50,10 +54,6 @@
     {
       "doc_num": "MONEYSMITH 04",
       "owner": "James Moneysmith"
-    },
-    {
-      "doc_num": "SULLIVAN 04",
-      "owner": "Morgan Sullivan"
     },
     {
       "doc_num": "EVIC-0001",
@@ -105,9 +105,9 @@
     },
     {
       "doc_num": "EVIC-0013",
-      "owner": "Unknown"
+      "owner": "Frank Szydlowski"
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-04-23T02:03:32.149174+00:00"
+  "generated_at": "2026-04-23T13:53:14.344487+00:00"
 }

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-23T02:03:30.712812+00:00",
+  "fetched_at": "2026-04-23T13:53:12.290665+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "out_of_state",
   "description": "\ud83c\udf0e Owner mails from out of state",
@@ -40,8 +40,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -112,17 +112,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.5,
-      "square_feet": 960,
-      "list_count": 7,
-      "skip_trace_eligible": true,
-      "Phone 1": "2163768658",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 960
     },
     {
       "doc_num": "TAX-6803791",
@@ -225,17 +215,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1762,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "5592832565",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1762
     },
     {
       "doc_num": "TAX-6810699",
@@ -342,17 +322,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 2130,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "6013765467",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 2130
     },
     {
       "doc_num": "TAX-6818631",
@@ -459,17 +429,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 964,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3302858182",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 964
     },
     {
       "doc_num": "TAX-6821692",
@@ -576,17 +536,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 2322,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "2165076137",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 2322
     },
     {
       "doc_num": "TAX-6821718",
@@ -685,17 +635,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 1536,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1536
     },
     {
       "doc_num": "TAX-6821719",
@@ -802,17 +742,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 1536,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3304001238",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1536
     },
     {
       "doc_num": "TAX-6825412",
@@ -919,17 +849,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1308,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3306084545",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1308
     },
     {
       "doc_num": "TAX-6827099",
@@ -982,8 +902,8 @@
       ],
       "emails": [],
       "skip_trace_source": "Tracerfy",
-      "traced_owner_name": "",
-      "traced_owner": "",
+      "traced_owner_name": "Edwardo Michelena",
+      "traced_owner": "Edwardo Michelena",
       "traced_phones": [
         "2282559661"
       ],
@@ -1003,9 +923,9 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "no_hit",
-      "skip_trace_timestamp": "2026-04-17T19:42:26.258140Z",
-      "has_phone": false,
+      "skip_trace_status": "success",
+      "skip_trace_timestamp": "2026-04-17T19:42:23.085282Z",
+      "has_phone": true,
       "has_email": false,
       "assessed_value": 103170.0,
       "estimated_value": 294771,
@@ -1036,17 +956,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 3898,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "2282559661",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 3898
     },
     {
       "doc_num": "TAX-6828524",
@@ -1153,17 +1063,7 @@
       "is_inherited": false,
       "bedrooms": 1.0,
       "bathrooms": 1.0,
-      "square_feet": 684,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "6785213649",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 684
     },
     {
       "doc_num": "TAX-6831010",
@@ -1262,17 +1162,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 2322,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 2322
     },
     {
       "doc_num": "TAX-6831678",
@@ -1379,17 +1269,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1146,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3305542081",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1146
     },
     {
       "doc_num": "TAX-6700134",
@@ -1496,17 +1376,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1008,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "8057462800",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1008
     },
     {
       "doc_num": "TAX-6703592",
@@ -1613,17 +1483,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 1404,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3308641889",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1404
     },
     {
       "doc_num": "TAX-6707406",
@@ -1730,17 +1590,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1423,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "2019518185",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1423
     },
     {
       "doc_num": "TAX-6707465",
@@ -1839,17 +1689,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 1008,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1008
     },
     {
       "doc_num": "TAX-6709979",
@@ -1956,17 +1796,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1104,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "7276418104",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1104
     },
     {
       "doc_num": "TAX-6715259",
@@ -2065,17 +1895,7 @@
       "is_inherited": false,
       "bedrooms": 5.0,
       "bathrooms": 3.0,
-      "square_feet": 1500,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1500
     },
     {
       "doc_num": "TAX-6717547",
@@ -2182,17 +2002,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1325,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3309623637",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1325
     },
     {
       "doc_num": "TAX-6720646",
@@ -2299,17 +2109,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 2524,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3309079027",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 2524
     },
     {
       "doc_num": "TAX-6728555",
@@ -2416,17 +2216,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.5,
-      "square_feet": 1810,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "4404763143",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1810
     },
     {
       "doc_num": "TAX-6729837",
@@ -2533,17 +2323,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1829,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "7404910454",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1829
     },
     {
       "doc_num": "TAX-6733702",
@@ -2642,17 +2422,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 1700,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1700
     },
     {
       "doc_num": "TAX-6739756",
@@ -2759,17 +2529,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1456,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3309628762",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1456
     },
     {
       "doc_num": "TAX-7001475",
@@ -2876,17 +2636,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 2040,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3307523749",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 2040
     },
     {
       "doc_num": "TAX-0102204",
@@ -2993,17 +2743,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.5,
-      "square_feet": 2098,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3302390531",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 2098
     },
     {
       "doc_num": "TAX-0106736",
@@ -3110,17 +2850,7 @@
       "is_inherited": false,
       "bedrooms": 5.0,
       "bathrooms": 1.0,
-      "square_feet": 1870,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3303177901",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1870
     },
     {
       "doc_num": "TAX-0109965",
@@ -3227,17 +2957,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1350,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3308190620",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1350
     },
     {
       "doc_num": "TAX-0114517",
@@ -3344,17 +3064,7 @@
       "is_inherited": false,
       "bedrooms": 5.0,
       "bathrooms": 2.0,
-      "square_feet": 1896,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3309622494",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1896
     },
     {
       "doc_num": "TAX-0407701",
@@ -3462,17 +3172,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.5,
-      "square_feet": 2256,
-      "list_count": 6,
-      "skip_trace_eligible": false,
-      "Phone 1": "3306653913",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 2256
     },
     {
       "doc_num": "TAX-1506550",
@@ -3579,17 +3279,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 3.0,
-      "square_feet": 2391,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3307017073",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 2391
     },
     {
       "doc_num": "TAX-1903217",
@@ -3696,17 +3386,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 3.5,
-      "square_feet": 1704,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "7327423016",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1704
     },
     {
       "doc_num": "TAX-1903929",
@@ -3813,17 +3493,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 1374,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3306125873",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1374
     },
     {
       "doc_num": "TAX-2200143",
@@ -3930,17 +3600,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1144,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "6013765467",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1144
     },
     {
       "doc_num": "TAX-0202010",
@@ -4047,17 +3707,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 994,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "2345258297",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 994
     },
     {
       "doc_num": "TAX-0207392",
@@ -4164,17 +3814,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 341,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3305716209",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 341
     },
     {
       "doc_num": "TAX-0214476",
@@ -4281,17 +3921,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1373,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3302858483",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1373
     },
     {
       "doc_num": "TAX-3501260",
@@ -4398,17 +4028,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.5,
-      "square_feet": 2112,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "5614987945",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 2112
     },
     {
       "doc_num": "TAX-2802882",
@@ -4515,17 +4135,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 2178,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3306446297",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 2178
     },
     {
       "doc_num": "TAX-2806839",
@@ -4632,17 +4242,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1092,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3309371656",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1092
     },
     {
       "doc_num": "TAX-2812981",
@@ -4749,17 +4349,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 2890,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3306445075",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 2890
     },
     {
       "doc_num": "TAX-3006028",
@@ -4862,17 +4452,7 @@
       "is_inherited": false,
       "bedrooms": 5.0,
       "bathrooms": 5.5,
-      "square_feet": 3764,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "4405526997",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 3764
     },
     {
       "doc_num": "TAX-5402255",
@@ -4979,17 +4559,7 @@
       "is_inherited": false,
       "bedrooms": 6.0,
       "bathrooms": 3.0,
-      "square_feet": 2190,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3303526996",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 2190
     },
     {
       "doc_num": "TAX-3313469",
@@ -5096,17 +4666,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 2.0,
-      "square_feet": 2151,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "7818423098",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 2151
     },
     {
       "doc_num": "TAX-2302610",
@@ -5213,17 +4773,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1080,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3305715715",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1080
     },
     {
       "doc_num": "TAX-4000230",
@@ -5330,17 +4880,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1543,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "5732489566",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1543
     },
     {
       "doc_num": "TAX-6600514",
@@ -5447,17 +4987,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 998,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3305819706",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 998
     },
     {
       "doc_num": "TAX-5001668",
@@ -5564,17 +5094,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 2.5,
-      "square_feet": 1902,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "7274322553",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1902
     },
     {
       "doc_num": "TAX-4501552",
@@ -5681,17 +5201,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 2.0,
-      "square_feet": 1204,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3309983180",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1204
     },
     {
       "doc_num": "TAX-5105998",
@@ -5794,17 +5304,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1152,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3302508522",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1152
     },
     {
       "doc_num": "TAX-5107120",
@@ -5911,17 +5411,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 964,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3302057652",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 964
     },
     {
       "doc_num": "TAX-5108057",
@@ -6028,17 +5518,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1680,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "2349019984",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1680
     },
     {
       "doc_num": "TAX-5602993",
@@ -6145,17 +5625,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 3.0,
-      "square_feet": 2420,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3303891400",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 2420
     },
     {
       "doc_num": "TAX-5603572",
@@ -6262,17 +5732,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.5,
-      "square_feet": 1024,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3302832423",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1024
     },
     {
       "doc_num": "TAX-5603769",
@@ -6379,17 +5839,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1089,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "2044175874",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1089
     },
     {
       "doc_num": "TAX-5607210",
@@ -6496,17 +5946,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.5,
-      "square_feet": 1716,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3305712486",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1716
     },
     {
       "doc_num": "TAX-6000604",
@@ -6613,17 +6053,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.5,
-      "square_feet": 1966,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3302893968",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1966
     },
     {
       "doc_num": "TAX-6001426",
@@ -6730,17 +6160,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 3.0,
-      "square_feet": 1911,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "4802266933",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1911
     },
     {
       "doc_num": "TAX-6401024",
@@ -6847,17 +6267,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1098,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "4407294911",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1098
     },
     {
       "doc_num": "TAX-6403748",
@@ -6964,17 +6374,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 2.5,
-      "square_feet": 952,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "4407244225",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 952
     },
     {
       "doc_num": "TAX-6800571",
@@ -7081,17 +6481,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 1008,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3306876353",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1008
     },
     {
       "doc_num": "TAX-6801683",
@@ -7198,17 +6588,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1170,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3307534070",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1170
     },
     {
       "doc_num": "TAX-6802965",
@@ -7315,17 +6695,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1287,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "2143267647",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1287
     },
     {
       "doc_num": "TAX-6803847",
@@ -7432,17 +6802,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.5,
-      "square_feet": 941,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "5419052933",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 941
     },
     {
       "doc_num": "TAX-6804798",
@@ -7549,17 +6909,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1533,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3306180326",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1533
     },
     {
       "doc_num": "TAX-6805371",
@@ -7666,17 +7016,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1208,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3308138563",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1208
     },
     {
       "doc_num": "TAX-6806268",
@@ -7783,17 +7123,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1393,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3306181845",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1393
     },
     {
       "doc_num": "TAX-6806526",
@@ -7900,17 +7230,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1362,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "2342819758",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1362
     },
     {
       "doc_num": "TAX-6807310",
@@ -8017,17 +7337,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1236,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3309629951",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1236
     },
     {
       "doc_num": "TAX-6807637",
@@ -8134,17 +7444,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1092,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3304341840",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1092
     },
     {
       "doc_num": "TAX-6808414",
@@ -8251,17 +7551,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 1112,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3302173844",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1112
     },
     {
       "doc_num": "TAX-6809129",
@@ -8368,17 +7658,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 1054,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3303386070",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1054
     },
     {
       "doc_num": "TAX-6809586",
@@ -8485,17 +7765,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 754,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3304314366",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 754
     },
     {
       "doc_num": "TAX-6811071",
@@ -8602,17 +7872,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1292,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "7732598185",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1292
     },
     {
       "doc_num": "TAX-6811352",
@@ -8719,17 +7979,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 1405,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3474862218",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1405
     },
     {
       "doc_num": "TAX-6811393",
@@ -8836,17 +8086,7 @@
       "is_inherited": false,
       "bedrooms": 1.0,
       "bathrooms": 1.0,
-      "square_feet": 914,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3865235186",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 914
     },
     {
       "doc_num": "TAX-6811801",
@@ -8953,17 +8193,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1120,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3307140892",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1120
     },
     {
       "doc_num": "TAX-6814776",
@@ -9070,17 +8300,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1170,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "6174078063",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1170
     },
     {
       "doc_num": "TAX-6815319",
@@ -9187,17 +8407,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1221,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3609917464",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1221
     },
     {
       "doc_num": "TAX-6817359",
@@ -9304,17 +8514,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1472,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3306038506",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1472
     },
     {
       "doc_num": "TAX-6818614",
@@ -9421,17 +8621,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.5,
-      "square_feet": 779,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3162105726",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 779
     },
     {
       "doc_num": "TAX-6818804",
@@ -9538,17 +8728,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1373,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "5139729735",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1373
     },
     {
       "doc_num": "TAX-6819136",
@@ -9655,17 +8835,7 @@
       "is_inherited": false,
       "bedrooms": 5.0,
       "bathrooms": 1.0,
-      "square_feet": 1504,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3309579207",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1504
     },
     {
       "doc_num": "TAX-6819825",
@@ -9772,17 +8942,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1388,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3304759374",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1388
     },
     {
       "doc_num": "TAX-6820127",
@@ -9889,17 +9049,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1591,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "8183786393",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1591
     },
     {
       "doc_num": "TAX-6820699",
@@ -10006,17 +9156,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 960,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3302752683",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 960
     },
     {
       "doc_num": "TAX-6820836",
@@ -10123,17 +9263,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1008,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "2342815608",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1008
     },
     {
       "doc_num": "TAX-6820919",
@@ -10240,17 +9370,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 1200,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3304592673",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1200
     },
     {
       "doc_num": "TAX-6821044",
@@ -10357,17 +9477,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1618,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3309908716",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1618
     },
     {
       "doc_num": "TAX-6822980",
@@ -10474,17 +9584,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1241,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3309374871",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1241
     },
     {
       "doc_num": "TAX-6823162",
@@ -10591,17 +9691,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1176,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3308089463",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1176
     },
     {
       "doc_num": "TAX-6824344",
@@ -10708,17 +9798,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 892,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "4043080495",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 892
     },
     {
       "doc_num": "TAX-6824741",
@@ -10821,17 +9901,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1476,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "5592832565",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1476
     },
     {
       "doc_num": "TAX-6825519",
@@ -10938,17 +10008,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 801,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3307605171",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 801
     },
     {
       "doc_num": "TAX-6826560",
@@ -11055,17 +10115,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1040,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3302845011",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1040
     },
     {
       "doc_num": "TAX-6827351",
@@ -11172,17 +10222,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1633,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "2344251551",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1633
     },
     {
       "doc_num": "TAX-6827471",
@@ -11289,17 +10329,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1405,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "2147914623",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1405
     },
     {
       "doc_num": "TAX-6827639",
@@ -11406,17 +10436,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 1379,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3308274433",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1379
     },
     {
       "doc_num": "TAX-6827703",
@@ -11523,17 +10543,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1098,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "7249916340",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1098
     },
     {
       "doc_num": "TAX-6828250",
@@ -11640,17 +10650,7 @@
       "is_inherited": false,
       "bedrooms": 5.0,
       "bathrooms": 2.0,
-      "square_feet": 2074,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3309836395",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 2074
     },
     {
       "doc_num": "TAX-6828379",
@@ -11757,17 +10757,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1292,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "2162557108",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1292
     },
     {
       "doc_num": "TAX-6830306",
@@ -11874,17 +10864,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1144,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3304006034",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1144
     },
     {
       "doc_num": "TAX-6830604",
@@ -11991,17 +10971,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 720,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3303284574",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 720
     },
     {
       "doc_num": "TAX-6831533",
@@ -12108,17 +11078,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 3.0,
-      "square_feet": 2132,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3302458215",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 2132
     },
     {
       "doc_num": "TAX-6831598",
@@ -12225,17 +11185,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1336,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "8183786393",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1336
     },
     {
       "doc_num": "TAX-6831718",
@@ -12342,17 +11292,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.5,
-      "square_feet": 1095,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3305645130",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1095
     },
     {
       "doc_num": "TAX-6831847",
@@ -12459,17 +11399,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1125,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3304314366",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1125
     },
     {
       "doc_num": "TAX-6832093",
@@ -12576,17 +11506,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1047,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3308612238",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1047
     },
     {
       "doc_num": "TAX-6833076",
@@ -12693,17 +11613,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 3.0,
-      "square_feet": 1733,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3303294947",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1733
     },
     {
       "doc_num": "TAX-6833428",
@@ -12810,17 +11720,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1570,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3306962008",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1570
     },
     {
       "doc_num": "TAX-6833584",
@@ -12927,17 +11827,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1224,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3304547758",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1224
     },
     {
       "doc_num": "TAX-6835513",
@@ -13040,17 +11930,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1373,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "5592832565",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1373
     },
     {
       "doc_num": "TAX-6835641",
@@ -13157,17 +12037,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.5,
-      "square_feet": 2682,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3309836395",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 2682
     },
     {
       "doc_num": "TAX-6836987",
@@ -13274,17 +12144,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 1284,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3309374871",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1284
     },
     {
       "doc_num": "TAX-6837552",
@@ -13391,17 +12251,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1618,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3305060344",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1618
     },
     {
       "doc_num": "TAX-6837584",
@@ -13508,17 +12358,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1040,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "6263408050",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1040
     },
     {
       "doc_num": "TAX-6837968",
@@ -13625,17 +12465,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.5,
-      "square_feet": 1260,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3307842849",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1260
     },
     {
       "doc_num": "TAX-6837991",
@@ -13742,17 +12572,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1586,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3303516955",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1586
     },
     {
       "doc_num": "TAX-6838135",
@@ -13859,17 +12679,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1546,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "4126085903",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1546
     },
     {
       "doc_num": "TAX-6839491",
@@ -13976,17 +12786,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 849,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3307847861",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 849
     },
     {
       "doc_num": "TAX-6840440",
@@ -14093,17 +12893,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1312,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3307531687",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1312
     },
     {
       "doc_num": "TAX-6842342",
@@ -14210,17 +13000,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1344,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "8085546835",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1344
     },
     {
       "doc_num": "TAX-6842499",
@@ -14327,17 +13107,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1692,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3303389383",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1692
     },
     {
       "doc_num": "TAX-6700212",
@@ -14444,17 +13214,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1248,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3306872663",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1248
     },
     {
       "doc_num": "TAX-6701970",
@@ -14561,17 +13321,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 910,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "2133807523",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 910
     },
     {
       "doc_num": "TAX-6701982",
@@ -14674,17 +13424,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1744,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "5592832565",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1744
     },
     {
       "doc_num": "TAX-6703342",
@@ -14791,17 +13531,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1641,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3309623470",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1641
     },
     {
       "doc_num": "TAX-6703809",
@@ -14908,17 +13638,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1882,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3303282965",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1882
     },
     {
       "doc_num": "TAX-6704231",
@@ -15025,17 +13745,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 864,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3307842849",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 864
     },
     {
       "doc_num": "TAX-6704764",
@@ -15142,17 +13852,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1515,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3303301726",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1515
     },
     {
       "doc_num": "TAX-6705052",
@@ -15259,17 +13959,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1144,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3308088634",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1144
     },
     {
       "doc_num": "TAX-6705992",
@@ -15376,17 +14066,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1064,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "2167779632",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1064
     },
     {
       "doc_num": "TAX-6706351",
@@ -15493,17 +14173,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1433,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3474862218",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1433
     },
     {
       "doc_num": "TAX-6706680",
@@ -15610,17 +14280,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1617,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "4084399945",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1617
     },
     {
       "doc_num": "TAX-6706786",
@@ -15727,17 +14387,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1622,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3305730652",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1622
     },
     {
       "doc_num": "TAX-6706997",
@@ -15844,17 +14494,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1240,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "4357576043",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1240
     },
     {
       "doc_num": "TAX-6707081",
@@ -15961,17 +14601,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1498,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "2164340809",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1498
     },
     {
       "doc_num": "TAX-6707100",
@@ -16078,17 +14708,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1180,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "7863039719",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1180
     },
     {
       "doc_num": "TAX-6707946",
@@ -16195,17 +14815,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1008,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3039160443",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1008
     },
     {
       "doc_num": "TAX-6711362",
@@ -16312,17 +14922,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 2.0,
-      "square_feet": 840,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "9519075082",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 840
     },
     {
       "doc_num": "TAX-6712313",
@@ -16429,17 +15029,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 973,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "2166330944",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 973
     },
     {
       "doc_num": "TAX-6712475",
@@ -16546,17 +15136,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 3.0,
-      "square_feet": 1399,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "8132859403",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1399
     },
     {
       "doc_num": "TAX-6713334",
@@ -16663,17 +15243,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 784,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "5083041252",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 784
     },
     {
       "doc_num": "TAX-6713788",
@@ -16780,17 +15350,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.5,
-      "square_feet": 750,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "9728160943",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 750
     },
     {
       "doc_num": "TAX-6713795",
@@ -16889,17 +15449,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1247,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1247
     },
     {
       "doc_num": "TAX-6714170",
@@ -17006,17 +15556,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1498,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3609917464",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1498
     },
     {
       "doc_num": "TAX-6714635",
@@ -17123,17 +15663,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1535,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "6147433524",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1535
     },
     {
       "doc_num": "TAX-6715978",
@@ -17240,17 +15770,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1314,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3307495986",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1314
     },
     {
       "doc_num": "TAX-6717598",
@@ -17357,17 +15877,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1562,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3302036606",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1562
     },
     {
       "doc_num": "TAX-6717713",
@@ -17474,17 +15984,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1400,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3308808548",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1400
     },
     {
       "doc_num": "TAX-6718514",
@@ -17591,17 +16091,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1596,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3308033398",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1596
     },
     {
       "doc_num": "TAX-6718843",
@@ -17708,17 +16198,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1280,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3306960922",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1280
     },
     {
       "doc_num": "TAX-6718852",
@@ -17825,17 +16305,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1398,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3307040562",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1398
     },
     {
       "doc_num": "TAX-6720207",
@@ -17942,17 +16412,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1056,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "2349019994",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1056
     },
     {
       "doc_num": "TAX-6720835",
@@ -18059,17 +16519,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1456,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "8182312006",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1456
     },
     {
       "doc_num": "TAX-6721136",
@@ -18176,17 +16626,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 864,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3307042253",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 864
     },
     {
       "doc_num": "TAX-6721650",
@@ -18293,17 +16733,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 1493,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "6033875807",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1493
     },
     {
       "doc_num": "TAX-6722278",
@@ -18410,17 +16840,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1704,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3307804683",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1704
     },
     {
       "doc_num": "TAX-6722601",
@@ -18527,17 +16947,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 768,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3307841856",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 768
     },
     {
       "doc_num": "TAX-6722924",
@@ -18644,17 +17054,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1122,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3307842849",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1122
     },
     {
       "doc_num": "TAX-6724232",
@@ -18761,17 +17161,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1023,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3306031022",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1023
     },
     {
       "doc_num": "TAX-6724414",
@@ -18878,17 +17268,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 1165,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3309374871",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1165
     },
     {
       "doc_num": "TAX-6725858",
@@ -18987,17 +17367,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1040,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1040
     },
     {
       "doc_num": "TAX-6727302",
@@ -19104,17 +17474,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1008,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3307842849",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1008
     },
     {
       "doc_num": "TAX-6728033",
@@ -19221,17 +17581,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1072,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "2675301999",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1072
     },
     {
       "doc_num": "TAX-6728048",
@@ -19338,17 +17688,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1326,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "3303381100",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1326
     },
     {
       "doc_num": "TAX-6729727",
@@ -19455,17 +17795,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1065,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "9085000475",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1065
     },
     {
       "doc_num": "TAX-6730174",
@@ -19564,17 +17894,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 310,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 310
     },
     {
       "doc_num": "TAX-6730967",
@@ -19673,17 +17993,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1056,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1056
     },
     {
       "doc_num": "TAX-6731260",
@@ -19782,17 +18092,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1440,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1440
     },
     {
       "doc_num": "TAX-6731761",
@@ -19891,17 +18191,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1453,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1453
     },
     {
       "doc_num": "TAX-6732275",
@@ -20000,17 +18290,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1056,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1056
     },
     {
       "doc_num": "TAX-6732669",
@@ -20109,17 +18389,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 2060,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 2060
     },
     {
       "doc_num": "TAX-6733324",
@@ -20218,17 +18488,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1439,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1439
     },
     {
       "doc_num": "TAX-6733856",
@@ -20327,17 +18587,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1245,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1245
     },
     {
       "doc_num": "TAX-6735463",
@@ -20436,17 +18686,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 994,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 994
     },
     {
       "doc_num": "TAX-6735871",
@@ -20545,17 +18785,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1152,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1152
     },
     {
       "doc_num": "TAX-6736754",
@@ -20654,17 +18884,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1344,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1344
     },
     {
       "doc_num": "TAX-6737210",
@@ -20763,17 +18983,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 992,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 992
     },
     {
       "doc_num": "TAX-6737261",
@@ -20872,17 +19082,7 @@
       "is_inherited": false,
       "bedrooms": 5.0,
       "bathrooms": 1.5,
-      "square_feet": 1714,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1714
     },
     {
       "doc_num": "TAX-6738450",
@@ -20981,17 +19181,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1248,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1248
     },
     {
       "doc_num": "TAX-6738755",
@@ -21090,17 +19280,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1040,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1040
     },
     {
       "doc_num": "TAX-6740714",
@@ -21199,17 +19379,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1008,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1008
     },
     {
       "doc_num": "TAX-6741660",
@@ -21308,17 +19478,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 1760,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1760
     },
     {
       "doc_num": "TAX-6741784",
@@ -21417,17 +19577,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1457,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1457
     },
     {
       "doc_num": "TAX-0103233",
@@ -21526,17 +19676,7 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1128,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1128
     },
     {
       "doc_num": "TAX-0108688",
@@ -21635,17 +19775,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1204,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1204
     },
     {
       "doc_num": "TAX-0108976",
@@ -21744,17 +19874,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 954,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 954
     },
     {
       "doc_num": "TAX-1504562",
@@ -21853,17 +19973,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 1064,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1064
     },
     {
       "doc_num": "TAX-1902668",
@@ -21962,17 +20072,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 940,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 940
     },
     {
       "doc_num": "TAX-1904346",
@@ -22071,17 +20171,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1192,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1192
     },
     {
       "doc_num": "TAX-1907719",
@@ -22180,17 +20270,7 @@
       "is_inherited": false,
       "bedrooms": 1.0,
       "bathrooms": 1.0,
-      "square_feet": 998,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 998
     },
     {
       "doc_num": "TAX-5108201",
@@ -22289,17 +20369,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 2730,
-      "list_count": 5,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 2730
     },
     {
       "doc_num": "TAX-6802831",
@@ -22396,17 +20466,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6807394",
@@ -22503,17 +20563,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6816258",
@@ -22610,17 +20660,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6816392",
@@ -22717,17 +20757,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6826959",
@@ -22824,17 +20854,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6827131",
@@ -22931,17 +20951,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6829941",
@@ -23038,17 +21048,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6836180",
@@ -23145,17 +21145,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6700349",
@@ -23252,17 +21242,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6700537",
@@ -23359,17 +21339,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6701985",
@@ -23466,17 +21436,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6712259",
@@ -23573,17 +21533,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6722005",
@@ -23680,17 +21630,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6722469",
@@ -23787,17 +21727,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6723987",
@@ -23894,17 +21824,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6725856",
@@ -24001,17 +21921,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6726584",
@@ -24108,17 +22018,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6727005",
@@ -24215,17 +22115,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6730202",
@@ -24322,17 +22212,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6735456",
@@ -24429,17 +22309,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6737796",
@@ -24536,17 +22406,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6737960",
@@ -24643,17 +22503,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6738986",
@@ -24750,17 +22600,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6739895",
@@ -24857,17 +22697,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6740133",
@@ -24964,17 +22794,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6740263",
@@ -25071,17 +22891,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6740753",
@@ -25178,17 +22988,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2817244",
@@ -25285,17 +23085,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2817248",
@@ -25392,17 +23182,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-2305627",
@@ -25496,17 +23276,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": false,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     }
   ]
 }

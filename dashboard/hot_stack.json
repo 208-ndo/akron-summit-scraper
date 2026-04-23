@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-23T02:03:30.332240+00:00",
+  "fetched_at": "2026-04-23T13:53:11.189763+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "hot_stack",
   "description": "\ud83d\udd25 2+ distress signals \u2014 highest priority",
@@ -39,8 +39,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -103,17 +103,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1422,
-      "list_count": 6,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1422
     },
     {
       "doc_num": "TAX-6807870",
@@ -150,8 +140,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -222,17 +212,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.5,
-      "square_feet": 960,
-      "list_count": 7,
-      "skip_trace_eligible": true,
-      "Phone 1": "2163768658",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 960
     },
     {
       "doc_num": "CV2024 10 4359",
@@ -329,17 +309,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2024 05 1991",
@@ -444,17 +414,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "4406667058",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 06 2866",
@@ -559,17 +519,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "3303221672",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2024 08 3472",
@@ -674,17 +624,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "3308440404",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2024 07 2953",
@@ -781,17 +721,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 07 3028",
@@ -896,17 +826,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "2348139377",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2024 12 5264",
@@ -1011,17 +931,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "3303224265",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 11 5614",
@@ -1126,17 +1036,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "3306993290",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 05 2013",
@@ -1233,17 +1133,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 05 2322",
@@ -1340,17 +1230,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 10 4879",
@@ -1455,17 +1335,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "3304729975",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 11 5263",
@@ -1570,17 +1440,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "3306344265",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 07 3153",
@@ -1685,17 +1545,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "3305230291",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 09 4310",
@@ -1792,17 +1642,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2026 01 0059",
@@ -1907,17 +1747,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "3303278364",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 08 4036",
@@ -2022,17 +1852,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "3309331960",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 02 0544",
@@ -2137,17 +1957,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "2166306147",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 05 2316",
@@ -2244,17 +2054,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2024 08 3496",
@@ -2351,17 +2151,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 02 0638",
@@ -2458,17 +2248,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 08 3772",
@@ -2565,17 +2345,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 01 0355",
@@ -2672,17 +2442,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6840395",
@@ -2716,8 +2476,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -2787,17 +2547,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 1584,
-      "list_count": 4,
-      "skip_trace_eligible": true,
-      "Phone 1": "3307014407",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1584
     },
     {
       "doc_num": "TAX-6713973",
@@ -2832,8 +2582,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -2844,17 +2594,25 @@
       "is_absentee": true,
       "is_out_of_state": false,
       "parcel_id": "6713973",
-      "phones": [],
-      "phone_types": [],
+      "phones": [
+        "2343039488"
+      ],
+      "phone_types": [
+        "Mobile"
+      ],
       "emails": [],
       "skip_trace_source": "Tracerfy",
-      "traced_owner_name": "",
-      "traced_owner": "",
-      "traced_phones": [],
-      "traced_phone_types": [],
+      "traced_owner_name": "Rosa Scott",
+      "traced_owner": "Rosa Scott",
+      "traced_phones": [
+        "2343039488"
+      ],
+      "traced_phone_types": [
+        "Mobile"
+      ],
       "traced_emails": [],
-      "phone_primary": "",
-      "phone_primary_type": "",
+      "phone_primary": "2343039488",
+      "phone_primary_type": "Mobile",
       "phone_secondary": "",
       "phone_secondary_type": "",
       "phone_tertiary": "",
@@ -2865,9 +2623,9 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "no_hit",
-      "skip_trace_timestamp": "2026-04-17T19:42:25.953694Z",
-      "has_phone": false,
+      "skip_trace_status": "success",
+      "skip_trace_timestamp": "2026-04-17T19:42:23.084205Z",
+      "has_phone": true,
       "has_email": false,
       "assessed_value": 2980.0,
       "estimated_value": 8514,
@@ -2895,17 +2653,7 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 602,
-      "list_count": 5,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 602
     },
     {
       "doc_num": "TAX-6725033",
@@ -2940,8 +2688,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -2952,17 +2700,25 @@
       "is_absentee": true,
       "is_out_of_state": false,
       "parcel_id": "6725033",
-      "phones": [],
-      "phone_types": [],
+      "phones": [
+        "5132270297"
+      ],
+      "phone_types": [
+        "Mobile"
+      ],
       "emails": [],
       "skip_trace_source": "Tracerfy",
-      "traced_owner_name": "",
-      "traced_owner": "",
-      "traced_phones": [],
-      "traced_phone_types": [],
+      "traced_owner_name": "Joel Hern",
+      "traced_owner": "Joel Hern",
+      "traced_phones": [
+        "5132270297"
+      ],
+      "traced_phone_types": [
+        "Mobile"
+      ],
       "traced_emails": [],
-      "phone_primary": "",
-      "phone_primary_type": "",
+      "phone_primary": "5132270297",
+      "phone_primary_type": "Mobile",
       "phone_secondary": "",
       "phone_secondary_type": "",
       "phone_tertiary": "",
@@ -2973,9 +2729,9 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "no_hit",
-      "skip_trace_timestamp": "2026-04-17T19:42:25.953436Z",
-      "has_phone": false,
+      "skip_trace_status": "success",
+      "skip_trace_timestamp": "2026-04-17T19:42:23.084285Z",
+      "has_phone": true,
       "has_email": false,
       "assessed_value": 11890.0,
       "estimated_value": 33971,
@@ -3003,17 +2759,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1200,
-      "list_count": 5,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1200
     },
     {
       "doc_num": "CV2025 09 4317",
@@ -3118,17 +2864,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "3602864338",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 11 5437",
@@ -3233,17 +2969,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "9544243136",
-      "Phone 1 Type": "Landline",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 07 3162",
@@ -3348,17 +3074,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "3304666677",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2024 12 5388",
@@ -3463,17 +3179,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "3306127431",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 03 1000",
@@ -3578,17 +3284,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "2674997139",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2019 07 2763",
@@ -3693,17 +3389,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "3302896395",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2024 09 3879",
@@ -3808,17 +3494,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "2167732575",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 02 0891",
@@ -3923,17 +3599,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "3304752146",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 04 1874",
@@ -4030,17 +3696,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 11 5346",
@@ -4137,17 +3793,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 11 5684",
@@ -4244,17 +3890,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2019 06 2134",
@@ -4351,17 +3987,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 12 5780",
@@ -4458,17 +4084,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 08 3839",
@@ -4565,17 +4181,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "TAX-6706402",
@@ -4609,8 +4215,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -4680,17 +4286,7 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1577,
-      "list_count": 4,
-      "skip_trace_eligible": true,
-      "Phone 1": "3307866559",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": 1577
     },
     {
       "doc_num": "CV2024 06 2269",
@@ -4785,17 +4381,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 05 2430",
@@ -4890,17 +4476,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CV2025 03 1449",
@@ -5003,17 +4579,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "9478006575",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6053",
@@ -5048,8 +4614,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5109,17 +4675,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 5,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-0549",
@@ -5154,8 +4710,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5215,17 +4771,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 5,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6148",
@@ -5260,8 +4806,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5321,17 +4867,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 5,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6159",
@@ -5366,8 +4902,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5427,17 +4963,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 5,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     },
     {
       "doc_num": "CODEVIOLATION-6155",
@@ -5471,8 +4997,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5532,17 +5058,7 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null,
-      "list_count": 4,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "square_feet": null
     }
   ]
 }
