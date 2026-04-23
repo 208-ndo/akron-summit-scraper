@@ -2009,146 +2009,702 @@
     "bathrooms": 4.5,
     "square_feet": 2496
   },
-  "2806000": {},
-  "2806604": {},
-  "2806945": {},
-  "2807855": {},
-  "2807902": {},
-  "2808596": {},
-  "2808952": {},
-  "2810859": {},
-  "2812057": {},
-  "2813614": {},
-  "2816592": {},
-  "3001691": {},
-  "3002042": {},
-  "3005358": {},
-  "3007406": {},
-  "3010105": {},
-  "3200836": {},
-  "5400384": {},
-  "5401371": {},
-  "5401910": {},
-  "5402512": {},
-  "3300940": {},
-  "3301890": {},
-  "3301979": {},
-  "3311050": {},
-  "3313409": {},
-  "5500347": {},
-  "5501369": {},
-  "5800668": {},
-  "2601047": {},
-  "2601134": {},
-  "2601163": {},
-  "2300820": {},
-  "2302183": {},
-  "2303854": {},
-  "2304057": {},
-  "2304137": {},
-  "2304616": {},
-  "2304692": {},
-  "2305606": {},
-  "2500303": {},
-  "2500603": {},
-  "2500893": {},
-  "4000881": {},
-  "4000988": {},
-  "4101513": {},
-  "4600420": {},
-  "4600745": {},
-  "4601442": {},
-  "4602086": {},
-  "4602728": {},
-  "4603628": {},
-  "4604299": {},
-  "4607506": {},
-  "1100565": {},
-  "1110609": {},
-  "6500706": {},
-  "4800488": {},
-  "5002201": {},
-  "4500818": {},
-  "4505289": {},
-  "5701391": {},
-  "5101171": {},
-  "5102559": {},
-  "5103471": {},
-  "5106734": {},
-  "5106756": {},
-  "5109844": {},
-  "5109990": {},
-  "5600290": {},
-  "5600959": {},
-  "5601117": {},
-  "5602656": {},
-  "5603261": {},
-  "5603919": {},
-  "5604007": {},
-  "5604377": {},
-  "5604491": {},
-  "5605157": {},
-  "5605877": {},
-  "5605945": {},
-  "5607289": {},
-  "5608302": {},
-  "5608322": {},
-  "5608410": {},
-  "5608675": {},
-  "5608859": {},
-  "5610137": {},
-  "5610651": {},
-  "5611049": {},
-  "5614539": {},
-  "5617582": {},
-  "6001833": {},
-  "6002775": {},
-  "6003592": {},
-  "6004781": {},
-  "6005335": {},
-  "6007375": {},
-  "6008120": {},
-  "6400625": {},
-  "6400723": {},
-  "6400848": {},
-  "6401532": {},
-  "6401852": {},
-  "6404044": {},
+  "2806000": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 1256
+  },
+  "2806604": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 948
+  },
+  "2806945": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1075
+  },
+  "2807855": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.5,
+    "square_feet": 1328
+  },
+  "2807902": {
+    "bedrooms": 7.0,
+    "bathrooms": 4.5,
+    "square_feet": 4512
+  },
+  "2808596": {
+    "bedrooms": 5.0,
+    "bathrooms": 3.0,
+    "square_feet": 2592
+  },
+  "2808952": {
+    "bedrooms": 3.0,
+    "bathrooms": 2.5,
+    "square_feet": 2023
+  },
+  "2810859": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.5,
+    "square_feet": 3068
+  },
+  "2812057": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.5,
+    "square_feet": 2343
+  },
+  "2813614": {
+    "bedrooms": 3.0,
+    "bathrooms": 2.5,
+    "square_feet": 2064
+  },
+  "2816592": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 1088
+  },
+  "3001691": {
+    "bedrooms": 4.0,
+    "bathrooms": 1.5,
+    "square_feet": 1732
+  },
+  "3002042": {
+    "bedrooms": 4.0,
+    "bathrooms": 2.5,
+    "square_feet": 2352
+  },
+  "3005358": {
+    "bedrooms": 3.0,
+    "bathrooms": 2.0,
+    "square_feet": 1707
+  },
+  "3007406": {
+    "bedrooms": 5.0,
+    "bathrooms": 3.5,
+    "square_feet": 4574
+  },
+  "3010105": {
+    "bedrooms": 4.0,
+    "bathrooms": 3.5,
+    "square_feet": 3431
+  },
+  "3200836": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.5,
+    "square_feet": 1086
+  },
+  "5400384": {
+    "bedrooms": 4.0,
+    "bathrooms": 2.0,
+    "square_feet": 1377
+  },
+  "5401371": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.5,
+    "square_feet": 1920
+  },
+  "5401910": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 2624
+  },
+  "5402512": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.5,
+    "square_feet": 2218
+  },
+  "3300940": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.5,
+    "square_feet": 1092
+  },
+  "3301890": {
+    "bedrooms": 4.0,
+    "bathrooms": 1.5,
+    "square_feet": 1332
+  },
+  "3301979": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.5,
+    "square_feet": 1545
+  },
+  "3311050": {
+    "bedrooms": 4.0,
+    "bathrooms": 2.5,
+    "square_feet": 2846
+  },
+  "3313409": {
+    "bedrooms": 4.0,
+    "bathrooms": 4.5,
+    "square_feet": 4965
+  },
+  "5500347": {
+    "bedrooms": 10.0,
+    "bathrooms": 2.0,
+    "square_feet": 1584
+  },
+  "5501369": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.5,
+    "square_feet": 1328
+  },
+  "5800668": {
+    "bedrooms": 3.0,
+    "bathrooms": 2.0,
+    "square_feet": 2178
+  },
+  "2601047": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.5,
+    "square_feet": 1373
+  },
+  "2601134": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1840
+  },
+  "2601163": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1240
+  },
+  "2300820": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 960
+  },
+  "2302183": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 1172
+  },
+  "2303854": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.5,
+    "square_feet": 1538
+  },
+  "2304057": {
+    "bedrooms": 3.0,
+    "bathrooms": 2.0,
+    "square_feet": 1125
+  },
+  "2304137": {
+    "bedrooms": 3.0,
+    "bathrooms": 2.5,
+    "square_feet": 1157
+  },
+  "2304616": {
+    "bedrooms": 4.0,
+    "bathrooms": 3.5,
+    "square_feet": 2356
+  },
+  "2304692": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1068
+  },
+  "2305606": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 1504
+  },
+  "2500303": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.5,
+    "square_feet": 1508
+  },
+  "2500603": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.5,
+    "square_feet": 1560
+  },
+  "2500893": {
+    "bedrooms": 4.0,
+    "bathrooms": 1.0,
+    "square_feet": 1609
+  },
+  "4000881": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1020
+  },
+  "4000988": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1056
+  },
+  "4101513": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 1210
+  },
+  "4600420": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.5,
+    "square_feet": 1068
+  },
+  "4600745": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1024
+  },
+  "4601442": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1496
+  },
+  "4602086": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 1210
+  },
+  "4602728": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1280
+  },
+  "4603628": {
+    "bedrooms": 3.0,
+    "bathrooms": 2.0,
+    "square_feet": 1849
+  },
+  "4604299": {
+    "bedrooms": 3.0,
+    "bathrooms": 2.0,
+    "square_feet": 1282
+  },
+  "4607506": {
+    "bedrooms": 4.0,
+    "bathrooms": 1.5,
+    "square_feet": 1719
+  },
+  "1100565": {
+    "bedrooms": 5.0,
+    "bathrooms": 3.0,
+    "square_feet": 2120
+  },
+  "1110609": {
+    "bedrooms": 3.0,
+    "bathrooms": 3.0,
+    "square_feet": 3328
+  },
+  "6500706": {
+    "bedrooms": 3.0,
+    "bathrooms": 2.5,
+    "square_feet": 1944
+  },
+  "4800488": {
+    "bedrooms": 4.0,
+    "bathrooms": 2.0,
+    "square_feet": 1608
+  },
+  "5002201": {
+    "bedrooms": 4.0,
+    "bathrooms": 2.0,
+    "square_feet": 1862
+  },
+  "4500818": {
+    "bedrooms": 3.0,
+    "bathrooms": 2.5,
+    "square_feet": 1494
+  },
+  "4505289": {
+    "bedrooms": 3.0,
+    "bathrooms": 2.5,
+    "square_feet": 2078
+  },
+  "5701391": {
+    "bedrooms": 4.0,
+    "bathrooms": 2.0,
+    "square_feet": 1925
+  },
+  "5101171": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 800
+  },
+  "5102559": {
+    "bedrooms": 4.0,
+    "bathrooms": 1.5,
+    "square_feet": 2034
+  },
+  "5103471": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 728
+  },
+  "5106734": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 1208
+  },
+  "5106756": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1056
+  },
+  "5109844": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1254
+  },
+  "5109990": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 1232
+  },
+  "5600290": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.5,
+    "square_feet": 780
+  },
+  "5600959": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 716
+  },
+  "5601117": {
+    "bedrooms": 4.0,
+    "bathrooms": 2.0,
+    "square_feet": 1712
+  },
+  "5602656": {
+    "bedrooms": 6.0,
+    "bathrooms": 3.0,
+    "square_feet": 2600
+  },
+  "5603261": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.5,
+    "square_feet": 1228
+  },
+  "5603919": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.5,
+    "square_feet": 1600
+  },
+  "5604007": {
+    "bedrooms": 1.0,
+    "bathrooms": 1.0,
+    "square_feet": 1176
+  },
+  "5604377": {
+    "bedrooms": 4.0,
+    "bathrooms": 2.0,
+    "square_feet": 1692
+  },
+  "5604491": {
+    "bedrooms": 3.0,
+    "bathrooms": 2.0,
+    "square_feet": 1064
+  },
+  "5605157": {
+    "bedrooms": 3.0,
+    "bathrooms": 2.0,
+    "square_feet": 1014
+  },
+  "5605877": {
+    "bedrooms": 3.0,
+    "bathrooms": 2.0,
+    "square_feet": 1375
+  },
+  "5605945": {
+    "bedrooms": 4.0,
+    "bathrooms": 2.0,
+    "square_feet": 2294
+  },
+  "5607289": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.5,
+    "square_feet": 1368
+  },
+  "5608302": {
+    "bedrooms": 6.0,
+    "bathrooms": 4.5,
+    "square_feet": 3744
+  },
+  "5608322": {
+    "bedrooms": 3.0,
+    "bathrooms": 2.0,
+    "square_feet": 1512
+  },
+  "5608410": {
+    "bedrooms": 4.0,
+    "bathrooms": 3.0,
+    "square_feet": 2420
+  },
+  "5608675": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.5,
+    "square_feet": 1240
+  },
+  "5608859": {
+    "bedrooms": 4.0,
+    "bathrooms": 3.5,
+    "square_feet": 2436
+  },
+  "5610137": {
+    "bedrooms": 4.0,
+    "bathrooms": 1.0,
+    "square_feet": 2038
+  },
+  "5610651": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.5,
+    "square_feet": 960
+  },
+  "5611049": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.5,
+    "square_feet": 1020
+  },
+  "5614539": {
+    "bedrooms": 5.0,
+    "bathrooms": 2.0,
+    "square_feet": 3784
+  },
+  "5617582": {
+    "bedrooms": 4.0,
+    "bathrooms": 2.5,
+    "square_feet": 2404
+  },
+  "6001833": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 909
+  },
+  "6002775": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 960
+  },
+  "6003592": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.5,
+    "square_feet": 1584
+  },
+  "6004781": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.5,
+    "square_feet": 1936
+  },
+  "6005335": {
+    "bedrooms": 4.0,
+    "bathrooms": 2.5,
+    "square_feet": 2776
+  },
+  "6007375": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1106
+  },
+  "6008120": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.5,
+    "square_feet": 1532
+  },
+  "6400625": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1200
+  },
+  "6400723": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.5,
+    "square_feet": 1673
+  },
+  "6400848": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.5,
+    "square_feet": 1364
+  },
+  "6401532": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1280
+  },
+  "6401852": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.5,
+    "square_feet": 1228
+  },
+  "6404044": {
+    "bedrooms": 2.0,
+    "bathrooms": 2.0,
+    "square_feet": 1020
+  },
   "6405181": {},
-  "6407677": {},
-  "6408774": {},
-  "6200822": {},
-  "6201563": {},
-  "6802831": {},
-  "6807394": {},
-  "6816258": {},
-  "6816392": {},
-  "6826959": {},
-  "6827131": {},
-  "6829941": {},
-  "6836180": {},
-  "6700349": {},
-  "6700537": {},
-  "6701985": {},
-  "6712259": {},
-  "6722005": {},
-  "6722469": {},
-  "6723987": {},
-  "6725856": {},
-  "6726584": {},
-  "6727005": {},
-  "6730202": {},
-  "6735456": {},
-  "6737796": {},
-  "6737960": {},
-  "6738986": {},
-  "6739895": {},
-  "6740133": {},
-  "6740263": {},
-  "6740753": {},
-  "2817244": {},
-  "2817248": {},
-  "6702904": {},
+  "6407677": {
+    "bedrooms": 2.0,
+    "bathrooms": 2.0,
+    "square_feet": 1662
+  },
+  "6408774": {
+    "bedrooms": 3.0,
+    "bathrooms": 2.5,
+    "square_feet": 1752
+  },
+  "6200822": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.5,
+    "square_feet": 1526
+  },
+  "6201563": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1028
+  },
+  "6802831": {
+    "bedrooms": 4.0,
+    "bathrooms": 2.0,
+    "square_feet": 1994
+  },
+  "6807394": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1040
+  },
+  "6816258": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1242
+  },
+  "6816392": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 726
+  },
+  "6826959": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1480
+  },
+  "6827131": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 924
+  },
+  "6829941": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1544
+  },
+  "6836180": {
+    "bedrooms": 5.0,
+    "bathrooms": 2.5,
+    "square_feet": 1710
+  },
+  "6700349": {
+    "bedrooms": 5.0,
+    "bathrooms": 2.0,
+    "square_feet": 1684
+  },
+  "6700537": {
+    "bedrooms": 1.0,
+    "bathrooms": 1.0,
+    "square_feet": 1404
+  },
+  "6701985": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 978
+  },
+  "6712259": {
+    "bedrooms": 5.0,
+    "bathrooms": 1.0,
+    "square_feet": 1478
+  },
+  "6722005": {
+    "bedrooms": 2.0,
+    "bathrooms": 0.5,
+    "square_feet": 1162
+  },
+  "6722469": {
+    "bedrooms": 1.0,
+    "bathrooms": 1.0,
+    "square_feet": 700
+  },
+  "6723987": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 1038
+  },
+  "6725856": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1613
+  },
+  "6726584": {
+    "bedrooms": 4.0,
+    "bathrooms": 1.0,
+    "square_feet": 1152
+  },
+  "6727005": {
+    "bedrooms": 4.0,
+    "bathrooms": 1.0,
+    "square_feet": 1413
+  },
+  "6730202": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1040
+  },
+  "6735456": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 760
+  },
+  "6737796": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 1248
+  },
+  "6737960": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 888
+  },
+  "6738986": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 960
+  },
+  "6739895": {
+    "bedrooms": 1.0,
+    "bathrooms": 1.0,
+    "square_feet": 528
+  },
+  "6740133": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.5,
+    "square_feet": 1525
+  },
+  "6740263": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 804
+  },
+  "6740753": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1144
+  },
+  "2817244": {
+    "bedrooms": 4.0,
+    "bathrooms": 2.5,
+    "square_feet": 1824
+  },
+  "2817248": {
+    "bedrooms": 4.0,
+    "bathrooms": 2.5,
+    "square_feet": 1824
+  },
+  "6702904": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 1558
+  },
   "6800277": {},
   "6801001": {},
   "6801038": {},
@@ -3131,7 +3687,11 @@
   "4603167": {},
   "4603602": {},
   "4603768": {},
-  "4603970": {},
+  "4603970": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 936
+  },
   "4604026": {},
   "4604155": {},
   "4604557": {},
@@ -3314,9 +3874,21 @@
   "6200260": {},
   "6200340": {},
   "6205732": {},
-  "6833014": {},
-  "6700005": {},
-  "6735755": {},
+  "6833014": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 584
+  },
+  "6700005": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 500
+  },
+  "6735755": {
+    "bedrooms": 4.0,
+    "bathrooms": 1.0,
+    "square_feet": 1463
+  },
   "6800124": {},
   "6801299": {},
   "6801549": {},
