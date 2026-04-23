@@ -33,7 +33,7 @@ from typing import Dict, List, Optional, Tuple
 import requests
 from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
-from scraper.tracerfy_helper import perform_tracerfy_lookup, map_tracerfy_lookup_response
+from tracerfy_helper import perform_tracerfy_lookup, map_tracerfy_lookup_response
 
 BASE_DIR      = Path(__file__).resolve().parent.parent
 DATA_DIR      = BASE_DIR / "data"
