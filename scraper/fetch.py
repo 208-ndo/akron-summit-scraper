@@ -45,9 +45,12 @@ DEBUG_DIR     = DATA_DIR / "debug"
 TRACE_STORE_PATH = BASE_DIR / "trace_store.json"
 TRACE_SOURCE  = "Tracerfy"
 PROPERTY_ACCESS_CACHE_PATH = DATA_DIR / "property_access_cache.json"
+RENTAL_COMPLAINT_CACHE_PATH = DATA_DIR / "rental_complaints_cache.json"
 PROPERTY_ACCESS_BASE_URL = "https://propertyaccess.summitoh.net/Datalets/Datalet.aspx?UseSearch=no&pin={pin}"
 PROPERTY_ACCESS_THROTTLE_SECONDS = float(os.getenv("PROPERTY_ACCESS_THROTTLE_SECONDS", "0.6"))
 AUTO_SKIP_TRACE_THROTTLE_SECONDS = float(os.getenv("AUTO_SKIP_TRACE_THROTTLE_SECONDS", "0.35"))
+ARI_RENTAL_CHECK_LIMIT = int(os.getenv("ARI_RENTAL_CHECK_LIMIT", "400"))
+ARI_RENTAL_THROTTLE_SECONDS = float(os.getenv("ARI_RENTAL_THROTTLE_SECONDS", "0.15"))
 
 
 # output paths
@@ -87,6 +90,7 @@ DIVORCE_URL           = "https://clerk.summitoh.net/RecordsSearch/Disclaimer.asp
 DOMESTIC_CIVIL_URL    = "https://newcivilfilings.summitoh.net/"
 FIRE_PERMIT_URL       = "https://www.akronohio.gov/government/departments/planning/building_permits.php"
 ALN_BUILDING_PERMITS  = "https://www.akronlegalnews.com/publicrecord/building_permits"
+AKRON_RENTAL_INFO_URL = "https://ari.akronohio.gov/"
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"}
 
@@ -174,6 +178,13 @@ class LeadRecord:
     buyer_zips:List[str]=field(default_factory=list)
     buyer_property_addresses:List[str]=field(default_factory=list)
     buyer_type:str=""
+    rental_complaint:bool=False
+    rental_complaint_source:str=""
+    rental_complaint_date:str=""
+    rental_case_number:str=""
+    landlord_pain:bool=False
+    tired_landlord_plus:bool=False
+    tired_landlord_reasons:List[str]=field(default_factory=list)
 
 
 @dataclass
@@ -411,6 +422,10 @@ def normalize_address_key(address:str)->str:
     addr=re.sub(r"\b(ST|STREET|AVE|AVENUE|RD|ROAD|DR|DRIVE|BLVD|BOULEVARD|LN|LANE|CT|COURT|PL|PLACE|WAY|TER|TERRACE|CIR|CIRCLE|PKWY|PARKWAY)\b","",addr)
     addr=re.sub(r"[^A-Z0-9\s]","",addr)
     return re.sub(r"\s+"," ",addr).strip()
+
+def same_address_key(a:str,b:str)->bool:
+    ak=normalize_address_key(a); bk=normalize_address_key(b)
+    return bool(ak and bk and (ak==bk or ak.startswith(bk+" ") or bk.startswith(ak+" ")))
 
 def is_absentee_owner(prop_address:str,mail_address:str,mail_state:str="")->bool:
     if not prop_address or not mail_address: return False
@@ -3078,6 +3093,123 @@ def apply_distress_stacking(records,distress_index,delinquent_addresses,vacant_h
         r.distress_sources=list(set(sources)); r=estimate_mortgage_data(r); r.score=score_record(r)
     return records
 
+def load_rental_complaint_cache()->dict:
+    try:
+        if RENTAL_COMPLAINT_CACHE_PATH.exists():
+            return json.loads(RENTAL_COMPLAINT_CACHE_PATH.read_text(encoding="utf-8"))
+    except Exception as e:
+        logging.warning("Rental complaint cache load failed: %s",e)
+    return {}
+
+def save_rental_complaint_cache(cache:dict):
+    try:
+        write_json(RENTAL_COMPLAINT_CACHE_PATH,cache)
+    except Exception as e:
+        logging.warning("Rental complaint cache write failed: %s",e)
+
+def parse_ari_property_detail(html:str,detail_url:str)->dict:
+    soup=BeautifulSoup(html,"lxml")
+    text=re.sub(r"\s+"," ",soup.get_text(" ",strip=True))
+    m=re.search(r"Property Address\s+(.+?)\s+Property Owner\s+(.+?)\s+(?:Call owner\s+)?Complaints \(last two years\)\s+(\d+)\s+Open complaints\s+(\d+)\s+Resolved complaints",text,re.I)
+    if not m:
+        return {"source_url":detail_url,"rental_complaint":False,"raw_text":text[:500]}
+    open_count=int(m.group(3)); resolved_count=int(m.group(4))
+    return {
+        "source_url":detail_url,
+        "address":clean_text(m.group(1)),
+        "owner":clean_text(m.group(2)),
+        "open_complaints":open_count,
+        "resolved_complaints":resolved_count,
+        "rental_complaint":(open_count+resolved_count)>0,
+        "raw_text":text[:500],
+    }
+
+def fetch_ari_rental_complaint(address:str)->dict:
+    q=clean_text(address)
+    if not q:
+        return {"rental_complaint":False}
+    try:
+        resp=requests.get(f"{AKRON_RENTAL_INFO_URL.rstrip('/')}/search",params={"v":"address","q":q},headers=HEADERS,timeout=30)
+        resp.raise_for_status()
+        soup=BeautifulSoup(resp.text,"lxml")
+        for a in soup.select("a[href*='propertyDetails']"):
+            result_addr=clean_text(a.get_text(" ",strip=True))
+            if not same_address_key(q,result_addr):
+                continue
+            href=a.get("href","")
+            detail_url=requests.compat.urljoin(AKRON_RENTAL_INFO_URL,href)
+            detail=retry_request(detail_url,timeout=30)
+            parsed=parse_ari_property_detail(detail.text,detail_url)
+            if same_address_key(q,parsed.get("address","")):
+                return parsed
+        return {"rental_complaint":False,"source_url":AKRON_RENTAL_INFO_URL,"searched_address":q}
+    except Exception as e:
+        return {"rental_complaint":False,"source_url":AKRON_RENTAL_INFO_URL,"error":str(e)[:200],"searched_address":q}
+
+def tired_landlord_base_reasons(record:LeadRecord)->List[str]:
+    sources=set(record.distress_sources or [])
+    flags=set(record.flags or [])
+    reasons=[]
+    if record.is_absentee: reasons.append("absentee owner")
+    if likely_corporate_name(record.owner): reasons.append("LLC / entity owner")
+    if "tax_delinquent" in sources or "Tax delinquent" in flags: reasons.append("tax delinquent")
+    if record.is_vacant_home or record.is_vacant_land or "vacant_home" in sources or "vacant_land" in sources: reasons.append("vacant / vacancy signal")
+    if "eviction" in sources or record.doc_type=="EVICTION": reasons.append("eviction history")
+    if "code_violation" in sources or record.doc_type=="CODEVIOLATION": reasons.append("code violation")
+    if record.last_sale_year and record.last_sale_year <= datetime.now().year-5: reasons.append("owned 5+ years")
+    if record.est_equity is not None and record.est_equity > 0: reasons.append("positive equity estimate")
+    return list(dict.fromkeys(reasons))
+
+def apply_rental_complaint_stacking(records:List[LeadRecord])->List[LeadRecord]:
+    cache=load_rental_complaint_cache()
+    addr_to_idxs=defaultdict(list)
+    for i,r in enumerate(records):
+        if r.prop_address and clean_text(r.prop_city).upper() in {"","AKRON"}:
+            addr_to_idxs[normalize_address_key(r.prop_address)].append(i)
+
+    candidates=[]
+    for key,idxs in addr_to_idxs.items():
+        if not key: continue
+        best=max((records[i] for i in idxs),key=lambda r:len(tired_landlord_base_reasons(r)))
+        if len(tired_landlord_base_reasons(best))>=2:
+            candidates.append((key,best.prop_address))
+    candidates=sorted(candidates,key=lambda x:x[0])[:ARI_RENTAL_CHECK_LIMIT]
+
+    checked=0; matched=0; tired=0
+    for key,address in candidates:
+        info=cache.get(key)
+        if not info:
+            info=fetch_ari_rental_complaint(address)
+            info["checked_at"]=datetime.now(timezone.utc).isoformat()
+            cache[key]=info
+            checked+=1
+            time.sleep(ARI_RENTAL_THROTTLE_SECONDS)
+        if not info.get("rental_complaint"):
+            continue
+        matched+=1
+        for idx in addr_to_idxs.get(key,[]):
+            r=records[idx]
+            r.rental_complaint=True
+            r.landlord_pain=True
+            r.rental_complaint_source=info.get("source_url",AKRON_RENTAL_INFO_URL)
+            r.rental_complaint_date=""
+            r.rental_case_number=""
+            if "rental_complaint" not in (r.distress_sources or []):
+                r.distress_sources=list(r.distress_sources or [])+["rental_complaint"]
+            if "Rental complaint" not in (r.flags or []):
+                r.flags.append("Rental complaint")
+            reasons=["rental complaint"]+tired_landlord_base_reasons(r)
+            r.tired_landlord_reasons=list(dict.fromkeys(reasons))
+            if len([x for x in r.tired_landlord_reasons if x!="rental complaint"])>=2:
+                r.tired_landlord_plus=True
+                tired+=1
+                if "Tired Landlord Plus" not in r.flags:
+                    r.flags.append("Tired Landlord Plus")
+            r=estimate_mortgage_data(r); r.score=score_record(r)
+    save_rental_complaint_cache(cache)
+    logging.info("Rental complaints: %s new ARI checks | %s matched addresses | %s tired landlord plus records",checked,matched,tired)
+    return records
+
 def dedupe_records(records):
     final,seen=[],set()
     for r in records:
@@ -3536,6 +3668,7 @@ def write_category_json(records):
         "fire_damage":       [r for r in records if r.doc_type=="FIREDMG"],
         "divorces":          [r for r in records if r.doc_type=="DIVORCE"],
         "cash_buyers":       [r for r in records if r.doc_type=="CASHBUYER"],
+        "tired_landlord_plus":[r for r in records if r.tired_landlord_plus],
         # FIX #2 — vacant land now written as a category from the main records list
         "vacant_land":       [r for r in records if r.is_vacant_land],
     }
@@ -3556,6 +3689,7 @@ def write_category_json(records):
         "fire_damage":      "🔥 Fire damaged properties — owner needs quick sale for repairs",
         "divorces":         "💔 Divorce filings — forced sale, both parties want out fast",
         "cash_buyers":      "Investor buyers who purchased 3+ unique properties in the last 12 months",
+        "tired_landlord_plus":"Rental complaint plus 2+ landlord pain signals",
         "vacant_land":      "🌿 Distressed vacant infill lots ≤2ac — tax delinquent or in foreclosure",
     }
     output_paths={
@@ -3575,6 +3709,7 @@ def write_category_json(records):
         "fire_damage":      (DATA_DIR/"fire_damage.json",       DASHBOARD_DIR/"fire_damage.json"),
         "divorces":         (DATA_DIR/"divorces.json",         DASHBOARD_DIR/"divorces.json"),
         "cash_buyers":      (DATA_DIR/"cash_buyers.json",      DASHBOARD_DIR/"cash_buyers.json"),
+        "tired_landlord_plus": (DATA_DIR/"tired_landlord_plus.json", DASHBOARD_DIR/"tired_landlord_plus.json"),
         "vacant_land":      (DATA_DIR/"vacant_land.json",      DASHBOARD_DIR/"vacant_land.json"),
     }
     for cat,recs in categories.items():
@@ -3786,6 +3921,9 @@ async def main():
 
     # 13. Parcel-level enrichment from Summit County Property Access
     all_records=enrich_records_from_property_access(all_records,scope=args.property_access_scope)
+
+    # 13b. Akron Rental Information complaint stacking
+    all_records=apply_rental_complaint_stacking(all_records)
 
     # 14. Hydrate from existing trace store, then auto skip trace remaining records
     all_records=hydrate_records_from_trace_store(all_records)
