@@ -1,10 +1,10 @@
 {
   "matched": 0,
-  "unmatched": 50,
-  "with_address": 6,
+  "unmatched": 31,
+  "with_address": 4,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 50
+    "unmatched": 31
   },
   "sample_unmatched": [
     {
@@ -36,40 +36,12 @@
       "owner": "Wanda Hicks-Yates"
     },
     {
-      "doc_num": "HOSKINS 04",
-      "owner": "Hobart Virgil Hoskins"
-    },
-    {
       "doc_num": "ROUSE 04",
       "owner": "Gene Rouse"
     },
     {
       "doc_num": "SCHWARZ 04",
       "owner": "Eric Schwarz"
-    },
-    {
-      "doc_num": "FERGUSON 04",
-      "owner": "Gabriel Ferguson"
-    },
-    {
-      "doc_num": "BOND 04",
-      "owner": "Connie Bond"
-    },
-    {
-      "doc_num": "BEDRICK 04",
-      "owner": "Janene Bedrick"
-    },
-    {
-      "doc_num": "MCKISSICK 04",
-      "owner": "Charlese Mckissick"
-    },
-    {
-      "doc_num": "METCALF 04",
-      "owner": "Jacob Metcalf"
-    },
-    {
-      "doc_num": "BOWERSOX 04",
-      "owner": "Michael J Bowersox"
     },
     {
       "doc_num": "EVIC-0001",
@@ -106,8 +78,36 @@
     {
       "doc_num": "EVIC-0009",
       "owner": "Unknown"
+    },
+    {
+      "doc_num": "EVIC-0014",
+      "owner": "Timothy Tomasik"
+    },
+    {
+      "doc_num": "EVIC-0015",
+      "owner": "Eivins Insurance Agency, Llc"
+    },
+    {
+      "doc_num": "EVIC-0019",
+      "owner": "Kimble Recycling & Disposal Inc."
+    },
+    {
+      "doc_num": "EVIC-0021",
+      "owner": "Jabir Abdul-Basit"
+    },
+    {
+      "doc_num": "EVIC-0023",
+      "owner": "Scott A Vierheller"
+    },
+    {
+      "doc_num": "EVIC-0024",
+      "owner": "Jacob Ulmer"
+    },
+    {
+      "doc_num": "EVIC-0026",
+      "owner": "Frank Szydlowski"
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-04-24T11:54:13.687767+00:00"
+  "generated_at": "2026-04-24T13:26:10.480379+00:00"
 }
