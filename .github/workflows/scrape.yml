@@ -2,6 +2,12 @@ name: Summit County Scraper
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'scraper/fetch.py'
+      - '.github/workflows/scrape.yml'
   schedule:
     - cron: '0 8 * * *'  # Daily at 8am UTC
 
