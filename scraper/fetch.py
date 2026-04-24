@@ -1245,7 +1245,7 @@ def scrape_tax_delinquent_parcels()->Dict[str,dict]:
 def discover_cama_downloads()->List[str]:
     logging.info("Discovering CAMA downloads...")
     resp=retry_request(CAMA_PAGE_URL); soup=BeautifulSoup(resp.text,"lxml")
-    wanted={"SC700","SC701","SC702","SC705","SC720","SC731","SC750"}; urls=[]
+    wanted={"SC700","SC701","SC702","SC705","SC706","SC720","SC731","SC750"}; urls=[]
     for a in soup.select("a[href]"):
         href=clean_text(a.get("href","")); text=clean_text(a.get_text(" ")).upper()
         blob=f"{href} {text}".upper()
@@ -1385,7 +1385,7 @@ def parse_sale_date(value:str)->Optional[datetime]:
     text=clean_text(value)
     if not text:
         return None
-    for fmt in ("%m/%d/%Y","%Y-%m-%d","%m-%d-%Y","%m/%d/%y","%Y%m%d"):
+    for fmt in ("%m/%d/%Y","%Y-%m-%d","%m-%d-%Y","%m/%d/%y","%Y%m%d","%b %d %Y","%d-%b-%Y"):
         try:
             return datetime.strptime(text,fmt)
         except:
@@ -1411,19 +1411,23 @@ def parse_sc750_sales(raw:str)->Dict[str,dict]:
             cleaned={clean_text(k):clean_text(v) for k,v in row.items() if k is not None}
             pid=safe_pick(cleaned,LIKELY_PID_KEYS)
             if not pid: continue
-            price=None; year=None; sale_date=""; sale_dt=None
+            price=None; year=None; sale_date=""; sale_dt=None; buyer_parts=[]
             for k,v in cleaned.items():
-                ku=k.upper()
+                ku=re.sub(r"[^A-Z0-9]","",k.upper())
                 if any(x in ku for x in ["SALEPRICE","SALE_PRICE","PRICE","SALVAL","SALEAMT"]):
                     try:
                         p=float(re.sub(r"[^0-9.]","",v))
                         if p>5000: price=p
                     except: pass
-                if any(x in ku for x in ["SALEDATE","SALE_DATE","CONVDATE","TRANSDATE"]):
+                if any(x in ku for x in ["SALEDATE","CONVDATE","TRANSDATE","TRANSFERDATE","DEEDDATE","RECORDINGDATE","RECORDEDDATE","TRNDTE"]):
                     sale_date=clean_text(v)
                     sale_dt=parse_sale_date(sale_date)
                     if sale_dt: year=sale_dt.year
-                if any(x in ku for x in ["SALEYEAR","SALE_YR","CONVYR"]):
+                if ku in {"GRANTEE1","GRANTEE2","BUYER","BUYERNAME","PURCHASER","PURCHASERNAME","OWN1","NEWOWNER","NEWOWNER1"}:
+                    buyer=clean_text(v)
+                    if buyer:
+                        buyer_parts.append(buyer)
+                if any(x in ku for x in ["SALEYEAR","SALEYR","CONVYR"]):
                     try:
                         y=int(re.sub(r"[^0-9]","",v)[:4])
                         if 1970<=y<=datetime.now().year: year=y
@@ -1437,6 +1441,7 @@ def parse_sc750_sales(raw:str)->Dict[str,dict]:
                         "sale_year":year,
                         "sale_date":sale_date,
                         "sale_date_iso":sale_dt.date().isoformat() if sale_dt else "",
+                        "buyer":clean_text(" ".join(buyer_parts)),
                     }
     except Exception as e:
         logging.warning("SC750 sales parse error: %s",e)
@@ -1558,7 +1563,7 @@ def read_any_cama_payload(content:bytes,source_name:str)->Dict[str,List[dict]]:
                 if any(x in mu for x in ["SC705","SC731"]) and ".DAT" in mu:
                     rows=parse_sc705_fixed_width(raw)
                     if rows: datasets[member]=rows; continue
-                if "SC750" in mu:
+                if "SC750" in mu or "SC706" in mu:
                     sales=parse_sc750_sales(raw)
                     if sales: datasets[member]=[{"_sc750_sales":True,"data":sales}]; continue
                 if "SC720" in mu:
@@ -1571,7 +1576,7 @@ def read_any_cama_payload(content:bytes,source_name:str)->Dict[str,List[dict]]:
     if any(x in sn_upper for x in ["SC705","SC731"]):
         rows=parse_sc705_fixed_width(raw)
         if rows: datasets[source_name]=rows; return datasets
-    if "SC750" in sn_upper:
+    if "SC750" in sn_upper or "SC706" in sn_upper:
         sales=parse_sc750_sales(raw)
         if sales: datasets[source_name]=[{"_sc750_sales":True,"data":sales}]; return datasets
     if "SC720" in sn_upper:
@@ -2172,19 +2177,28 @@ def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict],Dict[
 def buyer_group_key(owner:str)->str:
     return re.sub(r"[^A-Z0-9]+"," ",normalize_name(owner)).strip()
 
+def excluded_cash_buyer_name(owner:str)->bool:
+    key=buyer_group_key(owner)
+    return any(x in key for x in [
+        "BANK","COUNTY","CITY OF","STATE OF","UNITED STATES","SECRETARY",
+        "TREASURER","SHERIFF","HUD","HOUSING","FANNIE MAE","FEDERAL NATIONAL",
+        "FREDDIE MAC","FEDERAL HOME LOAN","MORTGAGE","LENDER","SERVICING","TRUST",
+        "TRUSTEE",
+    ])
+
 def buyer_type_label(owner:str)->str:
     return "LLC / Entity" if likely_corporate_name(owner) else "Individual"
 
 def build_cash_buyer_leads(parcel_by_id:Dict[str,dict],sc750_sales:Dict[str,dict])->List[LeadRecord]:
-    cutoff=datetime.now()-timedelta(days=183)
+    cutoff=datetime.now()-timedelta(days=365)
     groups:Dict[str,dict]={}
     for pid,sale in sc750_sales.items():
         sale_date=parse_sale_date(sale.get("sale_date_iso") or sale.get("sale_date",""))
         if not sale_date or sale_date < cutoff:
             continue
         parcel=parcel_by_id.get(pid,{})
-        owner=clean_text(parcel.get("owner","")) or next((clean_text(a) for a in parcel.get("owner_aliases",[]) if clean_text(a)), "")
-        if not owner or owner in BAD_EXACT_OWNERS:
+        owner=clean_text(sale.get("buyer","")) or clean_text(parcel.get("owner","")) or next((clean_text(a) for a in parcel.get("owner_aliases",[]) if clean_text(a)), "")
+        if not owner or owner in BAD_EXACT_OWNERS or excluded_cash_buyer_name(owner):
             continue
         key=buyer_group_key(owner)
         if not key:
@@ -2238,7 +2252,9 @@ def build_cash_buyer_leads(parcel_by_id:Dict[str,dict],sc750_sales:Dict[str,dict
         total=sum(group["prices"]) if group["prices"] else 0
         avg=round(total/len(group["prices"]),2) if group["prices"] else None
         zips=sorted(group["zips"])
-        flags=["Cash Buyer","Investor Buyer","Bought 3+ Last 6 Months"]
+        flags=["Cash Buyer","Investor Buyer","Bought 3+ Last 12 Months"]
+        if len(parcels)>=5:
+            flags.append("Heavy Cash Buyer")
         if likely_corporate_name(group["owner"]):
             flags.append("LLC / corp owner")
         if len(zips)>1:
@@ -2278,7 +2294,7 @@ def build_cash_buyer_leads(parcel_by_id:Dict[str,dict],sc750_sales:Dict[str,dict
         )
         records.append(rec)
     records.sort(key=lambda r:(r.buyer_unique_parcels or 0,r.buyer_total_purchase_volume or 0,r.buyer_last_purchase_date),reverse=True)
-    logging.info("Cash buyers: %s buyers with 3+ purchases in last 6 months",len(records))
+    logging.info("Cash buyers: %s buyers with 3+ purchases in last 12 months",len(records))
     return records
 
 def build_tax_delinquent_leads(delinquent_parcels,parcel_rows,mail_by_pid,vacant_home_keys,sc720_values=None)->List[LeadRecord]:
@@ -3539,7 +3555,7 @@ def write_category_json(records):
         "evictions":        "🚪 Eviction filings — landlords offloading problem properties",
         "fire_damage":      "🔥 Fire damaged properties — owner needs quick sale for repairs",
         "divorces":         "💔 Divorce filings — forced sale, both parties want out fast",
-        "cash_buyers":      "Investor buyers who purchased 3+ unique properties in the last 6 months",
+        "cash_buyers":      "Investor buyers who purchased 3+ unique properties in the last 12 months",
         "vacant_land":      "🌿 Distressed vacant infill lots ≤2ac — tax delinquent or in foreclosure",
     }
     output_paths={
