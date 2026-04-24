@@ -33,7 +33,7 @@ from typing import Dict, List, Optional, Tuple
 import requests
 from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
-from tracerfy_helper import perform_tracerfy_lookup, map_tracerfy_lookup_response
+from scraper.tracerfy_helper import perform_tracerfy_lookup, map_tracerfy_lookup_response
 
 BASE_DIR      = Path(__file__).resolve().parent.parent
 DATA_DIR      = BASE_DIR / "data"
@@ -165,6 +165,12 @@ class LeadRecord:
     estate_value:Optional[float]=None; is_inherited:bool=False
     bedrooms:Optional[float]=None; bathrooms:Optional[float]=None
     square_feet:Optional[int]=None
+    buyer_purchase_count:int=0; buyer_unique_parcels:int=0
+    buyer_last_purchase_date:str=""; buyer_avg_purchase_price:Optional[float]=None
+    buyer_total_purchase_volume:Optional[float]=None
+    buyer_zips:List[str]=field(default_factory=list)
+    buyer_property_addresses:List[str]=field(default_factory=list)
+    buyer_type:str=""
 
 
 @dataclass
@@ -1372,6 +1378,24 @@ def parse_sc705_fixed_width(raw: str) -> List[dict]:
 # ── end FIX #1 ────────────────────────────────────────────────────────────────
 
 
+def parse_sale_date(value:str)->Optional[datetime]:
+    text=clean_text(value)
+    if not text:
+        return None
+    for fmt in ("%m/%d/%Y","%Y-%m-%d","%m-%d-%Y","%m/%d/%y","%Y%m%d"):
+        try:
+            return datetime.strptime(text,fmt)
+        except:
+            continue
+    digits=re.sub(r"[^0-9]","",text)
+    if len(digits)==8:
+        for fmt in ("%Y%m%d","%m%d%Y"):
+            try:
+                return datetime.strptime(digits,fmt)
+            except:
+                continue
+    return None
+
 def parse_sc750_sales(raw:str)->Dict[str,dict]:
     sales:Dict[str,dict]={}
     lines=[l.rstrip("\r") for l in raw.splitlines() if clean_text(l)]
@@ -1384,7 +1408,7 @@ def parse_sc750_sales(raw:str)->Dict[str,dict]:
             cleaned={clean_text(k):clean_text(v) for k,v in row.items() if k is not None}
             pid=safe_pick(cleaned,LIKELY_PID_KEYS)
             if not pid: continue
-            price=None; year=None; sale_date=""
+            price=None; year=None; sale_date=""; sale_dt=None
             for k,v in cleaned.items():
                 ku=k.upper()
                 if any(x in ku for x in ["SALEPRICE","SALE_PRICE","PRICE","SALVAL","SALEAMT"]):
@@ -1394,11 +1418,8 @@ def parse_sc750_sales(raw:str)->Dict[str,dict]:
                     except: pass
                 if any(x in ku for x in ["SALEDATE","SALE_DATE","CONVDATE","TRANSDATE"]):
                     sale_date=clean_text(v)
-                    try:
-                        for fmt in ["%m/%d/%Y","%Y-%m-%d","%m-%d-%Y"]:
-                            try: year=datetime.strptime(sale_date,fmt).year; break
-                            except: continue
-                    except: pass
+                    sale_dt=parse_sale_date(sale_date)
+                    if sale_dt: year=sale_dt.year
                 if any(x in ku for x in ["SALEYEAR","SALE_YR","CONVYR"]):
                     try:
                         y=int(re.sub(r"[^0-9]","",v)[:4])
@@ -1406,8 +1427,14 @@ def parse_sc750_sales(raw:str)->Dict[str,dict]:
                     except: pass
             if pid and price:
                 existing=sales.get(pid)
-                if not existing or (year and existing.get("sale_year",0)<year):
-                    sales[pid]={"sale_price":price,"sale_year":year,"sale_date":sale_date}
+                existing_dt=parse_sale_date(existing.get("sale_date","")) if existing else None
+                if not existing or (sale_dt and (not existing_dt or sale_dt>existing_dt)) or (year and existing.get("sale_year",0)<year):
+                    sales[pid]={
+                        "sale_price":price,
+                        "sale_year":year,
+                        "sale_date":sale_date,
+                        "sale_date_iso":sale_dt.date().isoformat() if sale_dt else "",
+                    }
     except Exception as e:
         logging.warning("SC750 sales parse error: %s",e)
     logging.info("SC750 non-exempt sales: %s records",len(sales))
@@ -1931,12 +1958,13 @@ def normalize_candidate_record(r:dict)->dict:
         "est_market_value":r.get("est_market_value"),
         "last_sale_price":r.get("last_sale_price"),
         "last_sale_year":r.get("last_sale_year"),
+        "last_sale_date":r.get("last_sale_date"),
         "bedrooms":r.get("bedrooms"),
         "bathrooms":r.get("bathrooms"),
         "square_feet":r.get("square_feet"),
     }
 
-def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
+def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict],Dict[str,dict],Dict[str,dict],Dict[str,dict]]:
     urls=discover_cama_downloads()
     own_rows,mail_rows,legal_rows,parcel_rows=[],[],[],[]
     sc750_sales:Dict[str,dict]={}
@@ -2011,6 +2039,7 @@ def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
         sc750=sc750_sales.get(pid,{})
         sale_price  = sc750.get("sale_price") or None
         sale_year   = sc750.get("sale_year") or None
+        sale_date_iso = sc750.get("sale_date_iso") or ""
         if not sale_price:
             sale_price,sale_year=build_sale_data_from_row(row)
         bedrooms,bathrooms,square_feet=build_property_details_from_row(row)
@@ -2026,6 +2055,7 @@ def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
             "est_market_value":e.get("est_market_value") or est_market,
             "last_sale_price":e.get("last_sale_price") or sale_price,
             "last_sale_year":e.get("last_sale_year") or sale_year,
+            "last_sale_date":e.get("last_sale_date") or sale_date_iso,
             "bedrooms":e.get("bedrooms") or bedrooms,
             "bathrooms":e.get("bathrooms") or bathrooms,
             "square_feet":e.get("square_feet") or square_feet,
@@ -2130,12 +2160,124 @@ def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict]]:
 
     logging.info("Parcel index: %s owner keys | %s parcels | %s mail rows",
                  len(owner_index),len(parcel_rows),len(mail_rows))
-    return owner_index,last_name_index,first_last_index,parcel_rows,mail_by_pid,sc720_values
+    return owner_index,last_name_index,first_last_index,parcel_rows,mail_by_pid,sc720_values,parcel_by_id,sc750_sales
 
 
 # -----------------------------------------------------------------------
 # LEAD BUILDERS
 # -----------------------------------------------------------------------
+def buyer_group_key(owner:str)->str:
+    return re.sub(r"[^A-Z0-9]+"," ",normalize_name(owner)).strip()
+
+def buyer_type_label(owner:str)->str:
+    return "LLC / Entity" if likely_corporate_name(owner) else "Individual"
+
+def build_cash_buyer_leads(parcel_by_id:Dict[str,dict],sc750_sales:Dict[str,dict])->List[LeadRecord]:
+    cutoff=datetime.now()-timedelta(days=183)
+    groups:Dict[str,dict]={}
+    for pid,sale in sc750_sales.items():
+        sale_date=parse_sale_date(sale.get("sale_date_iso") or sale.get("sale_date",""))
+        if not sale_date or sale_date < cutoff:
+            continue
+        parcel=parcel_by_id.get(pid,{})
+        owner=clean_text(parcel.get("owner","")) or next((clean_text(a) for a in parcel.get("owner_aliases",[]) if clean_text(a)), "")
+        if not owner or owner in BAD_EXACT_OWNERS:
+            continue
+        key=buyer_group_key(owner)
+        if not key:
+            continue
+        price=sale.get("sale_price") or parcel.get("last_sale_price") or 0
+        try:
+            price=float(price)
+        except:
+            price=0
+        group=groups.setdefault(key,{
+            "owner":owner,
+            "parcels":{},
+            "prices":[],
+            "dates":[],
+            "zips":set(),
+            "addresses":[],
+            "mail_address":clean_text(parcel.get("mail_address","")),
+            "mail_city":clean_text(parcel.get("mail_city","")),
+            "mail_state":normalize_state(clean_text(parcel.get("mail_state",""))),
+            "mail_zip":clean_text(parcel.get("mail_zip","")),
+        })
+        prop_address=clean_text(parcel.get("prop_address",""))
+        prop_city=clean_text(parcel.get("prop_city",""))
+        prop_zip=clean_text(parcel.get("prop_zip",""))
+        group["parcels"][pid]={
+            "parcel_id":pid,
+            "prop_address":prop_address,
+            "prop_city":prop_city,
+            "prop_zip":prop_zip,
+            "sale_price":price,
+            "sale_date":sale_date.date().isoformat(),
+        }
+        if price>0:
+            group["prices"].append(price)
+        group["dates"].append(sale_date)
+        if prop_zip:
+            group["zips"].add(prop_zip)
+        if prop_address:
+            group["addresses"].append(prop_address)
+        for field in ("mail_address","mail_city","mail_state","mail_zip"):
+            if not group.get(field) and clean_text(parcel.get(field,"")):
+                group[field]=normalize_state(parcel[field]) if field=="mail_state" else clean_text(parcel[field])
+
+    records=[]
+    for key,group in groups.items():
+        parcels=list(group["parcels"].values())
+        if len(parcels)<3:
+            continue
+        last_purchase=max(group["dates"])
+        last_parcel=max(parcels,key=lambda p:p.get("sale_date",""))
+        total=sum(group["prices"]) if group["prices"] else 0
+        avg=round(total/len(group["prices"]),2) if group["prices"] else None
+        zips=sorted(group["zips"])
+        flags=["Cash Buyer","Investor Buyer","Bought 3+ Last 6 Months"]
+        if likely_corporate_name(group["owner"]):
+            flags.append("LLC / corp owner")
+        if len(zips)>1:
+            flags.append("Multi-Zip Buyer")
+        score=min(100,60+(len(parcels)*5)+(10 if likely_corporate_name(group["owner"]) else 0)+(5 if len(zips)>1 else 0))
+        rec=LeadRecord(
+            doc_num=f"CASHBUYER-{key[:40]}",
+            doc_type="CASHBUYER",
+            filed=last_purchase.date().isoformat(),
+            cat="CASHBUYER",
+            cat_label="Cash Buyer",
+            owner=group["owner"].title(),
+            amount=avg,
+            prop_address=last_parcel.get("prop_address",""),
+            prop_city=last_parcel.get("prop_city",""),
+            prop_state="OH",
+            prop_zip=last_parcel.get("prop_zip",""),
+            mail_address=group.get("mail_address",""),
+            mail_city=group.get("mail_city",""),
+            mail_state=group.get("mail_state",""),
+            mail_zip=group.get("mail_zip",""),
+            clerk_url=CAMA_PAGE_URL,
+            flags=flags,
+            score=score,
+            match_method="sc750_recent_sale_group",
+            match_score=1.0,
+            with_address=1 if last_parcel.get("prop_address") else 0,
+            distress_sources=["cash_buyer"],
+            buyer_purchase_count=len(parcels),
+            buyer_unique_parcels=len(parcels),
+            buyer_last_purchase_date=last_purchase.date().isoformat(),
+            buyer_avg_purchase_price=avg,
+            buyer_total_purchase_volume=round(total,2) if total else None,
+            buyer_zips=zips,
+            buyer_property_addresses=list(dict.fromkeys(group["addresses"]))[:25],
+            buyer_type=buyer_type_label(group["owner"]),
+        )
+        records.append(rec)
+    records.sort(key=lambda r:(r.buyer_unique_parcels or 0,r.buyer_total_purchase_volume or 0,r.buyer_last_purchase_date),reverse=True)
+    logging.info("Cash buyers: %s buyers with 3+ purchases in last 6 months",len(records))
+    return records
+
 def build_tax_delinquent_leads(delinquent_parcels,parcel_rows,mail_by_pid,vacant_home_keys,sc720_values=None)->List[LeadRecord]:
     leads=[]; skipped=0
     if sc720_values is None: sc720_values={}
@@ -3331,6 +3473,7 @@ def build_payload(records):
         "prime_subject_to_count":sum(1 for r in records if r.subject_to_score>=70),
         # FIX #2 — vacant land count now appears in the payload for the dashboard
         "vacant_land_count":sum(1 for r in records if r.is_vacant_land),
+        "cash_buyer_count":sum(1 for r in records if r.doc_type=="CASHBUYER"),
         "records":[asdict(r) for r in records],
     }
 
@@ -3360,6 +3503,7 @@ def write_category_json(records):
         "evictions":         [r for r in records if r.doc_type=="EVICTION"],
         "fire_damage":       [r for r in records if r.doc_type=="FIREDMG"],
         "divorces":          [r for r in records if r.doc_type=="DIVORCE"],
+        "cash_buyers":       [r for r in records if r.doc_type=="CASHBUYER"],
         # FIX #2 — vacant land now written as a category from the main records list
         "vacant_land":       [r for r in records if r.is_vacant_land],
     }
@@ -3379,6 +3523,7 @@ def write_category_json(records):
         "evictions":        "🚪 Eviction filings — landlords offloading problem properties",
         "fire_damage":      "🔥 Fire damaged properties — owner needs quick sale for repairs",
         "divorces":         "💔 Divorce filings — forced sale, both parties want out fast",
+        "cash_buyers":      "Investor buyers who purchased 3+ unique properties in the last 6 months",
         "vacant_land":      "🌿 Distressed vacant infill lots ≤2ac — tax delinquent or in foreclosure",
     }
     output_paths={
@@ -3397,10 +3542,14 @@ def write_category_json(records):
         "evictions":        (DATA_DIR/"evictions.json",        DASHBOARD_DIR/"evictions.json"),
         "fire_damage":      (DATA_DIR/"fire_damage.json",       DASHBOARD_DIR/"fire_damage.json"),
         "divorces":         (DATA_DIR/"divorces.json",         DASHBOARD_DIR/"divorces.json"),
+        "cash_buyers":      (DATA_DIR/"cash_buyers.json",      DASHBOARD_DIR/"cash_buyers.json"),
         "vacant_land":      (DATA_DIR/"vacant_land.json",      DASHBOARD_DIR/"vacant_land.json"),
     }
     for cat,recs in categories.items():
-        recs_s=sorted(recs,key=lambda r:(r.hot_stack,r.distress_count,r.subject_to_score,r.score),reverse=True)
+        if cat=="cash_buyers":
+            recs_s=sorted(recs,key=lambda r:(r.buyer_unique_parcels or 0,r.buyer_total_purchase_volume or 0,r.buyer_last_purchase_date),reverse=True)
+        else:
+            recs_s=sorted(recs,key=lambda r:(r.hot_stack,r.distress_count,r.subject_to_score,r.score),reverse=True)
         payload={"fetched_at":datetime.now(timezone.utc).isoformat(),"source":SOURCE_NAME,
                  "category":cat,"description":descs[cat],"total":len(recs_s),
                  "records":[asdict(r) for r in recs_s]}
@@ -3424,6 +3573,8 @@ def write_csv(records,csv_path):
         "Lead Type","Document Type","Date Filed","Document Number","Amount/Debt Owed",
         "Seller Score","Subject-To Score","Motivated Seller Flags","Distress Sources","Distress Count",
         "Hot Stack","Vacant Land","Vacant Home","Absentee Owner","Out-of-State Owner","Inherited",
+        "Buyer Type","Buyer Purchase Count","Buyer Unique Parcels","Buyer Last Purchase Date",
+        "Buyer Avg Purchase Price","Buyer Total Purchase Volume","Buyer ZIPs","Buyer Property Addresses",
         "Assessed Value","Est Market Value","Last Sale Price","Last Sale Year",
         "Est Mortgage Balance","Est Equity","Est Arrears","Est Payoff","Mortgage Signals",
         "Decedent Name","Executor Name","Executor State",
@@ -3459,6 +3610,14 @@ def write_csv(records,csv_path):
                 "Absentee Owner":"YES" if r.is_absentee else "",
                 "Out-of-State Owner":"YES" if r.is_out_of_state else "",
                 "Inherited":"YES" if r.is_inherited else "",
+                "Buyer Type":r.buyer_type,
+                "Buyer Purchase Count":r.buyer_purchase_count or "",
+                "Buyer Unique Parcels":r.buyer_unique_parcels or "",
+                "Buyer Last Purchase Date":r.buyer_last_purchase_date,
+                "Buyer Avg Purchase Price":f"${r.buyer_avg_purchase_price:,.0f}" if r.buyer_avg_purchase_price else "",
+                "Buyer Total Purchase Volume":f"${r.buyer_total_purchase_volume:,.0f}" if r.buyer_total_purchase_volume else "",
+                "Buyer ZIPs":"; ".join(r.buyer_zips),
+                "Buyer Property Addresses":"; ".join(r.buyer_property_addresses),
                 "Assessed Value":f"${r.assessed_value:,.0f}" if r.assessed_value else "",
                 "Est Market Value":f"${r.estimated_value:,.0f}" if r.estimated_value else "",
                 "Last Sale Price":f"${r.last_sale_price:,.0f}" if r.last_sale_price else "",
@@ -3509,7 +3668,7 @@ async def main():
     logging.info("=== Akron Summit County — Motivated Seller Intelligence ===")
 
     # 1. CAMA parcel data
-    owner_index,last_name_index,first_last_index,parcel_rows,mail_by_pid,sc720_values=build_parcel_indexes()
+    owner_index,last_name_index,first_last_index,parcel_rows,mail_by_pid,sc720_values,parcel_by_id,sc750_sales=build_parcel_indexes()
 
     # 2. Court records (clerk) + evictions + divorce
     clerk_records=await scrape_clerk_records()
@@ -3574,9 +3733,13 @@ async def main():
     vacant_land_leads=[vacant_land_to_lead(vl) for vl in vacant_land_vlr]
     vacant_land_leads.sort(key=lambda r:r.score,reverse=True)
 
-    # 11. Merge all lead types (vacant land now included)
+    # 11. Cash buyers from public sale/conveyance data
+    cash_buyer_leads=build_cash_buyer_leads(parcel_by_id,sc750_sales)
+
+    # 12. Merge all lead types (vacant land now included)
     all_records=(all_records + tax_delin_leads + vacant_home_leads +
-                 sheriff_records + code_vio_records + probate_records + vacant_land_leads)
+                 sheriff_records + code_vio_records + probate_records + vacant_land_leads +
+                 cash_buyer_leads)
     logging.info("Total before dedupe: %s",len(all_records))
 
     # 11b. Cross-record address stacking
@@ -3606,7 +3769,7 @@ async def main():
     logging.info(
         "=== DONE === Total:%s | ⚡Sheriff:%s | 🔥HotStack:%s | ⚖️Probate:%s | 🏚CodeVio:%s | "
         "🏠VacantHome:%s | 💰TaxDelin:%s | 📭Absentee:%s | 🌎OOS:%s | "
-        "🏛Inherited:%s | 🎯SubjectTo:%s | ⭐PrimeSubTo:%s | 🌿VacantLand:%s",
+        "🏛Inherited:%s | 🎯SubjectTo:%s | ⭐PrimeSubTo:%s | 🌿VacantLand:%s | CashBuyers:%s",
         len(all_records),
         sum(1 for r in all_records if r.doc_type=="SHERIFF"),
         sum(1 for r in all_records if r.hot_stack),
@@ -3620,6 +3783,7 @@ async def main():
         sum(1 for r in all_records if r.subject_to_score>=50),
         sum(1 for r in all_records if r.subject_to_score>=70),
         sum(1 for r in all_records if r.is_vacant_land),
+        sum(1 for r in all_records if r.doc_type=="CASHBUYER"),
     )
 
 if __name__=="__main__":
