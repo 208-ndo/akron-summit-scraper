@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-24T13:26:07.024486+00:00",
+  "fetched_at": "2026-04-24T22:40:21.805292+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "code_violations",
   "description": "\ud83c\udfda City-declared nuisance / housing code violations \u2014 repair or sell",
@@ -38,8 +38,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -107,7 +107,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-0549",
@@ -142,8 +149,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -211,7 +218,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6148",
@@ -246,8 +260,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -315,7 +329,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6159",
@@ -350,8 +371,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -419,7 +440,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6155",
@@ -453,8 +481,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -522,7 +550,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6102",
@@ -621,7 +656,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6124",
@@ -720,7 +762,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6125",
@@ -819,7 +868,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6126",
@@ -918,7 +974,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6127",
@@ -1017,7 +1080,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6128",
@@ -1116,7 +1186,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6129",
@@ -1215,7 +1292,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6130",
@@ -1314,7 +1398,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6131",
@@ -1413,7 +1504,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6132",
@@ -1512,7 +1610,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6133",
@@ -1611,7 +1716,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6134",
@@ -1710,7 +1822,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6135",
@@ -1809,7 +1928,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-0547",
@@ -1908,7 +2034,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-0548",
@@ -2007,7 +2140,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6136",
@@ -2106,7 +2246,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6137",
@@ -2205,7 +2352,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6138",
@@ -2304,7 +2458,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6139",
@@ -2403,7 +2564,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6140",
@@ -2502,7 +2670,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6141",
@@ -2601,7 +2776,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6142",
@@ -2700,7 +2882,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6143",
@@ -2799,7 +2988,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-0550",
@@ -2898,7 +3094,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6144",
@@ -2997,7 +3200,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6145",
@@ -3096,7 +3306,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6146",
@@ -3195,7 +3412,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6147",
@@ -3294,7 +3518,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6149",
@@ -3393,7 +3624,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-0551",
@@ -3492,7 +3730,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6150",
@@ -3591,7 +3836,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6151",
@@ -3690,7 +3942,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6152",
@@ -3789,7 +4048,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6153",
@@ -3888,7 +4154,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6156",
@@ -3987,7 +4260,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6157",
@@ -4086,7 +4366,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6158",
@@ -4185,7 +4472,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6160",
@@ -4284,7 +4578,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6161",
@@ -4383,7 +4684,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-0552",
@@ -4482,7 +4790,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6162",
@@ -4581,7 +4896,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6163",
@@ -4680,7 +5002,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6164",
@@ -4779,7 +5108,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6165",
@@ -4878,7 +5214,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6166",
@@ -4977,7 +5320,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6167",
@@ -5076,7 +5426,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6168",
@@ -5175,7 +5532,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6169",
@@ -5274,7 +5638,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6170",
@@ -5373,7 +5744,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6172",
@@ -5472,7 +5850,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6173",
@@ -5571,7 +5956,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6174",
@@ -5670,7 +6062,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6175",
@@ -5769,7 +6168,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6176",
@@ -5868,7 +6274,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6177",
@@ -5967,7 +6380,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6178",
@@ -6066,7 +6486,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6179",
@@ -6165,7 +6592,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6181",
@@ -6264,7 +6698,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6182",
@@ -6363,7 +6804,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6183",
@@ -6462,7 +6910,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6184",
@@ -6561,7 +7016,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6185",
@@ -6660,7 +7122,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6186",
@@ -6759,7 +7228,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6187",
@@ -6858,7 +7334,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6188",
@@ -6957,7 +7440,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6189",
@@ -7056,7 +7546,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6190",
@@ -7155,7 +7652,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6191",
@@ -7254,7 +7758,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6180",
@@ -7353,7 +7864,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-24T13:26:09.002078+00:00",
+  "fetched_at": "2026-04-24T22:40:23.896077+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "cash_buyers",
   "description": "Investor buyers who purchased 3+ unique properties in the last 12 months",
@@ -51,7 +51,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -69,8 +69,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.673569Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -133,7 +133,14 @@
         "3757 ALUMINA DR",
         "5068 TIMBERCREEK CIR"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-S FLIP LLC",
@@ -181,7 +188,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -199,8 +206,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.673457Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -273,7 +280,14 @@
         "282 N ADAMS ST",
         "2250 BELLFIELD AVE"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-CHAMBER OF SECRETS LLC",
@@ -321,7 +335,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -339,8 +353,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.674173Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -410,7 +424,14 @@
         "1313 COVENTRY ST",
         "123 GALE ST"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-PRISONER OF AZKABAN LLC",
@@ -449,8 +470,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -564,7 +585,14 @@
         "129 IDLEWILD ST",
         "507 E FORD AVE"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-TS8A PROP LLC",
@@ -612,7 +640,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -630,8 +658,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.674583Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -684,7 +712,14 @@
         "530 THELMA AVE",
         "1115 FLORIDA AVE"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-KLL INVESTMENTS LLC",
@@ -722,8 +757,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -812,7 +847,14 @@
         "1257 GREENWOOD AVE",
         "1951 FAYE RD"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-PREMIER HOMES INC",
@@ -859,7 +901,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -877,8 +919,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.674080Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -920,7 +962,14 @@
         "1062 & 1064 SAXON AVE",
         "1012 & 1014 SAXON AVE"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-UNITED HOME BUYERS INC",
@@ -958,8 +1007,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1047,7 +1096,14 @@
         "3561 JOHNSON RD",
         "1097 OAK TREE RD"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-K AND R PROPERTY SOLUTIONS LLC",
@@ -1095,7 +1151,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -1113,8 +1169,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.673663Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -1164,7 +1220,14 @@
         "1155 TULIP ST",
         "2876 FARMDALE RD"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-DREES COMPANY",
@@ -1211,7 +1274,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -1229,8 +1292,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.673882Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -1274,7 +1337,14 @@
         "305 ARBORETUM CT",
         "3775 OVERLOOK CT"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-UAKRON RENTALS LLC",
@@ -1321,7 +1391,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -1339,8 +1409,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.674482Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -1383,7 +1453,14 @@
         "322 & 324 TORREY ST",
         "308 & 310 TORREY ST"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-SUMMIT COAST CAPITAL SERIES LLC",
@@ -1431,7 +1508,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -1449,8 +1526,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.673774Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -1497,7 +1574,14 @@
         "650 KLING ST",
         "347 E VORIS ST"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-KC REAL ESTATE AND SERVICES LLC",
@@ -1544,7 +1628,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -1562,8 +1646,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.674364Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -1604,7 +1688,14 @@
         "353 & 355 CLUSTER AVE",
         "349 & 351 CLUSTER AVE"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-FOJTAGG LLC",
@@ -1652,7 +1743,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -1670,8 +1761,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.674273Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -1717,7 +1808,14 @@
         "17 E EMERLING AVE",
         "88 FULTON ST"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-COLLECTIVE DEVELOPMENT FIRM LLC",
@@ -1755,8 +1853,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1836,7 +1934,14 @@
         "1517 BROWN ST",
         "2070 HACKBERRY ST"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-NIGRI INSURANCE CONSULTING LLC",
@@ -1884,7 +1989,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -1902,8 +2007,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.673976Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -1945,7 +2050,14 @@
         "1820 MALASIA RD",
         "N HOWARD"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-PALLOTTA MICHAEL JR",
@@ -1990,7 +2102,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -2008,8 +2120,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.677319Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -2048,7 +2160,14 @@
         "4175 BOAT DR",
         "FLYNN AVE"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-MANOMAY PROPERTIES AT FOREST LAKES LLC",
@@ -2094,7 +2213,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -2112,8 +2231,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.675604Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -2153,7 +2272,14 @@
         "3381 BUCKEYE TRL",
         "3531 BUSHWILLOW DR"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-KENDER ANDREW JOSEPH III",
@@ -2198,7 +2324,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -2216,8 +2342,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.677892Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -2255,7 +2381,14 @@
         "DARROW RD",
         "2384 MOSSWOOD LN"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-GATIK PROPERTIES AND NAGAJOTHI LLC",
@@ -2301,7 +2434,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -2319,8 +2452,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.675495Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -2360,7 +2493,14 @@
         "3375 BUCKEYE TRL",
         "3535 BUSHWILLOW DR"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-ALESAEI JESSICA",
@@ -2405,7 +2545,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -2423,8 +2563,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.678077Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -2463,7 +2603,14 @@
         "2123 17TH ST",
         "17TH ST"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-MAAG CHAD",
@@ -2508,7 +2655,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -2526,8 +2673,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.677988Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -2564,7 +2711,14 @@
       "buyer_property_addresses": [
         "104 HALE AVE"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-BOST AARON L",
@@ -2609,7 +2763,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -2627,8 +2781,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.677799Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -2668,7 +2822,14 @@
         "KELTNER RD",
         "MOORE RD"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-CYRUS BRYAN",
@@ -2713,7 +2874,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -2731,8 +2892,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.678251Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -2770,7 +2931,14 @@
         "986 SHANNON AVE",
         "SHANNON AVE"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-NORTH MUSIC LLC",
@@ -2816,7 +2984,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -2834,8 +3002,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.675286Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -2875,7 +3043,14 @@
         "740 RAVENSWOOD ST",
         "691 MC KINLEY AVE"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-SUMMIT RENTAL PROPERTIES LLC",
@@ -2922,7 +3097,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -2940,8 +3115,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.674877Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -2984,7 +3159,14 @@
         "286 5TH ST",
         "29 W WOODSDALE AVE"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-FIOCCA KIP A",
@@ -3029,7 +3211,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -3047,8 +3229,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.677704Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -3088,7 +3270,14 @@
         "2919 WARREN DR",
         "2920 WARREN DR"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-CITY BLOX LLC",
@@ -3125,8 +3314,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -3204,7 +3393,14 @@
         "1535 S PLAINVIEW DR",
         "2666 FAIRLAND ST"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-GLOBAL REAL ESTATE SOLUTIONS LLC",
@@ -3251,7 +3447,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -3269,8 +3465,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.674978Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -3311,7 +3507,14 @@
         "2132 BEECHTREE DR",
         "184 EDGEHILL DR"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-B1Z BUSINESS 6 LLC",
@@ -3358,7 +3561,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -3376,8 +3579,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.674676Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -3420,7 +3623,14 @@
         "127 PALMETTO AVE",
         "685 CHARLES AVE"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-BEST REAL ESTATE SOLUTIONS LLC",
@@ -3466,7 +3676,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -3484,8 +3694,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.676296Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -3523,7 +3733,14 @@
         "LESSIG AVE",
         "558 LESSIG AVE"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-PILLAR HOLDINGS LLC",
@@ -3561,8 +3778,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -3640,7 +3857,14 @@
         "754 STORER AVE",
         "947 ALFRED RD"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-MAR PROPERTY MANAGEMENT LLC",
@@ -3687,7 +3911,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -3705,8 +3929,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.674777Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -3748,7 +3972,14 @@
         "1519 LAKE RD",
         "LAKE RD"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-CHAFE GENEIE E",
@@ -3793,7 +4024,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -3811,8 +4042,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.678163Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -3850,7 +4081,14 @@
         "LAKESIDE DR",
         "MANCHESTER RD"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-BURKE JEREMY",
@@ -3895,7 +4133,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -3913,8 +4151,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.677527Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -3954,7 +4192,14 @@
         "892 HAYNES ST",
         "888 HAYNES ST"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-NEW GENERATION HOMES INC",
@@ -3990,8 +4235,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -4005,7 +4250,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -4023,8 +4268,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.358965Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -4069,7 +4314,14 @@
         "574 ELBON AVE",
         "260 E YORK ST"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-BREEN INVESTMENTS LLC",
@@ -4105,8 +4357,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -4182,7 +4434,14 @@
         "8TH AVE",
         "1327 8TH AVE"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-LOPEZ CHRISTOPHER A",
@@ -4227,7 +4486,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -4245,8 +4504,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.679211Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -4284,7 +4543,14 @@
         "2285 LANCASTER RD",
         "ELY RD"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-BROWN ADAM",
@@ -4329,7 +4595,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -4347,8 +4613,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.679119Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -4387,7 +4653,14 @@
         "SUNSET VIEW DR",
         "W SUNSET VIEW DR"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-SHANNON ADAM B JR",
@@ -4432,7 +4705,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -4450,8 +4723,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.678847Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -4490,7 +4763,14 @@
         "3005 KENT RD",
         "KENT RD"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-COBLENTZ HOLDINGS LLC",
@@ -4536,7 +4816,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -4554,8 +4834,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.676395Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -4593,7 +4873,14 @@
         "510 LOURDES DR",
         "LOURDES DR"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-KHAN WAZIHA",
@@ -4638,7 +4925,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -4656,8 +4943,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.678942Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -4696,7 +4983,14 @@
         "6922 POST LN",
         "VALLEY VIEW RD"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-MONTELEO REALTY LLC",
@@ -4742,7 +5036,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -4760,8 +5054,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.677220Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -4800,7 +5094,14 @@
         "402 E SOUTH ST",
         "398 E SOUTH ST"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-SK AND A LLC",
@@ -4847,7 +5148,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -4865,8 +5166,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.676102Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -4906,7 +5207,14 @@
         "1120 & 1124 BROADWAY EAST",
         "1917 & 1921 LANCASTER ST"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-MTM REAL ESTATE INVESTORS LLC",
@@ -4943,8 +5251,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5019,7 +5327,14 @@
         "ENDICOTT WAY",
         "3045 ENDICOTT WAY"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-PENNYMAC LOAN SERVICES LLC",
@@ -5066,7 +5381,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -5084,8 +5399,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.675383Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -5126,7 +5441,14 @@
         "1243 COLLINWOOD AVE",
         "1681 GIRARD ST"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-CLEMONS DAJUAN WILLIAM THURL",
@@ -5171,7 +5493,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -5189,8 +5511,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.678344Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -5228,7 +5550,14 @@
         "266 HAZELWOOD AVE",
         "HAZELWOOD AVE"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-BUSH JACKIE LYNN",
@@ -5273,7 +5602,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -5291,8 +5620,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.678650Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -5330,7 +5659,14 @@
         "1160 OVERTON DR",
         "OVERTON DR"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-ROUNDTOWN PROPERTY SOLUTIONS LLC",
@@ -5377,7 +5713,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -5395,8 +5731,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.675085Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -5436,7 +5772,14 @@
         "4443 HILLTOP DR",
         "561 CLARK DR"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-TOOLESHED HOLDINGS LLC",
@@ -5483,7 +5826,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -5501,8 +5844,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.676005Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -5542,7 +5885,14 @@
         "1267 TIOGA AVE",
         "575 NOBLE AVE"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-IMPLEMENT VENTURES LLC",
@@ -5588,7 +5938,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -5606,8 +5956,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.676506Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -5646,7 +5996,14 @@
         "227 19TH ST",
         "170 SNYDER AVE"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-BISH CHARLES WILLIAM JR",
@@ -5692,7 +6049,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -5710,8 +6067,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.677416Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -5751,7 +6108,14 @@
         "615 NOAH AVE",
         "NOAH AVE"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-PRESTITO PROJECT LLC",
@@ -5797,7 +6161,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -5815,8 +6179,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.676833Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -5855,7 +6219,14 @@
         "397 SPICER ST",
         "403 SPICER ST"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-CANOLLI AFRIM",
@@ -5889,8 +6260,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5963,7 +6334,14 @@
         "764 CLEARVIEW AVE",
         "CLEARVIEW AVE"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-SCEARS MADEYLN BILLIE",
@@ -6008,7 +6386,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -6026,8 +6404,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.678458Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -6065,7 +6443,14 @@
         "540 ANDERSON AVE",
         "ANDERSON AVE"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-CHAFE LINDSEY N",
@@ -6110,7 +6495,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -6128,8 +6513,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.679029Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -6168,7 +6553,14 @@
         "1947 PICKLE RD",
         "PICKLE RD"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-MMK DESIGNS LLC",
@@ -6215,7 +6607,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -6233,8 +6625,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.675817Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -6274,7 +6666,14 @@
         "98 BECK AVE",
         "3723 BOWER AVE"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-HIRAYA ENTERPRISES LLC",
@@ -6310,8 +6709,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -6386,7 +6785,14 @@
         "1129 7TH AVE",
         "614 EAST AVE"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-QUINN GANNON S",
@@ -6431,7 +6837,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -6449,8 +6855,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.678746Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -6489,7 +6895,14 @@
         "283 7TH ST",
         "248 & 250 7TH ST"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-FAMILY PROMISE WELCOME HOME LLC",
@@ -6535,7 +6948,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -6553,8 +6966,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.677016Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -6592,7 +7005,14 @@
         "1116 FREDERICK BLVD",
         "1093 VALDES AVE"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-BEVIER BRANDON",
@@ -6637,7 +7057,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -6655,8 +7075,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.679306Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -6694,7 +7114,14 @@
         "2545 CROSS WAY",
         "CROSS WAY"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-CANADUS LP",
@@ -6740,7 +7167,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -6758,8 +7185,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.676928Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -6798,7 +7225,14 @@
         "442 MATTHEWS ST",
         "798 STADELMAN AVE"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-BARBERTON REALTY ONE LLC",
@@ -6844,7 +7278,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -6862,8 +7296,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.677121Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -6902,7 +7336,14 @@
         "504 JEFFERSON AVE",
         "345 MORGAN ST"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-MAKAREV EVGENY",
@@ -6948,7 +7389,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -6966,8 +7407,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.677610Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -7007,7 +7448,14 @@
         "798 COBURN ST",
         "73 W BURNS AVE"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-RTGR INVESTMENT GROUP LLC",
@@ -7054,7 +7502,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -7072,8 +7520,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.675714Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -7114,7 +7562,14 @@
         "1027 YALE ST",
         "549 WILDWOOD AVE"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-FAWR LLC",
@@ -7161,7 +7616,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -7179,8 +7634,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.676204Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -7219,7 +7674,14 @@
         "2138 EAST AVE",
         "378 WILDWOOD AVE"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-JTVISION INVESTMENTS LLC",
@@ -7266,7 +7728,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -7284,8 +7746,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.675188Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -7326,7 +7788,14 @@
         "483 SULLIVAN AVE",
         "1311 KENTUCKY AVE"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-GMD MANAGEMENT SERVICES LLC",
@@ -7372,7 +7841,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -7390,8 +7859,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.676730Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -7429,7 +7898,14 @@
         "800 BEARDSLEY ST",
         "720 FLORIDA AVE"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-D FLIP LLC",
@@ -7476,7 +7952,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -7494,8 +7970,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.675912Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -7536,7 +8012,14 @@
         "632 GRACE AVE",
         "901 SNYDER ST"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-RUCKER DEWITT III",
@@ -7581,7 +8064,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -7599,8 +8082,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.678555Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -7638,7 +8121,14 @@
         "346 KLINE AVE",
         "KLINE AVE"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     }
   ]
 }

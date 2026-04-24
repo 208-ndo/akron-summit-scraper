@@ -1,0 +1,3078 @@
+{
+  "08 PM BREACH OF CONTRACT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "08 Pm Breach Of Contract",
+    "checked_at": "2026-04-24T22:35:45.480320+00:00"
+  },
+  "100 HALL": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=39675",
+    "address": "100 Hall St Akron, OH",
+    "owner": "Ternosky, David R. & Mary Ellen",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 100 Hall St Akron, OH Property Owner Ternosky, David R. & Mary Ellen Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:35:46.387505+00:00"
+  },
+  "100 HAMPSHIRE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "100 HAMPSHIRE RD",
+    "checked_at": "2026-04-24T22:35:46.912938+00:00"
+  },
+  "1000 MOELLER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1000 MOELLER AVE",
+    "checked_at": "2026-04-24T22:35:47.430428+00:00"
+  },
+  "1001 CHEVELLE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1001 CHEVELLE DR",
+    "checked_at": "2026-04-24T22:35:47.935650+00:00"
+  },
+  "1001 FLORIDA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1001 FLORIDA AVE",
+    "checked_at": "2026-04-24T22:35:48.453802+00:00"
+  },
+  "1003 ALLENDALE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=52311",
+    "address": "1003 Allendale Ave Akron, OH",
+    "owner": "Ramoutar, Mahadeo",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1003 Allendale Ave Akron, OH Property Owner Ramoutar, Mahadeo Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:35:49.388853+00:00"
+  },
+  "1004 NOME": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1004 NOME AVE",
+    "checked_at": "2026-04-24T22:35:49.931009+00:00"
+  },
+  "1005 NATHAN": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=71511",
+    "address": "1005 Nathan St Akron, OH 44307",
+    "owner": "K & M Investments 1 LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1005 Nathan St Akron, OH 44307 Property Owner K & M Investments 1 LLC Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:35:50.852590+00:00"
+  },
+  "1006 PACKARD": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=70151",
+    "address": "1006 Packard Dr Akron, OH 44320",
+    "owner": "Moorer, Marc",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1006 Packard Dr Akron, OH 44320 Property Owner Moorer, Marc Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:35:51.782931+00:00"
+  },
+  "101 N HOUSE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "101 N HOUSE DR",
+    "checked_at": "2026-04-24T22:35:52.312961+00:00"
+  },
+  "1010 OAKLAND": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=70354",
+    "address": "1010 Oakland Ave Akron, OH 44310",
+    "owner": "Kurdikar, Sudesh & Sapna",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1010 Oakland Ave Akron, OH 44310 Property Owner Kurdikar, Sudesh & Sapna Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:35:53.274384+00:00"
+  },
+  "1011 LAUREL": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=66793",
+    "address": "1011 Laurel Ave Akron, OH 44307",
+    "owner": "Hamilton, Michael--Trust",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1011 Laurel Ave Akron, OH 44307 Property Owner Hamilton, Michael--Trust Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:35:54.174589+00:00"
+  },
+  "1012 TRITT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1012 TRITT DR",
+    "checked_at": "2026-04-24T22:35:54.688819+00:00"
+  },
+  "1015 PARDEE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1015 PARDEE AVE",
+    "checked_at": "2026-04-24T22:35:55.194837+00:00"
+  },
+  "1017 CREE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=44940",
+    "address": "1017 Cree Ave Akron, OH",
+    "owner": "Turning Corners Counseling LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1017 Cree Ave Akron, OH Property Owner Turning Corners Counseling LLC Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:35:56.113650+00:00"
+  },
+  "1017 LAUREL": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=66794",
+    "address": "1017 Laurel Ave Akron, OH 44307",
+    "owner": "Hamilton, Michael--Trust",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1017 Laurel Ave Akron, OH 44307 Property Owner Hamilton, Michael--Trust Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:35:57.008241+00:00"
+  },
+  "1018 LAUREL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1018 LAUREL AVE",
+    "checked_at": "2026-04-24T22:35:57.519572+00:00"
+  },
+  "1019 CHINOOK": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1019 CHINOOK AVE",
+    "checked_at": "2026-04-24T22:35:58.045312+00:00"
+  },
+  "1019 MAYWOOD": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=40101",
+    "address": "1019 Maywood Ave Akron, OH",
+    "owner": "Ramoutar, Mahadeo",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1019 Maywood Ave Akron, OH Property Owner Ramoutar, Mahadeo Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:35:58.940068+00:00"
+  },
+  "102 E BROOKSIDE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "102 E BROOKSIDE AVE",
+    "checked_at": "2026-04-24T22:35:59.442180+00:00"
+  },
+  "1020 1022 CADDO": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1020 & 1022 CADDO AVE",
+    "checked_at": "2026-04-24T22:35:59.950885+00:00"
+  },
+  "1020 FAIRBANKS": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=52419",
+    "address": "1020 Fairbanks Pl Akron, OH",
+    "owner": "Bailey, Kenneth & April Archer",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1020 Fairbanks Pl Akron, OH Property Owner Bailey, Kenneth & April Archer Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:00.918123+00:00"
+  },
+  "1021 DIETZ": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=70333",
+    "address": "1021 Dietz Ave Akron, OH 44301",
+    "owner": "Morton-Pitts, Andrea",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1021 Dietz Ave Akron, OH 44301 Property Owner Morton-Pitts, Andrea Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:01.820699+00:00"
+  },
+  "1022 STANWOOD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1022 STANWOOD AVE",
+    "checked_at": "2026-04-24T22:36:02.345846+00:00"
+  },
+  "1023 WHITTIER": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=55028",
+    "address": "1023 Whittier Ave Akron, OH",
+    "owner": "Portis, John E.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1023 Whittier Ave Akron, OH Property Owner Portis, John E. Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:03.250439+00:00"
+  },
+  "1025 CLEMENT": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=59896",
+    "address": "1025 Clement St Akron, OH",
+    "owner": "Nguyen, Ngoc Anh T",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1025 Clement St Akron, OH Property Owner Nguyen, Ngoc Anh T Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:04.192648+00:00"
+  },
+  "1025 FREDERICK": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1025 FREDERICK BLVD",
+    "checked_at": "2026-04-24T22:36:04.701867+00:00"
+  },
+  "1026 SENECA TRL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1026 SENECA TRL",
+    "checked_at": "2026-04-24T22:36:05.219567+00:00"
+  },
+  "1027 JOHNSTON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1027 JOHNSTON ST",
+    "checked_at": "2026-04-24T22:36:05.725684+00:00"
+  },
+  "1027 KLING": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1027 KLING ST",
+    "checked_at": "2026-04-24T22:36:06.235752+00:00"
+  },
+  "1027 YALE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=52347",
+    "address": "1027 Yale St Akron, OH 44301",
+    "owner": "Kollar, Daniel J.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1027 Yale St Akron, OH 44301 Property Owner Kollar, Daniel J. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:07.176643+00:00"
+  },
+  "103 105 N PERSHING": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "103 & 105 N PERSHING AVE",
+    "checked_at": "2026-04-24T22:36:07.711178+00:00"
+  },
+  "1030 IVOR": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1030 IVOR AVE",
+    "checked_at": "2026-04-24T22:36:08.218986+00:00"
+  },
+  "1031 COVENTRY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1031 COVENTRY ST",
+    "checked_at": "2026-04-24T22:36:08.719287+00:00"
+  },
+  "1032 BURKHARDT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1032 BURKHARDT AVE",
+    "checked_at": "2026-04-24T22:36:09.264313+00:00"
+  },
+  "1033 MEADOW PARK": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1033 MEADOW PARK DR",
+    "checked_at": "2026-04-24T22:36:09.773881+00:00"
+  },
+  "1033 STROMAN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1033 STROMAN AVE",
+    "checked_at": "2026-04-24T22:36:10.307820+00:00"
+  },
+  "1034 COLLINWOOD": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=62930",
+    "address": "1034 Collinwood Ave Akron, OH",
+    "owner": "Ebury RE LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1034 Collinwood Ave Akron, OH Property Owner Ebury RE LLC Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:11.244343+00:00"
+  },
+  "1036 LEXINGTON": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=45661",
+    "address": "1036 Lexington Ave Akron, OH",
+    "owner": "Sail Away Ltd.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1036 Lexington Ave Akron, OH Property Owner Sail Away Ltd. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:12.146040+00:00"
+  },
+  "1036 ONEIDA TRL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1036 ONEIDA TRL",
+    "checked_at": "2026-04-24T22:36:12.664004+00:00"
+  },
+  "1037 ONEIDA TRL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1037 ONEIDA TRL",
+    "checked_at": "2026-04-24T22:36:13.169167+00:00"
+  },
+  "1038 ROSLYN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1038 ROSLYN AVE",
+    "checked_at": "2026-04-24T22:36:13.677193+00:00"
+  },
+  "1040 FAIRBANKS": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=58245",
+    "address": "1040 Fairbanks Pl Akron, OH",
+    "owner": "Ayers, Luther A. (Estate)",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1040 Fairbanks Pl Akron, OH Property Owner Ayers, Luther A. (Estate) Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:14.577255+00:00"
+  },
+  "1041 FAIRBANKS": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=32082",
+    "address": "1041 Fairbanks Pl Akron, OH",
+    "owner": "Patel, Usha R.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1041 Fairbanks Pl Akron, OH Property Owner Patel, Usha R. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:15.495521+00:00"
+  },
+  "1042 6TH": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=44368",
+    "address": "1042 6th Ave Akron, OH",
+    "owner": "Better Homes for Living",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1042 6th Ave Akron, OH Property Owner Better Homes for Living Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:16.479620+00:00"
+  },
+  "1042 LONGSTONE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1042 LONGSTONE AVE",
+    "checked_at": "2026-04-24T22:36:16.986334+00:00"
+  },
+  "1043 FAIRBANKS": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=34664",
+    "address": "1043 Fairbanks Pl Akron, OH",
+    "owner": "Buchanan, Lorraine",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1043 Fairbanks Pl Akron, OH Property Owner Buchanan, Lorraine Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:17.881333+00:00"
+  },
+  "1048 BLOOMFIELD": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=62195",
+    "address": "1048 Bloomfield Ave Akron, OH",
+    "owner": "Summit County Land Bank",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1048 Bloomfield Ave Akron, OH Property Owner Summit County Land Bank Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:18.777187+00:00"
+  },
+  "1049 E ARCHWOOD": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=63081",
+    "address": "1049 E Archwood Ave Akron, OH",
+    "owner": "Brown McClung Akron LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1049 E Archwood Ave Akron, OH Property Owner Brown McClung Akron LLC Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:19.678078+00:00"
+  },
+  "105 BEAUPARC": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "105 BEAUPARC DR",
+    "checked_at": "2026-04-24T22:36:20.197949+00:00"
+  },
+  "105 E DRESDEN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "105 E DRESDEN AVE",
+    "checked_at": "2026-04-24T22:36:20.706877+00:00"
+  },
+  "105 S ROSE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "105 S ROSE BLVD",
+    "checked_at": "2026-04-24T22:36:21.220496+00:00"
+  },
+  "105 SHELBY": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=52221",
+    "address": "105 Shelby Ave Akron, OH",
+    "owner": "Tarle, Amy--mgr",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 105 Shelby Ave Akron, OH Property Owner Tarle, Amy--mgr Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:22.150923+00:00"
+  },
+  "1050 BIG FALLS": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=61945",
+    "address": "1050 Big Falls Ave Akron, OH",
+    "owner": "LSJB Properties",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1050 Big Falls Ave Akron, OH Property Owner LSJB Properties Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:23.085483+00:00"
+  },
+  "1051 LA CROIX": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=25088",
+    "address": "1051 La Croix Ave Akron, OH",
+    "owner": "Mobley, Albert Jr.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1051 La Croix Ave Akron, OH Property Owner Mobley, Albert Jr. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:23.991786+00:00"
+  },
+  "1052 JASON": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=54541",
+    "address": "1052 Jason Ave Akron, OH",
+    "owner": "DJ One Investments LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1052 Jason Ave Akron, OH Property Owner DJ One Investments LLC Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:24.892065+00:00"
+  },
+  "1053 DELIA": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=58571",
+    "address": "1053 Delia Ave Akron, OH",
+    "owner": "Lessem, Marc",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1053 Delia Ave Akron, OH Property Owner Lessem, Marc Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:25.795555+00:00"
+  },
+  "1055 N HOWARD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1055 N HOWARD ST",
+    "checked_at": "2026-04-24T22:36:26.301924+00:00"
+  },
+  "1058 WINTON": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=28088",
+    "address": "1058 Winton Ave Akron, OH",
+    "owner": "Grimes, Donna M.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1058 Winton Ave Akron, OH Property Owner Grimes, Donna M. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:27.221891+00:00"
+  },
+  "1060 E": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1060 EAST AVE",
+    "checked_at": "2026-04-24T22:36:27.737267+00:00"
+  },
+  "1060 NATHAN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1060 NATHAN ST",
+    "checked_at": "2026-04-24T22:36:28.244915+00:00"
+  },
+  "1061 EMMA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1061 EMMA AVE",
+    "checked_at": "2026-04-24T22:36:28.767043+00:00"
+  },
+  "1062 1064 DERBYDALE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1062 & 1064 DERBYDALE RD",
+    "checked_at": "2026-04-24T22:36:29.303537+00:00"
+  },
+  "1063 MIDDLE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1063 MIDDLE WAY",
+    "checked_at": "2026-04-24T22:36:29.815116+00:00"
+  },
+  "1065 MERTON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1065 MERTON AVE",
+    "checked_at": "2026-04-24T22:36:30.327926+00:00"
+  },
+  "1066 JOY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1066 JOY AVE",
+    "checked_at": "2026-04-24T22:36:30.842472+00:00"
+  },
+  "1066 RAYMOND": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=53483",
+    "address": "1066 Raymond St Akron, OH",
+    "owner": "Whitlow, Shawn A.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1066 Raymond St Akron, OH Property Owner Whitlow, Shawn A. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:31.747297+00:00"
+  },
+  "1067 SILVERCREST": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=21059",
+    "address": "1067 Silvercrest Ave Akron, OH",
+    "owner": "Pantich, Lesley & David",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1067 Silvercrest Ave Akron, OH Property Owner Pantich, Lesley & David Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:32.661403+00:00"
+  },
+  "107 MELODY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "107 MELODY LN",
+    "checked_at": "2026-04-24T22:36:33.208117+00:00"
+  },
+  "1070 NEVILLE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=66580",
+    "address": "1070 Neville Ave Akron, OH 44306",
+    "owner": "Marker, Gabrielle M.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1070 Neville Ave Akron, OH 44306 Property Owner Marker, Gabrielle M. Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:34.112659+00:00"
+  },
+  "1071 JOHNSTON": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=55301",
+    "address": "1071 Johnston St Akron, OH",
+    "owner": "DT Restorations",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1071 Johnston St Akron, OH Property Owner DT Restorations Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:35.056073+00:00"
+  },
+  "1074 HARTFORD": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=54159",
+    "address": "1074 Hartford Ave Akron, OH",
+    "owner": "Wilhelmina Lynne Properties LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1074 Hartford Ave Akron, OH Property Owner Wilhelmina Lynne Properties LLC Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:36.027799+00:00"
+  },
+  "1075 NORKA": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=21223",
+    "address": "1075 Norka Ave Akron, OH",
+    "owner": "Gee, Ossie Jr.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1075 Norka Ave Akron, OH Property Owner Gee, Ossie Jr. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:36.929763+00:00"
+  },
+  "1076 BRUCE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1076 BRUCE RD",
+    "checked_at": "2026-04-24T22:36:37.457863+00:00"
+  },
+  "1077 1079 MICHAELS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1077 & 1079 ST MICHAELS AVE",
+    "checked_at": "2026-04-24T22:36:37.961519+00:00"
+  },
+  "1078 SYLVAN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1078 SYLVAN AVE",
+    "checked_at": "2026-04-24T22:36:38.471105+00:00"
+  },
+  "108 W LONG": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=33361",
+    "address": "108 W Long St Akron, OH",
+    "owner": "Riffle & Son Rental Property",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 108 W Long St Akron, OH Property Owner Riffle & Son Rental Property Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:39.385915+00:00"
+  },
+  "1080 THORNDALE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1080 THORNDALE DR",
+    "checked_at": "2026-04-24T22:36:39.886973+00:00"
+  },
+  "1081 W EXCHANGE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1081 W EXCHANGE ST",
+    "checked_at": "2026-04-24T22:36:40.394356+00:00"
+  },
+  "1084 YUKON": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=56515",
+    "address": "1084 Yukon Ave Akron, OH 44320",
+    "owner": "Green, Emmit J.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1084 Yukon Ave Akron, OH 44320 Property Owner Green, Emmit J. Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:41.285498+00:00"
+  },
+  "1086 BRUCE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1086 BRUCE RD",
+    "checked_at": "2026-04-24T22:36:41.820291+00:00"
+  },
+  "1087 MURRAY": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=50973",
+    "address": "1087 Murray Ave Akron, OH",
+    "owner": "Freshwater, Cory",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1087 Murray Ave Akron, OH Property Owner Freshwater, Cory Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:42.773335+00:00"
+  },
+  "1087 W WILBETH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1087 W WILBETH RD",
+    "checked_at": "2026-04-24T22:36:43.282142+00:00"
+  },
+  "1088 PACKARD": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=27032",
+    "address": "1088 Packard Dr Akron, OH",
+    "owner": "Bowen, John D.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1088 Packard Dr Akron, OH Property Owner Bowen, John D. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:44.181516+00:00"
+  },
+  "1088 WOODWARD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1088 WOODWARD AVE",
+    "checked_at": "2026-04-24T22:36:44.701928+00:00"
+  },
+  "1090 7TH": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=46182",
+    "address": "1090 7th Ave Akron, OH",
+    "owner": "Weimer, Lance & Monica",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1090 7th Ave Akron, OH Property Owner Weimer, Lance & Monica Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:45.606700+00:00"
+  },
+  "1091 CARNEGIE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=55039",
+    "address": "1091 Carnegie Ave Akron, OH",
+    "owner": "Adams, Scott",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1091 Carnegie Ave Akron, OH Property Owner Adams, Scott Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:46.503667+00:00"
+  },
+  "1094 WILBUR": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=44608",
+    "address": "1094 Wilbur Ave Akron, OH",
+    "owner": "Armstrong, Doug Jr/Moro, Daniel",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1094 Wilbur Ave Akron, OH Property Owner Armstrong, Doug Jr/Moro, Daniel Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:47.408952+00:00"
+  },
+  "1095 WINSTON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1095 WINSTON ST",
+    "checked_at": "2026-04-24T22:36:47.919010+00:00"
+  },
+  "1096 MERCER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1096 MERCER AVE",
+    "checked_at": "2026-04-24T22:36:48.463413+00:00"
+  },
+  "1100 MERCER": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=68929",
+    "address": "1100 Mercer Ave Akron, OH 44320",
+    "owner": "Blake, Carl Jonathan",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1100 Mercer Ave Akron, OH 44320 Property Owner Blake, Carl Jonathan Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:49.416704+00:00"
+  },
+  "1101 ALLENDALE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=50702",
+    "address": "1101 Allendale Ave Akron, OH",
+    "owner": "Fiehn, Robert J. & Justine M.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1101 Allendale Ave Akron, OH Property Owner Fiehn, Robert J. & Justine M. Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:50.361849+00:00"
+  },
+  "1101 FLORIDA": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=67189",
+    "address": "1101 Florida Ave Akron, OH 44314",
+    "owner": "Hellison, Judith",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1101 Florida Ave Akron, OH 44314 Property Owner Hellison, Judith Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:51.268512+00:00"
+  },
+  "1108 NEVILLE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1108 NEVILLE AVE",
+    "checked_at": "2026-04-24T22:36:51.789643+00:00"
+  },
+  "1109 DIAGONAL": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=56735",
+    "address": "1109 Diagonal Rd Akron, OH",
+    "owner": "Lakeside REO Ventures, LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1109 Diagonal Rd Akron, OH Property Owner Lakeside REO Ventures, LLC Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:52.704659+00:00"
+  },
+  "111 W LOWELL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "111 W LOWELL AVE",
+    "checked_at": "2026-04-24T22:36:53.204241+00:00"
+  },
+  "1113 LAUREL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1113 LAUREL AVE",
+    "checked_at": "2026-04-24T22:36:53.709906+00:00"
+  },
+  "1114 GEORGIA": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=55551",
+    "address": "1114 Georgia Ave Akron, OH 44306",
+    "owner": "Nakoa Growth Partners",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1114 Georgia Ave Akron, OH 44306 Property Owner Nakoa Growth Partners Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:54.618182+00:00"
+  },
+  "1114 SAWYER": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=71069",
+    "address": "1114 Sawyer Ave Akron, OH 44310",
+    "owner": "Kapital Enterprises LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1114 Sawyer Ave Akron, OH 44310 Property Owner Kapital Enterprises LLC Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:55.528994+00:00"
+  },
+  "1114 STONER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1114 STONER ST",
+    "checked_at": "2026-04-24T22:36:56.036849+00:00"
+  },
+  "1115 COLLINWOOD": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=46016",
+    "address": "1115 Collinwood Ave Akron, OH",
+    "owner": "J & L Rentals Inc.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1115 Collinwood Ave Akron, OH Property Owner J & L Rentals Inc. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:56.938011+00:00"
+  },
+  "1116 BURKHARDT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1116 BURKHARDT AVE",
+    "checked_at": "2026-04-24T22:36:57.457481+00:00"
+  },
+  "1117 JUNEAU": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=39472",
+    "address": "1117 Juneau Ave Akron, OH",
+    "owner": "Turner, Diane",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1117 Juneau Ave Akron, OH Property Owner Turner, Diane Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:36:58.372469+00:00"
+  },
+  "1121 HARDESTY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1121 HARDESTY BLVD",
+    "checked_at": "2026-04-24T22:36:58.886416+00:00"
+  },
+  "1122 JOY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1122 JOY AVE",
+    "checked_at": "2026-04-24T22:36:59.392425+00:00"
+  },
+  "1122 NEVILLE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=60125",
+    "address": "1122 Neville Ave Akron, OH",
+    "owner": "Vasilatos, Mike & Wendy",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1122 Neville Ave Akron, OH Property Owner Vasilatos, Mike & Wendy Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:00.292701+00:00"
+  },
+  "1122 SAWYER": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=17811",
+    "address": "1122 Sawyer Ave Akron, OH",
+    "owner": "Beddoes, Brian",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1122 Sawyer Ave Akron, OH Property Owner Beddoes, Brian Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:01.250851+00:00"
+  },
+  "1122 W MARKET": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1122 W MARKET ST",
+    "checked_at": "2026-04-24T22:37:01.779987+00:00"
+  },
+  "1124 WELTON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1124 WELTON AVE",
+    "checked_at": "2026-04-24T22:37:02.285253+00:00"
+  },
+  "1125 E": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=46009",
+    "address": "1125 East Ave Akron, OH",
+    "owner": "Home Dream Ventures LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1125 East Ave Akron, OH Property Owner Home Dream Ventures LLC Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:03.172962+00:00"
+  },
+  "1126 ACKLEY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1126 ACKLEY ST",
+    "checked_at": "2026-04-24T22:37:03.678075+00:00"
+  },
+  "1126 CLIFTON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1126 CLIFTON AVE",
+    "checked_at": "2026-04-24T22:37:04.186412+00:00"
+  },
+  "1126 GREENVALE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1126 GREENVALE AVE",
+    "checked_at": "2026-04-24T22:37:04.693025+00:00"
+  },
+  "1127 REED": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=59903",
+    "address": "1127 Reed Ave Akron, OH",
+    "owner": "Gheith, Mostafa & Hannah",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1127 Reed Ave Akron, OH Property Owner Gheith, Mostafa & Hannah Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:05.586509+00:00"
+  },
+  "1128 1130 TONAWANDA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1128 - 1130 TONAWANDA AVE",
+    "checked_at": "2026-04-24T22:37:06.107080+00:00"
+  },
+  "1131 PEERLESS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1131 PEERLESS AVE",
+    "checked_at": "2026-04-24T22:37:06.614915+00:00"
+  },
+  "1132 1134 TONAWANDA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1132 & 1134 TONAWANDA AVE",
+    "checked_at": "2026-04-24T22:37:07.117274+00:00"
+  },
+  "1132 BERWIN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1132 BERWIN ST",
+    "checked_at": "2026-04-24T22:37:07.626398+00:00"
+  },
+  "1133 DAYTON": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=64210",
+    "address": "1133 Dayton St Akron, OH",
+    "owner": "Murphy, Charles",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1133 Dayton St Akron, OH Property Owner Murphy, Charles Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:08.561902+00:00"
+  },
+  "1133 TAYLOR": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=55604",
+    "address": "1133 Taylor St Akron, OH",
+    "owner": "Summit County Land Bank",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1133 Taylor St Akron, OH Property Owner Summit County Land Bank Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:09.459949+00:00"
+  },
+  "1136 EDISON": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=47205",
+    "address": "1136 Edison Ave Akron, OH",
+    "owner": "Alliance RE Holdings",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1136 Edison Ave Akron, OH Property Owner Alliance RE Holdings Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:10.368355+00:00"
+  },
+  "1138 7TH": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=29416",
+    "address": "1138 7th Ave Akron, OH",
+    "owner": "Skipper, Eddie & Barbara",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1138 7th Ave Akron, OH Property Owner Skipper, Eddie & Barbara Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:11.325585+00:00"
+  },
+  "1139 GRANT": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=32630",
+    "address": "1139 Grant St Akron, OH",
+    "owner": "Kuse, Russell & Amorita",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1139 Grant St Akron, OH Property Owner Kuse, Russell & Amorita Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:12.217396+00:00"
+  },
+  "114 BRIGHTON": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=64092",
+    "address": "114 Brighton Dr Akron, OH",
+    "owner": "Webster, Andrew",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 114 Brighton Dr Akron, OH Property Owner Webster, Andrew Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:13.118451+00:00"
+  },
+  "1140 CADILLAC": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1140 CADILLAC BLVD",
+    "checked_at": "2026-04-24T22:37:13.631986+00:00"
+  },
+  "1140 MC INTOSH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1140 MC INTOSH AVE",
+    "checked_at": "2026-04-24T22:37:14.142054+00:00"
+  },
+  "1141 MILTON": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=27580",
+    "address": "1141 Milton St Akron, OH",
+    "owner": "Preston, William H. Sr.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1141 Milton St Akron, OH Property Owner Preston, William H. Sr. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:15.088075+00:00"
+  },
+  "1143 LA CROIX": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=31807",
+    "address": "1143 La Croix Ave Akron, OH",
+    "owner": "Mobley, Robert Douglas",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1143 La Croix Ave Akron, OH Property Owner Mobley, Robert Douglas Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:15.994936+00:00"
+  },
+  "1144 CARNEGIE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1144 CARNEGIE AVE",
+    "checked_at": "2026-04-24T22:37:16.527061+00:00"
+  },
+  "1145 BROWN": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=71280",
+    "address": "1145 Brown St Akron, OH 44301",
+    "owner": "Green, Emmit J.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1145 Brown St Akron, OH 44301 Property Owner Green, Emmit J. Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:17.450404+00:00"
+  },
+  "1148 DANFORTH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1148 DANFORTH RD",
+    "checked_at": "2026-04-24T22:37:17.991888+00:00"
+  },
+  "1148 NORDICA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1148 NORDICA AVE",
+    "checked_at": "2026-04-24T22:37:18.500230+00:00"
+  },
+  "1149 JUNEAU": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=22916",
+    "address": "1149 Juneau Ave Akron, OH",
+    "owner": "Hilton, Gerald",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1149 Juneau Ave Akron, OH Property Owner Hilton, Gerald Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:19.391396+00:00"
+  },
+  "1151 CADILLAC": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=58628",
+    "address": "1151 Cadillac Blvd Akron, OH 44320",
+    "owner": "Carter, George",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1151 Cadillac Blvd Akron, OH 44320 Property Owner Carter, George Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:20.318461+00:00"
+  },
+  "1152 SEWARD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1152 SEWARD AVE",
+    "checked_at": "2026-04-24T22:37:20.842267+00:00"
+  },
+  "1153 COVENTRY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1153 COVENTRY ST",
+    "checked_at": "2026-04-24T22:37:21.374652+00:00"
+  },
+  "1153 LA CROIX": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1153 LA CROIX AVE",
+    "checked_at": "2026-04-24T22:37:21.901619+00:00"
+  },
+  "1154 SAWYER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1154 SAWYER AVE",
+    "checked_at": "2026-04-24T22:37:22.411351+00:00"
+  },
+  "1157 E TURKEYFOOT LAKE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1157 E TURKEYFOOT LAKE RD",
+    "checked_at": "2026-04-24T22:37:22.962355+00:00"
+  },
+  "1157 LAUREL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1157 LAUREL AVE",
+    "checked_at": "2026-04-24T22:37:23.499282+00:00"
+  },
+  "1157 MANCHESTER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1157 MANCHESTER RD",
+    "checked_at": "2026-04-24T22:37:24.018281+00:00"
+  },
+  "1158 NEPTUNE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=57257",
+    "address": "1158 Neptune Ave Akron, OH",
+    "owner": "Sandhu, Gurupal & Shirley",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1158 Neptune Ave Akron, OH Property Owner Sandhu, Gurupal & Shirley Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:24.940390+00:00"
+  },
+  "1161 LA CROIX": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=41058",
+    "address": "1161 La Croix Ave Akron, OH",
+    "owner": "Palladium Broomwell LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1161 La Croix Ave Akron, OH Property Owner Palladium Broomwell LLC Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:25.843297+00:00"
+  },
+  "1162 BATTLES": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1162 BATTLES AVE",
+    "checked_at": "2026-04-24T22:37:26.355563+00:00"
+  },
+  "1162 LILY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1162 LILY ST",
+    "checked_at": "2026-04-24T22:37:26.862648+00:00"
+  },
+  "1162 ROSLYN": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=60516",
+    "address": "1162 Roslyn Ave Akron, OH",
+    "owner": "Property Opportunity LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1162 Roslyn Ave Akron, OH Property Owner Property Opportunity LLC Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:27.829370+00:00"
+  },
+  "1163 MC INTOSH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1163 MC INTOSH AVE",
+    "checked_at": "2026-04-24T22:37:28.352163+00:00"
+  },
+  "1165 FREDERICK": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=70715",
+    "address": "1165 Frederick Blvd Akron, OH 44320",
+    "owner": "Espinosa, Felix",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1165 Frederick Blvd Akron, OH 44320 Property Owner Espinosa, Felix Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:29.258844+00:00"
+  },
+  "1166 MANNING": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=59824",
+    "address": "1166 Manning Ave Akron, OH",
+    "owner": "Gill, Richard A.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1166 Manning Ave Akron, OH Property Owner Gill, Richard A. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:30.164999+00:00"
+  },
+  "1166 W PARK": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1166 WEST PARK WAY",
+    "checked_at": "2026-04-24T22:37:30.709785+00:00"
+  },
+  "1169 ADA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1169 ADA ST",
+    "checked_at": "2026-04-24T22:37:31.219876+00:00"
+  },
+  "1169 WINTON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1169 WINTON AVE",
+    "checked_at": "2026-04-24T22:37:31.730884+00:00"
+  },
+  "117 THE BROOKLANDS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "117 THE BROOKLANDS AVE",
+    "checked_at": "2026-04-24T22:37:32.250064+00:00"
+  },
+  "1170 LILY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1170 LILY ST",
+    "checked_at": "2026-04-24T22:37:32.760083+00:00"
+  },
+  "1171 PITKIN": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=21451",
+    "address": "1171 Pitkin Ave Akron, OH",
+    "owner": "Mallardi, Richard C.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1171 Pitkin Ave Akron, OH Property Owner Mallardi, Richard C. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:33.654649+00:00"
+  },
+  "1172 TONAWANDA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1172 TONAWANDA AVE",
+    "checked_at": "2026-04-24T22:37:34.195009+00:00"
+  },
+  "1174 SMITHFARM": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1174 SMITHFARM AVE",
+    "checked_at": "2026-04-24T22:37:34.722717+00:00"
+  },
+  "1178 1ST": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=18981",
+    "address": "1178 1st Ave Akron, OH",
+    "owner": "Moore, Murdise Lee",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1178 1st Ave Akron, OH Property Owner Moore, Murdise Lee Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:35.623265+00:00"
+  },
+  "1180 ALICE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=37814",
+    "address": "1180 Alice Ct Akron, OH",
+    "owner": "Al-Thamra, Vivian",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1180 Alice Ct Akron, OH Property Owner Al-Thamra, Vivian Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:36.576702+00:00"
+  },
+  "1180 HAMMEL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1180 HAMMEL ST",
+    "checked_at": "2026-04-24T22:37:37.088690+00:00"
+  },
+  "1182 DIETZ": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1182 DIETZ AVE",
+    "checked_at": "2026-04-24T22:37:37.606144+00:00"
+  },
+  "1183 BITTAKER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1183 BITTAKER ST",
+    "checked_at": "2026-04-24T22:37:38.145136+00:00"
+  },
+  "1185 BEARDSLEY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1185 BEARDSLEY ST",
+    "checked_at": "2026-04-24T22:37:38.654645+00:00"
+  },
+  "1186 FORBES": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=56837",
+    "address": "1186 Forbes Ave Akron, OH",
+    "owner": "Mickunas, Nicholas E. & Doris L",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1186 Forbes Ave Akron, OH Property Owner Mickunas, Nicholas E. & Doris L Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:39.549718+00:00"
+  },
+  "1186 GEORGIA": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=51426",
+    "address": "1186 Georgia Ave Akron, OH 44306",
+    "owner": "B & S Properties of Ohio LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1186 Georgia Ave Akron, OH 44306 Property Owner B & S Properties of Ohio LLC Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:40.478521+00:00"
+  },
+  "1187 LINDSAY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1187 LINDSAY AVE",
+    "checked_at": "2026-04-24T22:37:40.990012+00:00"
+  },
+  "1188 WILBUR": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1188 WILBUR AVE",
+    "checked_at": "2026-04-24T22:37:41.509772+00:00"
+  },
+  "119 OAKDALE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=58385",
+    "address": "119 Oakdale Ave Akron, OH",
+    "owner": "Starks, Garth",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 119 Oakdale Ave Akron, OH Property Owner Starks, Garth Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:42.409238+00:00"
+  },
+  "1191 7TH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1191 7TH AVE",
+    "checked_at": "2026-04-24T22:37:42.951043+00:00"
+  },
+  "1191 CORDOVA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1191 CORDOVA AVE",
+    "checked_at": "2026-04-24T22:37:43.460417+00:00"
+  },
+  "1192 GRANT": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=50959",
+    "address": "1192 Grant St Akron, OH",
+    "owner": "Federal Home Loan Mortgage Corp.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1192 Grant St Akron, OH Property Owner Federal Home Loan Mortgage Corp. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:44.441183+00:00"
+  },
+  "1192 WELSH": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=57970",
+    "address": "1192 Welsh Ave Akron, OH",
+    "owner": "Long, James H.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1192 Welsh Ave Akron, OH Property Owner Long, James H. Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:45.342715+00:00"
+  },
+  "1193 WEISER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1193 WEISER AVE",
+    "checked_at": "2026-04-24T22:37:45.859224+00:00"
+  },
+  "1194 BURKHARDT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1194 BURKHARDT AVE",
+    "checked_at": "2026-04-24T22:37:46.407441+00:00"
+  },
+  "1196 THORNDALE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1196 THORNDALE DR",
+    "checked_at": "2026-04-24T22:37:46.932337+00:00"
+  },
+  "1197 NESTOR": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1197 NESTOR AVE",
+    "checked_at": "2026-04-24T22:37:47.449114+00:00"
+  },
+  "1198 NOME": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=64782",
+    "address": "1198 Nome Ave Akron, OH",
+    "owner": "Halasa, Mario",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1198 Nome Ave Akron, OH Property Owner Halasa, Mario Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:48.392363+00:00"
+  },
+  "1199 2ND": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=52222",
+    "address": "1199 2nd Ave Akron, OH",
+    "owner": "Tarle, Amy--mgr",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1199 2nd Ave Akron, OH Property Owner Tarle, Amy--mgr Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:49.303573+00:00"
+  },
+  "1199 GREENWOOD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1199 GREENWOOD AVE",
+    "checked_at": "2026-04-24T22:37:49.812714+00:00"
+  },
+  "1199 HERMAN": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=57046",
+    "address": "1199 Herman Ave Akron, OH",
+    "owner": "Nelson, James M. IRA",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1199 Herman Ave Akron, OH Property Owner Nelson, James M. IRA Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:50.713999+00:00"
+  },
+  "1200 WILBUR": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=23315",
+    "address": "1200 Wilbur Ave Akron, OH",
+    "owner": "Haynes, Jerry A",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1200 Wilbur Ave Akron, OH Property Owner Haynes, Jerry A Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:51.637386+00:00"
+  },
+  "1201 BELLOWS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1201 BELLOWS ST",
+    "checked_at": "2026-04-24T22:37:52.144739+00:00"
+  },
+  "1202 MT VERNON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1202 MT VERNON AVE",
+    "checked_at": "2026-04-24T22:37:52.652364+00:00"
+  },
+  "1203 CALIFORNIA": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=58728",
+    "address": "1203 California Ave Akron, OH",
+    "owner": "Woolridge, Maurice",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1203 California Ave Akron, OH Property Owner Woolridge, Maurice Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:53.584506+00:00"
+  },
+  "1204 INMAN": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=53779",
+    "address": "1204 Inman St Akron, OH",
+    "owner": "Sandhu, Gurupal & Shirley",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1204 Inman St Akron, OH Property Owner Sandhu, Gurupal & Shirley Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:54.482813+00:00"
+  },
+  "1205 VICTORY": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=51512",
+    "address": "1205 Victory St Akron, OH 44301",
+    "owner": "Whatley, Karrington",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1205 Victory St Akron, OH 44301 Property Owner Whatley, Karrington Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:55.381313+00:00"
+  },
+  "121 DEVONSHIRE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "121 DEVONSHIRE DR",
+    "checked_at": "2026-04-24T22:37:55.892327+00:00"
+  },
+  "121 KENT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "121 KENT CT",
+    "checked_at": "2026-04-24T22:37:56.404635+00:00"
+  },
+  "121 LAKE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=41221",
+    "address": "121 Lake St Akron, OH",
+    "owner": "Porter, Barbara",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 121 Lake St Akron, OH Property Owner Porter, Barbara Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:57.303721+00:00"
+  },
+  "1210 KENMORE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=35225",
+    "address": "1210 Kenmore Blvd Akron, OH",
+    "owner": "Magoolaghan, Stephen J.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1210 Kenmore Blvd Akron, OH Property Owner Magoolaghan, Stephen J. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:58.203277+00:00"
+  },
+  "1211 BELLOWS": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=60522",
+    "address": "1211 Bellows St Akron, OH",
+    "owner": "Blackwell, Dion",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1211 Bellows St Akron, OH Property Owner Blackwell, Dion Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:37:59.107056+00:00"
+  },
+  "1212 ANDRUS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1212 ANDRUS ST",
+    "checked_at": "2026-04-24T22:37:59.639899+00:00"
+  },
+  "1213 PACKARD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1213 PACKARD DR",
+    "checked_at": "2026-04-24T22:38:00.175301+00:00"
+  },
+  "1214 BEARDSLEY": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=33965",
+    "address": "1214 Beardsley St Akron, OH",
+    "owner": "Benton, Blaine(Estate)",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1214 Beardsley St Akron, OH Property Owner Benton, Blaine(Estate) Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:01.072649+00:00"
+  },
+  "1217 MANCHESTER": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=19292",
+    "address": "1217 Manchester Rd Akron, OH",
+    "owner": "Burch, David",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1217 Manchester Rd Akron, OH Property Owner Burch, David Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:01.989419+00:00"
+  },
+  "122 MIDDLEBURY": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=60271",
+    "address": "122 Middlebury Ave Akron, OH",
+    "owner": "Ivery, Gerald",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 122 Middlebury Ave Akron, OH Property Owner Ivery, Gerald Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:02.921048+00:00"
+  },
+  "1222 JANIS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1222 JANIS AVE",
+    "checked_at": "2026-04-24T22:38:03.444979+00:00"
+  },
+  "1222 WOODWARD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1222 WOODWARD AVE",
+    "checked_at": "2026-04-24T22:38:03.954443+00:00"
+  },
+  "1223 1225 FREDERICK": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1223 & 1225 FREDERICK BLVD",
+    "checked_at": "2026-04-24T22:38:04.460655+00:00"
+  },
+  "1223 5TH": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=55491",
+    "address": "1223 5th Ave Akron, OH",
+    "owner": "Farrell, Jeanette",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1223 5th Ave Akron, OH Property Owner Farrell, Jeanette Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:05.355992+00:00"
+  },
+  "1223 BELLEVUE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=42885",
+    "address": "1223 Bellevue Ave Akron, OH",
+    "owner": "Satterwhite, Cynthia",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1223 Bellevue Ave Akron, OH Property Owner Satterwhite, Cynthia Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:06.280766+00:00"
+  },
+  "1223 CRESTVIEW": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1223 CRESTVIEW AVE",
+    "checked_at": "2026-04-24T22:38:06.790448+00:00"
+  },
+  "1223 PONDVIEW": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=57262",
+    "address": "1223 Pondview Ave Akron, OH",
+    "owner": "Sandhu, Gurupal & Shirley",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1223 Pondview Ave Akron, OH Property Owner Sandhu, Gurupal & Shirley Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:07.699923+00:00"
+  },
+  "1224 STONER": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=47593",
+    "address": "1224 Stoner St Akron, OH",
+    "owner": "Home Savings & Loan Co. of Youngstown",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1224 Stoner St Akron, OH Property Owner Home Savings & Loan Co. of Youngstown Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:08.604864+00:00"
+  },
+  "1226 GREENWOOD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1226 GREENWOOD AVE",
+    "checked_at": "2026-04-24T22:38:09.112324+00:00"
+  },
+  "1226 WYLEY": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=56126",
+    "address": "1226 Wyley Ave Akron, OH 44306",
+    "owner": "RE Investors Group LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1226 Wyley Ave Akron, OH 44306 Property Owner RE Investors Group LLC Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:10.055854+00:00"
+  },
+  "1227 SAWYER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1227 SAWYER AVE",
+    "checked_at": "2026-04-24T22:38:10.577675+00:00"
+  },
+  "1231 HAZELWOOD": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=53672",
+    "address": "1231 Hazelwood Ave Akron, OH",
+    "owner": "Laughlin, Hugh J.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1231 Hazelwood Ave Akron, OH Property Owner Laughlin, Hugh J. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:11.554463+00:00"
+  },
+  "1233 LEXINGTON": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=61921",
+    "address": "1233 Lexington Ave Akron, OH 44310",
+    "owner": "Nakoa Growth Partners",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1233 Lexington Ave Akron, OH 44310 Property Owner Nakoa Growth Partners Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:12.474756+00:00"
+  },
+  "1233 MANCHESTER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1233 MANCHESTER RD",
+    "checked_at": "2026-04-24T22:38:13.005769+00:00"
+  },
+  "1234 COPLEY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1234 COPLEY RD",
+    "checked_at": "2026-04-24T22:38:13.514542+00:00"
+  },
+  "1234 INMAN": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=53673",
+    "address": "1234 Inman St Akron, OH",
+    "owner": "Laughlin, Hugh J.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1234 Inman St Akron, OH Property Owner Laughlin, Hugh J. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:14.433377+00:00"
+  },
+  "1235 REED": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1235 REED AVE",
+    "checked_at": "2026-04-24T22:38:14.944703+00:00"
+  },
+  "1237 CARNEGIE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1237 CARNEGIE AVE",
+    "checked_at": "2026-04-24T22:38:15.483680+00:00"
+  },
+  "1237 WILBUR": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=52094",
+    "address": "1237 Wilbur Ave Akron, OH",
+    "owner": "Hartley, David",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1237 Wilbur Ave Akron, OH Property Owner Hartley, David Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:16.390059+00:00"
+  },
+  "1239 HAMMEL": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=71684",
+    "address": "1239 Hammel St Akron, OH 44306",
+    "owner": "Gheith, Mostafa & Hannah",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1239 Hammel St Akron, OH 44306 Property Owner Gheith, Mostafa & Hannah Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:17.297358+00:00"
+  },
+  "1240 CARNEGIE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1240 CARNEGIE AVE",
+    "checked_at": "2026-04-24T22:38:17.846247+00:00"
+  },
+  "1240 CORDOVA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1240 CORDOVA AVE",
+    "checked_at": "2026-04-24T22:38:18.397446+00:00"
+  },
+  "1240 ROSLYN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1240 ROSLYN AVE",
+    "checked_at": "2026-04-24T22:38:18.925670+00:00"
+  },
+  "1240 TAMPA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1240 TAMPA AVE",
+    "checked_at": "2026-04-24T22:38:19.436797+00:00"
+  },
+  "1241 WILBUR": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=61065",
+    "address": "1241 Wilbur Ave Akron, OH",
+    "owner": "Skiz LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1241 Wilbur Ave Akron, OH Property Owner Skiz LLC Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:20.326460+00:00"
+  },
+  "1243 ANNA": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=44533",
+    "address": "1243 Anna Ave Akron, OH",
+    "owner": "Star Outpost, LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1243 Anna Ave Akron, OH Property Owner Star Outpost, LLC Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:21.272451+00:00"
+  },
+  "1246 WELSH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1246 WELSH AVE",
+    "checked_at": "2026-04-24T22:38:21.785123+00:00"
+  },
+  "1247 N REVERE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1247 N REVERE RD",
+    "checked_at": "2026-04-24T22:38:22.296722+00:00"
+  },
+  "1247 TAMPA": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=71936",
+    "address": "1247 Tampa Ave Akron, OH 44314",
+    "owner": "Clark, Robert A. & Julie",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1247 Tampa Ave Akron, OH 44314 Property Owner Clark, Robert A. & Julie Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:23.202874+00:00"
+  },
+  "125 CHARLES": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=69794",
+    "address": "125 Charles St Akron, OH 44304",
+    "owner": "H & A Holdings LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 125 Charles St Akron, OH 44304 Property Owner H & A Holdings LLC Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:24.121509+00:00"
+  },
+  "1251 BELLEVUE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1251 BELLEVUE AVE",
+    "checked_at": "2026-04-24T22:38:24.643681+00:00"
+  },
+  "1251 EWOOD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1251 EASTWOOD AVE",
+    "checked_at": "2026-04-24T22:38:25.176942+00:00"
+  },
+  "1251 MOORE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=69983",
+    "address": "1251 Moore St Akron, OH 44301",
+    "owner": "New Generation Homes Inc.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1251 Moore St Akron, OH 44301 Property Owner New Generation Homes Inc. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:26.096950+00:00"
+  },
+  "1252 RUSSELL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1252 RUSSELL AVE",
+    "checked_at": "2026-04-24T22:38:26.606004+00:00"
+  },
+  "1255 1257 ROSLYN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1255 & 1257 ROSLYN AVE",
+    "checked_at": "2026-04-24T22:38:27.119706+00:00"
+  },
+  "1255 ASHFORD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1255 ASHFORD LN",
+    "checked_at": "2026-04-24T22:38:27.625013+00:00"
+  },
+  "1255 WEDNESBURY": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=44448",
+    "address": "1255 Wednesbury Cir Akron, OH",
+    "owner": "Dugan, Brenda A.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1255 Wednesbury Cir Akron, OH Property Owner Dugan, Brenda A. Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:28.542316+00:00"
+  },
+  "1257 BELLOWS": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=49761",
+    "address": "1257 Bellows St Akron, OH",
+    "owner": "Liberty Rental Properties LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1257 Bellows St Akron, OH Property Owner Liberty Rental Properties LLC Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:29.460886+00:00"
+  },
+  "1257 GREENWOOD": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=56489",
+    "address": "1257 Greenwood Ave Akron, OH 44320",
+    "owner": "New Age Management Ltd",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1257 Greenwood Ave Akron, OH 44320 Property Owner New Age Management Ltd Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:30.390949+00:00"
+  },
+  "1258 LILY": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=40172",
+    "address": "1258 Lily St Akron, OH",
+    "owner": "Maynley Investments Inc.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1258 Lily St Akron, OH Property Owner Maynley Investments Inc. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:31.313548+00:00"
+  },
+  "1259 E": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=55490",
+    "address": "1259 East Ave Akron, OH",
+    "owner": "Farrell, Jeanette",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1259 East Ave Akron, OH Property Owner Farrell, Jeanette Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:32.207568+00:00"
+  },
+  "1260 HAZELWOOD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1260 HAZELWOOD AVE",
+    "checked_at": "2026-04-24T22:38:32.735998+00:00"
+  },
+  "1261 REDBUSH": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=45878",
+    "address": "1261 Redbush Rd Akron, OH",
+    "owner": "Plymouth Park Tax Services, LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1261 Redbush Rd Akron, OH Property Owner Plymouth Park Tax Services, LLC Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:33.636409+00:00"
+  },
+  "1262 LILY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1262 LILY ST",
+    "checked_at": "2026-04-24T22:38:34.164748+00:00"
+  },
+  "1263 NIAGARA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1263 NIAGARA AVE",
+    "checked_at": "2026-04-24T22:38:34.673941+00:00"
+  },
+  "1264 SHERMAN": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=48542",
+    "address": "1264 Sherman St Akron, OH",
+    "owner": "Carter, Ryan M.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1264 Sherman St Akron, OH Property Owner Carter, Ryan M. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:35.583629+00:00"
+  },
+  "1265 NEWTON": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=59082",
+    "address": "1265 Newton St Akron, OH 44305",
+    "owner": "IIP Ohio LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1265 Newton St Akron, OH 44305 Property Owner IIP Ohio LLC Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:36.502045+00:00"
+  },
+  "1266 7TH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1266 7TH AVE",
+    "checked_at": "2026-04-24T22:38:37.023248+00:00"
+  },
+  "1266 LAKESHORE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1266 LAKESHORE BLVD",
+    "checked_at": "2026-04-24T22:38:37.556580+00:00"
+  },
+  "1266 MANCHESTER": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=58439",
+    "address": "1266 Manchester Rd Akron, OH",
+    "owner": "Summit County Land Bank",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1266 Manchester Rd Akron, OH Property Owner Summit County Land Bank Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:38.482014+00:00"
+  },
+  "1267 NESTOR": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1267 NESTOR AVE",
+    "checked_at": "2026-04-24T22:38:38.985029+00:00"
+  },
+  "1268 FREDERICK": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=55691",
+    "address": "1268 Frederick Blvd Akron, OH",
+    "owner": "Gaiter, Andre L.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1268 Frederick Blvd Akron, OH Property Owner Gaiter, Andre L. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:39.888060+00:00"
+  },
+  "1268 ROWE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1268 ROWE ST",
+    "checked_at": "2026-04-24T22:38:40.403153+00:00"
+  },
+  "1269 N REVERE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1269 N REVERE RD",
+    "checked_at": "2026-04-24T22:38:40.910535+00:00"
+  },
+  "127 HIGHPOINT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "127 HIGHPOINT AVE",
+    "checked_at": "2026-04-24T22:38:41.420672+00:00"
+  },
+  "1271 CRESTVIEW": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1271 CRESTVIEW AVE",
+    "checked_at": "2026-04-24T22:38:41.927483+00:00"
+  },
+  "1273 OAKLAND": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1273 OAKLAND AVE",
+    "checked_at": "2026-04-24T22:38:42.440021+00:00"
+  },
+  "1273 SHERMAN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1273 SHERMAN ST",
+    "checked_at": "2026-04-24T22:38:42.947887+00:00"
+  },
+  "1274 STONER": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=61775",
+    "address": "1274 Stoner St Akron, OH",
+    "owner": "Hanlon, Leonard & Leigh Ann",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1274 Stoner St Akron, OH Property Owner Hanlon, Leonard & Leigh Ann Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:43.867672+00:00"
+  },
+  "1275 ANDRUS": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=61667",
+    "address": "1275 Andrus St Akron, OH",
+    "owner": "Summit County Land Bank",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1275 Andrus St Akron, OH Property Owner Summit County Land Bank Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:44.768510+00:00"
+  },
+  "1275 MANCHESTER": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=27415",
+    "address": "1275 Manchester Rd Akron, OH",
+    "owner": "Stiggers, Thomas & Margaret",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1275 Manchester Rd Akron, OH Property Owner Stiggers, Thomas & Margaret Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:45.654700+00:00"
+  },
+  "1276 DIVOT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1276 DIVOT CIR",
+    "checked_at": "2026-04-24T22:38:46.161697+00:00"
+  },
+  "1277 OAKLAND": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=64692",
+    "address": "1277 Oakland Ave Akron, OH",
+    "owner": "Manfreda, Anthony",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1277 Oakland Ave Akron, OH Property Owner Manfreda, Anthony Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:47.060514+00:00"
+  },
+  "1279 ANDRUS": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=61415",
+    "address": "1279 Andrus St Akron, OH",
+    "owner": "Summit County Land Bank",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1279 Andrus St Akron, OH Property Owner Summit County Land Bank Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:47.958363+00:00"
+  },
+  "1281 MANCHESTER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1281 MANCHESTER RD",
+    "checked_at": "2026-04-24T22:38:48.494953+00:00"
+  },
+  "1281 SPARHAWK": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=52189",
+    "address": "1281 Sparhawk Ave Akron, OH",
+    "owner": "Laughlin, Hugh J.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1281 Sparhawk Ave Akron, OH Property Owner Laughlin, Hugh J. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:49.399984+00:00"
+  },
+  "1282 ANDRUS": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=64091",
+    "address": "1282 Andrus St Akron, OH",
+    "owner": "Webster, Andrew",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1282 Andrus St Akron, OH Property Owner Webster, Andrew Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:50.346580+00:00"
+  },
+  "1282 NEPTUNE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1282 NEPTUNE AVE",
+    "checked_at": "2026-04-24T22:38:50.873799+00:00"
+  },
+  "1283 HARDESTY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1283 HARDESTY BLVD",
+    "checked_at": "2026-04-24T22:38:51.382318+00:00"
+  },
+  "1284 HERMAN": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=61770",
+    "address": "1284 Herman Ave Akron, OH",
+    "owner": "Rhone, Jennifer L. & Carter, Lloyd",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1284 Herman Ave Akron, OH Property Owner Rhone, Jennifer L. & Carter, Lloyd Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:52.297617+00:00"
+  },
+  "1287 BIG FALLS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1287 BIG FALLS AVE",
+    "checked_at": "2026-04-24T22:38:52.803633+00:00"
+  },
+  "1289 GRANT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1289 GRANT ST",
+    "checked_at": "2026-04-24T22:38:53.312615+00:00"
+  },
+  "1292 7TH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1292 7TH AVE",
+    "checked_at": "2026-04-24T22:38:53.815071+00:00"
+  },
+  "1293 SUPERIOR": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=48026",
+    "address": "1293 Superior Ave Akron, OH",
+    "owner": "Hartwell, Vivian & Andrew",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1293 Superior Ave Akron, OH Property Owner Hartwell, Vivian & Andrew Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:54.711925+00:00"
+  },
+  "1295 TONAWANDA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1295 TONAWANDA AVE",
+    "checked_at": "2026-04-24T22:38:55.219440+00:00"
+  },
+  "1296 BRIARHILL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1296 BRIARHILL DR",
+    "checked_at": "2026-04-24T22:38:55.759571+00:00"
+  },
+  "1296 HITE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=64050",
+    "address": "1296 Hite St Akron, OH",
+    "owner": "Three R's LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1296 Hite St Akron, OH Property Owner Three R's LLC Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:56.688261+00:00"
+  },
+  "1298 DOVER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1298 DOVER AVE",
+    "checked_at": "2026-04-24T22:38:57.201161+00:00"
+  },
+  "1299 LAFFER": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=17179",
+    "address": "1299 Laffer Ave Akron, OH",
+    "owner": "Harper, Carol & Harold",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1299 Laffer Ave Akron, OH Property Owner Harper, Carol & Harold Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:38:58.135146+00:00"
+  },
+  "13 HARVESTER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "13 HARVESTER DR",
+    "checked_at": "2026-04-24T22:38:58.642910+00:00"
+  },
+  "1300 HAZELWOOD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1300 HAZELWOOD AVE",
+    "checked_at": "2026-04-24T22:38:59.147705+00:00"
+  },
+  "1300 S HAWKINS": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=46044",
+    "address": "1300 S Hawkins Ave Akron, OH",
+    "owner": "Stirckly Business",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1300 S Hawkins Ave Akron, OH Property Owner Stirckly Business Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:00.039988+00:00"
+  },
+  "1301 SHERMAN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1301 SHERMAN ST",
+    "checked_at": "2026-04-24T22:39:00.573963+00:00"
+  },
+  "1301 TAMPA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1301 TAMPA AVE",
+    "checked_at": "2026-04-24T22:39:01.085537+00:00"
+  },
+  "1304 LAKESHORE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=30594",
+    "address": "1304 Lakeshore Blvd Akron, OH",
+    "owner": "Stewart, Lisa J. & Charlie",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1304 Lakeshore Blvd Akron, OH Property Owner Stewart, Lisa J. & Charlie Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:01.992184+00:00"
+  },
+  "1305 GREENWOOD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1305 GREENWOOD AVE",
+    "checked_at": "2026-04-24T22:39:02.512687+00:00"
+  },
+  "1307 ORLANDO": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1307 ORLANDO AVE",
+    "checked_at": "2026-04-24T22:39:03.026238+00:00"
+  },
+  "131 BRIGHTON": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=31708",
+    "address": "131 Brighton Dr Akron, OH",
+    "owner": "Lujan, Ross C.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 131 Brighton Dr Akron, OH Property Owner Lujan, Ross C. Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:03.915356+00:00"
+  },
+  "131 W MILLER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "131 W MILLER AVE",
+    "checked_at": "2026-04-24T22:39:04.448702+00:00"
+  },
+  "1310 LOUISIANA": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=70330",
+    "address": "1310 Louisiana Ave Akron, OH 44314",
+    "owner": "Farge Prop Mgt. & Dev. LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1310 Louisiana Ave Akron, OH 44314 Property Owner Farge Prop Mgt. & Dev. LLC Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:05.364148+00:00"
+  },
+  "1311 1313 WYLEY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1311 & 1313 WYLEY AVE",
+    "checked_at": "2026-04-24T22:39:05.872453+00:00"
+  },
+  "1314 CRESTVIEW": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1314 CRESTVIEW AVE",
+    "checked_at": "2026-04-24T22:39:06.400406+00:00"
+  },
+  "1314 W MARKET": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1314 W. Market Street",
+    "checked_at": "2026-04-24T22:39:06.901858+00:00"
+  },
+  "1315 ROSLYN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1315 ROSLYN AVE",
+    "checked_at": "2026-04-24T22:39:07.435082+00:00"
+  },
+  "1317 MANCHESTER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1317 MANCHESTER RD",
+    "checked_at": "2026-04-24T22:39:07.943527+00:00"
+  },
+  "132 ANNADALE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=49155",
+    "address": "132 Annadale Ave Akron, OH",
+    "owner": "Zupancic, Frank",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 132 Annadale Ave Akron, OH Property Owner Zupancic, Frank Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:08.841938+00:00"
+  },
+  "132 EDGEHILL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "132 EDGEHILL DR",
+    "checked_at": "2026-04-24T22:39:09.355606+00:00"
+  },
+  "1321 ARNOLD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1321 ARNOLD AVE",
+    "checked_at": "2026-04-24T22:39:09.888500+00:00"
+  },
+  "1324 MANCHESTER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1324 MANCHESTER RD",
+    "checked_at": "2026-04-24T22:39:10.401343+00:00"
+  },
+  "1326 PONTIAC": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=71288",
+    "address": "1326 Pontiac Ave Akron, OH 44307",
+    "owner": "Green, Emmit J.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1326 Pontiac Ave Akron, OH 44307 Property Owner Green, Emmit J. Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:11.333910+00:00"
+  },
+  "1327 8TH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1327 8TH AVE",
+    "checked_at": "2026-04-24T22:39:11.842643+00:00"
+  },
+  "1327 HERBERICH": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=26596",
+    "address": "1327 Herberich Ave Akron, OH",
+    "owner": "Fanning, Fred",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1327 Herberich Ave Akron, OH Property Owner Fanning, Fred Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:12.739346+00:00"
+  },
+  "1330 PONTIAC": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1330 PONTIAC AVE",
+    "checked_at": "2026-04-24T22:39:13.240865+00:00"
+  },
+  "1332 N REVERE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1332 N REVERE RD",
+    "checked_at": "2026-04-24T22:39:13.746838+00:00"
+  },
+  "1333 MANCHESTER": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=54849",
+    "address": "1333 Manchester Rd Akron, OH",
+    "owner": "CGSEDILLO LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1333 Manchester Rd Akron, OH Property Owner CGSEDILLO LLC Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:14.651265+00:00"
+  },
+  "1336 GORGE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1336 GORGE BLVD",
+    "checked_at": "2026-04-24T22:39:15.159827+00:00"
+  },
+  "1336 ORLANDO": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1336 ORLANDO AVE",
+    "checked_at": "2026-04-24T22:39:15.671431+00:00"
+  },
+  "1337 7TH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1337 7TH AVE",
+    "checked_at": "2026-04-24T22:39:16.176833+00:00"
+  },
+  "1337 NEPTUNE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1337 NEPTUNE AVE",
+    "checked_at": "2026-04-24T22:39:16.688165+00:00"
+  },
+  "1339 CAREY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1339 CAREY AVE",
+    "checked_at": "2026-04-24T22:39:17.229355+00:00"
+  },
+  "1339 MOORE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=54241",
+    "address": "1339 Moore St Akron, OH",
+    "owner": "SAG Holdings LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1339 Moore St Akron, OH Property Owner SAG Holdings LLC Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:18.145382+00:00"
+  },
+  "1340 GRANT": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=69684",
+    "address": "1340 Grant St Akron, OH 44301",
+    "owner": "Auricchio, Neil",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1340 Grant St Akron, OH 44301 Property Owner Auricchio, Neil Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:19.044645+00:00"
+  },
+  "1340 VANE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=57094",
+    "address": "1340 Vane Ave Akron, OH",
+    "owner": "DPM Investments LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1340 Vane Ave Akron, OH Property Owner DPM Investments LLC Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:19.959452+00:00"
+  },
+  "1341 CAREY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1341 CAREY AVE",
+    "checked_at": "2026-04-24T22:39:20.466441+00:00"
+  },
+  "1343 MANCHESTER": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=64655",
+    "address": "1343 Manchester Rd Akron, OH",
+    "owner": "Barnett, Clifton",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1343 Manchester Rd Akron, OH Property Owner Barnett, Clifton Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:21.372989+00:00"
+  },
+  "1343 MOORE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=64536",
+    "address": "1343 Moore St Akron, OH",
+    "owner": "Minkin, Rachael",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1343 Moore St Akron, OH Property Owner Minkin, Rachael Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:22.295766+00:00"
+  },
+  "1343 ORLANDO": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=20744",
+    "address": "1343 Orlando Ave Akron, OH",
+    "owner": "Stile, Joel H",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1343 Orlando Ave Akron, OH Property Owner Stile, Joel H Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:23.215136+00:00"
+  },
+  "1344 CALIFORNIA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1344 CALIFORNIA AVE",
+    "checked_at": "2026-04-24T22:39:23.724982+00:00"
+  },
+  "1344 GRANT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1344 GRANT ST",
+    "checked_at": "2026-04-24T22:39:24.236434+00:00"
+  },
+  "1345 LEDGEWOOD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1345 LEDGEWOOD DR",
+    "checked_at": "2026-04-24T22:39:24.767347+00:00"
+  },
+  "1346 7TH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1346 7TH AVE",
+    "checked_at": "2026-04-24T22:39:25.270850+00:00"
+  },
+  "135 BYERS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "135 BYERS AVE",
+    "checked_at": "2026-04-24T22:39:25.805848+00:00"
+  },
+  "1357 AUMAN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1357 AUMAN DR",
+    "checked_at": "2026-04-24T22:39:26.321449+00:00"
+  },
+  "1357 SHANAFELT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1357 SHANAFELT AVE",
+    "checked_at": "2026-04-24T22:39:26.864989+00:00"
+  },
+  "1358 DIAGONAL": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=59688",
+    "address": "1358 Diagonal Rd Akron, OH",
+    "owner": "Lockett, Kimberly",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1358 Diagonal Rd Akron, OH Property Owner Lockett, Kimberly Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:27.769454+00:00"
+  },
+  "1363 ARNOLD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1363 ARNOLD AVE",
+    "checked_at": "2026-04-24T22:39:28.278486+00:00"
+  },
+  "1371 CURTIS": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=70593",
+    "address": "1371 Curtis St Akron, OH 44301",
+    "owner": "Harrison, Cecelia Diver",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1371 Curtis St Akron, OH 44301 Property Owner Harrison, Cecelia Diver Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:29.179647+00:00"
+  },
+  "1371 YELLOWSTONE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1371 YELLOWSTONE AVE",
+    "checked_at": "2026-04-24T22:39:29.731157+00:00"
+  },
+  "1374 ARNOLD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1374 ARNOLD AVE",
+    "checked_at": "2026-04-24T22:39:30.253581+00:00"
+  },
+  "1374 NIAGARA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1374 NIAGARA AVE",
+    "checked_at": "2026-04-24T22:39:30.765692+00:00"
+  },
+  "1375 INMAN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1375 INMAN ST",
+    "checked_at": "2026-04-24T22:39:31.306323+00:00"
+  },
+  "1375 MARCY": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=64934",
+    "address": "1375 Marcy St Akron, OH",
+    "owner": "Meriggiare LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1375 Marcy St Akron, OH Property Owner Meriggiare LLC Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:32.207865+00:00"
+  },
+  "1375 NEIL EVAN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1375 NEIL EVAN DR",
+    "checked_at": "2026-04-24T22:39:32.731470+00:00"
+  },
+  "138 E EMERLING": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=55793",
+    "address": "138 E Emerling Ave Akron, OH",
+    "owner": "Carter, Ryan M.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 138 E Emerling Ave Akron, OH Property Owner Carter, Ryan M. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:33.652867+00:00"
+  },
+  "1382 REDSTONE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=24264",
+    "address": "1382 Redstone Ave Akron, OH",
+    "owner": "Lambert, William",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1382 Redstone Ave Akron, OH Property Owner Lambert, William Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:34.581756+00:00"
+  },
+  "1383 CURTIS": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=70590",
+    "address": "1383 Curtis St Akron, OH 44301",
+    "owner": "Harrison, Cecelia Diver",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1383 Curtis St Akron, OH 44301 Property Owner Harrison, Cecelia Diver Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:35.487648+00:00"
+  },
+  "1384 HILLCREST": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=70761",
+    "address": "1384 Hillcrest St Akron, OH 44307",
+    "owner": "Terrell, Yvette",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1384 Hillcrest St Akron, OH 44307 Property Owner Terrell, Yvette Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:36.460412+00:00"
+  },
+  "1389 HONODLE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1389 HONODLE AVE",
+    "checked_at": "2026-04-24T22:39:36.982935+00:00"
+  },
+  "139 W LOWELL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "139 W LOWELL AVE",
+    "checked_at": "2026-04-24T22:39:37.534478+00:00"
+  },
+  "139 W MILLER": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=47398",
+    "address": "139 W Miller Ave Akron, OH",
+    "owner": "Troiano, Charles L.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 139 W Miller Ave Akron, OH Property Owner Troiano, Charles L. Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:38.468687+00:00"
+  },
+  "1391 CURTIS": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=45136",
+    "address": "1391 Curtis St Akron, OH",
+    "owner": "Henderson, Susan V. & David B.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1391 Curtis St Akron, OH Property Owner Henderson, Susan V. & David B. Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:39.379874+00:00"
+  },
+  "1396 CURTIS": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=64334",
+    "address": "1396 Curtis St Akron, OH",
+    "owner": "Pakubar, Julia",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1396 Curtis St Akron, OH Property Owner Pakubar, Julia Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:40.301648+00:00"
+  },
+  "1398 CORDOVA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1398 CORDOVA AVE",
+    "checked_at": "2026-04-24T22:39:40.812517+00:00"
+  },
+  "1398 MARCY": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=28666",
+    "address": "1398 Marcy St Akron, OH",
+    "owner": "Loughborough, Darlene",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1398 Marcy St Akron, OH Property Owner Loughborough, Darlene Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:41.726963+00:00"
+  },
+  "1399 ANDRUS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1399 ANDRUS ST",
+    "checked_at": "2026-04-24T22:39:42.233485+00:00"
+  },
+  "1399 ROSLYN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1399 ROSLYN AVE",
+    "checked_at": "2026-04-24T22:39:42.746167+00:00"
+  },
+  "1401 MILLSTONE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1401 MILLSTONE CIR",
+    "checked_at": "2026-04-24T22:39:43.260107+00:00"
+  },
+  "1405 1407 SEWARD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1405 & 1407 SEWARD AVE",
+    "checked_at": "2026-04-24T22:39:43.767931+00:00"
+  },
+  "1405 ORLANDO": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1405 ORLANDO AVE",
+    "checked_at": "2026-04-24T22:39:44.287642+00:00"
+  },
+  "1414 JEFFERSON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1414 JEFFERSON AVE",
+    "checked_at": "2026-04-24T22:39:44.796331+00:00"
+  },
+  "1415 1417 BELLEVUE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1415 &1417 BELLEVUE AVE",
+    "checked_at": "2026-04-24T22:39:45.342147+00:00"
+  },
+  "1418 GREENWOOD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1418 GREENWOOD AVE",
+    "checked_at": "2026-04-24T22:39:45.859567+00:00"
+  },
+  "1421 ORLANDO": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1421 ORLANDO AVE",
+    "checked_at": "2026-04-24T22:39:46.386339+00:00"
+  },
+  "1422 CHIPPEWA": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=55444",
+    "address": "1422 Chippewa Ave Akron, OH",
+    "owner": "Castillo, Carlos & Denise",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1422 Chippewa Ave Akron, OH Property Owner Castillo, Carlos & Denise Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:47.290856+00:00"
+  },
+  "1422 VALLEY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1422 VALLEY DR",
+    "checked_at": "2026-04-24T22:39:47.835254+00:00"
+  },
+  "1425 ELDER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1425 ELDER AVE",
+    "checked_at": "2026-04-24T22:39:48.346945+00:00"
+  },
+  "1427 BURKHARDT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1427 BURKHARDT AVE",
+    "checked_at": "2026-04-24T22:39:48.889256+00:00"
+  },
+  "143 QUAKER RIDGE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "143 QUAKER RIDGE DR",
+    "checked_at": "2026-04-24T22:39:49.399805+00:00"
+  },
+  "1432 SARA": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=46258",
+    "address": "1432 Sara Ave Akron, OH",
+    "owner": "Koerner, Frederick P.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1432 Sara Ave Akron, OH Property Owner Koerner, Frederick P. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:50.330057+00:00"
+  },
+  "1437 BERNICE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1437 BERNICE ST",
+    "checked_at": "2026-04-24T22:39:50.833478+00:00"
+  },
+  "1438 SCENIC": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=58813",
+    "address": "1438 Scenic Way Akron, OH 44310",
+    "owner": "Nakoa Growth Partners",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1438 Scenic Way Akron, OH 44310 Property Owner Nakoa Growth Partners Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:51.755636+00:00"
+  },
+  "1439 PIN OAK": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1439 PIN OAK DR",
+    "checked_at": "2026-04-24T22:39:52.264529+00:00"
+  },
+  "1442 HILLSIDE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1442 HILLSIDE TER",
+    "checked_at": "2026-04-24T22:39:52.765958+00:00"
+  },
+  "1443 HITE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=55166",
+    "address": "1443 Hite St Akron, OH",
+    "owner": "Liezert, Daniel S.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1443 Hite St Akron, OH Property Owner Liezert, Daniel S. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:53.676031+00:00"
+  },
+  "1444 FREDERICK": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=66100",
+    "address": "1444 Frederick Blvd Akron, OH 44320",
+    "owner": "Meddley Holdings LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1444 Frederick Blvd Akron, OH 44320 Property Owner Meddley Holdings LLC Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:54.584122+00:00"
+  },
+  "145 ANNADALE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=25638",
+    "address": "145 Annadale Ave Akron, OH",
+    "owner": "Zupancic, Frank",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 145 Annadale Ave Akron, OH Property Owner Zupancic, Frank Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:55.538876+00:00"
+  },
+  "145 HILBISH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "145 HILBISH AVE",
+    "checked_at": "2026-04-24T22:39:56.047150+00:00"
+  },
+  "1450 CANTON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1450 CANTON RD",
+    "checked_at": "2026-04-24T22:39:56.579493+00:00"
+  },
+  "1450 HITE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1450 HITE ST",
+    "checked_at": "2026-04-24T22:39:57.088321+00:00"
+  },
+  "1452 HONODLE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1452 HONODLE AVE",
+    "checked_at": "2026-04-24T22:39:57.614347+00:00"
+  },
+  "1455 NEWTON": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=55086",
+    "address": "1455 Newton St Akron, OH",
+    "owner": "Simmons, Amanda L.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1455 Newton St Akron, OH Property Owner Simmons, Amanda L. Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:58.532578+00:00"
+  },
+  "146 MARVIN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "146 MARVIN AVE",
+    "checked_at": "2026-04-24T22:39:59.042520+00:00"
+  },
+  "146 W S": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=64084",
+    "address": "146 W South St Akron, OH",
+    "owner": "Ohio Amox Enterprise LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 146 W South St Akron, OH Property Owner Ohio Amox Enterprise LLC Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:39:59.951595+00:00"
+  },
+  "1460 BRYDEN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1460 BRYDEN DR",
+    "checked_at": "2026-04-24T22:40:00.473079+00:00"
+  },
+  "1466 GOODYEAR": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1466 GOODYEAR BLVD",
+    "checked_at": "2026-04-24T22:40:01.011948+00:00"
+  },
+  "147 MALACCA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "147 MALACCA ST",
+    "checked_at": "2026-04-24T22:40:01.526452+00:00"
+  },
+  "1474 HILLCREST": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=54489",
+    "address": "1474 Hillcrest St Akron, OH",
+    "owner": "DN2 Enterprise LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1474 Hillcrest St Akron, OH Property Owner DN2 Enterprise LLC Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:40:02.445018+00:00"
+  },
+  "1476 HILLSIDE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=62426",
+    "address": "1476 Hillside Ter Akron, OH",
+    "owner": "Avery, Michael",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1476 Hillside Ter Akron, OH Property Owner Avery, Michael Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:40:03.368454+00:00"
+  },
+  "1484 TYLER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1484 TYLER ST",
+    "checked_at": "2026-04-24T22:40:03.882235+00:00"
+  },
+  "1485 DIAGONAL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1485 DIAGONAL RD",
+    "checked_at": "2026-04-24T22:40:04.393896+00:00"
+  },
+  "1489 EARHART": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1489 EARHART AVE",
+    "checked_at": "2026-04-24T22:40:04.903989+00:00"
+  },
+  "1489 ROCKAWAY": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=53365",
+    "address": "1489 Rockaway St Akron, OH 44314",
+    "owner": "Lils Homes LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1489 Rockaway St Akron, OH 44314 Property Owner Lils Homes LLC Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:40:05.835615+00:00"
+  },
+  "149 ANNADALE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=49152",
+    "address": "149 Annadale Ave Akron, OH",
+    "owner": "Zupancic, Frank",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 149 Annadale Ave Akron, OH Property Owner Zupancic, Frank Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:40:06.736735+00:00"
+  },
+  "1492 SEMINOLA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1492 SEMINOLA AVE",
+    "checked_at": "2026-04-24T22:40:07.273637+00:00"
+  },
+  "1494 HAMPTON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1494 HAMPTON RD",
+    "checked_at": "2026-04-24T22:40:07.781527+00:00"
+  },
+  "1499 HAMPTON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1499 HAMPTON RD",
+    "checked_at": "2026-04-24T22:40:08.291397+00:00"
+  },
+  "15 W SALOME": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=41115",
+    "address": "15 W Salome Ave Akron, OH",
+    "owner": "Bolen, Justin",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 15 W Salome Ave Akron, OH Property Owner Bolen, Justin Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:40:09.206449+00:00"
+  },
+  "150 152 HALL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "150 & 152 HALL ST",
+    "checked_at": "2026-04-24T22:40:10.120826+00:00"
+  },
+  "150 CRESCENT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "150 CRESCENT DR",
+    "checked_at": "2026-04-24T22:40:10.630050+00:00"
+  },
+  "1511 LAKELAND": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1511 LAKELAND AVE",
+    "checked_at": "2026-04-24T22:40:11.171798+00:00"
+  },
+  "1514 WATERS EDGE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1514 WATERS EDGE DR",
+    "checked_at": "2026-04-24T22:40:11.676789+00:00"
+  },
+  "1515 TYLER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1515 TYLER ST",
+    "checked_at": "2026-04-24T22:40:12.178567+00:00"
+  },
+  "152 E IDO": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "152 E IDO AVE",
+    "checked_at": "2026-04-24T22:40:12.717084+00:00"
+  },
+  "1522 OVERLOOK": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=59742",
+    "address": "1522 Overlook Dr Akron, OH",
+    "owner": "Hendy, Cary",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1522 Overlook Dr Akron, OH Property Owner Hendy, Cary Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:40:13.618928+00:00"
+  },
+  "1523 SACKETT HILLS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1523 SACKETT HILLS DR",
+    "checked_at": "2026-04-24T22:40:14.133069+00:00"
+  },
+  "1524 ROCKAWAY": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=69565",
+    "address": "1524 Rockaway St Akron, OH 44314",
+    "owner": "Lavery, Pauline",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1524 Rockaway St Akron, OH 44314 Property Owner Lavery, Pauline Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:40:15.024730+00:00"
+  },
+  "1527 DIAGONAL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1527 DIAGONAL RD",
+    "checked_at": "2026-04-24T22:40:15.532048+00:00"
+  },
+  "1529 PRESTON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1529 PRESTON AVE",
+    "checked_at": "2026-04-24T22:40:16.040786+00:00"
+  },
+  "153 CUTLER": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=16154",
+    "address": "153 Cutler Pkwy Akron, OH 44305",
+    "owner": "Belair Properties LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 153 Cutler Pkwy Akron, OH 44305 Property Owner Belair Properties LLC Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:40:16.940909+00:00"
+  },
+  "1530 PILGRIM": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=61045",
+    "address": "1530 Pilgrim St Akron, OH",
+    "owner": "Skiz LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1530 Pilgrim St Akron, OH Property Owner Skiz LLC Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:40:17.848669+00:00"
+  },
+  "1532 HUGUELET": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1532 HUGUELET ST",
+    "checked_at": "2026-04-24T22:40:18.359352+00:00"
+  },
+  "1536 MULTNOMA": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=52190",
+    "address": "1536 Multnoma Ave Akron, OH",
+    "owner": "Laughlin, Hugh J.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1536 Multnoma Ave Akron, OH Property Owner Laughlin, Hugh J. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-04-24T22:40:19.279769+00:00"
+  },
+  "154 E BROOKSIDE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "154 E BROOKSIDE AVE",
+    "checked_at": "2026-04-24T22:40:19.785001+00:00"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-24T13:26:06.996423+00:00",
+  "fetched_at": "2026-04-24T22:40:21.775003+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "hot_stack",
   "description": "\ud83d\udd25 2+ distress signals \u2014 highest priority",
@@ -39,8 +39,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -111,7 +111,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "TAX-6807870",
@@ -148,8 +155,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -228,7 +235,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "TAX-6703342",
@@ -264,8 +278,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -345,7 +359,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "TAX-6740868",
@@ -380,8 +401,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -452,7 +473,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "TAX-2200382",
@@ -487,8 +515,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -559,7 +587,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "TAX-0216150",
@@ -594,8 +629,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -666,7 +701,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "TAX-4603970",
@@ -701,8 +743,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -773,7 +815,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2024 10 4359",
@@ -878,7 +927,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2024 05 1991",
@@ -991,7 +1047,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 06 2866",
@@ -1104,7 +1167,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2024 08 3472",
@@ -1217,7 +1287,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2024 07 2953",
@@ -1322,7 +1399,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 07 3028",
@@ -1435,7 +1519,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2024 12 5264",
@@ -1548,7 +1639,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 11 5614",
@@ -1661,7 +1759,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 05 2013",
@@ -1766,7 +1871,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 05 2322",
@@ -1871,7 +1983,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 10 4879",
@@ -1984,7 +2103,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 11 5263",
@@ -2097,7 +2223,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 07 3153",
@@ -2210,7 +2343,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 09 4310",
@@ -2315,7 +2455,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2026 01 0059",
@@ -2428,7 +2575,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 08 4036",
@@ -2541,7 +2695,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 02 0544",
@@ -2654,7 +2815,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 05 2316",
@@ -2759,7 +2927,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2024 08 3496",
@@ -2864,7 +3039,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 02 0638",
@@ -2969,7 +3151,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 08 3772",
@@ -3074,7 +3263,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 01 0355",
@@ -3179,7 +3375,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "TAX-6840395",
@@ -3213,8 +3416,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -3292,7 +3495,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "TAX-6713973",
@@ -3327,8 +3537,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -3406,7 +3616,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "TAX-6725033",
@@ -3441,8 +3658,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -3520,7 +3737,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "TAX-6704473",
@@ -3554,8 +3778,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -3626,7 +3850,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 09 4317",
@@ -3739,7 +3970,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 11 5437",
@@ -3852,7 +4090,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 07 3162",
@@ -3965,7 +4210,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2024 12 5388",
@@ -4078,7 +4330,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 03 1000",
@@ -4191,7 +4450,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2019 07 2763",
@@ -4304,7 +4570,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2024 09 3879",
@@ -4417,7 +4690,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 02 0891",
@@ -4530,7 +4810,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 04 1874",
@@ -4635,7 +4922,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 11 5346",
@@ -4740,7 +5034,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 11 5684",
@@ -4845,7 +5146,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2019 06 2134",
@@ -4950,7 +5258,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 12 5780",
@@ -5055,7 +5370,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 08 3839",
@@ -5160,7 +5482,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "TAX-6706402",
@@ -5194,8 +5523,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5273,7 +5602,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "TAX-6836286",
@@ -5306,8 +5642,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5377,7 +5713,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2024 06 2269",
@@ -5480,7 +5823,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 05 2430",
@@ -5583,7 +5933,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 03 1449",
@@ -5694,7 +6051,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "TAX-6715205",
@@ -5726,8 +6090,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5797,7 +6161,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "TAX-6718530",
@@ -5829,8 +6200,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5900,7 +6271,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6053",
@@ -5935,8 +6313,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -6004,7 +6382,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-0549",
@@ -6039,8 +6424,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -6108,7 +6493,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6148",
@@ -6143,8 +6535,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -6212,7 +6604,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6159",
@@ -6247,8 +6646,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -6316,7 +6715,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CODEVIOLATION-6155",
@@ -6350,8 +6756,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -6419,7 +6825,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-PRISONER OF AZKABAN LLC",
@@ -6458,8 +6871,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -6573,7 +6986,14 @@
         "129 IDLEWILD ST",
         "507 E FORD AVE"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-PILLAR HOLDINGS LLC",
@@ -6611,8 +7031,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -6690,7 +7110,14 @@
         "754 STORER AVE",
         "947 ALFRED RD"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-UNITED HOME BUYERS INC",
@@ -6728,8 +7155,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -6817,7 +7244,14 @@
         "3561 JOHNSON RD",
         "1097 OAK TREE RD"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-CITY BLOX LLC",
@@ -6854,8 +7288,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -6933,7 +7367,14 @@
         "1535 S PLAINVIEW DR",
         "2666 FAIRLAND ST"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-MTM REAL ESTATE INVESTORS LLC",
@@ -6970,8 +7411,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7046,7 +7487,14 @@
         "ENDICOTT WAY",
         "3045 ENDICOTT WAY"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-COLLECTIVE DEVELOPMENT FIRM LLC",
@@ -7084,8 +7532,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7165,7 +7613,14 @@
         "1517 BROWN ST",
         "2070 HACKBERRY ST"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-KLL INVESTMENTS LLC",
@@ -7203,8 +7658,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7293,7 +7748,14 @@
         "1257 GREENWOOD AVE",
         "1951 FAYE RD"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-HIRAYA ENTERPRISES LLC",
@@ -7329,8 +7791,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7405,7 +7867,14 @@
         "1129 7TH AVE",
         "614 EAST AVE"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-CANOLLI AFRIM",
@@ -7439,8 +7908,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7513,7 +7982,14 @@
         "764 CLEARVIEW AVE",
         "CLEARVIEW AVE"
       ],
-      "buyer_type": "Individual"
+      "buyer_type": "Individual",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "VACLAND-5701288",
@@ -7547,8 +8023,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7614,7 +8090,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "VACLAND-6804680",
@@ -7648,8 +8131,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7715,7 +8198,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-NEW GENERATION HOMES INC",
@@ -7751,8 +8241,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7766,7 +8256,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -7784,8 +8274,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-24T13:26:09.358965Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -7830,7 +8320,14 @@
         "574 ELBON AVE",
         "260 E YORK ST"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CASHBUYER-BREEN INVESTMENTS LLC",
@@ -7866,8 +8363,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7943,7 +8440,14 @@
         "8TH AVE",
         "1327 8TH AVE"
       ],
-      "buyer_type": "LLC / Entity"
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     }
   ]
 }

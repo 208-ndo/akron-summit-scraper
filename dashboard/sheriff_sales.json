@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-24T13:26:07.014421+00:00",
+  "fetched_at": "2026-04-24T22:40:21.794659+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "sheriff_sales",
   "description": "\u26a1 Properties scheduled for sheriff auction \u2014 days from losing everything",
@@ -108,7 +108,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2024 05 1991",
@@ -221,7 +228,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 06 2866",
@@ -334,7 +348,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2024 08 3472",
@@ -447,7 +468,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2024 07 2953",
@@ -552,7 +580,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 07 3028",
@@ -665,7 +700,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2024 12 5264",
@@ -778,7 +820,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 11 5614",
@@ -891,7 +940,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 05 2013",
@@ -996,7 +1052,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 05 2322",
@@ -1101,7 +1164,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 10 4879",
@@ -1214,7 +1284,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 11 5263",
@@ -1327,7 +1404,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 07 3153",
@@ -1440,7 +1524,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 09 4310",
@@ -1545,7 +1636,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2026 01 0059",
@@ -1658,7 +1756,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 08 4036",
@@ -1771,7 +1876,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 02 0544",
@@ -1884,7 +1996,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 05 2316",
@@ -1989,7 +2108,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2024 08 3496",
@@ -2094,7 +2220,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 02 0638",
@@ -2199,7 +2332,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 08 3772",
@@ -2304,7 +2444,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 01 0355",
@@ -2409,7 +2556,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 09 4317",
@@ -2522,7 +2676,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 11 5437",
@@ -2635,7 +2796,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 07 3162",
@@ -2748,7 +2916,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2024 12 5388",
@@ -2861,7 +3036,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 03 1000",
@@ -2974,7 +3156,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2019 07 2763",
@@ -3087,7 +3276,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2024 09 3879",
@@ -3200,7 +3396,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 02 0891",
@@ -3313,7 +3516,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 04 1874",
@@ -3418,7 +3628,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 11 5346",
@@ -3523,7 +3740,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 11 5684",
@@ -3628,7 +3852,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2019 06 2134",
@@ -3733,7 +3964,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 12 5780",
@@ -3838,7 +4076,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 08 3839",
@@ -3943,7 +4188,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2024 06 2269",
@@ -4046,7 +4298,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 05 2430",
@@ -4149,7 +4408,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 03 1449",
@@ -4260,7 +4526,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     }
   ]
 }

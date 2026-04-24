@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-24T13:26:07.040538+00:00",
+  "fetched_at": "2026-04-24T22:40:21.822538+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "vacant_homes",
   "description": "\ud83c\udfe0 Vacant residential homes (Akron Vacant Building Board)",
@@ -104,7 +104,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "VHOME-0109213",
@@ -205,7 +212,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "VHOME-6838102C",
@@ -306,7 +320,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "VHOME-6807445",
@@ -407,7 +428,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "VHOME-0109987",
@@ -506,7 +534,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "VHOME-3200028",
@@ -605,7 +640,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "VHOME-0115984",
@@ -704,7 +746,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "VHOME-0100970",
@@ -803,7 +852,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "VHOME-3302270",
@@ -902,7 +958,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "VHOME-3303606",
@@ -1001,7 +1064,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "VHOME-6847458",
@@ -1100,7 +1170,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "VHOME-0106938",
@@ -1199,7 +1276,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "VHOME-6813788",
@@ -1298,7 +1382,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "VHOME-6859999",
@@ -1397,7 +1488,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "VHOME-6840494",
@@ -1496,7 +1594,14 @@
       "buyer_total_purchase_volume": null,
       "buyer_zips": [],
       "buyer_property_addresses": [],
-      "buyer_type": ""
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
     }
   ]
 }
