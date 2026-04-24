@@ -3414,6 +3414,10 @@ def should_auto_skip_trace_record(record:LeadRecord)->bool:
     ])
 
 def auto_skip_trace_records(records:List[LeadRecord])->List[LeadRecord]:
+    if os.getenv("AUTO_SKIP_TRACE_DISABLED","").strip().lower() in {"1","true","yes","on"}:
+        logging.info("Auto skip trace: disabled by AUTO_SKIP_TRACE_DISABLED")
+        return records
+
     try:
         tracerfy_config=read_tracerfy_config()
     except Exception as e:
