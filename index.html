@@ -1529,9 +1529,9 @@ function clearTraceData(r){
 }
 
 async function fetchJSON(file){
-  for(const p of['data/'+file,'../data/'+file,'dashboard/'+file,file]){
+  for(const p of['dashboard/'+file,file,'data/'+file,'../data/'+file]){
     try{
-      const r=await fetch(p,{cache:'no-store'});
+      const r=await fetch(p+'?t='+Date.now(),{cache:'no-store'});
       if(r.ok)return await r.json();
     }catch(e){}
   }
