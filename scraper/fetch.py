@@ -34,9 +34,9 @@ import requests
 from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
 try:
-    from scraper.tracerfy_helper import perform_tracerfy_lookup, map_tracerfy_lookup_response
+    from scraper.tracerfy_helper import perform_tracerfy_lookup, map_tracerfy_lookup_response, read_tracerfy_config
 except ModuleNotFoundError:
-    from tracerfy_helper import perform_tracerfy_lookup, map_tracerfy_lookup_response
+    from tracerfy_helper import perform_tracerfy_lookup, map_tracerfy_lookup_response, read_tracerfy_config
 
 BASE_DIR      = Path(__file__).resolve().parent.parent
 DATA_DIR      = BASE_DIR / "data"
@@ -3414,6 +3414,15 @@ def should_auto_skip_trace_record(record:LeadRecord)->bool:
     ])
 
 def auto_skip_trace_records(records:List[LeadRecord])->List[LeadRecord]:
+    try:
+        tracerfy_config=read_tracerfy_config()
+    except Exception as e:
+        logging.info("Auto skip trace: disabled, Tracerfy config unavailable: %s",e)
+        return records
+    if not tracerfy_config.get("api_key"):
+        logging.info("Auto skip trace: disabled, no Tracerfy apiKey/apiToken configured")
+        return records
+
     pending=[record for record in records if should_auto_skip_trace_record(record)]
     if not pending:
         logging.info("Auto skip trace: no pending records")
