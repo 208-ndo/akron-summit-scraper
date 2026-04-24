@@ -94,7 +94,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CV2025 09 4317",
@@ -191,7 +199,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CV2024 05 1991",
@@ -288,7 +304,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CV2025 06 2866",
@@ -385,7 +409,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CV2025 11 5437",
@@ -482,7 +514,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CV2024 08 3472",
@@ -579,7 +619,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CV2024 07 2953",
@@ -676,7 +724,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CV2024 06 2269",
@@ -771,7 +827,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CV2025 07 3162",
@@ -868,7 +932,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CV2025 07 3028",
@@ -965,7 +1037,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CV2025 05 2430",
@@ -1060,7 +1140,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CV2024 12 5388",
@@ -1157,7 +1245,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CV2024 12 5264",
@@ -1254,7 +1350,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CV2025 11 5614",
@@ -1351,7 +1455,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CV2025 03 1000",
@@ -1448,7 +1560,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CV2025 03 1449",
@@ -1543,7 +1663,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CV2025 05 2013",
@@ -1640,7 +1768,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CV2025 05 2322",
@@ -1737,7 +1873,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CV2025 10 4879",
@@ -1834,7 +1978,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CV2025 11 5263",
@@ -1931,6 +2083,14 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   }
 ]

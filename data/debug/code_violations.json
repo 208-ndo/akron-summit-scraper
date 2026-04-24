@@ -88,7 +88,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CODEVIOLATION-6102",
@@ -179,7 +187,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CODEVIOLATION-6124",
@@ -270,7 +286,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CODEVIOLATION-6125",
@@ -361,7 +385,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CODEVIOLATION-6126",
@@ -452,7 +484,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CODEVIOLATION-6127",
@@ -543,7 +583,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CODEVIOLATION-6128",
@@ -634,7 +682,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CODEVIOLATION-6129",
@@ -725,7 +781,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CODEVIOLATION-6130",
@@ -816,7 +880,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CODEVIOLATION-6131",
@@ -907,7 +979,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CODEVIOLATION-6132",
@@ -998,7 +1078,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CODEVIOLATION-6133",
@@ -1089,7 +1177,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CODEVIOLATION-6134",
@@ -1180,7 +1276,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CODEVIOLATION-6135",
@@ -1271,7 +1375,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CODEVIOLATION-0547",
@@ -1362,7 +1474,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CODEVIOLATION-0548",
@@ -1453,7 +1573,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CODEVIOLATION-6136",
@@ -1544,7 +1672,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CODEVIOLATION-6137",
@@ -1635,7 +1771,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CODEVIOLATION-6138",
@@ -1726,7 +1870,15 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   },
   {
     "doc_num": "CODEVIOLATION-6139",
@@ -1817,6 +1969,14 @@
     "is_inherited": false,
     "bedrooms": null,
     "bathrooms": null,
-    "square_feet": null
+    "square_feet": null,
+    "buyer_purchase_count": 0,
+    "buyer_unique_parcels": 0,
+    "buyer_last_purchase_date": "",
+    "buyer_avg_purchase_price": null,
+    "buyer_total_purchase_volume": null,
+    "buyer_zips": [],
+    "buyer_property_addresses": [],
+    "buyer_type": ""
   }
 ]

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-23T15:03:52.754336+00:00",
+  "fetched_at": "2026-04-24T07:01:08.049302+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "out_of_state",
   "description": "\ud83c\udf0e Owner mails from out of state",
@@ -40,8 +40,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -112,7 +112,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.5,
-      "square_feet": 960
+      "square_feet": 960,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6803791",
@@ -215,7 +223,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1762
+      "square_feet": 1762,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6810699",
@@ -322,7 +338,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 2130
+      "square_feet": 2130,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6818631",
@@ -429,7 +453,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 964
+      "square_feet": 964,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6821692",
@@ -536,7 +568,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 2322
+      "square_feet": 2322,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6821718",
@@ -635,7 +675,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 1536
+      "square_feet": 1536,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6821719",
@@ -742,7 +790,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 1536
+      "square_feet": 1536,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6825412",
@@ -849,7 +905,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1308
+      "square_feet": 1308,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6827099",
@@ -956,7 +1020,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 3898
+      "square_feet": 3898,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6828524",
@@ -1063,7 +1135,15 @@
       "is_inherited": false,
       "bedrooms": 1.0,
       "bathrooms": 1.0,
-      "square_feet": 684
+      "square_feet": 684,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6831010",
@@ -1162,7 +1242,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 2322
+      "square_feet": 2322,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6831678",
@@ -1269,7 +1357,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1146
+      "square_feet": 1146,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6700134",
@@ -1376,7 +1472,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1008
+      "square_feet": 1008,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6703592",
@@ -1483,7 +1587,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 1404
+      "square_feet": 1404,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6707406",
@@ -1590,7 +1702,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1423
+      "square_feet": 1423,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6707465",
@@ -1689,7 +1809,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 1008
+      "square_feet": 1008,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6709979",
@@ -1796,7 +1924,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1104
+      "square_feet": 1104,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6715259",
@@ -1895,7 +2031,15 @@
       "is_inherited": false,
       "bedrooms": 5.0,
       "bathrooms": 3.0,
-      "square_feet": 1500
+      "square_feet": 1500,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6717547",
@@ -2002,7 +2146,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1325
+      "square_feet": 1325,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6720646",
@@ -2109,7 +2261,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 2524
+      "square_feet": 2524,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6728555",
@@ -2216,7 +2376,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.5,
-      "square_feet": 1810
+      "square_feet": 1810,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6729837",
@@ -2323,7 +2491,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1829
+      "square_feet": 1829,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6733702",
@@ -2422,7 +2598,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 1700
+      "square_feet": 1700,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6739756",
@@ -2529,7 +2713,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1456
+      "square_feet": 1456,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-7001475",
@@ -2636,7 +2828,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 2040
+      "square_feet": 2040,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-0102204",
@@ -2743,7 +2943,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.5,
-      "square_feet": 2098
+      "square_feet": 2098,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-0106736",
@@ -2850,7 +3058,15 @@
       "is_inherited": false,
       "bedrooms": 5.0,
       "bathrooms": 1.0,
-      "square_feet": 1870
+      "square_feet": 1870,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-0109965",
@@ -2957,7 +3173,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1350
+      "square_feet": 1350,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-0114517",
@@ -3064,7 +3288,15 @@
       "is_inherited": false,
       "bedrooms": 5.0,
       "bathrooms": 2.0,
-      "square_feet": 1896
+      "square_feet": 1896,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-0407701",
@@ -3172,7 +3404,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.5,
-      "square_feet": 2256
+      "square_feet": 2256,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-1506550",
@@ -3279,7 +3519,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 3.0,
-      "square_feet": 2391
+      "square_feet": 2391,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-1903217",
@@ -3386,7 +3634,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 3.5,
-      "square_feet": 1704
+      "square_feet": 1704,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-1903929",
@@ -3493,7 +3749,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 1374
+      "square_feet": 1374,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-2200143",
@@ -3600,7 +3864,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1144
+      "square_feet": 1144,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-0202010",
@@ -3707,7 +3979,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 994
+      "square_feet": 994,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-0207392",
@@ -3814,7 +4094,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 341
+      "square_feet": 341,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-0214476",
@@ -3921,7 +4209,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1373
+      "square_feet": 1373,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-3501260",
@@ -4028,7 +4324,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.5,
-      "square_feet": 2112
+      "square_feet": 2112,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-2802882",
@@ -4135,7 +4439,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 2178
+      "square_feet": 2178,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-2806839",
@@ -4242,7 +4554,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1092
+      "square_feet": 1092,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-2812981",
@@ -4349,7 +4669,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 2890
+      "square_feet": 2890,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-3006028",
@@ -4452,7 +4780,15 @@
       "is_inherited": false,
       "bedrooms": 5.0,
       "bathrooms": 5.5,
-      "square_feet": 3764
+      "square_feet": 3764,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-5402255",
@@ -4559,7 +4895,15 @@
       "is_inherited": false,
       "bedrooms": 6.0,
       "bathrooms": 3.0,
-      "square_feet": 2190
+      "square_feet": 2190,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-3313469",
@@ -4666,7 +5010,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 2.0,
-      "square_feet": 2151
+      "square_feet": 2151,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-2302610",
@@ -4773,7 +5125,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1080
+      "square_feet": 1080,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-4000230",
@@ -4880,7 +5240,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1543
+      "square_feet": 1543,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6600514",
@@ -4987,7 +5355,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 998
+      "square_feet": 998,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-5001668",
@@ -5094,7 +5470,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 2.5,
-      "square_feet": 1902
+      "square_feet": 1902,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-4501552",
@@ -5201,7 +5585,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 2.0,
-      "square_feet": 1204
+      "square_feet": 1204,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-5105998",
@@ -5304,7 +5696,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1152
+      "square_feet": 1152,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-5107120",
@@ -5411,7 +5811,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 964
+      "square_feet": 964,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-5108057",
@@ -5518,7 +5926,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1680
+      "square_feet": 1680,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-5602993",
@@ -5625,7 +6041,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 3.0,
-      "square_feet": 2420
+      "square_feet": 2420,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-5603572",
@@ -5732,7 +6156,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.5,
-      "square_feet": 1024
+      "square_feet": 1024,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-5603769",
@@ -5839,7 +6271,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1089
+      "square_feet": 1089,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-5607210",
@@ -5946,7 +6386,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.5,
-      "square_feet": 1716
+      "square_feet": 1716,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6000604",
@@ -6053,7 +6501,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.5,
-      "square_feet": 1966
+      "square_feet": 1966,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6001426",
@@ -6160,7 +6616,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 3.0,
-      "square_feet": 1911
+      "square_feet": 1911,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6401024",
@@ -6267,7 +6731,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1098
+      "square_feet": 1098,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6403748",
@@ -6374,7 +6846,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 2.5,
-      "square_feet": 952
+      "square_feet": 952,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6800571",
@@ -6481,7 +6961,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 1008
+      "square_feet": 1008,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6801683",
@@ -6588,7 +7076,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1170
+      "square_feet": 1170,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6802965",
@@ -6695,7 +7191,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1287
+      "square_feet": 1287,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6803847",
@@ -6802,7 +7306,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.5,
-      "square_feet": 941
+      "square_feet": 941,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6804798",
@@ -6909,7 +7421,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1533
+      "square_feet": 1533,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6805371",
@@ -7016,7 +7536,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1208
+      "square_feet": 1208,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6806268",
@@ -7123,7 +7651,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1393
+      "square_feet": 1393,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6806526",
@@ -7230,7 +7766,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1362
+      "square_feet": 1362,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6807310",
@@ -7337,7 +7881,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1236
+      "square_feet": 1236,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6807637",
@@ -7444,7 +7996,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1092
+      "square_feet": 1092,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6808414",
@@ -7551,7 +8111,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 1112
+      "square_feet": 1112,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6809129",
@@ -7658,7 +8226,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 1054
+      "square_feet": 1054,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6809586",
@@ -7765,7 +8341,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 754
+      "square_feet": 754,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6811071",
@@ -7872,7 +8456,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1292
+      "square_feet": 1292,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6811352",
@@ -7979,7 +8571,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 1405
+      "square_feet": 1405,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6811393",
@@ -8086,7 +8686,15 @@
       "is_inherited": false,
       "bedrooms": 1.0,
       "bathrooms": 1.0,
-      "square_feet": 914
+      "square_feet": 914,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6811801",
@@ -8193,7 +8801,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1120
+      "square_feet": 1120,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6814776",
@@ -8300,7 +8916,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1170
+      "square_feet": 1170,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6815319",
@@ -8407,7 +9031,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1221
+      "square_feet": 1221,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6817359",
@@ -8514,7 +9146,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1472
+      "square_feet": 1472,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6818614",
@@ -8621,7 +9261,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.5,
-      "square_feet": 779
+      "square_feet": 779,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6818804",
@@ -8728,7 +9376,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1373
+      "square_feet": 1373,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6819136",
@@ -8835,7 +9491,15 @@
       "is_inherited": false,
       "bedrooms": 5.0,
       "bathrooms": 1.0,
-      "square_feet": 1504
+      "square_feet": 1504,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6819825",
@@ -8942,7 +9606,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1388
+      "square_feet": 1388,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6820127",
@@ -9049,7 +9721,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1591
+      "square_feet": 1591,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6820699",
@@ -9156,7 +9836,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 960
+      "square_feet": 960,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6820836",
@@ -9263,7 +9951,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1008
+      "square_feet": 1008,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6820919",
@@ -9370,7 +10066,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 1200
+      "square_feet": 1200,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6821044",
@@ -9477,7 +10181,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1618
+      "square_feet": 1618,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6822980",
@@ -9584,7 +10296,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1241
+      "square_feet": 1241,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6823162",
@@ -9691,7 +10411,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1176
+      "square_feet": 1176,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6824344",
@@ -9798,7 +10526,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 892
+      "square_feet": 892,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6824741",
@@ -9901,7 +10637,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1476
+      "square_feet": 1476,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6825519",
@@ -10008,7 +10752,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 801
+      "square_feet": 801,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6826560",
@@ -10115,7 +10867,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1040
+      "square_feet": 1040,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6827351",
@@ -10222,7 +10982,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1633
+      "square_feet": 1633,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6827471",
@@ -10329,7 +11097,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1405
+      "square_feet": 1405,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6827639",
@@ -10436,7 +11212,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 1379
+      "square_feet": 1379,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6827703",
@@ -10543,7 +11327,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1098
+      "square_feet": 1098,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6828250",
@@ -10650,7 +11442,15 @@
       "is_inherited": false,
       "bedrooms": 5.0,
       "bathrooms": 2.0,
-      "square_feet": 2074
+      "square_feet": 2074,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6828379",
@@ -10757,7 +11557,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1292
+      "square_feet": 1292,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6830306",
@@ -10864,7 +11672,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1144
+      "square_feet": 1144,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6830604",
@@ -10971,7 +11787,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 720
+      "square_feet": 720,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6831533",
@@ -11078,7 +11902,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 3.0,
-      "square_feet": 2132
+      "square_feet": 2132,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6831598",
@@ -11185,7 +12017,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1336
+      "square_feet": 1336,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6831718",
@@ -11292,7 +12132,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.5,
-      "square_feet": 1095
+      "square_feet": 1095,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6831847",
@@ -11399,7 +12247,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1125
+      "square_feet": 1125,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6832093",
@@ -11506,7 +12362,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1047
+      "square_feet": 1047,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6833076",
@@ -11613,7 +12477,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 3.0,
-      "square_feet": 1733
+      "square_feet": 1733,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6833428",
@@ -11720,7 +12592,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1570
+      "square_feet": 1570,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6833584",
@@ -11827,7 +12707,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1224
+      "square_feet": 1224,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6835513",
@@ -11930,7 +12818,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1373
+      "square_feet": 1373,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6835641",
@@ -12037,7 +12933,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.5,
-      "square_feet": 2682
+      "square_feet": 2682,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6836987",
@@ -12144,7 +13048,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 1284
+      "square_feet": 1284,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6837552",
@@ -12251,7 +13163,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1618
+      "square_feet": 1618,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6837584",
@@ -12358,7 +13278,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1040
+      "square_feet": 1040,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6837968",
@@ -12465,7 +13393,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.5,
-      "square_feet": 1260
+      "square_feet": 1260,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6837991",
@@ -12572,7 +13508,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1586
+      "square_feet": 1586,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6838135",
@@ -12679,7 +13623,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1546
+      "square_feet": 1546,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6839491",
@@ -12786,7 +13738,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 849
+      "square_feet": 849,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6840440",
@@ -12893,7 +13853,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1312
+      "square_feet": 1312,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6842342",
@@ -13000,7 +13968,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1344
+      "square_feet": 1344,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6842499",
@@ -13107,7 +14083,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1692
+      "square_feet": 1692,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6700212",
@@ -13214,7 +14198,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1248
+      "square_feet": 1248,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6701970",
@@ -13321,7 +14313,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 910
+      "square_feet": 910,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6701982",
@@ -13424,7 +14424,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1744
+      "square_feet": 1744,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6703342",
@@ -13531,7 +14539,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1641
+      "square_feet": 1641,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6703809",
@@ -13638,7 +14654,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1882
+      "square_feet": 1882,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6704231",
@@ -13745,7 +14769,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 864
+      "square_feet": 864,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6704764",
@@ -13852,7 +14884,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1515
+      "square_feet": 1515,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6705052",
@@ -13959,7 +14999,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1144
+      "square_feet": 1144,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6705992",
@@ -14066,7 +15114,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1064
+      "square_feet": 1064,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6706351",
@@ -14173,7 +15229,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1433
+      "square_feet": 1433,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6706680",
@@ -14280,7 +15344,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1617
+      "square_feet": 1617,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6706786",
@@ -14387,7 +15459,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1622
+      "square_feet": 1622,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6706997",
@@ -14494,7 +15574,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1240
+      "square_feet": 1240,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6707081",
@@ -14601,7 +15689,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1498
+      "square_feet": 1498,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6707100",
@@ -14708,7 +15804,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1180
+      "square_feet": 1180,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6707946",
@@ -14815,7 +15919,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1008
+      "square_feet": 1008,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6711362",
@@ -14922,7 +16034,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 2.0,
-      "square_feet": 840
+      "square_feet": 840,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6712313",
@@ -15029,7 +16149,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 973
+      "square_feet": 973,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6712475",
@@ -15136,7 +16264,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 3.0,
-      "square_feet": 1399
+      "square_feet": 1399,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6713334",
@@ -15243,7 +16379,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 784
+      "square_feet": 784,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6713788",
@@ -15350,7 +16494,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.5,
-      "square_feet": 750
+      "square_feet": 750,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6713795",
@@ -15449,7 +16601,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1247
+      "square_feet": 1247,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6714170",
@@ -15556,7 +16716,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1498
+      "square_feet": 1498,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6714635",
@@ -15663,7 +16831,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1535
+      "square_feet": 1535,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6715978",
@@ -15770,7 +16946,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1314
+      "square_feet": 1314,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6717598",
@@ -15877,7 +17061,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1562
+      "square_feet": 1562,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6717713",
@@ -15984,7 +17176,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1400
+      "square_feet": 1400,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6718514",
@@ -16091,7 +17291,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1596
+      "square_feet": 1596,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6718843",
@@ -16198,7 +17406,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1280
+      "square_feet": 1280,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6718852",
@@ -16305,7 +17521,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 1398
+      "square_feet": 1398,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6720207",
@@ -16412,7 +17636,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1056
+      "square_feet": 1056,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6720835",
@@ -16519,7 +17751,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1456
+      "square_feet": 1456,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6721136",
@@ -16626,7 +17866,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 864
+      "square_feet": 864,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6721650",
@@ -16733,7 +17981,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 1493
+      "square_feet": 1493,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6722278",
@@ -16840,7 +18096,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1704
+      "square_feet": 1704,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6722601",
@@ -16947,7 +18211,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 768
+      "square_feet": 768,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6722924",
@@ -17054,7 +18326,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1122
+      "square_feet": 1122,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6724232",
@@ -17161,7 +18441,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1023
+      "square_feet": 1023,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6724414",
@@ -17268,7 +18556,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 1165
+      "square_feet": 1165,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6725858",
@@ -17367,7 +18663,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1040
+      "square_feet": 1040,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6727302",
@@ -17474,7 +18778,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1008
+      "square_feet": 1008,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6728033",
@@ -17581,7 +18893,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1072
+      "square_feet": 1072,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6728048",
@@ -17688,7 +19008,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1326
+      "square_feet": 1326,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6729727",
@@ -17795,7 +19123,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1065
+      "square_feet": 1065,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6730174",
@@ -17894,7 +19230,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 310
+      "square_feet": 310,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6730967",
@@ -17993,7 +19337,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1056
+      "square_feet": 1056,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6731260",
@@ -18092,7 +19444,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1440
+      "square_feet": 1440,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6731761",
@@ -18191,7 +19551,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1453
+      "square_feet": 1453,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6732275",
@@ -18290,7 +19658,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1056
+      "square_feet": 1056,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6732669",
@@ -18389,7 +19765,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 2060
+      "square_feet": 2060,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6733324",
@@ -18488,7 +19872,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1439
+      "square_feet": 1439,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6733856",
@@ -18587,7 +19979,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1245
+      "square_feet": 1245,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6735463",
@@ -18686,7 +20086,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 994
+      "square_feet": 994,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6735871",
@@ -18785,7 +20193,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1152
+      "square_feet": 1152,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6736754",
@@ -18884,7 +20300,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1344
+      "square_feet": 1344,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6737210",
@@ -18983,7 +20407,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 992
+      "square_feet": 992,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6737261",
@@ -19082,7 +20514,15 @@
       "is_inherited": false,
       "bedrooms": 5.0,
       "bathrooms": 1.5,
-      "square_feet": 1714
+      "square_feet": 1714,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6738450",
@@ -19181,7 +20621,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1248
+      "square_feet": 1248,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6738755",
@@ -19280,7 +20728,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1040
+      "square_feet": 1040,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6740714",
@@ -19379,7 +20835,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1008
+      "square_feet": 1008,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6741660",
@@ -19478,7 +20942,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 1760
+      "square_feet": 1760,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6741784",
@@ -19577,7 +21049,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1457
+      "square_feet": 1457,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-0103233",
@@ -19676,7 +21156,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1128
+      "square_feet": 1128,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-0108688",
@@ -19775,7 +21263,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1204
+      "square_feet": 1204,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-0108976",
@@ -19874,7 +21370,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 954
+      "square_feet": 954,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-1504562",
@@ -19973,7 +21477,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 1064
+      "square_feet": 1064,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-1902668",
@@ -20072,7 +21584,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 940
+      "square_feet": 940,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-1904346",
@@ -20171,7 +21691,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1192
+      "square_feet": 1192,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-1907719",
@@ -20270,7 +21798,15 @@
       "is_inherited": false,
       "bedrooms": 1.0,
       "bathrooms": 1.0,
-      "square_feet": 998
+      "square_feet": 998,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-5108201",
@@ -20369,7 +21905,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 2.0,
-      "square_feet": 2730
+      "square_feet": 2730,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6802831",
@@ -20466,7 +22010,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.0,
-      "square_feet": 1994
+      "square_feet": 1994,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6807394",
@@ -20563,7 +22115,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1040
+      "square_feet": 1040,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6816258",
@@ -20660,7 +22220,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1242
+      "square_feet": 1242,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6816392",
@@ -20757,7 +22325,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 726
+      "square_feet": 726,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6826959",
@@ -20854,7 +22430,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1480
+      "square_feet": 1480,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6827131",
@@ -20951,7 +22535,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 924
+      "square_feet": 924,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6829941",
@@ -21048,7 +22640,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1544
+      "square_feet": 1544,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6836180",
@@ -21145,7 +22745,15 @@
       "is_inherited": false,
       "bedrooms": 5.0,
       "bathrooms": 2.5,
-      "square_feet": 1710
+      "square_feet": 1710,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6700349",
@@ -21242,7 +22850,15 @@
       "is_inherited": false,
       "bedrooms": 5.0,
       "bathrooms": 2.0,
-      "square_feet": 1684
+      "square_feet": 1684,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6700537",
@@ -21339,7 +22955,15 @@
       "is_inherited": false,
       "bedrooms": 1.0,
       "bathrooms": 1.0,
-      "square_feet": 1404
+      "square_feet": 1404,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6701985",
@@ -21436,7 +23060,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 978
+      "square_feet": 978,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6712259",
@@ -21533,7 +23165,15 @@
       "is_inherited": false,
       "bedrooms": 5.0,
       "bathrooms": 1.0,
-      "square_feet": 1478
+      "square_feet": 1478,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6722005",
@@ -21630,7 +23270,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 0.5,
-      "square_feet": 1162
+      "square_feet": 1162,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6722469",
@@ -21727,7 +23375,15 @@
       "is_inherited": false,
       "bedrooms": 1.0,
       "bathrooms": 1.0,
-      "square_feet": 700
+      "square_feet": 700,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6723987",
@@ -21824,7 +23480,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 1038
+      "square_feet": 1038,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6725856",
@@ -21921,7 +23585,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1613
+      "square_feet": 1613,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6726584",
@@ -22018,7 +23690,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1152
+      "square_feet": 1152,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6727005",
@@ -22115,7 +23795,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 1.0,
-      "square_feet": 1413
+      "square_feet": 1413,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6730202",
@@ -22212,7 +23900,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1040
+      "square_feet": 1040,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6735456",
@@ -22309,7 +24005,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 760
+      "square_feet": 760,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6737796",
@@ -22406,7 +24110,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 1248
+      "square_feet": 1248,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6737960",
@@ -22503,7 +24215,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 888
+      "square_feet": 888,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6738986",
@@ -22600,7 +24320,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 960
+      "square_feet": 960,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6739895",
@@ -22697,7 +24425,15 @@
       "is_inherited": false,
       "bedrooms": 1.0,
       "bathrooms": 1.0,
-      "square_feet": 528
+      "square_feet": 528,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6740133",
@@ -22794,7 +24530,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.5,
-      "square_feet": 1525
+      "square_feet": 1525,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6740263",
@@ -22891,7 +24635,15 @@
       "is_inherited": false,
       "bedrooms": 2.0,
       "bathrooms": 1.0,
-      "square_feet": 804
+      "square_feet": 804,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-6740753",
@@ -22988,7 +24740,15 @@
       "is_inherited": false,
       "bedrooms": 3.0,
       "bathrooms": 1.0,
-      "square_feet": 1144
+      "square_feet": 1144,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-2817244",
@@ -23085,7 +24845,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.5,
-      "square_feet": 1824
+      "square_feet": 1824,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-2817248",
@@ -23182,7 +24950,15 @@
       "is_inherited": false,
       "bedrooms": 4.0,
       "bathrooms": 2.5,
-      "square_feet": 1824
+      "square_feet": 1824,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     },
     {
       "doc_num": "TAX-2305627",
@@ -23276,7 +25052,15 @@
       "is_inherited": false,
       "bedrooms": null,
       "bathrooms": null,
-      "square_feet": null
+      "square_feet": null,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": ""
     }
   ]
 }
