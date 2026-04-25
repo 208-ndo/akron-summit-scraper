@@ -613,6 +613,10 @@ def perform_tracerfy_lookup(lookup_request):
         headers={
             "Authorization": f"Bearer {config['api_key']}",
             "Content-Type": "application/json",
+            "Accept": "application/json",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Origin": "https://208-ndo.github.io",
+            "Referer": "https://208-ndo.github.io/akron-summit-scraper/",
         },
         method="POST",
     )
