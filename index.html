@@ -405,6 +405,7 @@
     <option>Spacer</option>
   </select>
   <button class="btn btn-primary" onclick="exportCSV()">Skip Trace CSV</button>
+  <button class="btn btn-primary" id="manual-trace-btn" onclick="manualSkipTraceEligible()">Skip Eligible Now</button>
   <button class="btn btn-ghost" onclick="exportHotStack()" style="border-color:var(--hot);color:var(--hot)">Hot Stack Only</button>
   <button class="btn btn-ghost" onclick="clearFilters()">Clear</button>
   <div class="rec-count" id="rec-count">0 records</div>
@@ -683,7 +684,7 @@ const PAGE=200;
 const TRACE_STORE_KEY='akron_tracerfy_trace_store_v2';
 const TRACERFY_DEFAULT_BASE='https://tracerfy.com/v1/api';
 const TRACE_SUCCESS_STATUSES=new Set(['success']);
-const TRACE_FINAL_STATUSES=new Set(['success','no_contact','no_hit','missing_address']);
+const TRACE_FINAL_STATUSES=new Set(['success','no_contact','no_hit','missing_address','request_failed','not_found','no_match']);
 const TRACE_FAILURE_STATUSES=new Set(['no_contact','no_hit','request_failed','not_found','no_match','missing_address']);
 const TRACE_SOURCE='Tracerfy';
 const TRACE_PERSIST_FIELDS=[
@@ -717,6 +718,7 @@ let localTraceStore=loadTraceStore();
 let remoteTraceStore={};
 let traceStore=mergeTraceStores(remoteTraceStore,localTraceStore);
 let traceQueue=[],traceQueueKeys=new Set(),traceQueueRunning=false,traceQueuePromise=Promise.resolve();
+const MANUAL_TRACE_CAP=10;
 let canonicalTraceIndex=null,canonicalTraceIndexPromise=null;
 let remoteTraceStoreLoaded=false,remoteTraceStorePromise=null;
 
@@ -1713,11 +1715,26 @@ async function processTraceQueue(){
   return traceQueuePromise;
 }
 
+async function manualSkipTraceEligible(){
+  const btn=document.getElementById('manual-trace-btn');
+  const source=(filtered&&filtered.length?filtered:curRecs)||[];
+  const targets=source.filter(r=>shouldAutoSkipTrace(r)&&!r._trace_loading).slice(0,MANUAL_TRACE_CAP);
+  if(!targets.length){
+    alert('No eligible untraced leads found. Already traced, no-hit, no-contact, failed, and missing-address leads are skipped.');
+    return;
+  }
+  const oldText=btn?btn.textContent:'';
+  if(btn){btn.disabled=true;btn.textContent=`Tracing ${targets.length}...`;}
+  await queueAutoSkipTrace(targets);
+  if(btn){btn.disabled=false;btn.textContent=oldText||'Skip Eligible Now';}
+  const hits=targets.filter(r=>isSkipTraced(r)).length;
+  alert(`Skip trace complete: ${targets.length} eligible lead${targets.length===1?'':'s'} processed, ${hits} hit${hits===1?'':'s'}.`);
+}
+
 async function loadTab(tab){
   await loadRemoteTraceStore();
   if(cache[tab]){
     cache[tab]=await hydrateCanonicalTraceRecords(cache[tab]);
-    queueAutoSkipTrace(cache[tab]);
     return cache[tab];
   }
   const j=await fetchJSON(TAB_FILES[tab]);
@@ -1731,7 +1748,6 @@ async function loadTab(tab){
   cache[tab]=recs;
   const b=document.getElementById('b-'+tab);
   if(b)b.textContent=recs.length.toLocaleString();
-  queueAutoSkipTrace(recs);
   return recs;
 }
 
@@ -1758,7 +1774,6 @@ async function loadStats(){
   document.getElementById('s-new').textContent=r.filter(x=>(x.flags||[]).includes('New this week')).length.toLocaleString();
   document.getElementById('b-all').textContent=(j.total||0).toLocaleString();
   cache['all']=r;
-  queueAutoSkipTrace(r);
   if(j.fetched_at){const d=new Date(j.fetched_at);document.getElementById('upd').textContent='Updated '+d.toLocaleDateString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});}
 }
 
@@ -3149,14 +3164,12 @@ async function runLiveTraceForRows(rows){
 }
 async function exportCSV(){
   const rows=filtered.length?filtered:curRecs;
-  await runLiveTraceForRows(rows);
   dl(`skip_trace_${new Date().toISOString().slice(0,10)}.csv`,toBatchDataCSV(rows));
 }
 function exportHotStack(){const rows=(filtered.length?filtered:curRecs).filter(r=>r.hot_stack);if(!rows.length){alert('No Hot Stack leads');return;}dl(`hot_stack_${new Date().toISOString().slice(0,10)}.csv`,toBatchDataCSV(rows));}
 async function exportRow(e,r){
   e.stopPropagation();
   if(r&&typeof r==='object'){
-    await runLiveTraceForRows([r]);
     dl(`lead_${r.doc_num||'export'}.csv`,toBatchDataCSV([r]));
   }
 }
