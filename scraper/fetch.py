@@ -61,6 +61,8 @@ DEFAULT_ENRICHED_CSV_PATH = DATA_DIR / "records.enriched.csv"
 DEFAULT_REPORT_PATH       = DATA_DIR / "match_report.json"
 
 LOOKBACK_DAYS = 90
+FORECLOSURE_LOOKBACK_DAYS = int(os.getenv("FORECLOSURE_LOOKBACK_DAYS", "365"))
+ALN_FORECLOSURE_DETAIL_LIMIT = int(os.getenv("ALN_FORECLOSURE_DETAIL_LIMIT", "80"))
 SOURCE_NAME   = "Akron / Summit County, Ohio"
 OH_APPRECIATION = 0.04  # annual appreciation for equity estimation
 
@@ -82,6 +84,7 @@ CAMA_PAGE_URL        = "https://fiscaloffice.summitoh.net/index.php/documents-a-
 VACANT_BUILDING_URL  = "https://www.akronohio.gov/government/boards_and_commissions/vacant_building_board.php"
 HOUSING_APPEALS_URL  = "https://www.akronohio.gov/government/boards_and_commissions/housing_appeals_board.php"
 SHERIFF_SALES_URL    = "https://www.akronlegalnews.com/notices/sheriff_sale_abstracts"
+ALN_FORECLOSURE_NOTICE_INDEX_URLS = [SHERIFF_SALES_URL]
 DELINQUENT_INDEX_URL = "https://www.akronlegalnews.com/notices/delinquent_taxes"
 RECORDER_TRANSFER_URL = "https://fiscaloffice.summitoh.net/index.php/real-estate/conveyance-data"
 RECORDER_SEARCH_URL   = "https://fiscaloffice.summitoh.net/index.php/real-estate"
@@ -167,6 +170,7 @@ class LeadRecord:
     est_arrears:Optional[float]=None; est_payoff:Optional[float]=None
     subject_to_score:int=0; mortgage_signals:List[str]=field(default_factory=list)
     sheriff_sale_date:str=""; appraised_value:Optional[float]=None; lender:str=""
+    foreclosure_stage:str=""; foreclosure_case_number:str=""; foreclosure_notice_date:str=""
     code_violation_case:str=""; code_violation_date:str=""
     decedent_name:str=""; executor_name:str=""; executor_state:str=""
     estate_value:Optional[float]=None; is_inherited:bool=False
@@ -182,6 +186,9 @@ class LeadRecord:
     rental_complaint_source:str=""
     rental_complaint_date:str=""
     rental_case_number:str=""
+    rental_complaint_open_count:int=0
+    rental_complaint_resolved_count:int=0
+    rental_complaint_total_count:int=0
     landlord_pain:bool=False
     tired_landlord_plus:bool=False
     tired_landlord_reasons:List[str]=field(default_factory=list)
@@ -266,6 +273,10 @@ def retry_request(url,attempts=3,timeout=60):
             r=requests.get(url,headers=HEADERS,timeout=timeout,allow_redirects=True); r.raise_for_status(); return r
         except Exception as e: last=e; logging.warning("Request failed (%s/%s) %s: %s",i,attempts,url,e)
     raise last
+
+def normalize_parcel_id_value(value:str)->str:
+    digits=re.sub(r"\D","",clean_text(value))
+    return digits if len(digits)>=5 else ""
 
 def normalize_name(n:str)->str:
     n=clean_text(n).upper(); n=re.sub(r"[^A-Z0-9,&.\- /']"," ",n)
@@ -692,6 +703,179 @@ def scrape_sheriff_sales()->List[LeadRecord]:
         logging.info("Sheriff sales: %s records",len(records))
         save_debug_json("sheriff_sales.json",[asdict(r) for r in records[:20]])
     except Exception as e: logging.warning("Sheriff sales scrape failed: %s",e)
+    return records
+
+
+def try_parse_month_date(text:str)->str:
+    text=clean_text(text).replace(",","")
+    patterns=[
+        r"\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\s+\d{1,2}\s+\d{4}\b",
+        r"\b\d{1,2}(?:st|nd|rd|th)?\s+day\s+of\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\s+\d{4}\b",
+    ]
+    for pat in patterns:
+        m=re.search(pat,text,re.IGNORECASE)
+        if not m: continue
+        raw=m.group(0)
+        raw=re.sub(r"(\d{1,2})(?:st|nd|rd|th)?\s+day\s+of\s+([A-Za-z]+)\s+(\d{4})",r"\2 \1 \3",raw,flags=re.IGNORECASE)
+        for fmt in ("%B %d %Y","%b %d %Y","%B %d %Y","%b %d %Y"):
+            try: return datetime.strptime(raw,fmt).date().isoformat()
+            except ValueError: continue
+    return ""
+
+def last_first_to_first_last(name:str)->str:
+    name=clean_text(name).strip(" ,.;")
+    if "," not in name: return name
+    parts=[clean_text(p) for p in name.split(",") if clean_text(p)]
+    if len(parts)>=2:
+        return clean_text(f"{parts[1]} {parts[0]}").strip(" ,.;")
+    return name
+
+def parse_aln_foreclosure_notice(text:str,source_url:str)->Optional[dict]:
+    if "<" in str(text) and ">" in str(text):
+        text=BeautifulSoup(text,"lxml").get_text(" ")
+    t=clean_text(text)
+    tu=t.upper()
+    if "FORECLOSURE" not in tu and "SHERIFF'S SALE" not in tu and "SHERIFF SALE" not in tu:
+        return None
+    case_m=re.search(r"Case Number:\s*([A-Z]{1,4}\d{4}\s+\d{2}\s+\d{3,6}|CV\d{4}\s+\d{2}\s+\d{3,6})",t,re.IGNORECASE)
+    case_num=clean_text(case_m.group(1)) if case_m else extract_case_number(t,"")
+    pid=""
+    pid_m=re.search(r"Permanent Parcel Number:\s*([0-9A-Z&,\-\s\.]+?)(?:Full Street Address:|Description:|The complete|Name\(s\)|Amount|All of|Whereas|$)",t,re.IGNORECASE)
+    if pid_m:
+        for raw in re.split(r"&|,|\band\b",pid_m.group(1),flags=re.IGNORECASE):
+            pid=normalize_parcel_id_value(raw)
+            if pid: break
+    addr=""
+    addr_m=re.search(r"Full Street Address:\s*(.+?)(?:Description:|The complete|Name\(s\)|Amount of Judgment|All of|Whereas|PUBLIC NOTICE|TERMS OF SALE|$)",t,re.IGNORECASE)
+    if addr_m:
+        addr=clean_text(addr_m.group(1)).strip(" .")
+    owner=""
+    owner_m=re.search(r"Name\(s\) and Street Address of Last Known Owner\(s\):\s*(.+?)(?:Amount of Judgment|All of|Whereas|$)",t,re.IGNORECASE)
+    if owner_m:
+        owner_src=clean_text(owner_m.group(1))
+        owner_src=re.split(r",\s*\d{2,5}\s+",owner_src,maxsplit=1)[0]
+        owner=last_first_to_first_last(owner_src)
+    if not owner:
+        cap_m=re.search(r"\bvs\.\s*(.+?)\s+Defendant",t,re.IGNORECASE)
+        if cap_m:
+            owner=clean_defendant_name(cap_m.group(1)).title()
+    lender=""
+    if "FISCAL OFFICER" in tu:
+        lender="Summit County Fiscal Office"
+    else:
+        pl_m=re.search(r"Plaintiff\s+vs\.",t,re.IGNORECASE)
+    if not lender and pl_m:
+        before=t[max(0,pl_m.start()-180):pl_m.start()]
+        pieces=[clean_text(x) for x in re.split(r"COMMON PLEAS COURT|SUMMIT COUNTY, OHIO|Plaintiff",before,flags=re.IGNORECASE) if clean_text(x)]
+        if pieces: lender=pieces[-1]
+    amount=None
+    for pat in [r'"MINIMUM BID":\s*\$?([\d,]+(?:\.\d{2})?)',r"Amount of Judgment.*?\$?([\d,]+(?:\.\d{2})?)"]:
+        am=re.search(pat,t,re.IGNORECASE)
+        if am:
+            amount=parse_amount(am.group(1)); break
+    sale_date=""
+    sale_m=re.search(r"at\s+10:00\s*A\.?M\.?\s+on\s+(.+?\d{4})",t,re.IGNORECASE)
+    if sale_m:
+        sale_date=try_parse_month_date(sale_m.group(1))
+    notice_date=""
+    login_m=re.search(r"Login\s*\|\s*([A-Za-z]+\s+\d{1,2},?\s+\d{4})",t,re.IGNORECASE)
+    if login_m: notice_date=try_parse_month_date(login_m.group(1))
+    if not notice_date:
+        notice_date=try_parse_month_date(t)
+    doc_type="TAXDEED" if ("DELINQUENT TAXES" in tu or "FISCAL OFFICER" in tu) else "NOFC"
+    return {
+        "doc_num":case_num or f"ALN-FC-{normalize_parcel_id_value(pid) or abs(hash(t)) % 100000}",
+        "doc_type":doc_type,
+        "filed":notice_date or datetime.now().date().isoformat(),
+        "owner":owner,
+        "lender":lender,
+        "amount":amount,
+        "prop_address":addr,
+        "parcel_id":pid,
+        "sale_date":sale_date,
+        "source_url":source_url,
+        "stage":"Tax foreclosure sheriff-sale notice" if doc_type=="TAXDEED" else "Mortgage foreclosure sheriff-sale notice",
+    }
+
+def apply_parcel_snapshot(record:LeadRecord,parcel_by_id:Dict[str,dict])->LeadRecord:
+    parcel=parcel_by_id.get(clean_text(record.parcel_id))
+    if not parcel: return record
+    record.owner=record.owner or clean_text(parcel.get("owner","")).title()
+    parcel_addr=clean_text(parcel.get("prop_address",""))
+    if parcel_addr and (not record.prop_address or "&" in record.prop_address or "," in record.prop_address):
+        record.prop_address=parcel_addr
+    record.prop_city=record.prop_city or clean_text(parcel.get("prop_city",""))
+    record.prop_zip=record.prop_zip or clean_text(parcel.get("prop_zip",""))
+    record.mail_address=record.mail_address or clean_text(parcel.get("mail_address",""))
+    record.mail_city=record.mail_city or clean_text(parcel.get("mail_city",""))
+    record.mail_state=record.mail_state or normalize_state(clean_text(parcel.get("mail_state",""))) or "OH"
+    record.mail_zip=record.mail_zip or clean_text(parcel.get("mail_zip",""))
+    record.legal=record.legal or clean_text(parcel.get("legal",""))
+    record.luc=record.luc or clean_text(parcel.get("luc",""))
+    record.acres=record.acres or clean_text(parcel.get("acres",""))
+    record.assessed_value=record.assessed_value or parcel.get("assessed_value")
+    record.estimated_value=record.estimated_value or parcel.get("est_market_value")
+    record.last_sale_price=record.last_sale_price or parcel.get("last_sale_price")
+    record.last_sale_year=record.last_sale_year or parcel.get("last_sale_year")
+    if record.bedrooms is None: record.bedrooms=parcel.get("bedrooms")
+    if record.bathrooms is None: record.bathrooms=parcel.get("bathrooms")
+    if not record.square_feet: record.square_feet=parcel.get("square_feet")
+    record.with_address=1 if record.prop_address else 0
+    record.match_method="parcel_from_legal_notice"
+    record.match_score=1.0
+    return record
+
+def scrape_akron_legal_foreclosure_notices(parcel_by_id:Dict[str,dict])->List[LeadRecord]:
+    records:List[LeadRecord]=[]
+    detail_urls=[]
+    try:
+        for index_url in ALN_FORECLOSURE_NOTICE_INDEX_URLS:
+            resp=retry_request(index_url,timeout=30)
+            soup=BeautifulSoup(resp.text,"lxml")
+            for a in soup.select("a[href*='/notices/detail/'], a[href*='notices/detail']"):
+                href=clean_text(a.get("href",""))
+                if not href: continue
+                detail_urls.append(requests.compat.urljoin(index_url,href))
+        detail_urls=list(dict.fromkeys(detail_urls))[:ALN_FORECLOSURE_DETAIL_LIMIT]
+        for url in detail_urls:
+            try:
+                detail=retry_request(url,timeout=30)
+                parsed=parse_aln_foreclosure_notice(detail.text,url)
+                if not parsed: continue
+                flags=["Foreclosure legal notice"]
+                sources=["foreclosure"]
+                if parsed["doc_type"]=="TAXDEED":
+                    flags.append("Tax foreclosure")
+                    sources.append("tax_delinquent")
+                else:
+                    flags.append("Pre-foreclosure")
+                rec=LeadRecord(
+                    doc_num=parsed["doc_num"],doc_type=parsed["doc_type"],filed=parsed["filed"],
+                    cat=parsed["doc_type"],cat_label=LEAD_TYPE_MAP.get(parsed["doc_type"],parsed["doc_type"]),
+                    owner=parsed["owner"].title() if parsed["owner"] else "",
+                    grantee=parsed["lender"],lender=parsed["lender"],
+                    amount=parsed["amount"],prop_address=parsed["prop_address"],prop_state="OH",
+                    parcel_id=parsed["parcel_id"],sheriff_sale_date=parsed["sale_date"],
+                    foreclosure_stage=parsed["stage"],foreclosure_case_number=parsed["doc_num"],
+                    foreclosure_notice_date=parsed["filed"],clerk_url=parsed["source_url"],
+                    flags=flags,distress_sources=sources,distress_count=len(set(sources)),
+                    with_address=1 if parsed["prop_address"] else 0,
+                    match_method="akron_legal_notice",match_score=0.9,
+                )
+                rec=apply_parcel_snapshot(rec,parcel_by_id)
+                rec.is_absentee=is_absentee_owner(rec.prop_address,rec.mail_address,rec.mail_state)
+                rec.is_out_of_state=is_out_of_state(rec.mail_state)
+                if rec.is_absentee and "Absentee owner" not in rec.flags: rec.flags.append("Absentee owner")
+                if rec.is_out_of_state and "Out-of-state owner" not in rec.flags: rec.flags.append("Out-of-state owner")
+                rec.hot_stack=len(set(rec.distress_sources or []))>=2
+                rec=estimate_mortgage_data(rec); rec.score=score_record(rec)
+                records.append(rec)
+            except Exception as de:
+                logging.warning("Foreclosure notice detail failed %s: %s",url,de)
+    except Exception as e:
+        logging.warning("Akron Legal foreclosure notices failed: %s",e)
+    logging.info("Akron Legal foreclosure notices: %s records from %s detail links",len(records),len(detail_urls))
+    save_debug_json("foreclosure_legal_notices.json",[asdict(r) for r in records[:20]])
     return records
 
 
@@ -2487,8 +2671,8 @@ async def click_first_matching(page,selectors):
 
 def infer_doc_type_from_text(text:str)->Optional[str]:
     t=clean_text(text).upper()
-    if any(x in t for x in ["LIS PENDENS"," LP ","LP-"]): return "LP"
-    if any(x in t for x in ["NOTICE OF FORECLOSURE","FORECLOS","NOFC"]): return "NOFC"
+    if any(x in t for x in ["LIS PENDENS","CERTIFICATE OF LIS PENDENS"," LP ","LP-"]): return "LP"
+    if any(x in t for x in ["NOTICE OF FORECLOSURE","COMPLAINT IN FORECLOSURE","JUDGMENT OF FORECLOSURE","FORECLOSURE OF MORTGAGE","FORECLOS","NOFC"]): return "NOFC"
     if any(x in t for x in ["EVICTION","FED ","FORCIBLE ENTRY","UNLAWFUL DETAINER","F.E.D."]): return "EVICTION"
     if any(x in t for x in ["DIVORCE","DISSOLUTION OF MARRIAGE","DOM REL","DOMESTIC REL","DR-"]): return "DIVORCE"
     if any(x in t for x in ["CERTIFIED JUDGMENT","DOMESTIC JUDGMENT","JUDGMENT"]): return "JUD"
@@ -2498,6 +2682,9 @@ def infer_doc_type_from_text(text:str)->Optional[str]:
     if "LIEN" in t: return "LN"
     if "NOTICE OF COMMENCEMENT" in t: return "NOC"
     return None
+
+def lookback_days_for_doc_type(doc_type:str)->int:
+    return FORECLOSURE_LOOKBACK_DAYS if clean_text(doc_type).upper() in {"LP","NOFC","TAXDEED"} else LOOKBACK_DAYS
 
 def try_parse_date(text:str)->Optional[str]:
     text=clean_text(text)
@@ -2556,7 +2743,7 @@ def parse_pending_civil_table(html,base_url,prefix)->List[LeadRecord]:
             rt=clean_text(" ".join(cells)); dt=infer_doc_type_from_text(rt)
             if dt not in {"NOFC","LP","JUD","LN","LNMECH","LNFED","NOC","EVICTION","DIVORCE"}: continue
             filed=try_parse_date(rt) or datetime.now().date().isoformat()
-            if datetime.fromisoformat(filed).date()<(datetime.now().date()-timedelta(days=LOOKBACK_DAYS)): continue
+            if datetime.fromisoformat(filed).date()<(datetime.now().date()-timedelta(days=lookback_days_for_doc_type(dt))): continue
             owner,grantee,src=extract_owner_and_grantee(cells)
             if not owner: continue
             am=re.search(r"\$[\d,]+(?:\.\d{2})?",rt); amt=parse_amount(am.group(0)) if am else None
@@ -2580,6 +2767,13 @@ async def scrape_pending_civil_records(page)->List[LeadRecord]:
         records.extend(parse_pending_civil_table(h1,PENDING_CIVIL_URL,"PCF1"))
         if await click_first_matching(page,["text=Search","text=Begin","text=Continue","input[type='submit']","button","a"]):
             h2=await page.content(); records.extend(parse_pending_civil_table(h2,PENDING_CIVIL_URL,"PCF2"))
+        for page_num in range(3,13):
+            clicked=await click_first_matching(page,["text=Next","a[aria-label='Next']","button[aria-label='Next']",".pagination a:has-text('Next')"])
+            if not clicked: break
+            hx=await page.content()
+            before=len(records)
+            records.extend(parse_pending_civil_table(hx,PENDING_CIVIL_URL,f"PCF{page_num}"))
+            if len(records)==before: break
     except Exception as e: logging.warning("Pending civil failed: %s",e)
     return records
 
@@ -2758,7 +2952,7 @@ async def scrape_clerk_records()->List[LeadRecord]:
         finally: await browser.close()
     deduped,seen=[],set()
     for r in records:
-        nd=re.sub(r"^(PCF1|PCF2)-","",clean_text(r.doc_num).upper())
+        nd=re.sub(r"^PCF\d+-","",clean_text(r.doc_num).upper())
         key=(nd,clean_text(r.doc_type).upper(),normalize_name(r.owner),clean_text(r.filed))
         if key in seen: continue
         seen.add(key); deduped.append(r)
@@ -3194,6 +3388,9 @@ def apply_rental_complaint_stacking(records:List[LeadRecord])->List[LeadRecord]:
             r.rental_complaint_source=info.get("source_url",AKRON_RENTAL_INFO_URL)
             r.rental_complaint_date=""
             r.rental_case_number=""
+            r.rental_complaint_open_count=int(info.get("open_complaints") or 0)
+            r.rental_complaint_resolved_count=int(info.get("resolved_complaints") or 0)
+            r.rental_complaint_total_count=r.rental_complaint_open_count+r.rental_complaint_resolved_count
             if "rental_complaint" not in (r.distress_sources or []):
                 r.distress_sources=list(r.distress_sources or [])+["rental_complaint"]
             if "Rental complaint" not in (r.flags or []):
@@ -3213,7 +3410,7 @@ def apply_rental_complaint_stacking(records:List[LeadRecord])->List[LeadRecord]:
 def dedupe_records(records):
     final,seen=[],set()
     for r in records:
-        nd=re.sub(r"^(PCF1|PCF2)-","",clean_text(r.doc_num).upper())
+        nd=re.sub(r"^PCF\d+-","",clean_text(r.doc_num).upper())
         key=(nd,clean_text(r.doc_type).upper(),normalize_name(r.owner),clean_text(r.filed))
         if key in seen: continue
         seen.add(key); final.append(r)
@@ -3839,6 +4036,8 @@ async def main():
 
     # 2. Court records (clerk) + evictions + divorce
     clerk_records=await scrape_clerk_records()
+    foreclosure_notice_records=scrape_akron_legal_foreclosure_notices(parcel_by_id)
+    clerk_records=clerk_records+foreclosure_notice_records
     eviction_divorce=await scrape_eviction_divorce_records_standalone()
     clerk_records=clerk_records+eviction_divorce
     logging.info("Clerk+Eviction+Divorce: %s total records",len(clerk_records))
