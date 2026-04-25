@@ -3074,5 +3074,23 @@
     "source_url": "https://ari.akronohio.gov/",
     "searched_address": "154 E BROOKSIDE AVE",
     "checked_at": "2026-04-24T22:40:19.785001+00:00"
+  },
+  "1024 MOHAWK TRL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1024 MOHAWK TRL",
+    "checked_at": "2026-04-25T16:57:00.121825+00:00"
+  },
+  "1270 12 WELSH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1270 & 1/2 WELSH AVE",
+    "checked_at": "2026-04-25T16:57:00.632244+00:00"
+  },
+  "1338 KILLIAN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1338 KILLIAN RD",
+    "checked_at": "2026-04-25T16:57:01.150800+00:00"
   }
 }
