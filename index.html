@@ -70,6 +70,8 @@
   tbody tr{border-bottom:1px solid var(--border);transition:background .1s;cursor:pointer;}
   tbody tr:hover{background:var(--surface);}
   tbody td{padding:9px 14px;font-size:13px;vertical-align:middle;}
+  .select-cell{width:30px;text-align:center;padding-right:0;}
+  .lead-select{width:14px;height:14px;accent-color:var(--accent);cursor:pointer;}
   .score-badge{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;font-family:'Space Mono',monospace;}
   .sh{background:rgba(255,68,68,.15);color:var(--hot);border:1px solid rgba(255,68,68,.3);}
   .sm{background:rgba(255,140,0,.15);color:var(--warm);border:1px solid rgba(255,140,0,.3);}
@@ -98,6 +100,7 @@
   .t-gold{background:rgba(245,166,35,.2);color:#f5c060;border:1px solid rgba(245,166,35,.3);}
   .view-btn{font-size:10px;font-weight:700;padding:4px 9px;border-radius:4px;background:var(--surface2);border:1px solid var(--border);color:var(--muted);cursor:pointer;text-decoration:none;display:inline-block;transition:all .15s;letter-spacing:.04em;}
   .view-btn:hover{border-color:var(--accent);color:var(--accent);}
+  .selected-count{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);white-space:nowrap;}
   .eq-bar{width:72px;height:4px;background:var(--border);border-radius:2px;overflow:hidden;}
   .eq-fill{height:100%;border-radius:2px;}
   .eq-pos{background:var(--accent3);}.eq-neg{background:var(--accent2);}
@@ -406,6 +409,8 @@
   </select>
   <button class="btn btn-primary" onclick="exportCSV()">Skip Trace CSV</button>
   <button class="btn btn-primary" id="manual-trace-btn" onclick="manualSkipTraceEligible()">Skip Eligible Now</button>
+  <button class="btn btn-primary" id="selected-trace-btn" onclick="skipTraceSelected()">Skip Selected</button>
+  <div class="selected-count" id="selected-count">0 selected</div>
   <button class="btn btn-ghost" onclick="exportHotStack()" style="border-color:var(--hot);color:var(--hot)">Hot Stack Only</button>
   <button class="btn btn-ghost" onclick="clearFilters()">Clear</button>
   <div class="rec-count" id="rec-count">0 records</div>
@@ -415,6 +420,7 @@
 <div class="table-wrap" id="table-wrap">
   <table>
     <thead><tr>
+      <th></th>
       <th onclick="sortBy('score',this)">Score</th>
       <th onclick="sortBy('owner',this)">Owner / Property</th>
       <th onclick="sortBy('cat_label',this)">Type</th>
@@ -426,7 +432,7 @@
       <th>Link</th>
     </tr></thead>
     <tbody id="tbody">
-      <tr><td colspan="9"><div class="loading"><span class="spinner"></span>Loading leads...</div></td></tr>
+      <tr><td colspan="10"><div class="loading"><span class="spinner"></span>Loading leads...</div></td></tr>
     </tbody>
   </table>
 </div>
@@ -719,6 +725,7 @@ let remoteTraceStore={};
 let traceStore=mergeTraceStores(remoteTraceStore,localTraceStore);
 let traceQueue=[],traceQueueKeys=new Set(),traceQueueRunning=false,traceQueuePromise=Promise.resolve();
 const MANUAL_TRACE_CAP=10;
+let selectedLeadKeys=new Set(),selectedLeadRecords={};
 let canonicalTraceIndex=null,canonicalTraceIndexPromise=null;
 let remoteTraceStoreLoaded=false,remoteTraceStorePromise=null;
 
@@ -756,6 +763,10 @@ function leadKey(r){
 
 function legacyLeadKey(r){
   return [r.doc_num||'',r.parcel_id||'',r.owner||'',normalizePropertyAddress(r.prop_address),r.prop_zip||''].join('|').toUpperCase();
+}
+
+function selectionKey(r){
+  return leadKey(r)||legacyLeadKey(r)||recordMatchKeys(r)[0]||'';
 }
 
 function cleanConfigValue(value){
@@ -1634,6 +1645,36 @@ function shouldAutoSkipTrace(r){
   return true;
 }
 
+function shouldSelectedSkipTrace(r){
+  if(!tracerfyConfigured())return false;
+  if(!isTracerfyEligible(r))return false;
+  if(!(r.prop_address&&r.prop_city&&r.prop_state))return false;
+  if(TRACE_SUCCESS_STATUSES.has(normalizeTraceStatus(r.skip_trace_status)))return false;
+  if(r._trace_loading)return false;
+  return true;
+}
+
+function updateSelectedCount(){
+  const el=document.getElementById('selected-count');
+  if(el)el.textContent=`${selectedLeadKeys.size.toLocaleString()} selected`;
+}
+
+function toggleLeadSelection(event,id){
+  event.stopPropagation();
+  const r=_rowStore[id];
+  if(!r)return;
+  const key=selectionKey(r);
+  if(!key)return;
+  if(event.target.checked){
+    selectedLeadKeys.add(key);
+    selectedLeadRecords[key]=r;
+  }else{
+    selectedLeadKeys.delete(key);
+    delete selectedLeadRecords[key];
+  }
+  updateSelectedCount();
+}
+
 function queueAutoSkipTrace(records){
   records.forEach(r=>{
     if(!shouldAutoSkipTrace(r))return;
@@ -1731,6 +1772,43 @@ async function manualSkipTraceEligible(){
   alert(`Skip trace complete: ${targets.length} eligible lead${targets.length===1?'':'s'} processed, ${hits} hit${hits===1?'':'s'}.`);
 }
 
+async function skipTraceSelected(){
+  const btn=document.getElementById('selected-trace-btn');
+  const selected=Array.from(selectedLeadKeys).map(key=>selectedLeadRecords[key]).filter(Boolean);
+  const targets=selected.filter(shouldSelectedSkipTrace).slice(0,MANUAL_TRACE_CAP);
+  const skipped=selected.length-targets.length;
+  if(!targets.length){
+    alert('No selected leads are eligible to skip trace. Already traced, missing owner/address data, and non-eligible leads are skipped.');
+    return;
+  }
+  const oldText=btn?btn.textContent:'';
+  if(btn){btn.disabled=true;btn.textContent=`Tracing ${targets.length}...`;}
+  let processed=0,failed=0;
+  for(const r of targets){
+    r._trace_loading=true;
+    try{
+      persistTraceData(r,await requestTracerfyTrace(r));
+      processed++;
+    }catch(err){
+      persistTraceData(r,{
+        skip_trace_status:'request_failed',
+        skip_trace_source:TRACE_SOURCE,
+        has_phone:false,
+        has_email:false,
+        skip_trace_timestamp:new Date().toISOString(),
+        skip_trace_eligible:isTracerfyEligible(r),
+      });
+      failed++;
+    }finally{
+      delete r._trace_loading;
+    }
+  }
+  if(btn){btn.disabled=false;btn.textContent=oldText||'Skip Selected';}
+  applyFilters();
+  const hits=targets.filter(r=>isSkipTraced(r)).length;
+  alert(`Selected skip trace complete: ${processed} processed, ${hits} hit${hits===1?'':'s'}, ${failed} failed.${skipped>0?` ${skipped} selected lead${skipped===1?' was':'s were'} skipped by eligibility/safety rules.`:''}`);
+}
+
 async function loadTab(tab){
   await loadRemoteTraceStore();
   if(cache[tab]){
@@ -1795,7 +1873,7 @@ document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',async()=
     return;
   }
 
-  document.getElementById('tbody').innerHTML='<tr><td colspan="9"><div class="loading"><span class="spinner"></span>Loading...</div></td></tr>';
+  document.getElementById('tbody').innerHTML='<tr><td colspan="10"><div class="loading"><span class="spinner"></span>Loading...</div></td></tr>';
   curRecs=await loadTab(curTab);
   applyFilters();
 }));
@@ -1914,13 +1992,14 @@ function doSort(){filtered.sort((a,b)=>{let av=a[sortCol],bv=b[sortCol];if(av==n
 function renderTable(){
   _rowStore.length = 0; // clear store for fresh IDs each render
   const tbody=document.getElementById('tbody');
-  if(!filtered.length){tbody.innerHTML='<tr><td colspan="9"><div class="empty"><div class="empty-icon">&#9678;</div><div>No leads found</div></div></td></tr>';return;}
+  if(!filtered.length){tbody.innerHTML='<tr><td colspan="10"><div class="empty"><div class="empty-icon">&#9678;</div><div>No leads found</div></div></td></tr>';return;}
   tbody.innerHTML=filtered.slice(0,PAGE).map(rowHTML).join('');
-  if(filtered.length>PAGE){const s=document.createElement('tr');s.id='sentinel';s.innerHTML='<td colspan="9"><div class="loading" style="padding:14px">Scroll for more...</div></td>';tbody.appendChild(s);rendered=PAGE;observe();}
+  if(filtered.length>PAGE){const s=document.createElement('tr');s.id='sentinel';s.innerHTML='<td colspan="10"><div class="loading" style="padding:14px">Scroll for more...</div></td>';tbody.appendChild(s);rendered=PAGE;observe();}
+  updateSelectedCount();
   cleanupBrokenIconText(tbody);
 }
 function observe(){const s=document.getElementById('sentinel');if(!s)return;new IntersectionObserver(e=>{if(e[0].isIntersecting)loadMore();},{root:document.getElementById('table-wrap'),threshold:.1}).observe(s);}
-function loadMore(){const tbody=document.getElementById('tbody');const s=document.getElementById('sentinel');if(s)s.remove();filtered.slice(rendered,rendered+PAGE).forEach(r=>tbody.insertAdjacentHTML('beforeend',rowHTML(r)));rendered+=PAGE;if(rendered<filtered.length){const s=document.createElement('tr');s.id='sentinel';s.innerHTML='<td colspan="9"><div class="loading" style="padding:14px">Loading more...</div></td>';tbody.appendChild(s);observe();}cleanupBrokenIconText(tbody);}
+function loadMore(){const tbody=document.getElementById('tbody');const s=document.getElementById('sentinel');if(s)s.remove();filtered.slice(rendered,rendered+PAGE).forEach(r=>tbody.insertAdjacentHTML('beforeend',rowHTML(r)));rendered+=PAGE;if(rendered<filtered.length){const s=document.createElement('tr');s.id='sentinel';s.innerHTML='<td colspan="10"><div class="loading" style="padding:14px">Loading more...</div></td>';tbody.appendChild(s);observe();}updateSelectedCount();cleanupBrokenIconText(tbody);}
 
 // Record store — avoids broken JSON-in-HTML-attribute problem
 const _rowStore = [];
@@ -1945,7 +2024,10 @@ function rowHTML(r){
   const sh=r.doc_type==='SHERIFF'&&r.sheriff_sale_date?`<div class="owner-sub" style="color:var(--hot)">⚡ Sale: ${r.sheriff_sale_date}</div>`:'';
   const lnk=r.clerk_url?`<a class="view-btn" href="${r.clerk_url}" target="_blank" onclick="event.stopPropagation()">View</a>`:'<span style="color:var(--muted);font-size:11px">–</span>';
   const rid = _rowStore.push(r) - 1;
-  return `<tr onclick="openModalById(${rid})"><td><div class="score-badge ${scls}">${sc}</div></td><td style="min-width:190px"><div class="owner-name">${getPreferredOwner(r)||'<span style="color:var(--muted)">Unknown</span>'}</div>${dec}${addr}${sh}</td><td class="date-cell">${r.cat_label||r.doc_type||'–'}</td><td class="date-cell">${r.filed||'–'}</td><td class="amount-cell">${amt}</td><td class="date-cell" style="max-width:130px;overflow:hidden;text-overflow:ellipsis">${(r.doc_num||'').slice(0,20)}</td><td style="max-width:340px"><div class="tags">${tags}</div></td><td>${eqH}</td><td>${lnk}</td></tr>`;
+  const rowSelectKey=selectionKey(r);
+  const checked=selectedLeadKeys.has(rowSelectKey)?'checked':'';
+  if(checked)selectedLeadRecords[rowSelectKey]=r;
+  return `<tr onclick="openModalById(${rid})"><td class="select-cell"><input class="lead-select" type="checkbox" ${checked} onclick="event.stopPropagation()" onchange="toggleLeadSelection(event,${rid})"></td><td><div class="score-badge ${scls}">${sc}</div></td><td style="min-width:190px"><div class="owner-name">${getPreferredOwner(r)||'<span style="color:var(--muted)">Unknown</span>'}</div>${dec}${addr}${sh}</td><td class="date-cell">${r.cat_label||r.doc_type||'–'}</td><td class="date-cell">${r.filed||'–'}</td><td class="amount-cell">${amt}</td><td class="date-cell" style="max-width:130px;overflow:hidden;text-overflow:ellipsis">${(r.doc_num||'').slice(0,20)}</td><td style="max-width:340px"><div class="tags">${tags}</div></td><td>${eqH}</td><td>${lnk}</td></tr>`;
 }
 
 function tagHTML(f){const fl=f.toLowerCase();let c='t-gray';if(fl.includes('hot stack')||fl.includes('sheriff')||fl.includes('foreclos')||fl.includes('⚡'))c='t-hot';else if(fl.includes('tax')||fl.includes('debt')||fl.includes('lien')||fl.includes('judgment'))c='t-warn';else if(fl.includes('absentee')||fl.includes('out-of-state')||fl.includes('inherited')||fl.includes('probate')||fl.includes('executor'))c='t-blue';else if(fl.includes('vacant')||fl.includes('code')||fl.includes('nuisance')||fl.includes('violation'))c='t-purple';else if(fl.includes('new this week'))c='t-green';else if(fl.includes('subject-to')||fl.includes('equity')||fl.includes('prime'))c='t-gold';return `<span class="tag ${c}">${f}</span>`;}
