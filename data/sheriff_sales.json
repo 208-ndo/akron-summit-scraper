@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-25T17:35:25.480600+00:00",
+  "fetched_at": "2026-04-26T10:45:17.310656+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "sheriff_sales",
   "description": "\u26a1 Properties scheduled for sheriff auction \u2014 days from losing everything",
@@ -64,12 +64,12 @@
       "phone_tertiary_type": "",
       "email_primary": "",
       "traced_email": "",
-      "traced_mailing_address": "51 Portage Lakes Drive & V/L Radnor Avenue",
+      "traced_mailing_address": "",
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "success",
-      "skip_trace_timestamp": "2026-04-26T00:55:13Z",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-17T19:42:23.081382Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -121,17 +121,7 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": [],
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2024 05 1991",
@@ -570,12 +560,12 @@
       "phone_tertiary_type": "",
       "email_primary": "",
       "traced_email": "",
-      "traced_mailing_address": "0 Washington Blvd.",
+      "traced_mailing_address": "",
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "success",
-      "skip_trace_timestamp": "2026-04-26T00:55:14Z",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-17T19:42:23.081733Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -627,17 +617,7 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": [],
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 07 3028",
@@ -1194,12 +1174,12 @@
       "phone_tertiary_type": "",
       "email_primary": "",
       "traced_email": "",
-      "traced_mailing_address": "6320 Greenwood Pkwy.",
+      "traced_mailing_address": "",
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "success",
-      "skip_trace_timestamp": "2026-04-26T00:55:16Z",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-17T19:42:23.082117Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -1251,17 +1231,7 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": [],
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 10 4879",
@@ -2300,18 +2270,15 @@
       "phones": [
         "3306207498",
         "3306207499",
-        "4405261219",
-        "2343343212",
-        "3306440743"
+        "4405261219"
       ],
       "phone_types": [
+        "Mobile",
         "Mobile",
         "Landline"
       ],
       "emails": [
-        "jjw3331@gmail.com",
-        "jjw1198@hotmail.com",
-        "jonathanwidrig@att.net"
+        "jjw3331@gmail.com"
       ],
       "skip_trace_source": "Tracerfy",
       "traced_owner_name": "Jonathan Widrig",
@@ -2319,18 +2286,15 @@
       "traced_phones": [
         "3306207498",
         "3306207499",
-        "4405261219",
-        "2343343212",
-        "3306440743"
+        "4405261219"
       ],
       "traced_phone_types": [
+        "Mobile",
         "Mobile",
         "Landline"
       ],
       "traced_emails": [
-        "jjw3331@gmail.com",
-        "jjw1198@hotmail.com",
-        "jonathanwidrig@att.net"
+        "jjw3331@gmail.com"
       ],
       "phone_primary": "3306207498",
       "phone_primary_type": "Mobile",
@@ -2397,17 +2361,7 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": [],
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "3306207498",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "3306207499",
-      "Phone 2 Type": "Mobile",
-      "Phone 3": "4405261219",
-      "Phone 3 Type": "Landline",
-      "Email": "jjw3331@gmail.com",
-      "Skip Trace Source": "Tracerfy"
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 02 0638",
@@ -2454,18 +2408,15 @@
       "phones": [
         "2163895162",
         "3303220380",
-        "3306222360",
-        "5403001408",
-        "2346780100"
+        "3306222360"
       ],
       "phone_types": [
         "Mobile",
-        "Landline"
+        "Mobile",
+        "Mobile"
       ],
       "emails": [
-        "ravensbluefire@msn.com",
-        "clevelandelizabeth@gmail.com",
-        "miwashigeri@yahoo.com"
+        "ravensbluefire@msn.com"
       ],
       "skip_trace_source": "Tracerfy",
       "traced_owner_name": "Henry Cleveland",
@@ -2473,18 +2424,15 @@
       "traced_phones": [
         "2163895162",
         "3303220380",
-        "3306222360",
-        "5403001408",
-        "2346780100"
+        "3306222360"
       ],
       "traced_phone_types": [
         "Mobile",
-        "Landline"
+        "Mobile",
+        "Mobile"
       ],
       "traced_emails": [
-        "ravensbluefire@msn.com",
-        "clevelandelizabeth@gmail.com",
-        "miwashigeri@yahoo.com"
+        "ravensbluefire@msn.com"
       ],
       "phone_primary": "2163895162",
       "phone_primary_type": "Mobile",
@@ -2551,17 +2499,7 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": [],
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "2163895162",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "3303220380",
-      "Phone 2 Type": "Mobile",
-      "Phone 3": "3306222360",
-      "Phone 3 Type": "Mobile",
-      "Email": "ravensbluefire@msn.com",
-      "Skip Trace Source": "Tracerfy"
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 08 3772",
@@ -2608,18 +2546,15 @@
       "phones": [
         "9109906592",
         "9109904633",
-        "9109162312",
-        "9102135130",
-        "9102133918"
+        "9109162312"
       ],
       "phone_types": [
         "Mobile",
-        "Landline"
+        "Mobile",
+        "Mobile"
       ],
       "emails": [
-        "ccisaac87@yahoo.com",
-        "grosie676@gmail.com",
-        "lawrenceisaac@hotmail.com"
+        "ccisaac87@yahoo.com"
       ],
       "skip_trace_source": "Tracerfy",
       "traced_owner_name": "Lawrence Isaac",
@@ -2627,18 +2562,15 @@
       "traced_phones": [
         "9109906592",
         "9109904633",
-        "9109162312",
-        "9102135130",
-        "9102133918"
+        "9109162312"
       ],
       "traced_phone_types": [
         "Mobile",
-        "Landline"
+        "Mobile",
+        "Mobile"
       ],
       "traced_emails": [
-        "ccisaac87@yahoo.com",
-        "grosie676@gmail.com",
-        "lawrenceisaac@hotmail.com"
+        "ccisaac87@yahoo.com"
       ],
       "phone_primary": "9109906592",
       "phone_primary_type": "Mobile",
@@ -2705,17 +2637,7 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": [],
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "9109906592",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "9109904633",
-      "Phone 2 Type": "Mobile",
-      "Phone 3": "9109162312",
-      "Phone 3 Type": "Mobile",
-      "Email": "ccisaac87@yahoo.com",
-      "Skip Trace Source": "Tracerfy"
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 01 0355",
@@ -2762,18 +2684,15 @@
       "phones": [
         "3524888326",
         "3307805352",
-        "3526847918",
-        "3526882708",
-        "3307903003"
+        "3526847918"
       ],
       "phone_types": [
+        "Mobile",
         "Mobile",
         "Landline"
       ],
       "emails": [
-        "simonemoore38@yahoo.com",
-        "wrmoore0816@gmail.com",
-        "bfd244moore@yahoo.com"
+        "simonemoore38@yahoo.com"
       ],
       "skip_trace_source": "Tracerfy",
       "traced_owner_name": "Walter Moore",
@@ -2781,18 +2700,15 @@
       "traced_phones": [
         "3524888326",
         "3307805352",
-        "3526847918",
-        "3526882708",
-        "3307903003"
+        "3526847918"
       ],
       "traced_phone_types": [
+        "Mobile",
         "Mobile",
         "Landline"
       ],
       "traced_emails": [
-        "simonemoore38@yahoo.com",
-        "wrmoore0816@gmail.com",
-        "bfd244moore@yahoo.com"
+        "simonemoore38@yahoo.com"
       ],
       "phone_primary": "3524888326",
       "phone_primary_type": "Mobile",
@@ -2859,17 +2775,7 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": [],
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "3524888326",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "3307805352",
-      "Phone 2 Type": "Mobile",
-      "Phone 3": "3526847918",
-      "Phone 3 Type": "Landline",
-      "Email": "simonemoore38@yahoo.com",
-      "Skip Trace Source": "Tracerfy"
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 09 4317",
@@ -3995,17 +3901,7 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": [],
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 11 5346",
@@ -4139,17 +4035,7 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": [],
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "3308589810",
-      "Phone 1 Type": "Mobile",
-      "Phone 2": "3309683006",
-      "Phone 2 Type": "Landline",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "aentler12@gmail.com",
-      "Skip Trace Source": "Tracerfy"
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2025 11 5684",
@@ -4210,12 +4096,12 @@
       "phone_tertiary_type": "",
       "email_primary": "",
       "traced_email": "",
-      "traced_mailing_address": "881 & V/L Stadelman Avenue",
+      "traced_mailing_address": "",
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "success",
-      "skip_trace_timestamp": "2026-04-26T00:55:26Z",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-22T02:28:16.325743Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -4267,17 +4153,7 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": [],
-      "list_count": 2,
-      "skip_trace_eligible": true,
-      "Phone 1": "",
-      "Phone 1 Type": "",
-      "Phone 2": "",
-      "Phone 2 Type": "",
-      "Phone 3": "",
-      "Phone 3 Type": "",
-      "Email": "",
-      "Skip Trace Source": "Tracerfy"
+      "tired_landlord_reasons": []
     },
     {
       "doc_num": "CV2019 06 2134",
