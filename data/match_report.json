@@ -1,12 +1,16 @@
 {
   "matched": 0,
-  "unmatched": 62,
-  "with_address": 6,
+  "unmatched": 69,
+  "with_address": 8,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 62
+    "unmatched": 69
   },
   "sample_unmatched": [
+    {
+      "doc_num": "PROPERTIES 04",
+      "owner": "Nevarc Group Inc. Dba Nevarc Properties"
+    },
     {
       "doc_num": "SIX 04",
       "owner": "Kayanne Six"
@@ -102,12 +106,8 @@
     {
       "doc_num": "2026 AT 10",
       "owner": ""
-    },
-    {
-      "doc_num": "2026 AT 10",
-      "owner": ""
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-04-27T13:22:46.329465+00:00"
+  "generated_at": "2026-04-28T13:34:55.832314+00:00"
 }
