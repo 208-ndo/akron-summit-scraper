@@ -56,7 +56,7 @@
   "cuyahoga": {
     "label": "Cuyahoga County",
     "primary_city": "Cleveland",
-    "enabled": false,
+    "enabled": true,
     "data_url": "dashboard/cuyahoga/records.json",
     "cities": ["Cleveland"],
     "sources": {
@@ -67,7 +67,7 @@
       "tax_delinquent": "",
       "tax_lien": "",
       "probate": "",
-      "code_violations": "",
+      "code_violations": "https://services3.arcgis.com/dty2kHktVXHrqO8i/arcgis/rest/services/Complaint_Violation_Notices/FeatureServer/0",
       "fire_damage": "",
       "vacancy": "",
       "auditor": "",
