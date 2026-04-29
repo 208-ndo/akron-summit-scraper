@@ -19,6 +19,9 @@ OWNER_SOURCE_NAME = "Cuyahoga MyPlace SingleSearchParcel"
 OWNER_LOOKUP_URL = "https://myplace.cuyahogacounty.gov/MyPlaceService.svc/SingleSearchParcel/{parcel}?city=75"
 ACTIVE_CONDEMNATIONS_URL = "https://services3.arcgis.com/dty2kHktVXHrqO8i/arcgis/rest/services/Current_Condemnations/FeatureServer/0"
 ACTIVE_CONDEMNATIONS_QUERY_URL = f"{ACTIVE_CONDEMNATIONS_URL}/query"
+VIOLATION_STATUS_URL = "https://services3.arcgis.com/dty2kHktVXHrqO8i/arcgis/rest/services/Violation_Status_History/FeatureServer/0"
+VIOLATION_STATUS_QUERY_URL = f"{VIOLATION_STATUS_URL}/query"
+PROPERTY_VALUE_URL = "https://myplace.cuyahogacounty.gov/MyPlaceService.svc/ParcelsAndValuesByAnySearchByAndCity/{parcel}?searchBy=Parcel&city=99"
 ENTITY_TERMS = (
     "LLC",
     "LTD",
@@ -218,6 +221,34 @@ def fetch_active_condemnations() -> list[dict]:
         offset += len(features)
 
 
+def fetch_arcgis_records(query_url: str, limit: int, order_by: str | None = None) -> list[dict]:
+    records = []
+    offset = 0
+    while len(records) < limit:
+        page_size = min(1000, limit - len(records))
+        params = {
+            "where": "1=1",
+            "outFields": "*",
+            "returnGeometry": "false",
+            "resultRecordCount": str(page_size),
+            "resultOffset": str(offset),
+            "f": "json",
+        }
+        if order_by:
+            params["orderByFields"] = order_by
+        url = f"{query_url}?{urllib.parse.urlencode(params)}"
+        with urllib.request.urlopen(url, timeout=45) as response:
+            payload = json.loads(response.read().decode("utf-8"))
+        if "error" in payload:
+            raise RuntimeError(payload["error"])
+        features = [feature.get("attributes") or feature for feature in payload.get("features", [])]
+        records.extend(features)
+        if not payload.get("exceededTransferLimit") or not features:
+            break
+        offset += len(features)
+    return records
+
+
 def normalize_condemnation_record(row: dict, fetched_at: str) -> dict:
     street, city, state, zip_code = parse_primary_address(row.get("Address"))
     parcel_id = clean_parcel(row.get("DW_Parcel") or row.get("Parcel_Number"))
@@ -274,8 +305,72 @@ def normalize_condemnation_record(row: dict, fetched_at: str) -> dict:
     }
 
 
+def normalize_violation_status_record(row: dict, fetched_at: str) -> dict:
+    street, city, state, zip_code = parse_primary_address(row.get("PRIMARY_ADDRESS"))
+    parcel_id = clean_parcel(row.get("DW_Parcel") or row.get("PARCEL_NUMBER"))
+    filed = parse_arcgis_date(row.get("FILE_DATE"))
+    task_date = parse_arcgis_date(row.get("TASK_DATE"))
+    issue_date = parse_arcgis_date(row.get("ISSUE_DATE"))
+    status = row.get("TASK_STATUS") or ""
+    violation_number = row.get("RECORD_ID") or ""
+    return {
+        "county": "Cuyahoga County",
+        "city": city,
+        "source_county_key": "cuyahoga",
+        "source_city_key": city.lower().replace(" ", "_"),
+        "market_area": "Cleveland Metro",
+        "property_address": street,
+        "property_city": city,
+        "property_state": state,
+        "property_zip": zip_code,
+        "prop_address": street,
+        "prop_city": city,
+        "prop_state": state,
+        "prop_zip": zip_code,
+        "owner_name": "Unknown",
+        "owner": "Unknown",
+        "owner_type": "unknown",
+        "parcel_id": parcel_id,
+        "case_number": violation_number,
+        "complaint_number": violation_number,
+        "violation_number": violation_number,
+        "violation_status": status,
+        "lead_type": "Cleveland Housing Pain",
+        "cat_label": "Cleveland Housing Pain",
+        "doc_type": "CODEVIOLATION",
+        "doc_num": violation_number,
+        "distress_sources": ["code_violation", "cleveland_housing_pain", "building_violation_status"],
+        "distress_count": 1,
+        "hot_stack": False,
+        "tired_landlord_plus": False,
+        "seller_score": 55,
+        "score": 55,
+        "subject_to_score": 0,
+        "public_records_url": row.get("ACCELA_CITIZEN_ACCESS_URL") or VIOLATION_STATUS_URL,
+        "source_url": VIOLATION_STATUS_URL,
+        "source_name": "Cleveland Open Data Building Violation Status History",
+        "date_filed": issue_date or filed,
+        "filed": issue_date or filed,
+        "last_updated": fetched_at,
+        "flags": ["Code violation", "Cleveland Housing Pain"],
+        "tags": [],
+        "building_violation_status": status,
+        "building_violation_task_name": row.get("TASK_NAME") or "",
+        "building_violation_task_date": task_date,
+        "building_violation_type": row.get("TYPE_OF_VIOLATION") or "",
+        "building_violation_occupancy_or_use": row.get("OCCUPANCY_OR_USE") or "",
+        "building_violation_source_url": VIOLATION_STATUS_URL,
+        "neighborhood": row.get("DW_Neighborhood") or "",
+        "ward": row.get("DW_Ward2026") or row.get("DW_Ward") or "",
+    }
+
+
 def has_value(value) -> bool:
     return value not in (None, "")
+
+
+def has_good_value(value) -> bool:
+    return has_value(value) and str(value).strip().upper() != "UNKNOWN"
 
 
 def owner_type(owner: str) -> str:
@@ -317,8 +412,42 @@ def fetch_owner_lookup(parcel_id: str) -> dict:
         return parse_owner_lookup(response.read().decode("utf-8"))
 
 
+def parse_property_value_lookup(raw: str) -> dict:
+    try:
+        outer = json.loads(raw)
+        data = json.loads(outer) if isinstance(outer, str) else outer
+    except json.JSONDecodeError:
+        return {}
+    if not data or not isinstance(data, list) or not data[0]:
+        return {}
+    first = data[0][0] if isinstance(data[0], list) else data[0]
+    if not isinstance(first, dict):
+        return {}
+    return {
+        "parcel_id": first.get("PARCEL_ID") or "",
+        "owner_name": first.get("DEEDED_OWNER") or "",
+        "property_address": str(first.get("PHYSICAL_ADDRESS") or "").strip(),
+        "property_city": title_city(str(first.get("PARCEL_CITY") or "")),
+        "property_state": "OH",
+        "property_zip": str(first.get("PARCEL_ZIP") or "").strip(),
+        "certified_tax_total": first.get("CERTIFIED_TAX_TOTAL"),
+    }
+
+
+def fetch_property_value_lookup(parcel_id: str) -> dict:
+    safe_parcel = urllib.parse.quote(str(parcel_id).strip())
+    url = PROPERTY_VALUE_URL.format(parcel=safe_parcel)
+    with urllib.request.urlopen(url, timeout=30) as response:
+        return parse_property_value_lookup(response.read().decode("utf-8"))
+
+
 def fill_if_blank(record: dict, field: str, value) -> None:
-    if has_value(value) and not has_value(record.get(field)):
+    if has_value(value) and not has_good_value(record.get(field)):
+        record[field] = value
+
+
+def set_if_value(record: dict, field: str, value) -> None:
+    if has_value(value):
         record[field] = value
 
 
@@ -365,6 +494,51 @@ def enrich_record(record: dict, timestamp: str) -> str:
     return "enriched"
 
 
+def enrich_property_value(record: dict, timestamp: str) -> str:
+    if record.get("source_county_key") != "cuyahoga":
+        return "skipped"
+    parcel_id = record.get("parcel_id") or ""
+    if not parcel_id:
+        record["property_value_enrichment_status"] = "no_parcel"
+        return "no_hit"
+    try:
+        value_data = fetch_property_value_lookup(parcel_id)
+    except Exception:
+        record["property_value_enrichment_status"] = "failed"
+        record["property_value_enrichment_timestamp"] = timestamp
+        return "failed"
+    record["property_value_enrichment_source"] = "Cuyahoga MyPlace ParcelsAndValuesByAnySearchByAndCity"
+    record["property_value_enrichment_timestamp"] = timestamp
+    if not value_data:
+        record["property_value_enrichment_status"] = "no_hit"
+        return "no_hit"
+    fill_if_blank(record, "owner_name", value_data.get("owner_name"))
+    fill_if_blank(record, "owner", value_data.get("owner_name"))
+    fill_if_blank(record, "source_owner_name", value_data.get("owner_name"))
+    fill_if_blank(record, "property_address", value_data.get("property_address"))
+    fill_if_blank(record, "property_city", value_data.get("property_city"))
+    fill_if_blank(record, "property_state", value_data.get("property_state"))
+    fill_if_blank(record, "property_zip", value_data.get("property_zip"))
+    fill_if_blank(record, "prop_address", value_data.get("property_address"))
+    fill_if_blank(record, "prop_city", value_data.get("property_city"))
+    fill_if_blank(record, "prop_state", value_data.get("property_state"))
+    fill_if_blank(record, "prop_zip", value_data.get("property_zip"))
+    fill_if_blank(record, "owner_type", owner_type(value_data.get("owner_name", "")))
+    set_if_value(record, "certified_tax_total", value_data.get("certified_tax_total"))
+    set_if_value(record, "tax_total", value_data.get("certified_tax_total"))
+    try:
+        tax_total = float(value_data.get("certified_tax_total") or 0)
+    except (TypeError, ValueError):
+        tax_total = 0
+    if tax_total > 0:
+        record["tax_pressure"] = True
+        add_unique(record, "distress_sources", ["tax_pressure"])
+        add_unique(record, "flags", ["Tax Pressure"])
+        add_unique(record, "tags", ["Tax Pressure"])
+    record["property_value_enrichment_status"] = "enriched"
+    return "enriched"
+
+
 def enrich_owners(limit: int) -> dict:
     payload = json.loads(OUTPUT_PATH.read_text(encoding="utf-8"))
     records = payload.get("records") or []
@@ -399,6 +573,9 @@ def merge_record(existing: dict, incoming: dict) -> dict:
         elif field.startswith("condemnation_") or field == "active_condemnation":
             if has_value(value):
                 existing[field] = value
+        elif field.startswith("building_violation_") or field in ("violation_status",):
+            if has_value(value):
+                existing[field] = value
         elif field == "last_updated":
             if has_value(value):
                 existing[field] = value
@@ -417,14 +594,18 @@ def apply_stack_tags(record: dict) -> None:
         add_unique(record, "flags", ["Active Condemnation", "Vacant", "Unsafe"])
         add_unique(record, "tags", ["Active Condemnation", "Vacant", "Unsafe"])
     if str(record.get("owner_type") or "").lower() == "entity":
+        record["entity_owner"] = True
         add_unique(record, "flags", ["Tired Landlord"])
         add_unique(record, "tags", ["Tired Landlord"])
+    if record.get("tax_pressure"):
+        add_unique(record, "flags", ["Tax Pressure"])
+        add_unique(record, "tags", ["Tax Pressure"])
     if int(record.get("distress_count") or 0) >= 2 or record.get("active_condemnation"):
         add_unique(record, "flags", ["Cuyahoga Hot Stack"])
         add_unique(record, "tags", ["Cuyahoga Hot Stack"])
 
 
-def expand_stacks(limit: int, owner_limit: int) -> dict:
+def expand_stacks(limit: int, owner_limit: int, violation_limit: int = 5000, property_limit: int = 1000) -> dict:
     payload = json.loads(OUTPUT_PATH.read_text(encoding="utf-8"))
     timestamp = datetime.now(timezone.utc).isoformat(timespec="seconds")
     backup_path = OUTPUT_PATH.with_suffix(f".phase2d.{timestamp.replace(':', '').replace('+', 'Z')}.bak.json")
@@ -441,6 +622,20 @@ def expand_stacks(limit: int, owner_limit: int) -> dict:
         key = record_key(record)
         if key:
             merged[key] = merge_record(merged[key], record) if key in merged else record
+
+    violation_rows = fetch_arcgis_records(VIOLATION_STATUS_QUERY_URL, violation_limit, "TASK_DATE DESC")
+    matched_violations = 0
+    standalone_violations = 0
+    for record in [normalize_violation_status_record(row, timestamp) for row in violation_rows]:
+        key = record_key(record)
+        if not key:
+            continue
+        if key in merged:
+            matched_violations += 1
+            merged[key] = merge_record(merged[key], record)
+        else:
+            standalone_violations += 1
+            merged[key] = record
 
     condemnation_rows = fetch_active_condemnations()
     matched_condemnations = 0
@@ -466,6 +661,19 @@ def expand_stacks(limit: int, owner_limit: int) -> dict:
         status = enrich_record(record, timestamp)
         owner_counts[status] = owner_counts.get(status, 0) + 1
 
+    property_counts = {"attempted": 0, "enriched": 0, "no_hit": 0, "failed": 0, "skipped": 0}
+    seen_parcels = set()
+    for record in merged.values():
+        if property_counts["attempted"] >= property_limit:
+            break
+        parcel = clean_parcel(record.get("parcel_id"))
+        if record.get("source_county_key") != "cuyahoga" or not parcel or parcel in seen_parcels:
+            continue
+        seen_parcels.add(parcel)
+        property_counts["attempted"] += 1
+        status = enrich_property_value(record, timestamp)
+        property_counts[status] = property_counts.get(status, 0) + 1
+
     records = list(merged.values())
     for record in records:
         apply_stack_tags(record)
@@ -479,10 +687,14 @@ def expand_stacks(limit: int, owner_limit: int) -> dict:
             "phase_2d_stack_expansion": {
                 "timestamp": timestamp,
                 "housing_records_pulled": len(housing_records),
+                "violation_status_rows_pulled": len(violation_rows),
+                "matched_violation_status_records": matched_violations,
+                "standalone_violation_status_records": standalone_violations,
                 "active_condemnations_pulled": len(condemnation_rows),
                 "matched_active_condemnations": matched_condemnations,
                 "standalone_active_condemnations": standalone_condemnations,
                 "owner_enrichment": owner_counts,
+                "property_value_enrichment": property_counts,
                 "backup_path": str(backup_path),
             },
         }
@@ -497,9 +709,16 @@ def main() -> None:
     parser.add_argument("--enrich-owners", action="store_true")
     parser.add_argument("--expand-stacks", action="store_true")
     parser.add_argument("--owner-limit", type=int, default=250)
+    parser.add_argument("--violation-limit", type=int, default=5000)
+    parser.add_argument("--property-limit", type=int, default=1000)
     args = parser.parse_args()
     if args.expand_stacks:
-        result = expand_stacks(max(1, min(args.limit, 1000)), max(1, min(args.owner_limit, 1000)))
+        result = expand_stacks(
+            max(1, min(args.limit, 1000)),
+            max(1, min(args.owner_limit, 1000)),
+            max(1, min(args.violation_limit, 10000)),
+            max(1, min(args.property_limit, 2500)),
+        )
         print(json.dumps(result, indent=2))
         return
     if args.enrich_owners:
