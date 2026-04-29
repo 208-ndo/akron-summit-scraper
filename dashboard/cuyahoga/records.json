@@ -757,9 +757,10 @@
       "doc_num": "V26014994",
       "distress_sources": [
         "code_violation",
-        "cleveland_housing_pain"
+        "cleveland_housing_pain",
+        "active_condemnation"
       ],
-      "distress_count": 1,
+      "distress_count": 2,
       "hot_stack": false,
       "tired_landlord_plus": false,
       "seller_score": 55,
@@ -776,14 +777,28 @@
       "last_updated": "2026-04-29T05:19:59+00:00",
       "flags": [
         "Code violation",
-        "Cleveland Housing Pain"
+        "Cleveland Housing Pain",
+        "Active Condemnation",
+        "Vacant",
+        "Unsafe"
       ],
       "neighborhood": "Hough",
       "ward": 8,
       "enrichment_source": "Cuyahoga MyPlace SingleSearchParcel",
       "enrichment_timestamp": "2026-04-29T13:55:21+00:00",
       "source_owner_name": "CLEMONS, JOHN L",
-      "enrichment_status": "enriched"
+      "enrichment_status": "enriched",
+      "active_condemnation": true,
+      "condemnation_status": "Yes",
+      "condemnation_case_number": "562",
+      "condemnation_date": "2026-04-14",
+      "condemnation_source": "Cleveland Open Data Active Condemnations",
+      "condemnation_source_url": "https://services3.arcgis.com/dty2kHktVXHrqO8i/arcgis/rest/services/Current_Condemnations/FeatureServer/0",
+      "tags": [
+        "Active Condemnation",
+        "Vacant",
+        "Unsafe"
+      ]
     },
     {
       "county": "Cuyahoga County",
@@ -2557,9 +2572,10 @@
       "doc_num": "V26014344",
       "distress_sources": [
         "code_violation",
-        "cleveland_housing_pain"
+        "cleveland_housing_pain",
+        "active_condemnation"
       ],
-      "distress_count": 1,
+      "distress_count": 2,
       "hot_stack": false,
       "tired_landlord_plus": false,
       "seller_score": 55,
@@ -2576,14 +2592,28 @@
       "last_updated": "2026-04-29T05:19:59+00:00",
       "flags": [
         "Code violation",
-        "Cleveland Housing Pain"
+        "Cleveland Housing Pain",
+        "Active Condemnation",
+        "Vacant",
+        "Unsafe"
       ],
       "neighborhood": "St.Clair-Superior",
       "ward": 8,
       "enrichment_source": "Cuyahoga MyPlace SingleSearchParcel",
       "enrichment_timestamp": "2026-04-29T13:55:21+00:00",
       "source_owner_name": "6111 EAST ST. CLAIR LLC",
-      "enrichment_status": "enriched"
+      "enrichment_status": "enriched",
+      "active_condemnation": true,
+      "condemnation_status": "Yes",
+      "condemnation_case_number": "443",
+      "condemnation_date": "2018-06-20",
+      "condemnation_source": "Cleveland Open Data Active Condemnations",
+      "condemnation_source_url": "https://services3.arcgis.com/dty2kHktVXHrqO8i/arcgis/rest/services/Current_Condemnations/FeatureServer/0",
+      "tags": [
+        "Active Condemnation",
+        "Vacant",
+        "Unsafe"
+      ]
     },
     {
       "county": "Cuyahoga County",
@@ -3877,9 +3907,10 @@
       "doc_num": "V26015086",
       "distress_sources": [
         "code_violation",
-        "cleveland_housing_pain"
+        "cleveland_housing_pain",
+        "active_condemnation"
       ],
-      "distress_count": 1,
+      "distress_count": 2,
       "hot_stack": false,
       "tired_landlord_plus": false,
       "seller_score": 55,
@@ -3896,14 +3927,27 @@
       "last_updated": "2026-04-29T05:19:59+00:00",
       "flags": [
         "Code violation",
-        "Cleveland Housing Pain"
+        "Cleveland Housing Pain",
+        "Active Condemnation",
+        "Vacant",
+        "Unsafe"
       ],
       "neighborhood": "Union-Miles",
       "ward": 1,
       "enrichment_source": "Cuyahoga MyPlace SingleSearchParcel",
       "enrichment_timestamp": "2026-04-29T13:55:21+00:00",
       "source_owner_name": "OHIO PROPERTIES, LLC",
-      "enrichment_status": "enriched"
+      "enrichment_status": "enriched",
+      "active_condemnation": true,
+      "condemnation_status": "Yes",
+      "condemnation_case_number": "1208",
+      "condemnation_source": "Cleveland Open Data Active Condemnations",
+      "condemnation_source_url": "https://services3.arcgis.com/dty2kHktVXHrqO8i/arcgis/rest/services/Current_Condemnations/FeatureServer/0",
+      "tags": [
+        "Active Condemnation",
+        "Vacant",
+        "Unsafe"
+      ]
     },
     {
       "county": "Cuyahoga County",
@@ -4777,9 +4821,10 @@
       "doc_num": "V26012966",
       "distress_sources": [
         "code_violation",
-        "cleveland_housing_pain"
+        "cleveland_housing_pain",
+        "active_condemnation"
       ],
-      "distress_count": 1,
+      "distress_count": 2,
       "hot_stack": false,
       "tired_landlord_plus": false,
       "seller_score": 55,
@@ -4796,14 +4841,28 @@
       "last_updated": "2026-04-29T05:19:59+00:00",
       "flags": [
         "Code violation",
-        "Cleveland Housing Pain"
+        "Cleveland Housing Pain",
+        "Active Condemnation",
+        "Vacant",
+        "Unsafe"
       ],
       "neighborhood": "Fairfax",
       "ward": 6,
       "enrichment_source": "Cuyahoga MyPlace SingleSearchParcel",
       "enrichment_timestamp": "2026-04-29T13:55:21+00:00",
       "source_owner_name": "CITY OF CLEVELAND, INDUSTRIAL-COMMERCIAL LAND BANK",
-      "enrichment_status": "enriched"
+      "enrichment_status": "enriched",
+      "active_condemnation": true,
+      "condemnation_status": "Yes",
+      "condemnation_case_number": "1861",
+      "condemnation_date": "2026-04-09",
+      "condemnation_source": "Cleveland Open Data Active Condemnations",
+      "condemnation_source_url": "https://services3.arcgis.com/dty2kHktVXHrqO8i/arcgis/rest/services/Current_Condemnations/FeatureServer/0",
+      "tags": [
+        "Active Condemnation",
+        "Vacant",
+        "Unsafe"
+      ]
     },
     {
       "county": "Cuyahoga County",
@@ -5317,9 +5376,10 @@
       "doc_num": "V26013216",
       "distress_sources": [
         "code_violation",
-        "cleveland_housing_pain"
+        "cleveland_housing_pain",
+        "active_condemnation"
       ],
-      "distress_count": 1,
+      "distress_count": 2,
       "hot_stack": false,
       "tired_landlord_plus": false,
       "seller_score": 55,
@@ -5336,14 +5396,28 @@
       "last_updated": "2026-04-29T05:19:59+00:00",
       "flags": [
         "Code violation",
-        "Cleveland Housing Pain"
+        "Cleveland Housing Pain",
+        "Active Condemnation",
+        "Vacant",
+        "Unsafe"
       ],
       "neighborhood": "West Boulevard",
       "ward": 11,
       "enrichment_source": "Cuyahoga MyPlace SingleSearchParcel",
       "enrichment_timestamp": "2026-04-29T13:55:21+00:00",
       "source_owner_name": "MANDUNDU, ZEKA",
-      "enrichment_status": "enriched"
+      "enrichment_status": "enriched",
+      "active_condemnation": true,
+      "condemnation_status": "Yes",
+      "condemnation_case_number": "322",
+      "condemnation_date": "2022-02-09",
+      "condemnation_source": "Cleveland Open Data Active Condemnations",
+      "condemnation_source_url": "https://services3.arcgis.com/dty2kHktVXHrqO8i/arcgis/rest/services/Current_Condemnations/FeatureServer/0",
+      "tags": [
+        "Active Condemnation",
+        "Vacant",
+        "Unsafe"
+      ]
     },
     {
       "county": "Cuyahoga County",
@@ -5497,9 +5571,10 @@
       "doc_num": "V26013855",
       "distress_sources": [
         "code_violation",
-        "cleveland_housing_pain"
+        "cleveland_housing_pain",
+        "active_condemnation"
       ],
-      "distress_count": 1,
+      "distress_count": 2,
       "hot_stack": false,
       "tired_landlord_plus": false,
       "seller_score": 55,
@@ -5516,14 +5591,28 @@
       "last_updated": "2026-04-29T05:19:59+00:00",
       "flags": [
         "Code violation",
-        "Cleveland Housing Pain"
+        "Cleveland Housing Pain",
+        "Active Condemnation",
+        "Vacant",
+        "Unsafe"
       ],
       "neighborhood": "Broadway-Slavic Village",
       "ward": 2,
       "enrichment_source": "Cuyahoga MyPlace SingleSearchParcel",
       "enrichment_timestamp": "2026-04-29T13:55:21+00:00",
       "source_owner_name": "STATE OF OHIO FORF CV# 24-995046",
-      "enrichment_status": "enriched"
+      "enrichment_status": "enriched",
+      "active_condemnation": true,
+      "condemnation_status": "Yes",
+      "condemnation_case_number": "1007",
+      "condemnation_date": "2026-04-15",
+      "condemnation_source": "Cleveland Open Data Active Condemnations",
+      "condemnation_source_url": "https://services3.arcgis.com/dty2kHktVXHrqO8i/arcgis/rest/services/Current_Condemnations/FeatureServer/0",
+      "tags": [
+        "Active Condemnation",
+        "Vacant",
+        "Unsafe"
+      ]
     },
     {
       "county": "Cuyahoga County",
@@ -5617,9 +5706,10 @@
       "doc_num": "V26012770",
       "distress_sources": [
         "code_violation",
-        "cleveland_housing_pain"
+        "cleveland_housing_pain",
+        "active_condemnation"
       ],
-      "distress_count": 1,
+      "distress_count": 2,
       "hot_stack": false,
       "tired_landlord_plus": false,
       "seller_score": 55,
@@ -5636,14 +5726,28 @@
       "last_updated": "2026-04-29T05:19:59+00:00",
       "flags": [
         "Code violation",
-        "Cleveland Housing Pain"
+        "Cleveland Housing Pain",
+        "Active Condemnation",
+        "Vacant",
+        "Unsafe"
       ],
       "neighborhood": "Mount Pleasant",
       "ward": 1,
       "enrichment_source": "Cuyahoga MyPlace SingleSearchParcel",
       "enrichment_timestamp": "2026-04-29T13:55:21+00:00",
       "source_owner_name": "STATE OF OHIO FORF CV# 997363",
-      "enrichment_status": "enriched"
+      "enrichment_status": "enriched",
+      "active_condemnation": true,
+      "condemnation_status": "Yes",
+      "condemnation_case_number": "1123",
+      "condemnation_date": "2026-04-09",
+      "condemnation_source": "Cleveland Open Data Active Condemnations",
+      "condemnation_source_url": "https://services3.arcgis.com/dty2kHktVXHrqO8i/arcgis/rest/services/Current_Condemnations/FeatureServer/0",
+      "tags": [
+        "Active Condemnation",
+        "Vacant",
+        "Unsafe"
+      ]
     },
     {
       "county": "Cuyahoga County",
@@ -5737,9 +5841,10 @@
       "doc_num": "V26012716",
       "distress_sources": [
         "code_violation",
-        "cleveland_housing_pain"
+        "cleveland_housing_pain",
+        "active_condemnation"
       ],
-      "distress_count": 1,
+      "distress_count": 2,
       "hot_stack": false,
       "tired_landlord_plus": false,
       "seller_score": 55,
@@ -5756,14 +5861,28 @@
       "last_updated": "2026-04-29T05:19:59+00:00",
       "flags": [
         "Code violation",
-        "Cleveland Housing Pain"
+        "Cleveland Housing Pain",
+        "Active Condemnation",
+        "Vacant",
+        "Unsafe"
       ],
       "neighborhood": "Union-Miles",
       "ward": 1,
       "enrichment_source": "Cuyahoga MyPlace SingleSearchParcel",
       "enrichment_timestamp": "2026-04-29T13:55:21+00:00",
       "source_owner_name": "STATE OF OHIO FORF CV# 102148",
-      "enrichment_status": "enriched"
+      "enrichment_status": "enriched",
+      "active_condemnation": true,
+      "condemnation_status": "Yes",
+      "condemnation_case_number": "1199",
+      "condemnation_date": "2026-04-09",
+      "condemnation_source": "Cleveland Open Data Active Condemnations",
+      "condemnation_source_url": "https://services3.arcgis.com/dty2kHktVXHrqO8i/arcgis/rest/services/Current_Condemnations/FeatureServer/0",
+      "tags": [
+        "Active Condemnation",
+        "Vacant",
+        "Unsafe"
+      ]
     },
     {
       "county": "Cuyahoga County",
@@ -6015,5 +6134,13 @@
     "no_hit": 0,
     "failed": 0,
     "skipped": 0
+  },
+  "active_condemnation_layer": {
+    "source": "Cleveland Open Data Active Condemnations",
+    "endpoint": "https://services3.arcgis.com/dty2kHktVXHrqO8i/arcgis/rest/services/Current_Condemnations/FeatureServer/0",
+    "updated_at": "2026-04-29T14:17:59.923Z",
+    "records_pulled": 1979,
+    "matched_existing_records": 8,
+    "unmatched_condemnation_records": 1971
   }
 }
