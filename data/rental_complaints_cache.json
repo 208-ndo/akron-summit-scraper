@@ -3098,5 +3098,11 @@
     "source_url": "https://ari.akronohio.gov/",
     "searched_address": "10 Pm Breach Of Contract",
     "checked_at": "2026-04-28T13:34:50.144605+00:00"
+  },
+  "09 AM BREACH OF CONTRACT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "09 Am Breach Of Contract",
+    "checked_at": "2026-04-29T13:24:20.780304+00:00"
   }
 }

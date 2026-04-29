@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-28T13:34:54.359879+00:00",
+  "fetched_at": "2026-04-29T13:24:24.904679+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "cash_buyers",
   "description": "Investor buyers who purchased 3+ unique properties in the last 12 months",
@@ -8,14 +8,14 @@
     {
       "doc_num": "CASHBUYER-NVR INC",
       "doc_type": "CASHBUYER",
-      "filed": "2026-04-21",
+      "filed": "2026-04-28",
       "cat": "CASHBUYER",
       "cat_label": "Cash Buyer",
       "owner": "Nvr Inc",
       "grantee": "",
-      "amount": 95762.88,
+      "amount": 95286.53,
       "legal": "",
-      "prop_address": "3768 ALUMINA DR",
+      "prop_address": "3703 CREEDMOOR RD",
       "prop_city": "BARBERTON",
       "prop_state": "OH",
       "prop_zip": "44203",
@@ -51,7 +51,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "Tracerfy",
+      "skip_trace_source": "",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -69,8 +69,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "no_hit",
-      "skip_trace_timestamp": "2026-04-24T13:26:09.673569Z",
+      "skip_trace_status": "",
+      "skip_trace_timestamp": "",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -99,11 +99,11 @@
       "bedrooms": null,
       "bathrooms": null,
       "square_feet": null,
-      "buyer_purchase_count": 33,
-      "buyer_unique_parcels": 33,
-      "buyer_last_purchase_date": "2026-04-21",
-      "buyer_avg_purchase_price": 95762.88,
-      "buyer_total_purchase_volume": 3160175.0,
+      "buyer_purchase_count": 34,
+      "buyer_unique_parcels": 34,
+      "buyer_last_purchase_date": "2026-04-28",
+      "buyer_avg_purchase_price": 95286.53,
+      "buyer_total_purchase_volume": 3239742.0,
       "buyer_zips": [
         "44203",
         "44312",
@@ -151,17 +151,17 @@
     {
       "doc_num": "CASHBUYER-S FLIP LLC",
       "doc_type": "CASHBUYER",
-      "filed": "2026-04-22",
+      "filed": "2026-04-28",
       "cat": "CASHBUYER",
       "cat_label": "Cash Buyer",
       "owner": "S Flip Llc",
       "grantee": "",
-      "amount": 53933.33,
+      "amount": 53161.29,
       "legal": "",
-      "prop_address": "143 BRIGHTON DR",
+      "prop_address": "1119 YUKON AVE",
       "prop_city": "AKRON",
       "prop_state": "OH",
-      "prop_zip": "44301",
+      "prop_zip": "",
       "mail_address": "1361 WOOSTER RD UNIT A",
       "mail_city": "BARBERTON",
       "mail_state": "OH",
@@ -194,7 +194,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "Tracerfy",
+      "skip_trace_source": "",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -212,8 +212,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "no_hit",
-      "skip_trace_timestamp": "2026-04-24T13:26:09.673457Z",
+      "skip_trace_status": "",
+      "skip_trace_timestamp": "",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -242,11 +242,11 @@
       "bedrooms": null,
       "bathrooms": null,
       "square_feet": null,
-      "buyer_purchase_count": 30,
-      "buyer_unique_parcels": 30,
-      "buyer_last_purchase_date": "2026-04-22",
-      "buyer_avg_purchase_price": 53933.33,
-      "buyer_total_purchase_volume": 1618000.0,
+      "buyer_purchase_count": 31,
+      "buyer_unique_parcels": 31,
+      "buyer_last_purchase_date": "2026-04-28",
+      "buyer_avg_purchase_price": 53161.29,
+      "buyer_total_purchase_volume": 1648000.0,
       "buyer_zips": [
         "44203",
         "44221",
@@ -487,8 +487,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -786,8 +786,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1048,8 +1048,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1155,17 +1155,17 @@
     {
       "doc_num": "CASHBUYER-K AND R PROPERTY SOLUTIONS LLC",
       "doc_type": "CASHBUYER",
-      "filed": "2026-04-21",
+      "filed": "2026-04-28",
       "cat": "CASHBUYER",
       "cat_label": "Cash Buyer",
       "owner": "K And R Property Solutions Llc",
       "grantee": "",
-      "amount": 110777.78,
+      "amount": 101850.0,
       "legal": "",
-      "prop_address": "1155 TULIP ST",
+      "prop_address": "81 COTTER AVE",
       "prop_city": "AKRON",
       "prop_state": "OH",
-      "prop_zip": "44301",
+      "prop_zip": "44305",
       "mail_address": "3001 JACKSON AVE NE",
       "mail_city": "Massillon",
       "mail_state": "OH",
@@ -1198,7 +1198,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "Tracerfy",
+      "skip_trace_source": "",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -1216,8 +1216,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "no_hit",
-      "skip_trace_timestamp": "2026-04-24T13:26:09.673663Z",
+      "skip_trace_status": "",
+      "skip_trace_timestamp": "",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -1246,15 +1246,16 @@
       "bedrooms": null,
       "bathrooms": null,
       "square_feet": null,
-      "buyer_purchase_count": 9,
-      "buyer_unique_parcels": 9,
-      "buyer_last_purchase_date": "2026-04-21",
-      "buyer_avg_purchase_price": 110777.78,
-      "buyer_total_purchase_volume": 997000.0,
+      "buyer_purchase_count": 10,
+      "buyer_unique_parcels": 10,
+      "buyer_last_purchase_date": "2026-04-28",
+      "buyer_avg_purchase_price": 101850.0,
+      "buyer_total_purchase_volume": 1018500.0,
       "buyer_zips": [
         "44223",
         "44232",
         "44301",
+        "44305",
         "44312",
         "44320",
         "44720"
@@ -1264,6 +1265,7 @@
         "1709 BERNA RD",
         "1282 NEPTUNE AVE",
         "650 S SUNSET VIEW DR",
+        "81 COTTER AVE",
         "1955 KOONS RD",
         "1995 KOONS RD",
         "2000 STAKE DR",
@@ -1285,15 +1287,15 @@
     {
       "doc_num": "CASHBUYER-DREES COMPANY",
       "doc_type": "CASHBUYER",
-      "filed": "2026-04-20",
+      "filed": "2026-04-28",
       "cat": "CASHBUYER",
       "cat_label": "Cash Buyer",
       "owner": "Drees Company",
       "grantee": "",
-      "amount": 386995.38,
+      "amount": 361773.67,
       "legal": "",
-      "prop_address": "3775 OVERLOOK CT",
-      "prop_city": "Covington",
+      "prop_address": "3839 OVERLOOK CT",
+      "prop_city": "Akron",
       "prop_state": "OH",
       "prop_zip": "",
       "mail_address": "211 GRANDVIEW DR",
@@ -1327,7 +1329,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "Tracerfy",
+      "skip_trace_source": "",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -1345,8 +1347,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "no_hit",
-      "skip_trace_timestamp": "2026-04-24T13:26:09.673882Z",
+      "skip_trace_status": "",
+      "skip_trace_timestamp": "",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -1375,11 +1377,11 @@
       "bedrooms": null,
       "bathrooms": null,
       "square_feet": null,
-      "buyer_purchase_count": 8,
-      "buyer_unique_parcels": 8,
-      "buyer_last_purchase_date": "2026-04-20",
-      "buyer_avg_purchase_price": 386995.38,
-      "buyer_total_purchase_volume": 3095963.0,
+      "buyer_purchase_count": 9,
+      "buyer_unique_parcels": 9,
+      "buyer_last_purchase_date": "2026-04-28",
+      "buyer_avg_purchase_price": 361773.67,
+      "buyer_total_purchase_volume": 3255963.0,
       "buyer_zips": [
         "44312"
       ],
@@ -1391,7 +1393,8 @@
         "3852 OVERLOOK CT",
         "3855 OVERLOOK CT",
         "305 ARBORETUM CT",
-        "3775 OVERLOOK CT"
+        "3775 OVERLOOK CT",
+        "3839 OVERLOOK CT"
       ],
       "buyer_type": "LLC / Entity",
       "rental_complaint": false,
@@ -1690,8 +1693,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -2070,8 +2073,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -2324,8 +2327,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -2432,10 +2435,10 @@
       "prop_city": "AKRON",
       "prop_state": "OH",
       "prop_zip": "44319",
-      "mail_address": "4056 E GOLD SPRING RD",
-      "mail_city": "Lake Havasu City",
+      "mail_address": "153 W GLENRIDGE RD",
+      "mail_city": "Akron",
       "mail_state": "OH",
-      "mail_zip": "86406",
+      "mail_zip": "44319",
       "clerk_url": "https://fiscaloffice.summitoh.net/index.php/documents-a-forms/viewcategory/10-cama",
       "flags": [
         "Cash Buyer",
@@ -3739,8 +3742,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -4345,8 +4348,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -4826,8 +4829,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5650,8 +5653,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5872,7 +5875,7 @@
       "amount": 210166.67,
       "legal": "",
       "prop_address": "ENDICOTT WAY",
-      "prop_city": "Akron",
+      "prop_city": "Cuyahoga Falls",
       "prop_state": "OH",
       "prop_zip": "",
       "mail_address": "133 RAVENSHOLLOW DR",
@@ -5895,8 +5898,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -6261,7 +6264,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -6279,8 +6282,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-28T13:34:55.063948Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -7073,8 +7076,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7546,8 +7549,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -8729,8 +8732,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
