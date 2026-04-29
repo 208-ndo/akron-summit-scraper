@@ -1628,6 +1628,56 @@ function cityValue(r){
   return String(r.city||r.property_city||r.prop_city||'').trim();
 }
 
+function countyKeyForRecord(r){
+  return String(r.source_county_key||curCounty||DEFAULT_COUNTY_KEY).trim();
+}
+
+const COUNTY_CITY_WHITELISTS={
+  summit:[
+    'Akron','Barberton','Cuyahoga Falls','Stow','Tallmadge','Green','Hudson','Macedonia','Twinsburg','Norton',
+    'New Franklin','Munroe Falls','Fairlawn','Richfield','Silver Lake','Lakemore','Reminderville','Clinton',
+    'Peninsula','Boston Heights','Coventry Twp.','Springfield Twp.','Bath Twp.','Richfield Twp.',
+    'Sagamore Hills Twp.','Northfield Center Twp.','Twinsburg Twp.','Boston Twp.','Portage Lakes','Mogadore',
+    'Copley','Bath','Northfield','Fairlawn Heights'
+  ]
+};
+
+function cityLookupKey(value){
+  return String(value||'').trim().replace(/\s+/g,' ').replace(/\.$/,'').toUpperCase();
+}
+
+function titleCaseCity(value){
+  return String(value||'').toLowerCase().replace(/\b[a-z]/g,ch=>ch.toUpperCase()).replace(/\bTwp\b/g,'Twp.');
+}
+
+function normalizeCityForFilter(rawCity,countyKey){
+  const raw=String(rawCity||'').trim().replace(/\s+/g,' ');
+  if(!raw)return '';
+  const key=cityLookupKey(raw);
+  if(['UNKNOWN','NULL','N/A','NA','NONE','V/L',"V/L'S"].includes(key))return '';
+  if(/^UNIT\b/i.test(raw))return '';
+  if(/^(APT|APARTMENT|STE|SUITE|#)\b/i.test(raw))return '';
+  const aliases={
+    'CUYAHOGA FA':'Cuyahoga Falls',
+    'CUYAHOGA FALLS':'Cuyahoga Falls',
+    'COVENTRY TWP':'Coventry Twp.',
+    'COVENTRY TWP.':'Coventry Twp.'
+  };
+  const cleaned=aliases[key]||(/^[A-Z][A-Z\s.'-]+$/.test(raw)?titleCaseCity(raw):raw);
+  const whitelist=COUNTY_CITY_WHITELISTS[countyKey]||[];
+  if(!whitelist.length)return cleaned;
+  return whitelist.find(city=>cityLookupKey(city)===cityLookupKey(cleaned))||'';
+}
+
+function cityFilterValue(r,countyKey=curCounty){
+  return normalizeCityForFilter(cityValue(r),countyKey);
+}
+
+function dropdownCityValue(r){
+  const countyKey=curCounty===ALL_OHIO_KEY?countyKeyForRecord(r):curCounty;
+  return cityFilterValue(r,countyKey);
+}
+
 function countyValue(r){
   return String(r.county||r.source_county_key||'').trim();
 }
@@ -1747,7 +1797,10 @@ function updateCityFilter(records){
   const select=document.getElementById('city-select');
   if(!select)return;
   const current=curCity;
-  const cities=uniqueList((records||[]).map(cityValue).concat(curCounty===ALL_OHIO_KEY?[]:((countyConfig[curCounty]||{}).cities||[]))).sort((a,b)=>a.localeCompare(b));
+  const configuredCities=curCounty===ALL_OHIO_KEY
+    ? []
+    : ((countyConfig[curCounty]||{}).cities||[]).map(city=>normalizeCityForFilter(city,curCounty));
+  const cities=uniqueList((records||[]).map(dropdownCityValue).concat(configuredCities)).sort((a,b)=>a.localeCompare(b));
   select.innerHTML='<option value="">City: All</option>'+cities.map(city=>`<option value="${city}">${city}</option>`).join('');
   curCity=cities.includes(current)?current:'';
   select.value=curCity;
@@ -2106,7 +2159,7 @@ function applyFilters(){
     if(ad==='without'&&r.prop_address)return false;
     if(traced && getSkipBucket(r) !== traced) return false;
     if(fl&&!(r.flags||[]).join(' ').toLowerCase().includes(fl))return false;
-    if(cityFilter&&cityValue(r).toLowerCase()!==cityFilter)return false;
+    if(cityFilter&&cityFilterValue(r,curCounty===ALL_OHIO_KEY?countyKeyForRecord(r):curCounty).toLowerCase()!==cityFilter)return false;
     if(q){const hay=[r.owner,r.traced_owner_name,r.prop_address,r.prop_city,r.county,r.city,r.doc_num,r.doc_type,r.mail_address,r.traced_mailing_address,r.decedent_name,r.executor_name,(r.flags||[]).join(' '),getRecordPhones(r).join(' '),getRecordEmails(r).join(' ')].join(' ').toLowerCase();if(!hay.includes(q))return false;}
     return true;
   });
