@@ -539,6 +539,41 @@ def enrich_property_value(record: dict, timestamp: str) -> str:
     return "enriched"
 
 
+def enrich_tax_values(limit: int) -> dict:
+    payload = json.loads(OUTPUT_PATH.read_text(encoding="utf-8"))
+    timestamp = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    backup_path = OUTPUT_PATH.with_suffix(f".phase2f.{timestamp.replace(':', '').replace('+', 'Z')}.bak.json")
+    shutil.copy2(OUTPUT_PATH, backup_path)
+    records = payload.get("records") or []
+    counts = {"attempted": 0, "enriched": 0, "no_hit": 0, "failed": 0, "skipped": 0}
+    seen_parcels = set()
+    for record in records:
+        if counts["attempted"] >= limit:
+            break
+        if record.get("source_county_key") != "cuyahoga":
+            counts["skipped"] += 1
+            continue
+        parcel = clean_parcel(record.get("parcel_id"))
+        if not parcel or parcel in seen_parcels:
+            continue
+        seen_parcels.add(parcel)
+        counts["attempted"] += 1
+        status = enrich_property_value(record, timestamp)
+        counts[status] = counts.get(status, 0) + 1
+        apply_stack_tags(record)
+        apply_absentee_owner_flags(record)
+    payload["phase_2f_tax_value_enrichment"] = {
+        "timestamp": timestamp,
+        "source": "Cuyahoga MyPlace ParcelsAndValuesByAnySearchByAndCity",
+        "assessed_market_value_status": "not_available_in_tested_public_endpoint",
+        "limit": limit,
+        **counts,
+        "backup_path": str(backup_path),
+    }
+    OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    return payload["phase_2f_tax_value_enrichment"]
+
+
 def enrich_owners(limit: int) -> dict:
     payload = json.loads(OUTPUT_PATH.read_text(encoding="utf-8"))
     records = payload.get("records") or []
@@ -777,6 +812,7 @@ def main() -> None:
     parser.add_argument("--enrich-owners", action="store_true")
     parser.add_argument("--expand-stacks", action="store_true")
     parser.add_argument("--apply-absentee-flags", action="store_true")
+    parser.add_argument("--enrich-tax-values", action="store_true")
     parser.add_argument("--owner-limit", type=int, default=250)
     parser.add_argument("--violation-limit", type=int, default=5000)
     parser.add_argument("--property-limit", type=int, default=1000)
@@ -792,6 +828,10 @@ def main() -> None:
         return
     if args.apply_absentee_flags:
         result = apply_absentee_flags()
+        print(json.dumps(result, indent=2))
+        return
+    if args.enrich_tax_values:
+        result = enrich_tax_values(max(1, min(args.property_limit, 5000)))
         print(json.dumps(result, indent=2))
         return
     if args.enrich_owners:
