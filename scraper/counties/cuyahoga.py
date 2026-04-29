@@ -605,6 +605,74 @@ def apply_stack_tags(record: dict) -> None:
         add_unique(record, "tags", ["Cuyahoga Hot Stack"])
 
 
+def has_distress(record: dict) -> bool:
+    text = " ".join(
+        str(value)
+        for value in (record.get("distress_sources") or []) + (record.get("flags") or []) + (record.get("tags") or [])
+    ).lower()
+    return any(
+        marker in text
+        for marker in (
+            "code_violation",
+            "code violation",
+            "housing pain",
+            "vacant",
+            "condemnation",
+            "building_violation_status",
+        )
+    )
+
+
+def apply_absentee_owner_flags(record: dict) -> None:
+    owner = str(record.get("owner_name") or record.get("owner") or "").strip()
+    if owner and owner_type(owner) == "entity":
+        record["owner_type"] = "entity"
+        record["entity_owner"] = True
+        add_unique(record, "flags", ["Entity Owner"])
+        add_unique(record, "tags", ["Entity Owner"])
+
+    mailing_address = str(record.get("mailing_address") or "").strip()
+    mailing_state = str(record.get("mailing_state") or "").strip().upper()
+    property_address = str(record.get("property_address") or record.get("prop_address") or "").strip()
+    if mailing_address and property_address and normalize_address_key(mailing_address) != normalize_address_key(property_address):
+        record["absentee_owner"] = True
+        record["is_absentee"] = True
+        add_unique(record, "flags", ["Absentee"])
+        add_unique(record, "tags", ["Absentee"])
+    if mailing_state and mailing_state != "OH":
+        record["out_of_state_owner"] = True
+        record["is_out_of_state"] = True
+        add_unique(record, "flags", ["Out-of-State"])
+        add_unique(record, "tags", ["Out-of-State"])
+
+    if has_distress(record) and (record.get("entity_owner") or record.get("absentee_owner")):
+        record["tired_landlord"] = True
+        record["tired_landlord_plus"] = True
+        add_unique(record, "flags", ["Tired Landlord Plus"])
+        add_unique(record, "tags", ["Tired Landlord Plus"])
+
+
+def apply_absentee_flags() -> dict:
+    payload = json.loads(OUTPUT_PATH.read_text(encoding="utf-8"))
+    timestamp = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    backup_path = OUTPUT_PATH.with_suffix(f".phase2e.{timestamp.replace(':', '').replace('+', 'Z')}.bak.json")
+    shutil.copy2(OUTPUT_PATH, backup_path)
+    records = payload.get("records") or []
+    for record in records:
+        if record.get("source_county_key") == "cuyahoga":
+            apply_absentee_owner_flags(record)
+            apply_stack_tags(record)
+    payload["phase_2e_absentee_enrichment"] = {
+        "timestamp": timestamp,
+        "source": "Cuyahoga MyPlace/Fiscal public owner fields; mailing endpoint not exposed in tested public services",
+        "mailing_endpoint_status": "not_available",
+        "records_processed": len(records),
+        "backup_path": str(backup_path),
+    }
+    OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    return payload["phase_2e_absentee_enrichment"]
+
+
 def expand_stacks(limit: int, owner_limit: int, violation_limit: int = 5000, property_limit: int = 1000) -> dict:
     payload = json.loads(OUTPUT_PATH.read_text(encoding="utf-8"))
     timestamp = datetime.now(timezone.utc).isoformat(timespec="seconds")
@@ -708,6 +776,7 @@ def main() -> None:
     parser.add_argument("--limit", type=int, default=100)
     parser.add_argument("--enrich-owners", action="store_true")
     parser.add_argument("--expand-stacks", action="store_true")
+    parser.add_argument("--apply-absentee-flags", action="store_true")
     parser.add_argument("--owner-limit", type=int, default=250)
     parser.add_argument("--violation-limit", type=int, default=5000)
     parser.add_argument("--property-limit", type=int, default=1000)
@@ -719,6 +788,10 @@ def main() -> None:
             max(1, min(args.violation_limit, 10000)),
             max(1, min(args.property_limit, 2500)),
         )
+        print(json.dumps(result, indent=2))
+        return
+    if args.apply_absentee_flags:
+        result = apply_absentee_flags()
         print(json.dumps(result, indent=2))
         return
     if args.enrich_owners:
