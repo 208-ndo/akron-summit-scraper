@@ -841,7 +841,8 @@ function normalizeListLabel(value){
   if(label.includes('absentee'))return 'absentee';
   if(label.includes('out-of-state')||label.includes('out of state'))return 'out_of_state';
   if(label.includes('vacant land'))return 'vacant_land';
-  if(label.includes('vacant home')||label.includes('vacant building'))return 'vacant_home';
+  if(label==='vacant'||label.includes('vacant home')||label.includes('vacant building'))return 'vacant_home';
+  if(label.includes('active condemnation'))return 'active_condemnation';
   if(label.includes('inherited'))return 'inherited';
   if(label.includes('probate')||label.includes('estate'))return 'probate';
   if(label.includes('subject-to')||label.includes('subject to'))return 'subject_to';
@@ -856,6 +857,7 @@ function getListSignals(r){
   const signals=new Set();
   uniqueList(r.distress_sources).forEach(v=>{const k=normalizeListLabel(v);if(k)signals.add(k);});
   uniqueList(r.flags).forEach(v=>{const k=normalizeListLabel(v);if(k)signals.add(k);});
+  uniqueList(r.tags).forEach(v=>{const k=normalizeListLabel(v);if(k)signals.add(k);});
   if(r.is_absentee)signals.add('absentee');
   if(r.is_out_of_state)signals.add('out_of_state');
   if(r.is_inherited)signals.add('inherited');
@@ -866,6 +868,20 @@ function getListSignals(r){
   if(r.doc_type==='CASHBUYER')signals.add('cash_buyer');
   if((r.cat_label||'').toLowerCase().includes('subject-to'))signals.add('subject_to');
   return [...signals];
+}
+
+function hasActiveCondemnationStack(r){
+  const signals=getListSignals(r);
+  return !!r.active_condemnation||signals.includes('active_condemnation');
+}
+
+function isHotStackLead(r){
+  return !!r.hot_stack||(Number(r.distress_count)||0)>=2||hasActiveCondemnationStack(r);
+}
+
+function isVacantHomeLead(r){
+  const signals=getListSignals(r);
+  return !!r.is_vacant_home||signals.includes('vacant_home')||hasActiveCondemnationStack(r);
 }
 
 function normalizeTraceRecord(data){
@@ -1791,11 +1807,11 @@ function tabRecords(tab,records){
   if(tab==='all')return recs;
   return recs.filter(r=>{
     const flags=(r.flags||[]).join(' ').toLowerCase();
-    if(tab==='hot_stack')return !!r.hot_stack;
+    if(tab==='hot_stack')return isHotStackLead(r);
     if(tab==='sheriff_sales')return r.doc_type==='SHERIFF';
     if(tab==='probate')return r.doc_type==='PRO';
     if(tab==='code_violations')return r.doc_type==='CODEVIOLATION';
-    if(tab==='vacant_homes')return !!r.is_vacant_home;
+    if(tab==='vacant_homes')return isVacantHomeLead(r);
     if(tab==='tax_delinquent')return flags.includes('tax delinquent');
     if(tab==='absentee')return !!r.is_absentee;
     if(tab==='out_of_state')return !!r.is_out_of_state;
