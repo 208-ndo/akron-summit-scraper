@@ -373,6 +373,9 @@
   <select id="city-select" onchange="changeCity(this.value)">
     <option value="">City: All</option>
   </select>
+  <select id="market-area-select" onchange="changeMarketArea(this.value)">
+    <option value="">Market Area: All</option>
+  </select>
   <select id="f-score" onchange="applyFilters()">
     <option value="">All Scores</option>
     <option value="80">Score 80+</option>
@@ -696,7 +699,7 @@ const ALL_OHIO_KEY='all_ohio';
 const DEFAULT_COUNTY_CONFIG={
   summit:{label:'Summit County',primary_city:'Akron',enabled:true,data_url:'dashboard/records.json',cities:['Akron'],sources:{}}
 };
-let cache={},countyCache={},countyConfig=DEFAULT_COUNTY_CONFIG,countyHealth=[],curCounty=DEFAULT_COUNTY_KEY,curCity='',curTab='all',curRecs=[],filtered=[],sortCol='score',sortDir=-1,rendered=0;
+let cache={},countyCache={},countyConfig=DEFAULT_COUNTY_CONFIG,countyHealth=[],curCounty=DEFAULT_COUNTY_KEY,curCity='',curMarketArea='',curTab='all',curRecs=[],filtered=[],sortCol='score',sortDir=-1,rendered=0;
 const PAGE=200;
 const TRACE_STORE_KEY='akron_tracerfy_trace_store_v2';
 const TRACERFY_DEFAULT_BASE='https://tracerfy.com/v1/api';
@@ -1678,6 +1681,22 @@ function dropdownCityValue(r){
   return cityFilterValue(r,countyKey);
 }
 
+function getMarketArea(record,countyKey){
+  const key=String(countyKey||countyKeyForRecord(record)).trim();
+  if(key==='summit')return 'Akron Metro';
+  if(key==='cuyahoga')return 'Cleveland Metro';
+  if(key==='lucas')return 'Toledo Metro';
+  if(key==='stark')return 'Canton Metro';
+  if(key==='franklin')return 'Columbus Metro';
+  if(key==='hamilton')return 'Cincinnati Metro';
+  if(key==='montgomery')return 'Dayton Metro';
+  return '';
+}
+
+function recordMarketArea(r){
+  return getMarketArea(r,curCounty===ALL_OHIO_KEY?countyKeyForRecord(r):curCounty);
+}
+
 function countyValue(r){
   return String(r.county||r.source_county_key||'').trim();
 }
@@ -1806,6 +1825,16 @@ function updateCityFilter(records){
   select.value=curCity;
 }
 
+function updateMarketAreaFilter(records){
+  const select=document.getElementById('market-area-select');
+  if(!select)return;
+  const current=curMarketArea;
+  const areas=uniqueList((records||[]).map(recordMarketArea)).sort((a,b)=>a.localeCompare(b));
+  select.innerHTML='<option value="">Market Area: All</option>'+areas.map(area=>`<option value="${area}">${area}</option>`).join('');
+  curMarketArea=areas.includes(current)?current:'';
+  select.value=curMarketArea;
+}
+
 function updateBadges(records){
   Object.keys(TAB_FILES).forEach(tab=>{
     const b=document.getElementById('b-'+tab);
@@ -1823,6 +1852,7 @@ async function refreshCountyData(){
   cache['all']=records;
   updateBadges(records);
   updateCityFilter(records);
+  updateMarketAreaFilter(records);
   await loadStats();
   curRecs=await loadTab(curTab);
   applyFilters();
@@ -1831,14 +1861,22 @@ async function refreshCountyData(){
 async function changeCounty(value){
   curCounty=value||DEFAULT_COUNTY_KEY;
   curCity='';
+  curMarketArea='';
   const city=document.getElementById('city-select');
   if(city)city.value='';
+  const market=document.getElementById('market-area-select');
+  if(market)market.value='';
   document.getElementById('tbody').innerHTML='<tr><td colspan="10"><div class="loading"><span class="spinner"></span>Loading...</div></td></tr>';
   await refreshCountyData();
 }
 
 function changeCity(value){
   curCity=value||'';
+  applyFilters();
+}
+
+function changeMarketArea(value){
+  curMarketArea=value||'';
   applyFilters();
 }
 
@@ -2153,12 +2191,14 @@ function applyFilters(){
   const ad=document.getElementById('f-addr').value;
   const traced=(document.getElementById('f-traced').value==='ineligible'?'pending_skip':document.getElementById('f-traced').value);
   const cityFilter=curCity.toLowerCase();
+  const marketAreaFilter=curMarketArea.toLowerCase();
   filtered=curRecs.filter(r=>{
     if(minS&&(r.score||0)<minS)return false;
     if(ad==='with'&&!r.prop_address)return false;
     if(ad==='without'&&r.prop_address)return false;
     if(traced && getSkipBucket(r) !== traced) return false;
     if(fl&&!(r.flags||[]).join(' ').toLowerCase().includes(fl))return false;
+    if(marketAreaFilter&&recordMarketArea(r).toLowerCase()!==marketAreaFilter)return false;
     if(cityFilter&&cityFilterValue(r,curCounty===ALL_OHIO_KEY?countyKeyForRecord(r):curCounty).toLowerCase()!==cityFilter)return false;
     if(q){const hay=[r.owner,r.traced_owner_name,r.prop_address,r.prop_city,r.county,r.city,r.doc_num,r.doc_type,r.mail_address,r.traced_mailing_address,r.decedent_name,r.executor_name,(r.flags||[]).join(' '),getRecordPhones(r).join(' '),getRecordEmails(r).join(' ')].join(' ').toLowerCase();if(!hay.includes(q))return false;}
     return true;
@@ -2249,8 +2289,9 @@ function quickFilterSkipped(){
 }
 
 function clearFilters(){
-  ['search','f-score','f-flag','f-addr','f-traced','city-select'].forEach(id=>document.getElementById(id).value='');
+  ['search','f-score','f-flag','f-addr','f-traced','city-select','market-area-select'].forEach(id=>document.getElementById(id).value='');
   curCity='';
+  curMarketArea='';
   setSkippedButtonState();
   applyFilters();
 }
