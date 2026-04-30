@@ -22,6 +22,8 @@ ACTIVE_CONDEMNATIONS_URL = "https://services3.arcgis.com/dty2kHktVXHrqO8i/arcgis
 ACTIVE_CONDEMNATIONS_QUERY_URL = f"{ACTIVE_CONDEMNATIONS_URL}/query"
 VIOLATION_STATUS_URL = "https://services3.arcgis.com/dty2kHktVXHrqO8i/arcgis/rest/services/Violation_Status_History/FeatureServer/0"
 VIOLATION_STATUS_QUERY_URL = f"{VIOLATION_STATUS_URL}/query"
+DEMOLITION_PERMITS_URL = "https://services3.arcgis.com/dty2kHktVXHrqO8i/arcgis/rest/services/Demolition_Permits/FeatureServer/0"
+DEMOLITION_PERMITS_QUERY_URL = f"{DEMOLITION_PERMITS_URL}/query"
 PROPERTY_VALUE_URL = "https://myplace.cuyahogacounty.gov/MyPlaceService.svc/ParcelsAndValuesByAnySearchByAndCity/{parcel}?searchBy=Parcel&city=99"
 LEGACY_TAXES_URL = "https://myplace.cuyahogacounty.gov/MainPage/LegacyTaxes"
 SHERIFF_SEARCH_URL = "https://cpdocket.cp.cuyahogacounty.gov/SheriffSearch/"
@@ -308,6 +310,65 @@ def normalize_condemnation_record(row: dict, fetched_at: str) -> dict:
         "condemnation_date": date_filed,
         "condemnation_source": "Cleveland Open Data Active Condemnations",
         "condemnation_source_url": ACTIVE_CONDEMNATIONS_URL,
+        "neighborhood": row.get("DW_Neighborhood") or "",
+        "ward": row.get("DW_Ward2026") or row.get("DW_Ward") or "",
+    }
+
+
+def normalize_demolition_record(row: dict, fetched_at: str) -> dict:
+    street, city, state, zip_code = parse_primary_address(row.get("PRIMARY_ADDRESS"))
+    parcel_id = clean_parcel(row.get("DW_Parcel") or row.get("PRIMARY_PARCEL"))
+    permit_number = str(row.get("PERMIT_ID") or "")
+    filed = parse_arcgis_date(row.get("FILE_DATE"))
+    issued = parse_arcgis_date(row.get("ISSUED_DATE"))
+    closed = parse_arcgis_date(row.get("CLOSED_DATE"))
+    public_url = row.get("ACCELA_CITIZEN_ACCESS_URL") or DEMOLITION_PERMITS_URL
+    return {
+        "county": "Cuyahoga County",
+        "city": city,
+        "source_county_key": "cuyahoga",
+        "source_city_key": city.lower().replace(" ", "_"),
+        "market_area": "Cleveland Metro",
+        "property_address": street,
+        "property_city": city,
+        "property_state": state,
+        "property_zip": zip_code,
+        "prop_address": street,
+        "prop_city": city,
+        "prop_state": state,
+        "prop_zip": zip_code,
+        "owner_name": row.get("owner_name") or "Unknown",
+        "owner": row.get("owner_name") or "Unknown",
+        "owner_type": owner_type(row.get("owner_name") or ""),
+        "parcel_id": parcel_id,
+        "case_number": permit_number,
+        "lead_type": "Demolition Permit",
+        "cat_label": "Demolition Permit",
+        "doc_type": "DEMOLITION",
+        "doc_num": permit_number,
+        "distress_sources": ["demolition"],
+        "distress_count": 1,
+        "hot_stack": False,
+        "tired_landlord_plus": False,
+        "seller_score": 55,
+        "score": 55,
+        "subject_to_score": 0,
+        "public_records_url": public_url,
+        "source_url": DEMOLITION_PERMITS_URL,
+        "source_name": "Cleveland Open Data Demolition Permits",
+        "date_filed": issued or filed,
+        "filed": issued or filed,
+        "last_updated": fetched_at,
+        "flags": ["Demolition", "Blight Pressure", "Unsafe"],
+        "tags": ["Demolition", "Blight Pressure", "Unsafe"],
+        "demolition_permit": True,
+        "demolition_status": "Closed" if closed else "Issued",
+        "demolition_permit_number": permit_number,
+        "demolition_date": closed or issued or filed,
+        "demolition_source": "official Cleveland Open Data",
+        "demolition_source_url": DEMOLITION_PERMITS_URL,
+        "demolition_contractor": row.get("Contrator_Business_Name") or "",
+        "demolition_job_value": row.get("Job_Value"),
         "neighborhood": row.get("DW_Neighborhood") or "",
         "ward": row.get("DW_Ward2026") or row.get("DW_Ward") or "",
     }
@@ -947,7 +1008,7 @@ def apply_prime_deal_flag(record: dict) -> list[str]:
     text = record_signal_text(record)
     property_pain = any(
         marker in text
-        for marker in ("code_violation", "code violation", "cleveland_housing_pain", "housing pain", "active_condemnation", "active condemnation", "vacant", "unsafe")
+        for marker in ("code_violation", "code violation", "cleveland_housing_pain", "housing pain", "active_condemnation", "active condemnation", "vacant", "unsafe", "demolition", "blight pressure")
     ) or bool(record.get("active_condemnation"))
     if not property_pain:
         return []
@@ -958,7 +1019,7 @@ def apply_prime_deal_flag(record: dict) -> list[str]:
         groups.append("ownership pain")
     if record.get("foreclosure") or record.get("sheriff_sale") or any(marker in text for marker in ("foreclosure", "sheriff_sale", "sheriff sale")):
         groups.append("legal pressure")
-    if record.get("active_condemnation") or any(marker in text for marker in ("active_condemnation", "active condemnation", "vacant", "unsafe")):
+    if record.get("active_condemnation") or record.get("demolition_permit") or any(marker in text for marker in ("active_condemnation", "active condemnation", "vacant", "unsafe", "demolition", "blight pressure")):
         groups.append("severe property condition")
     if record.get("cash_buyer_candidate") or record.get("investor_owner"):
         groups.append("investor/cash signal")
@@ -984,7 +1045,7 @@ def calculate_cuyahoga_stack_score(record: dict) -> int:
         score += 10
     if record.get("foreclosure") or record.get("sheriff_sale") or any(marker in text for marker in ("foreclosure", "sheriff_sale", "sheriff sale")):
         score += 12
-    if record.get("active_condemnation") or any(marker in text for marker in ("active_condemnation", "active condemnation", "unsafe")):
+    if record.get("active_condemnation") or record.get("demolition_permit") or any(marker in text for marker in ("active_condemnation", "active condemnation", "unsafe", "demolition", "blight pressure")):
         score += 12
     elif "vacant" in text:
         score += 8
@@ -1367,6 +1428,9 @@ def merge_record(existing: dict, incoming: dict) -> dict:
         elif field.startswith("foreclosure_") or field.startswith("sheriff_") or field in ("foreclosure", "sheriff_sale"):
             if has_value(value):
                 existing[field] = value
+        elif field.startswith("demolition_") or field == "demolition_permit":
+            if has_value(value):
+                existing[field] = value
         elif field == "last_updated":
             if has_value(value):
                 existing[field] = value
@@ -1399,6 +1463,10 @@ def apply_stack_tags(record: dict) -> None:
         add_unique(record, "distress_sources", ["sheriff_sale"])
         add_unique(record, "flags", ["Sheriff Sale", "Auction Pressure"])
         add_unique(record, "tags", ["Sheriff Sale", "Auction Pressure"])
+    if record.get("demolition_permit"):
+        add_unique(record, "distress_sources", ["demolition"])
+        add_unique(record, "flags", ["Demolition", "Blight Pressure", "Unsafe"])
+        add_unique(record, "tags", ["Demolition", "Blight Pressure", "Unsafe"])
     if int(record.get("distress_count") or 0) >= 2 or record.get("active_condemnation"):
         add_unique(record, "flags", ["Cuyahoga Hot Stack"])
         add_unique(record, "tags", ["Cuyahoga Hot Stack"])
@@ -1570,6 +1638,80 @@ def expand_stacks(limit: int, owner_limit: int, violation_limit: int = 5000, pro
     return payload["phase_2d_stack_expansion"] | {"total_records": len(records)}
 
 
+def enrich_demolition_permits(limit: int) -> dict:
+    payload = json.loads(OUTPUT_PATH.read_text(encoding="utf-8"))
+    timestamp = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    backup_path = OUTPUT_PATH.with_suffix(f".phase2k-demolition.{timestamp.replace(':', '').replace('+', 'Z')}.bak.json")
+    shutil.copy2(OUTPUT_PATH, backup_path)
+
+    merged = {}
+    for record in payload.get("records") or []:
+        key = record_key(record)
+        if key:
+            merged[key] = record
+
+    demolition_rows = fetch_arcgis_records(DEMOLITION_PERMITS_QUERY_URL, limit, "ISSUED_DATE DESC")
+    matched = 0
+    standalone = 0
+    samples = []
+    for record in [normalize_demolition_record(row, timestamp) for row in demolition_rows]:
+        key = record_key(record)
+        if not key:
+            continue
+        if key in merged:
+            matched += 1
+            merged[key] = merge_record(merged[key], record)
+        else:
+            standalone += 1
+            merged[key] = record
+        apply_stack_tags(merged[key])
+        apply_prime_deal_flag(merged[key])
+        apply_cuyahoga_stack_score(merged[key])
+        if len(samples) < 5:
+            sample = merged[key]
+            samples.append(
+                {
+                    "property_address": sample.get("property_address"),
+                    "parcel_id": sample.get("parcel_id"),
+                    "demolition_permit_number": sample.get("demolition_permit_number"),
+                    "demolition_date": sample.get("demolition_date"),
+                    "distress_count": sample.get("distress_count"),
+                    "score": sample.get("score"),
+                }
+            )
+
+    records = list(merged.values())
+    for record in records:
+        if record.get("source_county_key") == "cuyahoga":
+            apply_stack_tags(record)
+            apply_prime_deal_flag(record)
+            apply_cuyahoga_stack_score(record)
+
+    demolition_count = sum(1 for record in records if record.get("source_county_key") == "cuyahoga" and record.get("demolition_permit"))
+    prime_count = sum(1 for record in records if record.get("source_county_key") == "cuyahoga" and record.get("prime_deal"))
+    payload.update(
+        {
+            "fetched_at": timestamp,
+            "record_count": len(records),
+            "records": records,
+            "phase_2k_demolition_permit_stack": {
+                "timestamp": timestamp,
+                "source": "Cleveland Open Data Demolition Permits",
+                "source_url": DEMOLITION_PERMITS_URL,
+                "records_pulled": len(demolition_rows),
+                "matched_count": matched,
+                "standalone_added_count": standalone,
+                "demolition_permit_count": demolition_count,
+                "prime_deal_count": prime_count,
+                "sample_records": samples,
+                "backup_path": str(backup_path),
+            },
+        }
+    )
+    OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    return payload["phase_2k_demolition_permit_stack"] | {"total_records": len(records)}
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build Cuyahoga/Cleveland dashboard records.")
     parser.add_argument("--limit", type=int, default=100)
@@ -1581,6 +1723,7 @@ def main() -> None:
     parser.add_argument("--enrich-foreclosures", action="store_true")
     parser.add_argument("--enrich-cash-buyers", action="store_true")
     parser.add_argument("--apply-prime-deals", action="store_true")
+    parser.add_argument("--enrich-demolition-permits", action="store_true")
     parser.add_argument("--owner-limit", type=int, default=250)
     parser.add_argument("--violation-limit", type=int, default=5000)
     parser.add_argument("--property-limit", type=int, default=1000)
@@ -1617,6 +1760,10 @@ def main() -> None:
         return
     if args.apply_prime_deals:
         result = apply_prime_deal_flags()
+        print(json.dumps(result, indent=2))
+        return
+    if args.enrich_demolition_permits:
+        result = enrich_demolition_permits(max(1, min(args.limit, 5000)))
         print(json.dumps(result, indent=2))
         return
     if args.enrich_owners:
