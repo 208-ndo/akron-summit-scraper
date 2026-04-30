@@ -24,6 +24,7 @@ VIOLATION_STATUS_URL = "https://services3.arcgis.com/dty2kHktVXHrqO8i/arcgis/res
 VIOLATION_STATUS_QUERY_URL = f"{VIOLATION_STATUS_URL}/query"
 PROPERTY_VALUE_URL = "https://myplace.cuyahogacounty.gov/MyPlaceService.svc/ParcelsAndValuesByAnySearchByAndCity/{parcel}?searchBy=Parcel&city=99"
 LEGACY_TAXES_URL = "https://myplace.cuyahogacounty.gov/MainPage/LegacyTaxes"
+SHERIFF_SEARCH_URL = "https://cpdocket.cp.cuyahogacounty.gov/SheriffSearch/"
 ENTITY_TERMS = (
     "LLC",
     "LTD",
@@ -99,6 +100,10 @@ def normalize_address_key(value) -> str:
     }.items():
         text = re.sub(rf"\b{src}\b", dst, text)
     return re.sub(r"[^A-Z0-9]", "", text)
+
+
+def normalize_owner_key(value) -> str:
+    return re.sub(r"[^A-Z0-9]", "", str(value or "").upper())
 
 
 def record_key(record: dict) -> str:
@@ -453,6 +458,19 @@ def parse_money(value) -> float | None:
         return None
 
 
+def parse_short_date(value: str) -> str:
+    text = str(value or "").strip()
+    if not text:
+        return ""
+    try:
+        return datetime.strptime(text, "%m/%d/%Y").date().isoformat()
+    except ValueError:
+        try:
+            return datetime.strptime(text, "%m/%d/%Y %I:%M:%S %p").date().isoformat()
+        except ValueError:
+            return text
+
+
 def html_to_text(raw: str) -> str:
     text = re.sub(r"<[^>]+>", " ", raw or "")
     return re.sub(r"\s+", " ", html.unescape(text)).strip()
@@ -548,6 +566,132 @@ def fetch_legacy_tax_bill(parcel_id: str) -> dict:
     )
     with urllib.request.urlopen(request, timeout=45) as response:
         return parse_legacy_tax_bill(response.read().decode("utf-8", errors="replace"))
+
+
+def fetch_sheriff_search_home(opener) -> str:
+    request = urllib.request.Request(SHERIFF_SEARCH_URL, headers={"User-Agent": "Mozilla/5.0"})
+    with opener.open(request, timeout=45) as response:
+        return response.read().decode("utf-8", errors="replace")
+
+
+def hidden_form_fields(raw: str) -> dict:
+    fields = {}
+    for match in re.finditer(r"<input[^>]+>", raw or "", flags=re.IGNORECASE):
+        tag = match.group(0)
+        name_match = re.search(r'name="([^"]+)"', tag, flags=re.IGNORECASE)
+        if not name_match:
+            continue
+        value_match = re.search(r'value="([^"]*)"', tag, flags=re.IGNORECASE)
+        fields[html.unescape(name_match.group(1))] = html.unescape(value_match.group(1) if value_match else "")
+    return fields
+
+
+def parse_sheriff_sale_dates(raw: str, limit: int) -> list[tuple[str, str]]:
+    options = []
+    for value, label in re.findall(r'<option value="([^"]*)">([^<]*)</option>', raw or "", flags=re.IGNORECASE):
+        value = html.unescape(value).strip()
+        label = html.unescape(label).strip()
+        if value and label:
+            options.append((value, label))
+    return options[:limit]
+
+
+def post_sheriff_search(opener, home_html: str, sale_date_value: str = "") -> str:
+    fields = hidden_form_fields(home_html)
+    fields.update(
+        {
+            "ctl00$SheetContentPlaceHolder$c_search1$ddlSaleDate": sale_date_value,
+            "ctl00$SheetContentPlaceHolder$c_search1$SearchStringDateFrom": "",
+            "ctl00$SheetContentPlaceHolder$c_search1$SearchStringDateTo": "",
+            "ctl00$SheetContentPlaceHolder$c_search1$SrchSearchString": "",
+            "ctl00$SheetContentPlaceHolder$c_search1$rblSrchOptions": "CaseNum",
+            "ctl00$SheetContentPlaceHolder$c_search1$btnSearch": "Start Search",
+        }
+    )
+    request = urllib.request.Request(
+        SHERIFF_SEARCH_URL,
+        data=urllib.parse.urlencode(fields).encode("utf-8"),
+        headers={"Content-Type": "application/x-www-form-urlencoded", "User-Agent": "Mozilla/5.0"},
+    )
+    with opener.open(request, timeout=75) as response:
+        return response.read().decode("utf-8", errors="replace")
+
+
+def span_text(block: str, name: str, index: str) -> str:
+    pattern = rf'id="[^"]*{re.escape(name)}_{re.escape(index)}"[^>]*>(.*?)</(?:span|a)>'
+    match = re.search(pattern, block or "", flags=re.IGNORECASE | re.DOTALL)
+    if not match:
+        return ""
+    text = re.sub(r"<[^>]+>", " ", match.group(1))
+    return re.sub(r"\s+", " ", html.unescape(text)).strip()
+
+
+def parse_sheriff_results(raw: str, sale_label: str) -> list[dict]:
+    case_matches = list(re.finditer(r'gvSaleSummary_lnkCaseNum_(\d+)"[^>]*>([^<]+)<', raw or "", flags=re.IGNORECASE))
+    records = []
+    for pos, match in enumerate(case_matches):
+        index = match.group(1)
+        block_end = case_matches[pos + 1].start() if pos + 1 < len(case_matches) else len(raw)
+        block = raw[match.start() : block_end]
+        parcel_match = re.search(r"RedirectToSheriff\((\d+)\).*?(\d{3}-\d{2}-\d{3})</a>", block, flags=re.DOTALL)
+        parcel_id = parcel_match.group(2) if parcel_match else ""
+        sale_date = span_text(block, "lblSaleDate2", index)
+        status = span_text(block, "lblStatus", index)
+        address = re.sub(r"\s+", " ", span_text(block, "lblAddress", index)).strip()
+        if not address:
+            continue
+        record = {
+            "county": "Cuyahoga County",
+            "source_county_key": "cuyahoga",
+            "market_area": "Cleveland Metro",
+            "property_address": address,
+            "property_state": "OH",
+            "parcel_id": clean_parcel(parcel_id),
+            "lead_type": "Foreclosure / Sheriff Sale",
+            "foreclosure": True,
+            "sheriff_sale": True,
+            "foreclosure_case_number": html.unescape(match.group(2)).strip(),
+            "sheriff_sale_date": parse_short_date(sale_date),
+            "foreclosure_status": status,
+            "foreclosure_source_url": SHERIFF_SEARCH_URL,
+            "foreclosure_source_name": "Cuyahoga Clerk of Courts Sheriff Sale Results",
+            "sheriff_sale_type": sale_label,
+            "foreclosure_plaintiff": span_text(block, "lblPlaintiffName", index),
+            "foreclosure_defendant": span_text(block, "lblDefendant", index),
+            "foreclosure_attorney": span_text(block, "lblPlaintiffAtty", index),
+            "foreclosure_property_type": span_text(block, "lblPropertyType", index),
+            "foreclosure_description": span_text(block, "lblDescription", index),
+            "foreclosure_appraised_value": parse_money(span_text(block, "lblAppraised", index)),
+            "sheriff_minimum_bid": parse_money(span_text(block, "lblOpeningBid", index)),
+            "distress_sources": ["foreclosure", "sheriff_sale"],
+            "flags": ["Foreclosure", "Sheriff Sale", "Auction Pressure"],
+            "tags": ["Foreclosure", "Sheriff Sale", "Auction Pressure"],
+        }
+        records.append({key: value for key, value in record.items() if has_value(value)})
+    return records
+
+
+def fetch_sheriff_sale_records(date_limit: int, record_limit: int) -> tuple[list[dict], int]:
+    import http.cookiejar
+
+    cookie_jar = http.cookiejar.CookieJar()
+    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cookie_jar))
+    home = fetch_sheriff_search_home(opener)
+    sale_dates = parse_sheriff_sale_dates(home, date_limit)
+    records = []
+    for value, label in sale_dates:
+        if len(records) >= record_limit:
+            break
+        page = post_sheriff_search(opener, home, value)
+        records.extend(parse_sheriff_results(page, label))
+    deduped = {}
+    for record in records:
+        key = record.get("foreclosure_case_number") or record_key(record)
+        if key and key not in deduped:
+            deduped[key] = record
+        if len(deduped) >= record_limit:
+            break
+    return list(deduped.values()), len(sale_dates)
 
 
 def fill_if_blank(record: dict, field: str, value) -> None:
@@ -800,6 +944,98 @@ def enrich_tax_delinquency(limit: int) -> dict:
     return payload["phase_2f_tax_delinquent_enrichment"]
 
 
+def enrich_foreclosure_stack(limit: int, date_limit: int) -> dict:
+    payload = json.loads(OUTPUT_PATH.read_text(encoding="utf-8"))
+    timestamp = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    backup_path = OUTPUT_PATH.with_suffix(f".phase2g-foreclosure.{timestamp.replace(':', '').replace('+', 'Z')}.bak.json")
+    shutil.copy2(OUTPUT_PATH, backup_path)
+
+    records = payload.get("records") or []
+    parcel_index = {}
+    address_index = {}
+    owner_candidates = {}
+    for record in records:
+        if record.get("source_county_key") != "cuyahoga":
+            continue
+        parcel = clean_parcel(record.get("parcel_id"))
+        if parcel:
+            parcel_index[parcel] = record
+        address = normalize_address_key(record.get("property_address") or record.get("prop_address"))
+        if address:
+            address_index[address] = record
+        owner = normalize_owner_key(record.get("owner_name") or record.get("owner"))
+        if len(owner) > 5:
+            owner_candidates.setdefault(owner, []).append(record)
+    owner_index = {owner: items[0] for owner, items in owner_candidates.items() if len(items) == 1}
+
+    sheriff_records, sale_dates_checked = fetch_sheriff_sale_records(date_limit, limit)
+    matched = 0
+    standalone = 0
+    for incoming in sheriff_records:
+        target = None
+        parcel = clean_parcel(incoming.get("parcel_id"))
+        address = normalize_address_key(incoming.get("property_address"))
+        owner = normalize_owner_key(incoming.get("foreclosure_defendant"))
+        if parcel and parcel in parcel_index:
+            target = parcel_index[parcel]
+        elif address and address in address_index:
+            target = address_index[address]
+        elif owner and owner in owner_index:
+            target = owner_index[owner]
+
+        if target:
+            merge_record(target, incoming)
+            apply_absentee_owner_flags(target)
+            apply_stack_tags(target)
+            matched += 1
+            continue
+
+        if incoming.get("property_address"):
+            incoming["source_city_key"] = incoming.get("source_city_key") or ""
+            incoming["property_city"] = incoming.get("property_city") or ""
+            incoming["city"] = incoming.get("city") or ""
+            incoming["property_state"] = incoming.get("property_state") or "OH"
+            incoming["last_updated"] = timestamp
+            apply_stack_tags(incoming)
+            records.append(incoming)
+            if parcel:
+                parcel_index[parcel] = incoming
+            if address:
+                address_index[address] = incoming
+            standalone += 1
+
+    foreclosure_count = sum(1 for record in records if record.get("foreclosure"))
+    sheriff_sale_count = sum(1 for record in records if record.get("sheriff_sale"))
+    hot_stack_count = sum(
+        1
+        for record in records
+        if record.get("source_county_key") == "cuyahoga"
+        and ("Cuyahoga Hot Stack" in (record.get("tags") or []) or int(record.get("distress_count") or 0) >= 2)
+    )
+    payload.update(
+        {
+            "records": records,
+            "record_count": len(records),
+            "fetched_at": timestamp,
+            "phase_2g_foreclosure_enrichment": {
+                "timestamp": timestamp,
+                "source": "Cuyahoga Clerk of Courts Sheriff Sale Results",
+                "source_url": SHERIFF_SEARCH_URL,
+                "sale_dates_checked": sale_dates_checked,
+                "records_pulled": len(sheriff_records),
+                "matched": matched,
+                "standalone": standalone,
+                "foreclosure_count": foreclosure_count,
+                "sheriff_sale_count": sheriff_sale_count,
+                "cuyahoga_hot_stack_count": hot_stack_count,
+                "backup_path": str(backup_path),
+            },
+        }
+    )
+    OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    return payload["phase_2g_foreclosure_enrichment"]
+
+
 def enrich_owners(limit: int) -> dict:
     payload = json.loads(OUTPUT_PATH.read_text(encoding="utf-8"))
     records = payload.get("records") or []
@@ -837,6 +1073,9 @@ def merge_record(existing: dict, incoming: dict) -> dict:
         elif field.startswith("building_violation_") or field in ("violation_status",):
             if has_value(value):
                 existing[field] = value
+        elif field.startswith("foreclosure_") or field.startswith("sheriff_") or field in ("foreclosure", "sheriff_sale"):
+            if has_value(value):
+                existing[field] = value
         elif field == "last_updated":
             if has_value(value):
                 existing[field] = value
@@ -861,6 +1100,14 @@ def apply_stack_tags(record: dict) -> None:
     if record.get("tax_pressure"):
         add_unique(record, "flags", ["Tax Pressure"])
         add_unique(record, "tags", ["Tax Pressure"])
+    if record.get("foreclosure"):
+        add_unique(record, "distress_sources", ["foreclosure"])
+        add_unique(record, "flags", ["Foreclosure", "Auction Pressure"])
+        add_unique(record, "tags", ["Foreclosure", "Auction Pressure"])
+    if record.get("sheriff_sale"):
+        add_unique(record, "distress_sources", ["sheriff_sale"])
+        add_unique(record, "flags", ["Sheriff Sale", "Auction Pressure"])
+        add_unique(record, "tags", ["Sheriff Sale", "Auction Pressure"])
     if int(record.get("distress_count") or 0) >= 2 or record.get("active_condemnation"):
         add_unique(record, "flags", ["Cuyahoga Hot Stack"])
         add_unique(record, "tags", ["Cuyahoga Hot Stack"])
@@ -1040,9 +1287,11 @@ def main() -> None:
     parser.add_argument("--apply-absentee-flags", action="store_true")
     parser.add_argument("--enrich-tax-values", action="store_true")
     parser.add_argument("--enrich-tax-delinquency", action="store_true")
+    parser.add_argument("--enrich-foreclosures", action="store_true")
     parser.add_argument("--owner-limit", type=int, default=250)
     parser.add_argument("--violation-limit", type=int, default=5000)
     parser.add_argument("--property-limit", type=int, default=1000)
+    parser.add_argument("--sale-date-limit", type=int, default=45)
     args = parser.parse_args()
     if args.expand_stacks:
         result = expand_stacks(
@@ -1063,6 +1312,10 @@ def main() -> None:
         return
     if args.enrich_tax_delinquency:
         result = enrich_tax_delinquency(max(1, min(args.property_limit, 1000)))
+        print(json.dumps(result, indent=2))
+        return
+    if args.enrich_foreclosures:
+        result = enrich_foreclosure_stack(max(1, min(args.property_limit, 750)), max(1, min(args.sale_date_limit, 90)))
         print(json.dumps(result, indent=2))
         return
     if args.enrich_owners:
