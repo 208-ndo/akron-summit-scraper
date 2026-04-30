@@ -917,9 +917,58 @@ def enrich_transfer_history(record: dict, timestamp: str) -> str:
         add_unique(record, "tags", ["Cash Buyer Candidate"])
 
     apply_absentee_owner_flags(record)
+    apply_prime_deal_flag(record)
     apply_stack_tags(record)
     record["transfer_enrichment_status"] = "enriched"
     return "enriched"
+
+
+def record_signal_text(record: dict) -> str:
+    values = []
+    for field in ("distress_sources", "flags", "tags"):
+        values.extend(record.get(field) or [])
+    values.extend(
+        str(record.get(field) or "")
+        for field in (
+            "lead_type",
+            "doc_type",
+            "type",
+            "violation_status",
+            "condemnation_status",
+            "foreclosure_status",
+        )
+    )
+    return " ".join(values).lower()
+
+
+def apply_prime_deal_flag(record: dict) -> list[str]:
+    if record.get("source_county_key") != "cuyahoga":
+        return []
+    text = record_signal_text(record)
+    property_pain = any(
+        marker in text
+        for marker in ("code_violation", "code violation", "cleveland_housing_pain", "housing pain", "active_condemnation", "active condemnation", "vacant", "unsafe")
+    ) or bool(record.get("active_condemnation"))
+    if not property_pain:
+        return []
+    groups = []
+    if record.get("tax_delinquent") or record.get("tax_pressure") or any(marker in text for marker in ("tax_delinquent", "tax delinquent", "tax_pressure", "tax pressure")):
+        groups.append("tax pressure")
+    if record.get("absentee_owner") or record.get("is_absentee") or record.get("out_of_state_owner") or record.get("is_out_of_state") or record.get("entity_owner") or record.get("tired_landlord"):
+        groups.append("ownership pain")
+    if record.get("foreclosure") or record.get("sheriff_sale") or any(marker in text for marker in ("foreclosure", "sheriff_sale", "sheriff sale")):
+        groups.append("legal pressure")
+    if record.get("active_condemnation") or any(marker in text for marker in ("active_condemnation", "active condemnation", "vacant", "unsafe")):
+        groups.append("severe property condition")
+    if record.get("cash_buyer_candidate") or record.get("investor_owner"):
+        groups.append("investor/cash signal")
+    groups = unique_values(groups)
+    if len(groups) >= 2:
+        record["prime_deal"] = True
+        record["prime_deal_reason"] = "; ".join(groups)
+        add_unique(record, "flags", ["Prime Deal"])
+        add_unique(record, "tags", ["Prime Deal"])
+    return groups
 
 
 def enrich_legacy_tax_bill(record: dict, timestamp: str) -> str:
@@ -1208,6 +1257,40 @@ def enrich_cash_buyer_signals(limit: int) -> dict:
     return payload["phase_2h_cash_buyer_enrichment"]
 
 
+def apply_prime_deal_flags() -> dict:
+    payload = json.loads(OUTPUT_PATH.read_text(encoding="utf-8"))
+    timestamp = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    backup_path = OUTPUT_PATH.with_suffix(f".phase2i-prime-deal.{timestamp.replace(':', '').replace('+', 'Z')}.bak.json")
+    shutil.copy2(OUTPUT_PATH, backup_path)
+    records = payload.get("records") or []
+    sample_reasons = []
+    for record in records:
+        if record.get("source_county_key") != "cuyahoga":
+            continue
+        apply_investor_owner_flags(record)
+        apply_absentee_owner_flags(record)
+        groups = apply_prime_deal_flag(record)
+        apply_stack_tags(record)
+        if record.get("prime_deal") and len(sample_reasons) < 10:
+            sample_reasons.append(
+                {
+                    "parcel_id": record.get("parcel_id"),
+                    "property_address": record.get("property_address"),
+                    "owner_name": record.get("owner_name"),
+                    "prime_deal_reason": record.get("prime_deal_reason") or "; ".join(groups),
+                }
+            )
+    prime_count = sum(1 for record in records if record.get("source_county_key") == "cuyahoga" and record.get("prime_deal"))
+    payload["phase_2i_prime_deal_flags"] = {
+        "timestamp": timestamp,
+        "prime_deal_count": prime_count,
+        "sample_reasons": sample_reasons,
+        "backup_path": str(backup_path),
+    }
+    OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    return payload["phase_2i_prime_deal_flags"]
+
+
 def enrich_owners(limit: int) -> dict:
     payload = json.loads(OUTPUT_PATH.read_text(encoding="utf-8"))
     records = payload.get("records") or []
@@ -1461,6 +1544,7 @@ def main() -> None:
     parser.add_argument("--enrich-tax-delinquency", action="store_true")
     parser.add_argument("--enrich-foreclosures", action="store_true")
     parser.add_argument("--enrich-cash-buyers", action="store_true")
+    parser.add_argument("--apply-prime-deals", action="store_true")
     parser.add_argument("--owner-limit", type=int, default=250)
     parser.add_argument("--violation-limit", type=int, default=5000)
     parser.add_argument("--property-limit", type=int, default=1000)
@@ -1493,6 +1577,10 @@ def main() -> None:
         return
     if args.enrich_cash_buyers:
         result = enrich_cash_buyer_signals(max(1, min(args.property_limit, 1000)))
+        print(json.dumps(result, indent=2))
+        return
+    if args.apply_prime_deals:
+        result = apply_prime_deal_flags()
         print(json.dumps(result, indent=2))
         return
     if args.enrich_owners:
