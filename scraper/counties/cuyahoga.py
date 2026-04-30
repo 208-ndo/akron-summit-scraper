@@ -971,6 +971,41 @@ def apply_prime_deal_flag(record: dict) -> list[str]:
     return groups
 
 
+def calculate_cuyahoga_stack_score(record: dict) -> int:
+    if record.get("source_county_key") != "cuyahoga":
+        return int(record.get("score") or record.get("seller_score") or 0)
+    text = record_signal_text(record)
+    score = 45
+    distress_count = int(record.get("distress_count") or 0)
+    score += min(distress_count, 6) * 5
+    if record.get("prime_deal"):
+        score += 10
+    if record.get("tax_delinquent") or record.get("tax_pressure") or any(marker in text for marker in ("tax_delinquent", "tax delinquent", "tax_pressure", "tax pressure")):
+        score += 10
+    if record.get("foreclosure") or record.get("sheriff_sale") or any(marker in text for marker in ("foreclosure", "sheriff_sale", "sheriff sale")):
+        score += 12
+    if record.get("active_condemnation") or any(marker in text for marker in ("active_condemnation", "active condemnation", "unsafe")):
+        score += 12
+    elif "vacant" in text:
+        score += 8
+    if record.get("absentee_owner") or record.get("is_absentee") or record.get("out_of_state_owner") or record.get("is_out_of_state"):
+        score += 7
+    if record.get("entity_owner") or record.get("investor_owner") or record.get("tired_landlord"):
+        score += 6
+    if record.get("cash_buyer_candidate"):
+        score += 4
+    return min(100, max(0, score))
+
+
+def apply_cuyahoga_stack_score(record: dict) -> int:
+    score = calculate_cuyahoga_stack_score(record)
+    record["stack_score"] = score
+    record["lead_score"] = score
+    record["seller_score"] = score
+    record["score"] = score
+    return score
+
+
 def enrich_legacy_tax_bill(record: dict, timestamp: str) -> str:
     if record.get("source_county_key") != "cuyahoga":
         return "skipped"
@@ -1271,6 +1306,7 @@ def apply_prime_deal_flags() -> dict:
         apply_absentee_owner_flags(record)
         groups = apply_prime_deal_flag(record)
         apply_stack_tags(record)
+        apply_cuyahoga_stack_score(record)
         if record.get("prime_deal") and len(sample_reasons) < 10:
             sample_reasons.append(
                 {
