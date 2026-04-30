@@ -25,6 +25,7 @@ VIOLATION_STATUS_QUERY_URL = f"{VIOLATION_STATUS_URL}/query"
 PROPERTY_VALUE_URL = "https://myplace.cuyahogacounty.gov/MyPlaceService.svc/ParcelsAndValuesByAnySearchByAndCity/{parcel}?searchBy=Parcel&city=99"
 LEGACY_TAXES_URL = "https://myplace.cuyahogacounty.gov/MainPage/LegacyTaxes"
 SHERIFF_SEARCH_URL = "https://cpdocket.cp.cuyahogacounty.gov/SheriffSearch/"
+PROPERTY_DATA_URL = "https://myplace.cuyahogacounty.gov/MainPage/PropertyData"
 ENTITY_TERMS = (
     "LLC",
     "LTD",
@@ -471,6 +472,12 @@ def parse_short_date(value: str) -> str:
             return text
 
 
+def is_recent_transfer(value: str) -> bool:
+    text = parse_short_date(value)
+    match = re.match(r"^(\d{4})-", text or "")
+    return bool(match and int(match.group(1)) >= 2020)
+
+
 def html_to_text(raw: str) -> str:
     text = re.sub(r"<[^>]+>", " ", raw or "")
     return re.sub(r"\s+", " ", html.unescape(text)).strip()
@@ -566,6 +573,70 @@ def fetch_legacy_tax_bill(parcel_id: str) -> dict:
     )
     with urllib.request.urlopen(request, timeout=45) as response:
         return parse_legacy_tax_bill(response.read().decode("utf-8", errors="replace"))
+
+
+def table_texts(block: str, table_class: str) -> list[str]:
+    table_match = re.search(rf'<table[^>]+class="{re.escape(table_class)}[^"]*"[^>]*>(.*?)</table>', block or "", flags=re.IGNORECASE | re.DOTALL)
+    if not table_match:
+        return []
+    return [
+        re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", cell))).strip()
+        for cell in re.findall(r"<td[^>]*>(.*?)</td>", table_match.group(1), flags=re.IGNORECASE | re.DOTALL)
+    ]
+
+
+def parse_property_transfers(raw: str) -> list[dict]:
+    sections = re.split(r"<h3>\s*Transfer Date:\s*", raw or "", flags=re.IGNORECASE)
+    transfers = []
+    for section in sections[1:]:
+        heading_match = re.match(r"([^<]+)</h3>\s*<div>(.*?)(?=<h3>\s*Transfer Date:|$)", section, flags=re.IGNORECASE | re.DOTALL)
+        if not heading_match:
+            continue
+        heading_date, block = heading_match.groups()
+        data_values = [
+            re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", value))).strip()
+            for value in re.findall(r'<span class="dataValue">(.*?)</span>', block, flags=re.IGNORECASE | re.DOTALL)
+        ]
+        transfer_cells = table_texts(block, "transferTable")
+        party_cells = table_texts(block, "grantees")
+        if len(transfer_cells) < 4:
+            continue
+        transfers.append(
+            {
+                "transfer_date": parse_short_date(data_values[0] if data_values else heading_date),
+                "transfer_af_number": data_values[1] if len(data_values) > 1 else "",
+                "parcel_id": clean_parcel(transfer_cells[0]),
+                "deed_type": transfer_cells[1],
+                "last_sale_amount": parse_money(transfer_cells[3]),
+                "conveyance_fee": parse_money(transfer_cells[4]) if len(transfer_cells) > 4 else None,
+                "multiple_sale_parcels": transfer_cells[6] if len(transfer_cells) > 6 else "",
+                "grantee_name": party_cells[0] if party_cells else "",
+                "grantor_name": party_cells[1] if len(party_cells) > 1 else "",
+            }
+        )
+    return transfers
+
+
+def fetch_property_transfers(parcel_id: str) -> list[dict]:
+    parcel = clean_parcel(parcel_id)
+    form = urllib.parse.urlencode(
+        {
+            "hdnParcelId": parcel,
+            "hdnListId": "0",
+            "hdnButtonClicked": "Transfers",
+            "hdnSearchChoice": "Parcel",
+            "hdnSearchText": parcel,
+            "hdnSearchCity": "75",
+        }
+    ).encode("utf-8")
+    request = urllib.request.Request(
+        PROPERTY_DATA_URL,
+        data=form,
+        headers={"Content-Type": "application/x-www-form-urlencoded", "User-Agent": "Mozilla/5.0"},
+        method="POST",
+    )
+    with urllib.request.urlopen(request, timeout=60) as response:
+        return parse_property_transfers(response.read().decode("utf-8", errors="replace"))
 
 
 def fetch_sheriff_search_home(opener) -> str:
@@ -789,6 +860,65 @@ def enrich_property_value(record: dict, timestamp: str) -> str:
         add_unique(record, "flags", ["Tax Pressure"])
         add_unique(record, "tags", ["Tax Pressure"])
     record["property_value_enrichment_status"] = "enriched"
+    return "enriched"
+
+
+def apply_investor_owner_flags(record: dict) -> None:
+    owner = str(record.get("owner_name") or record.get("owner") or "").strip()
+    if str(record.get("owner_type") or "").lower() == "entity" or owner_type(owner) == "entity":
+        record["owner_type"] = "entity"
+        record["entity_owner"] = True
+        record["investor_owner"] = True
+        add_unique(record, "flags", ["Entity Owner", "Investor Owner"])
+        add_unique(record, "tags", ["Entity Owner", "Investor Owner"])
+
+
+def enrich_transfer_history(record: dict, timestamp: str) -> str:
+    if record.get("source_county_key") != "cuyahoga":
+        return "skipped"
+    apply_investor_owner_flags(record)
+    parcel_id = clean_parcel(record.get("parcel_id"))
+    if not parcel_id:
+        record["transfer_enrichment_status"] = "no_parcel"
+        return "no_hit"
+    try:
+        transfers = fetch_property_transfers(parcel_id)
+    except Exception:
+        record["transfer_enrichment_status"] = "failed"
+        record["transfer_enrichment_timestamp"] = timestamp
+        return "failed"
+    record["transfer_source"] = "Cuyahoga MyPlace PropertyData Transfers"
+    record["transfer_source_url"] = PROPERTY_DATA_URL
+    record["transfer_enrichment_timestamp"] = timestamp
+    if not transfers:
+        record["transfer_enrichment_status"] = "no_hit"
+        return "no_hit"
+
+    transfer = transfers[0]
+    set_if_value(record, "last_sale_date", transfer.get("transfer_date"))
+    set_if_value(record, "last_transfer_date", transfer.get("transfer_date"))
+    set_if_value(record, "last_sale_amount", transfer.get("last_sale_amount"))
+    set_if_value(record, "buyer_name", transfer.get("grantee_name"))
+    set_if_value(record, "grantee_name", transfer.get("grantee_name"))
+    set_if_value(record, "seller_name", transfer.get("grantor_name"))
+    set_if_value(record, "grantor_name", transfer.get("grantor_name"))
+    set_if_value(record, "deed_type", transfer.get("deed_type"))
+    set_if_value(record, "transfer_af_number", transfer.get("transfer_af_number"))
+    set_if_value(record, "conveyance_fee", transfer.get("conveyance_fee"))
+    record["transfer_count"] = len(transfers)
+    record["confirmed_cash_buyer"] = False
+
+    sale_amount = transfer.get("last_sale_amount")
+    if record.get("investor_owner") and is_recent_transfer(transfer.get("transfer_date")) and isinstance(sale_amount, (int, float)) and sale_amount > 0:
+        record["cash_buyer_candidate"] = True
+        record["buyer_type"] = record.get("buyer_type") or "Cash Buyer Candidate"
+        add_unique(record, "distress_sources", ["cash_buyer_candidate"])
+        add_unique(record, "flags", ["Cash Buyer Candidate"])
+        add_unique(record, "tags", ["Cash Buyer Candidate"])
+
+    apply_absentee_owner_flags(record)
+    apply_stack_tags(record)
+    record["transfer_enrichment_status"] = "enriched"
     return "enriched"
 
 
@@ -1034,6 +1164,48 @@ def enrich_foreclosure_stack(limit: int, date_limit: int) -> dict:
     )
     OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     return payload["phase_2g_foreclosure_enrichment"]
+
+
+def enrich_cash_buyer_signals(limit: int) -> dict:
+    payload = json.loads(OUTPUT_PATH.read_text(encoding="utf-8"))
+    timestamp = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    backup_path = OUTPUT_PATH.with_suffix(f".phase2h-cash-buyer.{timestamp.replace(':', '').replace('+', 'Z')}.bak.json")
+    shutil.copy2(OUTPUT_PATH, backup_path)
+    records = payload.get("records") or []
+    counts = {"attempted": 0, "enriched": 0, "no_hit": 0, "failed": 0, "skipped": 0}
+    seen_parcels = set()
+    for record in records:
+        if record.get("source_county_key") == "cuyahoga":
+            apply_investor_owner_flags(record)
+        if counts["attempted"] >= limit:
+            continue
+        if record.get("source_county_key") != "cuyahoga":
+            counts["skipped"] += 1
+            continue
+        parcel = clean_parcel(record.get("parcel_id"))
+        if not parcel or parcel in seen_parcels:
+            continue
+        seen_parcels.add(parcel)
+        counts["attempted"] += 1
+        status = enrich_transfer_history(record, timestamp)
+        counts[status] = counts.get(status, 0) + 1
+
+    investor_owner_count = sum(1 for record in records if record.get("source_county_key") == "cuyahoga" and record.get("investor_owner"))
+    candidate_count = sum(1 for record in records if record.get("source_county_key") == "cuyahoga" and record.get("cash_buyer_candidate"))
+    confirmed_count = sum(1 for record in records if record.get("source_county_key") == "cuyahoga" and record.get("confirmed_cash_buyer"))
+    payload["phase_2h_cash_buyer_enrichment"] = {
+        "timestamp": timestamp,
+        "source": "Cuyahoga MyPlace PropertyData Transfers",
+        "source_url": PROPERTY_DATA_URL,
+        "limit": limit,
+        **counts,
+        "investor_owner_count": investor_owner_count,
+        "cash_buyer_candidate_count": candidate_count,
+        "confirmed_cash_buyer_count": confirmed_count,
+        "backup_path": str(backup_path),
+    }
+    OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    return payload["phase_2h_cash_buyer_enrichment"]
 
 
 def enrich_owners(limit: int) -> dict:
@@ -1288,6 +1460,7 @@ def main() -> None:
     parser.add_argument("--enrich-tax-values", action="store_true")
     parser.add_argument("--enrich-tax-delinquency", action="store_true")
     parser.add_argument("--enrich-foreclosures", action="store_true")
+    parser.add_argument("--enrich-cash-buyers", action="store_true")
     parser.add_argument("--owner-limit", type=int, default=250)
     parser.add_argument("--violation-limit", type=int, default=5000)
     parser.add_argument("--property-limit", type=int, default=1000)
@@ -1316,6 +1489,10 @@ def main() -> None:
         return
     if args.enrich_foreclosures:
         result = enrich_foreclosure_stack(max(1, min(args.property_limit, 750)), max(1, min(args.sale_date_limit, 90)))
+        print(json.dumps(result, indent=2))
+        return
+    if args.enrich_cash_buyers:
+        result = enrich_cash_buyer_signals(max(1, min(args.property_limit, 1000)))
         print(json.dumps(result, indent=2))
         return
     if args.enrich_owners:
