@@ -24,6 +24,8 @@ VIOLATION_STATUS_URL = "https://services3.arcgis.com/dty2kHktVXHrqO8i/arcgis/res
 VIOLATION_STATUS_QUERY_URL = f"{VIOLATION_STATUS_URL}/query"
 DEMOLITION_PERMITS_URL = "https://services3.arcgis.com/dty2kHktVXHrqO8i/arcgis/rest/services/Demolition_Permits/FeatureServer/0"
 DEMOLITION_PERMITS_QUERY_URL = f"{DEMOLITION_PERMITS_URL}/query"
+PUBLIC_HEALTH_COMPLAINTS_URL = "https://services3.arcgis.com/dty2kHktVXHrqO8i/arcgis/rest/services/CDPH_Complaints/FeatureServer/0"
+PUBLIC_HEALTH_COMPLAINTS_QUERY_URL = f"{PUBLIC_HEALTH_COMPLAINTS_URL}/query"
 PROPERTY_VALUE_URL = "https://myplace.cuyahogacounty.gov/MyPlaceService.svc/ParcelsAndValuesByAnySearchByAndCity/{parcel}?searchBy=Parcel&city=99"
 LEGACY_TAXES_URL = "https://myplace.cuyahogacounty.gov/MainPage/LegacyTaxes"
 SHERIFF_SEARCH_URL = "https://cpdocket.cp.cuyahogacounty.gov/SheriffSearch/"
@@ -371,6 +373,110 @@ def normalize_demolition_record(row: dict, fetched_at: str) -> dict:
         "demolition_job_value": row.get("Job_Value"),
         "neighborhood": row.get("DW_Neighborhood") or "",
         "ward": row.get("DW_Ward2026") or row.get("DW_Ward") or "",
+    }
+
+
+def nuisance_tags(complaint_type: str) -> list[str]:
+    text = str(complaint_type or "").strip().lower()
+    if not text:
+        return []
+    if any(term in text for term in ("animal nuisance", "farm animal", "food", "odor", "other")):
+        return []
+    tags = ["Public Health Complaint"]
+    if any(term in text for term in ("unsanitary", "health condition", "nuisance")):
+        tags.extend(["Environmental Nuisance", "Unsafe / Nuisance Pressure"])
+    if any(term in text for term in ("rodent", "vermin", "insect")):
+        tags.extend(["Rodent / Vermin", "Unsafe / Nuisance Pressure"])
+    if any(term in text for term in ("garbage", "refuse", "waste", "grass", "weed")):
+        tags.extend(["Garbage / High Grass", "Environmental Nuisance"])
+    if "standing water" in text:
+        tags.extend(["Standing Water", "Environmental Nuisance"])
+    if "sewage" in text:
+        tags.extend(["Sewage", "Unsafe / Nuisance Pressure"])
+    if "mold" in text:
+        tags.extend(["Unsafe / Nuisance Pressure"])
+    return unique_values(tags) if len(tags) > 1 else []
+
+
+def complaint_address(row: dict) -> str:
+    primary = str(row.get("problem_address") or "").strip()
+    if re.search(r"[A-Za-z]", primary):
+        return primary
+    street_name = str(row.get("problem_street_name") or "").strip()
+    street_type = str(row.get("problem_street_type") or "").strip()
+    if street_type and re.search(rf"\b{re.escape(street_type)}\.?$", street_name, flags=re.IGNORECASE):
+        street_type = ""
+    parts = [
+        primary,
+        row.get("problem_street_direction"),
+        street_name,
+        street_type,
+    ]
+    return " ".join(str(part or "").strip() for part in parts if str(part or "").strip())
+
+
+def normalize_public_health_complaint_record(row: dict, fetched_at: str) -> dict | None:
+    tags = nuisance_tags(row.get("complaint_type"))
+    if not tags:
+        return None
+    street = complaint_address(row)
+    city = title_city(str(row.get("problem_city") or "Cleveland"))
+    zip_code = str(row.get("problem_zip_code") or "").strip()
+    parcel_id = clean_parcel(row.get("dw_parcel") or row.get("permanent_parcel_number"))
+    complaint_number = str(row.get("complaint_number") or row.get("id") or row.get("ObjectId") or "")
+    submit_date = parse_arcgis_date(row.get("submit_datetime") or row.get("submit_date"))
+    if not parcel_id and not street:
+        return None
+    return {
+        "county": "Cuyahoga County",
+        "city": city,
+        "source_county_key": "cuyahoga",
+        "source_city_key": city.lower().replace(" ", "_"),
+        "market_area": "Cleveland Metro",
+        "property_address": street,
+        "property_city": city,
+        "property_state": "OH",
+        "property_zip": zip_code,
+        "prop_address": street,
+        "prop_city": city,
+        "prop_state": "OH",
+        "prop_zip": zip_code,
+        "owner_name": "Unknown",
+        "owner": "Unknown",
+        "owner_type": "unknown",
+        "parcel_id": parcel_id,
+        "case_number": complaint_number,
+        "complaint_number": complaint_number,
+        "lead_type": "Public Health Complaint",
+        "cat_label": "Public Health Complaint",
+        "doc_type": "NUISANCE",
+        "doc_num": complaint_number,
+        "distress_sources": ["nuisance_complaint"],
+        "distress_count": 1,
+        "hot_stack": False,
+        "tired_landlord_plus": False,
+        "seller_score": 55,
+        "score": 55,
+        "subject_to_score": 0,
+        "public_records_url": PUBLIC_HEALTH_COMPLAINTS_URL,
+        "source_url": PUBLIC_HEALTH_COMPLAINTS_URL,
+        "source_name": "Cleveland CDPH Public Health Complaints",
+        "date_filed": submit_date,
+        "filed": submit_date,
+        "last_updated": fetched_at,
+        "flags": tags,
+        "tags": tags,
+        "public_health_complaint": True,
+        "nuisance_complaint": True,
+        "nuisance_status": row.get("complaint_status") or "",
+        "nuisance_type": row.get("complaint_type") or "",
+        "nuisance_outcome": row.get("complaint_outcome") or "",
+        "nuisance_date": submit_date,
+        "nuisance_case_number": complaint_number,
+        "nuisance_source": "Cleveland CDPH Public Health Complaints",
+        "nuisance_source_url": PUBLIC_HEALTH_COMPLAINTS_URL,
+        "neighborhood": row.get("dw_neighborhood") or "",
+        "ward": row.get("dw_ward_2026") or row.get("dw_ward") or row.get("ward_number") or "",
     }
 
 
@@ -1008,7 +1114,7 @@ def apply_prime_deal_flag(record: dict) -> list[str]:
     text = record_signal_text(record)
     property_pain = any(
         marker in text
-        for marker in ("code_violation", "code violation", "cleveland_housing_pain", "housing pain", "active_condemnation", "active condemnation", "vacant", "unsafe", "demolition", "blight pressure")
+        for marker in ("code_violation", "code violation", "cleveland_housing_pain", "housing pain", "active_condemnation", "active condemnation", "vacant", "unsafe", "demolition", "blight pressure", "nuisance_complaint", "public health complaint", "environmental nuisance")
     ) or bool(record.get("active_condemnation"))
     if not property_pain:
         return []
@@ -1019,7 +1125,7 @@ def apply_prime_deal_flag(record: dict) -> list[str]:
         groups.append("ownership pain")
     if record.get("foreclosure") or record.get("sheriff_sale") or any(marker in text for marker in ("foreclosure", "sheriff_sale", "sheriff sale")):
         groups.append("legal pressure")
-    if record.get("active_condemnation") or record.get("demolition_permit") or any(marker in text for marker in ("active_condemnation", "active condemnation", "vacant", "unsafe", "demolition", "blight pressure")):
+    if record.get("active_condemnation") or record.get("demolition_permit") or any(marker in text for marker in ("active_condemnation", "active condemnation", "vacant", "unsafe", "demolition", "blight pressure", "nuisance_complaint", "environmental nuisance")):
         groups.append("severe property condition")
     if record.get("cash_buyer_candidate") or record.get("investor_owner"):
         groups.append("investor/cash signal")
@@ -1047,6 +1153,8 @@ def calculate_cuyahoga_stack_score(record: dict) -> int:
         score += 12
     if record.get("active_condemnation") or record.get("demolition_permit") or any(marker in text for marker in ("active_condemnation", "active condemnation", "unsafe", "demolition", "blight pressure")):
         score += 12
+    elif record.get("nuisance_complaint") or "nuisance_complaint" in text or "environmental nuisance" in text:
+        score += 6
     elif "vacant" in text:
         score += 8
     if record.get("absentee_owner") or record.get("is_absentee") or record.get("out_of_state_owner") or record.get("is_out_of_state"):
@@ -1431,6 +1539,9 @@ def merge_record(existing: dict, incoming: dict) -> dict:
         elif field.startswith("demolition_") or field == "demolition_permit":
             if has_value(value):
                 existing[field] = value
+        elif field.startswith("nuisance_") or field in ("public_health_complaint", "nuisance_complaint"):
+            if has_value(value):
+                existing[field] = value
         elif field == "last_updated":
             if has_value(value):
                 existing[field] = value
@@ -1467,6 +1578,10 @@ def apply_stack_tags(record: dict) -> None:
         add_unique(record, "distress_sources", ["demolition"])
         add_unique(record, "flags", ["Demolition", "Blight Pressure", "Unsafe"])
         add_unique(record, "tags", ["Demolition", "Blight Pressure", "Unsafe"])
+    if record.get("nuisance_complaint") or record.get("public_health_complaint"):
+        add_unique(record, "distress_sources", ["nuisance_complaint"])
+        add_unique(record, "flags", nuisance_tags(record.get("nuisance_type")) or ["Public Health Complaint"])
+        add_unique(record, "tags", nuisance_tags(record.get("nuisance_type")) or ["Public Health Complaint"])
     if int(record.get("distress_count") or 0) >= 2 or record.get("active_condemnation"):
         add_unique(record, "flags", ["Cuyahoga Hot Stack"])
         add_unique(record, "tags", ["Cuyahoga Hot Stack"])
@@ -1712,6 +1827,87 @@ def enrich_demolition_permits(limit: int) -> dict:
     return payload["phase_2k_demolition_permit_stack"] | {"total_records": len(records)}
 
 
+def enrich_nuisance_complaints(limit: int) -> dict:
+    payload = json.loads(OUTPUT_PATH.read_text(encoding="utf-8"))
+    timestamp = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    backup_path = OUTPUT_PATH.with_suffix(f".phase2m-nuisance.{timestamp.replace(':', '').replace('+', 'Z')}.bak.json")
+    shutil.copy2(OUTPUT_PATH, backup_path)
+
+    merged = {}
+    for record in payload.get("records") or []:
+        key = record_key(record)
+        if key:
+            merged[key] = record
+
+    rows = fetch_arcgis_records(PUBLIC_HEALTH_COMPLAINTS_QUERY_URL, limit, "submit_datetime DESC")
+    matched = 0
+    standalone = 0
+    skipped = 0
+    samples = []
+    for record in (normalize_public_health_complaint_record(row, timestamp) for row in rows):
+        if not record:
+            skipped += 1
+            continue
+        key = record_key(record)
+        if not key:
+            skipped += 1
+            continue
+        if key in merged:
+            matched += 1
+            merged[key] = merge_record(merged[key], record)
+        else:
+            standalone += 1
+            merged[key] = record
+        target = merged[key]
+        apply_stack_tags(target)
+        apply_prime_deal_flag(target)
+        apply_cuyahoga_stack_score(target)
+        if len(samples) < 5:
+            samples.append(
+                {
+                    "property_address": target.get("property_address"),
+                    "parcel_id": target.get("parcel_id"),
+                    "nuisance_type": target.get("nuisance_type"),
+                    "nuisance_status": target.get("nuisance_status"),
+                    "nuisance_date": target.get("nuisance_date"),
+                    "distress_count": target.get("distress_count"),
+                    "score": target.get("score"),
+                }
+            )
+
+    records = list(merged.values())
+    for record in records:
+        if record.get("source_county_key") == "cuyahoga":
+            apply_stack_tags(record)
+            apply_prime_deal_flag(record)
+            apply_cuyahoga_stack_score(record)
+
+    nuisance_count = sum(1 for record in records if record.get("source_county_key") == "cuyahoga" and record.get("nuisance_complaint"))
+    prime_count = sum(1 for record in records if record.get("source_county_key") == "cuyahoga" and record.get("prime_deal"))
+    payload.update(
+        {
+            "fetched_at": timestamp,
+            "record_count": len(records),
+            "records": records,
+            "phase_2m_nuisance_complaint_stack": {
+                "timestamp": timestamp,
+                "source": "Cleveland CDPH Public Health Complaints",
+                "source_url": PUBLIC_HEALTH_COMPLAINTS_URL,
+                "records_pulled": len(rows),
+                "matched_count": matched,
+                "standalone_added_count": standalone,
+                "skipped_non_strong_category_count": skipped,
+                "nuisance_complaint_count": nuisance_count,
+                "prime_deal_count": prime_count,
+                "sample_records": samples,
+                "backup_path": str(backup_path),
+            },
+        }
+    )
+    OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    return payload["phase_2m_nuisance_complaint_stack"] | {"total_records": len(records)}
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build Cuyahoga/Cleveland dashboard records.")
     parser.add_argument("--limit", type=int, default=100)
@@ -1724,6 +1920,7 @@ def main() -> None:
     parser.add_argument("--enrich-cash-buyers", action="store_true")
     parser.add_argument("--apply-prime-deals", action="store_true")
     parser.add_argument("--enrich-demolition-permits", action="store_true")
+    parser.add_argument("--enrich-nuisance-complaints", action="store_true")
     parser.add_argument("--owner-limit", type=int, default=250)
     parser.add_argument("--violation-limit", type=int, default=5000)
     parser.add_argument("--property-limit", type=int, default=1000)
@@ -1764,6 +1961,10 @@ def main() -> None:
         return
     if args.enrich_demolition_permits:
         result = enrich_demolition_permits(max(1, min(args.limit, 5000)))
+        print(json.dumps(result, indent=2))
+        return
+    if args.enrich_nuisance_complaints:
+        result = enrich_nuisance_complaints(max(1, min(args.limit, 5000)))
         print(json.dumps(result, indent=2))
         return
     if args.enrich_owners:
