@@ -864,6 +864,11 @@ function getListSignals(r){
   if(r.is_vacant_home)signals.add('vacant_home');
   if(r.is_vacant_land)signals.add('vacant_land');
   if(r.doc_type==='SHERIFF')signals.add('sheriff_sale');
+  if(r.sheriff_sale)signals.add('sheriff_sale');
+  if(r.foreclosure)signals.add('foreclosure');
+  const docOrType=String(r.doc_type||r.type||'').toLowerCase();
+  if(docOrType.includes('sheriff'))signals.add('sheriff_sale');
+  if(docOrType.includes('foreclos'))signals.add('foreclosure');
   if(r.doc_type==='PRO')signals.add('probate');
   if(r.doc_type==='CASHBUYER')signals.add('cash_buyer');
   if((r.cat_label||'').toLowerCase().includes('subject-to'))signals.add('subject_to');
@@ -882,6 +887,11 @@ function isHotStackLead(r){
 function isVacantHomeLead(r){
   const signals=getListSignals(r);
   return !!r.is_vacant_home||signals.includes('vacant_home')||hasActiveCondemnationStack(r);
+}
+
+function isSheriffSaleLead(r){
+  const signals=getListSignals(r);
+  return signals.includes('sheriff_sale')||signals.includes('foreclosure');
 }
 
 function normalizeTraceRecord(data){
@@ -1808,7 +1818,7 @@ function tabRecords(tab,records){
   return recs.filter(r=>{
     const flags=(r.flags||[]).join(' ').toLowerCase();
     if(tab==='hot_stack')return isHotStackLead(r);
-    if(tab==='sheriff_sales')return r.doc_type==='SHERIFF';
+    if(tab==='sheriff_sales')return isSheriffSaleLead(r);
     if(tab==='probate')return r.doc_type==='PRO';
     if(tab==='code_violations')return r.doc_type==='CODEVIOLATION';
     if(tab==='vacant_homes')return isVacantHomeLead(r);
