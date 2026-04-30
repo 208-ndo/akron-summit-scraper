@@ -894,6 +894,11 @@ function isSheriffSaleLead(r){
   return signals.includes('sheriff_sale')||signals.includes('foreclosure');
 }
 
+function isPrimeDealLead(r){
+  const signals=getListSignals(r);
+  return !!r.prime_deal||signals.includes('prime_deal')||(r.subject_to_score||0)>=70;
+}
+
 function normalizeTraceRecord(data){
   const phones=uniqueList([
     data['Phone 1'],
@@ -1828,7 +1833,7 @@ function tabRecords(tab,records){
     if(tab==='inherited')return !!r.is_inherited||flags.includes('inherited');
     if(tab==='foreclosure')return ['LP','NOFC','TAXDEED'].includes(r.doc_type);
     if(tab==='subject_to')return (r.subject_to_score||0)>=50;
-    if(tab==='prime_subject_to')return (r.subject_to_score||0)>=70;
+    if(tab==='prime_subject_to')return isPrimeDealLead(r);
     if(tab==='vacant_land')return !!r.is_vacant_land;
     if(tab==='evictions')return r.doc_type==='EVICTION';
     if(tab==='divorces')return r.doc_type==='DIVORCE';
