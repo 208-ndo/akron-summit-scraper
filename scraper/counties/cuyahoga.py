@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import re
 import shutil
@@ -22,6 +23,7 @@ ACTIVE_CONDEMNATIONS_QUERY_URL = f"{ACTIVE_CONDEMNATIONS_URL}/query"
 VIOLATION_STATUS_URL = "https://services3.arcgis.com/dty2kHktVXHrqO8i/arcgis/rest/services/Violation_Status_History/FeatureServer/0"
 VIOLATION_STATUS_QUERY_URL = f"{VIOLATION_STATUS_URL}/query"
 PROPERTY_VALUE_URL = "https://myplace.cuyahogacounty.gov/MyPlaceService.svc/ParcelsAndValuesByAnySearchByAndCity/{parcel}?searchBy=Parcel&city=99"
+LEGACY_TAXES_URL = "https://myplace.cuyahogacounty.gov/MainPage/LegacyTaxes"
 ENTITY_TERMS = (
     "LLC",
     "LTD",
@@ -441,6 +443,113 @@ def fetch_property_value_lookup(parcel_id: str) -> dict:
         return parse_property_value_lookup(response.read().decode("utf-8"))
 
 
+def parse_money(value) -> float | None:
+    text = str(value or "").replace("$", "").replace(",", "").strip()
+    if text in ("", ".00"):
+        return 0.0 if text == ".00" else None
+    try:
+        return float(text)
+    except ValueError:
+        return None
+
+
+def html_to_text(raw: str) -> str:
+    text = re.sub(r"<[^>]+>", " ", raw or "")
+    return re.sub(r"\s+", " ", html.unescape(text)).strip()
+
+
+def extract_between(text: str, start: str, end: str) -> str:
+    pattern = rf"{re.escape(start)}\s+(.*?)\s+{re.escape(end)}"
+    match = re.search(pattern, text, flags=re.IGNORECASE)
+    return match.group(1).strip() if match else ""
+
+
+def split_tax_mailing_address(block: str, owner_name: str = "") -> dict:
+    text = re.sub(r"\s+", " ", block or "").strip()
+    owner = str(owner_name or "").strip()
+    if owner and text.upper().startswith(owner.upper()):
+        text = text[len(owner) :].strip()
+    match = re.search(r"^(.+?),\s*([A-Z]{2})\s+(\d{5}(?:-\d{4})?)$", text, flags=re.IGNORECASE)
+    if not match:
+        return {}
+    before_city_state, state, zip_code = match.groups()
+    tokens = before_city_state.split()
+    suffixes = {"ST", "STREET", "AVE", "AVENUE", "RD", "ROAD", "DR", "DRIVE", "LN", "LANE", "CT", "COURT", "BLVD", "PKWY", "WAY", "PL", "PLACE", "CIR", "CIRCLE", "TER", "TRL"}
+    split_at = -1
+    for index, token in enumerate(tokens):
+        if token.upper().rstrip(".") in suffixes:
+            split_at = index + 1
+    if split_at <= 0 or split_at >= len(tokens):
+        return {"mailing_address": before_city_state.strip(), "mailing_state": state.upper(), "mailing_zip": zip_code}
+    return {
+        "mailing_address": " ".join(tokens[:split_at]).strip(),
+        "mailing_city": title_city(" ".join(tokens[split_at:])),
+        "mailing_state": state.upper(),
+        "mailing_zip": zip_code,
+    }
+
+
+def yn_flag(text: str, label: str) -> str:
+    match = re.search(rf"{re.escape(label)}\s+([YN])\b", text, flags=re.IGNORECASE)
+    return match.group(1).upper() if match else ""
+
+
+def parse_legacy_tax_bill(raw: str) -> dict:
+    text = html_to_text(raw)
+    if "Tax Balance Summary" not in text:
+        return {}
+    assessed = re.search(r"Taxable Assessed Values.*?Total Value\s+\$?([\d,.]+)", text, flags=re.IGNORECASE)
+    market = re.search(r"Taxable Market Values.*?Total Value\s+\$?([\d,.]+)", text, flags=re.IGNORECASE)
+    balance = re.search(
+        r"Tax Balance Summary\s+Charges\s+\$?([\d,.]+)\s+Payments\s+\$?([\d,.]+)\s+Balance Due\s+\$?([\d,.]+)",
+        text,
+        flags=re.IGNORECASE,
+    )
+    tax_year = re.search(r"Tax Year\s+(\d{4})\s+Pay\s+(\d{4})", text, flags=re.IGNORECASE)
+    owner_match = re.search(r"Deeded Owner\s+(.+?)\s+Tax Mailing Address", text, flags=re.IGNORECASE)
+    owner_name = owner_match.group(1).strip() if owner_match else ""
+    mailing = split_tax_mailing_address(extract_between(text, "Tax Mailing Address", "Description"), owner_name)
+    data = {
+        "owner_name": owner_name,
+        "assessed_value": parse_money(assessed.group(1)) if assessed else None,
+        "market_value": parse_money(market.group(1)) if market else None,
+        "tax_charges": parse_money(balance.group(1)) if balance else None,
+        "tax_payments": parse_money(balance.group(2)) if balance else None,
+        "tax_balance_due": parse_money(balance.group(3)) if balance else None,
+        "tax_year": tax_year.group(1) if tax_year else "",
+        "tax_pay_year": tax_year.group(2) if tax_year else "",
+        "tax_foreclosure_flag": yn_flag(text, "Foreclosure"),
+        "tax_certificate_pending_flag": yn_flag(text, "Cert. Pending"),
+        "tax_certificate_sold_flag": yn_flag(text, "Cert. Sold"),
+        "tax_payment_plan_flag": yn_flag(text, "Payment Plan"),
+    }
+    data.update(mailing)
+    return {key: value for key, value in data.items() if has_value(value)}
+
+
+def fetch_legacy_tax_bill(parcel_id: str) -> dict:
+    parcel = clean_parcel(parcel_id)
+    form = urllib.parse.urlencode(
+        {
+            "hdnTaxesParcelId": parcel,
+            "hdnTaxesListId": "0",
+            "hdnTaxesButtonClicked": "Tax Bill",
+            "hdnTaxesSearchChoice": "Parcel",
+            "hdnTaxesSearchText": parcel,
+            "hdnTaxesSearchCity": "75",
+            "hdnTaxYear": "",
+        }
+    ).encode("utf-8")
+    request = urllib.request.Request(
+        LEGACY_TAXES_URL,
+        data=form,
+        headers={"Content-Type": "application/x-www-form-urlencoded"},
+        method="POST",
+    )
+    with urllib.request.urlopen(request, timeout=45) as response:
+        return parse_legacy_tax_bill(response.read().decode("utf-8", errors="replace"))
+
+
 def fill_if_blank(record: dict, field: str, value) -> None:
     if has_value(value) and not has_good_value(record.get(field)):
         record[field] = value
@@ -539,6 +648,77 @@ def enrich_property_value(record: dict, timestamp: str) -> str:
     return "enriched"
 
 
+def enrich_legacy_tax_bill(record: dict, timestamp: str) -> str:
+    if record.get("source_county_key") != "cuyahoga":
+        return "skipped"
+    parcel_id = clean_parcel(record.get("parcel_id"))
+    if not parcel_id:
+        record["tax_delinquent_enrichment_status"] = "no_parcel"
+        return "no_hit"
+    try:
+        tax_data = fetch_legacy_tax_bill(parcel_id)
+    except Exception:
+        record["tax_delinquent_enrichment_status"] = "failed"
+        record["tax_delinquent_enrichment_timestamp"] = timestamp
+        return "failed"
+    record["tax_delinquent_source"] = "Cuyahoga MyPlace LegacyTaxes"
+    record["tax_delinquent_source_url"] = LEGACY_TAXES_URL
+    record["tax_delinquent_enrichment_timestamp"] = timestamp
+    if not tax_data:
+        record["tax_delinquent_enrichment_status"] = "no_hit"
+        return "no_hit"
+
+    fill_if_blank(record, "owner_name", tax_data.get("owner_name"))
+    fill_if_blank(record, "owner", tax_data.get("owner_name"))
+    fill_if_blank(record, "source_owner_name", tax_data.get("owner_name"))
+    fill_if_blank(record, "mailing_address", tax_data.get("mailing_address"))
+    fill_if_blank(record, "mailing_city", tax_data.get("mailing_city"))
+    fill_if_blank(record, "mailing_state", tax_data.get("mailing_state"))
+    fill_if_blank(record, "mailing_zip", tax_data.get("mailing_zip"))
+    fill_if_blank(record, "owner_type", owner_type(record.get("owner_name") or tax_data.get("owner_name") or ""))
+    set_if_value(record, "assessed_value", tax_data.get("assessed_value"))
+    set_if_value(record, "market_value", tax_data.get("market_value"))
+    set_if_value(record, "estimated_value", tax_data.get("market_value") if not has_good_value(record.get("estimated_value")) else record.get("estimated_value"))
+    set_if_value(record, "tax_charges", tax_data.get("tax_charges"))
+    set_if_value(record, "tax_payments", tax_data.get("tax_payments"))
+    set_if_value(record, "tax_balance_due", tax_data.get("tax_balance_due"))
+    set_if_value(record, "tax_delinquent_amount", tax_data.get("tax_balance_due"))
+    set_if_value(record, "tax_year", tax_data.get("tax_year"))
+    set_if_value(record, "tax_pay_year", tax_data.get("tax_pay_year"))
+    set_if_value(record, "tax_foreclosure_flag", tax_data.get("tax_foreclosure_flag"))
+    set_if_value(record, "tax_certificate_pending_flag", tax_data.get("tax_certificate_pending_flag"))
+    set_if_value(record, "tax_certificate_sold_flag", tax_data.get("tax_certificate_sold_flag"))
+    set_if_value(record, "tax_payment_plan_flag", tax_data.get("tax_payment_plan_flag"))
+
+    balance_due = tax_data.get("tax_balance_due")
+    if isinstance(balance_due, (int, float)) and balance_due > 0:
+        record["tax_delinquent"] = True
+        record["tax_pressure"] = True
+        record["tax_status"] = "Balance Due"
+        add_unique(record, "distress_sources", ["tax_delinquent"])
+        add_unique(record, "flags", ["Tax Delinquent", "Tax Pressure"])
+        add_unique(record, "tags", ["Tax Delinquent", "Tax Pressure"])
+    if tax_data.get("tax_certificate_pending_flag") == "Y":
+        record["tax_certificate"] = True
+        add_unique(record, "distress_sources", ["tax_certificate"])
+        add_unique(record, "flags", ["Tax Certificate"])
+        add_unique(record, "tags", ["Tax Certificate"])
+    if tax_data.get("tax_certificate_sold_flag") == "Y":
+        record["tax_certificate"] = True
+        record["tax_lien"] = True
+        add_unique(record, "distress_sources", ["tax_certificate"])
+        add_unique(record, "flags", ["Tax Certificate", "Tax Lien"])
+        add_unique(record, "tags", ["Tax Certificate", "Tax Lien"])
+    if tax_data.get("tax_foreclosure_flag") == "Y":
+        record["tax_foreclosure"] = True
+        add_unique(record, "flags", ["Tax Foreclosure"])
+        add_unique(record, "tags", ["Tax Foreclosure"])
+    apply_absentee_owner_flags(record)
+    apply_stack_tags(record)
+    record["tax_delinquent_enrichment_status"] = "enriched"
+    return "enriched"
+
+
 def enrich_tax_values(limit: int) -> dict:
     payload = json.loads(OUTPUT_PATH.read_text(encoding="utf-8"))
     timestamp = datetime.now(timezone.utc).isoformat(timespec="seconds")
@@ -572,6 +752,52 @@ def enrich_tax_values(limit: int) -> dict:
     }
     OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     return payload["phase_2f_tax_value_enrichment"]
+
+
+def enrich_tax_delinquency(limit: int) -> dict:
+    payload = json.loads(OUTPUT_PATH.read_text(encoding="utf-8"))
+    timestamp = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    backup_path = OUTPUT_PATH.with_suffix(f".phase2f-tax-delinquent.{timestamp.replace(':', '').replace('+', 'Z')}.bak.json")
+    shutil.copy2(OUTPUT_PATH, backup_path)
+    records = payload.get("records") or []
+    counts = {"attempted": 0, "enriched": 0, "no_hit": 0, "failed": 0, "skipped": 0}
+    seen_parcels = set()
+    for record in records:
+        if counts["attempted"] >= limit:
+            break
+        if record.get("source_county_key") != "cuyahoga":
+            counts["skipped"] += 1
+            continue
+        parcel = clean_parcel(record.get("parcel_id"))
+        if not parcel or parcel in seen_parcels:
+            continue
+        seen_parcels.add(parcel)
+        counts["attempted"] += 1
+        status = enrich_legacy_tax_bill(record, timestamp)
+        counts[status] = counts.get(status, 0) + 1
+    tax_delinquent_count = sum(1 for record in records if record.get("tax_delinquent"))
+    tax_certificate_count = sum(1 for record in records if record.get("tax_certificate"))
+    tax_lien_count = sum(1 for record in records if record.get("tax_lien"))
+    hot_stack_count = sum(
+        1
+        for record in records
+        if record.get("source_county_key") == "cuyahoga"
+        and ("Cuyahoga Hot Stack" in (record.get("tags") or []) or int(record.get("distress_count") or 0) >= 2)
+    )
+    payload["phase_2f_tax_delinquent_enrichment"] = {
+        "timestamp": timestamp,
+        "source": "Cuyahoga MyPlace LegacyTaxes",
+        "source_url": LEGACY_TAXES_URL,
+        "limit": limit,
+        **counts,
+        "tax_delinquent_count": tax_delinquent_count,
+        "tax_certificate_count": tax_certificate_count,
+        "tax_lien_count": tax_lien_count,
+        "cuyahoga_hot_stack_count": hot_stack_count,
+        "backup_path": str(backup_path),
+    }
+    OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    return payload["phase_2f_tax_delinquent_enrichment"]
 
 
 def enrich_owners(limit: int) -> dict:
@@ -813,6 +1039,7 @@ def main() -> None:
     parser.add_argument("--expand-stacks", action="store_true")
     parser.add_argument("--apply-absentee-flags", action="store_true")
     parser.add_argument("--enrich-tax-values", action="store_true")
+    parser.add_argument("--enrich-tax-delinquency", action="store_true")
     parser.add_argument("--owner-limit", type=int, default=250)
     parser.add_argument("--violation-limit", type=int, default=5000)
     parser.add_argument("--property-limit", type=int, default=1000)
@@ -832,6 +1059,10 @@ def main() -> None:
         return
     if args.enrich_tax_values:
         result = enrich_tax_values(max(1, min(args.property_limit, 5000)))
+        print(json.dumps(result, indent=2))
+        return
+    if args.enrich_tax_delinquency:
+        result = enrich_tax_delinquency(max(1, min(args.property_limit, 1000)))
         print(json.dumps(result, indent=2))
         return
     if args.enrich_owners:
