@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GHL Import Cleaner | Akron Data</title>
+  <style>
+    :root {
+      --bg: #07070c;
+      --panel: #10111a;
+      --panel2: #151725;
+      --line: #2a2d3a;
+      --text: #f4f6ff;
+      --muted: #969bb5;
+      --gold: #f5a623;
+      --green: #21d19f;
+      --red: #ff4d4d;
+      --blue: #5aa7ff;
+      --chip: #202437;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(245, 166, 35, 0.13), transparent 32%),
+        radial-gradient(circle at top right, rgba(90, 167, 255, 0.11), transparent 32%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 18px 56px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      font-weight: 800;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(28px, 5vw, 46px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .sub {
+      margin: 9px 0 0;
+      color: var(--muted);
+      max-width: 760px;
+      line-height: 1.55;
+      font-size: 15px;
+    }
+
+    .safe-badge {
+      border: 1px solid rgba(33, 209, 159, 0.45);
+      color: var(--green);
+      background: rgba(33, 209, 159, 0.08);
+      padding: 9px 12px;
+      border-radius: 999px;
+      white-space: nowrap;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)), var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card-head {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card-title {
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      font-weight: 900;
+    }
+
+    .card-body { padding: 18px; }
+
+    .upload-box {
+      border: 1px dashed rgba(245, 166, 35, 0.55);
+      background: rgba(245, 166, 35, 0.055);
+      border-radius: 16px;
+      padding: 20px;
+      display: grid;
+      gap: 14px;
+    }
+
+    input[type="file"] {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: var(--text);
+      background: var(--panel2);
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    button, .back-link {
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 15px;
+      color: #080910;
+      background: var(--gold);
+      font-weight: 900;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+    }
+
+    button.secondary, .back-link {
+      background: #24283a;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    button.green { background: var(--green); }
+
+    button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+    }
+
+    .stat {
+      background: var(--panel2);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 900;
+    }
+
+    .stat strong {
+      display: block;
+      margin-top: 8px;
+      font-size: 27px;
+      line-height: 1;
+    }
+
+    .stat.good strong { color: var(--green); }
+    .stat.warn strong { color: var(--gold); }
+    .stat.bad strong { color: var(--red); }
+
+    .notice {
+      border: 1px solid rgba(90, 167, 255, 0.35);
+      background: rgba(90, 167, 255, 0.08);
+      border-radius: 14px;
+      padding: 13px 14px;
+      color: #dbeaff;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .error {
+      border-color: rgba(255, 77, 77, 0.45);
+      background: rgba(255, 77, 77, 0.08);
+      color: #ffd9d9;
+    }
+
+    .mapping {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .map-item {
+      background: var(--panel2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 11px;
+      font-size: 13px;
+    }
+
+    .map-item b {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 5px;
+    }
+
+    .map-item span { color: var(--muted); }
+
+    .table-wrap {
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      max-height: 420px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 900px;
+      background: #080910;
+    }
+
+    th, td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      font-size: 13px;
+      vertical-align: top;
+      white-space: nowrap;
+    }
+
+    th {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 11px;
+      background: #111320;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: var(--chip);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="eyebrow">Akron Data Tool</div>
+        <h1>GHL Import Cleaner</h1>
+        <p class="sub">Clean your raw scraper CSV before uploading into Go High Level / Jarvis. This runs inside your browser only. No lead data is uploaded, stored, or sent anywhere.</p>
+      </div>
+      <div class="safe-badge">100% Local Browser Tool</div>
+    </div>
+
+    <section class="grid">
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">1. Upload Raw CSV</div>
+          <a class="back-link" href="../index.html">Back to Dashboard</a>
+        </div>
+        <div class="card-body">
+          <div class="upload-box">
+            <input id="csvFile" type="file" accept=".csv,text/csv" />
+            <div class="btn-row">
+              <button id="cleanBtn" disabled>Clean List</button>
+              <button id="downloadBtn" class="green" disabled>Download Clean GHL CSV</button>
+              <button id="resetBtn" class="secondary">Reset</button>
+            </div>
+            <div id="status" class="notice">Choose a CSV exported from your dashboard, then click Clean List.</div>
+            <div class="small">Best first test: 10–25 Skip Traced / Hot Stack leads. Do not import thousands into GHL until your first test contact looks perfect.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">2. Cleaning Summary</div>
+          <span class="pill" id="fileName">No file loaded</span>
+        </div>
+        <div class="card-body">
+          <div class="stats">
+            <div class="stat"><span>Total Rows</span><strong id="statTotal">0</strong></div>
+            <div class="stat good"><span>Rows With Phone</span><strong id="statPhone">0</strong></div>
+            <div class="stat bad"><span>Missing / Invalid Phone</span><strong id="statBadPhone">0</strong></div>
+            <div class="stat warn"><span>Blank Name / Address</span><strong id="statBadRequired">0</strong></div>
+            <div class="stat warn"><span>Duplicate Phones Removed</span><strong id="statDupPhone">0</strong></div>
+            <div class="stat warn"><span>Duplicate Addresses Removed</span><strong id="statDupAddress">0</strong></div>
+            <div class="stat good"><span>Final Export Count</span><strong id="statFinal">0</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card hidden" id="mappingCard">
+        <div class="card-head">
+          <div class="card-title">3. Header Detection</div>
+          <span class="pill">Auto-mapped</span>
+        </div>
+        <div class="card-body">
+          <div class="notice">These are the raw CSV columns the cleaner found and matched. If a value says “Not found,” your CSV header may use a different name.</div>
+          <div class="mapping" id="mappingList"></div>
+        </div>
+      </div>
+
+      <div class="card hidden" id="previewCard">
+        <div class="card-head">
+          <div class="card-title">4. Preview Clean Export</div>
+          <span class="pill" id="previewCount">0 rows</span>
+        </div>
+        <div class="card-body">
+          <div class="table-wrap">
+            <table id="previewTable"></table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const EXPORT_COLUMNS = [
+      "Owner Name",
+      "Phone Primary",
+      "Email Primary",
+      "Property Address",
+      "City",
+      "State",
+      "Zip",
+      "Lead Type",
+      "Document Type",
+      "Document Number",
+      "Amount Owed",
+      "Seller Score",
+      "Subject-To Score",
+      "Equity Estimate",
+      "Skip Trace Status",
+      "Source Link",
+      "Tags",
+      "Deal Notes"
+    ];
+
+    const FIELD_ALIASES = {
+      ownerName: ["owner name", "owner", "name", "seller name", "contact name", "full name", "owner/property", "owner_property"],
+      phone: ["phone primary", "primary phone", "phone", "phone 1", "phone_1", "phone_primary", "mobile", "mobile phone", "cell", "best phone", "traced phone", "traced_phone", "phoneprimary"],
+      email: ["email primary", "primary email", "email", "email 1", "email_1", "email_primary", "traced email", "traced_email"],
+      propertyAddress: ["property address", "address", "site address", "situs address", "property", "street address", "property_address", "site_address", "situs_address"],
+      city: ["city", "property city", "situs city", "site city"],
+      state: ["state", "property state", "situs state", "site state"],
+      zip: ["zip", "zipcode", "zip code", "postal code", "property zip", "situs zip"],
+      leadType: ["lead type", "type", "source type", "distress type", "category", "lead_type"],
+      documentType: ["document type", "doc type", "document_type"],
+      documentNumber: ["document number", "doc number", "doc #", "document #", "case number", "case #", "document_number", "doc_number"],
+      amountOwed: ["amount owed", "amount", "owed", "judgment amount", "balance", "amount_owed"],
+      sellerScore: ["seller score", "score", "seller_score", "motivation score", "lead score"],
+      subjectToScore: ["subject-to score", "subject to score", "subto score", "subject_to_score", "subject2 score", "creative score"],
+      equityEstimate: ["equity estimate", "equity est", "equity", "equity_estimate", "equity_est"],
+      skipTraceStatus: ["skip trace status", "skip_trace_status", "skip status", "trace status", "traced status"],
+      sourceLink: ["source link", "link", "url", "record link", "court link", "property link", "source", "source_link"],
+      existingTags: ["tags", "tag"],
+      existingNotes: ["notes", "deal notes", "note", "deal_notes"]
+    };
+
+    const fileInput = document.getElementById("csvFile");
+    const cleanBtn = document.getElementById("cleanBtn");
+    const downloadBtn = document.getElementById("downloadBtn");
+    const resetBtn = document.getElementById("resetBtn");
+    const statusBox = document.getElementById("status");
+    const fileNameEl = document.getElementById("fileName");
+    const mappingCard = document.getElementById("mappingCard");
+    const mappingList = document.getElementById("mappingList");
+    const previewCard = document.getElementById("previewCard");
+    const previewTable = document.getElementById("previewTable");
+    const previewCount = document.getElementById("previewCount");
+
+    let rawText = "";
+    let cleanRows = [];
+
+    fileInput.addEventListener("change", async (event) => {
+      const file = event.target.files?.[0];
+      if (!file) return;
+      rawText = await file.text();
+      cleanRows = [];
+      fileNameEl.textContent = file.name;
+      cleanBtn.disabled = false;
+      downloadBtn.disabled = true;
+      setStatus(`Loaded ${file.name}. Click Clean List.`, false);
+      clearPreview();
+      resetStats();
+    });
+
+    cleanBtn.addEventListener("click", () => {
+      try {
+        const parsed = parseCsv(rawText);
+        if (!parsed.length) throw new Error("The CSV appears empty.");
+        const headers = parsed[0].map(h => String(h || "").trim());
+        const dataRows = parsed.slice(1).filter(row => row.some(cell => String(cell || "").trim() !== ""));
+        const headerMap = buildHeaderMap(headers);
+        showMapping(headerMap);
+
+        const stats = {
+          total: dataRows.length,
+          withPhone: 0,
+          badPhone: 0,
+          badRequired: 0,
+          dupPhone: 0,
+          dupAddress: 0,
+          final: 0
+        };
+
+        const normalized = [];
+
+        for (const row of dataRows) {
+          const get = (key) => getCell(row, headerMap[key]);
+          const ownerName = cleanText(get("ownerName"));
+          const propertyAddress = cleanText(get("propertyAddress"));
+          const phone = normalizePhone(get("phone"));
+
+          if (phone) stats.withPhone++;
+          if (!phone) { stats.badPhone++; continue; }
+          if (!ownerName || !propertyAddress) { stats.badRequired++; continue; }
+
+          const leadType = cleanText(get("leadType"));
+          const documentType = cleanText(get("documentType"));
+          const documentNumber = cleanText(get("documentNumber"));
+          const amountOwed = cleanText(get("amountOwed"));
+          const sellerScore = cleanNumberText(get("sellerScore"));
+          const subjectToScore = cleanNumberText(get("subjectToScore"));
+          const equityEstimate = cleanText(get("equityEstimate"));
+          const skipTraceStatus = cleanText(get("skipTraceStatus"));
+          const sourceLink = cleanText(get("sourceLink"));
+          const email = cleanText(get("email"));
+          const city = cleanText(get("city"));
+          const state = cleanText(get("state"));
+          const zip = cleanText(get("zip"));
+          const existingTags = cleanText(get("existingTags"));
+          const existingNotes = cleanText(get("existingNotes"));
+
+          const tags = buildTags({ leadType, sellerScore, subjectToScore, skipTraceStatus, phone, existingTags });
+          const dealNotes = buildDealNotes({ leadType, sellerScore, subjectToScore, amountOwed, equityEstimate, documentType, documentNumber, sourceLink, existingNotes });
+
+          normalized.push({
+            "Owner Name": ownerName,
+            "Phone Primary": phone,
+            "Email Primary": email,
+            "Property Address": propertyAddress,
+            "City": city,
+            "State": state,
+            "Zip": zip,
+            "Lead Type": leadType,
+            "Document Type": documentType,
+            "Document Number": documentNumber,
+            "Amount Owed": amountOwed,
+            "Seller Score": sellerScore,
+            "Subject-To Score": subjectToScore,
+            "Equity Estimate": equityEstimate,
+            "Skip Trace Status": skipTraceStatus || "success",
+            "Source Link": sourceLink,
+            "Tags": tags,
+            "Deal Notes": dealNotes,
+            _phoneKey: phone,
+            _addressKey: normalizeAddressKey(propertyAddress),
+            _score: toNumber(sellerScore)
+          });
+        }
+
+        const phoneDeduped = keepBestByKey(normalized, "_phoneKey");
+        stats.dupPhone = normalized.length - phoneDeduped.length;
+
+        const addressDeduped = keepBestByKey(phoneDeduped, "_addressKey");
+        stats.dupAddress = phoneDeduped.length - addressDeduped.length;
+
+        cleanRows = addressDeduped.map(row => {
+          const out = {};
+          for (const col of EXPORT_COLUMNS) out[col] = row[col] || "";
+          return out;
+        });
+
+        stats.final = cleanRows.length;
+        updateStats(stats);
+        renderPreview(cleanRows);
+        downloadBtn.disabled = cleanRows.length === 0;
+        setStatus(`Cleaned ${stats.final} GHL-ready contacts. Download the clean CSV, then import it into GHL Contacts.`, false);
+      } catch (error) {
+        console.error(error);
+        setStatus(error.message || "Something went wrong while cleaning the CSV.", true);
+      }
+    });
+
+    downloadBtn.addEventListener("click", () => {
+      if (!cleanRows.length) return;
+      const csv = toCsv(cleanRows, EXPORT_COLUMNS);
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "ghl_contacts_import_clean.csv";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+
+    resetBtn.addEventListener("click", () => {
+      fileInput.value = "";
+      rawText = "";
+      cleanRows = [];
+      cleanBtn.disabled = true;
+      downloadBtn.disabled = true;
+      fileNameEl.textContent = "No file loaded";
+      setStatus("Choose a CSV exported from your dashboard, then click Clean List.", false);
+      resetStats();
+      clearPreview();
+    });
+
+    function buildHeaderMap(headers) {
+      const normalizedHeaders = headers.map(h => normalizeHeader(h));
+      const map = {};
+      for (const [field, aliases] of Object.entries(FIELD_ALIASES)) {
+        const aliasSet = aliases.map(a => normalizeHeader(a));
+        let found = -1;
+
+        for (const alias of aliasSet) {
+          found = normalizedHeaders.findIndex(h => h === alias);
+          if (found !== -1) break;
+        }
+
+        if (found === -1) {
+          for (const alias of aliasSet) {
+            found = normalizedHeaders.findIndex(h => h.includes(alias) || alias.includes(h));
+            if (found !== -1) break;
+          }
+        }
+
+        map[field] = found;
+      }
+      map._headers = headers;
+      return map;
+    }
+
+    function showMapping(headerMap) {
+      mappingList.innerHTML = "";
+      const labels = {
+        ownerName: "Owner Name",
+        phone: "Phone Primary",
+        email: "Email Primary",
+        propertyAddress: "Property Address",
+        city: "City",
+        state: "State",
+        zip: "Zip",
+        leadType: "Lead Type",
+        documentType: "Document Type",
+        documentNumber: "Document Number",
+        amountOwed: "Amount Owed",
+        sellerScore: "Seller Score",
+        subjectToScore: "Subject-To Score",
+        equityEstimate: "Equity Estimate",
+        skipTraceStatus: "Skip Trace Status",
+        sourceLink: "Source Link"
+      };
+      for (const [key, label] of Object.entries(labels)) {
+        const index = headerMap[key];
+        const raw = index >= 0 ? headerMap._headers[index] : "Not found";
+        const div = document.createElement("div");
+        div.className = "map-item";
+        div.innerHTML = `<b>${escapeHtml(label)}</b><span>${escapeHtml(raw)}</span>`;
+        mappingList.appendChild(div);
+      }
+      mappingCard.classList.remove("hidden");
+    }
+
+    function parseCsv(text) {
+      const rows = [];
+      let row = [];
+      let cell = "";
+      let inQuotes = false;
+
+      for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        const next = text[i + 1];
+
+        if (char === '"') {
+          if (inQuotes && next === '"') {
+            cell += '"';
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (char === "," && !inQuotes) {
+          row.push(cell);
+          cell = "";
+        } else if ((char === "\n" || char === "\r") && !inQuotes) {
+          if (char === "\r" && next === "\n") i++;
+          row.push(cell);
+          rows.push(row);
+          row = [];
+          cell = "";
+        } else {
+          cell += char;
+        }
+      }
+
+      if (cell.length || row.length) {
+        row.push(cell);
+        rows.push(row);
+      }
+
+      return rows;
+    }
+
+    function toCsv(rows, columns) {
+      const escape = (value) => {
+        const text = String(value ?? "");
+        if (/[",\n\r]/.test(text)) return `"${text.replace(/"/g, '""')}"`;
+        return text;
+      };
+      return [
+        columns.map(escape).join(","),
+        ...rows.map(row => columns.map(col => escape(row[col])).join(","))
+      ].join("\n");
+    }
+
+    function getCell(row, index) {
+      if (index == null || index < 0) return "";
+      return row[index] ?? "";
+    }
+
+    function normalizeHeader(value) {
+      return String(value || "")
+        .toLowerCase()
+        .replace(/[_\-#/]+/g, " ")
+        .replace(/[^a-z0-9 ]+/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function cleanText(value) {
+      return String(value || "")
+        .replace(/\uFEFF/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function cleanNumberText(value) {
+      const text = cleanText(value);
+      if (!text) return "";
+      const match = text.match(/-?\d+(\.\d+)?/);
+      return match ? match[0] : text;
+    }
+
+    function toNumber(value) {
+      const n = Number(String(value || "").replace(/[^0-9.-]/g, ""));
+      return Number.isFinite(n) ? n : 0;
+    }
+
+    function normalizePhone(value) {
+      let digits = String(value || "").replace(/[^0-9]/g, "");
+      if (!digits) return "";
+      if (digits.length === 11 && digits.startsWith("1")) digits = digits.slice(1);
+      if (digits.length !== 10) return "";
+      if (/^(\d)\1{9}$/.test(digits)) return "";
+      return `+1${digits}`;
+    }
+
+    function normalizeAddressKey(value) {
+      return String(value || "")
+        .toLowerCase()
+        .replace(/\b(street)\b/g, "st")
+        .replace(/\b(avenue)\b/g, "ave")
+        .replace(/\b(road)\b/g, "rd")
+        .replace(/\b(drive)\b/g, "dr")
+        .replace(/\b(lane)\b/g, "ln")
+        .replace(/\b(court)\b/g, "ct")
+        .replace(/\b(place)\b/g, "pl")
+        .replace(/\b(boulevard)\b/g, "blvd")
+        .replace(/[^a-z0-9]+/g, "")
+        .trim();
+    }
+
+    function buildTags({ leadType, sellerScore, subjectToScore, skipTraceStatus, phone, existingTags }) {
+      const tags = new Set();
+      tags.add("Akron Summit");
+      if (leadType) tags.add(titleCase(leadType));
+      if (existingTags) existingTags.split(/[,;|]/).map(t => cleanText(t)).filter(Boolean).forEach(t => tags.add(t));
+      if (phone || /success|skip traced|traced/i.test(skipTraceStatus)) tags.add("Skip Traced");
+      if (toNumber(sellerScore) >= 80) tags.add("Hot Stack");
+      if (toNumber(subjectToScore) >= 60) tags.add("Subject-To Candidate");
+      return Array.from(tags).join(", ");
+    }
+
+    function buildDealNotes({ leadType, sellerScore, subjectToScore, amountOwed, equityEstimate, documentType, documentNumber, sourceLink, existingNotes }) {
+      const parts = [];
+      if (leadType) parts.push(`Lead Type: ${leadType}.`);
+      if (sellerScore) parts.push(`Seller Score: ${sellerScore}.`);
+      if (subjectToScore) parts.push(`Subject-To Score: ${subjectToScore}.`);
+      if (amountOwed) parts.push(`Amount Owed: ${amountOwed}.`);
+      if (equityEstimate) parts.push(`Equity Estimate: ${equityEstimate}.`);
+      if (documentType || documentNumber) parts.push(`Document: ${[documentType, documentNumber].filter(Boolean).join(" ")}.`);
+      if (sourceLink) parts.push(`Source: ${sourceLink}.`);
+      if (existingNotes) parts.push(`Existing Notes: ${existingNotes}.`);
+      return parts.join(" ");
+    }
+
+    function keepBestByKey(rows, key) {
+      const map = new Map();
+      for (const row of rows) {
+        const value = row[key];
+        if (!value) continue;
+        if (!map.has(value)) {
+          map.set(value, row);
+          continue;
+        }
+        const current = map.get(value);
+        if ((row._score || 0) > (current._score || 0)) map.set(value, row);
+      }
+      return Array.from(map.values());
+    }
+
+    function titleCase(value) {
+      return String(value || "")
+        .toLowerCase()
+        .replace(/\b\w/g, char => char.toUpperCase())
+        .replace(/\bLlc\b/g, "LLC")
+        .replace(/\bUsa\b/g, "USA");
+    }
+
+    function renderPreview(rows) {
+      previewTable.innerHTML = "";
+      const thead = document.createElement("thead");
+      const headRow = document.createElement("tr");
+      for (const col of EXPORT_COLUMNS) {
+        const th = document.createElement("th");
+        th.textContent = col;
+        headRow.appendChild(th);
+      }
+      thead.appendChild(headRow);
+      previewTable.appendChild(thead);
+
+      const tbody = document.createElement("tbody");
+      rows.slice(0, 50).forEach(row => {
+        const tr = document.createElement("tr");
+        for (const col of EXPORT_COLUMNS) {
+          const td = document.createElement("td");
+          td.textContent = row[col] || "";
+          tr.appendChild(td);
+        }
+        tbody.appendChild(tr);
+      });
+      previewTable.appendChild(tbody);
+      previewCount.textContent = `${rows.length} rows`;
+      previewCard.classList.remove("hidden");
+    }
+
+    function clearPreview() {
+      previewTable.innerHTML = "";
+      mappingList.innerHTML = "";
+      previewCard.classList.add("hidden");
+      mappingCard.classList.add("hidden");
+      previewCount.textContent = "0 rows";
+    }
+
+    function updateStats(stats) {
+      document.getElementById("statTotal").textContent = stats.total;
+      document.getElementById("statPhone").textContent = stats.withPhone;
+      document.getElementById("statBadPhone").textContent = stats.badPhone;
+      document.getElementById("statBadRequired").textContent = stats.badRequired;
+      document.getElementById("statDupPhone").textContent = stats.dupPhone;
+      document.getElementById("statDupAddress").textContent = stats.dupAddress;
+      document.getElementById("statFinal").textContent = stats.final;
+    }
+
+    function resetStats() {
+      updateStats({ total: 0, withPhone: 0, badPhone: 0, badRequired: 0, dupPhone: 0, dupAddress: 0, final: 0 });
+    }
+
+    function setStatus(message, isError) {
+      statusBox.textContent = message;
+      statusBox.classList.toggle("error", Boolean(isError));
+    }
+
+    function escapeHtml(value) {
+      return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+  </script>
+</body>
+</html>
