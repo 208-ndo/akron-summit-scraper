@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-30T13:23:24.234680+00:00",
+  "fetched_at": "2026-05-01T11:56:33.460046+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "absentee",
   "description": "\ud83d\udced Owner mailing address differs from property",
@@ -39,8 +39,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -161,8 +161,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -290,8 +290,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -419,8 +419,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -540,8 +540,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -661,8 +661,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -781,8 +781,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -901,8 +901,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1021,8 +1021,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1148,8 +1148,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1275,8 +1275,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1394,8 +1394,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1484,7 +1484,7 @@
     {
       "doc_num": "CV2021 06 1952",
       "doc_type": "TAXDEED",
-      "filed": "2026-04-30",
+      "filed": "2026-05-01",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Brenda M Haehner",
@@ -1568,7 +1568,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2021 06 1952",
-      "foreclosure_notice_date": "2026-04-30",
+      "foreclosure_notice_date": "2026-05-01",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -1601,7 +1601,7 @@
     {
       "doc_num": "CV2025 09 4689",
       "doc_type": "TAXDEED",
-      "filed": "2026-04-30",
+      "filed": "2026-05-01",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Equity Trust Company Custodian Fbo",
@@ -1704,7 +1704,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 09 4689",
-      "foreclosure_notice_date": "2026-04-30",
+      "foreclosure_notice_date": "2026-05-01",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -123860,7 +123860,7 @@
     {
       "doc_num": "VHOME-6723306",
       "doc_type": "VHOME",
-      "filed": "2026-04-30",
+      "filed": "2026-05-01",
       "cat": "VHOME",
       "cat_label": "Vacant Home",
       "owner": "",
@@ -123974,7 +123974,7 @@
     {
       "doc_num": "VHOME-0109213",
       "doc_type": "VHOME",
-      "filed": "2026-04-30",
+      "filed": "2026-05-01",
       "cat": "VHOME",
       "cat_label": "Vacant Home",
       "owner": "",
@@ -124088,7 +124088,7 @@
     {
       "doc_num": "VHOME-6838102C",
       "doc_type": "VHOME",
-      "filed": "2026-04-30",
+      "filed": "2026-05-01",
       "cat": "VHOME",
       "cat_label": "Vacant Home",
       "owner": "",
@@ -124202,7 +124202,7 @@
     {
       "doc_num": "VHOME-6807445",
       "doc_type": "VHOME",
-      "filed": "2026-04-30",
+      "filed": "2026-05-01",
       "cat": "VHOME",
       "cat_label": "Vacant Home",
       "owner": "",
