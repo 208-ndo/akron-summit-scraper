@@ -346,6 +346,7 @@
     <button class="tab" data-tab="probate">⚖️ Probate <span class="badge" id="b-probate">0</span></button>
     <button class="tab" data-tab="code_violations">🚧 Code Violations <span class="badge" id="b-code_violations">0</span></button>
     <button class="tab" data-tab="vacant_homes">🏠 Vacant Homes <span class="badge" id="b-vacant_homes">0</span></button>
+    <button class="tab" data-tab="nuisance">NUISANCE <span class="badge" id="b-nuisance">0</span></button>
     <button class="tab" data-tab="tax_delinquent">💰 Tax Delinquent <span class="badge" id="b-tax_delinquent">0</span></button>
     <button class="tab" data-tab="absentee">📭 Absentee <span class="badge" id="b-absentee">0</span></button>
     <button class="tab" data-tab="out_of_state">🌎 Out-of-State <span class="badge" id="b-out_of_state">0</span></button>
@@ -692,7 +693,7 @@
   <div class="mc" id="mc"></div>
 </div>
 <script>
-const TAB_FILES={all:'records.json',sheriff_sales:'sheriff_sales.json',hot_stack:'hot_stack.json',probate:'probate.json',code_violations:'code_violations.json',vacant_homes:'vacant_homes.json',tax_delinquent:'tax_delinquent.json',absentee:'absentee.json',out_of_state:'out_of_state.json',inherited:'inherited.json',foreclosure:'foreclosure.json',subject_to:'subject_to.json',prime_subject_to:'prime_subject_to.json',vacant_land:'vacant_land.json',evictions:'evictions.json',divorces:'divorces.json',fire_damage:'fire_damage.json',cash_buyers:'cash_buyers.json'};
+const TAB_FILES={all:'records.json',sheriff_sales:'sheriff_sales.json',hot_stack:'hot_stack.json',probate:'probate.json',code_violations:'code_violations.json',vacant_homes:'vacant_homes.json',nuisance:'nuisance.json',tax_delinquent:'tax_delinquent.json',absentee:'absentee.json',out_of_state:'out_of_state.json',inherited:'inherited.json',foreclosure:'foreclosure.json',subject_to:'subject_to.json',prime_subject_to:'prime_subject_to.json',vacant_land:'vacant_land.json',evictions:'evictions.json',divorces:'divorces.json',fire_damage:'fire_damage.json',cash_buyers:'cash_buyers.json'};
 
 const DEFAULT_COUNTY_KEY='summit';
 const ALL_OHIO_KEY='all_ohio';
@@ -837,6 +838,7 @@ function normalizeListLabel(value){
   if(label.includes('sheriff'))return 'sheriff_sale';
   if(label.includes('foreclos'))return 'foreclosure';
   if(label.includes('tax delin'))return 'tax_delinquent';
+  if(label.includes('public health complaint')||label.includes('environmental nuisance')||label.includes('unsafe / nuisance pressure')||label.includes('rodent')||label.includes('vermin')||label.includes('garbage')||label.includes('high grass')||label.includes('standing water')||label.includes('sewage'))return 'nuisance_complaint';
   if(label.includes('code viol')||label.includes('nuisance'))return 'code_violation';
   if(label.includes('absentee'))return 'absentee';
   if(label.includes('out-of-state')||label.includes('out of state'))return 'out_of_state';
@@ -863,6 +865,7 @@ function getListSignals(r){
   if(r.is_inherited)signals.add('inherited');
   if(r.is_vacant_home)signals.add('vacant_home');
   if(r.is_vacant_land)signals.add('vacant_land');
+  if(r.nuisance_complaint||r.public_health_complaint)signals.add('nuisance_complaint');
   if(r.doc_type==='SHERIFF')signals.add('sheriff_sale');
   if(r.sheriff_sale)signals.add('sheriff_sale');
   if(r.foreclosure)signals.add('foreclosure');
@@ -897,6 +900,10 @@ function isSheriffSaleLead(r){
 function isPrimeDealLead(r){
   const signals=getListSignals(r);
   return !!r.prime_deal||signals.includes('prime_deal')||(r.subject_to_score||0)>=70;
+}
+
+function isNuisanceLead(r){
+  return getListSignals(r).includes('nuisance_complaint');
 }
 
 function normalizeTraceRecord(data){
@@ -1827,6 +1834,7 @@ function tabRecords(tab,records){
     if(tab==='probate')return r.doc_type==='PRO';
     if(tab==='code_violations')return r.doc_type==='CODEVIOLATION';
     if(tab==='vacant_homes')return isVacantHomeLead(r);
+    if(tab==='nuisance')return isNuisanceLead(r);
     if(tab==='tax_delinquent')return flags.includes('tax delinquent');
     if(tab==='absentee')return !!r.is_absentee;
     if(tab==='out_of_state')return !!r.is_out_of_state;
