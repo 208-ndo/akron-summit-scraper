@@ -398,7 +398,7 @@
     ];
 
     const FIELD_ALIASES = {
-      ownerName: ["owner name", "owner", "name", "seller name", "contact name", "full name", "owner/property", "owner_property"],
+      ownerName: ["owner name", "property owner", "seller name", "contact name", "full name", "defendant name", "party name", "owner/property", "owner_property", "name"],
       phone: ["phone primary", "primary phone", "phone", "phone 1", "phone_1", "phone_primary", "mobile", "mobile phone", "cell", "best phone", "traced phone", "traced_phone", "phoneprimary"],
       email: ["email primary", "primary email", "email", "email 1", "email_1", "email_primary", "traced email", "traced_email"],
       propertyAddress: ["property address", "address", "site address", "situs address", "property", "street address", "property_address", "site_address", "situs_address"],
@@ -469,13 +469,17 @@
 
         for (const row of dataRows) {
           const get = (key) => getCell(row, headerMap[key]);
-          const ownerName = cleanText(get("ownerName"));
+          let ownerName = cleanText(get("ownerName"));
           const propertyAddress = cleanText(get("propertyAddress"));
           const phone = normalizePhone(get("phone"));
 
           if (phone) stats.withPhone++;
           if (!phone) { stats.badPhone++; continue; }
-          if (!ownerName || !propertyAddress) { stats.badRequired++; continue; }
+          if (!propertyAddress) { stats.badRequired++; continue; }
+
+          if (!isUsableOwnerValue(ownerName)) {
+            ownerName = `Property Lead - ${propertyAddress}`;
+          }
 
           const leadType = cleanText(get("leadType"));
           const documentType = cleanText(get("documentType"));
@@ -583,9 +587,14 @@
         }
 
         if (found === -1) {
-          for (const alias of aliasSet) {
-            found = normalizedHeaders.findIndex(h => h.includes(alias) || alias.includes(h));
-            if (found !== -1) break;
+          if (field === "ownerName") {
+            found = normalizedHeaders.findIndex(h => isUsableOwnerHeader(h));
+          } else {
+            for (const alias of aliasSet) {
+              if (alias.length < 4) continue;
+              found = normalizedHeaders.findIndex(h => h.includes(alias));
+              if (found !== -1) break;
+            }
           }
         }
 
@@ -593,6 +602,23 @@
       }
       map._headers = headers;
       return map;
+    }
+
+    function isUsableOwnerHeader(header) {
+      if (!header) return false;
+      const bad = ["absentee", "out of state", "inherited", "vacant", "llc", "corporate", "flag", "status", "score", "type"];
+      if (bad.some(word => header.includes(word))) return false;
+      return (
+        header === "owner" ||
+        header === "name" ||
+        header.includes("owner name") ||
+        header.includes("property owner") ||
+        header.includes("seller name") ||
+        header.includes("contact name") ||
+        header.includes("defendant name") ||
+        header.includes("party name") ||
+        header.includes("owner property")
+      );
     }
 
     function showMapping(headerMap) {
@@ -693,9 +719,16 @@
 
     function cleanText(value) {
       return String(value || "")
-        .replace(/\uFEFF/g, "")
-        .replace(/\s+/g, " ")
-        .trim();
+        .replace(String.fromCharCode(65279), "")
+        .trim()
+        .replace(/  +/g, " ");
+    }
+
+    function isUsableOwnerValue(value) {
+      const text = cleanText(value);
+      if (!text) return false;
+      if (/^(yes|no|true|false|y|n|0|1)$/i.test(text)) return false;
+      return text.length >= 2;
     }
 
     function cleanNumberText(value) {
