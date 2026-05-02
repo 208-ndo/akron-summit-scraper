@@ -3104,5 +3104,17 @@
     "source_url": "https://ari.akronohio.gov/",
     "searched_address": "09 Am Breach Of Contract",
     "checked_at": "2026-04-29T13:24:20.780304+00:00"
+  },
+  "1175 VIRGINIA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1175 VIRGINIA AVE",
+    "checked_at": "2026-05-02T10:52:44.714815+00:00"
+  },
+  "1210 SWARTZ": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1210 SWARTZ RD",
+    "checked_at": "2026-05-02T10:52:45.247422+00:00"
   }
 }
