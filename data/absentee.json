@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-02T10:52:48.383096+00:00",
+  "fetched_at": "2026-05-03T11:21:44.483127+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "absentee",
   "description": "\ud83d\udced Owner mailing address differs from property",
@@ -40,9 +40,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "tax_delinquent",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -131,7 +131,7 @@
     {
       "doc_num": "CV2025 12 5870",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-02",
+      "filed": "2026-05-03",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Graylain Llc",
@@ -162,9 +162,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
+        "tax_delinquent",
         "foreclosure",
-        "tax_delinquent"
+        "vacant_land"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -178,7 +178,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -196,8 +196,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-05-02T10:52:50.001831Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": 6120.0,
@@ -220,7 +220,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 12 5870",
-      "foreclosure_notice_date": "2026-05-02",
+      "foreclosure_notice_date": "2026-05-03",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -535,8 +535,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -664,8 +664,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -785,8 +785,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -906,8 +906,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1026,8 +1026,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1146,8 +1146,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1520,8 +1520,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1639,8 +1639,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1729,7 +1729,7 @@
     {
       "doc_num": "CV2025 07 3002",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-02",
+      "filed": "2026-05-03",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Alexandria R. Payne",
@@ -1758,8 +1758,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
-        "tax_delinquent"
+        "tax_delinquent",
+        "vacant_land"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1773,7 +1773,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -1791,8 +1791,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-05-02T10:52:50.003545Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": 2890.0,
@@ -1815,7 +1815,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 07 3002",
-      "foreclosure_notice_date": "2026-05-02",
+      "foreclosure_notice_date": "2026-05-03",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -1848,7 +1848,7 @@
     {
       "doc_num": "CV2025 10 5047",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-02",
+      "filed": "2026-05-03",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Klet M Freeland",
@@ -1891,7 +1891,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -1909,8 +1909,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-05-02T10:52:50.006048Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": 78920.0,
@@ -1933,7 +1933,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 10 5047",
-      "foreclosure_notice_date": "2026-05-02",
+      "foreclosure_notice_date": "2026-05-03",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -1966,7 +1966,7 @@
     {
       "doc_num": "CV2021 06 1952",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-02",
+      "filed": "2026-05-03",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Brenda M Haehner",
@@ -2050,7 +2050,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2021 06 1952",
-      "foreclosure_notice_date": "2026-05-02",
+      "foreclosure_notice_date": "2026-05-03",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -2083,7 +2083,7 @@
     {
       "doc_num": "CV2025 09 4689",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-02",
+      "filed": "2026-05-03",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Equity Trust Company Custodian Fbo",
@@ -2186,7 +2186,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 09 4689",
-      "foreclosure_notice_date": "2026-05-02",
+      "foreclosure_notice_date": "2026-05-03",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -124224,7 +124224,7 @@
     {
       "doc_num": "VHOME-6723306",
       "doc_type": "VHOME",
-      "filed": "2026-05-02",
+      "filed": "2026-05-03",
       "cat": "VHOME",
       "cat_label": "Vacant Home",
       "owner": "",
@@ -124338,7 +124338,7 @@
     {
       "doc_num": "VHOME-0109213",
       "doc_type": "VHOME",
-      "filed": "2026-05-02",
+      "filed": "2026-05-03",
       "cat": "VHOME",
       "cat_label": "Vacant Home",
       "owner": "",
@@ -124452,7 +124452,7 @@
     {
       "doc_num": "VHOME-6838102C",
       "doc_type": "VHOME",
-      "filed": "2026-05-02",
+      "filed": "2026-05-03",
       "cat": "VHOME",
       "cat_label": "Vacant Home",
       "owner": "",
@@ -124566,7 +124566,7 @@
     {
       "doc_num": "VHOME-6807445",
       "doc_type": "VHOME",
-      "filed": "2026-05-02",
+      "filed": "2026-05-03",
       "cat": "VHOME",
       "cat_label": "Vacant Home",
       "owner": "",

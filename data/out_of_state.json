@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-02T10:52:48.740294+00:00",
+  "fetched_at": "2026-05-03T11:21:44.823658+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "out_of_state",
   "description": "\ud83c\udf0e Owner mails from out of state",
@@ -8,7 +8,7 @@
     {
       "doc_num": "CV2025 12 5870",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-02",
+      "filed": "2026-05-03",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Graylain Llc",
@@ -39,9 +39,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
+        "tax_delinquent",
         "foreclosure",
-        "tax_delinquent"
+        "vacant_land"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -55,7 +55,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -73,8 +73,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-05-02T10:52:50.001831Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": 6120.0,
@@ -97,7 +97,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 12 5870",
-      "foreclosure_notice_date": "2026-05-02",
+      "foreclosure_notice_date": "2026-05-03",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -291,8 +291,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -421,8 +421,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -542,8 +542,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -632,7 +632,7 @@
     {
       "doc_num": "CV2025 07 3002",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-02",
+      "filed": "2026-05-03",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Alexandria R. Payne",
@@ -661,8 +661,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
-        "tax_delinquent"
+        "tax_delinquent",
+        "vacant_land"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -676,7 +676,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -694,8 +694,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-05-02T10:52:50.003545Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": 2890.0,
@@ -718,7 +718,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 07 3002",
-      "foreclosure_notice_date": "2026-05-02",
+      "foreclosure_notice_date": "2026-05-03",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
