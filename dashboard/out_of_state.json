@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-03T11:21:44.823658+00:00",
+  "fetched_at": "2026-05-04T13:27:01.694060+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "out_of_state",
   "description": "\ud83c\udf0e Owner mails from out of state",
@@ -8,7 +8,7 @@
     {
       "doc_num": "CV2025 12 5870",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-03",
+      "filed": "2026-05-04",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Graylain Llc",
@@ -97,7 +97,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 12 5870",
-      "foreclosure_notice_date": "2026-05-03",
+      "foreclosure_notice_date": "2026-05-04",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -632,7 +632,7 @@
     {
       "doc_num": "CV2025 07 3002",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-03",
+      "filed": "2026-05-04",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Alexandria R. Payne",
@@ -718,7 +718,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 07 3002",
-      "foreclosure_notice_date": "2026-05-03",
+      "foreclosure_notice_date": "2026-05-04",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
