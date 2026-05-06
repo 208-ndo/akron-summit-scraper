@@ -3116,5 +3116,17 @@
     "source_url": "https://ari.akronohio.gov/",
     "searched_address": "1210 SWARTZ RD",
     "checked_at": "2026-05-02T10:52:45.247422+00:00"
+  },
+  "12 AM BREACH OF CONTRACT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "12 Am Breach Of Contract",
+    "checked_at": "2026-05-06T16:06:20.585512+00:00"
+  },
+  "12 PM FORECLOSURE FILING COMPL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "12 Pm Foreclosure Filing Compl",
+    "checked_at": "2026-05-06T16:06:21.029642+00:00"
   }
 }
