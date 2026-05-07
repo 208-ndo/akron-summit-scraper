@@ -3618,7 +3618,35 @@ function toGhlDataCSV(rows){
     ...(trace.phones||[]),
   ]).slice(0,3);
   const emailsFor=trace=>uniqueList([trace.email_primary,trace.Email,trace.traced_email,...(trace.emails||[])]).slice(0,2);
-  const cleanTagLabel=value=>clean(value).replace(/[^\x20-\x7E]/g,'').replace(/[_-]+/g,' ').replace(/\s+/g,' ').trim();
+  const money=v=>{
+    if(v==null||v==='')return '';
+    const n=Number(String(v).replace(/[$,]/g,''));
+    return Number.isFinite(n)?`$${n.toLocaleString()}`:clean(v);
+  };
+  const leadTypeFor=trace=>clean(trace.lead_type)||clean(trace.cat_label)||clean(trace.type)||clean(trace.doc_type);
+  const scoreFor=trace=>clean(trace.seller_score)||clean(trace.score);
+  const isGhlSkipTraced=trace=>TRACE_SUCCESS_STATUSES.has(normalizeTraceStatus(trace.skip_trace_status))||phonesFor(trace).length>0||emailsFor(trace).length>0;
+  const cleanTagLabel=value=>clean(value).replace(/[^\x20-\x7E]/g,'').replace(/[_]+/g,'-').replace(/\s*-\s*/g,'-').replace(/\s+/g,' ').trim().toLowerCase();
+  const tagSlug=value=>{
+    const label=cleanTagLabel(value).replace(/[^a-z0-9 -]/g,'').replace(/\s+/g,'-').replace(/-+/g,'-').replace(/^-|-$/g,'');
+    if(!label)return '';
+    if(label.includes('not-skip-traced')||label.includes('not-traced'))return 'not-skip-traced';
+    if(label.includes('skip-traced')||label==='success')return 'skip-traced';
+    if(label.includes('hot-stack'))return 'hot-stack';
+    if(label.includes('subject-to'))return 'subject-to-candidate';
+    if(label.includes('sheriff'))return 'sheriff-sale';
+    if(label.includes('foreclos'))return 'foreclosure';
+    if(label.includes('tax-delin'))return 'tax-delinquent';
+    if(label.includes('code-viol'))return 'code-violation';
+    if(label.includes('absentee'))return 'absentee-owner';
+    if(label.includes('out-of-state')||label.includes('out-of-state-owner'))return 'out-of-state-owner';
+    if(label.includes('tired-landlord'))return 'tired-landlord';
+    if(label.includes('prime-deal'))return 'prime-deal';
+    if(label.includes('public-health')||label.includes('environmental-nuisance'))return 'public-health-complaint';
+    if(label.includes('nuisance')||label.includes('rodent')||label.includes('vermin')||label.includes('garbage')||label.includes('high-grass')||label.includes('standing-water')||label.includes('sewage'))return 'nuisance';
+    if(label.includes('cash-buyer'))return 'cash-buyer-candidate';
+    return label;
+  };
   const tagList=trace=>{
     const seen=new Set();
     const tags=[];
@@ -3630,28 +3658,43 @@ function toGhlDataCSV(rows){
       trace.hot_stack?'Hot Stack':'',
       trace.prime_deal?'Prime Deal':'',
       trace.skip_trace_eligible?'Skip Eligible':'',
-      isSkipTraced(trace)?'Skip Traced':'Not Skip Traced',
+      isGhlSkipTraced(trace)?'Skip Traced':'Not Skip Traced',
     ]).forEach(value=>{
-      const tag=cleanTagLabel(value);
-      const key=tag.toLowerCase();
-      if(!tag||seen.has(key))return;
-      seen.add(key);
+      const tag=tagSlug(value);
+      if(!tag||seen.has(tag))return;
+      seen.add(tag);
       tags.push(tag);
     });
     return tags.join(', ');
   };
-  const notesFor=(trace,phones,emails,tags)=>{
-    const parts=[
-      `Property: ${[trace.prop_address,trace.prop_city,trace.prop_state,trace.prop_zip].filter(Boolean).join(', ')}`,
-      `Lead Type: ${trace.cat_label||trace.doc_type||''}`,
-      `Score: ${trace.score||0}`,
-      `Subject-To: ${trace.subject_to_score||0}`,
-      `Distress Sources: ${(trace.distress_sources||[]).join('; ')||'None listed'}`,
-      `Skip Status: ${trace.skip_trace_status||'Not traced'}`,
-    ];
+  const distressSummary=trace=>{
+    const clean=uniqueList([...(trace.distress_sources||[]),...(trace.tags||[]),...(trace.flags||[])])
+      .map(tagSlug)
+      .filter(tag=>tag&&!['skip-traced','not-skip-traced','skip-eligible'].includes(tag));
+    return uniqueList(clean).join(', ');
+  };
+  const notesFor=(trace,full,phones,emails)=>{
+    const parts=[];
+    const property=[trace.prop_address,[trace.prop_city,trace.prop_state,trace.prop_zip].filter(Boolean).join(' ')].filter(Boolean).join(', ');
+    const owner=full||fullNameFor(trace);
+    const leadType=leadTypeFor(trace);
+    const score=scoreFor(trace);
+    const amount=money(trace.amount||trace.amount_owed);
+    const equity=money(trace.est_equity||trace.equity_estimate||trace.estimated_equity);
+    const distress=distressSummary(trace);
+    const skipStatus=clean(trace.skip_trace_status)||'Not traced';
+    const publicRecord=clean(trace.clerk_url||trace.public_records_url||trace.public_record_url);
+    if(property)parts.push(`Property: ${property}`);
+    if(owner)parts.push(`Owner: ${owner}`);
+    if(leadType)parts.push(`Lead Type: ${leadType}`);
+    if(score)parts.push(`Score: ${score}`);
+    if(amount)parts.push(`Amount: ${amount}`);
+    if(equity)parts.push(`Equity Est: ${equity}`);
+    if(distress)parts.push(`Distress: ${distress}`);
+    if(skipStatus)parts.push(`Skip Status: ${skipStatus}`);
     if(phones.length)parts.push(`Phones: ${phones.join(', ')}`);
     if(emails.length)parts.push(`Emails: ${emails.join(', ')}`);
-    if(tags)parts.push(`Tags: ${tags}`);
+    if(publicRecord)parts.push(`Public Record: ${publicRecord}`);
     return parts.filter(Boolean).join(' | ');
   };
   const lines=(rows||[]).map(r=>{
@@ -3679,8 +3722,8 @@ function toGhlDataCSV(rows){
       getPreferredMailingState(trace),
       getPreferredMailingZip(trace),
       trace.county||'',
-      trace.cat_label||trace.doc_type||'',
-      trace.score||0,
+      leadTypeFor(trace),
+      scoreFor(trace)||0,
       trace.subject_to_score||0,
       trace.distress_count||0,
       trace.hot_stack?'YES':'NO',
@@ -3690,7 +3733,7 @@ function toGhlDataCSV(rows){
       trace.traced_owner_name||'',
       tags,
       trace.clerk_url||'',
-      notesFor(trace,phones,emails,tags),
+      notesFor(trace,full,phones,emails),
     ];
     return row.map(fm).join(',');
   });
