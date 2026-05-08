@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-07T16:10:33.483930+00:00",
+  "fetched_at": "2026-05-08T12:31:26.961258+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "prime_subject_to",
   "description": "\u2b50 Prime subject-to deals \u2014 high equity + motivated seller (score \u226570)",
@@ -40,8 +40,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -164,8 +164,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -288,8 +288,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -409,8 +409,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -531,8 +531,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,

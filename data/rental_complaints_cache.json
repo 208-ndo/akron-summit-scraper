@@ -3128,5 +3128,23 @@
     "source_url": "https://ari.akronohio.gov/",
     "searched_address": "12 Pm Foreclosure Filing Compl",
     "checked_at": "2026-05-06T16:06:21.029642+00:00"
+  },
+  "00 PM MEDICAL MALPRACT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "00 Pm Medical Malpract",
+    "checked_at": "2026-05-08T12:31:21.790083+00:00"
+  },
+  "02 PM NEGLIGENCE FILING COMPL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "02 Pm Negligence Filing Compl",
+    "checked_at": "2026-05-08T12:31:22.296607+00:00"
+  },
+  "1056 MAIN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1056 Main St",
+    "checked_at": "2026-05-08T12:31:22.828386+00:00"
   }
 }
