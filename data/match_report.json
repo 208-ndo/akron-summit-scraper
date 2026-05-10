@@ -1,10 +1,10 @@
 {
   "matched": 0,
-  "unmatched": 85,
-  "with_address": 10,
+  "unmatched": 59,
+  "with_address": 4,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 85
+    "unmatched": 59
   },
   "sample_unmatched": [
     {
@@ -12,40 +12,40 @@
       "owner": "Unknown Heirs, Legatees And Devisees Of Gloria J. Rollyson"
     },
     {
-      "doc_num": "MASTRO 05",
-      "owner": "Dino Mastro"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "SLIDER 05",
-      "owner": "Tonia Slider"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "KEENLEYSIDE 05",
-      "owner": "Glenda Keenleyside"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "ADAMS 05",
-      "owner": "Darlene M Adams"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "MASSARO 05",
-      "owner": "David Massaro"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "ILLINGWORTH 05",
-      "owner": "Kyle Illingworth"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "HANEBERG 05",
-      "owner": "John Haneberg"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "LLC 05",
-      "owner": "1056 Main St Management Llc"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "POTTER 05",
-      "owner": "Karen S Potter"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
       "doc_num": "2026 AT 10",
@@ -109,5 +109,5 @@
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-05-09T09:24:22.591930+00:00"
+  "generated_at": "2026-05-10T09:36:54.848992+00:00"
 }
