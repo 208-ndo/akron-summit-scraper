@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-10T09:36:53.292446+00:00",
+  "fetched_at": "2026-05-11T11:09:27.054858+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "evictions",
   "description": "\ud83d\udeaa Eviction filings \u2014 landlords offloading problem properties",
@@ -445,7 +445,7 @@
     {
       "doc_num": "EVIC-0001",
       "doc_type": "EVICTION",
-      "filed": "2026-05-10",
+      "filed": "2026-05-11",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "owner": "Unknown",
@@ -554,7 +554,7 @@
     {
       "doc_num": "EVIC-0002",
       "doc_type": "EVICTION",
-      "filed": "2026-05-10",
+      "filed": "2026-05-11",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "owner": "Unknown",
@@ -663,7 +663,7 @@
     {
       "doc_num": "EVIC-0003",
       "doc_type": "EVICTION",
-      "filed": "2026-05-10",
+      "filed": "2026-05-11",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "owner": "Unknown",
@@ -772,7 +772,7 @@
     {
       "doc_num": "EVIC-0004",
       "doc_type": "EVICTION",
-      "filed": "2026-05-10",
+      "filed": "2026-05-11",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "owner": "Unknown",
