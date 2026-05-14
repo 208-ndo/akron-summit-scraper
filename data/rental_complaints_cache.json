@@ -3146,5 +3146,17 @@
     "source_url": "https://ari.akronohio.gov/",
     "searched_address": "1056 Main St",
     "checked_at": "2026-05-08T12:31:22.828386+00:00"
+  },
+  "02 PM FORECLOSURE FILING COMPL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "02 Pm Foreclosure Filing Compl",
+    "checked_at": "2026-05-14T10:22:12.423234+00:00"
+  },
+  "08 PM FORECLOSURE FILING COMPL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "08 Pm Foreclosure Filing Compl",
+    "checked_at": "2026-05-14T10:22:12.914617+00:00"
   }
 }
