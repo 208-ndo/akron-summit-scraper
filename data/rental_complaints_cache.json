@@ -3158,5 +3158,11 @@
     "source_url": "https://ari.akronohio.gov/",
     "searched_address": "08 Pm Foreclosure Filing Compl",
     "checked_at": "2026-05-14T10:22:12.914617+00:00"
+  },
+  "04 AM FORECLOSURE FILING COMPL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "04 Am Foreclosure Filing Compl",
+    "checked_at": "2026-05-16T09:34:39.136620+00:00"
   }
 }

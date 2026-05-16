@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-15T10:27:16.079697+00:00",
+  "fetched_at": "2026-05-16T09:34:42.285068+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "subject_to",
   "description": "\ud83c\udfaf Subject-to acquisition candidates (score \u226550)",
@@ -39,8 +39,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
+        "sheriff_sale",
         "foreclosure"
       ],
       "distress_count": 3,
@@ -163,8 +163,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
+        "sheriff_sale",
         "foreclosure"
       ],
       "distress_count": 3,
@@ -287,8 +287,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
+        "sheriff_sale",
         "foreclosure"
       ],
       "distress_count": 3,
@@ -411,9 +411,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -534,9 +534,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -655,9 +655,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -776,8 +776,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -898,8 +898,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5778,8 +5778,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5905,8 +5905,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -6032,8 +6032,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -8571,8 +8571,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -8785,7 +8785,7 @@
     {
       "doc_num": "CV2025 10 5047",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-15",
+      "filed": "2026-05-16",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Klet M Freeland",
@@ -8870,7 +8870,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 10 5047",
-      "foreclosure_notice_date": "2026-05-15",
+      "foreclosure_notice_date": "2026-05-16",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
