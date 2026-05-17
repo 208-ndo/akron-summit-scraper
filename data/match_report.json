@@ -1,10 +1,10 @@
 {
   "matched": 0,
-  "unmatched": 84,
-  "with_address": 7,
+  "unmatched": 66,
+  "with_address": 0,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 84
+    "unmatched": 66
   },
   "sample_unmatched": [
     {
@@ -12,12 +12,12 @@
       "owner": "John Chafe"
     },
     {
-      "doc_num": "GISSINGER 05",
-      "owner": "Kenneth C. Gissinger"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "THURMANN 05",
-      "owner": "William Thurmann"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
       "doc_num": "2026 AT 10",
@@ -109,5 +109,5 @@
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-05-16T09:34:44.210638+00:00"
+  "generated_at": "2026-05-17T09:43:05.219348+00:00"
 }
