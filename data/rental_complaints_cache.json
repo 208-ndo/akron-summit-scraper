@@ -3164,5 +3164,17 @@
     "source_url": "https://ari.akronohio.gov/",
     "searched_address": "04 Am Foreclosure Filing Compl",
     "checked_at": "2026-05-16T09:34:39.136620+00:00"
+  },
+  "05 PM OTHER CIVIL FILING COMPL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "05 Pm Other Civil Filing Compl",
+    "checked_at": "2026-05-20T10:57:57.628191+00:00"
+  },
+  "09 PM BREACH OF CONTRACT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "09 Pm Breach Of Contract",
+    "checked_at": "2026-05-20T10:57:58.015542+00:00"
   }
 }
