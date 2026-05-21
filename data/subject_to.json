@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-20T10:58:01.539084+00:00",
+  "fetched_at": "2026-05-21T11:13:39.040811+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "subject_to",
   "description": "\ud83c\udfaf Subject-to acquisition candidates (score \u226550)",
@@ -39,8 +39,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
+        "sheriff_sale",
         "foreclosure"
       ],
       "distress_count": 3,
@@ -163,8 +163,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
+        "sheriff_sale",
         "foreclosure"
       ],
       "distress_count": 3,
@@ -287,8 +287,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
+        "sheriff_sale",
         "foreclosure"
       ],
       "distress_count": 3,
@@ -411,9 +411,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -534,9 +534,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -655,9 +655,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -776,8 +776,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -898,8 +898,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1026,8 +1026,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1146,8 +1146,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5170,8 +5170,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5297,8 +5297,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5424,8 +5424,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5551,8 +5551,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5670,8 +5670,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5789,8 +5789,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7837,8 +7837,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7962,8 +7962,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -8051,7 +8051,7 @@
     {
       "doc_num": "CV2025 10 5047",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-20",
+      "filed": "2026-05-21",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Klet M Freeland",
@@ -8136,7 +8136,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 10 5047",
-      "foreclosure_notice_date": "2026-05-20",
+      "foreclosure_notice_date": "2026-05-21",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -157274,7 +157274,7 @@
       "prop_address": "2972 N TURKEYFOOT RD",
       "prop_city": "AKRON",
       "prop_state": "OH",
-      "prop_zip": "44319",
+      "prop_zip": "",
       "mail_address": "2972 N TURKEYFOOT RD",
       "mail_city": "Akron",
       "mail_state": "OH",
