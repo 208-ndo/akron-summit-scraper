@@ -1,12 +1,40 @@
 {
   "matched": 0,
-  "unmatched": 139,
-  "with_address": 11,
+  "unmatched": 94,
+  "with_address": 6,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 139
+    "unmatched": 94
   },
   "sample_unmatched": [
+    {
+      "doc_num": "SPICKARD 05",
+      "owner": "Anna Spickard"
+    },
+    {
+      "doc_num": "MUCKLEROY 05",
+      "owner": "Brian Muckleroy"
+    },
+    {
+      "doc_num": "MONGER 05",
+      "owner": "Yogesh Monger"
+    },
+    {
+      "doc_num": "IVERY 05",
+      "owner": "William A Ivery"
+    },
+    {
+      "doc_num": "GREENWOOD 05",
+      "owner": "Kelton J Greenwood"
+    },
+    {
+      "doc_num": "DEKANY 05",
+      "owner": "Alexis Dekany"
+    },
+    {
+      "doc_num": "STANOVIC 05",
+      "owner": "April Stanovic"
+    },
     {
       "doc_num": "BEDELL 05",
       "owner": "Kathleen B Bedell"
@@ -21,93 +49,65 @@
     },
     {
       "doc_num": "LI 05",
-      "owner": "A. Li 05/20/2026 02:48 Pm Foreclosure Pending Review"
+      "owner": "A. Li 05/20/2026 02:48 Pm Foreclosure Filing Complete"
     },
     {
-      "doc_num": "MIXON 05",
-      "owner": "Albert Mixon"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "BEALL 05",
-      "owner": "Larry Beall"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "PALMATIER 05",
-      "owner": "Elizabeth Palmatier"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "MCCOURT 05",
-      "owner": "Stephen Mccourt"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "JOHNS 05",
-      "owner": "Melissa Johns"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "WESTOVER 05",
-      "owner": "Theresa Westover"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "TYNDALL 05",
-      "owner": "Karen Tyndall"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "SHEPHERD 05",
-      "owner": "Kelly O Shepherd"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "SOKOLOWSKI 05",
-      "owner": "Mary C Sokolowski"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "MOTZ 05",
-      "owner": "Letha Motz"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "MAWALLS 05",
-      "owner": "Linda Mawalls"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "CLITES 05",
-      "owner": "Karyn A Clites"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "BECK 05",
-      "owner": "William Beck"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "BOWMAN 05",
-      "owner": "Fred Bowman"
-    },
-    {
-      "doc_num": "PALMIERI 05",
-      "owner": "Kimberly S Palmieri"
-    },
-    {
-      "doc_num": "EASTER 05",
-      "owner": "Anthony Easter"
-    },
-    {
-      "doc_num": "KERNS 05",
-      "owner": "Kyle Kerns"
-    },
-    {
-      "doc_num": "HOOTMAN 05",
-      "owner": "Andrea M Hootman"
-    },
-    {
-      "doc_num": "SIMPSON 05",
-      "owner": "Terry Simpson"
-    },
-    {
-      "doc_num": "KEENER 05",
-      "owner": "Mitchell Keener"
-    },
-    {
-      "doc_num": "HINDERSCHIED 05",
-      "owner": "William Hinderschied"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-05-21T11:13:42.846845+00:00"
+  "generated_at": "2026-05-22T10:57:41.333019+00:00"
 }
