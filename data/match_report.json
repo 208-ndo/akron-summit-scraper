@@ -1,15 +1,31 @@
 {
   "matched": 0,
-  "unmatched": 100,
-  "with_address": 2,
+  "unmatched": 105,
+  "with_address": 7,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 100
+    "unmatched": 105
   },
   "sample_unmatched": [
     {
+      "doc_num": "SHINHOLSTER 05",
+      "owner": "Jessica K Shinholster"
+    },
+    {
       "doc_num": "FRONIMO 05",
       "owner": "William J Fronimo"
+    },
+    {
+      "doc_num": "SMALLS 05",
+      "owner": "Nita L Smalls"
+    },
+    {
+      "doc_num": "DOLAN 05",
+      "owner": "Kathleen Dolan"
+    },
+    {
+      "doc_num": "USLEMAN 05",
+      "owner": "Robyn Usleman"
     },
     {
       "doc_num": "HAUK 05",
@@ -30,18 +46,6 @@
     {
       "doc_num": "CLOPTON 05",
       "owner": "Sirgordy Clopton"
-    },
-    {
-      "doc_num": "YOUNGS 05",
-      "owner": "Jalen Youngs"
-    },
-    {
-      "doc_num": "VANEPPS 05",
-      "owner": "John E Vanepps"
-    },
-    {
-      "doc_num": "YAIST 05",
-      "owner": "Randall B Yaist"
     },
     {
       "doc_num": "WIMLEY 05",
@@ -102,12 +106,8 @@
     {
       "doc_num": "2026 AT 10",
       "owner": ""
-    },
-    {
-      "doc_num": "2026 AT 10",
-      "owner": ""
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-05-25T11:59:58.043019+00:00"
+  "generated_at": "2026-05-27T11:42:58.210305+00:00"
 }
