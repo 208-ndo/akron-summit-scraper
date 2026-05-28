@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-05-27T11:42:53.271508+00:00",
+  "fetched_at": "2026-05-28T11:45:15.299786+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "hot_stack",
   "description": "\ud83d\udd25 2+ distress signals \u2014 highest priority",
-  "total": 103,
+  "total": 105,
   "records": [
     {
       "doc_num": "CV2026 01 0398",
@@ -39,9 +39,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -163,9 +163,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -287,9 +287,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -411,9 +411,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -535,9 +535,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -658,9 +658,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -780,9 +780,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -901,9 +901,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -991,7 +991,7 @@
     {
       "doc_num": "CV2025 12 5870",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-27",
+      "filed": "2026-05-28",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Graylain Llc",
@@ -1023,8 +1023,8 @@
       "with_address": 1,
       "distress_sources": [
         "tax_delinquent",
-        "vacant_land",
-        "foreclosure"
+        "foreclosure",
+        "vacant_land"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1080,7 +1080,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 12 5870",
-      "foreclosure_notice_date": "2026-05-27",
+      "foreclosure_notice_date": "2026-05-28",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -1113,7 +1113,7 @@
     {
       "doc_num": "VACLAND-5400577",
       "doc_type": "VACLAND",
-      "filed": "2026-05-27",
+      "filed": "2026-05-28",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "owner": "",
@@ -1145,8 +1145,8 @@
       "with_address": 1,
       "distress_sources": [
         "tax_delinquent",
-        "vacant_land",
-        "foreclosure"
+        "foreclosure",
+        "vacant_land"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1511,8 +1511,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1579,6 +1579,126 @@
       "bedrooms": 3.0,
       "bathrooms": 1.0,
       "square_feet": 1240,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "rental_complaint_open_count": 0,
+      "rental_complaint_resolved_count": 0,
+      "rental_complaint_total_count": 0,
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
+    },
+    {
+      "doc_num": "TAX-0206452",
+      "doc_type": "TAX",
+      "filed": "",
+      "cat": "TAX",
+      "cat_label": "Tax Delinquent",
+      "owner": "Wunderle John P Jr Keenan Hts",
+      "grantee": "",
+      "amount": 89.96,
+      "legal": "",
+      "prop_address": "754 MARGUERITE AVE",
+      "prop_city": "CUYAHOGA FA",
+      "prop_state": "OH",
+      "prop_zip": "44221",
+      "mail_address": "PO BOX 175",
+      "mail_city": "Wadsworth",
+      "mail_state": "OH",
+      "mail_zip": "44282",
+      "clerk_url": "https://www.akronlegalnews.com/notices/delinquent_taxes_detail/7964",
+      "flags": [
+        "Tax delinquent",
+        "Residential",
+        "Absentee owner",
+        "\ud83c\udfaf Subject-To Candidate",
+        "\u2b50 Prime Subject-To",
+        "\ud83d\udd25 Hot Stack",
+        "\ud83d\udccd Cross-List Match"
+      ],
+      "score": 100,
+      "match_method": "tax_delinquent_direct",
+      "match_score": 1.0,
+      "with_address": 1,
+      "distress_sources": [
+        "cash_buyer",
+        "tax_delinquent"
+      ],
+      "distress_count": 2,
+      "hot_stack": true,
+      "luc": "510",
+      "acres": "",
+      "is_vacant_land": false,
+      "is_vacant_home": false,
+      "is_absentee": true,
+      "is_out_of_state": false,
+      "parcel_id": "0206452",
+      "phones": [],
+      "phone_types": [],
+      "emails": [],
+      "skip_trace_source": "Tracerfy",
+      "traced_owner_name": "",
+      "traced_owner": "",
+      "traced_phones": [],
+      "traced_phone_types": [],
+      "traced_emails": [],
+      "phone_primary": "",
+      "phone_primary_type": "",
+      "phone_secondary": "",
+      "phone_secondary_type": "",
+      "phone_tertiary": "",
+      "phone_tertiary_type": "",
+      "email_primary": "",
+      "traced_email": "",
+      "traced_mailing_address": "",
+      "traced_mailing_city": "",
+      "traced_mailing_state": "",
+      "traced_mailing_zip": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-17T19:42:26.083106Z",
+      "has_phone": false,
+      "has_email": false,
+      "assessed_value": 42220.0,
+      "estimated_value": 120629,
+      "last_sale_price": null,
+      "last_sale_year": null,
+      "est_mortgage_balance": 60314.5,
+      "est_equity": 60314.5,
+      "est_arrears": 269.88,
+      "est_payoff": 60314.5,
+      "subject_to_score": 70,
+      "mortgage_signals": [
+        "Tax owed ~$90",
+        "High equity \ud83c\udfe6",
+        "Absentee owner",
+        "LTV <70%"
+      ],
+      "sheriff_sale_date": "",
+      "appraised_value": null,
+      "lender": "",
+      "foreclosure_stage": "",
+      "foreclosure_case_number": "",
+      "foreclosure_notice_date": "",
+      "code_violation_case": "",
+      "code_violation_date": "",
+      "decedent_name": "",
+      "executor_name": "",
+      "executor_state": "",
+      "estate_value": null,
+      "is_inherited": false,
+      "bedrooms": 2.0,
+      "bathrooms": 1.0,
+      "square_feet": 960,
       "buyer_purchase_count": 0,
       "buyer_unique_parcels": 0,
       "buyer_last_purchase_date": "",
@@ -4212,8 +4332,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -6010,8 +6130,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -6129,8 +6249,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -6248,8 +6368,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7815,8 +7935,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -8885,8 +9005,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -9322,7 +9442,7 @@
     {
       "doc_num": "CV2025 07 3002",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-27",
+      "filed": "2026-05-28",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Alexandria R. Payne",
@@ -9408,7 +9528,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 07 3002",
-      "foreclosure_notice_date": "2026-05-27",
+      "foreclosure_notice_date": "2026-05-28",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -10023,6 +10143,147 @@
       "tired_landlord_reasons": []
     },
     {
+      "doc_num": "CASHBUYER-VISTA HOME BUYERS LLC",
+      "doc_type": "CASHBUYER",
+      "filed": "2026-05-27",
+      "cat": "CASHBUYER",
+      "cat_label": "Cash Buyer",
+      "owner": "Vista Home Buyers Llc",
+      "grantee": "",
+      "amount": 146030.0,
+      "legal": "",
+      "prop_address": "754 MARGUERITE AVE",
+      "prop_city": "CUYAHOGA FA",
+      "prop_state": "OH",
+      "prop_zip": "44221",
+      "mail_address": "1141 SAN RAPHAEL DR",
+      "mail_city": "Akron",
+      "mail_state": "OH",
+      "mail_zip": "44333",
+      "clerk_url": "https://fiscaloffice.summitoh.net/index.php/documents-a-forms/viewcategory/10-cama",
+      "flags": [
+        "Cash Buyer",
+        "Investor Buyer",
+        "Bought 3+ Last 12 Months",
+        "Heavy Cash Buyer",
+        "LLC / corp owner",
+        "Multi-Zip Buyer",
+        "\ud83d\udd25 Hot Stack",
+        "\ud83d\udccd Cross-List Match",
+        "Tax delinquent",
+        "Absentee owner",
+        "New this week"
+      ],
+      "score": 93,
+      "match_method": "sc750_recent_sale_group",
+      "match_score": 1.0,
+      "with_address": 1,
+      "distress_sources": [
+        "cash_buyer",
+        "tax_delinquent"
+      ],
+      "distress_count": 2,
+      "hot_stack": true,
+      "luc": "",
+      "acres": "",
+      "is_vacant_land": false,
+      "is_vacant_home": false,
+      "is_absentee": false,
+      "is_out_of_state": false,
+      "parcel_id": "",
+      "phones": [],
+      "phone_types": [],
+      "emails": [],
+      "skip_trace_source": "Tracerfy",
+      "traced_owner_name": "",
+      "traced_owner": "",
+      "traced_phones": [],
+      "traced_phone_types": [],
+      "traced_emails": [],
+      "phone_primary": "",
+      "phone_primary_type": "",
+      "phone_secondary": "",
+      "phone_secondary_type": "",
+      "phone_tertiary": "",
+      "phone_tertiary_type": "",
+      "email_primary": "",
+      "traced_email": "",
+      "traced_mailing_address": "",
+      "traced_mailing_city": "",
+      "traced_mailing_state": "",
+      "traced_mailing_zip": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-17T19:42:26.083106Z",
+      "has_phone": false,
+      "has_email": false,
+      "assessed_value": null,
+      "estimated_value": null,
+      "last_sale_price": null,
+      "last_sale_year": null,
+      "est_mortgage_balance": null,
+      "est_equity": null,
+      "est_arrears": 292060.0,
+      "est_payoff": null,
+      "subject_to_score": 15,
+      "mortgage_signals": [
+        "Tax owed ~$146,030"
+      ],
+      "sheriff_sale_date": "",
+      "appraised_value": null,
+      "lender": "",
+      "foreclosure_stage": "",
+      "foreclosure_case_number": "",
+      "foreclosure_notice_date": "",
+      "code_violation_case": "",
+      "code_violation_date": "",
+      "decedent_name": "",
+      "executor_name": "",
+      "executor_state": "",
+      "estate_value": null,
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null,
+      "buyer_purchase_count": 10,
+      "buyer_unique_parcels": 10,
+      "buyer_last_purchase_date": "2026-05-27",
+      "buyer_avg_purchase_price": 146030.0,
+      "buyer_total_purchase_volume": 1460300.0,
+      "buyer_zips": [
+        "44221",
+        "44224",
+        "44278",
+        "44304",
+        "44305",
+        "44313",
+        "44314",
+        "44720"
+      ],
+      "buyer_property_addresses": [
+        "475 NEWELL AVE",
+        "1304 NESTOR AVE",
+        "124 WESTOVER DR",
+        "2121 BROOKSHIRE RD",
+        "754 MARGUERITE AVE",
+        "241 PARKER LN",
+        "195 HARCOURT DR",
+        "2024 MARHOFER AVE",
+        "730 MOHAWK AVE",
+        "4690 SHRIVER RD"
+      ],
+      "buyer_type": "LLC / Entity",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "rental_complaint_open_count": 0,
+      "rental_complaint_resolved_count": 0,
+      "rental_complaint_total_count": 0,
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
+    },
+    {
       "doc_num": "CASHBUYER-TMDW PROPERTIES LLC",
       "doc_type": "CASHBUYER",
       "filed": "2026-04-24",
@@ -10057,8 +10318,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10184,8 +10445,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10314,8 +10575,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10453,8 +10714,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10577,8 +10838,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10701,8 +10962,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10827,8 +11088,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10919,7 +11180,7 @@
     {
       "doc_num": "VACLAND-0105173",
       "doc_type": "VACLAND",
-      "filed": "2026-05-27",
+      "filed": "2026-05-28",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "owner": "",
@@ -10948,8 +11209,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11033,7 +11294,7 @@
     {
       "doc_num": "VACLAND-0105174",
       "doc_type": "VACLAND",
-      "filed": "2026-05-27",
+      "filed": "2026-05-28",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "owner": "",
@@ -11062,8 +11323,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11147,7 +11408,7 @@
     {
       "doc_num": "VACLAND-1903436",
       "doc_type": "VACLAND",
-      "filed": "2026-05-27",
+      "filed": "2026-05-28",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "owner": "",
@@ -11176,8 +11437,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11261,7 +11522,7 @@
     {
       "doc_num": "VACLAND-1905499",
       "doc_type": "VACLAND",
-      "filed": "2026-05-27",
+      "filed": "2026-05-28",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "owner": "",
@@ -11290,8 +11551,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11375,7 +11636,7 @@
     {
       "doc_num": "VACLAND-6804680",
       "doc_type": "VACLAND",
-      "filed": "2026-05-27",
+      "filed": "2026-05-28",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "owner": "",
@@ -11404,8 +11665,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11520,8 +11781,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11615,7 +11876,7 @@
     {
       "doc_num": "VACLAND-6709727",
       "doc_type": "VACLAND",
-      "filed": "2026-05-27",
+      "filed": "2026-05-28",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "owner": "",
@@ -11646,8 +11907,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11731,7 +11992,7 @@
     {
       "doc_num": "VACLAND-6819968",
       "doc_type": "VACLAND",
-      "filed": "2026-05-27",
+      "filed": "2026-05-28",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "owner": "",
@@ -11762,8 +12023,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11847,7 +12108,7 @@
     {
       "doc_num": "2026 AT 10",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-27",
+      "filed": "2026-05-28",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "",
@@ -11927,7 +12188,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "2026 AT 10",
-      "foreclosure_notice_date": "2026-05-27",
+      "foreclosure_notice_date": "2026-05-28",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -11960,7 +12221,7 @@
     {
       "doc_num": "CV2025 10 5047",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-27",
+      "filed": "2026-05-28",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Klet M Freeland",
@@ -12045,7 +12306,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 10 5047",
-      "foreclosure_notice_date": "2026-05-27",
+      "foreclosure_notice_date": "2026-05-28",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -12078,7 +12339,7 @@
     {
       "doc_num": "CV2025 08 4055",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-27",
+      "filed": "2026-05-28",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Paul A Brannan",
@@ -12160,7 +12421,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 08 4055",
-      "foreclosure_notice_date": "2026-05-27",
+      "foreclosure_notice_date": "2026-05-28",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -12193,7 +12454,7 @@
     {
       "doc_num": "CV2023 10 3834",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-27",
+      "filed": "2026-05-28",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Joseph P Trunck",
@@ -12275,7 +12536,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2023 10 3834",
-      "foreclosure_notice_date": "2026-05-27",
+      "foreclosure_notice_date": "2026-05-28",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -12308,7 +12569,7 @@
     {
       "doc_num": "CV2016 12 5316",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-27",
+      "filed": "2026-05-28",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Michael R Batis",
@@ -12390,7 +12651,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2016 12 5316",
-      "foreclosure_notice_date": "2026-05-27",
+      "foreclosure_notice_date": "2026-05-28",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
