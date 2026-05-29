@@ -3176,5 +3176,17 @@
     "source_url": "https://ari.akronohio.gov/",
     "searched_address": "09 Pm Breach Of Contract",
     "checked_at": "2026-05-20T10:57:58.015542+00:00"
+  },
+  "115 BURTON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "115 Burton Avenue",
+    "checked_at": "2026-05-29T11:34:46.817858+00:00"
+  },
+  "12 AM OTHER CIVIL FILING COMPL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "12 Am Other Civil Filing Compl",
+    "checked_at": "2026-05-29T11:34:47.234076+00:00"
   }
 }

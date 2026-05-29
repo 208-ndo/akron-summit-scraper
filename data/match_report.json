@@ -1,31 +1,31 @@
 {
   "matched": 0,
-  "unmatched": 94,
-  "with_address": 7,
+  "unmatched": 91,
+  "with_address": 5,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 94
+    "unmatched": 91
   },
   "sample_unmatched": [
     {
-      "doc_num": "PATTON 05",
-      "owner": "Shandrea Patton"
+      "doc_num": "FICKEY 05",
+      "owner": "Margaret A Fickey"
     },
     {
-      "doc_num": "SHINHOLSTER 05",
-      "owner": "Jessica K Shinholster"
+      "doc_num": "BLACKMON 05",
+      "owner": "Gabrielle Leshay Blackmon"
+    },
+    {
+      "doc_num": "PATTON 05",
+      "owner": "Shandrea Patton"
     },
     {
       "doc_num": "FRONIMO 05",
       "owner": "William J Fronimo"
     },
     {
-      "doc_num": "ROBINSON 05",
-      "owner": "Dannette Mccarty, Individually And As Ex To The Estate Of Sue E. Poling"
-    },
-    {
-      "doc_num": "SPEARS 05",
-      "owner": "Darla R Spears"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
       "doc_num": "2026 AT 10",
@@ -109,5 +109,5 @@
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-05-28T11:45:20.501497+00:00"
+  "generated_at": "2026-05-29T11:34:53.382152+00:00"
 }
