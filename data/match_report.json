@@ -1,12 +1,56 @@
 {
   "matched": 0,
-  "unmatched": 91,
-  "with_address": 5,
+  "unmatched": 110,
+  "with_address": 8,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 91
+    "unmatched": 110
   },
   "sample_unmatched": [
+    {
+      "doc_num": "PYKA 05",
+      "owner": "James Pyka"
+    },
+    {
+      "doc_num": "ADMINISTRATO 05",
+      "owner": "Emmanuel Mensah Ashong, As Administrato"
+    },
+    {
+      "doc_num": "FUTO 05",
+      "owner": "Jane Futo"
+    },
+    {
+      "doc_num": "HARFF 05",
+      "owner": "John Harff"
+    },
+    {
+      "doc_num": "GARRETSON 05",
+      "owner": "Carole Garretson"
+    },
+    {
+      "doc_num": "BILLINGS 05",
+      "owner": "Eric Billings"
+    },
+    {
+      "doc_num": "SWART 05",
+      "owner": "Eric Swart"
+    },
+    {
+      "doc_num": "MCKINNON 05",
+      "owner": "Desiree Mckinnon"
+    },
+    {
+      "doc_num": "LAUGHLIN 05",
+      "owner": "Caitlyn Laughlin"
+    },
+    {
+      "doc_num": "KELLER 05",
+      "owner": "Dale Keller"
+    },
+    {
+      "doc_num": "BRUNTY 05",
+      "owner": "Dennis Brunty"
+    },
     {
       "doc_num": "FICKEY 05",
       "owner": "Margaret A Fickey"
@@ -14,50 +58,6 @@
     {
       "doc_num": "BLACKMON 05",
       "owner": "Gabrielle Leshay Blackmon"
-    },
-    {
-      "doc_num": "PATTON 05",
-      "owner": "Shandrea Patton"
-    },
-    {
-      "doc_num": "FRONIMO 05",
-      "owner": "William J Fronimo"
-    },
-    {
-      "doc_num": "2026 AT 10",
-      "owner": ""
-    },
-    {
-      "doc_num": "2026 AT 10",
-      "owner": ""
-    },
-    {
-      "doc_num": "2026 AT 10",
-      "owner": ""
-    },
-    {
-      "doc_num": "2026 AT 10",
-      "owner": ""
-    },
-    {
-      "doc_num": "2026 AT 10",
-      "owner": ""
-    },
-    {
-      "doc_num": "2026 AT 10",
-      "owner": ""
-    },
-    {
-      "doc_num": "2026 AT 10",
-      "owner": ""
-    },
-    {
-      "doc_num": "2026 AT 10",
-      "owner": ""
-    },
-    {
-      "doc_num": "2026 AT 10",
-      "owner": ""
     },
     {
       "doc_num": "2026 AT 10",
@@ -109,5 +109,5 @@
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-05-29T11:34:53.382152+00:00"
+  "generated_at": "2026-05-30T10:04:52.853144+00:00"
 }

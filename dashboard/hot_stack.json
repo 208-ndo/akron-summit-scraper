@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-29T11:34:49.085633+00:00",
+  "fetched_at": "2026-05-30T10:04:48.452356+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "hot_stack",
   "description": "\ud83d\udd25 2+ distress signals \u2014 highest priority",
@@ -550,7 +550,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -568,8 +568,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-05-29T11:34:51.463308Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -673,7 +673,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -691,8 +691,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-05-29T11:34:51.463436Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -1832,7 +1832,7 @@
     {
       "doc_num": "CV2025 12 5870",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-29",
+      "filed": "2026-05-30",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Graylain Llc",
@@ -1921,7 +1921,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 12 5870",
-      "foreclosure_notice_date": "2026-05-29",
+      "foreclosure_notice_date": "2026-05-30",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -1954,7 +1954,7 @@
     {
       "doc_num": "VACLAND-5400577",
       "doc_type": "VACLAND",
-      "filed": "2026-05-29",
+      "filed": "2026-05-30",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "owner": "",
@@ -2352,8 +2352,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -2472,8 +2472,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -6485,7 +6485,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -6503,8 +6503,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-05-29T11:34:51.466501Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -6603,7 +6603,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -6621,8 +6621,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-05-29T11:34:51.466596Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -6721,7 +6721,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -6739,8 +6739,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-05-29T11:34:51.466688Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -7207,8 +7207,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7326,8 +7326,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7445,8 +7445,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -9970,7 +9970,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -9988,8 +9988,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-05-29T11:34:51.469407Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -10088,7 +10088,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -10106,8 +10106,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-05-29T11:34:51.469511Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -10318,8 +10318,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10755,7 +10755,7 @@
     {
       "doc_num": "CV2025 07 3002",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-29",
+      "filed": "2026-05-30",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Alexandria R. Payne",
@@ -10841,7 +10841,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 07 3002",
-      "foreclosure_notice_date": "2026-05-29",
+      "foreclosure_notice_date": "2026-05-30",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -11492,8 +11492,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11631,8 +11631,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11758,8 +11758,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11888,8 +11888,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12027,8 +12027,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12153,8 +12153,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12279,8 +12279,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12401,8 +12401,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12524,8 +12524,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12619,7 +12619,7 @@
     {
       "doc_num": "VACLAND-0105173",
       "doc_type": "VACLAND",
-      "filed": "2026-05-29",
+      "filed": "2026-05-30",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "owner": "",
@@ -12648,8 +12648,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12733,7 +12733,7 @@
     {
       "doc_num": "VACLAND-0105174",
       "doc_type": "VACLAND",
-      "filed": "2026-05-29",
+      "filed": "2026-05-30",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "owner": "",
@@ -12762,8 +12762,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12847,7 +12847,7 @@
     {
       "doc_num": "VACLAND-1903436",
       "doc_type": "VACLAND",
-      "filed": "2026-05-29",
+      "filed": "2026-05-30",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "owner": "",
@@ -12876,8 +12876,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12961,7 +12961,7 @@
     {
       "doc_num": "VACLAND-1905499",
       "doc_type": "VACLAND",
-      "filed": "2026-05-29",
+      "filed": "2026-05-30",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "owner": "",
@@ -12990,8 +12990,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13075,7 +13075,7 @@
     {
       "doc_num": "VACLAND-6804680",
       "doc_type": "VACLAND",
-      "filed": "2026-05-29",
+      "filed": "2026-05-30",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "owner": "",
@@ -13104,8 +13104,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13189,7 +13189,7 @@
     {
       "doc_num": "VACLAND-6709727",
       "doc_type": "VACLAND",
-      "filed": "2026-05-29",
+      "filed": "2026-05-30",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "owner": "",
@@ -13305,7 +13305,7 @@
     {
       "doc_num": "VACLAND-6819968",
       "doc_type": "VACLAND",
-      "filed": "2026-05-29",
+      "filed": "2026-05-30",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "owner": "",
@@ -13421,7 +13421,7 @@
     {
       "doc_num": "2026 AT 10",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-29",
+      "filed": "2026-05-30",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "",
@@ -13501,7 +13501,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "2026 AT 10",
-      "foreclosure_notice_date": "2026-05-29",
+      "foreclosure_notice_date": "2026-05-30",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -13534,7 +13534,7 @@
     {
       "doc_num": "CV2025 10 5047",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-29",
+      "filed": "2026-05-30",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Klet M Freeland",
@@ -13619,7 +13619,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 10 5047",
-      "foreclosure_notice_date": "2026-05-29",
+      "foreclosure_notice_date": "2026-05-30",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -13652,7 +13652,7 @@
     {
       "doc_num": "CV2025 08 4055",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-29",
+      "filed": "2026-05-30",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Paul A Brannan",
@@ -13734,7 +13734,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 08 4055",
-      "foreclosure_notice_date": "2026-05-29",
+      "foreclosure_notice_date": "2026-05-30",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -13767,7 +13767,7 @@
     {
       "doc_num": "CV2023 10 3834",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-29",
+      "filed": "2026-05-30",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Joseph P Trunck",
@@ -13849,7 +13849,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2023 10 3834",
-      "foreclosure_notice_date": "2026-05-29",
+      "foreclosure_notice_date": "2026-05-30",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -13882,7 +13882,7 @@
     {
       "doc_num": "CV2016 12 5316",
       "doc_type": "TAXDEED",
-      "filed": "2026-05-29",
+      "filed": "2026-05-30",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "Michael R Batis",
@@ -13964,7 +13964,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2016 12 5316",
-      "foreclosure_notice_date": "2026-05-29",
+      "foreclosure_notice_date": "2026-05-30",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
