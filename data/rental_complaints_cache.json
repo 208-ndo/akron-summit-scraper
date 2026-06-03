@@ -3188,5 +3188,17 @@
     "source_url": "https://ari.akronohio.gov/",
     "searched_address": "12 Am Other Civil Filing Compl",
     "checked_at": "2026-05-29T11:34:47.234076+00:00"
+  },
+  "154 MUSTILL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "154 MUSTILL ST",
+    "checked_at": "2026-06-03T12:45:07.245460+00:00"
+  },
+  "1543 TREETOP TRL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1543 TREETOP TRL",
+    "checked_at": "2026-06-03T12:45:07.588958+00:00"
   }
 }
