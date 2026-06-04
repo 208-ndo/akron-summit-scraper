@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-03T12:45:12.217902+00:00",
+  "fetched_at": "2026-06-04T11:09:19.152618+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "cash_buyers",
   "description": "Investor buyers who purchased 3+ unique properties in the last 12 months",
@@ -1427,10 +1427,9 @@
         "\ud83d\udd25 Hot Stack",
         "\ud83d\udccd Cross-List Match",
         "Tax delinquent",
-        "Absentee owner",
-        "New this week"
+        "Absentee owner"
       ],
-      "score": 93,
+      "score": 88,
       "match_method": "sc750_recent_sale_group",
       "match_score": 1.0,
       "with_address": 1,
