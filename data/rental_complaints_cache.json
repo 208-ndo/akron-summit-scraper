@@ -3200,5 +3200,17 @@
     "source_url": "https://ari.akronohio.gov/",
     "searched_address": "1543 TREETOP TRL",
     "checked_at": "2026-06-03T12:45:07.588958+00:00"
+  },
+  "01 PM FORECLOSURE FILING COMPL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "01 Pm Foreclosure Filing Compl",
+    "checked_at": "2026-06-05T11:32:20.089985+00:00"
+  },
+  "11 PM COGNOVIT ACT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "11 Pm Cognovit Act",
+    "checked_at": "2026-06-05T11:32:20.471181+00:00"
   }
 }
