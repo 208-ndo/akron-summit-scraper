@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-07T10:37:36.838576+00:00",
+  "fetched_at": "2026-06-08T12:36:03.108992+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "foreclosure",
   "description": "\u26a0\ufe0f Active foreclosure / lis pendens / sheriff sale filings",
@@ -39,8 +39,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
+        "sheriff_sale",
         "foreclosure"
       ],
       "distress_count": 3,
@@ -163,8 +163,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
+        "sheriff_sale",
         "foreclosure"
       ],
       "distress_count": 3,
@@ -287,8 +287,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
+        "sheriff_sale",
         "foreclosure"
       ],
       "distress_count": 3,
@@ -411,8 +411,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
+        "sheriff_sale",
         "foreclosure"
       ],
       "distress_count": 3,
@@ -534,8 +534,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
+        "sheriff_sale",
         "foreclosure"
       ],
       "distress_count": 3,
@@ -657,8 +657,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "tax_delinquent",
+        "sheriff_sale",
         "foreclosure"
       ],
       "distress_count": 3,
@@ -7921,7 +7921,7 @@
     {
       "doc_num": "2026 AT 10",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-07",
+      "filed": "2026-06-08",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "owner": "",
@@ -8001,7 +8001,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "2026 AT 10",
-      "foreclosure_notice_date": "2026-06-07",
+      "foreclosure_notice_date": "2026-06-08",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -8034,7 +8034,7 @@
     {
       "doc_num": "2026 AT 10",
       "doc_type": "NOFC",
-      "filed": "2026-06-07",
+      "filed": "2026-06-08",
       "cat": "NOFC",
       "cat_label": "Pre-foreclosure",
       "owner": "",
@@ -8113,7 +8113,7 @@
       "lender": "",
       "foreclosure_stage": "Mortgage foreclosure sheriff-sale notice",
       "foreclosure_case_number": "2026 AT 10",
-      "foreclosure_notice_date": "2026-06-07",
+      "foreclosure_notice_date": "2026-06-08",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -8146,7 +8146,7 @@
     {
       "doc_num": "2026 AT 10",
       "doc_type": "NOFC",
-      "filed": "2026-06-07",
+      "filed": "2026-06-08",
       "cat": "NOFC",
       "cat_label": "Pre-foreclosure",
       "owner": "James V. Pyka",
@@ -8225,7 +8225,7 @@
       "lender": "",
       "foreclosure_stage": "Mortgage foreclosure sheriff-sale notice",
       "foreclosure_case_number": "2026 AT 10",
-      "foreclosure_notice_date": "2026-06-07",
+      "foreclosure_notice_date": "2026-06-08",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -8256,9 +8256,9 @@
       "tired_landlord_reasons": []
     },
     {
-      "doc_num": "JUNE 07",
+      "doc_num": "JUNE 08",
       "doc_type": "NOFC",
-      "filed": "2026-06-07",
+      "filed": "2026-06-08",
       "cat": "NOFC",
       "cat_label": "Pre-foreclosure",
       "owner": "",
@@ -8336,8 +8336,8 @@
       "appraised_value": null,
       "lender": "",
       "foreclosure_stage": "Mortgage foreclosure sheriff-sale notice",
-      "foreclosure_case_number": "JUNE 07",
-      "foreclosure_notice_date": "2026-06-07",
+      "foreclosure_case_number": "JUNE 08",
+      "foreclosure_notice_date": "2026-06-08",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -8370,7 +8370,7 @@
     {
       "doc_num": "2026 AT 10",
       "doc_type": "NOFC",
-      "filed": "2026-06-07",
+      "filed": "2026-06-08",
       "cat": "NOFC",
       "cat_label": "Pre-foreclosure",
       "owner": "Dale A. Leffel, Jr",
@@ -8449,7 +8449,7 @@
       "lender": "",
       "foreclosure_stage": "Mortgage foreclosure sheriff-sale notice",
       "foreclosure_case_number": "2026 AT 10",
-      "foreclosure_notice_date": "2026-06-07",
+      "foreclosure_notice_date": "2026-06-08",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -8482,7 +8482,7 @@
     {
       "doc_num": "2026 AT 10",
       "doc_type": "NOFC",
-      "filed": "2026-06-07",
+      "filed": "2026-06-08",
       "cat": "NOFC",
       "cat_label": "Pre-foreclosure",
       "owner": "Dwyne F. Busch",
@@ -8561,7 +8561,7 @@
       "lender": "",
       "foreclosure_stage": "Mortgage foreclosure sheriff-sale notice",
       "foreclosure_case_number": "2026 AT 10",
-      "foreclosure_notice_date": "2026-06-07",
+      "foreclosure_notice_date": "2026-06-08",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
