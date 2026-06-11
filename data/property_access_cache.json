@@ -5470,5 +5470,55 @@
     "bathrooms": 1.0,
     "square_feet": 1040
   },
-  "6709727": {}
+  "6709727": {},
+  "5000055": {},
+  "5103437": {},
+  "5107193": {},
+  "5400094": {},
+  "0206023": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1411
+  },
+  "0206024": {},
+  "5400377": {
+    "bedrooms": 4.0,
+    "bathrooms": 2.0,
+    "square_feet": 1808
+  },
+  "5400607": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 936
+  },
+  "6753242": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1150
+  },
+  "6823120": {
+    "bedrooms": 1.0,
+    "bathrooms": 1.0,
+    "square_feet": 932
+  },
+  "5400923": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 740
+  },
+  "1901298": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 1032
+  },
+  "6838066": {
+    "bedrooms": 1.0,
+    "bathrooms": 1.0,
+    "square_feet": 899
+  },
+  "0211528": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 708
+  }
 }

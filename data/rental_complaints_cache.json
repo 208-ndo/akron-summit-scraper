@@ -3242,5 +3242,15 @@
     "source_url": "https://ari.akronohio.gov/",
     "searched_address": "41 Pm Breach Of Contract",
     "checked_at": "2026-06-10T12:05:39.899331+00:00"
+  },
+  "1406 MORSE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=59775",
+    "address": "1406 Morse St Akron, OH",
+    "owner": "Swartzmiller, Joseph C.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1406 Morse St Akron, OH Property Owner Swartzmiller, Joseph C. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-06-11T12:18:56.105004+00:00"
   }
 }
