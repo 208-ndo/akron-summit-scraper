@@ -907,6 +907,11 @@ function isNuisanceLead(r){
   return getListSignals(r).includes('nuisance_complaint');
 }
 
+function isCashBuyerLead(r){
+  const flags=(r.flags||[]).join(' ').toLowerCase();
+  return r.doc_type==='CASHBUYER'||!!r.is_cash_buyer||flags.includes('cash buyer');
+}
+
 function normalizeTraceRecord(data){
   const phones=uniqueList([
     data['Phone 1'],
@@ -1825,6 +1830,16 @@ async function loadSelectedCountyRecords(){
   return records;
 }
 
+async function loadCashBuyerRecords(){
+  const payload=await fetchJSON(TAB_FILES.cash_buyers);
+  const cfg=countyConfig[curCounty]||countyConfig[DEFAULT_COUNTY_KEY]||DEFAULT_COUNTY_CONFIG.summit;
+  const countyKey=curCounty===ALL_OHIO_KEY?DEFAULT_COUNTY_KEY:(curCounty||DEFAULT_COUNTY_KEY);
+  const records=payload&&Array.isArray(payload.records)
+    ? payload.records.map(r=>normalizeCountyRecord(r,countyKey,cfg,payload)).filter(isCashBuyerLead)
+    : [];
+  return records;
+}
+
 function tabRecords(tab,records){
   const recs=records||[];
   if(tab==='all')return recs;
@@ -1847,7 +1862,7 @@ function tabRecords(tab,records){
     if(tab==='evictions')return r.doc_type==='EVICTION';
     if(tab==='divorces')return r.doc_type==='DIVORCE';
     if(tab==='fire_damage')return r.doc_type==='FIREDMG';
-    if(tab==='cash_buyers')return r.doc_type==='CASHBUYER'||flags.includes('cash buyer')||!!r.is_cash_buyer;
+    if(tab==='cash_buyers')return isCashBuyerLead(r);
     return false;
   });
 }
@@ -1996,6 +2011,16 @@ function shouldSelectedSkipTrace(r){
   return true;
 }
 
+function visibleSkipTraceRows(){
+  const rows=Array.isArray(filtered)?filtered:[];
+  return curTab==='cash_buyers'?rows.filter(isCashBuyerLead):rows;
+}
+
+function selectedSkipTraceRows(){
+  const selected=Array.from(selectedLeadKeys).map(key=>selectedLeadRecords[key]).filter(Boolean);
+  return curTab==='cash_buyers'?selected.filter(isCashBuyerLead):selected;
+}
+
 function updateSelectedCount(){
   const el=document.getElementById('selected-count');
   if(el)el.textContent=`${selectedLeadKeys.size.toLocaleString()} selected`;
@@ -2100,7 +2125,7 @@ async function processTraceQueue(){
 
 async function manualSkipTraceEligible(){
   const btn=document.getElementById('manual-trace-btn');
-  const source=(filtered&&filtered.length?filtered:curRecs)||[];
+  const source=visibleSkipTraceRows();
   const targets=source.filter(r=>shouldAutoSkipTrace(r)&&!r._trace_loading).slice(0,MANUAL_TRACE_CAP);
   if(!targets.length){
     alert('No eligible untraced leads found. Already traced, no-hit, no-contact, failed, and missing-address leads are skipped.');
@@ -2116,7 +2141,7 @@ async function manualSkipTraceEligible(){
 
 async function skipTraceSelected(){
   const btn=document.getElementById('selected-trace-btn');
-  const selected=Array.from(selectedLeadKeys).map(key=>selectedLeadRecords[key]).filter(Boolean);
+  const selected=selectedSkipTraceRows();
   const targets=selected.filter(shouldSelectedSkipTrace).slice(0,MANUAL_TRACE_CAP);
   const skipped=selected.length-targets.length;
   if(!targets.length){
@@ -2156,6 +2181,19 @@ async function loadTab(tab){
   if(cache[tab]){
     cache[tab]=await hydrateCanonicalTraceRecords(cache[tab]);
     return cache[tab];
+  }
+  if(tab==='cash_buyers'){
+    let cashBuyers=await loadCashBuyerRecords();
+    if(!cashBuyers.length){
+      const all=cache['all']||(await loadSelectedCountyRecords()).map(applyStoredTraceData);
+      cache['all']=all;
+      cashBuyers=tabRecords(tab,all);
+    }
+    cashBuyers=await hydrateCanonicalTraceRecords(cashBuyers.map(applyStoredTraceData));
+    cache[tab]=cashBuyers;
+    const b=document.getElementById('b-'+tab);
+    if(b)b.textContent=cashBuyers.length.toLocaleString();
+    return cashBuyers;
   }
   const all=cache['all']||(await loadSelectedCountyRecords()).map(applyStoredTraceData);
   cache['all']=all;
@@ -2232,14 +2270,16 @@ function applyFilters(){
   const traced=(document.getElementById('f-traced').value==='ineligible'?'pending_skip':document.getElementById('f-traced').value);
   const cityFilter=curCity.toLowerCase();
   const marketAreaFilter=curMarketArea.toLowerCase();
+  const cashBuyerMode=curTab==='cash_buyers';
   filtered=curRecs.filter(r=>{
-    if(minS&&(r.score||0)<minS)return false;
-    if(ad==='with'&&!r.prop_address)return false;
-    if(ad==='without'&&r.prop_address)return false;
+    if(cashBuyerMode&&!isCashBuyerLead(r))return false;
+    if(!cashBuyerMode&&minS&&(r.score||0)<minS)return false;
+    if(!cashBuyerMode&&ad==='with'&&!r.prop_address)return false;
+    if(!cashBuyerMode&&ad==='without'&&r.prop_address)return false;
     if(traced && getSkipBucket(r) !== traced) return false;
-    if(fl&&!(r.flags||[]).join(' ').toLowerCase().includes(fl))return false;
-    if(marketAreaFilter&&recordMarketArea(r).toLowerCase()!==marketAreaFilter)return false;
-    if(cityFilter&&cityFilterValue(r,curCounty===ALL_OHIO_KEY?countyKeyForRecord(r):curCounty).toLowerCase()!==cityFilter)return false;
+    if(!cashBuyerMode&&fl&&!(r.flags||[]).join(' ').toLowerCase().includes(fl))return false;
+    if(!cashBuyerMode&&marketAreaFilter&&recordMarketArea(r).toLowerCase()!==marketAreaFilter)return false;
+    if(!cashBuyerMode&&cityFilter&&cityFilterValue(r,curCounty===ALL_OHIO_KEY?countyKeyForRecord(r):curCounty).toLowerCase()!==cityFilter)return false;
     if(q){const hay=[r.owner,r.traced_owner_name,r.prop_address,r.prop_city,r.county,r.city,r.doc_num,r.doc_type,r.mail_address,r.traced_mailing_address,r.decedent_name,r.executor_name,(r.flags||[]).join(' '),getRecordPhones(r).join(' '),getRecordEmails(r).join(' ')].join(' ').toLowerCase();if(!hay.includes(q))return false;}
     return true;
   });
@@ -2260,6 +2300,14 @@ function isTodayDateString(v){
          d.getDate()===now.getDate();
 }
 
+function recordPulledDate(r){
+  return String(r.first_seen_date||r.pulled_date||r.first_seen_at||r.pulled_at||'').trim();
+}
+
+function isPulledToday(r){
+  return isTodayDateString(recordPulledDate(r));
+}
+
 function computeTopStats(rows){
   const stats = {
     todayPulled: 0,
@@ -2277,14 +2325,12 @@ function computeTopStats(rows){
       const traceTs = String(r.skip_trace_timestamp || '').trim();
       const status = String(r.skip_trace_status || '').trim().toLowerCase();
 
+      if(isPulledToday(r)) stats.todayPulled += 1;
       if(typeof isTracerfyEligible === 'function' && isTracerfyEligible(r)) stats.eligible += 1;
       if(isTodayDateString(traceTs) && (status === 'success' || status === 'skipped' || (typeof isSkipTraced==='function' && isSkipTraced(r)))) stats.tracedToday += 1;
       if(status === 'no_hit' || status === 'no_contact') stats.noHit += 1;
     }catch(e){}
   }
-  stats.todayPulled = (LAST_SCRAPE_META.fetched_at && isTodayDateString(LAST_SCRAPE_META.fetched_at))
-    ? LAST_SCRAPE_META.total
-    : 0;
   return stats;
 }
 
@@ -3758,7 +3804,7 @@ async function exportCSV(){
   dl(`skip_trace_${new Date().toISOString().slice(0,10)}.csv`,toBatchDataCSV(rows));
 }
 function exportGhlCSV(){
-  const selected=Array.from(selectedLeadKeys).map(key=>selectedLeadRecords[key]).filter(Boolean);
+  const selected=selectedSkipTraceRows();
   const rows=selected.length?selected:filtered;
   if(!rows.length){alert('No leads to export');return;}
   const scope=selected.length?'selected':'visible';

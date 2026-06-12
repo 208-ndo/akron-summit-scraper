@@ -142,6 +142,7 @@ STACK_BONUS = {2:15,3:25,4:40}
 @dataclass
 class LeadRecord:
     doc_num:str=""; doc_type:str=""; filed:str=""; cat:str=""; cat_label:str=""
+    first_seen_date:str=""; pulled_date:str=""
     owner:str=""; grantee:str=""; amount:Optional[float]=None; legal:str=""
     prop_address:str=""; prop_city:str=""; prop_state:str="OH"; prop_zip:str=""
     mail_address:str=""; mail_city:str=""; mail_state:str=""; mail_zip:str=""
@@ -3416,6 +3417,65 @@ def dedupe_records(records):
         seen.add(key); final.append(r)
     return final
 
+def first_seen_match_keys(record:LeadRecord)->List[str]:
+    keys=[]
+    def add(value):
+        value=clean_text(str(value or "")).upper()
+        if value and value not in keys:
+            keys.append(value)
+    add(record.doc_num)
+    add(record.parcel_id)
+    owner=normalize_name(record.owner)
+    prop=normalize_address_key(record.prop_address)
+    if owner and prop:
+        add(f"{owner}|{prop}")
+    if prop and record.prop_city:
+        add(f"{prop}|{clean_text(record.prop_city).upper()}|{clean_text(record.prop_state).upper()}")
+    return keys
+
+def load_existing_first_seen_dates()->Dict[str,str]:
+    existing={}
+    for path in (DATA_DIR/"records.json", DASHBOARD_DIR/"records.json"):
+        if not path.exists():
+            continue
+        try:
+            payload=json.loads(path.read_text(encoding="utf-8"))
+            records=payload.get("records",[]) if isinstance(payload,dict) else payload
+            if not isinstance(records,list):
+                continue
+            for item in records:
+                if not isinstance(item,dict):
+                    continue
+                first=clean_text(item.get("first_seen_date") or item.get("pulled_date") or "")
+                if not first:
+                    continue
+                temp=LeadRecord(
+                    doc_num=clean_text(item.get("doc_num","")),
+                    parcel_id=clean_text(item.get("parcel_id","")),
+                    owner=clean_text(item.get("owner","")),
+                    prop_address=clean_text(item.get("prop_address","")),
+                    prop_city=clean_text(item.get("prop_city","")),
+                    prop_state=clean_text(item.get("prop_state","")),
+                )
+                for key in first_seen_match_keys(temp):
+                    existing.setdefault(key,first[:10])
+        except Exception as e:
+            logging.warning("Could not load first-seen dates from %s: %s",path,e)
+    return existing
+
+def apply_first_seen_dates(records:List[LeadRecord])->List[LeadRecord]:
+    today=datetime.now().date().isoformat()
+    existing=load_existing_first_seen_dates()
+    for record in records:
+        first=clean_text(record.first_seen_date or record.pulled_date)
+        if not first:
+            first=next((existing[key] for key in first_seen_match_keys(record) if key in existing), "")
+        if not first:
+            first=today
+        record.first_seen_date=first[:10]
+        record.pulled_date=record.first_seen_date
+    return records
+
 
 # -----------------------------------------------------------------------
 # CROSS-RECORD ADDRESS STACKING
@@ -4127,6 +4187,7 @@ async def main():
     # 14. Hydrate from existing trace store, then auto skip trace remaining records
     all_records=hydrate_records_from_trace_store(all_records)
     all_records=auto_skip_trace_records(all_records)
+    all_records=apply_first_seen_dates(all_records)
     write_json_outputs(all_records,extra_json_path=Path(args.out_json))
     write_category_json(all_records)           # writes vacant_land.json via category
     write_vacant_land_json(vacant_land_leads)  # no-op now, kept for compat
