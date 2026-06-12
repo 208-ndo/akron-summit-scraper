@@ -2294,12 +2294,19 @@ function applyFilters(){
 
 function isTodayDateString(v){
   if(!v) return false;
+  const raw=String(v).trim();
   const d = new Date(v);
+  const todayLocal = new Date();
+  const todayKey = [
+    todayLocal.getFullYear(),
+    String(todayLocal.getMonth()+1).padStart(2,'0'),
+    String(todayLocal.getDate()).padStart(2,'0')
+  ].join('-');
+  if(/^\d{4}-\d{2}-\d{2}$/.test(raw)) return raw===todayKey;
   if(isNaN(d)) return false;
-  const now = new Date();
-  return d.getFullYear()===now.getFullYear() &&
-         d.getMonth()===now.getMonth() &&
-         d.getDate()===now.getDate();
+  return d.getFullYear()===todayLocal.getFullYear() &&
+         d.getMonth()===todayLocal.getMonth() &&
+         d.getDate()===todayLocal.getDate();
 }
 
 function recordPulledDate(r){
