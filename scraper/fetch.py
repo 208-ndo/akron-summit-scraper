@@ -3443,10 +3443,15 @@ def load_existing_first_seen_dates()->Dict[str,str]:
             records=payload.get("records",[]) if isinstance(payload,dict) else payload
             if not isinstance(records,list):
                 continue
+            fallback_date=clean_text(
+                (payload.get("date_range",{}) or {}).get("to","") if isinstance(payload,dict) else ""
+            )
+            if not fallback_date and isinstance(payload,dict):
+                fallback_date=clean_text(payload.get("fetched_at",""))[:10]
             for item in records:
                 if not isinstance(item,dict):
                     continue
-                first=clean_text(item.get("first_seen_date") or item.get("pulled_date") or "")
+                first=clean_text(item.get("first_seen_date") or item.get("pulled_date") or fallback_date)
                 if not first:
                     continue
                 temp=LeadRecord(
