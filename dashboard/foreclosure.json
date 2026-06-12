@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-12T06:15:55.908888+00:00",
+  "fetched_at": "2026-06-12T11:52:15.154235+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "foreclosure",
   "description": "\u26a0\ufe0f Active foreclosure / lis pendens / sheriff sale filings",
@@ -794,8 +794,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "vacant_land",
-        "tax_delinquent"
+        "tax_delinquent",
+        "vacant_land"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -917,8 +917,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "vacant_land",
-        "tax_delinquent"
+        "tax_delinquent",
+        "vacant_land"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -7737,8 +7737,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
-        "tax_delinquent"
+        "tax_delinquent",
+        "vacant_land"
       ],
       "distress_count": 2,
       "hot_stack": true,
