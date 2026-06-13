@@ -1,39 +1,39 @@
 {
   "matched": 0,
-  "unmatched": 111,
-  "with_address": 14,
+  "unmatched": 96,
+  "with_address": 12,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 111
+    "unmatched": 96
   },
   "sample_unmatched": [
     {
-      "doc_num": "BOUNACER 06",
-      "owner": "Carin Connors-Bounacer"
+      "doc_num": "COMPHER 06",
+      "owner": "Marc Compher"
     },
     {
-      "doc_num": "CZECH 06",
-      "owner": "Joshua Czech"
+      "doc_num": "BETTES 06",
+      "owner": "Mike S Bettes"
     },
     {
-      "doc_num": "SOMERVILLE 06",
-      "owner": "Dustin Somerville"
+      "doc_num": "HAYS 06",
+      "owner": "Nicole J Hays"
     },
     {
-      "doc_num": "SHIMER 06",
-      "owner": "Debbie Shimer"
+      "doc_num": "TWARDZIK 06",
+      "owner": "Shawn K Twardzik"
     },
     {
-      "doc_num": "DAGNALL 06",
-      "owner": "Jennifer Rogers Dagnall"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "PURNELL 06",
-      "owner": "Rashaunda Purnell"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "HAVERLICK 06",
-      "owner": "Brittany Haverlick"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
       "doc_num": "2026 AT 10",
@@ -109,5 +109,5 @@
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-06-12T11:52:18.730839+00:00"
+  "generated_at": "2026-06-13T10:36:30.519631+00:00"
 }

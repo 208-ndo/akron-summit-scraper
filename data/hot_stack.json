@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-12T11:52:13.656549+00:00",
+  "fetched_at": "2026-06-13T10:36:26.103273+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "hot_stack",
   "description": "\ud83d\udd25 2+ distress signals \u2014 highest priority",
@@ -41,9 +41,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "tax_delinquent",
         "sheriff_sale",
-        "foreclosure",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -167,9 +167,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "tax_delinquent",
         "sheriff_sale",
-        "foreclosure",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -293,9 +293,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "tax_delinquent",
         "sheriff_sale",
-        "foreclosure",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -419,9 +419,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "tax_delinquent",
         "sheriff_sale",
-        "foreclosure",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -544,9 +544,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "tax_delinquent",
         "sheriff_sale",
-        "foreclosure",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -669,9 +669,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "tax_delinquent",
         "sheriff_sale",
-        "foreclosure",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -795,9 +795,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "tax_delinquent",
         "sheriff_sale",
-        "foreclosure",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -920,9 +920,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "tax_delinquent",
         "sheriff_sale",
-        "foreclosure",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1044,9 +1044,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "tax_delinquent",
         "sheriff_sale",
-        "foreclosure",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1167,9 +1167,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "tax_delinquent",
         "sheriff_sale",
-        "foreclosure",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1288,9 +1288,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "tax_delinquent",
         "sheriff_sale",
-        "foreclosure",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1409,9 +1409,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "tax_delinquent",
         "sheriff_sale",
-        "foreclosure",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1530,9 +1530,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "tax_delinquent",
         "sheriff_sale",
-        "foreclosure",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1651,9 +1651,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "tax_delinquent",
         "sheriff_sale",
-        "foreclosure",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1772,9 +1772,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "tax_delinquent",
         "sheriff_sale",
-        "foreclosure",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1862,7 +1862,7 @@
     {
       "doc_num": "CV2023 06 2062",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-06-11",
@@ -1894,9 +1894,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "vacant_land",
         "tax_delinquent",
-        "vacant_land"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1952,7 +1952,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2023 06 2062",
-      "foreclosure_notice_date": "2026-06-12",
+      "foreclosure_notice_date": "2026-06-13",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -1985,7 +1985,7 @@
     {
       "doc_num": "CV2025 09 4514",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-06-11",
@@ -2017,9 +2017,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "vacant_land",
         "tax_delinquent",
-        "vacant_land"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -2074,7 +2074,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 09 4514",
-      "foreclosure_notice_date": "2026-06-12",
+      "foreclosure_notice_date": "2026-06-13",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -2107,7 +2107,7 @@
     {
       "doc_num": "VACLAND-5000055",
       "doc_type": "VACLAND",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "first_seen_date": "2026-06-11",
@@ -2140,9 +2140,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "vacant_land",
         "tax_delinquent",
-        "vacant_land"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -2226,7 +2226,7 @@
     {
       "doc_num": "VACLAND-5107193",
       "doc_type": "VACLAND",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "first_seen_date": "2026-06-11",
@@ -2259,9 +2259,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "vacant_land",
         "tax_delinquent",
-        "vacant_land"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -2632,8 +2632,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -2754,8 +2754,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7423,8 +7423,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7544,8 +7544,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7665,8 +7665,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10450,8 +10450,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10539,7 +10539,7 @@
     {
       "doc_num": "CV2026 01 0202",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-06-11",
@@ -10572,8 +10572,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "vacant_land"
+        "vacant_land",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10629,7 +10629,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2026 01 0202",
-      "foreclosure_notice_date": "2026-06-12",
+      "foreclosure_notice_date": "2026-06-13",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -11610,7 +11610,7 @@
     {
       "doc_num": "CV2024 06 2548",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-06-11",
@@ -11641,8 +11641,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
-        "tax_delinquent"
+        "tax_delinquent",
+        "foreclosure"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11697,7 +11697,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2024 06 2548",
-      "foreclosure_notice_date": "2026-06-12",
+      "foreclosure_notice_date": "2026-06-13",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -11765,8 +11765,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11906,8 +11906,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12035,8 +12035,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12167,8 +12167,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12308,8 +12308,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12436,8 +12436,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12564,8 +12564,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12656,7 +12656,7 @@
     {
       "doc_num": "VACLAND-5604083",
       "doc_type": "VACLAND",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "first_seen_date": "2026-06-11",
@@ -12688,8 +12688,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "vacant_land"
+        "vacant_land",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12805,8 +12805,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12930,8 +12930,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13025,7 +13025,7 @@
     {
       "doc_num": "VACLAND-0105173",
       "doc_type": "VACLAND",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "first_seen_date": "2026-06-11",
@@ -13056,8 +13056,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13141,7 +13141,7 @@
     {
       "doc_num": "VACLAND-0105174",
       "doc_type": "VACLAND",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "first_seen_date": "2026-06-11",
@@ -13172,8 +13172,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13257,7 +13257,7 @@
     {
       "doc_num": "VACLAND-1903436",
       "doc_type": "VACLAND",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "first_seen_date": "2026-06-11",
@@ -13288,8 +13288,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13373,7 +13373,7 @@
     {
       "doc_num": "VACLAND-1905499",
       "doc_type": "VACLAND",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "first_seen_date": "2026-06-11",
@@ -13404,8 +13404,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13489,7 +13489,7 @@
     {
       "doc_num": "VACLAND-6804680",
       "doc_type": "VACLAND",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "first_seen_date": "2026-06-11",
@@ -13520,8 +13520,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13605,7 +13605,7 @@
     {
       "doc_num": "VACLAND-6709727",
       "doc_type": "VACLAND",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "first_seen_date": "2026-06-11",
@@ -13638,8 +13638,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13723,7 +13723,7 @@
     {
       "doc_num": "VACLAND-6819968",
       "doc_type": "VACLAND",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "first_seen_date": "2026-06-11",
@@ -13756,8 +13756,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13841,7 +13841,7 @@
     {
       "doc_num": "2026 AT 10",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-06-11",
@@ -13923,7 +13923,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "2026 AT 10",
-      "foreclosure_notice_date": "2026-06-12",
+      "foreclosure_notice_date": "2026-06-13",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -13956,7 +13956,7 @@
     {
       "doc_num": "VACLAND-0206024",
       "doc_type": "VACLAND",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "first_seen_date": "2026-06-11",
@@ -13988,8 +13988,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
-        "tax_delinquent"
+        "tax_delinquent",
+        "foreclosure"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -14073,7 +14073,7 @@
     {
       "doc_num": "CV2025 12 6090",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-06-11",
@@ -14162,7 +14162,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 12 6090",
-      "foreclosure_notice_date": "2026-06-12",
+      "foreclosure_notice_date": "2026-06-13",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -14195,7 +14195,7 @@
     {
       "doc_num": "CV2026 03 0923",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-06-11",
@@ -14284,7 +14284,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2026 03 0923",
-      "foreclosure_notice_date": "2026-06-12",
+      "foreclosure_notice_date": "2026-06-13",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -14317,7 +14317,7 @@
     {
       "doc_num": "CV2023 08 2753",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-06-11",
@@ -14403,7 +14403,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2023 08 2753",
-      "foreclosure_notice_date": "2026-06-12",
+      "foreclosure_notice_date": "2026-06-13",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -14436,7 +14436,7 @@
     {
       "doc_num": "CV2023 07 2621",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-06-11",
@@ -14522,7 +14522,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2023 07 2621",
-      "foreclosure_notice_date": "2026-06-12",
+      "foreclosure_notice_date": "2026-06-13",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -14555,7 +14555,7 @@
     {
       "doc_num": "CV2025 01 0265",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-06-11",
@@ -14641,7 +14641,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 01 0265",
-      "foreclosure_notice_date": "2026-06-12",
+      "foreclosure_notice_date": "2026-06-13",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -14674,7 +14674,7 @@
     {
       "doc_num": "CV2023 06 2136",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-06-11",
@@ -14758,7 +14758,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2023 06 2136",
-      "foreclosure_notice_date": "2026-06-12",
+      "foreclosure_notice_date": "2026-06-13",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -14791,7 +14791,7 @@
     {
       "doc_num": "CV2024 08 3537",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-06-11",
@@ -14875,7 +14875,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2024 08 3537",
-      "foreclosure_notice_date": "2026-06-12",
+      "foreclosure_notice_date": "2026-06-13",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -14908,7 +14908,7 @@
     {
       "doc_num": "CV2021 09 2767",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-12",
+      "filed": "2026-06-13",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-06-11",
@@ -14992,7 +14992,7 @@
       "lender": "Summit County Fiscal Office",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2021 09 2767",
-      "foreclosure_notice_date": "2026-06-12",
+      "foreclosure_notice_date": "2026-06-13",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",

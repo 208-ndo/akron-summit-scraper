@@ -3252,5 +3252,17 @@
     "rental_complaint": false,
     "raw_text": "Property Details Akron Rental Information Search Property Address 1406 Morse St Akron, OH Property Owner Swartzmiller, Joseph C. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
     "checked_at": "2026-06-11T12:18:56.105004+00:00"
+  },
+  "13 PM FORECLOSURE FILING COMPL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "13 Pm Foreclosure Filing Compl",
+    "checked_at": "2026-06-13T10:36:23.321775+00:00"
+  },
+  "14 AM OTHER CIVIL FILING COMPL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "14 Am Other Civil Filing Compl",
+    "checked_at": "2026-06-13T10:36:23.770864+00:00"
   }
 }
