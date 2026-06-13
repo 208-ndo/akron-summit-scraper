@@ -439,6 +439,28 @@ def same_address_key(a:str,b:str)->bool:
     ak=normalize_address_key(a); bk=normalize_address_key(b)
     return bool(ak and bk and (ak==bk or ak.startswith(bk+" ") or bk.startswith(ak+" ")))
 
+STREET_SUFFIX_PATTERN = r"(?:ST|STREET|AVE|AVENUE|RD|ROAD|DR|DRIVE|BLVD|BOULEVARD|LN|LANE|CT|COURT|PL|PLACE|WAY|TER|TERRACE|CIR|CIRCLE|PKWY|PARKWAY)"
+FILING_TEXT_AS_ADDRESS_RE = re.compile(
+    r"\b(?:AM|PM|FORECLOSURE|FILING|COMPL|COMPLAINT|OTHER CIVIL|MONEY DUE|JUDGMENT LIEN|BREACH OF CONTRACT)\b",
+    re.IGNORECASE,
+)
+
+def extract_property_address_from_text(text:str)->str:
+    text=clean_text(text)
+    if not text: return ""
+    pat=(
+        r"\b(\d{1,6}\s+(?:[NSEW]\s+)?[A-Z0-9][A-Z0-9\s.'-]{2,60}\s+"
+        + STREET_SUFFIX_PATTERN +
+        r"\b(?:\s+(?:APT|UNIT|#)\s*[A-Z0-9-]+)?)"
+    )
+    for m in re.finditer(pat,text,re.IGNORECASE):
+        addr=clean_text(m.group(1))
+        if not addr or FILING_TEXT_AS_ADDRESS_RE.search(addr): continue
+        if re.match(r"^\d{1,2}\s+(?:AM|PM)\b",addr,re.IGNORECASE): continue
+        if not normalize_address_key(addr): continue
+        return addr.title()
+    return ""
+
 def is_absentee_owner(prop_address:str,mail_address:str,mail_state:str="")->bool:
     if not prop_address or not mail_address: return False
     if re.search(r"\bP\.?\s*O\.?\s*BOX\b",mail_address.upper()): return True
@@ -2750,9 +2772,11 @@ def parse_pending_civil_table(html,base_url,prefix)->List[LeadRecord]:
             am=re.search(r"\$[\d,]+(?:\.\d{2})?",rt); amt=parse_amount(am.group(0)) if am else None
             link=row.find("a",href=True); href=clean_text(link.get("href","")) if link else ""
             dn=extract_case_number(rt,f"{prefix}-T{ti}-R{ri}")
+            prop_address=extract_property_address_from_text(rt)
             rec=LeadRecord(
                 doc_num=dn,doc_type=dt,filed=filed,cat=dt,cat_label=LEAD_TYPE_MAP.get(dt,dt),
                 owner=owner,grantee=grantee,amount=amt,legal=clean_text(src),
+                prop_address=prop_address,with_address=1 if prop_address else 0,
                 clerk_url=requests.compat.urljoin(base_url,href) if href else base_url,
             )
             rec.flags=category_flags(dt,owner); ds=classify_distress_source(dt)
@@ -2831,11 +2855,7 @@ async def scrape_eviction_divorce_records(page)->List[LeadRecord]:
             if not owner or owner in BAD_EXACT_OWNERS: owner = "Unknown"
 
             # Extract address from row
-            addr_m = re.search(
-                r"(\d{2,5}\s+[A-Z][A-Za-z\s]{3,25}"
-                r"(?:ST|AVE|RD|DR|BLVD|LN|CT|PL|WAY|TER|CIR))",
-                row_text, re.IGNORECASE)
-            prop_address = clean_text(addr_m.group(1)) if addr_m else ""
+            prop_address = extract_property_address_from_text(row_text)
 
             dm = re.search(r"(\d{1,2}/\d{1,2}/\d{2,4})", row_text)
             filed = datetime.now().date().isoformat()
@@ -2848,7 +2868,7 @@ async def scrape_eviction_divorce_records(page)->List[LeadRecord]:
             rec = LeadRecord(
                 doc_num=doc_num, doc_type="EVICTION", cat="EVICTION",
                 cat_label="Eviction", owner=owner, filed=filed,
-                prop_address=prop_address.title() if prop_address else "",
+                prop_address=prop_address,
                 prop_city="Akron", prop_state="OH",
                 with_address=1 if prop_address else 0,
                 flags=["Eviction filed"],

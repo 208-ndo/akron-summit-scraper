@@ -304865,7 +304865,7 @@
       "grantee": "",
       "amount": null,
       "legal": "",
-      "prop_address": "16 Pm Foreclosure Filing Compl",
+      "prop_address": "",
       "prop_city": "Akron",
       "prop_state": "OH",
       "prop_zip": "",
@@ -304881,7 +304881,7 @@
       "score": 58,
       "match_method": "eviction_blazor",
       "match_score": 0.85,
-      "with_address": 1,
+      "with_address": 0,
       "distress_sources": [
         "eviction"
       ],
@@ -304976,7 +304976,7 @@
       "grantee": "",
       "amount": null,
       "legal": "",
-      "prop_address": "15 Pm Foreclosure Filing Compl",
+      "prop_address": "",
       "prop_city": "Akron",
       "prop_state": "OH",
       "prop_zip": "",
@@ -304992,7 +304992,7 @@
       "score": 58,
       "match_method": "eviction_blazor",
       "match_score": 0.85,
-      "with_address": 1,
+      "with_address": 0,
       "distress_sources": [
         "eviction"
       ],
@@ -305198,7 +305198,7 @@
       "grantee": "",
       "amount": null,
       "legal": "",
-      "prop_address": "55 Pm Foreclosure Filing Compl",
+      "prop_address": "",
       "prop_city": "Akron",
       "prop_state": "OH",
       "prop_zip": "",
@@ -305214,7 +305214,7 @@
       "score": 58,
       "match_method": "eviction_blazor",
       "match_score": 0.85,
-      "with_address": 1,
+      "with_address": 0,
       "distress_sources": [
         "eviction"
       ],
@@ -305753,7 +305753,7 @@
       "grantee": "",
       "amount": null,
       "legal": "",
-      "prop_address": "14 Am Other Civil Filing Compl",
+      "prop_address": "",
       "prop_city": "Akron",
       "prop_state": "OH",
       "prop_zip": "",
@@ -305770,7 +305770,7 @@
       "score": 58,
       "match_method": "unmatched",
       "match_score": 0.0,
-      "with_address": 1,
+      "with_address": 0,
       "distress_sources": [
         "eviction"
       ],
@@ -306755,7 +306755,7 @@
       "grantee": "",
       "amount": null,
       "legal": "",
-      "prop_address": "13 Pm Foreclosure Filing Compl",
+      "prop_address": "",
       "prop_city": "Akron",
       "prop_state": "OH",
       "prop_zip": "",
@@ -306771,7 +306771,7 @@
       "score": 58,
       "match_method": "eviction_blazor",
       "match_score": 0.85,
-      "with_address": 1,
+      "with_address": 0,
       "distress_sources": [
         "eviction"
       ],
@@ -306866,7 +306866,7 @@
       "grantee": "",
       "amount": null,
       "legal": "",
-      "prop_address": "50 Pm Money Due Filing Compl",
+      "prop_address": "",
       "prop_city": "Akron",
       "prop_state": "OH",
       "prop_zip": "",
@@ -306882,7 +306882,7 @@
       "score": 58,
       "match_method": "unmatched",
       "match_score": 0.0,
-      "with_address": 1,
+      "with_address": 0,
       "distress_sources": [
         "eviction"
       ],
@@ -306977,7 +306977,7 @@
       "grantee": "",
       "amount": null,
       "legal": "",
-      "prop_address": "48 Pm Money Due Filing Compl",
+      "prop_address": "",
       "prop_city": "Akron",
       "prop_state": "OH",
       "prop_zip": "",
@@ -306993,7 +306993,7 @@
       "score": 58,
       "match_method": "unmatched",
       "match_score": 0.0,
-      "with_address": 1,
+      "with_address": 0,
       "distress_sources": [
         "eviction"
       ],
@@ -307088,7 +307088,7 @@
       "grantee": "",
       "amount": null,
       "legal": "",
-      "prop_address": "45 Pm Money Due Filing Compl",
+      "prop_address": "",
       "prop_city": "Akron",
       "prop_state": "OH",
       "prop_zip": "",
@@ -307104,7 +307104,7 @@
       "score": 58,
       "match_method": "eviction_blazor",
       "match_score": 0.85,
-      "with_address": 1,
+      "with_address": 0,
       "distress_sources": [
         "eviction"
       ],
