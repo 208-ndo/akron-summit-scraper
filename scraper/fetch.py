@@ -594,34 +594,73 @@ def classify_distress_source(doc_type:str)->Optional[str]:
 # -----------------------------------------------------------------------
 # MORTGAGE / EQUITY / SUBJECT-TO ESTIMATION
 # -----------------------------------------------------------------------
+def known_debt_amount(record:"LeadRecord")->float:
+    amount=record.amount or 0
+    if amount<=0: return 0.0
+    dt=clean_text(record.doc_type).upper()
+    if dt=="SHERIFF":
+        return 0.0
+    if dt in {"LP","NOFC","TAXDEED","JUD","CCJ","DRJUD","LN","LNMECH","LNHOA","LNFED","LNIRS","LNCORPTX","MEDLN","TAX","TAXDELINQ"}:
+        return float(amount)
+    if "Tax delinquent" in (record.flags or []):
+        return float(amount)
+    return 0.0
+
+def estimate_market_value(record:"LeadRecord")->Tuple[Optional[float],str]:
+    if record.estimated_value and record.estimated_value>5000:
+        return float(record.estimated_value),"county market estimate"
+    if record.appraised_value and record.appraised_value>5000:
+        return float(record.appraised_value),"sheriff appraisal"
+    if record.assessed_value and record.assessed_value>1000:
+        return float(record.assessed_value)/0.35,"assessed / 35%"
+    if record.last_sale_price and record.last_sale_price>5000:
+        yrs=max(0,datetime.now().year-(record.last_sale_year or datetime.now().year))
+        return float(record.last_sale_price)*((1+OH_APPRECIATION)**yrs),"last sale appreciation"
+    return None,""
+
+def estimate_loan_balance_from_sale(record:"LeadRecord")->Tuple[Optional[float],str]:
+    if not (record.last_sale_price and record.last_sale_year and record.last_sale_price>5000):
+        return None,""
+    yrs_elapsed=max(0,min(40,datetime.now().year-record.last_sale_year))
+    if yrs_elapsed>=30:
+        return 0.0,"30+ years since sale; free-clear likely"
+    original_principal=float(record.last_sale_price)*0.80
+    monthly_rate=0.065/12; total_months=360; paid_months=yrs_elapsed*12
+    balance=original_principal*((1+monthly_rate)**total_months-(1+monthly_rate)**paid_months)/((1+monthly_rate)**total_months-1)
+    return round(max(0,balance),2),"80% LTV purchase loan amortized at 6.5%"
+
 def estimate_mortgage_data(record:"LeadRecord")->"LeadRecord":
     signals=[]; sto=0
 
-    market_val = record.estimated_value
-
-    if not market_val and record.last_sale_price and record.last_sale_price > 5000:
-        yrs = max(0, datetime.now().year - (record.last_sale_year or datetime.now().year))
-        market_val = record.last_sale_price * ((1 + OH_APPRECIATION) ** yrs)
-
-    if not market_val and record.assessed_value and record.assessed_value > 1000:
-        market_val = record.assessed_value / 0.35
-
-    if not market_val and record.appraised_value and record.appraised_value > 5000:
-        market_val = record.appraised_value
-
+    market_val,market_source=estimate_market_value(record)
     if market_val:
         record.estimated_value = round(market_val, 2)
+        signals.append(f"Value source: {market_source}")
 
-    if record.last_sale_price and record.last_sale_year and record.last_sale_price>5000:
-        yrs_elapsed=max(0,min(30,datetime.now().year-record.last_sale_year))
-        orig=record.last_sale_price*0.80; mr=0.065/12; n=360; paid=yrs_elapsed*12
-        if mr>0 and paid<n:
-            bal=orig*((1+mr)**n-(1+mr)**paid)/((1+mr)**n-1)
-            record.est_mortgage_balance=round(max(0,bal),2)
-        elif paid>=n: record.est_mortgage_balance=0.0
+    debt=known_debt_amount(record)
+    if debt:
+        dt=clean_text(record.doc_type).upper()
+        if dt in {"JUD","CCJ","DRJUD","LN","LNMECH","LNHOA","LNFED","LNIRS","LNCORPTX","MEDLN"}:
+            signals.append(f"Known lien/judgment debt ~${debt:,.0f}")
+        elif dt in {"TAXDEED","TAX","TAXDELINQ"} or "Tax delinquent" in record.flags:
+            signals.append(f"Known tax debt ~${debt:,.0f}")
+        else:
+            signals.append(f"Known foreclosure debt ~${debt:,.0f}")
 
+    bal,bal_source=estimate_loan_balance_from_sale(record)
+    if bal is not None:
+        record.est_mortgage_balance=bal
+        signals.append(f"Mortgage estimate: {bal_source}")
+    elif record.estimated_value and record.est_mortgage_balance is None:
+        record.est_mortgage_balance=round(record.estimated_value*0.50,2)
+        signals.append("Mortgage estimate: no sale history, assumes 50% LTV")
+
+    if debt:
+        record.est_arrears=round(debt,2)
+    if record.est_mortgage_balance is not None or debt:
+        record.est_payoff=round((record.est_mortgage_balance or 0)+debt,2)
     if record.estimated_value and record.est_mortgage_balance is not None:
-        record.est_equity=round(record.estimated_value-record.est_mortgage_balance,2)
+        record.est_equity=round(record.estimated_value-record.est_mortgage_balance-debt,2)
     elif record.estimated_value and record.est_mortgage_balance is None and not record.last_sale_price:
         # No sale history — assume 50% equity (conservative estimate for tax delinquent/inherited)
         record.est_mortgage_balance=round(record.estimated_value*0.50,2)
@@ -629,19 +668,15 @@ def estimate_mortgage_data(record:"LeadRecord")->"LeadRecord":
         record.est_payoff=record.est_mortgage_balance  # FIX: sub-to payoff = mortgage balance
         signals.append("Est. equity (no sale history)")
 
-    if record.doc_type in {"LP","NOFC","TAXDEED","SHERIFF"} and record.amount and record.amount>0:
-        record.est_arrears=record.amount
-        record.est_payoff=record.est_mortgage_balance or record.amount
-        signals.append(f"Arrears ~${record.est_arrears:,.0f}")
-    if "Tax delinquent" in record.flags and record.amount and record.amount>0:
-        record.est_arrears=(record.est_arrears or 0)+record.amount
-        signals.append(f"Tax owed ~${record.amount:,.0f}")
+    if record.doc_type=="SHERIFF" and record.appraised_value:
+        signals.append(f"Sheriff appraisal ~${record.appraised_value:,.0f}")
 
     if record.est_equity is not None:
-        if record.est_equity>50000:   sto+=30; signals.append("High equity 🏦")
-        elif record.est_equity>20000: sto+=20; signals.append("Moderate equity")
-        elif record.est_equity>0:     sto+=10
-        else:                         signals.append("Underwater ⚠️")
+        if record.est_equity>100000:  sto+=35; signals.append("Very high net equity")
+        elif record.est_equity>50000: sto+=30; signals.append("High net equity")
+        elif record.est_equity>20000: sto+=20; signals.append("Moderate net equity")
+        elif record.est_equity>0:     sto+=10; signals.append("Positive net equity")
+        else:                         signals.append("Low/negative net equity")
 
     if record.doc_type in {"LP","NOFC","SHERIFF"}: sto+=25; signals.append("Active foreclosure")
     if record.doc_type=="PRO":                     sto+=20; signals.append("Estate / probate")
@@ -654,9 +689,10 @@ def estimate_mortgage_data(record:"LeadRecord")->"LeadRecord":
     if "Tax delinquent" in record.flags:           sto+=15
     if "Code violation" in record.flags:           sto+=10
 
-    if record.est_mortgage_balance and record.estimated_value:
+    if record.est_mortgage_balance is not None and record.estimated_value:
         ltv=record.est_mortgage_balance/record.estimated_value
-        if ltv<0.5:   sto+=20; signals.append("Low LTV <50%")
+        if ltv<0.15:  sto+=25; signals.append("Free-clear likely / very low LTV")
+        elif ltv<0.5: sto+=20; signals.append("Low LTV <50%")
         elif ltv<0.7: sto+=10; signals.append("LTV <70%")
         elif ltv>0.95: signals.append("High LTV >95%")
 
