@@ -34,7 +34,7 @@ jobs:
 
       - name: Install Python packages
         run: |
-          pip install requests beautifulsoup4 lxml playwright
+          pip install requests beautifulsoup4 lxml playwright pypdf cryptography
 
       - name: Install Playwright Chromium
         run: |

@@ -34,6 +34,10 @@ import requests
 from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
 try:
+    from pypdf import PdfReader
+except Exception:
+    PdfReader = None
+try:
     from scraper.tracerfy_helper import perform_tracerfy_lookup, map_tracerfy_lookup_response, read_tracerfy_config
 except ModuleNotFoundError:
     from tracerfy_helper import perform_tracerfy_lookup, map_tracerfy_lookup_response, read_tracerfy_config
@@ -51,6 +55,7 @@ PROPERTY_ACCESS_THROTTLE_SECONDS = float(os.getenv("PROPERTY_ACCESS_THROTTLE_SEC
 AUTO_SKIP_TRACE_THROTTLE_SECONDS = float(os.getenv("AUTO_SKIP_TRACE_THROTTLE_SECONDS", "0.35"))
 ARI_RENTAL_CHECK_LIMIT = int(os.getenv("ARI_RENTAL_CHECK_LIMIT", "400"))
 ARI_RENTAL_THROTTLE_SECONDS = float(os.getenv("ARI_RENTAL_THROTTLE_SECONDS", "0.15"))
+NEW_CIVIL_DOC_DOWNLOAD_LIMIT = int(os.getenv("NEW_CIVIL_DOC_DOWNLOAD_LIMIT", "12"))
 
 
 # output paths
@@ -460,6 +465,83 @@ def extract_property_address_from_text(text:str)->str:
         if not normalize_address_key(addr): continue
         return addr.title()
     return ""
+
+def normalize_site_address_parts(raw:str)->Tuple[str,str,str]:
+    raw=clean_text(raw).replace(" ,", ",").strip(" ,-")
+    if not raw: return "","",""
+    if re.search(r"\b(?:LOT|FEET|PLAT|SUBDIVISION|ADDITION|RANGE|TRACT)\b",raw,re.IGNORECASE):
+        return "","",""
+    raw=re.sub(r"\bOHIO\b","OH",raw,flags=re.IGNORECASE)
+    m=re.search(
+        r"(?P<addr>\d{1,6}\s+(?:[NSEW]\s+)?[A-Z0-9][A-Z0-9\s.'-]{2,60}\s+"
+        + STREET_SUFFIX_PATTERN +
+        r")\b\s*,?\s*(?P<unit>(?:#|APT|UNIT|STE|SUITE)?\s*[A-Z0-9-]{1,8})?\s*,?\s*(?P<city>[A-Z][A-Z\s.'-]{2,40})?\s*(?:,\s*OH)?\s*(?P<zip>\d{5})?",
+        raw,
+        re.IGNORECASE,
+    )
+    if not m: return extract_property_address_from_text(raw),"",""
+    addr=clean_text(m.group("addr"))
+    unit=clean_text(m.group("unit") or "")
+    city=clean_text(m.group("city") or "")
+    zip_code=clean_text(m.group("zip") or "")
+    if unit and not unit.startswith("#") and not re.match(r"^(APT|UNIT|STE|SUITE)\b",unit,re.IGNORECASE):
+        unit=f"#{unit}"
+    if unit and unit.upper() not in addr.upper():
+        addr=f"{addr} {unit}"
+    return addr.title(),city.title(),zip_code
+
+def extract_civil_doc_property_details(text:str)->dict:
+    text=clean_text(text)
+    details={"prop_address":"","prop_city":"","prop_zip":"","parcel_id":""}
+    if not text: return details
+    parcel=re.search(r"\b(?:PERM\s+)?PARCEL\s+(?:NO\.?|NUMBER|ID)?\s*[:#]?\s*([0-9-]{5,20})\b",text,re.IGNORECASE)
+    if parcel: details["parcel_id"]=clean_text(parcel.group(1))
+    site_patterns=[
+        r"\bSite Address\s+(.{0,140})",
+        r"\b(?:commonly\s+)?known as\s+(.{0,140})",
+        r"\bpremises\s+(?:located at|known as)\s+(.{0,140})",
+        r"\bproperty\s+(?:located at|known as)\s+(.{0,140})",
+    ]
+    for pat in site_patterns:
+        for m in re.finditer(pat,text,re.IGNORECASE):
+            snippet=m.group(1)
+            addr,city,zip_code=normalize_site_address_parts(snippet)
+            if addr and not FILING_TEXT_AS_ADDRESS_RE.search(addr):
+                details["prop_address"]=addr
+                details["prop_city"]=city
+                details["prop_zip"]=zip_code
+                return details
+    return details
+
+def extract_civil_doc_details_from_zip(data:bytes)->dict:
+    details={"prop_address":"","prop_city":"","prop_zip":"","parcel_id":""}
+    if not data or PdfReader is None: return details
+    try:
+        with zipfile.ZipFile(io.BytesIO(data)) as zf:
+            names=sorted(
+                [n for n in zf.namelist() if n.lower().endswith(".pdf")],
+                key=lambda n: (
+                    0 if "JUDICIAL" in n.upper() else
+                    1 if "COMPLAINT" in n.upper() else
+                    2 if "SERVICE" in n.upper() else 3,
+                    n,
+                ),
+            )
+            for name in names:
+                try:
+                    reader=PdfReader(io.BytesIO(zf.read(name)))
+                    if reader.is_encrypted:
+                        reader.decrypt("")
+                    text="\n".join((page.extract_text() or "") for page in reader.pages[:8])
+                    found=extract_civil_doc_property_details(text)
+                    for key,value in found.items():
+                        if value and not details.get(key): details[key]=value
+                    if details.get("prop_address"): break
+                except Exception as e:
+                    logging.debug("Could not read civil filing PDF %s: %s",name,e)
+    except Exception as e:
+        logging.debug("Could not inspect civil filing ZIP: %s",e)
+    return details
 
 def is_absentee_owner(prop_address:str,mail_address:str,mail_state:str="")->bool:
     if not prop_address or not mail_address: return False
@@ -2784,13 +2866,85 @@ def parse_pending_civil_table(html,base_url,prefix)->List[LeadRecord]:
             rec.score=score_record(rec); records.append(rec)
     return records
 
+def pending_civil_record_key(owner:str,filed:str,doc_type:str)->str:
+    return "|".join([normalize_name(owner),clean_text(filed)[:10],clean_text(doc_type).upper()])
+
+async def click_pending_civil_refresh(page):
+    try:
+        loc=page.get_by_text("Refresh",exact=True).first
+        if await loc.count()>0:
+            await loc.click()
+            await page.wait_for_timeout(5000)
+            return True
+    except Exception:
+        pass
+    return False
+
+async def enrich_pending_civil_records_from_docs(page,records:List[LeadRecord])->None:
+    if not records or PdfReader is None or NEW_CIVIL_DOC_DOWNLOAD_LIMIT<=0:
+        if PdfReader is None:
+            logging.info("Pending civil document enrichment skipped: pypdf not installed")
+        return
+    by_key=defaultdict(list)
+    for record in records:
+        by_key[pending_civil_record_key(record.owner,record.filed,record.doc_type)].append(record)
+    rows=page.locator("tbody tr")
+    try:
+        row_count=await rows.count()
+    except Exception:
+        return
+    downloads=0
+    enriched=0
+    for i in range(row_count):
+        if downloads>=NEW_CIVIL_DOC_DOWNLOAD_LIMIT: break
+        row=rows.nth(i)
+        try:
+            cells=[clean_text(c) for c in await row.locator("td").evaluate_all("(els)=>els.map(e=>(e.innerText||e.textContent||'').trim())")]
+            if len(cells)<5: continue
+            rt=clean_text(" ".join(cells))
+            doc_type=infer_doc_type_from_text(rt)
+            if doc_type not in {"NOFC","LP","JUD"}: continue
+            filed=try_parse_date(rt) or datetime.now().date().isoformat()
+            owner,_,_=extract_owner_and_grantee(cells)
+            matches=[r for r in by_key.get(pending_civil_record_key(owner,filed,doc_type),[]) if not r.prop_address]
+            if not matches: continue
+            button=row.locator("button").first
+            if await button.count()<1: continue
+            try:
+                async with page.expect_download(timeout=20000) as dl_info:
+                    await button.click()
+                download=await dl_info.value
+                path=await download.path()
+                if not path: continue
+                details=extract_civil_doc_details_from_zip(Path(path).read_bytes())
+                downloads+=1
+            except Exception as e:
+                logging.debug("Pending civil document download failed for %s: %s",owner,e)
+                continue
+            if not details.get("prop_address"): continue
+            for record in matches:
+                record.prop_address=record.prop_address or details.get("prop_address","")
+                record.prop_city=record.prop_city or details.get("prop_city","")
+                record.prop_zip=record.prop_zip or details.get("prop_zip","")
+                record.parcel_id=record.parcel_id or details.get("parcel_id","")
+                record.with_address=1 if record.prop_address else 0
+                record.match_method="new_civil_doc_pdf"
+                record.match_score=max(record.match_score,0.92)
+                enriched+=1
+        except Exception as e:
+            logging.debug("Pending civil document enrichment row failed: %s",e)
+    if downloads:
+        logging.info("Pending civil document enrichment: %s downloads, %s records enriched",downloads,enriched)
+
 async def scrape_pending_civil_records(page)->List[LeadRecord]:
     records=[]
     try:
         await page.goto(PENDING_CIVIL_URL,wait_until="domcontentloaded",timeout=90000); await page.wait_for_timeout(4000)
+        await click_pending_civil_refresh(page)
         h1=await page.content(); save_debug_text("pending_civil_page_1.html",h1)
         records.extend(parse_pending_civil_table(h1,PENDING_CIVIL_URL,"PCF1"))
-        if await click_first_matching(page,["text=Search","text=Begin","text=Continue","input[type='submit']","button","a"]):
+        await enrich_pending_civil_records_from_docs(page,records)
+        if await click_first_matching(page,["text=Search","text=Begin","text=Continue","input[type='submit']"]):
             h2=await page.content(); records.extend(parse_pending_civil_table(h2,PENDING_CIVIL_URL,"PCF2"))
         for page_num in range(3,13):
             clicked=await click_first_matching(page,["text=Next","a[aria-label='Next']","button[aria-label='Next']",".pagination a:has-text('Next')"])
@@ -4135,6 +4289,7 @@ async def main():
     delinquent_pid_set = set(delinquent_parcels.keys())
 
     # 4. Enrich clerk records with CAMA
+    clerk_records=[apply_parcel_snapshot(r,parcel_by_id) if r.parcel_id else r for r in clerk_records]
     all_records,report=enrich_with_parcel_data(clerk_records,owner_index,last_name_index,first_last_index)
 
     # 5. Build cross-reference maps

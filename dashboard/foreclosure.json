@@ -9833,10 +9833,10 @@
       "grantee": "Rolling Meadows Condominium Unit Owners'",
       "amount": null,
       "legal": "ROLLING MEADOWS CONDOMINIUM UNIT OWNERS' -VS- MATTHEW E. WEEKLEY",
-      "prop_address": "",
-      "prop_city": "",
+      "prop_address": "10760 Ravenna Rd #203",
+      "prop_city": "Twinsburg",
       "prop_state": "OH",
-      "prop_zip": "",
+      "prop_zip": "44087",
       "mail_address": "",
       "mail_city": "",
       "mail_state": "",
@@ -9847,9 +9847,9 @@
         "New this week"
       ],
       "score": 55,
-      "match_method": "unmatched",
-      "match_score": 0.0,
-      "with_address": 0,
+      "match_method": "new_civil_doc_pdf",
+      "match_score": 0.92,
+      "with_address": 1,
       "distress_sources": [
         "foreclosure"
       ],
