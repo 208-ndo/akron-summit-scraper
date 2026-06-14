@@ -176,6 +176,7 @@ class LeadRecord:
     est_arrears:Optional[float]=None; est_payoff:Optional[float]=None
     subject_to_score:int=0; mortgage_signals:List[str]=field(default_factory=list)
     sheriff_sale_date:str=""; appraised_value:Optional[float]=None; lender:str=""
+    auction_days_until:Optional[int]=None; auction_countdown:str=""; auction_urgency:str=""
     foreclosure_stage:str=""; foreclosure_case_number:str=""; foreclosure_notice_date:str=""
     code_violation_case:str=""; code_violation_date:str=""
     decedent_name:str=""; executor_name:str=""; executor_state:str=""
@@ -590,6 +591,38 @@ def classify_distress_source(doc_type:str)->Optional[str]:
     if dt=="FIREDMG":                         return "fire_damage"
     return None
 
+def auction_countdown_fields(sale_date:str)->dict:
+    raw=clean_text(sale_date)
+    if not raw:
+        return {}
+    try:
+        days=(datetime.fromisoformat(raw).date()-datetime.now().date()).days
+    except Exception:
+        return {}
+    if days<0:
+        label="Auction passed"; urgency="gray"
+    elif days==0:
+        label="Auction today"; urgency="hot"
+    elif days==1:
+        label="1 day left"; urgency="hot"
+    elif days<=3:
+        label=f"{days} days left"; urgency="hot"
+    elif days<=7:
+        label=f"{days} days left"; urgency="warn"
+    elif days<=30:
+        label=f"{days} days left"; urgency="gold"
+    else:
+        label="30+ days"; urgency="green"
+    return {"auction_days_until":days,"auction_countdown":label,"auction_urgency":urgency}
+
+def apply_auction_countdown(record:"LeadRecord")->"LeadRecord":
+    fields=auction_countdown_fields(record.sheriff_sale_date)
+    if fields:
+        record.auction_days_until=fields["auction_days_until"]
+        record.auction_countdown=fields["auction_countdown"]
+        record.auction_urgency=fields["auction_urgency"]
+    return record
+
 
 # -----------------------------------------------------------------------
 # MORTGAGE / EQUITY / SUBJECT-TO ESTIMATION
@@ -838,7 +871,7 @@ def scrape_sheriff_sales()->List[LeadRecord]:
                 distress_count=2,hot_stack=True,
                 with_address=1,match_method="sheriff_sale_direct",match_score=1.0,
             )
-            rec=estimate_mortgage_data(rec); rec.score=score_record(rec)
+            rec=apply_auction_countdown(rec); rec=estimate_mortgage_data(rec); rec.score=score_record(rec)
             records.append(rec)
 
         logging.info("Sheriff sales: %s records",len(records))
@@ -1004,6 +1037,7 @@ def scrape_akron_legal_foreclosure_notices(parcel_by_id:Dict[str,dict])->List[Le
                     match_method="akron_legal_notice",match_score=0.9,
                 )
                 rec=apply_parcel_snapshot(rec,parcel_by_id)
+                rec=apply_auction_countdown(rec)
                 rec.is_absentee=is_absentee_owner(rec.prop_address,rec.mail_address,rec.mail_state)
                 rec.is_out_of_state=is_out_of_state(rec.mail_state)
                 if rec.is_absentee and "Absentee owner" not in rec.flags: rec.flags.append("Absentee owner")

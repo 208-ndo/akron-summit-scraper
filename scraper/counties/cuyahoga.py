@@ -638,6 +638,39 @@ def parse_short_date(value: str) -> str:
         except ValueError:
             return text
 
+def auction_countdown_fields(sale_date: str) -> dict:
+    raw = parse_short_date(sale_date)
+    if not raw:
+        return {}
+    try:
+        days = (datetime.fromisoformat(raw).date() - datetime.now().date()).days
+    except ValueError:
+        return {}
+    if days < 0:
+        label, urgency = "Auction passed", "gray"
+    elif days == 0:
+        label, urgency = "Auction today", "hot"
+    elif days == 1:
+        label, urgency = "1 day left", "hot"
+    elif days <= 3:
+        label, urgency = f"{days} days left", "hot"
+    elif days <= 7:
+        label, urgency = f"{days} days left", "warn"
+    elif days <= 30:
+        label, urgency = f"{days} days left", "gold"
+    else:
+        label, urgency = "30+ days", "green"
+    return {
+        "auction_days_until": days,
+        "auction_countdown": label,
+        "auction_urgency": urgency,
+    }
+
+def apply_auction_countdown(record: dict) -> None:
+    fields = auction_countdown_fields(record.get("sheriff_sale_date") or "")
+    if fields:
+        record.update(fields)
+
 
 def is_recent_transfer(value: str) -> bool:
     text = parse_short_date(value)
@@ -905,6 +938,7 @@ def parse_sheriff_results(raw: str, sale_label: str) -> list[dict]:
             "flags": ["Foreclosure", "Sheriff Sale", "Auction Pressure"],
             "tags": ["Foreclosure", "Sheriff Sale", "Auction Pressure"],
         }
+        apply_auction_countdown(record)
         records.append({key: value for key, value in record.items() if has_value(value)})
     return records
 
@@ -1551,6 +1585,7 @@ def merge_record(existing: dict, incoming: dict) -> dict:
 
 
 def apply_stack_tags(record: dict) -> None:
+    apply_auction_countdown(record)
     sources = unique_values(record.get("distress_sources") or [])
     record["distress_sources"] = sources
     counted_sources = [source for source in sources if source != "cleveland_housing_pain"]

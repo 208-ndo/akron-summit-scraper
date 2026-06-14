@@ -2404,19 +2404,59 @@ function openModalById(id){
   if(r) openModal(r);
 }
 
+function auctionCountdownInfo(r){
+  const raw=String(r&&r.sheriff_sale_date||'').trim();
+  if(!raw)return null;
+  const storedLabel=String(r.auction_countdown||'').trim();
+  const storedDays=Number(r.auction_days_until);
+  const storedUrgency=String(r.auction_urgency||'').trim();
+  if(storedLabel){
+    return {
+      date:raw,
+      days:Number.isFinite(storedDays)?storedDays:null,
+      label:storedLabel,
+      urgency:storedUrgency||'green'
+    };
+  }
+  const saleDate=new Date(raw+'T00:00:00');
+  if(isNaN(saleDate))return null;
+  const today=new Date();
+  const todayMid=new Date(today.getFullYear(),today.getMonth(),today.getDate());
+  const saleMid=new Date(saleDate.getFullYear(),saleDate.getMonth(),saleDate.getDate());
+  const days=Math.ceil((saleMid-todayMid)/86400000);
+  let label='',urgency='green';
+  if(days<0){label='Auction passed';urgency='gray';}
+  else if(days===0){label='Auction today';urgency='hot';}
+  else if(days===1){label='1 day left';urgency='hot';}
+  else if(days<=3){label=days+' days left';urgency='hot';}
+  else if(days<=7){label=days+' days left';urgency='warn';}
+  else if(days<=30){label=days+' days left';urgency='gold';}
+  else{label='30+ days';urgency='green';}
+  return {date:raw,days,label,urgency};
+}
+
+function auctionCountdownTag(r){
+  const info=auctionCountdownInfo(r);
+  if(!info)return '';
+  const cls=info.urgency==='hot'?'t-hot':info.urgency==='warn'?'t-warn':info.urgency==='gold'?'t-gold':info.urgency==='green'?'t-green':'t-gray';
+  return `<span class="tag ${cls}">${info.label}</span>`;
+}
+
 function rowHTML(r){
   const sc=r.score||0,scls=sc>=80?'sh':sc>=60?'sm':'sl';
   const flags=r.flags||[];
   const _bkt=getSkipBucket(r);
   const tracedTag = _bkt==='skip_traced' ? '<span class="tag t-green">&#128222; Skip Traced</span>' : _bkt==='skip_failed' ? '<span class="tag t-red">Skip Failed</span>' : '';
-  const tags=flags.slice(0,5).map(tagHTML).join('')+(flags.length>5?`<span class="tag t-gray">+${flags.length-5}</span>`:'')+tracedTag;
+  const auctionTag=auctionCountdownTag(r);
+  const tags=auctionTag+flags.slice(0,5).map(tagHTML).join('')+(flags.length>5?`<span class="tag t-gray">+${flags.length-5}</span>`:'')+tracedTag;
   const eq=r.est_equity,eqH=eq!=null?eqBar(eq):'<span style="color:var(--muted);font-size:11px">–</span>';
   const amt=r.amount!=null?'$'+Number(r.amount).toLocaleString('en-US',{maximumFractionDigits:0}):'–';
   const addr=r.prop_address
     ? `<div class="owner-sub">${r.prop_address}${r.prop_city?', '+r.prop_city:''}</div>${propertyFactsHTML(r)}`
     : propertyFactsHTML(r);
   const dec=r.decedent_name?`<div class="owner-sub">Estate of ${r.decedent_name}</div>`:'';
-  const sh=r.doc_type==='SHERIFF'&&r.sheriff_sale_date?`<div class="owner-sub" style="color:var(--hot)">⚡ Sale: ${r.sheriff_sale_date}</div>`:'';
+  const auctionInfo=auctionCountdownInfo(r);
+  const sh=auctionInfo?`<div class="owner-sub" style="color:var(--hot)">⚡ Sale: ${auctionInfo.date} · ${auctionInfo.label}</div>`:'';
   const lnk=r.clerk_url?`<a class="view-btn" href="${r.clerk_url}" target="_blank" onclick="event.stopPropagation()">View</a>`:'<span style="color:var(--muted);font-size:11px">–</span>';
   const rid = _rowStore.push(r) - 1;
   const rowSelectKey=selectionKey(r);
@@ -3502,6 +3542,7 @@ function openModal(r){
   const vlW=isVL?`<div class="sheriff-warn" style="background:rgba(74,245,166,.08);border-color:rgba(74,245,166,.3);color:var(--accent3)">🌿 Vacant infill lot — distressed owner, ready to sell</div>`:'';
   const proS=isPro?`<hr class="mdiv"><div class="msec">Estate Details</div><div class="mf"><div class="ml">Decedent</div><div class="mv">${r.decedent_name||'–'}</div></div><div class="mf"><div class="ml">Executor</div><div class="mv">${r.executor_name||'–'}</div></div><div class="mf"><div class="ml">Executor State</div><div class="mv ${r.executor_state&&r.executor_state!=='OH'?'rd':''}">${r.executor_state||'OH'}</div></div>`:'';
   const eligible=isTracerfyEligible(r);
+  const auctionInfo=auctionCountdownInfo(r);
   const tracedPhones=getTracedPhones(r);
   const tracedMail=getTraceMailingAddress(r);
   const traceStatus=getSkipTraceStatusLabel(r);
@@ -3568,12 +3609,13 @@ function openModal(r){
       <div class="mf"><div class="ml">Doc Number</div><div class="mv">${r.doc_num||'–'}</div></div>
       <div class="mf"><div class="ml">Amount</div><div class="mv">${fd(r.amount)}</div></div>
       ${r.sheriff_sale_date?`<div class="mf"><div class="ml">Sheriff Sale Date</div><div class="mv rd">${r.sheriff_sale_date}</div></div>`:''}
+      ${auctionInfo?`<div class="mf"><div class="ml">Auction Countdown</div><div class="mv rd">${auctionInfo.label}</div></div>`:''}
       ${r.code_violation_case?`<div class="mf"><div class="ml">Code Violation</div><div class="mv">${r.code_violation_case}</div></div>`:''}
       ${proS}
       <hr class="mdiv">
       <div class="msec">Distress Sources</div>
       <div class="mf full"><div class="ml">Sources</div><div class="mv">${(r.distress_sources||[]).join(' · ')||'–'}</div></div>
-      <div class="mtags">${flags.map(tagHTML).join('')}</div>
+      <div class="mtags">${auctionCountdownTag(r)}${flags.map(tagHTML).join('')}</div>
       <div class="mact">
         ${r.clerk_url?`<a class="btn btn-primary" href="${r.clerk_url}" target="_blank">View Public Record</a>`:''}
         <button class="btn btn-ghost" onclick="exportRow(event,_lastModalRecord)">Export Row</button>
