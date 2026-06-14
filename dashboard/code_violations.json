@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-14T00:49:09.899047+00:00",
+  "fetched_at": "2026-06-14T06:36:09.347242+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "code_violations",
   "description": "\ud83c\udfda City-declared nuisance / housing code violations \u2014 repair or sell",
@@ -40,8 +40,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -159,8 +159,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -278,8 +278,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -397,8 +397,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -515,8 +515,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,

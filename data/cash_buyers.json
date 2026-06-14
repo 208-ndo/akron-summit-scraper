@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-14T00:49:12.262091+00:00",
+  "fetched_at": "2026-06-14T06:36:11.355775+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "cash_buyers",
   "description": "Investor buyers who purchased 3+ unique properties in the last 12 months",
@@ -1097,11 +1097,11 @@
       "last_sale_year": null,
       "est_mortgage_balance": null,
       "est_equity": null,
-      "est_arrears": 166666.66,
-      "est_payoff": null,
+      "est_arrears": 83333.33,
+      "est_payoff": 83333.33,
       "subject_to_score": 15,
       "mortgage_signals": [
-        "Tax owed ~$83,333"
+        "Known tax debt ~$83,333"
       ],
       "sheriff_sale_date": "",
       "appraised_value": null,
@@ -1499,11 +1499,11 @@
       "last_sale_year": null,
       "est_mortgage_balance": null,
       "est_equity": null,
-      "est_arrears": 292060.0,
-      "est_payoff": null,
+      "est_arrears": 146030.0,
+      "est_payoff": 146030.0,
       "subject_to_score": 15,
       "mortgage_signals": [
-        "Tax owed ~$146,030"
+        "Known tax debt ~$146,030"
       ],
       "sheriff_sale_date": "",
       "appraised_value": null,
@@ -2529,11 +2529,11 @@
       "last_sale_year": null,
       "est_mortgage_balance": null,
       "est_equity": null,
-      "est_arrears": 396000.0,
-      "est_payoff": null,
+      "est_arrears": 198000.0,
+      "est_payoff": 198000.0,
       "subject_to_score": 15,
       "mortgage_signals": [
-        "Tax owed ~$198,000"
+        "Known tax debt ~$198,000"
       ],
       "sheriff_sale_date": "",
       "appraised_value": null,
@@ -2779,11 +2779,11 @@
       "last_sale_year": null,
       "est_mortgage_balance": null,
       "est_equity": null,
-      "est_arrears": 263360.0,
-      "est_payoff": null,
+      "est_arrears": 131680.0,
+      "est_payoff": 131680.0,
       "subject_to_score": 15,
       "mortgage_signals": [
-        "Tax owed ~$131,680"
+        "Known tax debt ~$131,680"
       ],
       "sheriff_sale_date": "",
       "appraised_value": null,
@@ -5563,11 +5563,11 @@
       "last_sale_year": null,
       "est_mortgage_balance": null,
       "est_equity": null,
-      "est_arrears": 147440.0,
-      "est_payoff": null,
+      "est_arrears": 73720.0,
+      "est_payoff": 73720.0,
       "subject_to_score": 15,
       "mortgage_signals": [
-        "Tax owed ~$73,720"
+        "Known tax debt ~$73,720"
       ],
       "sheriff_sale_date": "",
       "appraised_value": null,
@@ -6175,11 +6175,11 @@
       "last_sale_year": null,
       "est_mortgage_balance": null,
       "est_equity": null,
-      "est_arrears": 94000.0,
-      "est_payoff": null,
+      "est_arrears": 47000.0,
+      "est_payoff": 47000.0,
       "subject_to_score": 15,
       "mortgage_signals": [
-        "Tax owed ~$47,000"
+        "Known tax debt ~$47,000"
       ],
       "sheriff_sale_date": "",
       "appraised_value": null,
@@ -6422,10 +6422,10 @@
       "est_mortgage_balance": null,
       "est_equity": null,
       "est_arrears": 20000.0,
-      "est_payoff": null,
+      "est_payoff": 20000.0,
       "subject_to_score": 15,
       "mortgage_signals": [
-        "Tax owed ~$20,000"
+        "Known tax debt ~$20,000"
       ],
       "sheriff_sale_date": "",
       "appraised_value": null,
@@ -7378,11 +7378,11 @@
       "last_sale_year": null,
       "est_mortgage_balance": null,
       "est_equity": null,
-      "est_arrears": 528000.0,
-      "est_payoff": null,
+      "est_arrears": 264000.0,
+      "est_payoff": 264000.0,
       "subject_to_score": 15,
       "mortgage_signals": [
-        "Tax owed ~$264,000"
+        "Known tax debt ~$264,000"
       ],
       "sheriff_sale_date": "",
       "appraised_value": null,
@@ -8931,11 +8931,11 @@
       "last_sale_year": null,
       "est_mortgage_balance": null,
       "est_equity": null,
-      "est_arrears": 252400.0,
-      "est_payoff": null,
+      "est_arrears": 126200.0,
+      "est_payoff": 126200.0,
       "subject_to_score": 15,
       "mortgage_signals": [
-        "Tax owed ~$126,200"
+        "Known tax debt ~$126,200"
       ],
       "sheriff_sale_date": "",
       "appraised_value": null,
