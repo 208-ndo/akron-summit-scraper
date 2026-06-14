@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-06-14T06:36:08.018540+00:00",
+  "fetched_at": "2026-06-14T10:58:08.984148+00:00",
   "source": "Akron / Summit County, Ohio",
   "date_range": {
     "from": "2026-03-16",
     "to": "2026-06-14"
   },
-  "total": 3451,
+  "total": 3452,
   "with_address": 3432,
   "with_mail_address": 2434,
   "hot_stack_count": 125,
@@ -57,9 +57,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "sheriff_sale",
         "tax_delinquent",
-        "sheriff_sale"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -183,9 +183,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "sheriff_sale",
         "tax_delinquent",
-        "sheriff_sale"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -309,9 +309,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "sheriff_sale",
         "tax_delinquent",
-        "sheriff_sale"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -435,9 +435,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "sheriff_sale",
         "tax_delinquent",
-        "sheriff_sale"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -560,9 +560,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "sheriff_sale",
         "tax_delinquent",
-        "sheriff_sale"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -685,9 +685,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "sheriff_sale",
         "tax_delinquent",
-        "sheriff_sale"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -3929,8 +3929,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -6124,8 +6124,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7940,9 +7940,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "sheriff_sale",
         "tax_delinquent",
-        "sheriff_sale"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -8066,9 +8066,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "sheriff_sale",
         "tax_delinquent",
-        "sheriff_sale"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -8191,9 +8191,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "sheriff_sale",
         "tax_delinquent",
-        "sheriff_sale"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -8315,9 +8315,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "sheriff_sale",
         "tax_delinquent",
-        "sheriff_sale"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -8437,9 +8437,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "sheriff_sale",
         "tax_delinquent",
-        "sheriff_sale"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -8559,9 +8559,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "sheriff_sale",
         "tax_delinquent",
-        "sheriff_sale"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -8681,9 +8681,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "sheriff_sale",
         "tax_delinquent",
-        "sheriff_sale"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -8803,9 +8803,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "sheriff_sale",
         "tax_delinquent",
-        "sheriff_sale"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -8925,9 +8925,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "sheriff_sale",
         "tax_delinquent",
-        "sheriff_sale"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -9048,9 +9048,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "vacant_land",
-        "tax_delinquent"
+        "tax_delinquent",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -9172,9 +9172,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "vacant_land",
-        "tax_delinquent"
+        "tax_delinquent",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -9296,9 +9296,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "vacant_land",
-        "tax_delinquent"
+        "tax_delinquent",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -9415,9 +9415,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "vacant_land",
-        "tax_delinquent"
+        "tax_delinquent",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -9791,8 +9791,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -9914,8 +9914,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10428,8 +10428,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10551,8 +10551,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10673,8 +10673,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10794,8 +10794,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11042,8 +11042,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
-        "tax_delinquent"
+        "tax_delinquent",
+        "foreclosure"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11639,8 +11639,8 @@
       "match_score": 0.92,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
-        "tax_delinquent"
+        "tax_delinquent",
+        "foreclosure"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11998,8 +11998,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
-        "tax_delinquent"
+        "tax_delinquent",
+        "foreclosure"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12123,8 +12123,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12264,8 +12264,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12393,8 +12393,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12525,8 +12525,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12666,8 +12666,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12794,8 +12794,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12922,8 +12922,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13163,8 +13163,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13288,8 +13288,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13414,8 +13414,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13530,8 +13530,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13646,8 +13646,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13762,8 +13762,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13878,8 +13878,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13996,8 +13996,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -14114,8 +14114,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -14346,8 +14346,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
-        "tax_delinquent"
+        "tax_delinquent",
+        "foreclosure"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -307309,7 +307309,7 @@
       "tired_landlord_reasons": []
     },
     {
-      "doc_num": "EVIC-0012",
+      "doc_num": "EVIC-0013",
       "doc_type": "EVICTION",
       "filed": "2026-06-11",
       "cat": "EVICTION",
@@ -308200,12 +308200,12 @@
     {
       "doc_num": "EVIC-0007",
       "doc_type": "EVICTION",
-      "filed": "2026-06-12",
+      "filed": "2026-06-14",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-11",
       "pulled_date": "2026-06-11",
-      "owner": "Marc Compher",
+      "owner": "Tx Usa Corporation",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -308223,8 +308223,8 @@
         "New this week"
       ],
       "score": 53,
-      "match_method": "unmatched",
-      "match_score": 0.0,
+      "match_method": "eviction_blazor",
+      "match_score": 0.85,
       "with_address": 0,
       "distress_sources": [
         "eviction"
@@ -308316,7 +308316,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-11",
       "pulled_date": "2026-06-11",
-      "owner": "Matthew E. Weekley 06/12/",
+      "owner": "Marc Compher",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -308334,8 +308334,8 @@
         "New this week"
       ],
       "score": 53,
-      "match_method": "eviction_blazor",
-      "match_score": 0.85,
+      "match_method": "unmatched",
+      "match_score": 0.0,
       "with_address": 0,
       "distress_sources": [
         "eviction"
@@ -308427,7 +308427,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-11",
       "pulled_date": "2026-06-11",
-      "owner": "Kevin Tillery Homes Two, Llc",
+      "owner": "Matthew E. Weekley 06/12/",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -308538,7 +308538,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-11",
       "pulled_date": "2026-06-11",
-      "owner": "Dawon L Harrison",
+      "owner": "Kevin Tillery Homes Two, Llc",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -308649,7 +308649,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-11",
       "pulled_date": "2026-06-11",
-      "owner": "Shannon D Miller",
+      "owner": "Dawon L Harrison",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -308753,13 +308753,124 @@
       "tired_landlord_reasons": []
     },
     {
-      "doc_num": "EVIC-0013",
+      "doc_num": "EVIC-0012",
       "doc_type": "EVICTION",
-      "filed": "2026-06-11",
+      "filed": "2026-06-12",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-11",
       "pulled_date": "2026-06-11",
+      "owner": "Shannon D Miller",
+      "grantee": "",
+      "amount": null,
+      "legal": "",
+      "prop_address": "",
+      "prop_city": "Akron",
+      "prop_state": "OH",
+      "prop_zip": "",
+      "mail_address": "",
+      "mail_city": "",
+      "mail_state": "",
+      "mail_zip": "",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Eviction filed",
+        "New this week"
+      ],
+      "score": 53,
+      "match_method": "eviction_blazor",
+      "match_score": 0.85,
+      "with_address": 0,
+      "distress_sources": [
+        "eviction"
+      ],
+      "distress_count": 1,
+      "hot_stack": false,
+      "luc": "",
+      "acres": "",
+      "is_vacant_land": false,
+      "is_vacant_home": false,
+      "is_absentee": false,
+      "is_out_of_state": false,
+      "parcel_id": "",
+      "phones": [],
+      "phone_types": [],
+      "emails": [],
+      "skip_trace_source": "Tracerfy",
+      "traced_owner_name": "",
+      "traced_owner": "",
+      "traced_phones": [],
+      "traced_phone_types": [],
+      "traced_emails": [],
+      "phone_primary": "",
+      "phone_primary_type": "",
+      "phone_secondary": "",
+      "phone_secondary_type": "",
+      "phone_tertiary": "",
+      "phone_tertiary_type": "",
+      "email_primary": "",
+      "traced_email": "",
+      "traced_mailing_address": "",
+      "traced_mailing_city": "",
+      "traced_mailing_state": "",
+      "traced_mailing_zip": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-04-17T19:42:26.196861Z",
+      "has_phone": false,
+      "has_email": false,
+      "assessed_value": null,
+      "estimated_value": null,
+      "last_sale_price": null,
+      "last_sale_year": null,
+      "est_mortgage_balance": null,
+      "est_equity": null,
+      "est_arrears": null,
+      "est_payoff": null,
+      "subject_to_score": 0,
+      "mortgage_signals": [],
+      "sheriff_sale_date": "",
+      "appraised_value": null,
+      "lender": "",
+      "foreclosure_stage": "",
+      "foreclosure_case_number": "",
+      "foreclosure_notice_date": "",
+      "code_violation_case": "",
+      "code_violation_date": "",
+      "decedent_name": "",
+      "executor_name": "",
+      "executor_state": "",
+      "estate_value": null,
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "rental_complaint_open_count": 0,
+      "rental_complaint_resolved_count": 0,
+      "rental_complaint_total_count": 0,
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": []
+    },
+    {
+      "doc_num": "EVIC-0014",
+      "doc_type": "EVICTION",
+      "filed": "2026-06-11",
+      "cat": "EVICTION",
+      "cat_label": "Eviction",
+      "first_seen_date": "2026-06-14",
+      "pulled_date": "2026-06-14",
       "owner": "Charnita L Mickens",
       "grantee": "",
       "amount": null,
@@ -308815,7 +308926,7 @@
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
       "skip_trace_status": "no_hit",
-      "skip_trace_timestamp": "2026-04-17T19:42:26.196918Z",
+      "skip_trace_timestamp": "2026-04-17T19:42:26.196974Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
