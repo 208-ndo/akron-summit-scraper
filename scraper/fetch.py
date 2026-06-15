@@ -805,6 +805,19 @@ def scrape_sheriff_sales()->List[LeadRecord]:
         logging.info("Scraping sheriff sales...")
         resp=retry_request(SHERIFF_SALES_URL,timeout=30); soup=BeautifulSoup(resp.text,"lxml")
         current_sale_date=""
+        sale_date_by_url={}
+        mapped_sale_date=""
+        for node in soup.find_all(["p","table"]):
+            node_text=clean_text(node.get_text(" "))
+            dm=re.search(r"Properties for Sale on ([A-Za-z]+ \d+,?\s*\d{4})",node_text,re.IGNORECASE)
+            if dm:
+                try: mapped_sale_date=datetime.strptime(dm.group(1).replace(",","").strip(),"%B %d %Y").date().isoformat()
+                except: mapped_sale_date=clean_text(dm.group(1))
+                continue
+            if mapped_sale_date and getattr(node,"name",None)=="table":
+                for sale_link in node.find_all("a",href=True):
+                    detail_url=requests.compat.urljoin(SHERIFF_SALES_URL,clean_text(sale_link.get("href","")))
+                    sale_date_by_url[detail_url]=mapped_sale_date
 
         for row in soup.find_all("tr"):
             cells=[clean_text(td.get_text(" ")) for td in row.find_all(["td","th"])]
@@ -821,6 +834,7 @@ def scrape_sheriff_sales()->List[LeadRecord]:
             if not link: continue
             case_num=clean_text(link.get_text(" "))
             detail_url=requests.compat.urljoin(SHERIFF_SALES_URL,clean_text(link.get("href","")))
+            row_sale_date=sale_date_by_url.get(detail_url,current_sale_date)
 
             m=re.search(
                 r"[-–]\s*(.+?)\s+v\s+(.+?)\s+Property located at\s+(.+?)\.\s+Appraised at\s+\$?([\d,]+)",
@@ -853,20 +867,20 @@ def scrape_sheriff_sales()->List[LeadRecord]:
             owner=re.sub(r"\s+"," ",owner).strip(" ,.-")
 
             flags=["Sheriff sale scheduled","Foreclosure","🔥 Hot Stack"]
-            if current_sale_date:
+            if row_sale_date:
                 try:
-                    days_until=(datetime.fromisoformat(current_sale_date).date()-datetime.now().date()).days
+                    days_until=(datetime.fromisoformat(row_sale_date).date()-datetime.now().date()).days
                     if days_until<=7: flags.append("⚡ Sale this week!")
                     elif days_until<=14: flags.append("Sale in 2 weeks")
                 except: pass
 
             rec=LeadRecord(
                 doc_num=case_num or f"SHERIFF-{len(records)+1}",
-                doc_type="SHERIFF",filed=current_sale_date,cat="SHERIFF",cat_label="Sheriff Sale",
+                doc_type="SHERIFF",filed=row_sale_date,cat="SHERIFF",cat_label="Sheriff Sale",
                 owner=owner.title() if owner else "",grantee=lender,lender=lender,
                 amount=appraised,appraised_value=appraised,
                 prop_address=prop_address,prop_city=prop_city,prop_state="OH",prop_zip=prop_zip,
-                sheriff_sale_date=current_sale_date,clerk_url=detail_url,
+                sheriff_sale_date=row_sale_date,clerk_url=detail_url,
                 flags=flags,distress_sources=["sheriff_sale","foreclosure"],
                 distress_count=2,hot_stack=True,
                 with_address=1,match_method="sheriff_sale_direct",match_score=1.0,
