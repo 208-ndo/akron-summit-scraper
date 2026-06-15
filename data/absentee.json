@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-14T17:11:02.091253+00:00",
+  "fetched_at": "2026-06-15T14:01:37.442023+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "absentee",
   "description": "\ud83d\udced Owner mailing address differs from property",
@@ -42,9 +42,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "tax_delinquent",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -171,9 +171,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "tax_delinquent",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -299,9 +299,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "tax_delinquent",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -394,7 +394,7 @@
     {
       "doc_num": "CV2023 06 2062",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-14",
+      "filed": "2026-06-15",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-06-11",
@@ -426,9 +426,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "tax_delinquent",
         "foreclosure",
-        "vacant_land",
-        "tax_delinquent"
+        "vacant_land"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -483,12 +483,12 @@
       "sheriff_sale_date": "2026-07-07",
       "appraised_value": null,
       "lender": "Summit County Fiscal Office",
-      "auction_days_until": 23,
-      "auction_countdown": "23 days left",
+      "auction_days_until": 22,
+      "auction_countdown": "22 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2023 06 2062",
-      "foreclosure_notice_date": "2026-06-14",
+      "foreclosure_notice_date": "2026-06-15",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -521,7 +521,7 @@
     {
       "doc_num": "CV2025 09 4514",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-14",
+      "filed": "2026-06-15",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-06-11",
@@ -553,9 +553,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "tax_delinquent",
         "foreclosure",
-        "vacant_land",
-        "tax_delinquent"
+        "vacant_land"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -609,12 +609,12 @@
       "sheriff_sale_date": "2026-07-07",
       "appraised_value": null,
       "lender": "Summit County Fiscal Office",
-      "auction_days_until": 23,
-      "auction_countdown": "23 days left",
+      "auction_days_until": 22,
+      "auction_countdown": "22 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 09 4514",
-      "foreclosure_notice_date": "2026-06-14",
+      "foreclosure_notice_date": "2026-06-15",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -680,8 +680,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -808,8 +808,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -943,8 +943,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1069,8 +1069,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1195,8 +1195,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1329,8 +1329,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1463,8 +1463,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1589,8 +1589,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1714,8 +1714,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1808,7 +1808,7 @@
     {
       "doc_num": "CV2026 01 0202",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-14",
+      "filed": "2026-06-15",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-06-11",
@@ -1840,8 +1840,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
-        "tax_delinquent"
+        "tax_delinquent",
+        "vacant_land"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1896,12 +1896,12 @@
       "sheriff_sale_date": "2026-07-07",
       "appraised_value": null,
       "lender": "Summit County Fiscal Office",
-      "auction_days_until": 23,
-      "auction_countdown": "23 days left",
+      "auction_days_until": 22,
+      "auction_countdown": "22 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2026 01 0202",
-      "foreclosure_notice_date": "2026-06-14",
+      "foreclosure_notice_date": "2026-06-15",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -1934,7 +1934,7 @@
     {
       "doc_num": "CV2026 03 0923",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-14",
+      "filed": "2026-06-15",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-06-11",
@@ -2022,12 +2022,12 @@
       "sheriff_sale_date": "2026-07-07",
       "appraised_value": null,
       "lender": "Summit County Fiscal Office",
-      "auction_days_until": 23,
-      "auction_countdown": "23 days left",
+      "auction_days_until": 22,
+      "auction_countdown": "22 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2026 03 0923",
-      "foreclosure_notice_date": "2026-06-14",
+      "foreclosure_notice_date": "2026-06-15",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -2060,7 +2060,7 @@
     {
       "doc_num": "CV2025 12 6090",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-14",
+      "filed": "2026-06-15",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-06-11",
@@ -2148,12 +2148,12 @@
       "sheriff_sale_date": "2026-07-07",
       "appraised_value": null,
       "lender": "Summit County Fiscal Office",
-      "auction_days_until": 23,
-      "auction_countdown": "23 days left",
+      "auction_days_until": 22,
+      "auction_countdown": "22 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 12 6090",
-      "foreclosure_notice_date": "2026-06-14",
+      "foreclosure_notice_date": "2026-06-15",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -2186,7 +2186,7 @@
     {
       "doc_num": "CV2025 01 0265",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-14",
+      "filed": "2026-06-15",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-06-11",
@@ -2271,12 +2271,12 @@
       "sheriff_sale_date": "2026-07-07",
       "appraised_value": null,
       "lender": "Summit County Fiscal Office",
-      "auction_days_until": 23,
-      "auction_countdown": "23 days left",
+      "auction_days_until": 22,
+      "auction_countdown": "22 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 01 0265",
-      "foreclosure_notice_date": "2026-06-14",
+      "foreclosure_notice_date": "2026-06-15",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -2309,7 +2309,7 @@
     {
       "doc_num": "CV2023 08 2753",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-14",
+      "filed": "2026-06-15",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-06-11",
@@ -2394,12 +2394,12 @@
       "sheriff_sale_date": "2026-07-07",
       "appraised_value": null,
       "lender": "Summit County Fiscal Office",
-      "auction_days_until": 23,
-      "auction_countdown": "23 days left",
+      "auction_days_until": 22,
+      "auction_countdown": "22 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2023 08 2753",
-      "foreclosure_notice_date": "2026-06-14",
+      "foreclosure_notice_date": "2026-06-15",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -2432,7 +2432,7 @@
     {
       "doc_num": "CV2023 07 2621",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-14",
+      "filed": "2026-06-15",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-06-11",
@@ -2517,12 +2517,12 @@
       "sheriff_sale_date": "2026-07-07",
       "appraised_value": null,
       "lender": "Summit County Fiscal Office",
-      "auction_days_until": 23,
-      "auction_countdown": "23 days left",
+      "auction_days_until": 22,
+      "auction_countdown": "22 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2023 07 2621",
-      "foreclosure_notice_date": "2026-06-14",
+      "foreclosure_notice_date": "2026-06-15",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
