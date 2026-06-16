@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-16T14:23:37.497240+00:00",
+  "fetched_at": "2026-06-16T23:29:16.991935+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "absentee",
   "description": "\ud83d\udced Owner mailing address differs from property",
@@ -42,8 +42,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "tax_delinquent",
+        "foreclosure",
         "sheriff_sale"
       ],
       "distress_count": 3,
@@ -96,12 +96,12 @@
         "Absentee owner",
         "LTV <70%"
       ],
-      "sheriff_sale_date": "",
+      "sheriff_sale_date": "2026-06-26",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": null,
-      "auction_countdown": "",
-      "auction_urgency": "",
+      "auction_days_until": 10,
+      "auction_countdown": "10 days left",
+      "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
       "foreclosure_notice_date": "",
@@ -174,8 +174,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "tax_delinquent",
+        "foreclosure",
         "sheriff_sale"
       ],
       "distress_count": 3,
@@ -228,12 +228,12 @@
         "Absentee owner",
         "LTV <70%"
       ],
-      "sheriff_sale_date": "",
+      "sheriff_sale_date": "2026-07-10",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": null,
-      "auction_countdown": "",
-      "auction_urgency": "",
+      "auction_days_until": 24,
+      "auction_countdown": "24 days left",
+      "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
       "foreclosure_notice_date": "",
@@ -305,8 +305,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "tax_delinquent",
+        "foreclosure",
         "sheriff_sale"
       ],
       "distress_count": 3,
@@ -359,12 +359,12 @@
         "Absentee owner",
         "LTV <70%"
       ],
-      "sheriff_sale_date": "",
+      "sheriff_sale_date": "2026-07-17",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": null,
-      "auction_countdown": "",
-      "auction_urgency": "",
+      "auction_days_until": 31,
+      "auction_countdown": "30+ days",
+      "auction_urgency": "green",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
       "foreclosure_notice_date": "",
@@ -435,9 +435,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
+        "foreclosure",
         "tax_delinquent",
-        "foreclosure"
+        "vacant_land"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -565,9 +565,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
+        "foreclosure",
         "tax_delinquent",
-        "foreclosure"
+        "vacant_land"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1882,8 +1882,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
-        "tax_delinquent"
+        "tax_delinquent",
+        "vacant_land"
       ],
       "distress_count": 2,
       "hot_stack": true,

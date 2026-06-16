@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-16T14:23:36.374672+00:00",
+  "fetched_at": "2026-06-16T23:29:15.870955+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "tax_delinquent",
   "description": "\ud83d\udcb0 Residential properties with unpaid property taxes",
@@ -44,8 +44,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "tax_delinquent",
-        "sheriff_sale"
+        "sheriff_sale",
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -177,8 +177,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "tax_delinquent",
-        "sheriff_sale"
+        "sheriff_sale",
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -309,8 +309,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "tax_delinquent",
-        "sheriff_sale"
+        "sheriff_sale",
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -441,8 +441,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "tax_delinquent",
-        "sheriff_sale"
+        "sheriff_sale",
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -574,8 +574,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "tax_delinquent",
-        "sheriff_sale"
+        "sheriff_sale",
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -708,8 +708,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "tax_delinquent",
-        "sheriff_sale"
+        "sheriff_sale",
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -839,8 +839,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "tax_delinquent",
+        "foreclosure",
         "sheriff_sale"
       ],
       "distress_count": 3,
@@ -893,12 +893,12 @@
         "Absentee owner",
         "LTV <70%"
       ],
-      "sheriff_sale_date": "",
+      "sheriff_sale_date": "2026-06-26",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": null,
-      "auction_countdown": "",
-      "auction_urgency": "",
+      "auction_days_until": 10,
+      "auction_countdown": "10 days left",
+      "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
       "foreclosure_notice_date": "",
@@ -971,8 +971,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "tax_delinquent",
+        "foreclosure",
         "sheriff_sale"
       ],
       "distress_count": 3,
@@ -1025,12 +1025,12 @@
         "Absentee owner",
         "LTV <70%"
       ],
-      "sheriff_sale_date": "",
+      "sheriff_sale_date": "2026-07-10",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": null,
-      "auction_countdown": "",
-      "auction_urgency": "",
+      "auction_days_until": 24,
+      "auction_countdown": "24 days left",
+      "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
       "foreclosure_notice_date": "",
@@ -1102,8 +1102,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "tax_delinquent",
+        "foreclosure",
         "sheriff_sale"
       ],
       "distress_count": 3,
@@ -1156,12 +1156,12 @@
         "Absentee owner",
         "LTV <70%"
       ],
-      "sheriff_sale_date": "",
+      "sheriff_sale_date": "2026-07-17",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": null,
-      "auction_countdown": "",
-      "auction_urgency": "",
+      "auction_days_until": 31,
+      "auction_countdown": "30+ days",
+      "auction_urgency": "green",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
       "foreclosure_notice_date": "",
@@ -1232,8 +1232,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "tax_delinquent",
+        "foreclosure",
         "sheriff_sale"
       ],
       "distress_count": 3,
@@ -1285,12 +1285,12 @@
         "High net equity",
         "LTV <70%"
       ],
-      "sheriff_sale_date": "",
+      "sheriff_sale_date": "2026-06-26",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": null,
-      "auction_countdown": "",
-      "auction_urgency": "",
+      "auction_days_until": 10,
+      "auction_countdown": "10 days left",
+      "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
       "foreclosure_notice_date": "",
@@ -1360,8 +1360,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "tax_delinquent",
+        "foreclosure",
         "sheriff_sale"
       ],
       "distress_count": 3,
@@ -1413,12 +1413,12 @@
         "Moderate net equity",
         "LTV <70%"
       ],
-      "sheriff_sale_date": "",
+      "sheriff_sale_date": "2026-07-24",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": null,
-      "auction_countdown": "",
-      "auction_urgency": "",
+      "auction_days_until": 38,
+      "auction_countdown": "30+ days",
+      "auction_urgency": "green",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
       "foreclosure_notice_date": "",
@@ -1488,9 +1488,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "sheriff_sale",
         "foreclosure",
-        "tax_delinquent",
-        "sheriff_sale"
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1541,12 +1541,12 @@
         "Moderate net equity",
         "LTV <70%"
       ],
-      "sheriff_sale_date": "",
+      "sheriff_sale_date": "2026-07-24",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": null,
-      "auction_countdown": "",
-      "auction_urgency": "",
+      "auction_days_until": 38,
+      "auction_countdown": "30+ days",
+      "auction_urgency": "green",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
       "foreclosure_notice_date": "",
@@ -1618,8 +1618,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "tax_delinquent",
+        "foreclosure",
         "sheriff_sale"
       ],
       "distress_count": 3,
@@ -1671,12 +1671,12 @@
         "Moderate net equity",
         "LTV <70%"
       ],
-      "sheriff_sale_date": "",
+      "sheriff_sale_date": "2026-07-24",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": null,
-      "auction_countdown": "",
-      "auction_urgency": "",
+      "auction_days_until": 38,
+      "auction_countdown": "30+ days",
+      "auction_urgency": "green",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
       "foreclosure_notice_date": "",
@@ -1746,9 +1746,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "sheriff_sale",
         "foreclosure",
-        "tax_delinquent",
-        "sheriff_sale"
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1799,12 +1799,12 @@
         "Moderate net equity",
         "LTV <70%"
       ],
-      "sheriff_sale_date": "",
+      "sheriff_sale_date": "2026-07-24",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": null,
-      "auction_countdown": "",
-      "auction_urgency": "",
+      "auction_days_until": 38,
+      "auction_countdown": "30+ days",
+      "auction_urgency": "green",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
       "foreclosure_notice_date": "",
@@ -1876,8 +1876,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "tax_delinquent",
+        "foreclosure",
         "sheriff_sale"
       ],
       "distress_count": 3,
@@ -1929,12 +1929,12 @@
         "Moderate net equity",
         "LTV <70%"
       ],
-      "sheriff_sale_date": "",
+      "sheriff_sale_date": "2026-07-24",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": null,
-      "auction_countdown": "",
-      "auction_urgency": "",
+      "auction_days_until": 38,
+      "auction_countdown": "30+ days",
+      "auction_urgency": "green",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
       "foreclosure_notice_date": "",
@@ -4088,8 +4088,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
-        "tax_delinquent"
+        "tax_delinquent",
+        "vacant_land"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5309,8 +5309,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
-        "tax_delinquent"
+        "tax_delinquent",
+        "vacant_land"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5356,12 +5356,12 @@
       "est_payoff": null,
       "subject_to_score": 15,
       "mortgage_signals": [],
-      "sheriff_sale_date": "",
+      "sheriff_sale_date": "2026-07-07",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": null,
-      "auction_countdown": "",
-      "auction_urgency": "",
+      "auction_days_until": 21,
+      "auction_countdown": "21 days left",
+      "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
       "foreclosure_notice_date": "",

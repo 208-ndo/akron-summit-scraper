@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-16T14:23:38.654669+00:00",
+  "fetched_at": "2026-06-16T23:29:18.158487+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "prime_subject_to",
   "description": "\u2b50 Prime subject-to deals \u2014 high equity + motivated seller (score \u226570)",
@@ -44,8 +44,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "tax_delinquent",
-        "sheriff_sale"
+        "sheriff_sale",
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -177,8 +177,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "tax_delinquent",
-        "sheriff_sale"
+        "sheriff_sale",
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -309,8 +309,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "tax_delinquent",
-        "sheriff_sale"
+        "sheriff_sale",
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -441,8 +441,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "tax_delinquent",
-        "sheriff_sale"
+        "sheriff_sale",
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -574,8 +574,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "tax_delinquent",
-        "sheriff_sale"
+        "sheriff_sale",
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -708,8 +708,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "tax_delinquent",
-        "sheriff_sale"
+        "sheriff_sale",
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -839,8 +839,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "tax_delinquent",
+        "foreclosure",
         "sheriff_sale"
       ],
       "distress_count": 3,
@@ -893,12 +893,12 @@
         "Absentee owner",
         "LTV <70%"
       ],
-      "sheriff_sale_date": "",
+      "sheriff_sale_date": "2026-06-26",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": null,
-      "auction_countdown": "",
-      "auction_urgency": "",
+      "auction_days_until": 10,
+      "auction_countdown": "10 days left",
+      "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
       "foreclosure_notice_date": "",
@@ -971,8 +971,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "tax_delinquent",
+        "foreclosure",
         "sheriff_sale"
       ],
       "distress_count": 3,
@@ -1025,12 +1025,12 @@
         "Absentee owner",
         "LTV <70%"
       ],
-      "sheriff_sale_date": "",
+      "sheriff_sale_date": "2026-07-10",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": null,
-      "auction_countdown": "",
-      "auction_urgency": "",
+      "auction_days_until": 24,
+      "auction_countdown": "24 days left",
+      "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
       "foreclosure_notice_date": "",
