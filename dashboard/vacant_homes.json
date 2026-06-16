@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-16T12:59:32.438967+00:00",
+  "fetched_at": "2026-06-16T14:23:36.368101+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "vacant_homes",
   "description": "\ud83c\udfe0 Vacant residential homes (Akron Vacant Building Board)",
@@ -122,7 +122,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "VHOME-6807445",
@@ -241,7 +244,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "VHOME-0109987",
@@ -358,7 +364,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "VHOME-3200028",
@@ -475,7 +484,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "VHOME-0115984",
@@ -592,7 +604,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "VHOME-0100970",
@@ -709,7 +724,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "VHOME-3302270",
@@ -826,7 +844,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "VHOME-3303606",
@@ -943,7 +964,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "VHOME-6847458",
@@ -1060,7 +1084,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "VHOME-0106938",
@@ -1177,7 +1204,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "VHOME-6813788",
@@ -1294,7 +1324,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "VHOME-6859999",
@@ -1411,7 +1444,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "VHOME-0109213",
@@ -1528,7 +1564,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "VHOME-6840494",
@@ -1645,7 +1684,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "VHOME-6838102C",
@@ -1762,7 +1804,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     }
   ]
 }

@@ -114,7 +114,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "2026 AT 10",
@@ -231,7 +234,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "2026 AT 10",
@@ -348,7 +354,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "2026 AT 10",
@@ -465,7 +474,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "2026 AT 10",
@@ -582,7 +594,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "2026 AT 10",
@@ -699,7 +714,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "2026 AT 10",
@@ -816,7 +834,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "2026 AT 10",
@@ -933,7 +954,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "2026 AT 10",
@@ -1050,7 +1074,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "2026 AT 10",
@@ -1167,7 +1194,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "2026 AT 10",
@@ -1284,7 +1314,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "2026 AT 10",
@@ -1401,7 +1434,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "2026 AT 10",
@@ -1518,7 +1554,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "2026 AT 10",
@@ -1635,7 +1674,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "2026 AT 10",
@@ -1752,7 +1794,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "2026 AT 10",
@@ -1869,7 +1914,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "2026 AT 10",
@@ -1986,7 +2034,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "2026 AT 10",
@@ -2103,7 +2154,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "2026 AT 10",
@@ -2220,7 +2274,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "2026 AT 10",
@@ -2337,6 +2394,9 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   }
 ]

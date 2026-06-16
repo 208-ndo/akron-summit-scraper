@@ -1,12 +1,36 @@
 {
   "matched": 0,
-  "unmatched": 85,
+  "unmatched": 98,
   "with_address": 0,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 85
+    "unmatched": 98
   },
   "sample_unmatched": [
+    {
+      "doc_num": "TANNENBAUM 06",
+      "owner": "Alicia M Tannenbaum"
+    },
+    {
+      "doc_num": "HAWKE 06",
+      "owner": "George Hawke"
+    },
+    {
+      "doc_num": "GUMM 06",
+      "owner": "David P Gumm"
+    },
+    {
+      "doc_num": "GLAUDE 06",
+      "owner": "Thadniya Glaude"
+    },
+    {
+      "doc_num": "RATKOWSKI 06",
+      "owner": "Michelle L Ratkowski"
+    },
+    {
+      "doc_num": "MCCARDLE 06",
+      "owner": "Megan Mccardle"
+    },
     {
       "doc_num": "BIBBEE 06",
       "owner": "Jane Bibbee"
@@ -22,14 +46,6 @@
     {
       "doc_num": "IACOVETTA 06",
       "owner": "Briana Nicole Iacovetta"
-    },
-    {
-      "doc_num": "KILGORE 06",
-      "owner": "Michael Kilgore"
-    },
-    {
-      "doc_num": "GRENFELL 06",
-      "owner": "John G Grenfell"
     },
     {
       "doc_num": "2026 AT 10",
@@ -90,24 +106,8 @@
     {
       "doc_num": "2026 AT 10",
       "owner": "James V. Pyka"
-    },
-    {
-      "doc_num": "2026 AT 10",
-      "owner": ""
-    },
-    {
-      "doc_num": "2026 AT 10",
-      "owner": ""
-    },
-    {
-      "doc_num": "2026 AT 10",
-      "owner": ""
-    },
-    {
-      "doc_num": "2026 AT 10",
-      "owner": ""
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-06-16T12:59:36.938072+00:00"
+  "generated_at": "2026-06-16T14:23:40.590202+00:00"
 }

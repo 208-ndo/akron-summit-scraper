@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-16T12:59:33.698132+00:00",
+  "fetched_at": "2026-06-16T14:23:37.895420+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "out_of_state",
   "description": "\ud83c\udf0e Owner mails from out of state",
@@ -140,7 +140,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6737796",
@@ -177,8 +180,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -267,7 +270,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2026 03 0923",
@@ -297,7 +303,9 @@
         "Out-of-state owner",
         "\ud83c\udfaf Subject-To Candidate",
         "New this week",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "Owns 2+ properties",
+        "Repeat distress owner"
       ],
       "score": 85,
       "match_method": "parcel_from_legal_notice",
@@ -393,7 +401,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 2,
+      "repeat_distress_owner": true,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 12 6090",
@@ -423,7 +434,9 @@
         "Out-of-state owner",
         "\ud83c\udfaf Subject-To Candidate",
         "New this week",
-        "\ud83d\udd25 Hot Stack"
+        "\ud83d\udd25 Hot Stack",
+        "Owns 2+ properties",
+        "Repeat distress owner"
       ],
       "score": 85,
       "match_method": "parcel_from_legal_notice",
@@ -519,7 +532,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 2,
+      "repeat_distress_owner": true,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6827099",
@@ -653,7 +669,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6728555",
@@ -787,7 +806,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6739756",
@@ -921,7 +943,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-7001475",
@@ -1055,7 +1080,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-0407701",
@@ -1190,7 +1218,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-1506550",
@@ -1324,7 +1355,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-3501260",
@@ -1458,7 +1492,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-2802882",
@@ -1592,7 +1629,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-2812981",
@@ -1726,7 +1766,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-3006028",
@@ -1856,7 +1899,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-5402255",
@@ -1990,7 +2036,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-3313469",
@@ -2124,7 +2173,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-4000230",
@@ -2258,7 +2310,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-5602993",
@@ -2392,7 +2447,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-5607210",
@@ -2526,7 +2584,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6000604",
@@ -2660,7 +2721,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6001426",
@@ -2794,7 +2858,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6810699",
@@ -2928,7 +2995,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6818631",
@@ -3062,7 +3132,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6821692",
@@ -3196,7 +3269,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6825412",
@@ -3330,7 +3406,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6828524",
@@ -3464,7 +3543,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6831010",
@@ -3590,7 +3672,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6831678",
@@ -3724,7 +3809,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6700134",
@@ -3858,7 +3946,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6703592",
@@ -3992,7 +4083,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6707406",
@@ -4126,7 +4220,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6707465",
@@ -4252,7 +4349,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6709979",
@@ -4386,7 +4486,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6715259",
@@ -4512,7 +4615,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6717547",
@@ -4646,7 +4752,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6720646",
@@ -4780,7 +4889,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6729837",
@@ -4914,7 +5026,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6733702",
@@ -5040,7 +5155,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-0102204",
@@ -5174,7 +5292,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-0106736",
@@ -5308,7 +5429,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-0109965",
@@ -5442,7 +5566,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-0114517",
@@ -5576,7 +5703,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-1903217",
@@ -5710,7 +5840,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-1903929",
@@ -5844,7 +5977,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-2200143",
@@ -5978,7 +6114,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-0202010",
@@ -6112,7 +6251,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-0207392",
@@ -6246,7 +6388,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-0214476",
@@ -6380,7 +6525,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-2801957",
@@ -6506,7 +6654,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-2806839",
@@ -6640,7 +6791,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-2302610",
@@ -6774,7 +6928,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6600514",
@@ -6908,7 +7065,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-5001668",
@@ -7042,7 +7202,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-4501552",
@@ -7176,7 +7339,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-5105998",
@@ -7306,7 +7472,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-5107120",
@@ -7440,7 +7609,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-5603572",
@@ -7574,7 +7746,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-5603769",
@@ -7708,7 +7883,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-5603919",
@@ -7834,7 +8012,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6401024",
@@ -7968,7 +8149,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6403748",
@@ -8102,7 +8286,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6800571",
@@ -8236,7 +8423,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6801683",
@@ -8370,7 +8560,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6802965",
@@ -8504,7 +8697,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6803791",
@@ -8533,7 +8729,9 @@
         "Absentee owner",
         "Out-of-state owner",
         "\ud83c\udfaf Subject-To Candidate",
-        "\u2b50 Prime Subject-To"
+        "\u2b50 Prime Subject-To",
+        "Owns 2+ properties",
+        "Repeat distress owner"
       ],
       "score": 100,
       "match_method": "tax_delinquent_direct",
@@ -8634,7 +8832,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 2,
+      "repeat_distress_owner": true,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6803847",
@@ -8768,7 +8969,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6804798",
@@ -8902,7 +9106,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6805371",
@@ -9036,7 +9243,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6806268",
@@ -9170,7 +9380,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6806526",
@@ -9304,7 +9517,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6807310",
@@ -9438,7 +9654,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6807637",
@@ -9572,7 +9791,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6808414",
@@ -9706,7 +9928,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6809129",
@@ -9840,7 +10065,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6809586",
@@ -9974,7 +10202,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6811071",
@@ -10108,7 +10339,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6811393",
@@ -10242,7 +10476,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6811554",
@@ -10368,7 +10605,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6811801",
@@ -10502,7 +10742,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6814776",
@@ -10636,7 +10879,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6815319",
@@ -10770,7 +11016,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6816552",
@@ -10896,7 +11145,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6817359",
@@ -11030,7 +11282,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6818614",
@@ -11164,7 +11419,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6818804",
@@ -11298,7 +11556,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6819136",
@@ -11432,7 +11693,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6819825",
@@ -11566,7 +11830,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6820127",
@@ -11700,7 +11967,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6820699",
@@ -11834,7 +12104,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6820836",
@@ -11968,7 +12241,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6820919",
@@ -12102,7 +12378,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6821044",
@@ -12236,7 +12515,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6821718",
@@ -12265,7 +12547,9 @@
         "Absentee owner",
         "Out-of-state owner",
         "\ud83c\udfaf Subject-To Candidate",
-        "\u2b50 Prime Subject-To"
+        "\u2b50 Prime Subject-To",
+        "Owns 2+ properties",
+        "Repeat distress owner"
       ],
       "score": 100,
       "match_method": "tax_delinquent_direct",
@@ -12362,7 +12646,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 2,
+      "repeat_distress_owner": true,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6821719",
@@ -12391,7 +12678,9 @@
         "Absentee owner",
         "Out-of-state owner",
         "\ud83c\udfaf Subject-To Candidate",
-        "\u2b50 Prime Subject-To"
+        "\u2b50 Prime Subject-To",
+        "Owns 2+ properties",
+        "Repeat distress owner"
       ],
       "score": 100,
       "match_method": "tax_delinquent_direct",
@@ -12496,7 +12785,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 2,
+      "repeat_distress_owner": true,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6822980",
@@ -12630,7 +12922,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6823162",
@@ -12764,7 +13059,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6824344",
@@ -12898,7 +13196,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6824741",
@@ -12927,7 +13228,9 @@
         "Absentee owner",
         "Out-of-state owner",
         "\ud83c\udfaf Subject-To Candidate",
-        "\u2b50 Prime Subject-To"
+        "\u2b50 Prime Subject-To",
+        "Owns 2+ properties",
+        "Repeat distress owner"
       ],
       "score": 100,
       "match_method": "tax_delinquent_direct",
@@ -13028,7 +13331,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 2,
+      "repeat_distress_owner": true,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6825519",
@@ -13162,7 +13468,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6826560",
@@ -13296,7 +13605,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6827351",
@@ -13325,7 +13637,9 @@
         "Absentee owner",
         "Out-of-state owner",
         "\ud83c\udfaf Subject-To Candidate",
-        "\u2b50 Prime Subject-To"
+        "\u2b50 Prime Subject-To",
+        "Owns 2+ properties",
+        "Repeat distress owner"
       ],
       "score": 100,
       "match_method": "tax_delinquent_direct",
@@ -13430,7 +13744,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 2,
+      "repeat_distress_owner": true,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6827471",
@@ -13564,7 +13881,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6827639",
@@ -13698,7 +14018,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6827703",
@@ -13832,7 +14155,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6828250",
@@ -13966,7 +14292,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6828379",
@@ -14100,7 +14429,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6830306",
@@ -14234,7 +14566,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6830604",
@@ -14368,7 +14703,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6831533",
@@ -14502,7 +14840,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6831598",
@@ -14636,7 +14977,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6831718",
@@ -14770,7 +15114,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6831847",
@@ -14904,7 +15251,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6832093",
@@ -15038,7 +15388,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6833076",
@@ -15172,7 +15525,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6833428",
@@ -15306,7 +15662,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6833584",
@@ -15440,7 +15799,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6835513",
@@ -15469,7 +15831,9 @@
         "Absentee owner",
         "Out-of-state owner",
         "\ud83c\udfaf Subject-To Candidate",
-        "\u2b50 Prime Subject-To"
+        "\u2b50 Prime Subject-To",
+        "Owns 2+ properties",
+        "Repeat distress owner"
       ],
       "score": 100,
       "match_method": "tax_delinquent_direct",
@@ -15570,7 +15934,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 2,
+      "repeat_distress_owner": true,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6835641",
@@ -15704,7 +16071,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6837552",
@@ -15838,7 +16208,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6837584",
@@ -15972,7 +16345,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6837968",
@@ -16106,7 +16482,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6837991",
@@ -16240,7 +16619,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6839491",
@@ -16374,7 +16756,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6840440",
@@ -16508,7 +16893,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6842342",
@@ -16642,7 +17030,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6842499",
@@ -16776,7 +17167,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6700212",
@@ -16910,7 +17304,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6701970",
@@ -17044,7 +17441,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6701982",
@@ -17073,7 +17473,9 @@
         "Absentee owner",
         "Out-of-state owner",
         "\ud83c\udfaf Subject-To Candidate",
-        "\u2b50 Prime Subject-To"
+        "\u2b50 Prime Subject-To",
+        "Owns 2+ properties",
+        "Repeat distress owner"
       ],
       "score": 100,
       "match_method": "tax_delinquent_direct",
@@ -17174,7 +17576,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 2,
+      "repeat_distress_owner": true,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6703342",
@@ -17308,7 +17713,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6703809",
@@ -17442,7 +17850,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6704231",
@@ -17576,7 +17987,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6704764",
@@ -17710,7 +18124,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6705052",
@@ -17844,7 +18261,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6705992",
@@ -17978,7 +18398,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6706351",
@@ -18112,7 +18535,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6706680",
@@ -18246,7 +18672,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6706786",
@@ -18380,7 +18809,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6706997",
@@ -18514,7 +18946,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6707081",
@@ -18648,7 +19083,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6707100",
@@ -18782,7 +19220,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6707946",
@@ -18916,7 +19357,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6711362",
@@ -19050,7 +19494,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6712313",
@@ -19184,7 +19631,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6712475",
@@ -19318,7 +19768,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6713334",
@@ -19452,7 +19905,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6713788",
@@ -19586,7 +20042,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6713795",
@@ -19712,7 +20171,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6714170",
@@ -19846,7 +20308,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6714635",
@@ -19980,7 +20445,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6715978",
@@ -20114,7 +20582,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6717598",
@@ -20248,7 +20719,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6717713",
@@ -20382,7 +20856,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6718514",
@@ -20516,7 +20993,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6718843",
@@ -20650,7 +21130,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6718852",
@@ -20784,7 +21267,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6720207",
@@ -20918,7 +21404,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6720835",
@@ -21052,7 +21541,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6721136",
@@ -21186,7 +21678,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6721650",
@@ -21320,7 +21815,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6722278",
@@ -21454,7 +21952,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6722601",
@@ -21588,7 +22089,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6722924",
@@ -21722,7 +22226,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6724232",
@@ -21856,7 +22363,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6724414",
@@ -21990,7 +22500,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6725858",
@@ -22116,7 +22629,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6727302",
@@ -22250,7 +22766,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6728033",
@@ -22384,7 +22903,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6728048",
@@ -22518,7 +23040,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6729727",
@@ -22652,7 +23177,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6730174",
@@ -22778,7 +23306,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6730967",
@@ -22904,7 +23435,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6731260",
@@ -23030,7 +23564,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6731761",
@@ -23156,7 +23693,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6732275",
@@ -23282,7 +23822,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6732669",
@@ -23311,7 +23854,9 @@
         "Absentee owner",
         "Out-of-state owner",
         "\ud83c\udfaf Subject-To Candidate",
-        "\u2b50 Prime Subject-To"
+        "\u2b50 Prime Subject-To",
+        "Owns 2+ properties",
+        "Repeat distress owner"
       ],
       "score": 100,
       "match_method": "tax_delinquent_direct",
@@ -23408,7 +23953,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 2,
+      "repeat_distress_owner": true,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6733324",
@@ -23534,7 +24082,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6733856",
@@ -23660,7 +24211,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6735463",
@@ -23786,7 +24340,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6735871",
@@ -23912,7 +24469,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6736754",
@@ -24038,7 +24598,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6737210",
@@ -24164,7 +24727,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6737261",
@@ -24290,7 +24856,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6738755",
@@ -24416,7 +24985,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6740714",
@@ -24542,7 +25114,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6741660",
@@ -24668,7 +25243,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-0101483",
@@ -24794,7 +25372,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-0103233",
@@ -24920,7 +25501,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-0108688",
@@ -25046,7 +25630,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-0108976",
@@ -25172,7 +25759,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-1504562",
@@ -25298,7 +25888,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-1902668",
@@ -25424,7 +26017,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-1904346",
@@ -25550,7 +26146,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-1907719",
@@ -25676,7 +26275,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-5108201",
@@ -25802,7 +26404,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6802831",
@@ -25927,7 +26532,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6807394",
@@ -26052,7 +26660,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6811352",
@@ -26185,7 +26796,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6816049",
@@ -26310,7 +26924,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6816258",
@@ -26435,7 +27052,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6816392",
@@ -26560,7 +27180,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6826959",
@@ -26685,7 +27308,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6827131",
@@ -26810,7 +27436,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6829941",
@@ -26935,7 +27564,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6836180",
@@ -27060,7 +27692,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6836987",
@@ -27193,7 +27828,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6838135",
@@ -27326,7 +27964,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6700537",
@@ -27451,7 +28092,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6701985",
@@ -27576,7 +28220,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6712259",
@@ -27701,7 +28348,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6718947",
@@ -27826,7 +28476,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6722005",
@@ -27951,7 +28604,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6722469",
@@ -28076,7 +28732,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6723987",
@@ -28201,7 +28860,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6725856",
@@ -28326,7 +28988,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6726584",
@@ -28451,7 +29116,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6727005",
@@ -28576,7 +29244,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6730202",
@@ -28701,7 +29372,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6735456",
@@ -28826,7 +29500,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6737960",
@@ -28951,7 +29628,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6738450",
@@ -29076,7 +29756,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6738986",
@@ -29201,7 +29884,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6739895",
@@ -29326,7 +30012,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6740133",
@@ -29451,7 +30140,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6740263",
@@ -29576,7 +30268,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-6740753",
@@ -29701,7 +30396,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-2817244",
@@ -29825,7 +30523,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-2817248",
@@ -29949,7 +30650,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "TAX-2305627",
@@ -30069,7 +30773,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "VHOME-6723306",
@@ -30188,7 +30895,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "VHOME-6807445",
@@ -30307,7 +31017,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     }
   ]
 }

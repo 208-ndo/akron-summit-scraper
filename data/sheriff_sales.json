@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-16T12:59:32.400108+00:00",
+  "fetched_at": "2026-06-16T14:23:36.329363+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "sheriff_sales",
   "description": "\u26a1 Properties scheduled for sheriff auction \u2014 days from losing everything",
@@ -43,9 +43,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "foreclosure",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -133,7 +133,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2026 01 0398",
@@ -173,9 +176,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "foreclosure",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -263,7 +266,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 03 1467",
@@ -302,9 +308,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "foreclosure",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -392,7 +398,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2026 01 0144",
@@ -431,9 +440,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "foreclosure",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -521,7 +530,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 12 5813",
@@ -561,9 +573,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "foreclosure",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -651,7 +663,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 09 4329",
@@ -692,9 +707,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "foreclosure",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -782,7 +797,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2024 08 3643",
@@ -908,7 +926,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 08 3718",
@@ -1034,7 +1055,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 08 3785",
@@ -1160,7 +1184,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 10 5075",
@@ -1286,7 +1313,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 09 4578",
@@ -1412,7 +1442,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 02 0817",
@@ -1538,7 +1571,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2026 01 0410",
@@ -1664,7 +1700,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2024 06 2692",
@@ -1790,7 +1829,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2024 04 1614",
@@ -1916,7 +1958,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 12 6022",
@@ -2042,7 +2087,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2024 11 5017",
@@ -2168,7 +2216,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 03 1061",
@@ -2295,7 +2346,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2019 05 1770",
@@ -2422,7 +2476,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 09 4168",
@@ -2549,7 +2606,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 03 1388",
@@ -2676,7 +2736,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2026 01 0084",
@@ -2801,7 +2864,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2022 03 0957",
@@ -2926,7 +2992,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2026 02 0504",
@@ -3051,7 +3120,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 09 4482",
@@ -3176,7 +3248,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 03 1396",
@@ -3301,7 +3376,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2026 01 0038",
@@ -3426,7 +3504,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 04 1780",
@@ -3551,7 +3632,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2026 01 0148",
@@ -3676,7 +3760,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 08 3888",
@@ -3802,7 +3889,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2024 10 4409",
@@ -3927,7 +4017,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 06 2488",
@@ -4052,7 +4145,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 07 2989",
@@ -4177,7 +4273,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 12 5761",
@@ -4302,7 +4401,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 10 4831",
@@ -4428,7 +4530,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 11 5622",
@@ -4554,7 +4659,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 10 5215",
@@ -4680,7 +4788,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 11 5438",
@@ -4806,7 +4917,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 10 4741",
@@ -4932,7 +5046,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 12 5776",
@@ -5057,7 +5174,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 12 6092",
@@ -5182,7 +5302,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 10 5150",
@@ -5307,7 +5430,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 05 2041",
@@ -5432,7 +5558,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2026 02 0687",
@@ -5557,7 +5686,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2026 01 0201",
@@ -5682,7 +5814,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2024 12 5258",
@@ -5807,7 +5942,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2024 12 5569",
@@ -5932,7 +6070,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2024 12 5563",
@@ -6057,7 +6198,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 08 3696",
@@ -6182,7 +6326,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 06 2537",
@@ -6307,7 +6454,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 10 4905",
@@ -6433,7 +6583,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 12 5904",
@@ -6559,7 +6712,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 07 3277",
@@ -6685,7 +6841,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 03 1251",
@@ -6811,7 +6970,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 10 4820",
@@ -6938,7 +7100,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 05 2363",
@@ -7064,7 +7229,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 02 0736",
@@ -7190,7 +7358,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2025 07 3462",
@@ -7314,7 +7485,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "CV2008 07 5264",
@@ -7439,7 +7613,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     },
     {
       "doc_num": "2025 CVG 04866",
@@ -7564,7 +7741,10 @@
       "rental_complaint_total_count": 0,
       "landlord_pain": false,
       "tired_landlord_plus": false,
-      "tired_landlord_reasons": []
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
     }
   ]
 }

@@ -114,7 +114,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "CODEVIOLATION-6102",
@@ -231,7 +234,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "CODEVIOLATION-6124",
@@ -348,7 +354,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "CODEVIOLATION-6125",
@@ -465,7 +474,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "CODEVIOLATION-6126",
@@ -582,7 +594,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "CODEVIOLATION-6127",
@@ -699,7 +714,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "CODEVIOLATION-6128",
@@ -816,7 +834,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "CODEVIOLATION-6129",
@@ -933,7 +954,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "CODEVIOLATION-6130",
@@ -1050,7 +1074,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "CODEVIOLATION-6131",
@@ -1167,7 +1194,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "CODEVIOLATION-6132",
@@ -1284,7 +1314,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "CODEVIOLATION-6133",
@@ -1401,7 +1434,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "CODEVIOLATION-6134",
@@ -1518,7 +1554,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "CODEVIOLATION-6135",
@@ -1635,7 +1674,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "CODEVIOLATION-0547",
@@ -1752,7 +1794,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "CODEVIOLATION-0548",
@@ -1869,7 +1914,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "CODEVIOLATION-6136",
@@ -1986,7 +2034,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "CODEVIOLATION-6137",
@@ -2103,7 +2154,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "CODEVIOLATION-6138",
@@ -2220,7 +2274,10 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   },
   {
     "doc_num": "CODEVIOLATION-6139",
@@ -2337,6 +2394,9 @@
     "rental_complaint_total_count": 0,
     "landlord_pain": false,
     "tired_landlord_plus": false,
-    "tired_landlord_reasons": []
+    "tired_landlord_reasons": [],
+    "owner_property_count": 0,
+    "repeat_distress_owner": false,
+    "portfolio_owner": false
   }
 ]
