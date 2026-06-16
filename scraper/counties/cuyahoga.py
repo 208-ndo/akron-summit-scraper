@@ -1648,6 +1648,26 @@ def apply_owner_portfolio_flags(records: list[dict]) -> None:
                 add_unique(record, "flags", ["Portfolio owner"])
                 add_unique(record, "tags", ["Portfolio owner"])
 
+def apply_property_auction_dates(records: list[dict]) -> None:
+    sale_by_property = {}
+    for record in records:
+        prop = property_portfolio_key(record)
+        sale_date = str(record.get("sheriff_sale_date") or "").strip()
+        if not prop or not sale_date:
+            continue
+        if prop not in sale_by_property or sale_date < str(sale_by_property[prop].get("sheriff_sale_date") or ""):
+            sale_by_property[prop] = record
+    for record in records:
+        if record.get("sheriff_sale_date"):
+            continue
+        source = sale_by_property.get(property_portfolio_key(record))
+        if not source:
+            continue
+        record["sheriff_sale_date"] = source.get("sheriff_sale_date")
+        record["auction_days_until"] = source.get("auction_days_until")
+        record["auction_countdown"] = source.get("auction_countdown")
+        record["auction_urgency"] = source.get("auction_urgency")
+
 
 def has_distress(record: dict) -> bool:
     text = " ".join(
@@ -1787,6 +1807,7 @@ def expand_stacks(limit: int, owner_limit: int, violation_limit: int = 5000, pro
         property_counts[status] = property_counts.get(status, 0) + 1
 
     records = list(merged.values())
+    apply_property_auction_dates(records)
     apply_owner_portfolio_flags(records)
     for record in records:
         apply_stack_tags(record)

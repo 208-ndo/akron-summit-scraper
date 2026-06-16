@@ -3823,6 +3823,8 @@ def cross_stack_by_address(records: List[LeadRecord]) -> List[LeadRecord]:
         all_sources: set = set()
         all_flags: set = set()
         all_doc_types: set = set()
+        sale_records = [records[i] for i in idxs if records[i].sheriff_sale_date]
+        sale_record = sorted(sale_records,key=lambda rec:rec.sheriff_sale_date)[0] if sale_records else None
         for i in idxs:
             r = records[i]
             all_sources.update(r.distress_sources or [])
@@ -3856,6 +3858,12 @@ def cross_stack_by_address(records: List[LeadRecord]) -> List[LeadRecord]:
 
             if any(s in all_sources for s in ["foreclosure","lis_pendens","sheriff_sale"]):
                 if "In foreclosure" not in r.flags: r.flags.append("In foreclosure")
+            if sale_record and not r.sheriff_sale_date:
+                r.sheriff_sale_date = sale_record.sheriff_sale_date
+                r.auction_days_until = sale_record.auction_days_until
+                r.auction_countdown = sale_record.auction_countdown
+                r.auction_urgency = sale_record.auction_urgency
+                r = apply_auction_countdown(r)
 
             r = estimate_mortgage_data(r)
             r.score = score_record(r)

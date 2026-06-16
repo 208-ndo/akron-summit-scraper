@@ -1083,6 +1083,31 @@ function applyOwnerPortfolioFlags(records){
   return records;
 }
 
+function propertyAuctionKey(r){
+  return String(r.parcel_id||normalizePropertyAddress(r.prop_address||r.property_address||'')).trim().toUpperCase();
+}
+
+function applyPropertyAuctionDates(records){
+  const saleByProperty={};
+  (records||[]).forEach(r=>{
+    const key=propertyAuctionKey(r);
+    if(!key||!r.sheriff_sale_date)return;
+    if(!saleByProperty[key]||String(r.sheriff_sale_date)<String(saleByProperty[key].sheriff_sale_date)){
+      saleByProperty[key]=r;
+    }
+  });
+  (records||[]).forEach(r=>{
+    if(r.sheriff_sale_date)return;
+    const source=saleByProperty[propertyAuctionKey(r)];
+    if(!source)return;
+    r.sheriff_sale_date=source.sheriff_sale_date;
+    r.auction_days_until=source.auction_days_until;
+    r.auction_countdown=source.auction_countdown;
+    r.auction_urgency=source.auction_urgency;
+  });
+  return records;
+}
+
 function applyDerivedLeadFields(r){
   const normalized=normalizeTraceRecord(r);
   Object.assign(r,normalized);
@@ -1861,11 +1886,11 @@ async function loadSelectedCountyRecords(){
     const loaded=await Promise.all(enabled.map(([key])=>loadCountyRecords(key)));
     const merged=loaded.flat();
     console.info('County data health',countyHealth);
-    return applyOwnerPortfolioFlags(merged);
+    return applyOwnerPortfolioFlags(applyPropertyAuctionDates(merged));
   }
   const records=await loadCountyRecords(curCounty||DEFAULT_COUNTY_KEY);
   console.info('County data health',countyHealth);
-  return applyOwnerPortfolioFlags(records);
+  return applyOwnerPortfolioFlags(applyPropertyAuctionDates(records));
 }
 
 async function loadCashBuyerRecords(){
