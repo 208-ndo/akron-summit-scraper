@@ -1,10 +1,10 @@
 {
   "matched": 0,
-  "unmatched": 90,
-  "with_address": 1,
+  "unmatched": 85,
+  "with_address": 0,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 90
+    "unmatched": 85
   },
   "sample_unmatched": [
     {
@@ -30,10 +30,6 @@
     {
       "doc_num": "GRENFELL 06",
       "owner": "John G Grenfell"
-    },
-    {
-      "doc_num": "COMPHER 06",
-      "owner": "Marc Compher"
     },
     {
       "doc_num": "2026 AT 10",
@@ -106,8 +102,12 @@
     {
       "doc_num": "2026 AT 10",
       "owner": ""
+    },
+    {
+      "doc_num": "2026 AT 10",
+      "owner": ""
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-06-15T23:21:18.672228+00:00"
+  "generated_at": "2026-06-16T12:59:36.938072+00:00"
 }
