@@ -398,6 +398,7 @@
     <option value="Inherited">🏛 Inherited</option>
     <option value="Subject-To">🎯 Subject-To</option>
     <option value="New this week">🆕 New This Week</option>
+    <option value="Owns 2+ properties">Owner Owns Multiple</option>
     <option value="Tired Landlord">Tired Landlord</option>
     <option value="Cash Buyer">Cash Buyer</option>
     <option value="Eviction filed">🚪 Eviction</option>
@@ -1044,6 +1045,42 @@ function isTiredLandlordLead(r){
     signals.has('tax_delinquent') ||
     signals.has('vacant_home');
   return signals.has('eviction') || ((hasAbsenteePressure || hasLandlordEntity) && hasRentalPain);
+}
+
+function ownerPortfolioKey(r){
+  const owner=String(r.owner||r.owner_name||r.traced_owner_name||'').trim();
+  const key=owner.toUpperCase().replace(/\b(ET AL|AKA|UNKNOWN|OWNER|TRUSTEE|THE|OF)\b/g,' ').replace(/[^A-Z0-9]+/g,' ').replace(/\s+/g,' ').trim();
+  if(!key||key.length<5||key==='UNKNOWN')return '';
+  return key;
+}
+
+function propertyPortfolioKey(r){
+  return String(r.parcel_id||normalizePropertyAddress(r.prop_address||r.property_address||'')).trim().toUpperCase();
+}
+
+function applyOwnerPortfolioFlags(records){
+  const groups={};
+  (records||[]).forEach(r=>{
+    const ownerKey=ownerPortfolioKey(r);
+    const propertyKey=propertyPortfolioKey(r);
+    if(!ownerKey||!propertyKey)return;
+    if(!groups[ownerKey])groups[ownerKey]={properties:new Set(),records:[]};
+    groups[ownerKey].properties.add(propertyKey);
+    groups[ownerKey].records.push(r);
+  });
+  Object.values(groups).forEach(group=>{
+    const count=group.properties.size;
+    if(count<2)return;
+    group.records.forEach(r=>{
+      r.owner_property_count=count;
+      r.flags=uniqueList([...(r.flags||[]),'Owns 2+ properties','Repeat distress owner']);
+      if(count>=5){
+        r.portfolio_owner=true;
+        r.flags=uniqueList([...(r.flags||[]),'Portfolio owner']);
+      }
+    });
+  });
+  return records;
 }
 
 function applyDerivedLeadFields(r){
@@ -1824,11 +1861,11 @@ async function loadSelectedCountyRecords(){
     const loaded=await Promise.all(enabled.map(([key])=>loadCountyRecords(key)));
     const merged=loaded.flat();
     console.info('County data health',countyHealth);
-    return merged;
+    return applyOwnerPortfolioFlags(merged);
   }
   const records=await loadCountyRecords(curCounty||DEFAULT_COUNTY_KEY);
   console.info('County data health',countyHealth);
-  return records;
+  return applyOwnerPortfolioFlags(records);
 }
 
 async function loadCashBuyerRecords(){

@@ -199,6 +199,9 @@ class LeadRecord:
     landlord_pain:bool=False
     tired_landlord_plus:bool=False
     tired_landlord_reasons:List[str]=field(default_factory=list)
+    owner_property_count:int=0
+    repeat_distress_owner:bool=False
+    portfolio_owner:bool=False
 
 
 @dataclass
@@ -2565,6 +2568,43 @@ def build_parcel_indexes()->Tuple[Dict,Dict,Dict,List[dict],Dict[str,dict],Dict[
 def buyer_group_key(owner:str)->str:
     return re.sub(r"[^A-Z0-9]+"," ",normalize_name(owner)).strip()
 
+def owner_portfolio_key(owner:str)->str:
+    key=buyer_group_key(owner)
+    key=re.sub(r"\b(ET AL|AKA|UNKNOWN|OWNER|TRUSTEE|THE|OF)\b"," ",key)
+    key=re.sub(r"\s+"," ",key).strip()
+    if not key or len(key)<5 or key=="UNKNOWN":
+        return ""
+    return key
+
+def property_portfolio_key(record:"LeadRecord")->str:
+    return clean_text(record.parcel_id) or normalize_address_key(record.prop_address)
+
+def apply_owner_portfolio_flags(records:List[LeadRecord])->List[LeadRecord]:
+    groups=defaultdict(lambda:{"properties":set(),"records":[]})
+    for record in records:
+        owner_key=owner_portfolio_key(record.owner or record.traced_owner_name)
+        prop_key=property_portfolio_key(record)
+        if not owner_key or not prop_key:
+            continue
+        groups[owner_key]["properties"].add(prop_key)
+        groups[owner_key]["records"].append(record)
+    for group in groups.values():
+        count=len(group["properties"])
+        if count<2:
+            continue
+        for record in group["records"]:
+            record.owner_property_count=count
+            record.repeat_distress_owner=True
+            if "Owns 2+ properties" not in record.flags:
+                record.flags.append("Owns 2+ properties")
+            if "Repeat distress owner" not in record.flags:
+                record.flags.append("Repeat distress owner")
+            if count>=5:
+                record.portfolio_owner=True
+                if "Portfolio owner" not in record.flags:
+                    record.flags.append("Portfolio owner")
+    return records
+
 def excluded_cash_buyer_name(owner:str)->bool:
     key=buyer_group_key(owner)
     return any(x in key for x in [
@@ -4437,6 +4477,7 @@ async def main():
 
     # 12. Dedupe + sort
     all_records=dedupe_records(all_records)
+    all_records=apply_owner_portfolio_flags(all_records)
     all_records.sort(
         key=lambda r:(r.doc_type=="SHERIFF",r.hot_stack,r.distress_count,r.subject_to_score,r.score,r.filed),
         reverse=True

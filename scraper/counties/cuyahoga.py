@@ -1621,6 +1621,33 @@ def apply_stack_tags(record: dict) -> None:
         add_unique(record, "flags", ["Cuyahoga Hot Stack"])
         add_unique(record, "tags", ["Cuyahoga Hot Stack"])
 
+def property_portfolio_key(record: dict) -> str:
+    return clean_parcel(record.get("parcel_id")) or normalize_address(record.get("property_address") or record.get("prop_address") or "")
+
+def apply_owner_portfolio_flags(records: list[dict]) -> None:
+    groups = {}
+    for record in records:
+        owner = normalize_owner_key(record.get("owner_name") or record.get("owner"))
+        prop = property_portfolio_key(record)
+        if len(owner) < 5 or not prop or owner == "UNKNOWN":
+            continue
+        groups.setdefault(owner, {"properties": set(), "records": []})
+        groups[owner]["properties"].add(prop)
+        groups[owner]["records"].append(record)
+    for group in groups.values():
+        count = len(group["properties"])
+        if count < 2:
+            continue
+        for record in group["records"]:
+            record["owner_property_count"] = count
+            record["repeat_distress_owner"] = True
+            add_unique(record, "flags", ["Owns 2+ properties", "Repeat distress owner"])
+            add_unique(record, "tags", ["Owns 2+ properties", "Repeat distress owner"])
+            if count >= 5:
+                record["portfolio_owner"] = True
+                add_unique(record, "flags", ["Portfolio owner"])
+                add_unique(record, "tags", ["Portfolio owner"])
+
 
 def has_distress(record: dict) -> bool:
     text = " ".join(
@@ -1760,6 +1787,7 @@ def expand_stacks(limit: int, owner_limit: int, violation_limit: int = 5000, pro
         property_counts[status] = property_counts.get(status, 0) + 1
 
     records = list(merged.values())
+    apply_owner_portfolio_flags(records)
     for record in records:
         apply_stack_tags(record)
 
