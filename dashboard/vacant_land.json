@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-17T00:18:20.310493+00:00",
+  "fetched_at": "2026-06-17T01:14:42.864392+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "vacant_land",
   "description": "\ud83c\udf3f Distressed vacant infill lots \u22642ac \u2014 tax delinquent or in foreclosure",
@@ -27,6 +27,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Call First",
         "Vacant land",
         "Infill lot",
         "\ud83d\udd25 In foreclosure",
@@ -41,9 +42,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
+        "foreclosure",
         "tax_delinquent",
-        "foreclosure"
+        "vacant_land"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -152,6 +153,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Call First",
         "Vacant land",
         "Infill lot",
         "\ud83d\udd25 In foreclosure",
@@ -166,9 +168,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
+        "foreclosure",
         "tax_delinquent",
-        "foreclosure"
+        "vacant_land"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -277,6 +279,7 @@
       "mail_zip": "L16680",
       "clerk_url": "",
       "flags": [
+        "Research More",
         "Vacant land",
         "Infill lot",
         "Tax delinquent",
@@ -290,8 +293,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
-        "tax_delinquent"
+        "tax_delinquent",
+        "vacant_land"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -400,6 +403,7 @@
       "mail_zip": "S00965",
       "clerk_url": "",
       "flags": [
+        "Research More",
         "Vacant land",
         "Infill lot",
         "Tax delinquent",
@@ -522,6 +526,7 @@
       "mail_zip": "S00965",
       "clerk_url": "",
       "flags": [
+        "Research More",
         "Vacant land",
         "Infill lot",
         "Tax delinquent",
@@ -644,6 +649,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Research More",
         "Vacant land",
         "Infill lot",
         "Tax delinquent",
@@ -766,6 +772,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Research More",
         "Vacant land",
         "Infill lot",
         "Tax delinquent",
@@ -888,6 +895,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Research More",
         "Vacant land",
         "Infill lot",
         "Tax delinquent",
@@ -1010,6 +1018,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Call First",
         "Vacant land",
         "Infill lot",
         "\ud83d\udd25 In foreclosure",
@@ -1024,8 +1033,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1134,6 +1143,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Call First",
         "Vacant land",
         "Infill lot",
         "\ud83d\udd25 In foreclosure",
@@ -1148,8 +1158,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1258,6 +1268,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Call First",
         "Vacant land",
         "Infill lot",
         "\ud83d\udd25 In foreclosure",
@@ -1271,8 +1282,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "foreclosure"
+        "foreclosure",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1381,6 +1392,7 @@
       "mail_zip": "R01019",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -1499,6 +1511,7 @@
       "mail_zip": "S28338",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -1617,6 +1630,7 @@
       "mail_zip": "S25947",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -1735,6 +1749,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -1853,6 +1868,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -1971,6 +1987,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -2089,6 +2106,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -2207,6 +2225,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -2325,6 +2344,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -2443,6 +2463,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -2561,6 +2582,7 @@
       "mail_zip": "D07642",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -2679,6 +2701,7 @@
       "mail_zip": "D07642",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -2797,6 +2820,7 @@
       "mail_zip": "P23418",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -2915,6 +2939,7 @@
       "mail_zip": "R24761",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -3033,6 +3058,7 @@
       "mail_zip": "C38236",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -3151,6 +3177,7 @@
       "mail_zip": "R01005",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -3269,6 +3296,7 @@
       "mail_zip": "G10653",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -3387,6 +3415,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -3505,6 +3534,7 @@
       "mail_zip": "S28338",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -3623,6 +3653,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -3741,6 +3772,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -3859,6 +3891,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -3977,6 +4010,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -4095,6 +4129,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -4213,6 +4248,7 @@
       "mail_zip": "J01097",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -4331,6 +4367,7 @@
       "mail_zip": "L35601",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -4449,6 +4486,7 @@
       "mail_zip": "L35601",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -4567,6 +4605,7 @@
       "mail_zip": "S25888",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -4685,6 +4724,7 @@
       "mail_zip": "S25888",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -4803,6 +4843,7 @@
       "mail_zip": "S25888",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -4921,6 +4962,7 @@
       "mail_zip": "P77887",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -5039,6 +5081,7 @@
       "mail_zip": "P77887",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -5157,6 +5200,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -5275,6 +5319,7 @@
       "mail_zip": "M19076",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -5393,6 +5438,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -5511,6 +5557,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -5629,6 +5676,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -5747,6 +5795,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -5865,6 +5914,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -5983,6 +6033,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -6101,6 +6152,7 @@
       "mail_zip": "P22083",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -6219,6 +6271,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -6337,6 +6390,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -6455,6 +6509,7 @@
       "mail_zip": "W51511",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -6573,6 +6628,7 @@
       "mail_zip": "W51511",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -6691,6 +6747,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -6809,6 +6866,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -6927,6 +6985,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -7045,6 +7104,7 @@
       "mail_zip": "W31292",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -7163,6 +7223,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -7281,6 +7342,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -7399,6 +7461,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -7517,6 +7580,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -7635,6 +7699,7 @@
       "mail_zip": "M51050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -7753,6 +7818,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -7871,6 +7937,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -7989,6 +8056,7 @@
       "mail_zip": "P05820",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -8107,6 +8175,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -8225,6 +8294,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -8343,6 +8413,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -8461,6 +8532,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -8579,6 +8651,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -8697,6 +8770,7 @@
       "mail_zip": "R24834",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -8815,6 +8889,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -8933,6 +9008,7 @@
       "mail_zip": "B03693",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -9051,6 +9127,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -9169,6 +9246,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -9287,6 +9365,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -9405,6 +9484,7 @@
       "mail_zip": "B02608",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -9523,6 +9603,7 @@
       "mail_zip": "B02608",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -9641,6 +9722,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -9759,6 +9841,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -9877,6 +9960,7 @@
       "mail_zip": "P22010",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -9995,6 +10079,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -10113,6 +10198,7 @@
       "mail_zip": "F50942",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -10231,6 +10317,7 @@
       "mail_zip": "F50942",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -10349,6 +10436,7 @@
       "mail_zip": "F50942",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -10467,6 +10555,7 @@
       "mail_zip": "F50942",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -10585,6 +10674,7 @@
       "mail_zip": "F50942",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -10703,6 +10793,7 @@
       "mail_zip": "F50942",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -10821,6 +10912,7 @@
       "mail_zip": "F50942",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -10939,6 +11031,7 @@
       "mail_zip": "F50942",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -11057,6 +11150,7 @@
       "mail_zip": "F50942",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -11175,6 +11269,7 @@
       "mail_zip": "F50942",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -11293,6 +11388,7 @@
       "mail_zip": "F50942",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -11411,6 +11507,7 @@
       "mail_zip": "F50942",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -11529,6 +11626,7 @@
       "mail_zip": "F50942",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -11647,6 +11745,7 @@
       "mail_zip": "F50942",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -11765,6 +11864,7 @@
       "mail_zip": "F50942",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -11883,6 +11983,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -12001,6 +12102,7 @@
       "mail_zip": "F37633",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -12119,6 +12221,7 @@
       "mail_zip": "F37633",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -12237,6 +12340,7 @@
       "mail_zip": "F37633",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -12355,6 +12459,7 @@
       "mail_zip": "F37633",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -12473,6 +12578,7 @@
       "mail_zip": "F37633",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -12591,6 +12697,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -12709,6 +12816,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -12827,6 +12935,7 @@
       "mail_zip": "F37633",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -12945,6 +13054,7 @@
       "mail_zip": "F37633",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -13063,6 +13173,7 @@
       "mail_zip": "H38982",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -13181,6 +13292,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -13299,6 +13411,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -13417,6 +13530,7 @@
       "mail_zip": "C06963",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -13535,6 +13649,7 @@
       "mail_zip": "C06963",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -13653,6 +13768,7 @@
       "mail_zip": "C06963",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -13771,6 +13887,7 @@
       "mail_zip": "C06963",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -13889,6 +14006,7 @@
       "mail_zip": "C06963",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -14007,6 +14125,7 @@
       "mail_zip": "C06963",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -14125,6 +14244,7 @@
       "mail_zip": "C06963",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -14243,6 +14363,7 @@
       "mail_zip": "C06963",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -14361,6 +14482,7 @@
       "mail_zip": "C06963",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -14479,6 +14601,7 @@
       "mail_zip": "C06963",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -14597,6 +14720,7 @@
       "mail_zip": "C06963",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -14715,6 +14839,7 @@
       "mail_zip": "C06963",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -14833,6 +14958,7 @@
       "mail_zip": "C06963",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -14951,6 +15077,7 @@
       "mail_zip": "C06963",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -15069,6 +15196,7 @@
       "mail_zip": "C06963",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -15187,6 +15315,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -15305,6 +15434,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -15423,6 +15553,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -15541,6 +15672,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -15659,6 +15791,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -15777,6 +15910,7 @@
       "mail_zip": "W00475",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -15895,6 +16029,7 @@
       "mail_zip": "P23522",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -16013,6 +16148,7 @@
       "mail_zip": "P23522",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -16131,6 +16267,7 @@
       "mail_zip": "P23522",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -16249,6 +16386,7 @@
       "mail_zip": "P23522",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -16367,6 +16505,7 @@
       "mail_zip": "P23522",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -16485,6 +16624,7 @@
       "mail_zip": "P23522",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -16603,6 +16743,7 @@
       "mail_zip": "E08864",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -16721,6 +16862,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -16839,6 +16981,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -16957,6 +17100,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -17075,6 +17219,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -17193,6 +17338,7 @@
       "mail_zip": "H51015",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -17311,6 +17457,7 @@
       "mail_zip": "K50301",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -17429,6 +17576,7 @@
       "mail_zip": "K50301",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -17547,6 +17695,7 @@
       "mail_zip": "K50301",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -17665,6 +17814,7 @@
       "mail_zip": "K50301",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -17783,6 +17933,7 @@
       "mail_zip": "S37606",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -17901,6 +18052,7 @@
       "mail_zip": "K50301",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -18019,6 +18171,7 @@
       "mail_zip": "K50301",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -18137,6 +18290,7 @@
       "mail_zip": "K50301",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -18255,6 +18409,7 @@
       "mail_zip": "K50301",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -18373,6 +18528,7 @@
       "mail_zip": "K50301",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -18491,6 +18647,7 @@
       "mail_zip": "K50301",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -18609,6 +18766,7 @@
       "mail_zip": "S37606",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -18727,6 +18885,7 @@
       "mail_zip": "S37606",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -18845,6 +19004,7 @@
       "mail_zip": "R24236",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -18963,6 +19123,7 @@
       "mail_zip": "R24236",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -19081,6 +19242,7 @@
       "mail_zip": "R24236",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -19199,6 +19361,7 @@
       "mail_zip": "R24236",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -19317,6 +19480,7 @@
       "mail_zip": "R24236",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -19435,6 +19599,7 @@
       "mail_zip": "K50301",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -19553,6 +19718,7 @@
       "mail_zip": "K50301",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -19671,6 +19837,7 @@
       "mail_zip": "K50301",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -19789,6 +19956,7 @@
       "mail_zip": "K50301",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -19907,6 +20075,7 @@
       "mail_zip": "K50301",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -20025,6 +20194,7 @@
       "mail_zip": "R24236",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -20143,6 +20313,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -20261,6 +20432,7 @@
       "mail_zip": "R24236",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -20379,6 +20551,7 @@
       "mail_zip": "R24236",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -20497,6 +20670,7 @@
       "mail_zip": "R24236",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -20615,6 +20789,7 @@
       "mail_zip": "C79467",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -20733,6 +20908,7 @@
       "mail_zip": "C79467",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -20851,6 +21027,7 @@
       "mail_zip": "C79467",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -20969,6 +21146,7 @@
       "mail_zip": "W51535",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -21087,6 +21265,7 @@
       "mail_zip": "W51535",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -21205,6 +21384,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -21323,6 +21503,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -21441,6 +21622,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -21559,6 +21741,7 @@
       "mail_zip": "W51535",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -21677,6 +21860,7 @@
       "mail_zip": "L37605",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -21795,6 +21979,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -21913,6 +22098,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -22031,6 +22217,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -22149,6 +22336,7 @@
       "mail_zip": "C37185",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -22267,6 +22455,7 @@
       "mail_zip": "R14789",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -22385,6 +22574,7 @@
       "mail_zip": "R14789",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -22503,6 +22693,7 @@
       "mail_zip": "R14789",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -22621,6 +22812,7 @@
       "mail_zip": "R14789",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -22739,6 +22931,7 @@
       "mail_zip": "R14789",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -22857,6 +23050,7 @@
       "mail_zip": "R14789",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -22975,6 +23169,7 @@
       "mail_zip": "R24216",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -23093,6 +23288,7 @@
       "mail_zip": "R24216",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -23211,6 +23407,7 @@
       "mail_zip": "R24216",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -23329,6 +23526,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -23447,6 +23645,7 @@
       "mail_zip": "A00217",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -23565,6 +23764,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -23683,6 +23883,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -23801,6 +24002,7 @@
       "mail_zip": "C04174",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -23919,6 +24121,7 @@
       "mail_zip": "C04174",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -24037,6 +24240,7 @@
       "mail_zip": "C04837",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -24155,6 +24359,7 @@
       "mail_zip": "I14275",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -24273,6 +24478,7 @@
       "mail_zip": "I14275",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -24391,6 +24597,7 @@
       "mail_zip": "F4345",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -24509,6 +24716,7 @@
       "mail_zip": "M37357",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -24627,6 +24835,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -24745,6 +24954,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -24863,6 +25073,7 @@
       "mail_zip": "M20292",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -24981,6 +25192,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -25099,6 +25311,7 @@
       "mail_zip": "C05756",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -25217,6 +25430,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -25335,6 +25549,7 @@
       "mail_zip": "Z37031",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -25453,6 +25668,7 @@
       "mail_zip": "M37507",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -25571,6 +25787,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -25689,6 +25906,7 @@
       "mail_zip": "L17646",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -25807,6 +26025,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -25925,6 +26144,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -26043,6 +26263,7 @@
       "mail_zip": "W30470",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -26161,6 +26382,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -26279,6 +26501,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -26397,6 +26620,7 @@
       "mail_zip": "S25005",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -26515,6 +26739,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -26633,6 +26858,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -26751,6 +26977,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -26869,6 +27096,7 @@
       "mail_zip": "C04511",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -26987,6 +27215,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -27105,6 +27334,7 @@
       "mail_zip": "K38003",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -27223,6 +27453,7 @@
       "mail_zip": "K38003",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -27341,6 +27572,7 @@
       "mail_zip": "K28010",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -27459,6 +27691,7 @@
       "mail_zip": "H14125",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -27577,6 +27810,7 @@
       "mail_zip": "P50322",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -27695,6 +27929,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -27813,6 +28048,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -27931,6 +28167,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -28049,6 +28286,7 @@
       "mail_zip": "K40828",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -28167,6 +28405,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -28285,6 +28524,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -28403,6 +28643,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -28521,6 +28762,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -28639,6 +28881,7 @@
       "mail_zip": "G10393",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -28757,6 +29000,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -28875,6 +29119,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -28993,6 +29238,7 @@
       "mail_zip": "D30077",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -29111,6 +29357,7 @@
       "mail_zip": "G37775",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -29229,6 +29476,7 @@
       "mail_zip": "D00219",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -29347,6 +29595,7 @@
       "mail_zip": "D00219",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -29465,6 +29714,7 @@
       "mail_zip": "D00219",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -29583,6 +29833,7 @@
       "mail_zip": "D00219",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -29701,6 +29952,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -29819,6 +30071,7 @@
       "mail_zip": "D99632",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -29937,6 +30190,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -30055,6 +30309,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -30173,6 +30428,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -30291,6 +30547,7 @@
       "mail_zip": "K16237",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -30409,6 +30666,7 @@
       "mail_zip": "P37282",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -30527,6 +30785,7 @@
       "mail_zip": "T37625",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -30645,6 +30904,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -30763,6 +31023,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -30881,6 +31142,7 @@
       "mail_zip": "S25334",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -30999,6 +31261,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -31117,6 +31380,7 @@
       "mail_zip": "B03163",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -31235,6 +31499,7 @@
       "mail_zip": "R37288",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -31353,6 +31618,7 @@
       "mail_zip": "R37288",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -31471,6 +31737,7 @@
       "mail_zip": "R37288",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -31589,6 +31856,7 @@
       "mail_zip": "R37288",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -31707,6 +31975,7 @@
       "mail_zip": "R37288",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -31825,6 +32094,7 @@
       "mail_zip": "R37288",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -31943,6 +32213,7 @@
       "mail_zip": "R37288",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -32061,6 +32332,7 @@
       "mail_zip": "R37288",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -32179,6 +32451,7 @@
       "mail_zip": "R37288",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -32297,6 +32570,7 @@
       "mail_zip": "R37288",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -32415,6 +32689,7 @@
       "mail_zip": "R37288",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -32533,6 +32808,7 @@
       "mail_zip": "R37288",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -32651,6 +32927,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -32769,6 +33046,7 @@
       "mail_zip": "S26089",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -32887,6 +33165,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -33005,6 +33284,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -33123,6 +33403,7 @@
       "mail_zip": "T28953",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -33241,6 +33522,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -33359,6 +33641,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -33477,6 +33760,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -33595,6 +33879,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -33713,6 +33998,7 @@
       "mail_zip": "W45033",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -33831,6 +34117,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -33949,6 +34236,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -34067,6 +34355,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -34185,6 +34474,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -34303,6 +34593,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -34421,6 +34712,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -34539,6 +34831,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -34657,6 +34950,7 @@
       "mail_zip": "G51060",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -34775,6 +35069,7 @@
       "mail_zip": "C39084",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -34893,6 +35188,7 @@
       "mail_zip": "C39084",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -35011,6 +35307,7 @@
       "mail_zip": "C39084",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -35129,6 +35426,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -35247,6 +35545,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -35365,6 +35664,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -35483,6 +35783,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -35601,6 +35902,7 @@
       "mail_zip": "C39084",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -35719,6 +36021,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -35837,6 +36140,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -35955,6 +36259,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -36073,6 +36378,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -36191,6 +36497,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -36309,6 +36616,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -36427,6 +36735,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -36545,6 +36854,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -36663,6 +36973,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -36781,6 +37092,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -36899,6 +37211,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -37017,6 +37330,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -37135,6 +37449,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -37253,6 +37568,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -37371,6 +37687,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -37489,6 +37806,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -37607,6 +37925,7 @@
       "mail_zip": "S52005",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -37725,6 +38044,7 @@
       "mail_zip": "S52005",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -37843,6 +38163,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -37961,6 +38282,7 @@
       "mail_zip": "C04050",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -38079,6 +38401,7 @@
       "mail_zip": "S37523",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -38197,6 +38520,7 @@
       "mail_zip": "B89124",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -38315,6 +38639,7 @@
       "mail_zip": "B89124",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -38433,6 +38758,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -38551,6 +38877,7 @@
       "mail_zip": "H37632",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -38669,6 +38996,7 @@
       "mail_zip": "H37632",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -38787,6 +39115,7 @@
       "mail_zip": "H37632",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -38905,6 +39234,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -39023,6 +39353,7 @@
       "mail_zip": "B01408",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -39141,6 +39472,7 @@
       "mail_zip": "B03915",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -39259,6 +39591,7 @@
       "mail_zip": "B03915",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -39377,6 +39710,7 @@
       "mail_zip": "B03915",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -39495,6 +39829,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -39613,6 +39948,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -39731,6 +40067,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -39849,6 +40186,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -39967,6 +40305,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -40085,6 +40424,7 @@
       "mail_zip": "A46252",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -40203,6 +40543,7 @@
       "mail_zip": "S28680",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -40321,6 +40662,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -40439,6 +40781,7 @@
       "mail_zip": "B46028",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -40557,6 +40900,7 @@
       "mail_zip": "B46028",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -40675,6 +41019,7 @@
       "mail_zip": "K15236",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -40793,6 +41138,7 @@
       "mail_zip": "C04325",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -40911,6 +41257,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -41029,6 +41376,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -41147,6 +41495,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -41265,6 +41614,7 @@
       "mail_zip": "C65896",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -41383,6 +41733,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -41501,6 +41852,7 @@
       "mail_zip": "B01408",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -41619,6 +41971,7 @@
       "mail_zip": "A46057",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -41737,6 +42090,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -41855,6 +42209,7 @@
       "mail_zip": "C04687",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -41973,6 +42328,7 @@
       "mail_zip": "C04687",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -42091,6 +42447,7 @@
       "mail_zip": "C04687",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -42209,6 +42566,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -42327,6 +42685,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -42445,6 +42804,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -42563,6 +42923,7 @@
       "mail_zip": "Y51413",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -42681,6 +43042,7 @@
       "mail_zip": "R39328",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -42799,6 +43161,7 @@
       "mail_zip": "R39328",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -42917,6 +43280,7 @@
       "mail_zip": "R39328",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -43035,6 +43399,7 @@
       "mail_zip": "R39328",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -43153,6 +43518,7 @@
       "mail_zip": "R39328",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -43271,6 +43637,7 @@
       "mail_zip": "F09891",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -43389,6 +43756,7 @@
       "mail_zip": "F09891",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -43507,6 +43875,7 @@
       "mail_zip": "G95124",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -43625,6 +43994,7 @@
       "mail_zip": "F09891",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -43743,6 +44113,7 @@
       "mail_zip": "F09891",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -43861,6 +44232,7 @@
       "mail_zip": "F09891",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -43979,6 +44351,7 @@
       "mail_zip": "G39203",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -44097,6 +44470,7 @@
       "mail_zip": "G39203",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -44215,6 +44589,7 @@
       "mail_zip": "G39203",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -44333,6 +44708,7 @@
       "mail_zip": "G39203",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -44451,6 +44827,7 @@
       "mail_zip": "R39328",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -44569,6 +44946,7 @@
       "mail_zip": "G39203",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -44687,6 +45065,7 @@
       "mail_zip": "G95124",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -44805,6 +45184,7 @@
       "mail_zip": "G39203",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -44923,6 +45303,7 @@
       "mail_zip": "G39203",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -45041,6 +45422,7 @@
       "mail_zip": "G39203",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -45159,6 +45541,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -45277,6 +45660,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -45395,6 +45779,7 @@
       "mail_zip": "R39328",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -45513,6 +45898,7 @@
       "mail_zip": "G95124",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -45631,6 +46017,7 @@
       "mail_zip": "G95124",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -45749,6 +46136,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -45867,6 +46255,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -45985,6 +46374,7 @@
       "mail_zip": "E02966",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -46103,6 +46493,7 @@
       "mail_zip": "N37610",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -46221,6 +46612,7 @@
       "mail_zip": "N37610",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -46339,6 +46731,7 @@
       "mail_zip": "C06152",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -46457,6 +46850,7 @@
       "mail_zip": "J50798",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -46575,6 +46969,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -46693,6 +47088,7 @@
       "mail_zip": "N37610",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -46811,6 +47207,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -46929,6 +47326,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -47047,6 +47445,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -47165,6 +47564,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -47283,6 +47683,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -47401,6 +47802,7 @@
       "mail_zip": "N37610",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -47519,6 +47921,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -47637,6 +48040,7 @@
       "mail_zip": "S28336",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -47755,6 +48159,7 @@
       "mail_zip": "S28336",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -47873,6 +48278,7 @@
       "mail_zip": "P23002",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -47991,6 +48397,7 @@
       "mail_zip": "N21569",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -48109,6 +48516,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -48227,6 +48635,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -48345,6 +48754,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -48463,6 +48873,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -48581,6 +48992,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -48699,6 +49111,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -48817,6 +49230,7 @@
       "mail_zip": "J15798",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -48935,6 +49349,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -49053,6 +49468,7 @@
       "mail_zip": "C11221",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -49171,6 +49587,7 @@
       "mail_zip": "P22323",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -49289,6 +49706,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -49407,6 +49825,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -49525,6 +49944,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -49643,6 +50063,7 @@
       "mail_zip": "T36208",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -49761,6 +50182,7 @@
       "mail_zip": "H32457",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -49879,6 +50301,7 @@
       "mail_zip": "H32457",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -49997,6 +50420,7 @@
       "mail_zip": "M18531",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -50115,6 +50539,7 @@
       "mail_zip": "T36208",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -50233,6 +50658,7 @@
       "mail_zip": "C41583",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -50351,6 +50777,7 @@
       "mail_zip": "K35913",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -50469,6 +50896,7 @@
       "mail_zip": "H01369",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -50587,6 +51015,7 @@
       "mail_zip": "H01369",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -50705,6 +51134,7 @@
       "mail_zip": "M20871",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -50823,6 +51253,7 @@
       "mail_zip": "M20871",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -50941,6 +51372,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -51059,6 +51491,7 @@
       "mail_zip": "B54027",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -51177,6 +51610,7 @@
       "mail_zip": "B01560",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -51295,6 +51729,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -51413,6 +51848,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -51531,6 +51967,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -51649,6 +52086,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -51767,6 +52205,7 @@
       "mail_zip": "E15210",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -51885,6 +52324,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -52003,6 +52443,7 @@
       "mail_zip": "L17106",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -52121,6 +52562,7 @@
       "mail_zip": "L17106",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -52239,6 +52681,7 @@
       "mail_zip": "L17106",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -52357,6 +52800,7 @@
       "mail_zip": "L17106",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -52475,6 +52919,7 @@
       "mail_zip": "K15827",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -52593,6 +53038,7 @@
       "mail_zip": "K15827",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -52711,6 +53157,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -52829,6 +53276,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -52947,6 +53395,7 @@
       "mail_zip": "S28047",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -53065,6 +53514,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -53183,6 +53633,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -53301,6 +53752,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -53419,6 +53871,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -53537,6 +53990,7 @@
       "mail_zip": "B59090",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -53655,6 +54109,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -53773,6 +54228,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -53891,6 +54347,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -54009,6 +54466,7 @@
       "mail_zip": "S57008",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -54127,6 +54585,7 @@
       "mail_zip": "M01288",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -54245,6 +54704,7 @@
       "mail_zip": "B33642",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -54363,6 +54823,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -54481,6 +54942,7 @@
       "mail_zip": "H00738",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -54599,6 +55061,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -54717,6 +55180,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -54835,6 +55299,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -54953,6 +55418,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -55071,6 +55537,7 @@
       "mail_zip": "HH5051",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -55189,6 +55656,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -55307,6 +55775,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -55425,6 +55894,7 @@
       "mail_zip": "D50350",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -55543,6 +56013,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -55661,6 +56132,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -55779,6 +56251,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -55897,6 +56370,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -56015,6 +56489,7 @@
       "mail_zip": "F01123",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -56133,6 +56608,7 @@
       "mail_zip": "F01123",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -56251,6 +56727,7 @@
       "mail_zip": "H12822",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -56369,6 +56846,7 @@
       "mail_zip": "H12822",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -56487,6 +56965,7 @@
       "mail_zip": "A00647",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -56605,6 +57084,7 @@
       "mail_zip": "F37533",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -56723,6 +57203,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -56841,6 +57322,7 @@
       "mail_zip": "C85745",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -56959,6 +57441,7 @@
       "mail_zip": "B01314",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -57077,6 +57560,7 @@
       "mail_zip": "B37774",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -57195,6 +57679,7 @@
       "mail_zip": "B37774",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -57313,6 +57798,7 @@
       "mail_zip": "B37774",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -57431,6 +57917,7 @@
       "mail_zip": "B37774",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -57549,6 +58036,7 @@
       "mail_zip": "B37775",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -57667,6 +58155,7 @@
       "mail_zip": "B01314",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -57785,6 +58274,7 @@
       "mail_zip": "R50887",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -57903,6 +58393,7 @@
       "mail_zip": "R50887",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -58021,6 +58512,7 @@
       "mail_zip": "T37655",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -58139,6 +58631,7 @@
       "mail_zip": "T37655",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -58257,6 +58750,7 @@
       "mail_zip": "T37655",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -58375,6 +58869,7 @@
       "mail_zip": "T37655",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -58493,6 +58988,7 @@
       "mail_zip": "T37655",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -58611,6 +59107,7 @@
       "mail_zip": "T37655",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -58729,6 +59226,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -58847,6 +59345,7 @@
       "mail_zip": "C05634",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -58965,6 +59464,7 @@
       "mail_zip": "C05634",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -59083,6 +59583,7 @@
       "mail_zip": "C05634",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -59201,6 +59702,7 @@
       "mail_zip": "C05634",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -59319,6 +59821,7 @@
       "mail_zip": "C05634",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -59437,6 +59940,7 @@
       "mail_zip": "C05634",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -59555,6 +60059,7 @@
       "mail_zip": "C05634",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -59673,6 +60178,7 @@
       "mail_zip": "C05634",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -59791,6 +60297,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -59909,6 +60416,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -60027,6 +60535,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -60145,6 +60654,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -60263,6 +60773,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -60381,6 +60892,7 @@
       "mail_zip": "T50869",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -60499,6 +61011,7 @@
       "mail_zip": "M37728",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -60617,6 +61130,7 @@
       "mail_zip": "M37728",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -60735,6 +61249,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -60853,6 +61368,7 @@
       "mail_zip": "C04338",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -60971,6 +61487,7 @@
       "mail_zip": "C04338",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -61089,6 +61606,7 @@
       "mail_zip": "C40247",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -61207,6 +61725,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -61325,6 +61844,7 @@
       "mail_zip": "C40247",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -61443,6 +61963,7 @@
       "mail_zip": "C40247",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -61561,6 +62082,7 @@
       "mail_zip": "C40247",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -61679,6 +62201,7 @@
       "mail_zip": "W30946",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -61797,6 +62320,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -61915,6 +62439,7 @@
       "mail_zip": "C40247",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -62033,6 +62558,7 @@
       "mail_zip": "C40247",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -62151,6 +62677,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -62269,6 +62796,7 @@
       "mail_zip": "W30946",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -62387,6 +62915,7 @@
       "mail_zip": "T28902",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -62505,6 +63034,7 @@
       "mail_zip": "T28902",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -62623,6 +63153,7 @@
       "mail_zip": "T28902",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -62741,6 +63272,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -62859,6 +63391,7 @@
       "mail_zip": "G37731",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -62977,6 +63510,7 @@
       "mail_zip": "W45124",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -63095,6 +63629,7 @@
       "mail_zip": "W45124",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -63213,6 +63748,7 @@
       "mail_zip": "W45124",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -63331,6 +63867,7 @@
       "mail_zip": "W45124",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -63449,6 +63986,7 @@
       "mail_zip": "W45124",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -63567,6 +64105,7 @@
       "mail_zip": "R24053",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -63685,6 +64224,7 @@
       "mail_zip": "L38256",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -63803,6 +64343,7 @@
       "mail_zip": "L38256",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -63921,6 +64462,7 @@
       "mail_zip": "L38256",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -64039,6 +64581,7 @@
       "mail_zip": "L38256",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -64157,6 +64700,7 @@
       "mail_zip": "L38256",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -64275,6 +64819,7 @@
       "mail_zip": "L38256",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -64393,6 +64938,7 @@
       "mail_zip": "L38256",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -64511,6 +65057,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -64629,6 +65176,7 @@
       "mail_zip": "R24053",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -64747,6 +65295,7 @@
       "mail_zip": "L66018",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -64865,6 +65414,7 @@
       "mail_zip": "L66018",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -64983,6 +65533,7 @@
       "mail_zip": "L66018",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -65101,6 +65652,7 @@
       "mail_zip": "L66018",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -65219,6 +65771,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -65337,6 +65890,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -65455,6 +66009,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -65573,6 +66128,7 @@
       "mail_zip": "H39080",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -65691,6 +66247,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -65809,6 +66366,7 @@
       "mail_zip": "U29949",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -65927,6 +66485,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -66045,6 +66604,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -66163,6 +66723,7 @@
       "mail_zip": "H32558",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -66281,6 +66842,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -66399,6 +66961,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -66517,6 +67080,7 @@
       "mail_zip": "H37167",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -66635,6 +67199,7 @@
       "mail_zip": "J14722",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -66753,6 +67318,7 @@
       "mail_zip": "F67077",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -66871,6 +67437,7 @@
       "mail_zip": "F67077",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -66989,6 +67556,7 @@
       "mail_zip": "P37623",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -67107,6 +67675,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -67225,6 +67794,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -67343,6 +67913,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -67461,6 +68032,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -67579,6 +68151,7 @@
       "mail_zip": "A00192",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -67697,6 +68270,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -67815,6 +68389,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -67933,6 +68508,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -68051,6 +68627,7 @@
       "mail_zip": "C05777",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -68169,6 +68746,7 @@
       "mail_zip": "B03389",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -68287,6 +68865,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -68405,6 +68984,7 @@
       "mail_zip": "O21921",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -68523,6 +69103,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -68641,6 +69222,7 @@
       "mail_zip": "T15683",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -68759,6 +69341,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -68877,6 +69460,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -68995,6 +69579,7 @@
       "mail_zip": "C04696",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -69113,6 +69698,7 @@
       "mail_zip": "W30645",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -69231,6 +69817,7 @@
       "mail_zip": "W30645",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -69349,6 +69936,7 @@
       "mail_zip": "M80777",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -69467,6 +70055,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -69585,6 +70174,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -69703,6 +70293,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -69821,6 +70412,7 @@
       "mail_zip": "T29005",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -69939,6 +70531,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -70057,6 +70650,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -70175,6 +70769,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -70293,6 +70888,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -70411,6 +71007,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -70529,6 +71126,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -70647,6 +71245,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -70765,6 +71364,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -70883,6 +71483,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -71001,6 +71602,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -71119,6 +71721,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -71237,6 +71840,7 @@
       "mail_zip": "Z08132",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -71355,6 +71959,7 @@
       "mail_zip": "Z08132",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -71473,6 +72078,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -71591,6 +72197,7 @@
       "mail_zip": "C06714",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -71709,6 +72316,7 @@
       "mail_zip": "N37605",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -71827,6 +72435,7 @@
       "mail_zip": "H14056",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -71945,6 +72554,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -72063,6 +72673,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -72181,6 +72792,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -72299,6 +72911,7 @@
       "mail_zip": "H37167",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -72417,6 +73030,7 @@
       "mail_zip": "S51044",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -72535,6 +73149,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -72653,6 +73268,7 @@
       "mail_zip": "W85213",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -72771,6 +73387,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -72889,6 +73506,7 @@
       "mail_zip": "M39270",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -73007,6 +73625,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -73125,6 +73744,7 @@
       "mail_zip": "U38238",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -73243,6 +73863,7 @@
       "mail_zip": "M35014",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -73361,6 +73982,7 @@
       "mail_zip": "D45678",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -73479,6 +74101,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -73597,6 +74220,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -73715,6 +74339,7 @@
       "mail_zip": "T30128",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -73833,6 +74458,7 @@
       "mail_zip": "G20010",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -73951,6 +74577,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -74069,6 +74696,7 @@
       "mail_zip": "B38122",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -74187,6 +74815,7 @@
       "mail_zip": "B38122",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -74305,6 +74934,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -74423,6 +75053,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -74541,6 +75172,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -74659,6 +75291,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -74777,6 +75410,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -74895,6 +75529,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -75013,6 +75648,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -75131,6 +75767,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -75249,6 +75886,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -75367,6 +76005,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -75485,6 +76124,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -75603,6 +76243,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -75721,6 +76362,7 @@
       "mail_zip": "G10757",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -75839,6 +76481,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -75957,6 +76600,7 @@
       "mail_zip": "G11035",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -76075,6 +76719,7 @@
       "mail_zip": "G11035",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -76193,6 +76838,7 @@
       "mail_zip": "G11035",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -76311,6 +76957,7 @@
       "mail_zip": "E01365",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -76429,6 +77076,7 @@
       "mail_zip": "W00475",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -76547,6 +77195,7 @@
       "mail_zip": "O35104",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -76665,6 +77314,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -76783,6 +77433,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -76901,6 +77552,7 @@
       "mail_zip": "F37532",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -77019,6 +77671,7 @@
       "mail_zip": "F37532",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -77137,6 +77790,7 @@
       "mail_zip": "V67131",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -77255,6 +77909,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -77373,6 +78028,7 @@
       "mail_zip": "S25367",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -77491,6 +78147,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -77609,6 +78266,7 @@
       "mail_zip": "C02251",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -77727,6 +78385,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -77845,6 +78504,7 @@
       "mail_zip": "H74321",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -77963,6 +78623,7 @@
       "mail_zip": "H74321",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -78081,6 +78742,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -78199,6 +78861,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -78317,6 +78980,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -78435,6 +79099,7 @@
       "mail_zip": "J14597",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -78553,6 +79218,7 @@
       "mail_zip": "M87408",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -78671,6 +79337,7 @@
       "mail_zip": "H13973",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -78789,6 +79456,7 @@
       "mail_zip": "J21507",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -78907,6 +79575,7 @@
       "mail_zip": "S37632",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -79025,6 +79694,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -79143,6 +79813,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -79261,6 +79932,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -79379,6 +80051,7 @@
       "mail_zip": "G68071",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -79497,6 +80170,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -79615,6 +80289,7 @@
       "mail_zip": "B39401",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -79733,6 +80408,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -79851,6 +80527,7 @@
       "mail_zip": "B15832",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -79969,6 +80646,7 @@
       "mail_zip": "L17330",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -80087,6 +80765,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -80205,6 +80884,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -80323,6 +81003,7 @@
       "mail_zip": "J15062",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -80441,6 +81122,7 @@
       "mail_zip": "J15062",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -80559,6 +81241,7 @@
       "mail_zip": "R24307",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -80677,6 +81360,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -80795,6 +81479,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -80913,6 +81598,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -81031,6 +81717,7 @@
       "mail_zip": "P22285",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -81149,6 +81836,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -81267,6 +81955,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -81385,6 +82074,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -81503,6 +82193,7 @@
       "mail_zip": "H12363",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -81621,6 +82312,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -81739,6 +82431,7 @@
       "mail_zip": "B07007",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -81857,6 +82550,7 @@
       "mail_zip": "P11629",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -81975,6 +82669,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -82093,6 +82788,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -82211,6 +82907,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -82329,6 +83026,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -82447,6 +83145,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -82565,6 +83264,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -82683,6 +83383,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -82801,6 +83502,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -82919,6 +83621,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -83037,6 +83740,7 @@
       "mail_zip": "M35763",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -83155,6 +83859,7 @@
       "mail_zip": "T29410",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -83273,6 +83978,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -83391,6 +84097,7 @@
       "mail_zip": "R37560",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -83509,6 +84216,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -83627,6 +84335,7 @@
       "mail_zip": "W68018",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -83745,6 +84454,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -83863,6 +84573,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -83981,6 +84692,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -84099,6 +84811,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -84217,6 +84930,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -84335,6 +85049,7 @@
       "mail_zip": "C08102",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -84453,6 +85168,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -84571,6 +85287,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -84689,6 +85406,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -84807,6 +85525,7 @@
       "mail_zip": "P22883",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -84925,6 +85644,7 @@
       "mail_zip": "P22995",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -85043,6 +85763,7 @@
       "mail_zip": "M21065",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -85161,6 +85882,7 @@
       "mail_zip": "M21065",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -85279,6 +86001,7 @@
       "mail_zip": "B31796",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -85397,6 +86120,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -85515,6 +86239,7 @@
       "mail_zip": "R24009",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -85633,6 +86358,7 @@
       "mail_zip": "M18206",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -85751,6 +86477,7 @@
       "mail_zip": "R24067",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -85869,6 +86596,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -85987,6 +86715,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -86105,6 +86834,7 @@
       "mail_zip": "S27408",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -86223,6 +86953,7 @@
       "mail_zip": "K15895",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -86341,6 +87072,7 @@
       "mail_zip": "L67483",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -86459,6 +87191,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -86577,6 +87310,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -86695,6 +87429,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -86813,6 +87548,7 @@
       "mail_zip": "H25053",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -86931,6 +87667,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -87049,6 +87786,7 @@
       "mail_zip": "A00909",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -87167,6 +87905,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -87285,6 +88024,7 @@
       "mail_zip": "S68269",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -87403,6 +88143,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -87521,6 +88262,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -87639,6 +88381,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -87757,6 +88500,7 @@
       "mail_zip": "H11876",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -87875,6 +88619,7 @@
       "mail_zip": "D85251",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -87993,6 +88738,7 @@
       "mail_zip": "D85251",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -88111,6 +88857,7 @@
       "mail_zip": "D85251",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -88229,6 +88976,7 @@
       "mail_zip": "D85251",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -88347,6 +89095,7 @@
       "mail_zip": "D85251",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -88465,6 +89214,7 @@
       "mail_zip": "S26271",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -88583,6 +89333,7 @@
       "mail_zip": "P21998",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -88701,6 +89452,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -88819,6 +89571,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -88937,6 +89690,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -89055,6 +89809,7 @@
       "mail_zip": "R23723",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -89173,6 +89928,7 @@
       "mail_zip": "S26662",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -89291,6 +90047,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -89409,6 +90166,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -89527,6 +90285,7 @@
       "mail_zip": "R23897",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -89645,6 +90404,7 @@
       "mail_zip": "R23897",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -89763,6 +90523,7 @@
       "mail_zip": "K39124",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -89881,6 +90642,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -89999,6 +90761,7 @@
       "mail_zip": "K15265",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -90117,6 +90880,7 @@
       "mail_zip": "K15265",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -90235,6 +90999,7 @@
       "mail_zip": "W30695",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -90353,6 +91118,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -90471,6 +91237,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -90589,6 +91356,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -90707,6 +91475,7 @@
       "mail_zip": "S28209",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -90825,6 +91594,7 @@
       "mail_zip": "A20094",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -90943,6 +91713,7 @@
       "mail_zip": "A20094",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -91061,6 +91832,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -91179,6 +91951,7 @@
       "mail_zip": "K15265",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -91297,6 +92070,7 @@
       "mail_zip": "K15265",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -91415,6 +92189,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -91533,6 +92308,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -91651,6 +92427,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -91769,6 +92546,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -91887,6 +92665,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -92005,6 +92784,7 @@
       "mail_zip": "A36908",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -92123,6 +92903,7 @@
       "mail_zip": "A36908",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -92241,6 +93022,7 @@
       "mail_zip": "A36908",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -92359,6 +93141,7 @@
       "mail_zip": "A36908",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -92477,6 +93260,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -92595,6 +93379,7 @@
       "mail_zip": "",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -92713,6 +93498,7 @@
       "mail_zip": "G37737",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -92831,6 +93617,7 @@
       "mail_zip": "H13150",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
@@ -92949,6 +93736,7 @@
       "mail_zip": "H13150",
       "clerk_url": "",
       "flags": [
+        "Low Priority",
         "Vacant land",
         "Infill lot",
         "Tax delinquent"
