@@ -665,6 +665,24 @@ def estimate_loan_balance_from_sale(record:"LeadRecord")->Tuple[Optional[float],
     balance=original_principal*((1+monthly_rate)**total_months-(1+monthly_rate)**paid_months)/((1+monthly_rate)**total_months-1)
     return round(max(0,balance),2),"80% LTV purchase loan amortized at 6.5%"
 
+DEAL_SPREAD_FLAGS = {"Strong Spread", "Thin Deal", "High Equity", "Low Equity"}
+
+def apply_deal_spread_flags(record:"LeadRecord")->"LeadRecord":
+    record.flags = [flag for flag in (record.flags or []) if flag not in DEAL_SPREAD_FLAGS]
+    equity = record.est_equity
+    if equity is None:
+        return record
+    if equity > 75000:
+        record.flags.extend(["High Equity", "Strong Spread"])
+    elif equity > 50000:
+        record.flags.append("Strong Spread")
+    elif 0 <= equity <= 20000:
+        record.flags.append("Thin Deal")
+    else:
+        record.flags.append("Low Equity")
+    record.flags = list(dict.fromkeys(record.flags))
+    return record
+
 def estimate_mortgage_data(record:"LeadRecord")->"LeadRecord":
     signals=[]; sto=0
 
@@ -713,6 +731,7 @@ def estimate_mortgage_data(record:"LeadRecord")->"LeadRecord":
         elif record.est_equity>20000: sto+=20; signals.append("Moderate net equity")
         elif record.est_equity>0:     sto+=10; signals.append("Positive net equity")
         else:                         signals.append("Low/negative net equity")
+    apply_deal_spread_flags(record)
 
     if record.doc_type in {"LP","NOFC","SHERIFF"}: sto+=25; signals.append("Active foreclosure")
     if record.doc_type=="PRO":                     sto+=20; signals.append("Estate / probate")

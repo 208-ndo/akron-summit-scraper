@@ -1584,8 +1584,30 @@ def merge_record(existing: dict, incoming: dict) -> dict:
     return existing
 
 
+DEAL_SPREAD_FLAGS = {"Strong Spread", "Thin Deal", "High Equity", "Low Equity"}
+
+
+def apply_deal_spread_flags(record: dict) -> None:
+    equity = parse_money(record.get("estimated_equity") or record.get("est_equity"))
+    for field in ("flags", "tags"):
+        record[field] = [value for value in (record.get(field) or []) if value not in DEAL_SPREAD_FLAGS]
+    if equity is None:
+        return
+    if equity > 75000:
+        tags = ["High Equity", "Strong Spread"]
+    elif equity > 50000:
+        tags = ["Strong Spread"]
+    elif 0 <= equity <= 20000:
+        tags = ["Thin Deal"]
+    else:
+        tags = ["Low Equity"]
+    add_unique(record, "flags", tags)
+    add_unique(record, "tags", tags)
+
+
 def apply_stack_tags(record: dict) -> None:
     apply_auction_countdown(record)
+    apply_deal_spread_flags(record)
     sources = unique_values(record.get("distress_sources") or [])
     record["distress_sources"] = sources
     counted_sources = [source for source in sources if source != "cleveland_housing_pain"]

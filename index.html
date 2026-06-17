@@ -399,6 +399,10 @@
     <option value="Subject-To">🎯 Subject-To</option>
     <option value="New this week">🆕 New This Week</option>
     <option value="Owns 2+ properties">Owner Owns Multiple</option>
+    <option value="Strong Spread">Strong Spread</option>
+    <option value="Thin Deal">Thin Deal</option>
+    <option value="High Equity">High Equity</option>
+    <option value="Low Equity">Low Equity</option>
     <option value="Tired Landlord">Tired Landlord</option>
     <option value="Cash Buyer">Cash Buyer</option>
     <option value="Eviction filed">🚪 Eviction</option>
@@ -1108,10 +1112,41 @@ function applyPropertyAuctionDates(records){
   return records;
 }
 
+const DEAL_SPREAD_FLAGS=['Strong Spread','Thin Deal','High Equity','Low Equity'];
+
+function numericMoneyValue(value){
+  if(typeof value==='number'&&Number.isFinite(value))return value;
+  const text=String(value??'').trim();
+  if(!text)return null;
+  const compact=text.replace(/[$,\s]/g,'');
+  const match=compact.match(/^(-?\d+(?:\.\d+)?)([kKmM])?$/);
+  if(!match)return null;
+  const base=Number(match[1]);
+  if(!Number.isFinite(base))return null;
+  const suffix=(match[2]||'').toLowerCase();
+  if(suffix==='m')return base*1000000;
+  if(suffix==='k')return base*1000;
+  return base;
+}
+
+function applyDealSpreadFlags(r){
+  const equity=numericMoneyValue(r.est_equity??r.estimated_equity??r.equity_estimate);
+  r.flags=uniqueList((r.flags||[]).filter(f=>!DEAL_SPREAD_FLAGS.includes(f)));
+  if(equity===null)return r;
+  const flags=[];
+  if(equity>75000)flags.push('High Equity','Strong Spread');
+  else if(equity>50000)flags.push('Strong Spread');
+  else if(equity>=0&&equity<=20000)flags.push('Thin Deal');
+  else if(equity<0)flags.push('Low Equity');
+  if(flags.length)r.flags=uniqueList([...r.flags,...flags]);
+  return r;
+}
+
 function applyDerivedLeadFields(r){
   const normalized=normalizeTraceRecord(r);
   Object.assign(r,normalized);
   r.flags=uniqueList(r.flags);
+  applyDealSpreadFlags(r);
   if(isTiredLandlordLead(r) && !r.flags.includes('Tired Landlord')){
     r.flags.push('Tired Landlord');
   }
@@ -1842,6 +1877,7 @@ function normalizeCountyRecord(record,countyKey,cfg,payload){
     subject_to_score:r.subject_to_score||0,
     estimated_value:r.estimated_value??r.assessed_value??null,
     estimated_equity:r.estimated_equity??r.est_equity??null,
+    est_equity:r.est_equity??r.estimated_equity??null,
     estimated_arrears:r.estimated_arrears??r.est_arrears??null,
     public_records_url:r.public_records_url||r.clerk_url||sourceURL,
     source_url:sourceURL,
