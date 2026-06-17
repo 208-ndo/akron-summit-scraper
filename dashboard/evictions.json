@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-16T23:29:18.340970+00:00",
+  "fetched_at": "2026-06-17T00:18:20.259980+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "evictions",
   "description": "\ud83d\udeaa Eviction filings \u2014 landlords offloading problem properties",
@@ -8,7 +8,7 @@
     {
       "doc_num": "EVIC-0001",
       "doc_type": "EVICTION",
-      "filed": "2026-06-16",
+      "filed": "2026-06-17",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-11",
@@ -125,7 +125,7 @@
     {
       "doc_num": "EVIC-0002",
       "doc_type": "EVICTION",
-      "filed": "2026-06-16",
+      "filed": "2026-06-17",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-11",
@@ -242,7 +242,7 @@
     {
       "doc_num": "EVIC-0003",
       "doc_type": "EVICTION",
-      "filed": "2026-06-16",
+      "filed": "2026-06-17",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-11",
@@ -359,7 +359,7 @@
     {
       "doc_num": "EVIC-0004",
       "doc_type": "EVICTION",
-      "filed": "2026-06-16",
+      "filed": "2026-06-17",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-11",
@@ -476,7 +476,7 @@
     {
       "doc_num": "EVIC-0005",
       "doc_type": "EVICTION",
-      "filed": "2026-06-16",
+      "filed": "2026-06-17",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-11",
@@ -593,7 +593,7 @@
     {
       "doc_num": "EVIC-0006",
       "doc_type": "EVICTION",
-      "filed": "2026-06-16",
+      "filed": "2026-06-17",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-11",
@@ -710,7 +710,7 @@
     {
       "doc_num": "EVIC-0007",
       "doc_type": "EVICTION",
-      "filed": "2026-06-16",
+      "filed": "2026-06-17",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-11",
@@ -827,7 +827,7 @@
     {
       "doc_num": "EVIC-0008",
       "doc_type": "EVICTION",
-      "filed": "2026-06-16",
+      "filed": "2026-06-17",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-11",

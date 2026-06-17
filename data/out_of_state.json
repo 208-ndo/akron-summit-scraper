@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-16T23:29:17.393367+00:00",
+  "fetched_at": "2026-06-17T00:18:19.311458+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "out_of_state",
   "description": "\ud83c\udf0e Owner mails from out of state",
@@ -35,6 +35,7 @@
         "\ud83d\udd25 Hot Stack",
         "\ud83d\udccd Cross-List Match",
         "Code violation",
+        "Thin Deal",
         "\u2b50 Prime Subject-To"
       ],
       "score": 100,
@@ -42,8 +43,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -173,7 +174,8 @@
         "Out-of-state owner",
         "\ud83c\udfaf Subject-To Candidate",
         "\ud83d\udd25 Hot Stack",
-        "\ud83d\udccd Cross-List Match"
+        "\ud83d\udccd Cross-List Match",
+        "Thin Deal"
       ],
       "score": 100,
       "match_method": "tax_delinquent_direct",
@@ -278,7 +280,7 @@
     {
       "doc_num": "CV2026 03 0923",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-16",
+      "filed": "2026-06-17",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-06-11",
@@ -304,6 +306,7 @@
         "\ud83c\udfaf Subject-To Candidate",
         "New this week",
         "\ud83d\udd25 Hot Stack",
+        "Low Equity",
         "Owns 2+ properties",
         "Repeat distress owner"
       ],
@@ -368,12 +371,12 @@
       "sheriff_sale_date": "2026-07-07",
       "appraised_value": null,
       "lender": "Summit County Fiscal Office",
-      "auction_days_until": 21,
-      "auction_countdown": "21 days left",
+      "auction_days_until": 20,
+      "auction_countdown": "20 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2026 03 0923",
-      "foreclosure_notice_date": "2026-06-16",
+      "foreclosure_notice_date": "2026-06-17",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -409,7 +412,7 @@
     {
       "doc_num": "CV2025 12 6090",
       "doc_type": "TAXDEED",
-      "filed": "2026-06-16",
+      "filed": "2026-06-17",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-06-11",
@@ -435,6 +438,7 @@
         "\ud83c\udfaf Subject-To Candidate",
         "New this week",
         "\ud83d\udd25 Hot Stack",
+        "Low Equity",
         "Owns 2+ properties",
         "Repeat distress owner"
       ],
@@ -499,12 +503,12 @@
       "sheriff_sale_date": "2026-07-07",
       "appraised_value": null,
       "lender": "Summit County Fiscal Office",
-      "auction_days_until": 21,
-      "auction_countdown": "21 days left",
+      "auction_days_until": 20,
+      "auction_countdown": "20 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 12 6090",
-      "foreclosure_notice_date": "2026-06-16",
+      "foreclosure_notice_date": "2026-06-17",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -563,6 +567,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -700,6 +706,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -837,6 +845,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -974,6 +984,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -1112,6 +1124,8 @@
         "Absentee owner",
         "Out-of-state owner",
         "High tax debt",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -1249,6 +1263,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -1386,6 +1402,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -1523,6 +1541,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -1660,6 +1680,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -1797,6 +1819,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -1930,6 +1954,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -2067,6 +2093,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -2204,6 +2232,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -2341,6 +2371,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -2478,6 +2510,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -2615,6 +2649,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -2752,6 +2788,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -2889,6 +2927,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -3026,6 +3066,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -3163,6 +3204,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -3300,6 +3343,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -3437,6 +3481,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -3574,6 +3619,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -3703,6 +3749,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -3840,6 +3887,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -3977,6 +4025,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -4114,6 +4163,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -4251,6 +4301,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -4380,6 +4431,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -4517,6 +4569,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -4646,6 +4699,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -4783,6 +4837,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -4920,6 +4975,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -5057,6 +5113,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -5186,6 +5243,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -5323,6 +5381,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -5460,6 +5519,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -5597,6 +5657,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -5734,6 +5795,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -5871,6 +5934,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -6008,6 +6072,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -6145,6 +6210,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -6282,6 +6348,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -6419,6 +6486,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -6556,6 +6625,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -6685,6 +6755,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -6822,6 +6893,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -6959,6 +7031,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -7096,6 +7170,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -7233,6 +7309,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -7370,6 +7447,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -7503,6 +7581,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -7640,6 +7719,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -7777,6 +7857,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -7914,6 +7996,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -8043,6 +8127,8 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "High Equity",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -8180,6 +8266,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Strong Spread",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -8317,6 +8404,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -8454,6 +8542,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -8591,6 +8680,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -8728,6 +8818,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To",
         "Owns 2+ properties",
@@ -8863,6 +8954,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -9000,6 +9092,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -9137,6 +9230,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -9274,6 +9368,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -9411,6 +9506,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -9548,6 +9644,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -9685,6 +9782,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -9822,6 +9920,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -9959,6 +10058,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -10096,6 +10196,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -10233,6 +10334,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -10370,6 +10472,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -10507,6 +10610,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -10636,6 +10740,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -10773,6 +10878,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -10910,6 +11016,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -11047,6 +11154,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -11176,6 +11284,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -11313,6 +11422,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -11450,6 +11560,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -11587,6 +11698,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -11724,6 +11836,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -11861,6 +11974,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -11998,6 +12112,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -12135,6 +12250,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -12272,6 +12388,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -12409,6 +12526,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -12546,6 +12664,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To",
         "Owns 2+ properties",
@@ -12677,6 +12796,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To",
         "Owns 2+ properties",
@@ -12816,6 +12936,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -12953,6 +13074,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -13090,6 +13212,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -13227,6 +13350,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To",
         "Owns 2+ properties",
@@ -13362,6 +13486,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -13499,6 +13624,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -13636,6 +13762,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To",
         "Owns 2+ properties",
@@ -13775,6 +13902,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -13912,6 +14040,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -14049,6 +14178,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -14186,6 +14316,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -14323,6 +14454,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -14460,6 +14592,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -14597,6 +14730,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -14734,6 +14868,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -14871,6 +15006,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -15008,6 +15144,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -15145,6 +15282,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -15282,6 +15420,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -15419,6 +15558,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -15556,6 +15696,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -15693,6 +15834,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -15830,6 +15972,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To",
         "Owns 2+ properties",
@@ -15965,6 +16108,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -16102,6 +16246,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -16239,6 +16384,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -16376,6 +16522,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -16513,6 +16660,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -16650,6 +16798,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -16787,6 +16936,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -16924,6 +17074,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -17061,6 +17212,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -17198,6 +17350,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -17335,6 +17488,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -17472,6 +17626,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To",
         "Owns 2+ properties",
@@ -17607,6 +17762,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -17744,6 +17900,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -17881,6 +18038,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -18018,6 +18176,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -18155,6 +18314,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -18292,6 +18452,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -18429,6 +18590,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -18566,6 +18728,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -18703,6 +18866,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -18840,6 +19004,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -18977,6 +19142,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -19114,6 +19280,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -19251,6 +19418,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -19388,6 +19556,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -19525,6 +19694,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -19662,6 +19832,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -19799,6 +19970,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -19936,6 +20108,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -20073,6 +20246,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -20202,6 +20376,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -20339,6 +20514,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -20476,6 +20652,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -20613,6 +20790,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -20750,6 +20928,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -20887,6 +21066,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -21024,6 +21204,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -21161,6 +21342,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -21298,6 +21480,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -21435,6 +21618,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -21572,6 +21756,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -21709,6 +21894,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -21846,6 +22032,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -21983,6 +22170,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -22120,6 +22308,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -22257,6 +22446,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -22394,6 +22584,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -22531,6 +22722,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -22660,6 +22852,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -22797,6 +22990,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -22934,6 +23128,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -23071,6 +23266,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -23208,6 +23404,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -23337,6 +23534,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -23466,6 +23664,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -23595,6 +23794,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -23724,6 +23924,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -23853,6 +24054,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To",
         "Owns 2+ properties",
@@ -23984,6 +24186,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -24113,6 +24316,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -24242,6 +24446,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -24371,6 +24576,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -24500,6 +24706,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -24629,6 +24836,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -24758,6 +24966,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -24887,6 +25096,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -25016,6 +25226,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -25145,6 +25356,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -25274,6 +25486,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -25403,6 +25616,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -25532,6 +25746,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -25661,6 +25876,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -25790,6 +26006,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -25919,6 +26136,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -26048,6 +26266,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -26177,6 +26396,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -26306,6 +26526,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Low Equity",
         "\ud83c\udfaf Subject-To Candidate",
         "\u2b50 Prime Subject-To"
       ],
@@ -26435,6 +26656,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -26563,6 +26785,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -26691,6 +26914,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -26827,6 +27051,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -26955,6 +27180,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -27083,6 +27309,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -27211,6 +27438,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -27339,6 +27567,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -27467,6 +27696,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -27595,6 +27825,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -27723,6 +27954,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -27859,6 +28091,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -27995,6 +28228,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -28123,6 +28357,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -28251,6 +28486,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -28379,6 +28615,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -28507,6 +28744,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -28635,6 +28873,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -28763,6 +29002,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -28891,6 +29131,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -29019,6 +29260,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -29147,6 +29389,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -29275,6 +29518,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -29403,6 +29647,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -29531,6 +29776,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -29659,6 +29905,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -29787,6 +30034,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -29915,6 +30163,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -30043,6 +30292,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -30171,6 +30421,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -30299,6 +30550,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -30427,6 +30679,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -30554,6 +30807,7 @@
         "Residential",
         "Absentee owner",
         "Out-of-state owner",
+        "Thin Deal",
         "\ud83c\udfaf Subject-To Candidate"
       ],
       "score": 90,
@@ -30781,7 +31035,7 @@
     {
       "doc_num": "VHOME-6723306",
       "doc_type": "VHOME",
-      "filed": "2026-06-16",
+      "filed": "2026-06-17",
       "cat": "VHOME",
       "cat_label": "Vacant Home",
       "first_seen_date": "2026-06-16",
@@ -30903,7 +31157,7 @@
     {
       "doc_num": "VHOME-6807445",
       "doc_type": "VHOME",
-      "filed": "2026-06-16",
+      "filed": "2026-06-17",
       "cat": "VHOME",
       "cat_label": "Vacant Home",
       "first_seen_date": "2026-06-16",
