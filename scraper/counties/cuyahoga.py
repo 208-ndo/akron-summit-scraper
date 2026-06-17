@@ -1585,6 +1585,7 @@ def merge_record(existing: dict, incoming: dict) -> dict:
 
 
 DEAL_SPREAD_FLAGS = {"Strong Spread", "Thin Deal", "High Equity", "Low Equity"}
+DEAL_VERDICT_FLAGS = {"Call First", "Research More", "Low Priority"}
 
 
 def apply_deal_spread_flags(record: dict) -> None:
@@ -1603,6 +1604,74 @@ def apply_deal_spread_flags(record: dict) -> None:
         tags = ["Low Equity"]
     add_unique(record, "flags", tags)
     add_unique(record, "tags", tags)
+
+
+def has_record_contact(record: dict) -> bool:
+    return any(
+        str(record.get(field) or "").strip()
+        for field in ("phone_primary", "phone_secondary", "phone_tertiary", "email_primary", "Phone 1", "Phone 2", "Phone 3", "Email")
+    ) or bool(record.get("phones") or record.get("emails") or record.get("has_phone") or record.get("has_email"))
+
+
+def apply_deal_verdict_flags(record: dict) -> None:
+    text = " ".join(str(value or "") for value in (record.get("flags") or []) + (record.get("tags") or [])).lower()
+    sources = {str(source or "").strip().lower() for source in record.get("distress_sources") or []}
+    score = 0
+    equity = parse_money(record.get("estimated_equity") or record.get("est_equity"))
+    if equity is not None:
+        if equity >= 100000:
+            score += 32
+        elif equity >= 75000:
+            score += 28
+        elif equity >= 50000:
+            score += 22
+        elif equity >= 20000:
+            score += 8
+        elif equity >= 0:
+            score -= 8
+        else:
+            score -= 24
+    try:
+        days = int(record.get("auction_days_until"))
+    except (TypeError, ValueError):
+        days = None
+    if days is not None:
+        if days <= 7:
+            score += 30
+        elif days <= 14:
+            score += 24
+        elif days <= 30:
+            score += 14
+    distress_count = max(int(record.get("distress_count") or 0), len(sources))
+    if "hot stack" in text or distress_count >= 2:
+        score += 20
+    if distress_count >= 3:
+        score += 10
+    elif distress_count >= 2:
+        score += 6
+    if record.get("sheriff_sale") or record.get("foreclosure") or {"sheriff_sale", "foreclosure"} & sources:
+        score += 12
+    if "tax delinquent" in text or "tax pressure" in text:
+        score += 8
+    if record.get("active_condemnation") or record.get("demolition_permit") or record.get("nuisance_complaint") or record.get("public_health_complaint") or "code violation" in text:
+        score += 6
+    if record.get("is_absentee") or record.get("is_out_of_state") or "absentee" in text or "out-of-state" in text:
+        score += 6
+    if int(record.get("owner_property_count") or 0) >= 2 or any(term in text for term in ("owns 2+ properties", "repeat distress owner", "portfolio owner")):
+        score += 8
+    if "new this week" in text:
+        score += 5
+    if has_record_contact(record):
+        score += 12
+    elif "fail" in str(record.get("skip_trace_status") or "").lower():
+        score -= 8
+    if not str(record.get("property_address") or record.get("prop_address") or "").strip():
+        score -= 15
+
+    verdict = "Call First" if score >= 55 else ("Research More" if score >= 25 else "Low Priority")
+    for field in ("flags", "tags"):
+        record[field] = [value for value in (record.get(field) or []) if value not in DEAL_VERDICT_FLAGS]
+        record[field] = unique_values([verdict] + (record.get(field) or []))
 
 
 def apply_stack_tags(record: dict) -> None:
@@ -1642,6 +1711,7 @@ def apply_stack_tags(record: dict) -> None:
     if int(record.get("distress_count") or 0) >= 2 or record.get("active_condemnation"):
         add_unique(record, "flags", ["Cuyahoga Hot Stack"])
         add_unique(record, "tags", ["Cuyahoga Hot Stack"])
+    apply_deal_verdict_flags(record)
 
 def property_portfolio_key(record: dict) -> str:
     return clean_parcel(record.get("parcel_id")) or normalize_address(record.get("property_address") or record.get("prop_address") or "")

@@ -666,6 +666,7 @@ def estimate_loan_balance_from_sale(record:"LeadRecord")->Tuple[Optional[float],
     return round(max(0,balance),2),"80% LTV purchase loan amortized at 6.5%"
 
 DEAL_SPREAD_FLAGS = {"Strong Spread", "Thin Deal", "High Equity", "Low Equity"}
+DEAL_VERDICT_FLAGS = {"Call First", "Research More", "Low Priority"}
 
 def apply_deal_spread_flags(record:"LeadRecord")->"LeadRecord":
     record.flags = [flag for flag in (record.flags or []) if flag not in DEAL_SPREAD_FLAGS]
@@ -681,6 +682,59 @@ def apply_deal_spread_flags(record:"LeadRecord")->"LeadRecord":
     else:
         record.flags.append("Low Equity")
     record.flags = list(dict.fromkeys(record.flags))
+    return record
+
+def has_record_contact(record:"LeadRecord")->bool:
+    return any([
+        clean_text(getattr(record, "phone_primary", "")),
+        clean_text(getattr(record, "phone_secondary", "")),
+        clean_text(getattr(record, "phone_tertiary", "")),
+        clean_text(getattr(record, "email_primary", "")),
+        bool(getattr(record, "phones", []) or []),
+        bool(getattr(record, "emails", []) or []),
+        bool(getattr(record, "has_phone", False)),
+        bool(getattr(record, "has_email", False)),
+    ])
+
+def apply_deal_verdict_flags(record:"LeadRecord")->"LeadRecord":
+    flags_lower = " ".join(record.flags or []).lower()
+    score = 0
+    equity = record.est_equity
+    if equity is not None:
+        if equity >= 100000: score += 32
+        elif equity >= 75000: score += 28
+        elif equity >= 50000: score += 22
+        elif equity >= 20000: score += 8
+        elif equity >= 0: score -= 8
+        else: score -= 24
+    days = record.auction_days_until
+    if days is not None:
+        if days <= 7: score += 30
+        elif days <= 14: score += 24
+        elif days <= 30: score += 14
+    distress_count = max(int(record.distress_count or 0), len(set(record.distress_sources or [])))
+    if record.hot_stack or distress_count >= 2: score += 20
+    if distress_count >= 3: score += 10
+    elif distress_count >= 2: score += 6
+    sources = {clean_text(source).lower() for source in (record.distress_sources or [])}
+    if record.doc_type in {"SHERIFF", "LP", "NOFC"} or {"sheriff_sale", "foreclosure"} & sources: score += 12
+    if "Tax delinquent" in (record.flags or []): score += 8
+    if record.is_vacant_home or record.doc_type == "CODEVIOLATION" or "code violation" in flags_lower: score += 6
+    if record.is_absentee or record.is_out_of_state: score += 6
+    if record.owner_property_count >= 2 or any(term in flags_lower for term in ("owns 2+ properties", "repeat distress owner", "portfolio owner")): score += 8
+    if "new this week" in flags_lower: score += 5
+    if has_record_contact(record): score += 12
+    elif "fail" in clean_text(record.skip_trace_status).lower(): score -= 8
+    if not clean_text(record.prop_address): score -= 15
+
+    if score >= 55:
+        verdict = "Call First"
+    elif score >= 25:
+        verdict = "Research More"
+    else:
+        verdict = "Low Priority"
+    record.flags = [flag for flag in (record.flags or []) if flag not in DEAL_VERDICT_FLAGS]
+    record.flags = list(dict.fromkeys([verdict] + record.flags))
     return record
 
 def estimate_mortgage_data(record:"LeadRecord")->"LeadRecord":
@@ -4519,6 +4573,7 @@ async def main():
     # 14. Hydrate from existing trace store, then auto skip trace remaining records
     all_records=hydrate_records_from_trace_store(all_records)
     all_records=auto_skip_trace_records(all_records)
+    all_records=[apply_deal_verdict_flags(r) for r in all_records]
     all_records=apply_first_seen_dates(all_records)
     write_json_outputs(all_records,extra_json_path=Path(args.out_json))
     write_category_json(all_records)           # writes vacant_land.json via category

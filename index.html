@@ -403,6 +403,9 @@
     <option value="Thin Deal">Thin Deal</option>
     <option value="High Equity">High Equity</option>
     <option value="Low Equity">Low Equity</option>
+    <option value="Call First">Call First</option>
+    <option value="Research More">Research More</option>
+    <option value="Low Priority">Low Priority</option>
     <option value="Tired Landlord">Tired Landlord</option>
     <option value="Cash Buyer">Cash Buyer</option>
     <option value="Eviction filed">🚪 Eviction</option>
@@ -1113,6 +1116,7 @@ function applyPropertyAuctionDates(records){
 }
 
 const DEAL_SPREAD_FLAGS=['Strong Spread','Thin Deal','High Equity','Low Equity'];
+const DEAL_VERDICT_FLAGS=['Call First','Research More','Low Priority'];
 
 function numericMoneyValue(value){
   if(typeof value==='number'&&Number.isFinite(value))return value;
@@ -1142,6 +1146,61 @@ function applyDealSpreadFlags(r){
   return r;
 }
 
+function hasAnyContact(r){
+  return getRecordPhones(r).length>0 || getRecordEmails(r).length>0 || !!String(r.phone_primary||r.email_primary||'').trim();
+}
+
+function calculateDealVerdict(r){
+  const signals=new Set(getListSignals(r));
+  const equity=numericMoneyValue(r.est_equity??r.estimated_equity??r.equity_estimate);
+  const auction=auctionCountdownInfo(r);
+  const flags=(r.flags||[]).join(' ').toLowerCase();
+  const reasons=[];
+  let score=0;
+  const add=(points,reason)=>{score+=points;if(reason)reasons.push(reason);};
+
+  if(equity!==null){
+    if(equity>=100000)add(32,'very high equity');
+    else if(equity>=75000)add(28,'high equity');
+    else if(equity>=50000)add(22,'strong spread');
+    else if(equity>=20000)add(8,'some equity');
+    else if(equity>=0)add(-8,'thin equity');
+    else add(-24,'low equity');
+  }
+  if(auction&&Number.isFinite(auction.days)){
+    if(auction.days<=7)add(30,`${auction.days} days to sale`);
+    else if(auction.days<=14)add(24,`${auction.days} days to sale`);
+    else if(auction.days<=30)add(14,`${auction.days} days to sale`);
+  }
+  if(isHotStackLead(r))add(20,'hot stack');
+  const distressCount=Math.max(Number(r.distress_count)||0,Number(r.list_count)||0);
+  if(distressCount>=3)add(10,'3+ distress signals');
+  else if(distressCount>=2)add(6,'multiple distress signals');
+  if(signals.has('sheriff_sale')||signals.has('foreclosure'))add(12,'foreclosure pressure');
+  if(signals.has('tax_delinquent'))add(8,'tax delinquent');
+  if(signals.has('vacant_home')||signals.has('code_violation')||signals.has('nuisance_complaint'))add(6,'property distress');
+  if(signals.has('absentee')||signals.has('out_of_state'))add(6,'absentee/out-of-state owner');
+  if(flags.includes('owns 2+ properties')||flags.includes('repeat distress owner')||flags.includes('portfolio owner'))add(8,'repeat owner');
+  if(flags.includes('new this week')||isPulledToday(r))add(5,'new lead');
+  if(hasAnyContact(r))add(12,'contact available');
+  else if(String(r.skip_trace_status||'').toLowerCase().includes('fail'))add(-8,'no contact found');
+  if(!String(r.prop_address||r.property_address||'').trim())add(-15,'missing address');
+
+  let label='Low Priority';
+  if(score>=55)label='Call First';
+  else if(score>=25)label='Research More';
+  return {label,score:Math.max(0,Math.min(100,Math.round(score))),reasons:uniqueList(reasons).slice(0,4)};
+}
+
+function applyDealVerdict(r){
+  const verdict=calculateDealVerdict(r);
+  r.deal_verdict=verdict.label;
+  r.deal_verdict_score=verdict.score;
+  r.deal_verdict_reasons=verdict.reasons;
+  r.flags=uniqueList([verdict.label,...(r.flags||[]).filter(f=>!DEAL_VERDICT_FLAGS.includes(f))]);
+  return r;
+}
+
 function applyDerivedLeadFields(r){
   const normalized=normalizeTraceRecord(r);
   Object.assign(r,normalized);
@@ -1153,6 +1212,7 @@ function applyDerivedLeadFields(r){
   Object.assign(r,{
     list_count:getListSignals(r).length,
   });
+  applyDealVerdict(r);
 
   const sellerScore=Number(r.score)||0;
   const listCount=Math.max(
@@ -2563,7 +2623,7 @@ function rowHTML(r){
   return `<tr onclick="openModalById(${rid})"><td class="select-cell"><input class="lead-select" type="checkbox" ${checked} onclick="event.stopPropagation()" onchange="toggleLeadSelection(event,${rid})"></td><td><div class="score-badge ${scls}">${sc}</div></td><td style="min-width:190px"><div class="owner-name">${getPreferredOwner(r)||'<span style="color:var(--muted)">Unknown</span>'}</div>${dec}${addr}${sh}</td><td class="date-cell">${r.cat_label||r.doc_type||'–'}</td><td class="date-cell">${r.filed||'–'}</td><td class="amount-cell">${amt}</td><td class="date-cell" style="max-width:130px;overflow:hidden;text-overflow:ellipsis">${(r.doc_num||'').slice(0,20)}</td><td style="max-width:340px"><div class="tags">${tags}</div></td><td>${eqH}</td><td>${lnk}</td></tr>`;
 }
 
-function tagHTML(f){const fl=f.toLowerCase();let c='t-gray';if(fl.includes('hot stack')||fl.includes('sheriff')||fl.includes('foreclos')||fl.includes('⚡'))c='t-hot';else if(fl.includes('tax')||fl.includes('debt')||fl.includes('lien')||fl.includes('judgment'))c='t-warn';else if(fl.includes('absentee')||fl.includes('out-of-state')||fl.includes('inherited')||fl.includes('probate')||fl.includes('executor'))c='t-blue';else if(fl.includes('vacant')||fl.includes('code')||fl.includes('nuisance')||fl.includes('violation'))c='t-purple';else if(fl.includes('new this week'))c='t-green';else if(fl.includes('subject-to')||fl.includes('equity')||fl.includes('prime'))c='t-gold';return `<span class="tag ${c}">${f}</span>`;}
+function tagHTML(f){const fl=f.toLowerCase();let c='t-gray';if(fl.includes('call first')||fl.includes('new this week'))c='t-green';else if(fl.includes('research more')||fl.includes('subject-to')||fl.includes('equity')||fl.includes('prime'))c='t-gold';else if(fl.includes('low priority'))c='t-red';else if(fl.includes('hot stack')||fl.includes('sheriff')||fl.includes('foreclos')||fl.includes('⚡'))c='t-hot';else if(fl.includes('tax')||fl.includes('debt')||fl.includes('lien')||fl.includes('judgment'))c='t-warn';else if(fl.includes('absentee')||fl.includes('out-of-state')||fl.includes('inherited')||fl.includes('probate')||fl.includes('executor'))c='t-blue';else if(fl.includes('vacant')||fl.includes('code')||fl.includes('nuisance')||fl.includes('violation'))c='t-purple';return `<span class="tag ${c}">${f}</span>`;}
 function eqBar(eq){const pct=Math.min(Math.abs(eq)/150000*100,100),c=eq>=0?'eq-pos':'eq-neg',lbl=eq>=0?`+$${(eq/1000).toFixed(0)}k`:`-$${(Math.abs(eq)/1000).toFixed(0)}k`,col=eq>=0?'var(--accent3)':'var(--accent2)';return `<div class="eq-bar"><div class="eq-fill ${c}" style="width:${pct}%"></div></div><div class="eq-lbl" style="color:${col}">${lbl}</div>`;}
 
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
@@ -3632,6 +3692,7 @@ function getSkipTraceStatusLabel(r){
 
 function openModal(r){
   if(!r||typeof r!=='object')return;
+  applyDerivedLeadFields(r);
   const flags=r.flags||[],isSh=r.doc_type==='SHERIFF',isPro=r.doc_type==='PRO',isVL=r.doc_type==='VACLAND';
   const eq=r.est_equity!=null?'$'+Number(r.est_equity).toLocaleString():'–';
   const eqC=r.est_equity!=null?(r.est_equity>=0?'gr':'rd'):'';
@@ -3644,10 +3705,17 @@ function openModal(r){
   const tracedPhones=getTracedPhones(r);
   const tracedMail=getTraceMailingAddress(r);
   const traceStatus=getSkipTraceStatusLabel(r);
+  const verdict=calculateDealVerdict(r);
+  const verdictClass=verdict.label==='Call First'?'gr':(verdict.label==='Low Priority'?'rd':'hi');
   document.getElementById('mc').innerHTML=`
     <div class="mh"><div><div class="mt">${getPreferredOwner(r)||'Unknown Owner'}</div><div class="ms">${r.cat_label||r.doc_type} · Score ${r.score||0} · Sub-To ${r.subject_to_score||0}</div></div><button class="mx" onclick="closeModal()">✕</button></div>
     <div class="mg">
       ${shW}${vlW}
+      <div class="msec">Deal Verdict</div>
+      <div class="mf"><div class="ml">Priority</div><div class="mv ${verdictClass}">${verdict.label}</div></div>
+      <div class="mf"><div class="ml">Verdict Score</div><div class="mv hi">${verdict.score}/100</div></div>
+      <div class="mf full"><div class="ml">Why</div><div class="mv">${verdict.reasons.join(' · ')||'Needs manual review'}</div></div>
+      <hr class="mdiv">
       <div class="msec">Property</div>
       <div class="mf"><div class="ml">Beds / Baths</div><div class="mv">${[formatFactValue(r.bedrooms,' bd'),formatFactValue(r.bathrooms,' ba')].filter(Boolean).join(' · ')||'â€“'}</div></div>
       <div class="mf"><div class="ml">Square Feet</div><div class="mv">${formatFactValue(r.square_feet,' sqft')||'â€“'}</div></div>
