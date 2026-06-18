@@ -1,12 +1,20 @@
 {
   "matched": 0,
-  "unmatched": 114,
+  "unmatched": 110,
   "with_address": 0,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 114
+    "unmatched": 110
   },
   "sample_unmatched": [
+    {
+      "doc_num": "NEVEL 06",
+      "owner": "Shirelle Nevel"
+    },
+    {
+      "doc_num": "KINGSLY 06",
+      "owner": "Jewel Kingsly"
+    },
     {
       "doc_num": "BOWDEN 06",
       "owner": "Audrey E Bowden"
@@ -72,16 +80,8 @@
       "owner": "Thadniya Glaude"
     },
     {
-      "doc_num": "RATKOWSKI 06",
-      "owner": "Michelle L Ratkowski"
-    },
-    {
-      "doc_num": "MCCARDLE 06",
-      "owner": "Megan Mccardle"
-    },
-    {
-      "doc_num": "BIBBEE 06",
-      "owner": "Jane Bibbee"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
       "doc_num": "2026 AT 10",
@@ -109,5 +109,5 @@
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-06-17T12:24:05.131313+00:00"
+  "generated_at": "2026-06-18T12:08:16.255088+00:00"
 }
