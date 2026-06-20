@@ -137,7 +137,7 @@
   "montgomery": {
     "label": "Montgomery County",
     "primary_city": "Dayton",
-    "enabled": false,
+    "enabled": true,
     "data_url": "dashboard/montgomery/records.json",
     "cities": ["Dayton"],
     "sources": {
