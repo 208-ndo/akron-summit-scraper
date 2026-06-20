@@ -104,7 +104,8 @@ def _parse_mailing(v: str):
             "mailing_zip": m.group(4).split("-")[0].strip()}
 
 
-def map_row(row: dict, county: str, county_key: str, market: str, aud: dict | None = None) -> dict:
+def map_row(row: dict, county: str, county_key: str, market: str,
+            aud: dict | None = None, fetched_at: str = "") -> dict:
     owner = (row.get("owner_label") or "").strip()
     street = (row.get("address") or "").strip()
     parcel = (row.get("real_parcel_id") or row.get("parcel_key") or "").strip()
@@ -194,7 +195,11 @@ def map_row(row: dict, county: str, county_key: str, market: str, aud: dict | No
         # classification / signals
         "lead_type": " + ".join([d for d in distress if d != "Vacant Home"]) or "Distress Lead",
         "cat_label": " + ".join([d for d in distress if d != "Vacant Home"]) or "Distress Lead",
-        "doc_type": "SHERIFF" if sheriff else ("TAX" if (tax_amt or 0) > 0 else "CODEVIOLATION"),
+        # doc_type drives the dashboard's Code Violations tab (doc_type==
+        # 'CODEVIOLATION'); the Tax Delinquent tab keys off `flags` instead, so
+        # a tax+code lead correctly appears under BOTH. Honest: every record
+        # here carries a real code-violation record (cv_count>0).
+        "doc_type": "SHERIFF" if sheriff else ("CODEVIOLATION" if cv_count > 0 else ""),
         "distress_sources": distress,
         "distress_count": distress_count,
         "flags": flags,
@@ -202,7 +207,10 @@ def map_row(row: dict, county: str, county_key: str, market: str, aud: dict | No
         "seller_score": score,
         "score": score,
         "lead_score": int(_f(row.get("lead_score")) or 0),
-        # money (real only; no fabricated equity/arrears)
+        # money — `amount` is the field the dashboard's Amount column + modal
+        # read; populate it from the real tax-delinquent amount. No fabricated
+        # equity/arrears (left null — source has none).
+        "amount": tax_amt,
         "tax_delinquent_amount": tax_amt,
         "estimated_value": _f(row.get("assessed_value")),
         "assessed_value": _f(row.get("assessed_value")),
@@ -226,7 +234,13 @@ def map_row(row: dict, county: str, county_key: str, market: str, aud: dict | No
         # last-sale are NOT in any Montgomery source -> intentionally absent.
         "year_built": int(yb) if yb else None,
         "property_age": property_age,
+        # dashboard modal reads `square_feet`; mirror living_area_sqft into it.
         "living_area_sqft": int(sqft) if sqft else None,
+        "square_feet": int(sqft) if sqft else None,
+        # beds/baths are NOT in any Montgomery source -> honest null (modal
+        # shows "–"). Needs an auditor/CAMA residential-detail import.
+        "bedrooms": None,
+        "bathrooms": None,
         "lot_acres": lot_acres,
         "lot_size": lot_acres,
         "property_type": property_type or None,
@@ -242,13 +256,19 @@ def map_row(row: dict, county: str, county_key: str, market: str, aud: dict | No
         # no real per-record filing/sale date in this export -> honest empty
         "date_filed": (row.get("event_date") or "").strip(),
         "filed": (row.get("event_date") or "").strip(),
+        # provenance dates = the real dataset pull date (NOT today). Drives the
+        # dashboard's honest Today's-Leads (0 unless regenerated today) and the
+        # Updated timestamp.
+        "first_seen_date": fetched_at,
+        "pulled_date": fetched_at,
+        "last_updated": fetched_at,
     }
     rec.update(mp)
     return rec
 
 
 def build(rows, county, county_key, market, source_url, fetched_at, aud=None):
-    recs = [map_row(r, county, county_key, market, aud) for r in rows]
+    recs = [map_row(r, county, county_key, market, aud, fetched_at) for r in rows]
     def cnt(pred):
         return sum(1 for r in recs if pred(r))
     return {

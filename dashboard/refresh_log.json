@@ -1,0 +1,56 @@
+{
+  "ran_at": "2026-06-20T07:54:05Z",
+  "counties": {
+    "summit": {
+      "status": "external_pipeline",
+      "note": "produced by its own scraper workflow; not refreshed here"
+    },
+    "lucas": {
+      "status": "skipped_disabled"
+    },
+    "cuyahoga": {
+      "status": "external_pipeline",
+      "note": "produced by its own scraper workflow; not refreshed here"
+    },
+    "franklin": {
+      "status": "skipped_disabled"
+    },
+    "hamilton": {
+      "status": "skipped_disabled"
+    },
+    "montgomery": {
+      "status": "refreshed",
+      "source": "leads_montgomery_oh_2026-06-04.csv",
+      "dataset_date": "2026-06-04",
+      "records": 719,
+      "auditor_facts": true
+    },
+    "stark": {
+      "status": "skipped_disabled"
+    },
+    "mahoning": {
+      "status": "skipped_disabled"
+    },
+    "lorain": {
+      "status": "skipped_disabled"
+    },
+    "butler": {
+      "status": "skipped_disabled"
+    },
+    "trumbull": {
+      "status": "skipped_disabled"
+    },
+    "clark": {
+      "status": "skipped_disabled"
+    },
+    "richland": {
+      "status": "skipped_disabled"
+    },
+    "lake": {
+      "status": "skipped_disabled"
+    },
+    "portage": {
+      "status": "skipped_disabled"
+    }
+  }
+}
