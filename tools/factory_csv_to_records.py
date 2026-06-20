@@ -105,6 +105,34 @@ def map_row(row: dict, county: str, county_key: str, market: str) -> dict:
     source_url = (src_urls[0] if src_urls else "") or (row.get("source_code_violation_hub_url") or "")
     score = int(_f(row.get("analyzer_score")) or _f(row.get("lead_score")) or 0)
 
+    # --- real-data enrichments (populated only where the CSV has the value) ---
+    mailing = (row.get("owner_mailing_address") or "").strip()
+    mp = _parse_mailing(mailing)
+    is_entity = _owner_type(owner) == "entity"
+    # absentee = owner's mailing street differs from the property street (real)
+    mail_street = mailing.split(",", 1)[0].strip().upper() if mailing else ""
+    is_absentee = bool(mailing and mail_street and mail_street != street.upper())
+    # out-of-state = parsed mailing state present and not Ohio (real)
+    mail_state = mp.get("mailing_state", "")
+    is_out_of_state = bool(mail_state) and mail_state.upper() != "OH"
+    yb = _f(row.get("year_built"))
+    sqft = _f(row.get("living_area_sqft"))
+
+    # tags — every tag is backed by a real field; none fabricated
+    tags = list(distress)
+    if is_entity:
+        tags.append("Entity Owner")
+    if is_absentee:
+        tags.append("Absentee")
+    if is_out_of_state:
+        tags.append("Out-of-State")
+    if is_vacant:
+        tags.append("Vacant")
+    # tired landlord = entity owner of a code-violation (distressed) property
+    is_tired_landlord = is_entity and cv_count > 0
+    if is_tired_landlord:
+        tags.append("Tired Landlord")
+
     rec = {
         "county": county,
         "source_county_key": county_key,
@@ -148,15 +176,26 @@ def map_row(row: dict, county: str, county_key: str, market: str) -> dict:
         "code_violation_status": (row.get("code_violation_status") or "").strip(),
         "stacked_distress_score": int(_f(row.get("stacked_distress_score")) or 0),
         "is_vacant_home": is_vacant,
+        # owner-condition flags (derived from real mailing/owner data only)
+        "entity_owner": is_entity,
+        "is_absentee": is_absentee,
+        "is_out_of_state": is_out_of_state,
+        "tired_landlord": is_tired_landlord,
+        "tags": tags,
+        # property detail (real where present; null otherwise)
+        "year_built": int(yb) if yb else None,
+        "living_area_sqft": int(sqft) if sqft else None,
+        "enrichment_status": (row.get("enrichment_status") or "").strip(),
+        "matched_owner_name": (row.get("possible_owner_match") or "").strip(),
         # provenance / links (real)
         "source_url": source_url,
         "public_records_url": source_url,
         "lead_id": (row.get("lead_id") or "").strip(),
-        # no real per-record filing date in this export -> honest empty
+        # no real per-record filing/sale date in this export -> honest empty
         "date_filed": (row.get("event_date") or "").strip(),
         "filed": (row.get("event_date") or "").strip(),
     }
-    rec.update(_parse_mailing(rec["mailing_address"]))
+    rec.update(mp)
     return rec
 
 
@@ -177,6 +216,10 @@ def build(rows, county, county_key, market, source_url, fetched_at):
         "code_violation_count": cnt(lambda r: "Code Violation" in r["distress_sources"]),
         "sheriff_sale_count": cnt(lambda r: "Sheriff Sale" in r["distress_sources"]),
         "vacant_home_count": cnt(lambda r: r["is_vacant_home"]),
+        "absentee_count": cnt(lambda r: r["is_absentee"]),
+        "out_of_state_count": cnt(lambda r: r["is_out_of_state"]),
+        "entity_owner_count": cnt(lambda r: r["entity_owner"]),
+        "tired_landlord_count": cnt(lambda r: r["tired_landlord"]),
         "records": recs,
     }
 
