@@ -299,7 +299,7 @@
   "clark": {
     "label": "Clark County",
     "primary_city": "Springfield",
-    "enabled": false,
+    "enabled": true,
     "data_url": "dashboard/clark/records.json",
     "cities": ["Springfield"],
     "sources": {
