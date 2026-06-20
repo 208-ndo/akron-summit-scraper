@@ -1935,6 +1935,7 @@ function normalizeCountyRecord(record,countyKey,cfg,payload){
     tired_landlord_plus:!!r.tired_landlord_plus,
     seller_score:r.seller_score??r.score??0,
     subject_to_score:r.subject_to_score||0,
+    amount:countyKey==='cuyahoga'?(r.amount??r.estimated_value??r.last_sale_amount??r.tax_delinquent_amount??null):r.amount,
     estimated_value:r.estimated_value??r.assessed_value??null,
     estimated_equity:r.estimated_equity??r.est_equity??null,
     est_equity:r.est_equity??r.estimated_equity??null,
