@@ -64,6 +64,38 @@ def _owner_type(name: str) -> str:
     return "entity" if name and _ENTITY.search(name) else ("individual" if name else "")
 
 
+# Current year for property_age derivation (passed in so the mapper stays pure
+# and deterministic; never guesses a date the source lacks).
+CURRENT_YEAR = 2026
+
+
+def load_auditor(path):
+    """Build a parcel-pin -> property-facts lookup from a county-data-factory
+    auditor JSONL (real assessor data). Returns {} if no path/file. Used only
+    to fill REAL property facts (lot size, land use, building style, year
+    built, sqft); never fabricates."""
+    import json as _json
+    out = {}
+    if not path:
+        return out
+    pth = Path(path)
+    if not pth.is_file():
+        return out
+    with open(pth, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                p = _json.loads(line).get("raw_payload", {})
+            except _json.JSONDecodeError:
+                continue
+            pin = (p.get("pin") or "").strip()
+            if pin:
+                out[pin.upper().replace(" ", "")] = p
+    return out
+
+
 def _parse_mailing(v: str):
     m = _MAIL.match(v or "")
     if not m:
@@ -72,10 +104,11 @@ def _parse_mailing(v: str):
             "mailing_zip": m.group(4).split("-")[0].strip()}
 
 
-def map_row(row: dict, county: str, county_key: str, market: str) -> dict:
+def map_row(row: dict, county: str, county_key: str, market: str, aud: dict | None = None) -> dict:
     owner = (row.get("owner_label") or "").strip()
     street = (row.get("address") or "").strip()
     parcel = (row.get("real_parcel_id") or row.get("parcel_key") or "").strip()
+    af = (aud or {}).get(parcel.upper().replace(" ", ""), {})  # real assessor facts
     patterns = [p.lower() for p in _jsonlist(row.get("patterns"))]
     tax_amt = _f(row.get("tax_delinquent_amount"))
     cv_count = int(_f(row.get("code_violation_count")) or 0)
@@ -115,8 +148,15 @@ def map_row(row: dict, county: str, county_key: str, market: str) -> dict:
     # out-of-state = parsed mailing state present and not Ohio (real)
     mail_state = mp.get("mailing_state", "")
     is_out_of_state = bool(mail_state) and mail_state.upper() != "OH"
-    yb = _f(row.get("year_built"))
-    sqft = _f(row.get("living_area_sqft"))
+    # property facts: prefer the lead CSV, fall back to real auditor data;
+    # lot size / property type / building style come only from the auditor.
+    yb = _f(row.get("year_built")) or _f(af.get("year_built"))
+    sqft = _f(row.get("living_area_sqft")) or _f(af.get("living_area_sqft"))
+    lot_acres = _f(af.get("acres"))
+    property_type = (af.get("land_use_description") or "").strip()
+    building_style = (af.get("building_style") or "").strip()
+    assessed_total = _f(af.get("assessed_total"))
+    property_age = (CURRENT_YEAR - int(yb)) if yb else None
 
     # tags — every tag is backed by a real field; none fabricated
     tags = list(distress)
@@ -182,9 +222,17 @@ def map_row(row: dict, county: str, county_key: str, market: str) -> dict:
         "is_out_of_state": is_out_of_state,
         "tired_landlord": is_tired_landlord,
         "tags": tags,
-        # property detail (real where present; null otherwise)
+        # property detail (real where present; null otherwise). Beds/baths and
+        # last-sale are NOT in any Montgomery source -> intentionally absent.
         "year_built": int(yb) if yb else None,
+        "property_age": property_age,
         "living_area_sqft": int(sqft) if sqft else None,
+        "lot_acres": lot_acres,
+        "lot_size": lot_acres,
+        "property_type": property_type or None,
+        "land_use": property_type or None,
+        "building_style": building_style or None,
+        "assessed_total": assessed_total,
         "enrichment_status": (row.get("enrichment_status") or "").strip(),
         "matched_owner_name": (row.get("possible_owner_match") or "").strip(),
         # provenance / links (real)
@@ -199,8 +247,8 @@ def map_row(row: dict, county: str, county_key: str, market: str) -> dict:
     return rec
 
 
-def build(rows, county, county_key, market, source_url, fetched_at):
-    recs = [map_row(r, county, county_key, market) for r in rows]
+def build(rows, county, county_key, market, source_url, fetched_at, aud=None):
+    recs = [map_row(r, county, county_key, market, aud) for r in rows]
     def cnt(pred):
         return sum(1 for r in recs if pred(r))
     return {
@@ -234,12 +282,18 @@ def main(argv=None) -> int:
     p.add_argument("--market", default="")
     p.add_argument("--source-url", default="")
     p.add_argument("--fetched-at", default="")
+    p.add_argument("--auditor", default="",
+                   help="Optional county-data-factory auditor JSONL to join real "
+                        "property facts (lot size / land use / building style) by parcel.")
     a = p.parse_args(argv)
 
     src = Path(a.inp)
     with open(src, encoding="utf-8-sig", newline="") as f:
         rows = list(csv.DictReader(f))
-    payload = build(rows, a.county, a.county_key, a.market, a.source_url, a.fetched_at)
+    aud = load_auditor(a.auditor)
+    payload = build(rows, a.county, a.county_key, a.market, a.source_url, a.fetched_at, aud)
+    if aud:
+        print(f"[csv->records] joined {len(aud)} auditor parcels for property facts")
     out = Path(a.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
