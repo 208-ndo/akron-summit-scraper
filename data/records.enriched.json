@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-20T10:41:52.189577+00:00",
+  "fetched_at": "2026-06-20T20:46:54.390311+00:00",
   "source": "Akron / Summit County, Ohio",
   "date_range": {
     "from": "2026-03-22",
@@ -13,7 +13,7 @@
   "absentee_count": 1081,
   "out_of_state_count": 231,
   "tax_delinquent_count": 3177,
-  "sheriff_sale_count": 60,
+  "sheriff_sale_count": 71,
   "probate_count": 0,
   "code_violation_count": 82,
   "subject_to_count": 1827,
@@ -61,8 +61,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "foreclosure",
+        "sheriff_sale",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -196,8 +196,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "foreclosure",
+        "sheriff_sale",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -330,8 +330,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "foreclosure",
+        "sheriff_sale",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -464,8 +464,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "foreclosure",
+        "sheriff_sale",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -599,8 +599,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "foreclosure",
+        "sheriff_sale",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -735,8 +735,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "foreclosure",
+        "sheriff_sale",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -3894,8 +3894,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7157,8 +7157,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7941,8 +7941,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "foreclosure",
+        "sheriff_sale",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -8075,8 +8075,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "foreclosure",
+        "sheriff_sale",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -8208,8 +8208,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "foreclosure",
+        "sheriff_sale",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -8341,8 +8341,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "foreclosure",
+        "sheriff_sale",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -8471,8 +8471,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "foreclosure",
+        "sheriff_sale",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -8601,8 +8601,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "foreclosure",
+        "sheriff_sale",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -8733,8 +8733,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "foreclosure",
+        "sheriff_sale",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -8863,8 +8863,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "foreclosure",
+        "sheriff_sale",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -8995,8 +8995,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "foreclosure",
+        "sheriff_sale",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -9126,8 +9126,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
         "foreclosure",
+        "vacant_land",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -9258,8 +9258,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
         "foreclosure",
+        "vacant_land",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -9389,8 +9389,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
         "foreclosure",
+        "vacant_land",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -9515,8 +9515,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
         "foreclosure",
+        "vacant_land",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -9642,8 +9642,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -9775,8 +9775,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10177,8 +10177,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10315,8 +10315,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10454,8 +10454,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11111,8 +11111,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11248,8 +11248,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11374,8 +11374,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11500,8 +11500,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11626,8 +11626,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11882,8 +11882,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -14118,8 +14118,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -14243,8 +14243,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -316492,7 +316492,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -316510,8 +316510,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-06-20T10:41:58.130026Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -316733,7 +316733,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -316751,8 +316751,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-06-20T10:41:58.130177Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -316853,7 +316853,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -316871,8 +316871,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-06-20T10:41:58.130245Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -328223,7 +328223,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -328241,8 +328241,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-06-20T10:41:58.138543Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -328341,7 +328341,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -328359,8 +328359,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-06-20T10:41:58.138614Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -328459,7 +328459,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -328477,8 +328477,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-06-20T10:41:58.138681Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -335893,7 +335893,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -335911,8 +335911,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-06-20T10:41:58.142663Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
