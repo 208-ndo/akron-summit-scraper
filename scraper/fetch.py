@@ -4259,6 +4259,15 @@ def write_trace_store(records:List[LeadRecord]):
     TRACE_STORE_PATH.write_text(json.dumps(payload,indent=2),encoding="utf-8")
     logging.info("Wrote trace_store.json with %s keys",len(payload))
 
+def is_sheriff_sale_record(r):
+    """Mirrors the dashboard's isSheriffSaleLead/getListSignals sheriff_sale derivation."""
+    return (
+        getattr(r, "sheriff_sale", False)
+        or r.doc_type == "SHERIFF"
+        or r.cat == "SHERIFF"
+        or "sheriff_sale" in (r.distress_sources or [])
+    )
+
 def build_payload(records):
     return {
         "fetched_at":datetime.now(timezone.utc).isoformat(), "source":SOURCE_NAME,
@@ -4271,7 +4280,7 @@ def build_payload(records):
         "absentee_count":sum(1 for r in records if r.is_absentee),
         "out_of_state_count":sum(1 for r in records if r.is_out_of_state),
         "tax_delinquent_count":sum(1 for r in records if "Tax delinquent" in r.flags),
-        "sheriff_sale_count":sum(1 for r in records if r.doc_type=="SHERIFF"),
+        "sheriff_sale_count":sum(1 for r in records if is_sheriff_sale_record(r)),
         "probate_count":sum(1 for r in records if r.doc_type=="PRO"),
         "code_violation_count":sum(1 for r in records if r.doc_type=="CODEVIOLATION"),
         "subject_to_count":sum(1 for r in records if r.subject_to_score>=50),
