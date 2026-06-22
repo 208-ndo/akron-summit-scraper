@@ -359,7 +359,7 @@
     <button class="tab" data-tab="evictions">🚪 Evictions <span class="badge" id="b-evictions">0</span></button>
     <button class="tab" data-tab="divorces">💔 Divorces <span class="badge" id="b-divorces">0</span></button>
     <button class="tab" data-tab="fire_damage">🔥 Fire Damage <span class="badge" id="b-fire_damage">0</span></button>
-    <button class="tab" data-tab="cash_buyers">Cash Buyers <span class="badge" id="b-cash_buyers">0</span></button>
+    <button class="tab" data-tab="cash_buyers">Active Buyers <span class="badge" id="b-cash_buyers">0</span></button>
     <button class="tab" data-tab="deal_analyzer" style="color:var(--accent3);font-weight:800;">🧮 Deal Analyzer</button>
   </div>
 </div>
@@ -407,7 +407,7 @@
     <option value="Research More">Research More</option>
     <option value="Low Priority">Low Priority</option>
     <option value="Tired Landlord">Tired Landlord</option>
-    <option value="Cash Buyer">Cash Buyer</option>
+    <option value="Active Buyer">Active Buyer</option>
     <option value="Eviction filed">🚪 Eviction</option>
     <option value="Divorce filing">💔 Divorce</option>
     <option value="Fire damage">🔥 Fire Damage</option>
@@ -862,7 +862,7 @@ function normalizeListLabel(value){
   if(label.includes('eviction'))return 'eviction';
   if(label.includes('divorce'))return 'divorce';
   if(label.includes('fire damage'))return 'fire_damage';
-  if(label.includes('cash buyer')||label.includes('investor buyer'))return 'cash_buyer';
+  if(label.includes('cash buyer')||label.includes('active buyer')||label.includes('investor buyer'))return 'cash_buyer';
   return label.replace(/[^a-z0-9]+/g,'_').replace(/^_+|_+$/g,'');
 }
 
@@ -920,7 +920,7 @@ function isNuisanceLead(r){
 
 function isCashBuyerLead(r){
   const flags=(r.flags||[]).join(' ').toLowerCase();
-  return r.doc_type==='CASHBUYER'||!!r.is_cash_buyer||flags.includes('cash buyer');
+  return r.doc_type==='CASHBUYER'||!!r.is_cash_buyer||flags.includes('cash buyer')||flags.includes('active buyer');
 }
 
 function normalizeTraceRecord(data){
@@ -2013,6 +2013,8 @@ function tabRecords(tab,records){
   if(tab==='all')return recs;
   if(tab==='today_leads')return recs.filter(isSourceRefreshedToday);
   return recs.filter(r=>{
+    if(tab==='cash_buyers')return isCashBuyerLead(r);
+    if(r.doc_type==='CASHBUYER')return false; // Active Buyer leads are buy-side, never a seller-distress tab
     const flags=(r.flags||[]).join(' ').toLowerCase();
     if(tab==='hot_stack')return isHotStackLead(r);
     if(tab==='sheriff_sales')return isSheriffSaleLead(r);
@@ -2031,7 +2033,6 @@ function tabRecords(tab,records){
     if(tab==='evictions')return r.doc_type==='EVICTION';
     if(tab==='divorces')return r.doc_type==='DIVORCE';
     if(tab==='fire_damage')return r.doc_type==='FIREDMG';
-    if(tab==='cash_buyers')return isCashBuyerLead(r);
     return false;
   });
 }

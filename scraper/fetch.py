@@ -2753,9 +2753,9 @@ def build_cash_buyer_leads(parcel_by_id:Dict[str,dict],sc750_sales:Dict[str,dict
         total=sum(group["prices"]) if group["prices"] else 0
         avg=round(total/len(group["prices"]),2) if group["prices"] else None
         zips=sorted(group["zips"])
-        flags=["Cash Buyer","Investor Buyer","Bought 3+ Last 12 Months"]
+        flags=["Active Buyer","Investor Buyer","Bought 3+ Last 12 Months"]
         if len(parcels)>=5:
-            flags.append("Heavy Cash Buyer")
+            flags.append("Heavy Active Buyer")
         if likely_corporate_name(group["owner"]):
             flags.append("LLC / corp owner")
         if len(zips)>1:
@@ -2766,7 +2766,7 @@ def build_cash_buyer_leads(parcel_by_id:Dict[str,dict],sc750_sales:Dict[str,dict
             doc_type="CASHBUYER",
             filed=last_purchase.date().isoformat(),
             cat="CASHBUYER",
-            cat_label="Cash Buyer",
+            cat_label="Active Buyer",
             owner=group["owner"].title(),
             amount=avg,
             prop_address=last_parcel.get("prop_address",""),
@@ -4269,24 +4269,25 @@ def is_sheriff_sale_record(r):
     )
 
 def build_payload(records):
+    not_active_buyer=[r for r in records if r.doc_type!="CASHBUYER"]
     return {
         "fetched_at":datetime.now(timezone.utc).isoformat(), "source":SOURCE_NAME,
         "date_range":{"from":(datetime.now()-timedelta(days=LOOKBACK_DAYS)).date().isoformat(),"to":datetime.now().date().isoformat()},
         "total":len(records),
         "with_address":sum(1 for r in records if r.prop_address),
         "with_mail_address":sum(1 for r in records if r.mail_address),
-        "hot_stack_count":sum(1 for r in records if r.hot_stack),
-        "vacant_home_count":sum(1 for r in records if r.is_vacant_home),
-        "absentee_count":sum(1 for r in records if r.is_absentee),
-        "out_of_state_count":sum(1 for r in records if r.is_out_of_state),
-        "tax_delinquent_count":sum(1 for r in records if "Tax delinquent" in r.flags),
+        "hot_stack_count":sum(1 for r in not_active_buyer if r.hot_stack),
+        "vacant_home_count":sum(1 for r in not_active_buyer if r.is_vacant_home),
+        "absentee_count":sum(1 for r in not_active_buyer if r.is_absentee),
+        "out_of_state_count":sum(1 for r in not_active_buyer if r.is_out_of_state),
+        "tax_delinquent_count":sum(1 for r in not_active_buyer if "Tax delinquent" in r.flags),
         "sheriff_sale_count":sum(1 for r in records if is_sheriff_sale_record(r)),
         "probate_count":sum(1 for r in records if r.doc_type=="PRO"),
         "code_violation_count":sum(1 for r in records if r.doc_type=="CODEVIOLATION"),
-        "subject_to_count":sum(1 for r in records if r.subject_to_score>=50),
-        "prime_subject_to_count":sum(1 for r in records if r.subject_to_score>=70),
+        "subject_to_count":sum(1 for r in not_active_buyer if r.subject_to_score>=50),
+        "prime_subject_to_count":sum(1 for r in not_active_buyer if r.subject_to_score>=70),
         # FIX #2 — vacant land count now appears in the payload for the dashboard
-        "vacant_land_count":sum(1 for r in records if r.is_vacant_land),
+        "vacant_land_count":sum(1 for r in not_active_buyer if r.is_vacant_land),
         "cash_buyer_count":sum(1 for r in records if r.doc_type=="CASHBUYER"),
         "records":[asdict(r) for r in records],
     }
@@ -4301,26 +4302,29 @@ def write_json_outputs(records,extra_json_path=None):
     logging.info("Wrote main JSON outputs")
 
 def write_category_json(records):
+    # Active Buyer (CASHBUYER) records must never appear in seller-distress
+    # category exports - they represent the buy side, not a motivated seller.
+    not_active_buyer=[r for r in records if r.doc_type!="CASHBUYER"]
     categories={
-        "hot_stack":         [r for r in records if r.hot_stack],
+        "hot_stack":         [r for r in not_active_buyer if r.hot_stack],
         "sheriff_sales":     [r for r in records if r.doc_type=="SHERIFF"],
         "probate":           [r for r in records if r.doc_type=="PRO"],
         "code_violations":   [r for r in records if r.doc_type=="CODEVIOLATION"],
-        "vacant_homes":      [r for r in records if r.is_vacant_home],
-        "tax_delinquent":    [r for r in records if "Tax delinquent" in r.flags],
-        "absentee":          [r for r in records if r.is_absentee],
-        "out_of_state":      [r for r in records if r.is_out_of_state],
+        "vacant_homes":      [r for r in not_active_buyer if r.is_vacant_home],
+        "tax_delinquent":    [r for r in not_active_buyer if "Tax delinquent" in r.flags],
+        "absentee":          [r for r in not_active_buyer if r.is_absentee],
+        "out_of_state":      [r for r in not_active_buyer if r.is_out_of_state],
         "foreclosure":       [r for r in records if r.doc_type in {"LP","NOFC","TAXDEED","SHERIFF"}],
-        "subject_to":        [r for r in records if r.subject_to_score>=50],
-        "prime_subject_to":  [r for r in records if r.subject_to_score>=70],
-        "inherited":         [r for r in records if r.is_inherited],
+        "subject_to":        [r for r in not_active_buyer if r.subject_to_score>=50],
+        "prime_subject_to":  [r for r in not_active_buyer if r.subject_to_score>=70],
+        "inherited":         [r for r in not_active_buyer if r.is_inherited],
         "evictions":         [r for r in records if r.doc_type=="EVICTION"],
         "fire_damage":       [r for r in records if r.doc_type=="FIREDMG"],
         "divorces":          [r for r in records if r.doc_type=="DIVORCE"],
         "cash_buyers":       [r for r in records if r.doc_type=="CASHBUYER"],
-        "tired_landlord_plus":[r for r in records if r.tired_landlord_plus],
+        "tired_landlord_plus":[r for r in not_active_buyer if r.tired_landlord_plus],
         # FIX #2 — vacant land now written as a category from the main records list
-        "vacant_land":       [r for r in records if r.is_vacant_land],
+        "vacant_land":       [r for r in not_active_buyer if r.is_vacant_land],
     }
     descs={
         "hot_stack":        "🔥 2+ distress signals — highest priority",
