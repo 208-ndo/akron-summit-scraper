@@ -1951,7 +1951,8 @@ function normalizeCountyRecord(record,countyKey,cfg,payload){
     source_url:sourceURL,
     source_name:r.source_name||payload.source||cfg.label||'',
     date_filed:r.date_filed||r.filed||'',
-    last_updated:r.last_updated||payload.fetched_at||'',
+    last_updated:r.last_updated||'',
+    dataset_fetched_at:payload.fetched_at||'',
   });
   return r;
 }
@@ -2384,7 +2385,7 @@ async function loadStats(){
   await loadRemoteTraceStore();
   const r=cache['all']||(await loadSelectedCountyRecords()).map(applyStoredTraceData);
   if(!r.length){document.getElementById('upd').textContent='Offline';return;}
-  const last=uniqueList(r.map(x=>x.last_updated)).sort().pop()||'';
+  const last=uniqueList(r.map(x=>x.last_updated)).sort().pop()||uniqueList(r.map(x=>x.dataset_fetched_at)).sort().pop()||'';
   LAST_SCRAPE_META = { fetched_at: last, total: r.length };
   buildCanonicalTraceIndex(r);
   document.getElementById('s-total').textContent=r.length.toLocaleString();
