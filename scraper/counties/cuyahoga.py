@@ -1112,10 +1112,10 @@ def enrich_transfer_history(record: dict, timestamp: str) -> str:
     sale_amount = transfer.get("last_sale_amount")
     if record.get("investor_owner") and is_recent_transfer(transfer.get("transfer_date")) and isinstance(sale_amount, (int, float)) and sale_amount > 0:
         record["cash_buyer_candidate"] = True
-        record["buyer_type"] = record.get("buyer_type") or "Cash Buyer Candidate"
-        add_unique(record, "distress_sources", ["cash_buyer_candidate"])
-        add_unique(record, "flags", ["Cash Buyer Candidate"])
-        add_unique(record, "tags", ["Cash Buyer Candidate"])
+        record["buyer_type"] = record.get("buyer_type") or "Active Buyer Candidate"
+        add_unique(record, "distress_sources", ["active_buyer_candidate"])
+        add_unique(record, "flags", ["Active Buyer Candidate"])
+        add_unique(record, "tags", ["Active Buyer Candidate"])
 
     apply_absentee_owner_flags(record)
     apply_prime_deal_flag(record)
