@@ -3746,7 +3746,7 @@ function openModal(r){
       <div class="msec">Property</div>
       <div class="mf"><div class="ml">Beds / Baths</div><div class="mv">${[formatFactValue(r.bedrooms,' bd'),formatFactValue(r.bathrooms,' ba')].filter(Boolean).join(' · ')||'â€“'}</div></div>
       <div class="mf"><div class="ml">Square Feet</div><div class="mv">${formatFactValue(r.square_feet,' sqft')||'â€“'}</div></div>
-      <div class="mf"><div class="ml">Year Built</div><div class="mv">${formatFactValue(r.year_built)||'–'}</div></div>
+      <div class="mf"><div class="ml">Year Built</div><div class="mv">${r.year_built||'–'}</div></div>
       <div class="mf"><div class="ml">Property Type</div><div class="mv">${r.property_type||r.land_use||'–'}</div></div>
       <div class="mf"><div class="ml">Lot Size / Acres</div><div class="mv">${formatFactValue(r.lot_acres??r.lot_size,' ac')||'–'}</div></div>
       <div class="mf full"><div class="ml">Property Address</div><div class="mv hi">${r.prop_address||'–'}${r.prop_city?', '+r.prop_city:''} ${r.prop_zip||''}</div></div>
