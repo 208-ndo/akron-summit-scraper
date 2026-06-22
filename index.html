@@ -905,6 +905,7 @@ function isVacantHomeLead(r){
 
 function isSheriffSaleLead(r){
   const signals=getListSignals(r);
+  if(r.doc_type==='TAXDEED')return signals.includes('sheriff_sale');
   return signals.includes('sheriff_sale')||signals.includes('foreclosure');
 }
 
