@@ -2010,7 +2010,7 @@ async function loadCashBuyerRecords(){
 function tabRecords(tab,records){
   const recs=records||[];
   if(tab==='all')return recs;
-  if(tab==='today_leads')return recs.filter(isPulledToday);
+  if(tab==='today_leads')return recs.filter(isSourceRefreshedToday);
   return recs.filter(r=>{
     const flags=(r.flags||[]).join(' ').toLowerCase();
     if(tab==='hot_stack')return isHotStackLead(r);
@@ -2490,12 +2490,16 @@ function recordSourceRefreshedDate(r){
   ).trim();
 }
 
+function isSourceRefreshedToday(r){
+  return isTodayDateString(recordSourceRefreshedDate(r));
+}
+
 function recordFirstSeenDate(r){
   return String(r.first_seen_date||r.first_seen_at||'').trim();
 }
 
 function countTodayPulled(records){
-  return (records||[]).filter(r=>isTodayDateString(recordSourceRefreshedDate(r))).length;
+  return (records||[]).filter(isSourceRefreshedToday).length;
 }
 
 function countTodayLeads(records){
