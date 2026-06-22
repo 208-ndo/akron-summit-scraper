@@ -2483,6 +2483,25 @@ function isPulledToday(r){
   return isTodayDateString(recordPulledDate(r));
 }
 
+function recordSourceRefreshedDate(r){
+  return String(
+    r.last_updated||r.source_fetched_at||r.fetched_at||r.updated_at||
+    r.pulled_date||r.pulled_at||r.first_seen_date||r.first_seen_at||''
+  ).trim();
+}
+
+function recordFirstSeenDate(r){
+  return String(r.first_seen_date||r.first_seen_at||'').trim();
+}
+
+function countTodayPulled(records){
+  return (records||[]).filter(r=>isTodayDateString(recordSourceRefreshedDate(r))).length;
+}
+
+function countTodayLeads(records){
+  return (records||[]).filter(r=>isTodayDateString(recordFirstSeenDate(r))).length;
+}
+
 function computeTopStats(rows){
   const stats = {
     todayPulled: 0,
@@ -2496,23 +2515,14 @@ function computeTopStats(rows){
 
   for(const r of (rows || [])){
     try{
-      const filed = String(r.filed || '').trim();
-      const traceTs = String(r.skip_trace_timestamp || '').trim();
       const status = String(r.skip_trace_status || '').trim().toLowerCase();
-
-      if(isPulledToday(r)) stats.todayPulled += 1;
       if(typeof isTracerfyEligible === 'function' && isTracerfyEligible(r)) stats.eligible += 1;
-      if(isTodayDateString(traceTs) && (status === 'success' || status === 'skipped' || (typeof isSkipTraced==='function' && isSkipTraced(r)))) stats.tracedToday += 1;
       if(status === 'no_hit' || status === 'no_contact') stats.noHit += 1;
     }catch(e){}
   }
   const todayRows=(cache&&Array.isArray(cache['all'])&&cache['all'].length)?cache['all']:(rows||[]);
-  stats.todayPulled=todayRows.filter(isPulledToday).length;
-  stats.tracedToday=todayRows.filter(r=>{
-    const traceTs=String(r.skip_trace_timestamp||'').trim();
-    const status=String(r.skip_trace_status||'').trim().toLowerCase();
-    return isTodayDateString(traceTs)&&(status==='success'||status==='skipped'||(typeof isSkipTraced==='function'&&isSkipTraced(r)));
-  }).length;
+  stats.todayPulled=countTodayPulled(todayRows);
+  stats.tracedToday=countTodayLeads(todayRows);
   return stats;
 }
 
