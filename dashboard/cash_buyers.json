@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-22T13:42:56.374512+00:00",
+  "fetched_at": "2026-06-22T14:41:53.737062+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "cash_buyers",
   "description": "Investor buyers who purchased 3+ unique properties in the last 12 months",
@@ -1094,8 +1094,8 @@
         "Heavy Active Buyer",
         "LLC / corp owner",
         "Multi-Zip Buyer",
-        "🔥 Hot Stack",
-        "📍 Cross-List Match",
+        "\ud83d\udd25 Hot Stack",
+        "\ud83d\udccd Cross-List Match",
         "Tax delinquent",
         "Absentee owner"
       ],
@@ -1104,8 +1104,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1517,8 +1517,8 @@
         "Heavy Active Buyer",
         "LLC / corp owner",
         "Multi-Zip Buyer",
-        "🔥 Hot Stack",
-        "📍 Cross-List Match",
+        "\ud83d\udd25 Hot Stack",
+        "\ud83d\udccd Cross-List Match",
         "Tax delinquent",
         "Absentee owner"
       ],
@@ -1527,8 +1527,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -2604,8 +2604,8 @@
         "Investor Buyer",
         "Bought 3+ Last 12 Months",
         "Heavy Active Buyer",
-        "🔥 Hot Stack",
-        "📍 Cross-List Match",
+        "\ud83d\udd25 Hot Stack",
+        "\ud83d\udccd Cross-List Match",
         "Tax delinquent"
       ],
       "score": 75,
@@ -2613,8 +2613,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -2868,8 +2868,8 @@
         "Heavy Active Buyer",
         "LLC / corp owner",
         "Multi-Zip Buyer",
-        "🔥 Hot Stack",
-        "📍 Cross-List Match",
+        "\ud83d\udd25 Hot Stack",
+        "\ud83d\udccd Cross-List Match",
         "Tax delinquent"
       ],
       "score": 78,
@@ -2877,8 +2877,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5812,8 +5812,8 @@
         "Bought 3+ Last 12 Months",
         "LLC / corp owner",
         "Multi-Zip Buyer",
-        "🔥 Hot Stack",
-        "📍 Cross-List Match",
+        "\ud83d\udd25 Hot Stack",
+        "\ud83d\udccd Cross-List Match",
         "Tax delinquent",
         "Absentee owner"
       ],
@@ -5822,8 +5822,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -6459,8 +6459,8 @@
         "Investor Buyer",
         "Bought 3+ Last 12 Months",
         "Multi-Zip Buyer",
-        "🔥 Hot Stack",
-        "📍 Cross-List Match",
+        "\ud83d\udd25 Hot Stack",
+        "\ud83d\udccd Cross-List Match",
         "Tax delinquent",
         "Absentee owner"
       ],
@@ -6469,8 +6469,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -6720,8 +6720,8 @@
         "Bought 3+ Last 12 Months",
         "LLC / corp owner",
         "Multi-Zip Buyer",
-        "🔥 Hot Stack",
-        "📍 Cross-List Match",
+        "\ud83d\udd25 Hot Stack",
+        "\ud83d\udccd Cross-List Match",
         "Tax delinquent"
       ],
       "score": 68,
@@ -6729,8 +6729,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7732,8 +7732,8 @@
         "Bought 3+ Last 12 Months",
         "LLC / corp owner",
         "Multi-Zip Buyer",
-        "🔥 Hot Stack",
-        "📍 Cross-List Match",
+        "\ud83d\udd25 Hot Stack",
+        "\ud83d\udccd Cross-List Match",
         "Tax delinquent",
         "Absentee owner"
       ],
@@ -7742,8 +7742,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -9377,8 +9377,8 @@
         "Active Buyer",
         "Investor Buyer",
         "Bought 3+ Last 12 Months",
-        "🔥 Hot Stack",
-        "📍 Cross-List Match",
+        "\ud83d\udd25 Hot Stack",
+        "\ud83d\udccd Cross-List Match",
         "Tax delinquent"
       ],
       "score": 78,
@@ -9386,8 +9386,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
