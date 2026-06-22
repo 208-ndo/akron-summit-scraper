@@ -2508,7 +2508,11 @@ function computeTopStats(rows){
   }
   const todayRows=(cache&&Array.isArray(cache['all'])&&cache['all'].length)?cache['all']:(rows||[]);
   stats.todayPulled=todayRows.filter(isPulledToday).length;
-  stats.tracedToday=stats.todayPulled;
+  stats.tracedToday=todayRows.filter(r=>{
+    const traceTs=String(r.skip_trace_timestamp||'').trim();
+    const status=String(r.skip_trace_status||'').trim().toLowerCase();
+    return isTodayDateString(traceTs)&&(status==='success'||status==='skipped'||(typeof isSkipTraced==='function'&&isSkipTraced(r)));
+  }).length;
   return stats;
 }
 
