@@ -846,6 +846,7 @@ function normalizeListLabel(value){
   if(!label)return '';
   if(label.includes('hot stack')||label.includes('new this week')||label.includes('candidate')||label.includes('tired landlord'))return '';
   if(label.includes('sheriff'))return 'sheriff_sale';
+  if(label.includes('tax foreclos'))return 'tax_delinquent';
   if(label.includes('foreclos'))return 'foreclosure';
   if(label.includes('tax delin'))return 'tax_delinquent';
   if(label.includes('public health complaint')||label.includes('environmental nuisance')||label.includes('unsafe / nuisance pressure')||label.includes('rodent')||label.includes('vermin')||label.includes('garbage')||label.includes('high grass')||label.includes('standing water')||label.includes('sewage'))return 'nuisance_complaint';
