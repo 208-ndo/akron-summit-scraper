@@ -1402,6 +1402,7 @@ def enrich_foreclosure_stack(limit: int, date_limit: int) -> dict:
 
         if target:
             merge_record(target, incoming)
+            target["last_updated"] = timestamp
             apply_absentee_owner_flags(target)
             apply_stack_tags(target)
             matched += 1
@@ -1413,6 +1414,7 @@ def enrich_foreclosure_stack(limit: int, date_limit: int) -> dict:
             incoming["city"] = incoming.get("city") or ""
             incoming["property_state"] = incoming.get("property_state") or "OH"
             incoming["last_updated"] = timestamp
+            incoming["first_seen_date"] = timestamp
             apply_stack_tags(incoming)
             records.append(incoming)
             if parcel:
