@@ -302,6 +302,7 @@
     </div>
   </div>
   <div class="updated" id="upd">Loading...</div>
+  <div class="updated" id="refresh-status-line"></div>
 </header>
 
 <div class="statsbar compact">
@@ -2382,8 +2383,31 @@ async function loadTab(tab){
 
 let LAST_SCRAPE_META = { fetched_at: '', total: 0 };
 
+const MIDDOT = String.fromCharCode(183);
+
+function formatRefreshTimestamp(value){
+  if(!value)return 'never';
+  const d=new Date(value);
+  if(isNaN(d))return value;
+  return d.toLocaleDateString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});
+}
+
+async function renderRefreshStatusLine(){
+  const el=document.getElementById('refresh-status-line');
+  if(!el)return;
+  const countyKey=curCounty===ALL_OHIO_KEY?DEFAULT_COUNTY_KEY:(curCounty||DEFAULT_COUNTY_KEY);
+  const statusData=await fetchJSON('refresh_status.json');
+  const entry=statusData&&statusData[countyKey];
+  if(!entry){el.textContent='';return;}
+  const dataUpdated=formatRefreshTimestamp(entry.data_updated_at);
+  const lastChecked=formatRefreshTimestamp(entry.last_checked_at);
+  const statusMsg=entry.message||entry.status||'';
+  el.textContent=`Data Updated: ${dataUpdated} ${MIDDOT} Last Checked: ${lastChecked} ${MIDDOT} Status: ${statusMsg}`;
+}
+
 async function loadStats(){
   await loadRemoteTraceStore();
+  renderRefreshStatusLine();
   const r=cache['all']||(await loadSelectedCountyRecords()).map(applyStoredTraceData);
   if(!r.length){document.getElementById('upd').textContent='Offline';return;}
   const last=uniqueList(r.map(x=>x.last_updated)).sort().pop()||uniqueList(r.map(x=>x.dataset_fetched_at)).sort().pop()||'';

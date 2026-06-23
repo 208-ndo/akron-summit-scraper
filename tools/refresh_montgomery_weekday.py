@@ -95,6 +95,8 @@ REFRESH_LOG_PATH = REPO / "dashboard" / "refresh_log.json"
 REFRESH_SCRIPT = REPO / "tools" / "refresh_counties.py"
 ENRICH_SCRIPT = REPO / "tools" / "montgomery_property_facts_enrich.py"
 SHERIFF_IMPORT_SCRIPT = REPO / "tools" / "montgomery_sheriff_import.py"
+UPDATE_STATUS_SCRIPT = REPO / "tools" / "update_refresh_status.py"
+STATUS_PATH = REPO / "dashboard" / "refresh_status.json"
 
 FACTORY = Path(os.environ.get("FACTORY_REPO", r"C:\Users\nodaysoff\county-data-factory"))
 SHERIFF_SOURCE = FACTORY / "data" / "raw" / "montgomery_dayton_sheriff_sales.jsonl"
@@ -125,6 +127,76 @@ def git_file_changed(path: Path) -> bool:
 
 def revert_target() -> None:
     run(["git", "checkout", "--", str(TARGET.relative_to(REPO))])
+
+
+def previous_source_dataset_date() -> str:
+    try:
+        data = json.loads(STATUS_PATH.read_text(encoding="utf-8"))
+        return str(data.get("montgomery", {}).get("source_dataset_date") or "")
+    except Exception:
+        return ""
+
+
+def read_data_updated_at_for_montgomery() -> str:
+    """The real fetched_at just written to records.json by this run -
+    only called from the success path, after confirming a real change."""
+    try:
+        payload = json.loads(TARGET.read_text(encoding="utf-8"))
+        return str(payload.get("fetched_at") or "")
+    except Exception as e:
+        log(f"read_data_updated_at_for_montgomery: could not read {TARGET}: {e}")
+        return ""
+
+
+def update_status(status: str, message: str, data_updated_at: str | None = None,
+                   source_dataset_date: str | None = None) -> bool:
+    cmd = [
+        sys.executable, str(UPDATE_STATUS_SCRIPT),
+        "--county", "montgomery", "--status", status, "--message", message,
+    ]
+    if data_updated_at:
+        cmd += ["--data-updated-at", data_updated_at]
+    if source_dataset_date:
+        cmd += ["--source-dataset-date", source_dataset_date]
+    result = run(cmd)
+    if result.stdout.strip():
+        log(f"update_refresh_status.py stdout: {result.stdout.strip()}")
+    if result.returncode != 0:
+        log(f"FAILURE: update_refresh_status.py exited {result.returncode}. stderr: {result.stderr.strip()}")
+        return False
+    return True
+
+
+def commit_status_only(exit_code: int) -> int:
+    """For exit paths where dashboard/montgomery/records.json was never
+    touched, or was already reverted - only refresh_status.json might
+    need committing."""
+    if not git_file_changed(STATUS_PATH):
+        log("No change to refresh_status.json. Exiting.")
+        return exit_code
+    add = run(["git", "add", "dashboard/refresh_status.json"])
+    if add.returncode != 0:
+        log(f"FAILURE: git add failed: {add.stderr.strip()}")
+        return 1
+    commit = run(["git", "commit", "-m", "[dashboard] Montgomery refresh status check"])
+    if commit.returncode != 0:
+        log(f"FAILURE: git commit failed: {commit.stderr.strip()}")
+        return 1
+    log(f"Committed: {commit.stdout.strip()}")
+    push = run(["git", "push", "origin", "HEAD:main"])
+    if push.returncode != 0:
+        log(f"FAILURE: git push failed: {push.stderr.strip()}")
+        return 1
+    log("Pushed to origin/main.")
+    return exit_code
+
+
+def read_montgomery_refresh_log_status() -> dict | None:
+    try:
+        log_data = json.loads(REFRESH_LOG_PATH.read_text(encoding="utf-8"))
+        return log_data.get("counties", {}).get("montgomery")
+    except Exception:
+        return None
 
 
 def snapshot_counts(path: Path) -> dict[str, int] | None:
@@ -190,7 +262,8 @@ def main() -> int:
     before = snapshot_counts(TARGET)
     if before is None:
         log("FAILURE: could not snapshot existing dashboard/montgomery/records.json. Aborting.")
-        return 1
+        update_status("failed", "Could not read existing records.json before refresh - aborted without touching it")
+        return commit_status_only(1)
     log(f"Before: {before}")
 
     # 1. CSV + auditor adapter refresh
@@ -200,9 +273,19 @@ def main() -> int:
     if result.returncode != 0:
         log(f"refresh_counties.py exited {result.returncode}. stderr: {result.stderr.strip()}")
 
+    montgomery_log_status = read_montgomery_refresh_log_status() or {}
+    dataset_date = str(montgomery_log_status.get("dataset_date") or "")
+    source_status = montgomery_log_status.get("status")
+
     if not TARGET.is_file():
         log("FAILURE: dashboard/montgomery/records.json missing after refresh_counties.py. Aborting.")
-        return 1
+        update_status("failed", "records.json missing after refresh_counties.py step")
+        return commit_status_only(1)
+
+    if source_status == "skipped_source_missing":
+        log("Montgomery source CSV not found - refresh_counties.py left records.json untouched.")
+        update_status("blocked", "Montgomery source CSV not found in Downloads - refresh skipped, old data preserved")
+        return commit_status_only(0)
 
     # 2. Re-append sheriff-sale leads from the local source JSONL (before
     # enrichment, so the GIS pass below covers them too - see module docstring)
@@ -237,7 +320,8 @@ def main() -> int:
     if after is None:
         log("FAILURE: could not snapshot regenerated dashboard/montgomery/records.json.")
         revert_target()
-        return 1
+        update_status("failed", "Could not read records.json after running the refresh pipeline - reverted")
+        return commit_status_only(1)
     log(f"After: {after}")
 
     hard_failures = [
@@ -250,7 +334,9 @@ def main() -> int:
             log(f"HARD GUARD FAILED: {failure}")
         log("Reverting dashboard/montgomery/records.json to last committed version. Exiting failed.")
         revert_target()
-        return 1
+        update_status("blocked", "Hard guard failed (record count would have shrunk): " + "; ".join(hard_failures),
+                       source_dataset_date=dataset_date or None)
+        return commit_status_only(1)
 
     soft_failures = []
     for field in SOFT_FIELDS:
@@ -271,16 +357,31 @@ def main() -> int:
             log(f"SOFT GUARD FAILED (exceeds tolerance): {failure}")
         log("Reverting dashboard/montgomery/records.json to last committed version. Exiting failed.")
         revert_target()
-        return 1
+        update_status("blocked", "Soft guard exceeded 5% tolerance: " + "; ".join(soft_failures),
+                       source_dataset_date=dataset_date or None)
+        return commit_status_only(1)
 
     log("All guards passed (hard floors held; any property-fact drop, if present, was within tolerance).")
 
     if not git_file_changed(TARGET):
-        log("No change to dashboard/montgomery/records.json. Exiting cleanly, no commit.")
-        return 0
+        prev_dataset_date = previous_source_dataset_date()
+        if dataset_date and dataset_date == prev_dataset_date:
+            log(f"No change to dashboard/montgomery/records.json - source CSV still dated {dataset_date}.")
+            update_status("skipped_stale_source",
+                           f"Source CSV still dated {dataset_date} - no newer export available in Downloads",
+                           source_dataset_date=dataset_date)
+        else:
+            log("No change to dashboard/montgomery/records.json. Exiting cleanly, no data commit.")
+            update_status("no_change", "Refresh ran successfully; no new records found",
+                           source_dataset_date=dataset_date or None)
+        return commit_status_only(0)
 
     log("dashboard/montgomery/records.json changed - staging, committing, pushing.")
-    add = run(["git", "add", "dashboard/montgomery/records.json"])
+    new_fetched_at = read_data_updated_at_for_montgomery()
+    update_status("success", "Refresh ran and found updated Montgomery data",
+                   data_updated_at=new_fetched_at, source_dataset_date=dataset_date or None)
+
+    add = run(["git", "add", "dashboard/montgomery/records.json", "dashboard/refresh_status.json"])
     if add.returncode != 0:
         log(f"FAILURE: git add failed: {add.stderr.strip()}")
         return 1

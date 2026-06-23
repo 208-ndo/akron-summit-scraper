@@ -57,10 +57,28 @@ jobs:
             --report data/match_report.json \
             --property-access-scope priority
 
-      - name: Commit updated data files
+      - name: Update refresh status and commit
+        if: success()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/ dashboard/ trace_store.json
+          if git diff --cached --quiet; then
+            python tools/update_refresh_status.py --county summit --status no_change --message "Scraper ran, no new data found"
+          else
+            FETCHED_AT=$(python -c "import json; print(json.load(open('dashboard/records.json'))['fetched_at'])")
+            python tools/update_refresh_status.py --county summit --status success --message "Scraper ran and found updated data" --data-updated-at "$FETCHED_AT"
+          fi
+          git add dashboard/refresh_status.json
           git diff --cached --quiet || git commit -m "Update scraper data $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push
+
+      - name: Record refresh failure
+        if: failure()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          python tools/update_refresh_status.py --county summit --status failed --message "Scraper step failed - see workflow run logs"
+          git add dashboard/refresh_status.json
+          git diff --cached --quiet || git commit -m "[dashboard] record Summit refresh failure"
           git push
