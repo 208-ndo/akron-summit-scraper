@@ -1,12 +1,20 @@
 {
   "matched": 0,
-  "unmatched": 142,
+  "unmatched": 157,
   "with_address": 0,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 142
+    "unmatched": 157
   },
   "sample_unmatched": [
+    {
+      "doc_num": "SALTI 06",
+      "owner": "Sal R. Salti"
+    },
+    {
+      "doc_num": "CARS 06",
+      "owner": "Squared Auto Inc. Dba Simon Motor Cars"
+    },
     {
       "doc_num": "COMPTON 06",
       "owner": "Anthony D Compton"
@@ -46,10 +54,6 @@
     {
       "doc_num": "BAUER 06",
       "owner": "Ralph Bauer"
-    },
-    {
-      "doc_num": "BOLEY 06",
-      "owner": "Elain M. Boley"
     },
     {
       "doc_num": "KINGSLY 06",
@@ -102,12 +106,8 @@
     {
       "doc_num": "BAEZ 06",
       "owner": "Nina Baez"
-    },
-    {
-      "doc_num": "ASHBY 06",
-      "owner": "Robert H Ashby"
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-06-22T14:41:56.890491+00:00"
+  "generated_at": "2026-06-23T00:13:54.796356+00:00"
 }
