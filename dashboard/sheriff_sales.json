@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-23T00:13:49.388824+00:00",
+  "fetched_at": "2026-06-23T05:04:25.041340+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "sheriff_sales",
   "description": "\u26a1 Properties scheduled for sheriff auction \u2014 days from losing everything",
@@ -46,8 +46,8 @@
       "with_address": 1,
       "distress_sources": [
         "sheriff_sale",
-        "foreclosure",
-        "tax_delinquent"
+        "tax_delinquent",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -181,8 +181,8 @@
       "with_address": 1,
       "distress_sources": [
         "sheriff_sale",
-        "foreclosure",
-        "tax_delinquent"
+        "tax_delinquent",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -315,8 +315,8 @@
       "with_address": 1,
       "distress_sources": [
         "sheriff_sale",
-        "foreclosure",
-        "tax_delinquent"
+        "tax_delinquent",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -449,8 +449,8 @@
       "with_address": 1,
       "distress_sources": [
         "sheriff_sale",
-        "foreclosure",
-        "tax_delinquent"
+        "tax_delinquent",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -584,8 +584,8 @@
       "with_address": 1,
       "distress_sources": [
         "sheriff_sale",
-        "foreclosure",
-        "tax_delinquent"
+        "tax_delinquent",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -720,8 +720,8 @@
       "with_address": 1,
       "distress_sources": [
         "sheriff_sale",
-        "foreclosure",
-        "tax_delinquent"
+        "tax_delinquent",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -3878,8 +3878,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7141,8 +7141,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 2,
       "hot_stack": true,

@@ -1,10 +1,10 @@
 {
   "summit": {
-    "data_updated_at": "2026-06-23T00:13:47.719318+00:00",
-    "last_checked_at": "",
+    "data_updated_at": "2026-06-23T05:04:23.363537+00:00",
+    "last_checked_at": "2026-06-23T05:04:32+00:00",
     "source_dataset_date": "",
-    "status": "manual_needed",
-    "message": "Refresh status tracking just added; first automated check pending"
+    "status": "success",
+    "message": "Scraper ran and found updated data"
   },
   "cuyahoga": {
     "data_updated_at": "2026-06-22T03:37:51+00:00",
