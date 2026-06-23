@@ -81,12 +81,15 @@ Usage:
 """
 from __future__ import annotations
 
+import argparse
 import json
 import os
 import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+
+NO_COMMIT = False
 
 REPO = Path(__file__).resolve().parents[1]
 TARGET = REPO / "dashboard" / "montgomery" / "records.json"
@@ -137,6 +140,23 @@ def previous_source_dataset_date() -> str:
         return ""
 
 
+def count_new_today(path: Path) -> int:
+    """Records with a real first-seen date of today - not just records
+    touched/updated today. Honesty rule established in the dashboard's
+    own Today's Leads fix (Steps 20/25): first_seen, never last_updated."""
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return 0
+    today = datetime.now().date().isoformat()
+    count = 0
+    for r in payload.get("records", []):
+        fsd = str(r.get("first_seen_date") or r.get("first_seen_at") or "")[:10]
+        if fsd == today:
+            count += 1
+    return count
+
+
 def read_data_updated_at_for_montgomery() -> str:
     """The real fetched_at just written to records.json by this run -
     only called from the success path, after confirming a real change."""
@@ -149,7 +169,9 @@ def read_data_updated_at_for_montgomery() -> str:
 
 
 def update_status(status: str, message: str, data_updated_at: str | None = None,
-                   source_dataset_date: str | None = None) -> bool:
+                   source_dataset_date: str | None = None, records_before: int | None = None,
+                   records_after: int | None = None, new_today: int | None = None,
+                   error: str | None = None) -> bool:
     cmd = [
         sys.executable, str(UPDATE_STATUS_SCRIPT),
         "--county", "montgomery", "--status", status, "--message", message,
@@ -158,6 +180,14 @@ def update_status(status: str, message: str, data_updated_at: str | None = None,
         cmd += ["--data-updated-at", data_updated_at]
     if source_dataset_date:
         cmd += ["--source-dataset-date", source_dataset_date]
+    if records_before is not None:
+        cmd += ["--records-before", str(records_before)]
+    if records_after is not None:
+        cmd += ["--records-after", str(records_after)]
+    if new_today is not None:
+        cmd += ["--new-today", str(new_today)]
+    if error:
+        cmd += ["--error", error]
     result = run(cmd)
     if result.stdout.strip():
         log(f"update_refresh_status.py stdout: {result.stdout.strip()}")
@@ -171,6 +201,9 @@ def commit_status_only(exit_code: int) -> int:
     """For exit paths where dashboard/montgomery/records.json was never
     touched, or was already reverted - only refresh_status.json might
     need committing."""
+    if NO_COMMIT:
+        log("--no-commit set: leaving refresh_status.json written locally, not committing/pushing.")
+        return exit_code
     if not git_file_changed(STATUS_PATH):
         log("No change to refresh_status.json. Exiting.")
         return exit_code
@@ -257,12 +290,21 @@ def dedupe_sheriff_records(path: Path) -> int:
 
 
 def main() -> int:
-    log("=== Montgomery weekday refresh: start ===")
+    global NO_COMMIT
+    parser = argparse.ArgumentParser(description="Montgomery weekday refresh wrapper")
+    parser.add_argument("--no-commit", action="store_true",
+                         help="run the full pipeline and guards, write refresh_status.json locally, "
+                              "but skip git add/commit/push")
+    args = parser.parse_args()
+    NO_COMMIT = args.no_commit
+
+    log("=== Montgomery weekday refresh: start ===" + (" (--no-commit)" if NO_COMMIT else ""))
 
     before = snapshot_counts(TARGET)
     if before is None:
         log("FAILURE: could not snapshot existing dashboard/montgomery/records.json. Aborting.")
-        update_status("failed", "Could not read existing records.json before refresh - aborted without touching it")
+        update_status("failed", "Could not read existing records.json before refresh - aborted without touching it",
+                       error="could not read records.json before refresh")
         return commit_status_only(1)
     log(f"Before: {before}")
 
@@ -279,12 +321,14 @@ def main() -> int:
 
     if not TARGET.is_file():
         log("FAILURE: dashboard/montgomery/records.json missing after refresh_counties.py. Aborting.")
-        update_status("failed", "records.json missing after refresh_counties.py step")
+        update_status("failed", "records.json missing after refresh_counties.py step",
+                       records_before=before["total"], error="records.json missing after CSV refresh step")
         return commit_status_only(1)
 
     if source_status == "skipped_source_missing":
         log("Montgomery source CSV not found - refresh_counties.py left records.json untouched.")
-        update_status("blocked", "Montgomery source CSV not found in Downloads - refresh skipped, old data preserved")
+        update_status("manual_needed", "Montgomery source CSV not found in Downloads - refresh skipped, old data preserved",
+                       records_before=before["total"], records_after=before["total"])
         return commit_status_only(0)
 
     # 2. Re-append sheriff-sale leads from the local source JSONL (before
@@ -320,7 +364,8 @@ def main() -> int:
     if after is None:
         log("FAILURE: could not snapshot regenerated dashboard/montgomery/records.json.")
         revert_target()
-        update_status("failed", "Could not read records.json after running the refresh pipeline - reverted")
+        update_status("failed", "Could not read records.json after running the refresh pipeline - reverted",
+                       records_before=before["total"], error="could not read records.json after refresh pipeline")
         return commit_status_only(1)
     log(f"After: {after}")
 
@@ -335,7 +380,8 @@ def main() -> int:
         log("Reverting dashboard/montgomery/records.json to last committed version. Exiting failed.")
         revert_target()
         update_status("blocked", "Hard guard failed (record count would have shrunk): " + "; ".join(hard_failures),
-                       source_dataset_date=dataset_date or None)
+                       source_dataset_date=dataset_date or None, records_before=before["total"],
+                       records_after=before["total"], error="; ".join(hard_failures))
         return commit_status_only(1)
 
     soft_failures = []
@@ -358,28 +404,38 @@ def main() -> int:
         log("Reverting dashboard/montgomery/records.json to last committed version. Exiting failed.")
         revert_target()
         update_status("blocked", "Soft guard exceeded 5% tolerance: " + "; ".join(soft_failures),
-                       source_dataset_date=dataset_date or None)
+                       source_dataset_date=dataset_date or None, records_before=before["total"],
+                       records_after=before["total"], error="; ".join(soft_failures))
         return commit_status_only(1)
 
     log("All guards passed (hard floors held; any property-fact drop, if present, was within tolerance).")
+
+    new_today = count_new_today(TARGET)
 
     if not git_file_changed(TARGET):
         prev_dataset_date = previous_source_dataset_date()
         if dataset_date and dataset_date == prev_dataset_date:
             log(f"No change to dashboard/montgomery/records.json - source CSV still dated {dataset_date}.")
-            update_status("skipped_stale_source",
+            update_status("stale_source",
                            f"Source CSV still dated {dataset_date} - no newer export available in Downloads",
-                           source_dataset_date=dataset_date)
+                           source_dataset_date=dataset_date, records_before=before["total"],
+                           records_after=after["total"], new_today=new_today)
         else:
             log("No change to dashboard/montgomery/records.json. Exiting cleanly, no data commit.")
-            update_status("no_change", "Refresh ran successfully; no new records found",
-                           source_dataset_date=dataset_date or None)
+            update_status("success_no_change", "Refresh ran successfully; no new records found",
+                           source_dataset_date=dataset_date or None, records_before=before["total"],
+                           records_after=after["total"], new_today=new_today)
         return commit_status_only(0)
 
     log("dashboard/montgomery/records.json changed - staging, committing, pushing.")
     new_fetched_at = read_data_updated_at_for_montgomery()
-    update_status("success", "Refresh ran and found updated Montgomery data",
-                   data_updated_at=new_fetched_at, source_dataset_date=dataset_date or None)
+    update_status("success_updated", "Refresh ran and found updated Montgomery data",
+                   data_updated_at=new_fetched_at, source_dataset_date=dataset_date or None,
+                   records_before=before["total"], records_after=after["total"], new_today=new_today)
+
+    if NO_COMMIT:
+        log("--no-commit set: pipeline completed and status written locally, skipping git add/commit/push.")
+        return 0
 
     add = run(["git", "add", "dashboard/montgomery/records.json", "dashboard/refresh_status.json"])
     if add.returncode != 0:

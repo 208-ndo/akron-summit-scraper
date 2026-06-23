@@ -1,10 +1,10 @@
 name: Cuyahoga County Refresh
 
 on:
+  # Scheduled runs moved to .github/workflows/daily_refresh_all.yml, which
+  # covers Summit + Cuyahoga from one place. Kept here as a manual/debug
+  # fallback only - now a thin call into the same orchestrator.
   workflow_dispatch:
-  schedule:
-    - cron: '0 12 * * 1-5'  # 6:00 AM Mountain (MDT), weekdays
-    - cron: '30 19 * * 1-5'  # 1:30 PM Mountain (MDT), weekdays
 
 jobs:
   refresh:
@@ -25,32 +25,11 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run Cuyahoga sheriff/foreclosure refresh
-        run: |
-          python scraper/counties/cuyahoga.py --enrich-foreclosures
-
-      - name: Update refresh status and commit
-        if: success()
+      - name: Configure git identity
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add dashboard/cuyahoga/records.json
-          if git diff --cached --quiet; then
-            python tools/update_refresh_status.py --county cuyahoga --status no_change --message "Refresh ran, no new sheriff/foreclosure data found"
-          else
-            FETCHED_AT=$(python -c "import json; print(json.load(open('dashboard/cuyahoga/records.json'))['fetched_at'])")
-            python tools/update_refresh_status.py --county cuyahoga --status success --message "Refresh ran and merged new sheriff/foreclosure data" --data-updated-at "$FETCHED_AT"
-          fi
-          git add dashboard/refresh_status.json
-          git diff --cached --quiet || git commit -m "[scraper] refresh Cuyahoga data"
-          git push
 
-      - name: Record refresh failure
-        if: failure()
+      - name: Run Cuyahoga refresh via orchestrator
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          python tools/update_refresh_status.py --county cuyahoga --status failed --message "Cuyahoga refresh step failed - see workflow run logs"
-          git add dashboard/refresh_status.json
-          git diff --cached --quiet || git commit -m "[dashboard] record Cuyahoga refresh failure"
-          git push
+          python tools/run_daily_refresh_all.py --county cuyahoga --commit --push
