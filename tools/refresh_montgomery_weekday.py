@@ -4,12 +4,22 @@
 Runs tools/refresh_counties.py - which regenerates ONLY
 dashboard/montgomery/records.json from the operator's real local
 source files (Summit and Cuyahoga are logged there as
-"external_pipeline" and never touched) - then commits and pushes
-dashboard/montgomery/records.json *only if its content actually
-changed*. Never commits dashboard/refresh_log.json: that file is
-regenerated (with a fresh "ran_at") on every run regardless of
-whether the underlying Montgomery data changed, so committing it
-every time would create noise commits with no real content change.
+"external_pipeline" and never touched) - then re-runs
+tools/montgomery_property_facts_enrich.py so the GIS-sourced
+beds/baths/year-built/property-type/lot-acres facts (added in an
+earlier session, from the Montgomery County Auditor's public GIS
+layer) get re-applied on top of the fresh CSV/auditor data. The
+CSV adapter unconditionally sets bedrooms/bathrooms to null on
+every run (factory_csv_to_records.py:242-243 - that source
+genuinely has no beds/baths column), so skipping this second step
+would silently erase that enrichment on every refresh.
+
+Commits and pushes dashboard/montgomery/records.json *only if its
+content actually changed* after both steps. Never commits
+dashboard/refresh_log.json: that file is regenerated (with a fresh
+"ran_at") on every run regardless of whether the underlying
+Montgomery data changed, so committing it every time would create
+noise commits with no real content change.
 
 Honesty rules (match refresh_counties.py's own design):
   - Never marks a run "refreshed" unless the real Montgomery CSV
@@ -34,6 +44,7 @@ Usage:
 """
 from __future__ import annotations
 
+import json
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -42,7 +53,9 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[1]
 TARGET = REPO / "dashboard" / "montgomery" / "records.json"
 LOG_PATH = REPO / "tools" / "logs" / "montgomery_refresh.log"
+REFRESH_LOG_PATH = REPO / "dashboard" / "refresh_log.json"
 REFRESH_SCRIPT = REPO / "tools" / "refresh_counties.py"
+ENRICH_SCRIPT = REPO / "tools" / "montgomery_property_facts_enrich.py"
 
 
 def log(message: str) -> None:
@@ -64,6 +77,18 @@ def git_file_changed(path: Path) -> bool:
     return result.returncode != 0
 
 
+def read_montgomery_refresh_status() -> dict | None:
+    try:
+        log_data = json.loads(REFRESH_LOG_PATH.read_text(encoding="utf-8"))
+        return log_data.get("counties", {}).get("montgomery")
+    except Exception:
+        return None
+
+
+def revert_target() -> None:
+    run(["git", "checkout", "--", str(TARGET.relative_to(REPO))])
+
+
 def main() -> int:
     log("=== Montgomery weekday refresh: start ===")
 
@@ -76,8 +101,22 @@ def main() -> int:
         log("Existing dashboard/montgomery/records.json left untouched. Exiting.")
         return 1
 
+    status = read_montgomery_refresh_status()
+    if status:
+        log(f"refresh_counties.py reported Montgomery status: {status}")
+
     if not TARGET.is_file():
         log("FAILURE: dashboard/montgomery/records.json missing after refresh. Exiting.")
+        return 1
+
+    enrich = run([sys.executable, str(ENRICH_SCRIPT), "--out", str(TARGET.relative_to(REPO))])
+    if enrich.stdout.strip():
+        log(f"montgomery_property_facts_enrich.py stdout: {enrich.stdout.strip()}")
+    if enrich.returncode != 0:
+        log(f"FAILURE: montgomery_property_facts_enrich.py exited {enrich.returncode}. "
+            f"stderr: {enrich.stderr.strip()}")
+        log("Reverting dashboard/montgomery/records.json to last committed version. Exiting.")
+        revert_target()
         return 1
 
     if not git_file_changed(TARGET):
