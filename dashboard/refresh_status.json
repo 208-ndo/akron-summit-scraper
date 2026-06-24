@@ -11,11 +11,15 @@
     "error": "record count shrank 3783 -> 3738"
   },
   "cuyahoga": {
-    "data_updated_at": "2026-06-23T21:15:37+00:00",
-    "last_checked_at": "2026-06-23T21:16:16+00:00",
+    "data_updated_at": "2026-06-24T14:58:32+00:00",
+    "last_checked_at": "2026-06-24T14:59:28+00:00",
     "source_dataset_date": "",
-    "status": "success",
-    "message": "Refresh ran and merged new sheriff/foreclosure data"
+    "status": "success_updated",
+    "message": "cuyahoga refresh ran and found updated data",
+    "records_before": 11386,
+    "records_after": 11387,
+    "new_today": 1,
+    "error": ""
   },
   "montgomery": {
     "data_updated_at": "2026-06-04",
