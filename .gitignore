@@ -2,3 +2,5 @@ tools/logs/*.log
 __pycache__/
 *.pyc
 *.bak.json
+imports/montgomery_oh/*.csv
+imports/montgomery_oh/*.jsonl

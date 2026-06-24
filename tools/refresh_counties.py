@@ -36,6 +36,7 @@ FACTORY = Path(os.environ.get(
     "FACTORY_REPO", r"C:\Users\nodaysoff\county-data-factory"))
 DOWNLOADS = Path(os.environ.get(
     "DOWNLOADS_DIR", r"C:\Users\nodaysoff\Downloads"))
+MONTGOMERY_IMPORTS = REPO / "imports" / "montgomery_oh"
 
 
 def _latest(glob_dir: Path, pattern: str):
@@ -54,11 +55,15 @@ def _dataset_date_from_name(p: Path) -> str:
 
 
 def refresh_montgomery() -> dict:
-    csv_path = _latest(DOWNLOADS, "leads_montgomery_oh_*.csv")
+    # Stable repo-local folder checked first; Downloads is the fallback for
+    # whenever a fresh export hasn't been moved into imports/ yet.
+    csv_path = _latest(MONTGOMERY_IMPORTS, "leads_montgomery_oh_*.csv")
+    if not csv_path:
+        csv_path = _latest(DOWNLOADS, "leads_montgomery_oh_*.csv")
     auditor = FACTORY / "data" / "raw" / "montgomery_auditor_iasworld.jsonl"
     if not csv_path or not csv_path.is_file():
         return {"status": "skipped_source_missing",
-                "needed": "imports/montgomery_oh/leads or Downloads/leads_montgomery_oh_*.csv"}
+                "needed": "imports/montgomery_oh/leads_montgomery_oh_*.csv or Downloads/leads_montgomery_oh_*.csv"}
     fetched_at = _dataset_date_from_name(csv_path)
     import csv as _csv
     with open(csv_path, encoding="utf-8-sig", newline="") as f:

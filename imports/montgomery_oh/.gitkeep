@@ -1,0 +1,3 @@
+Place a fresh leads_montgomery_oh_YYYY-MM-DD.csv export here.
+tools/refresh_counties.py checks this folder before falling back to
+Downloads/leads_montgomery_oh_*.csv. See docs/COUNTY_DAILY_REFRESH_SOP.md.
