@@ -11,12 +11,12 @@
     "error": "record count shrank 3783 -> 3725"
   },
   "cuyahoga": {
-    "data_updated_at": "2026-06-24T14:58:32+00:00",
-    "last_checked_at": "2026-06-24T14:59:28+00:00",
+    "data_updated_at": "2026-06-24T21:24:49+00:00",
+    "last_checked_at": "2026-06-24T21:25:28+00:00",
     "source_dataset_date": "",
     "status": "success_updated",
     "message": "cuyahoga refresh ran and found updated data",
-    "records_before": 11386,
+    "records_before": 11387,
     "records_after": 11387,
     "new_today": 1,
     "error": ""
