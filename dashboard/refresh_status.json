@@ -11,14 +11,14 @@
     "error": "record count shrank 3783 -> 3524"
   },
   "cuyahoga": {
-    "data_updated_at": "2026-06-29T21:23:40+00:00",
-    "last_checked_at": "2026-06-29T21:24:16+00:00",
+    "data_updated_at": "2026-06-30T14:45:11+00:00",
+    "last_checked_at": "2026-06-30T14:45:45+00:00",
     "source_dataset_date": "",
     "status": "success_updated",
     "message": "cuyahoga refresh ran and found updated data",
     "records_before": 11398,
-    "records_after": 11398,
-    "new_today": 0,
+    "records_after": 11412,
+    "new_today": 14,
     "error": ""
   },
   "montgomery": {
