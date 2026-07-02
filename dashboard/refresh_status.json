@@ -23,10 +23,10 @@
   },
   "montgomery": {
     "data_updated_at": "2026-06-04",
-    "last_checked_at": "2026-06-24T19:30:13+00:00",
+    "last_checked_at": "2026-07-02T14:04:47+00:00",
     "source_dataset_date": "2026-06-04",
-    "status": "stale_source",
-    "message": "Source CSV still dated 2026-06-04 - no newer export available in Downloads",
+    "status": "manual_needed",
+    "message": "Montgomery source CSV not found in Downloads - refresh skipped, old data preserved",
     "records_before": 774,
     "records_after": 774,
     "new_today": 5,
