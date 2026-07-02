@@ -1,31 +1,31 @@
 {
   "matched": 0,
-  "unmatched": 87,
-  "with_address": 0,
-  "with_mail_address": 0,
+  "unmatched": 105,
+  "with_address": 2,
+  "with_mail_address": 1,
   "match_methods": {
-    "unmatched": 87
+    "unmatched": 105
   },
   "sample_unmatched": [
     {
-      "doc_num": "BEEMAN 07",
-      "owner": "Todd M Beeman"
+      "doc_num": "AMERIC 07",
+      "owner": "Spaghetti Warehouse Resturants Of Americ"
+    },
+    {
+      "doc_num": "STAVENGER 07",
+      "owner": "Sandra Stavenger"
     },
     {
       "doc_num": "CHEROTTI 07",
       "owner": "Timothy Cherotti"
     },
     {
+      "doc_num": "BEEMAN 07",
+      "owner": "Todd M Beeman"
+    },
+    {
       "doc_num": "BLACKMON 07",
       "owner": "Ty A Blackmon"
-    },
-    {
-      "doc_num": "HAUGHTON 07",
-      "owner": "Aj Haughton"
-    },
-    {
-      "doc_num": "2026 AT 10",
-      "owner": ""
     },
     {
       "doc_num": "2026 AT 10",
@@ -109,5 +109,5 @@
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-07-02T14:03:38.167034+00:00"
+  "generated_at": "2026-07-02T20:57:48.127209+00:00"
 }
