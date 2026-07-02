@@ -12,20 +12,20 @@
       "owner": "Todd M Beeman"
     },
     {
-      "doc_num": "BLACKMON 07",
-      "owner": "Ty A Blackmon"
-    },
-    {
       "doc_num": "CHEROTTI 07",
       "owner": "Timothy Cherotti"
+    },
+    {
+      "doc_num": "BLACKMON 07",
+      "owner": "Ty A Blackmon"
     },
     {
       "doc_num": "HAUGHTON 07",
       "owner": "Aj Haughton"
     },
     {
-      "doc_num": "TAFT 06",
-      "owner": "Dawn Taft"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
       "doc_num": "2026 AT 10",
@@ -109,5 +109,5 @@
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-07-02T04:37:16.948651+00:00"
+  "generated_at": "2026-07-02T14:03:38.167034+00:00"
 }

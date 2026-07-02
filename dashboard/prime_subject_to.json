@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-02T04:37:15.063156+00:00",
+  "fetched_at": "2026-07-02T14:03:35.056433+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "prime_subject_to",
   "description": "\u2b50 Prime subject-to deals \u2014 high equity + motivated seller (score \u226570)",
@@ -46,8 +46,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
         "sheriff_sale",
+        "tax_delinquent",
         "foreclosure"
       ],
       "distress_count": 3,
@@ -180,8 +180,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
         "sheriff_sale",
+        "tax_delinquent",
         "foreclosure"
       ],
       "distress_count": 3,
@@ -314,8 +314,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
         "sheriff_sale",
+        "tax_delinquent",
         "foreclosure"
       ],
       "distress_count": 3,
@@ -449,8 +449,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
         "sheriff_sale",
+        "tax_delinquent",
         "foreclosure"
       ],
       "distress_count": 3,
@@ -583,8 +583,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
         "sheriff_sale",
+        "tax_delinquent",
         "foreclosure"
       ],
       "distress_count": 3,
@@ -730,7 +730,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -748,8 +748,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-07-02T04:37:15.717352Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -862,7 +862,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -880,8 +880,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-07-02T04:37:15.717462Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -994,7 +994,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -1012,8 +1012,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-07-02T04:37:15.717569Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -1126,7 +1126,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -1144,8 +1144,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-07-02T04:37:15.717675Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -1258,7 +1258,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "",
+      "skip_trace_source": "Tracerfy",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -1276,8 +1276,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "",
-      "skip_trace_timestamp": "",
+      "skip_trace_status": "no_hit",
+      "skip_trace_timestamp": "2026-07-02T04:37:15.717773Z",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
@@ -2831,8 +2831,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -2964,8 +2964,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -3104,8 +3104,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -3235,8 +3235,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
