@@ -1,14 +1,14 @@
 {
   "summit": {
-    "data_updated_at": "2026-06-23T23:09:47.606417+00:00",
-    "last_checked_at": "2026-07-01T21:23:45+00:00",
+    "data_updated_at": "2026-07-02T04:37:09.228494+00:00",
+    "last_checked_at": "2026-07-02T04:37:19+00:00",
     "source_dataset_date": "",
-    "status": "blocked",
-    "message": "Record count would have shrunk 3783 -> 3483 - reverted",
+    "status": "success_updated",
+    "message": "summit refresh ran and found updated data",
     "records_before": 3783,
-    "records_after": 3783,
-    "new_today": 230,
-    "error": "record count shrank 3783 -> 3483"
+    "records_after": 4671,
+    "new_today": 26,
+    "error": ""
   },
   "cuyahoga": {
     "data_updated_at": "2026-07-01T21:23:47+00:00",
