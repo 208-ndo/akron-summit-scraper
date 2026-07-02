@@ -13,6 +13,28 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 OUTPUT_PATH = REPO_ROOT / "dashboard" / "cuyahoga" / "records.json"
+
+
+def ensure_first_seen_dates(payload: dict) -> dict:
+    """Stamp first_seen_date=today on records that lack it (2026-07-01 fix).
+
+    Before this fix only standalone sheriff imports ever got a
+    first_seen_date, so Today's Leads undercounted Cuyahoga (42 of
+    11,416 records stamped). Existing history was backfilled once by
+    tools/backfill_first_seen_cuyahoga.py with honest past dates
+    (first_seen_backfilled=true), so any record still missing the field
+    at write time is genuinely new this run - stamping today is honest.
+    """
+    today = datetime.now().date().isoformat()
+    for rec in payload.get("records", []):
+        if isinstance(rec, dict) and not str(rec.get("first_seen_date") or "").strip():
+            rec["first_seen_date"] = today
+    return payload
+
+
+def write_output(payload: dict) -> None:
+    ensure_first_seen_dates(payload)
+    OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
 SOURCE_NAME = "Cleveland Open Data - Complaint Violation Notices"
 SOURCE_URL = "https://services3.arcgis.com/dty2kHktVXHrqO8i/arcgis/rest/services/Complaint_Violation_Notices/FeatureServer/0"
 QUERY_URL = f"{SOURCE_URL}/query"
@@ -1311,7 +1333,7 @@ def enrich_tax_values(limit: int) -> dict:
         **counts,
         "backup_path": str(backup_path),
     }
-    OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    write_output(payload)
     return payload["phase_2f_tax_value_enrichment"]
 
 
@@ -1357,7 +1379,7 @@ def enrich_tax_delinquency(limit: int) -> dict:
         "cuyahoga_hot_stack_count": hot_stack_count,
         "backup_path": str(backup_path),
     }
-    OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    write_output(payload)
     return payload["phase_2f_tax_delinquent_enrichment"]
 
 
@@ -1451,7 +1473,7 @@ def enrich_foreclosure_stack(limit: int, date_limit: int) -> dict:
             },
         }
     )
-    OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    write_output(payload)
     return payload["phase_2g_foreclosure_enrichment"]
 
 
@@ -1493,7 +1515,7 @@ def enrich_cash_buyer_signals(limit: int) -> dict:
         "confirmed_cash_buyer_count": confirmed_count,
         "backup_path": str(backup_path),
     }
-    OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    write_output(payload)
     return payload["phase_2h_cash_buyer_enrichment"]
 
 
@@ -1528,7 +1550,7 @@ def apply_prime_deal_flags() -> dict:
         "sample_reasons": sample_reasons,
         "backup_path": str(backup_path),
     }
-    OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    write_output(payload)
     return payload["phase_2i_prime_deal_flags"]
 
 
@@ -1554,7 +1576,7 @@ def enrich_owners(limit: int) -> dict:
         "limit": limit,
         **counts,
     }
-    OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    write_output(payload)
     counts["backup_path"] = str(backup_path)
     return counts
 
@@ -1827,7 +1849,7 @@ def apply_absentee_flags() -> dict:
         "records_processed": len(records),
         "backup_path": str(backup_path),
     }
-    OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    write_output(payload)
     return payload["phase_2e_absentee_enrichment"]
 
 
@@ -1927,7 +1949,7 @@ def expand_stacks(limit: int, owner_limit: int, violation_limit: int = 5000, pro
             },
         }
     )
-    OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    write_output(payload)
     return payload["phase_2d_stack_expansion"] | {"total_records": len(records)}
 
 
@@ -2001,7 +2023,7 @@ def enrich_demolition_permits(limit: int) -> dict:
             },
         }
     )
-    OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    write_output(payload)
     return payload["phase_2k_demolition_permit_stack"] | {"total_records": len(records)}
 
 
@@ -2082,7 +2104,7 @@ def enrich_nuisance_complaints(limit: int) -> dict:
             },
         }
     )
-    OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    write_output(payload)
     return payload["phase_2m_nuisance_complaint_stack"] | {"total_records": len(records)}
 
 
@@ -2151,7 +2173,7 @@ def main() -> None:
         return
     payload = build_payload(max(1, min(args.limit, 1000)))
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    write_output(payload)
     print(f"Wrote {payload['record_count']} records to {OUTPUT_PATH}")
 
 

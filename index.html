@@ -2402,7 +2402,17 @@ async function renderRefreshStatusLine(){
   const dataUpdated=formatRefreshTimestamp(entry.data_updated_at);
   const lastChecked=formatRefreshTimestamp(entry.last_checked_at);
   const statusMsg=entry.message||entry.status||'';
-  el.textContent=`Data Updated: ${dataUpdated} ${MIDDOT} Last Checked: ${lastChecked} ${MIDDOT} Status: ${statusMsg}`;
+  // Stale/failure warning (2026-07-01 fix): surface blocked/failed/stale
+  // runs and old source data honestly instead of a quiet status string.
+  const BAD_STATUSES=['blocked','failed','stale_source','manual_needed'];
+  let warn='';
+  const updatedTs=entry.data_updated_at?new Date(entry.data_updated_at):null;
+  const daysOld=(updatedTs&&!isNaN(updatedTs))?Math.floor((Date.now()-updatedTs.getTime())/86400000):null;
+  if(BAD_STATUSES.includes(entry.status))warn=`\u26A0 ${String(entry.status).toUpperCase().replace('_',' ')} ${MIDDOT} `;
+  else if(daysOld!==null&&daysOld>3)warn=`\u26A0 DATA ${daysOld}d OLD ${MIDDOT} `;
+  const srcDate=entry.source_dataset_date?` ${MIDDOT} Source File: ${entry.source_dataset_date}`:'';
+  const newToday=(typeof entry.new_today==='number')?` ${MIDDOT} New Today: ${entry.new_today}`:'';
+  el.textContent=`${warn}Data Updated: ${dataUpdated} ${MIDDOT} Last Checked: ${lastChecked}${srcDate}${newToday} ${MIDDOT} Status: ${statusMsg}`;
 }
 
 async function loadStats(){

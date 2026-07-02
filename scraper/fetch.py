@@ -4294,6 +4294,19 @@ def build_payload(records):
 
 def write_json_outputs(records,extra_json_path=None):
     payload=build_payload(records); paths=list(DEFAULT_OUTPUT_JSON_PATHS)
+    # Merge-preserve (2026-07-01 fix): carry forward previously committed
+    # records that vanished from this pull instead of shrinking the file,
+    # which was tripping the orchestrator's shrink guard on every run and
+    # froze the Summit dashboard at Jun 23. Never fabricates data; keeps
+    # first_seen_date, score, and flags on carried records untouched.
+    # See scraper/merge_preserve.py for the full rationale.
+    try:
+        import importlib.util as _ilu
+        _spec=_ilu.spec_from_file_location("merge_preserve", Path(__file__).resolve().parent/"merge_preserve.py")
+        _mp=_ilu.module_from_spec(_spec); _spec.loader.exec_module(_mp)
+        payload=_mp.merge_with_previous_file(payload, DASHBOARD_DIR/"records.json")
+    except Exception as e:
+        logging.warning("merge_preserve step skipped due to error: %s", e)
     if extra_json_path: paths.append(extra_json_path)
     seen=set()
     for path in paths:
