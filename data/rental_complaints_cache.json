@@ -3264,5 +3264,787 @@
     "source_url": "https://ari.akronohio.gov/",
     "searched_address": "14 Am Other Civil Filing Compl",
     "checked_at": "2026-06-13T10:36:23.770864+00:00"
+  },
+  "1026 FRANCIS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1026 FRANCIS AVE",
+    "checked_at": "2026-07-06T21:25:14.180814+00:00"
+  },
+  "1092 PITKIN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1092 PITKIN AVE",
+    "checked_at": "2026-07-06T21:25:14.631790+00:00"
+  },
+  "1126 E HOWE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1126 E HOWE RD",
+    "checked_at": "2026-07-06T21:25:15.081571+00:00"
+  },
+  "1271 JOHNS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1271 JOHNS RD",
+    "checked_at": "2026-07-06T21:25:15.522238+00:00"
+  },
+  "1320 ROMANE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1320 ROMANE DR",
+    "checked_at": "2026-07-06T21:25:15.993762+00:00"
+  },
+  "1390 JOHNS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1390 JOHNS RD",
+    "checked_at": "2026-07-06T21:25:16.467099+00:00"
+  },
+  "1401 GRAND": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1401 GRAND BLVD",
+    "checked_at": "2026-07-06T21:25:16.919451+00:00"
+  },
+  "1426 LEAGUE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=17292",
+    "address": "1426 League St Akron, OH",
+    "owner": "Boney, Sidney Jr.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1426 League St Akron, OH Property Owner Boney, Sidney Jr. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-07-06T21:25:17.705228+00:00"
+  },
+  "1496 SE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1496 SOUTHEAST AVE",
+    "checked_at": "2026-07-06T21:25:18.151369+00:00"
+  },
+  "1505 RIES": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1505 RIES ST",
+    "checked_at": "2026-07-06T21:25:18.587895+00:00"
+  },
+  "1518 FRONT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1518 FRONT ST",
+    "checked_at": "2026-07-06T21:25:19.041672+00:00"
+  },
+  "1539 MARTHA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1539 MARTHA AVE",
+    "checked_at": "2026-07-06T21:25:19.508566+00:00"
+  },
+  "1547 TREETOP TRL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1547 TREETOP TRL",
+    "checked_at": "2026-07-06T21:25:19.951211+00:00"
+  },
+  "155 MOORE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "155 MOORE RD",
+    "checked_at": "2026-07-06T21:25:20.392434+00:00"
+  },
+  "1555 HAMPTON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1555 HAMPTON RD",
+    "checked_at": "2026-07-06T21:25:20.840054+00:00"
+  },
+  "1555 W MARKET": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=69846",
+    "address": "1555 W Market St Akron, OH 44313",
+    "owner": "COD Properties Ohio LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1555 W Market St Akron, OH 44313 Property Owner COD Properties Ohio LLC Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-07-06T21:25:21.594361+00:00"
+  },
+  "1557 12 MASSILLON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1557 1/2 MASSILLON RD",
+    "checked_at": "2026-07-06T21:25:22.035130+00:00"
+  },
+  "1557 RAYMOND": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1557 RAYMOND AVE",
+    "checked_at": "2026-07-06T21:25:22.482971+00:00"
+  },
+  "156 COLE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "156 COLE AVE",
+    "checked_at": "2026-07-06T21:25:22.925369+00:00"
+  },
+  "1564 AMBRE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1564 AMBRE DR",
+    "checked_at": "2026-07-06T21:25:23.365261+00:00"
+  },
+  "1565 DELIA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1565 DELIA AVE",
+    "checked_at": "2026-07-06T21:25:23.808736+00:00"
+  },
+  "1568 SUNSET": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1568 SUNSET AVE",
+    "checked_at": "2026-07-06T21:25:24.252284+00:00"
+  },
+  "1570 ACOMA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1570 ACOMA DR",
+    "checked_at": "2026-07-06T21:25:24.698783+00:00"
+  },
+  "1574 HAMPTON": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=68252",
+    "address": "1574 Hampton Rd Akron, OH",
+    "owner": "Butts, Johnnie (Estate)",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1574 Hampton Rd Akron, OH Property Owner Butts, Johnnie (Estate) Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-07-06T21:25:25.454434+00:00"
+  },
+  "1575 FAYE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1575 FAYE RD",
+    "checked_at": "2026-07-06T21:25:25.898320+00:00"
+  },
+  "1577 LAKE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1577 LAKE RD",
+    "checked_at": "2026-07-06T21:25:26.333594+00:00"
+  },
+  "1577 MANCHESTER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1577 MANCHESTER RD",
+    "checked_at": "2026-07-06T21:25:26.770830+00:00"
+  },
+  "1577 PILGRIM": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1577 PILGRIM ST",
+    "checked_at": "2026-07-06T21:25:27.216542+00:00"
+  },
+  "1577 SUNSIDE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1577 SUNSIDE DR",
+    "checked_at": "2026-07-06T21:25:27.657681+00:00"
+  },
+  "1581 GOODYEAR": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1581 GOODYEAR BLVD",
+    "checked_at": "2026-07-06T21:25:28.101099+00:00"
+  },
+  "1590 PAWNEE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1590 PAWNEE BLVD",
+    "checked_at": "2026-07-06T21:25:28.536261+00:00"
+  },
+  "1591 NEWCASTLE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1591 NEWCASTLE CIR",
+    "checked_at": "2026-07-06T21:25:28.982068+00:00"
+  },
+  "1596 REDWOOD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1596 REDWOOD AVE",
+    "checked_at": "2026-07-06T21:25:29.418997+00:00"
+  },
+  "1598 THORNAPPLE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1598 THORNAPPLE AVE",
+    "checked_at": "2026-07-06T21:25:29.852760+00:00"
+  },
+  "1599 HILLCREST": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=58512",
+    "address": "1599 Hillcrest St Akron, OH",
+    "owner": "Heller, Joseph C.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1599 Hillcrest St Akron, OH Property Owner Heller, Joseph C. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-07-06T21:25:30.607709+00:00"
+  },
+  "161 ROGER": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=45138",
+    "address": "161 Roger Ave Akron, OH",
+    "owner": "Koerner, Stephan M. & Lynn A.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 161 Roger Ave Akron, OH Property Owner Koerner, Stephan M. & Lynn A. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-07-06T21:25:31.374909+00:00"
+  },
+  "1611 WILTSHIRE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1611 WILTSHIRE RD",
+    "checked_at": "2026-07-06T21:25:31.822314+00:00"
+  },
+  "1624 LAWTON": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=22690",
+    "address": "1624 Lawton St Akron, OH 44320",
+    "owner": "Hilton, Gerald",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1624 Lawton St Akron, OH 44320 Property Owner Hilton, Gerald Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-07-06T21:25:32.599659+00:00"
+  },
+  "163 LONG LAKE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "163 LONG LAKE BLVD",
+    "checked_at": "2026-07-06T21:25:33.036448+00:00"
+  },
+  "1635 WILTSHIRE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1635 WILTSHIRE RD",
+    "checked_at": "2026-07-06T21:25:33.481278+00:00"
+  },
+  "1640 REDWOOD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1640 REDWOOD AVE",
+    "checked_at": "2026-07-06T21:25:33.930349+00:00"
+  },
+  "1643 BREIDING": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=42523",
+    "address": "1643 Breiding Rd Akron, OH",
+    "owner": "Ali, Syed S.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1643 Breiding Rd Akron, OH Property Owner Ali, Syed S. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-07-06T21:25:34.713872+00:00"
+  },
+  "1648 HERKENDER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1648 HERKENDER AVE",
+    "checked_at": "2026-07-06T21:25:35.172104+00:00"
+  },
+  "1648 HILLSIDE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1648 HILLSIDE TER",
+    "checked_at": "2026-07-06T21:25:35.610173+00:00"
+  },
+  "1649 1651 TANGLEWOOD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1649 & 1651 TANGLEWOOD DR",
+    "checked_at": "2026-07-06T21:25:36.047506+00:00"
+  },
+  "1654 IDLEWOOD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1654 IDLEWOOD AVE",
+    "checked_at": "2026-07-06T21:25:36.483991+00:00"
+  },
+  "1655 N CLEVELANDMASSILLON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1655 N CLEVELAND-MASSILLON RD",
+    "checked_at": "2026-07-06T21:25:36.922521+00:00"
+  },
+  "166 EDGEHILL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "166 EDGEHILL DR",
+    "checked_at": "2026-07-06T21:25:37.365272+00:00"
+  },
+  "166 WHITE POND": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "166 WHITE POND DR",
+    "checked_at": "2026-07-06T21:25:37.811260+00:00"
+  },
+  "1666 WILTSHIRE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1666 WILTSHIRE RD",
+    "checked_at": "2026-07-06T21:25:38.264523+00:00"
+  },
+  "167 DURWARD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "167 DURWARD RD",
+    "checked_at": "2026-07-06T21:25:38.701583+00:00"
+  },
+  "167 JESSE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "167 JESSE AVE",
+    "checked_at": "2026-07-06T21:25:39.147996+00:00"
+  },
+  "1676 LITTLE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1676 LITTLE ST",
+    "checked_at": "2026-07-06T21:25:39.585610+00:00"
+  },
+  "1678 EVERGREEN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1678 EVERGREEN AVE",
+    "checked_at": "2026-07-06T21:25:40.029798+00:00"
+  },
+  "168 MILES": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "168 MILES ST",
+    "checked_at": "2026-07-06T21:25:40.469430+00:00"
+  },
+  "169 E ARCHWOOD": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=57272",
+    "address": "169 E Archwood Ave Akron, OH",
+    "owner": "Leoncio, Patricia",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 169 E Archwood Ave Akron, OH Property Owner Leoncio, Patricia Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-07-06T21:25:41.250019+00:00"
+  },
+  "1690 WAKEFIELD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1690 WAKEFIELD DR",
+    "checked_at": "2026-07-06T21:25:41.684265+00:00"
+  },
+  "1697 SUMMIT VIEW": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1697 SUMMIT VIEW AVE",
+    "checked_at": "2026-07-06T21:25:42.128199+00:00"
+  },
+  "1700 BERNA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1700 BERNA RD",
+    "checked_at": "2026-07-06T21:25:42.594593+00:00"
+  },
+  "1706 CANTON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1706 CANTON RD",
+    "checked_at": "2026-07-06T21:25:43.047283+00:00"
+  },
+  "1709 BERNA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1709 BERNA RD",
+    "checked_at": "2026-07-06T21:25:43.515839+00:00"
+  },
+  "171 MILES": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "171 MILES ST",
+    "checked_at": "2026-07-06T21:25:43.951337+00:00"
+  },
+  "171 N HIGHLAND": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=16337",
+    "address": "171 N Highland Ave Akron, OH",
+    "owner": "Shuber, Charlotte M.(Estate)",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 171 N Highland Ave Akron, OH Property Owner Shuber, Charlotte M.(Estate) Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-07-06T21:25:44.804348+00:00"
+  },
+  "1715 WILTSHIRE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1715 WILTSHIRE RD",
+    "checked_at": "2026-07-06T21:25:45.245762+00:00"
+  },
+  "1726 COVENTRY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1726 COVENTRY ST",
+    "checked_at": "2026-07-06T21:25:45.693070+00:00"
+  },
+  "1729 SMOKERISE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1729 SMOKERISE DR",
+    "checked_at": "2026-07-06T21:25:46.144654+00:00"
+  },
+  "173 SPELLMAN": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=65288",
+    "address": "173 Spellman Ct Akron, OH",
+    "owner": "Azzuro Real Estate LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 173 Spellman Ct Akron, OH Property Owner Azzuro Real Estate LLC Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-07-06T21:25:46.955341+00:00"
+  },
+  "1730 FLINT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1730 FLINT AVE",
+    "checked_at": "2026-07-06T21:25:47.396568+00:00"
+  },
+  "1734 KINGSLEY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1734 KINGSLEY AVE",
+    "checked_at": "2026-07-06T21:25:47.829100+00:00"
+  },
+  "175 HARTER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "175 HARTER ST",
+    "checked_at": "2026-07-06T21:25:48.282684+00:00"
+  },
+  "1750 MARKS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1750 MARKS AVE",
+    "checked_at": "2026-07-06T21:25:48.721422+00:00"
+  },
+  "1751 BROWN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1751 BROWN ST",
+    "checked_at": "2026-07-06T21:25:49.166224+00:00"
+  },
+  "1755 CLAYBEN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1755 CLAYBEN DR",
+    "checked_at": "2026-07-06T21:25:49.603963+00:00"
+  },
+  "1755 KEN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1755 KEN DR",
+    "checked_at": "2026-07-06T21:25:50.040971+00:00"
+  },
+  "1766 ASHLAND": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1766 ASHLAND ST",
+    "checked_at": "2026-07-06T21:25:50.476189+00:00"
+  },
+  "177 BAYVIEW": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "177 BAYVIEW TER",
+    "checked_at": "2026-07-06T21:25:50.917290+00:00"
+  },
+  "1770 TONAWANDA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1770 TONAWANDA AVE",
+    "checked_at": "2026-07-06T21:25:51.364947+00:00"
+  },
+  "1777 MARIGOLD": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=61005",
+    "address": "1777 Marigold Ave Akron, OH",
+    "owner": "Hindi, Rick M.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1777 Marigold Ave Akron, OH Property Owner Hindi, Rick M. Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-07-06T21:25:52.127100+00:00"
+  },
+  "1782 ADELAIDE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1782 ADELAIDE BLVD",
+    "checked_at": "2026-07-06T21:25:52.564735+00:00"
+  },
+  "18 COURTLAND": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "18 COURTLAND DR",
+    "checked_at": "2026-07-06T21:25:53.002135+00:00"
+  },
+  "1800 BERNA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1800 BERNA RD",
+    "checked_at": "2026-07-06T21:25:53.463623+00:00"
+  },
+  "1806 MOONLIGHT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1806 MOONLIGHT DR",
+    "checked_at": "2026-07-06T21:25:53.895023+00:00"
+  },
+  "1809 COLLIER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1809 COLLIER RD",
+    "checked_at": "2026-07-06T21:25:54.332173+00:00"
+  },
+  "1814 KRUMROY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1814 KRUMROY RD",
+    "checked_at": "2026-07-06T21:25:54.777743+00:00"
+  },
+  "182 E PARK": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "182 EAST PARK BLVD",
+    "checked_at": "2026-07-06T21:25:55.217780+00:00"
+  },
+  "182 GRAND": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "182 GRAND AVE",
+    "checked_at": "2026-07-06T21:25:55.690428+00:00"
+  },
+  "1822 GAYLORD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1822 GAYLORD DR",
+    "checked_at": "2026-07-06T21:25:56.131788+00:00"
+  },
+  "1824 SUNSET": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1824 SUNSET AVE",
+    "checked_at": "2026-07-06T21:25:56.563278+00:00"
+  },
+  "1827 PIERCY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1827 PIERCY DR",
+    "checked_at": "2026-07-06T21:25:57.048425+00:00"
+  },
+  "1833 MANCHESTER": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=29700",
+    "address": "1833 Manchester Rd Akron, OH",
+    "owner": "Pluck, Raymond L.",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1833 Manchester Rd Akron, OH Property Owner Pluck, Raymond L. Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-07-06T21:25:57.810094+00:00"
+  },
+  "1834 FLINT": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=55620",
+    "address": "1834 Flint Ave Akron, OH",
+    "owner": "Quality Rentals LLC/David Staats",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1834 Flint Ave Akron, OH Property Owner Quality Rentals LLC/David Staats Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-07-06T21:25:58.587455+00:00"
+  },
+  "1838 SHAW": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1838 SHAW AVE",
+    "checked_at": "2026-07-06T21:25:59.040624+00:00"
+  },
+  "1845 FLINT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1845 FLINT AVE",
+    "checked_at": "2026-07-06T21:25:59.501999+00:00"
+  },
+  "1845 MANCHESTER": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=60899",
+    "address": "1845 Manchester Rd Akron, OH",
+    "owner": "Santiago, Simon",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1845 Manchester Rd Akron, OH Property Owner Santiago, Simon Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-07-06T21:26:00.310716+00:00"
+  },
+  "1855 KEMERY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1855 KEMERY RD",
+    "checked_at": "2026-07-06T21:26:00.749851+00:00"
+  },
+  "1859 DELIA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1859 DELIA AVE",
+    "checked_at": "2026-07-06T21:26:01.197314+00:00"
+  },
+  "186 S FIRESTONE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "186 S FIRESTONE BLVD",
+    "checked_at": "2026-07-06T21:26:01.643598+00:00"
+  },
+  "1863 SEATTLE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1863 SEATTLE ST",
+    "checked_at": "2026-07-06T21:26:02.088688+00:00"
+  },
+  "187 NIEMAN": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=28755",
+    "address": "187 Nieman St Akron, OH",
+    "owner": "Ruple, Glen",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 187 Nieman St Akron, OH Property Owner Ruple, Glen Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-07-06T21:26:02.870129+00:00"
+  },
+  "188 WWICK": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "188 WESTWICK WAY",
+    "checked_at": "2026-07-06T21:26:03.307042+00:00"
+  },
+  "1891 SW 16TH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1891 SW 16TH ST",
+    "checked_at": "2026-07-06T21:26:03.755248+00:00"
+  },
+  "1894 EDWARDS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1894 EDWARDS DR",
+    "checked_at": "2026-07-06T21:26:04.193362+00:00"
+  },
+  "190 E BROOKSIDE": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=67412",
+    "address": "190 E Brookside Ave Akron, OH",
+    "owner": "DTMM Real Estate Group",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 190 E Brookside Ave Akron, OH Property Owner DTMM Real Estate Group Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-07-06T21:26:04.948439+00:00"
+  },
+  "1901 SHAW": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1901 SHAW AVE",
+    "checked_at": "2026-07-06T21:26:05.405900+00:00"
+  },
+  "1910 ETON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1910 ETON ST",
+    "checked_at": "2026-07-06T21:26:05.845682+00:00"
+  },
+  "1912 CHRISTINE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1912 CHRISTINE DR",
+    "checked_at": "2026-07-06T21:26:06.284031+00:00"
+  },
+  "1912 SW 17TH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1912 SW 17TH ST",
+    "checked_at": "2026-07-06T21:26:06.721358+00:00"
+  },
+  "1915 SW 16TH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1915 SW 16TH ST",
+    "checked_at": "2026-07-06T21:26:07.157428+00:00"
+  },
+  "192 E YORK": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=23912",
+    "address": "192 E York St Akron, OH",
+    "owner": "Butler, Carl",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 192 E York St Akron, OH Property Owner Butler, Carl Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-07-06T21:26:07.911952+00:00"
+  },
+  "1923 RONALD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1923 RONALD RD",
+    "checked_at": "2026-07-06T21:26:08.365459+00:00"
+  },
+  "1930 KILLIAN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1930 KILLIAN RD",
+    "checked_at": "2026-07-06T21:26:08.803221+00:00"
+  },
+  "1934 SW 12TH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1934 SW 12TH ST",
+    "checked_at": "2026-07-06T21:26:09.242128+00:00"
+  },
+  "1935 BERNA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1935 BERNA RD",
+    "checked_at": "2026-07-06T21:26:09.694867+00:00"
+  },
+  "194 S FIRESTONE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "194 S FIRESTONE BLVD",
+    "checked_at": "2026-07-06T21:26:10.147201+00:00"
+  },
+  "1940 CANTON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1940 CANTON RD",
+    "checked_at": "2026-07-06T21:26:10.586132+00:00"
+  },
+  "1950 S GREGG": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1950 S GREGG AVE",
+    "checked_at": "2026-07-06T21:26:11.023535+00:00"
+  },
+  "1952 CANTON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1952 CANTON RD",
+    "checked_at": "2026-07-06T21:26:11.465435+00:00"
+  },
+  "196 SELDEN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "196 SELDEN AVE",
+    "checked_at": "2026-07-06T21:26:11.899622+00:00"
+  },
+  "1961 WRIGHT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1961 WRIGHT RD",
+    "checked_at": "2026-07-06T21:26:12.331350+00:00"
   }
 }
