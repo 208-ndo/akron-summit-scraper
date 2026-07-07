@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-07-07T14:32:56.646335+00:00",
+  "fetched_at": "2026-07-07T21:23:34.770417+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "hot_stack",
   "description": "\ud83d\udd25 2+ distress signals \u2014 highest priority",
-  "total": 124,
+  "total": 122,
   "records": [
     {
       "doc_num": "CV2025 11 5429",
@@ -47,8 +47,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -181,8 +181,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -315,8 +315,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -449,8 +449,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -585,8 +585,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -719,8 +719,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -852,8 +852,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -983,8 +983,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1113,8 +1113,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1245,8 +1245,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1375,8 +1375,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1505,8 +1505,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1637,8 +1637,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -2428,8 +2428,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "vacant_land",
+        "foreclosure",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -2554,8 +2554,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "vacant_land",
+        "foreclosure",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -2680,8 +2680,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "vacant_land",
+        "foreclosure",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -2806,8 +2806,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "vacant_land",
+        "foreclosure",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -2932,8 +2932,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "vacant_land",
+        "foreclosure",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -5177,8 +5177,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5310,8 +5310,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7807,8 +7807,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7945,8 +7945,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -8084,8 +8084,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11604,8 +11604,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12125,8 +12125,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12251,8 +12251,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12377,8 +12377,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12503,8 +12503,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12759,8 +12759,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13210,131 +13210,6 @@
       "bedrooms": 3.0,
       "bathrooms": 1.0,
       "square_feet": 1411,
-      "buyer_purchase_count": 0,
-      "buyer_unique_parcels": 0,
-      "buyer_last_purchase_date": "",
-      "buyer_avg_purchase_price": null,
-      "buyer_total_purchase_volume": null,
-      "buyer_zips": [],
-      "buyer_property_addresses": [],
-      "buyer_type": "",
-      "rental_complaint": false,
-      "rental_complaint_source": "",
-      "rental_complaint_date": "",
-      "rental_case_number": "",
-      "rental_complaint_open_count": 0,
-      "rental_complaint_resolved_count": 0,
-      "rental_complaint_total_count": 0,
-      "landlord_pain": false,
-      "tired_landlord_plus": false,
-      "tired_landlord_reasons": [],
-      "owner_property_count": 0,
-      "repeat_distress_owner": false,
-      "portfolio_owner": false
-    },
-    {
-      "doc_num": "LLC 07",
-      "doc_type": "LP",
-      "filed": "2026-07-06",
-      "cat": "LP",
-      "cat_label": "Lis Pendens",
-      "first_seen_date": "2026-07-06",
-      "pulled_date": "2026-07-06",
-      "owner": "72 S Thomas Place, Llc",
-      "grantee": "Denham Vitalie Design, Lp",
-      "amount": null,
-      "legal": "DENHAM VITALIE DESIGN, LP -VS- 72 S THOMAS PLACE, LLC",
-      "prop_address": "72 S Thomas Place",
-      "prop_city": "",
-      "prop_state": "OH",
-      "prop_zip": "",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "",
-      "mail_zip": "",
-      "clerk_url": "https://newcivilfilings.summitoh.net/",
-      "flags": [
-        "Research More",
-        "Lis pendens",
-        "LLC / corp owner",
-        "New this week",
-        "\ud83d\udd25 Hot Stack",
-        "\ud83d\udccd Cross-List Match",
-        "In foreclosure"
-      ],
-      "score": 75,
-      "match_method": "unmatched",
-      "match_score": 0.0,
-      "with_address": 1,
-      "distress_sources": [
-        "eviction",
-        "lis_pendens"
-      ],
-      "distress_count": 2,
-      "hot_stack": true,
-      "luc": "",
-      "acres": "",
-      "is_vacant_land": false,
-      "is_vacant_home": false,
-      "is_absentee": false,
-      "is_out_of_state": false,
-      "parcel_id": "",
-      "phones": [],
-      "phone_types": [],
-      "emails": [],
-      "skip_trace_source": "Tracerfy",
-      "traced_owner_name": "",
-      "traced_owner": "",
-      "traced_phones": [],
-      "traced_phone_types": [],
-      "traced_emails": [],
-      "phone_primary": "",
-      "phone_primary_type": "",
-      "phone_secondary": "",
-      "phone_secondary_type": "",
-      "phone_tertiary": "",
-      "phone_tertiary_type": "",
-      "email_primary": "",
-      "traced_email": "",
-      "traced_mailing_address": "",
-      "traced_mailing_city": "",
-      "traced_mailing_state": "",
-      "traced_mailing_zip": "",
-      "skip_trace_status": "no_hit",
-      "skip_trace_timestamp": "2026-07-06T21:26:21.820463Z",
-      "has_phone": false,
-      "has_email": false,
-      "assessed_value": null,
-      "estimated_value": null,
-      "last_sale_price": null,
-      "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
-      "est_arrears": null,
-      "est_payoff": null,
-      "subject_to_score": 25,
-      "mortgage_signals": [
-        "Active foreclosure"
-      ],
-      "sheriff_sale_date": "",
-      "appraised_value": null,
-      "lender": "",
-      "auction_days_until": null,
-      "auction_countdown": "",
-      "auction_urgency": "",
-      "foreclosure_stage": "",
-      "foreclosure_case_number": "",
-      "foreclosure_notice_date": "",
-      "code_violation_case": "",
-      "code_violation_date": "",
-      "decedent_name": "",
-      "executor_name": "",
-      "executor_state": "",
-      "estate_value": null,
-      "is_inherited": false,
-      "bedrooms": null,
-      "bathrooms": null,
-      "square_feet": null,
       "buyer_purchase_count": 0,
       "buyer_unique_parcels": 0,
       "buyer_last_purchase_date": "",
@@ -14432,128 +14307,6 @@
       "auction_days_until": 3,
       "auction_countdown": "3 days left",
       "auction_urgency": "hot",
-      "foreclosure_stage": "",
-      "foreclosure_case_number": "",
-      "foreclosure_notice_date": "",
-      "code_violation_case": "",
-      "code_violation_date": "",
-      "decedent_name": "",
-      "executor_name": "",
-      "executor_state": "",
-      "estate_value": null,
-      "is_inherited": false,
-      "bedrooms": null,
-      "bathrooms": null,
-      "square_feet": null,
-      "buyer_purchase_count": 0,
-      "buyer_unique_parcels": 0,
-      "buyer_last_purchase_date": "",
-      "buyer_avg_purchase_price": null,
-      "buyer_total_purchase_volume": null,
-      "buyer_zips": [],
-      "buyer_property_addresses": [],
-      "buyer_type": "",
-      "rental_complaint": false,
-      "rental_complaint_source": "",
-      "rental_complaint_date": "",
-      "rental_case_number": "",
-      "rental_complaint_open_count": 0,
-      "rental_complaint_resolved_count": 0,
-      "rental_complaint_total_count": 0,
-      "landlord_pain": false,
-      "tired_landlord_plus": false,
-      "tired_landlord_reasons": [],
-      "owner_property_count": 0,
-      "repeat_distress_owner": false,
-      "portfolio_owner": false
-    },
-    {
-      "doc_num": "EVIC-0012",
-      "doc_type": "EVICTION",
-      "filed": "2026-07-06",
-      "cat": "EVICTION",
-      "cat_label": "Eviction",
-      "first_seen_date": "2026-06-11",
-      "pulled_date": "2026-06-11",
-      "owner": "72 S Thomas Place, Llc",
-      "grantee": "",
-      "amount": null,
-      "legal": "",
-      "prop_address": "72 S Thomas Place",
-      "prop_city": "Akron",
-      "prop_state": "OH",
-      "prop_zip": "",
-      "mail_address": "",
-      "mail_city": "",
-      "mail_state": "",
-      "mail_zip": "",
-      "clerk_url": "https://newcivilfilings.summitoh.net/",
-      "flags": [
-        "Research More",
-        "Eviction filed",
-        "New this week",
-        "\ud83d\udd25 Hot Stack",
-        "\ud83d\udccd Cross-List Match",
-        "In foreclosure"
-      ],
-      "score": 73,
-      "match_method": "eviction_blazor",
-      "match_score": 0.85,
-      "with_address": 1,
-      "distress_sources": [
-        "eviction",
-        "lis_pendens"
-      ],
-      "distress_count": 2,
-      "hot_stack": true,
-      "luc": "",
-      "acres": "",
-      "is_vacant_land": false,
-      "is_vacant_home": false,
-      "is_absentee": false,
-      "is_out_of_state": false,
-      "parcel_id": "",
-      "phones": [],
-      "phone_types": [],
-      "emails": [],
-      "skip_trace_source": "Tracerfy",
-      "traced_owner_name": "",
-      "traced_owner": "",
-      "traced_phones": [],
-      "traced_phone_types": [],
-      "traced_emails": [],
-      "phone_primary": "",
-      "phone_primary_type": "",
-      "phone_secondary": "",
-      "phone_secondary_type": "",
-      "phone_tertiary": "",
-      "phone_tertiary_type": "",
-      "email_primary": "",
-      "traced_email": "",
-      "traced_mailing_address": "",
-      "traced_mailing_city": "",
-      "traced_mailing_state": "",
-      "traced_mailing_zip": "",
-      "skip_trace_status": "no_hit",
-      "skip_trace_timestamp": "2026-07-06T21:26:21.821941Z",
-      "has_phone": false,
-      "has_email": false,
-      "assessed_value": null,
-      "estimated_value": null,
-      "last_sale_price": null,
-      "last_sale_year": null,
-      "est_mortgage_balance": null,
-      "est_equity": null,
-      "est_arrears": null,
-      "est_payoff": null,
-      "subject_to_score": 0,
-      "mortgage_signals": [],
-      "sheriff_sale_date": "",
-      "appraised_value": null,
-      "lender": "",
-      "auction_days_until": null,
-      "auction_countdown": "",
-      "auction_urgency": "",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
       "foreclosure_notice_date": "",

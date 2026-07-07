@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-07T14:32:56.678634+00:00",
+  "fetched_at": "2026-07-07T21:23:34.806621+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "sheriff_sales",
   "description": "\u26a1 Properties scheduled for sheriff auction \u2014 days from losing everything",
@@ -47,8 +47,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -181,8 +181,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -315,8 +315,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -449,8 +449,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -585,8 +585,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
