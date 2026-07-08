@@ -4046,5 +4046,17 @@
     "source_url": "https://ari.akronohio.gov/",
     "searched_address": "1961 WRIGHT RD",
     "checked_at": "2026-07-06T21:26:12.331350+00:00"
+  },
+  "1964 COPLEY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1964 COPLEY RD",
+    "checked_at": "2026-07-08T20:59:14.099244+00:00"
+  },
+  "1965 QUAYLE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1965 QUAYLE DR",
+    "checked_at": "2026-07-08T20:59:14.435825+00:00"
   }
 }
