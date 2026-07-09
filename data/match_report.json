@@ -1,12 +1,24 @@
 {
   "matched": 0,
-  "unmatched": 94,
+  "unmatched": 90,
   "with_address": 1,
   "with_mail_address": 1,
   "match_methods": {
-    "unmatched": 94
+    "unmatched": 90
   },
   "sample_unmatched": [
+    {
+      "doc_num": "TRGO 07",
+      "owner": "Deborah Trgo"
+    },
+    {
+      "doc_num": "VARTTELLI 07",
+      "owner": "Mark Varttelli"
+    },
+    {
+      "doc_num": "POFFENBAUGH 07",
+      "owner": "Adam Poffenbaugh"
+    },
     {
       "doc_num": "HARSH 07",
       "owner": "Tracy Harsh"
@@ -16,24 +28,12 @@
       "owner": "Spaghetti Warehouse Resturants Of Americ"
     },
     {
-      "doc_num": "POFFENBAUGH 07",
-      "owner": "Adam Poffenbaugh"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "LLC 07",
-      "owner": "Grunwald Holdings Llc"
-    },
-    {
-      "doc_num": "NEWHARDT 07",
-      "owner": "Cassandra Newhardt"
-    },
-    {
-      "doc_num": "HOPKINS 07",
-      "owner": "Cheryl Hopkins"
-    },
-    {
-      "doc_num": "HUTCHINS 07",
-      "owner": "Rebecca K Hutchins"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
       "doc_num": "2026 AT 10",
@@ -109,5 +109,5 @@
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-07-08T20:59:25.412211+00:00"
+  "generated_at": "2026-07-09T15:00:22.786788+00:00"
 }
