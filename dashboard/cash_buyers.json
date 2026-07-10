@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-10T14:24:06.407649+00:00",
+  "fetched_at": "2026-07-10T21:04:28.433678+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "cash_buyers",
   "description": "Investor buyers who purchased 3+ unique properties in the last 12 months",
@@ -677,8 +677,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1263,8 +1263,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -3832,8 +3832,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -4225,8 +4225,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -7805,8 +7805,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -8445,8 +8445,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -8704,8 +8704,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -8839,8 +8839,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -9468,8 +9468,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10355,8 +10355,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12751,8 +12751,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
