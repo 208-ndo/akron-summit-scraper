@@ -1,16 +1,12 @@
 {
   "matched": 0,
-  "unmatched": 105,
+  "unmatched": 97,
   "with_address": 1,
   "with_mail_address": 1,
   "match_methods": {
-    "unmatched": 105
+    "unmatched": 97
   },
   "sample_unmatched": [
-    {
-      "doc_num": "BITTNER 07",
-      "owner": "William L Bittner"
-    },
     {
       "doc_num": "METCALF 07",
       "owner": "Lavrne Metcalf"
@@ -48,12 +44,16 @@
       "owner": "Mark Varttelli"
     },
     {
-      "doc_num": "HARSH 07",
-      "owner": "Tracy Harsh"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "AMERIC 07",
-      "owner": "Spaghetti Warehouse Resturants Of Americ"
+      "doc_num": "2026 AT 10",
+      "owner": ""
+    },
+    {
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
       "doc_num": "2026 AT 10",
@@ -109,5 +109,5 @@
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-07-09T21:19:57.599017+00:00"
+  "generated_at": "2026-07-10T14:24:08.009306+00:00"
 }
