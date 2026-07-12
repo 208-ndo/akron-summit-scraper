@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-11T13:19:25.716471+00:00",
+  "fetched_at": "2026-07-12T13:22:50.522394+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "out_of_state",
   "description": "\ud83c\udf0e Owner mails from out of state",
@@ -184,8 +184,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
