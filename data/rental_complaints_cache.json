@@ -4058,5 +4058,17 @@
     "source_url": "https://ari.akronohio.gov/",
     "searched_address": "1965 QUAYLE DR",
     "checked_at": "2026-07-08T20:59:14.435825+00:00"
+  },
+  "197 HIGH GROVE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "197 HIGH GROVE BLVD",
+    "checked_at": "2026-07-13T20:54:47.403436+00:00"
+  },
+  "1970 CRAMER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1970 CRAMER AVE",
+    "checked_at": "2026-07-13T20:54:47.852810+00:00"
   }
 }
