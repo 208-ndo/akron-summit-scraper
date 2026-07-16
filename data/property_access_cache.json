@@ -5583,5 +5583,10 @@
     "bedrooms": 2.0,
     "bathrooms": 1.0,
     "square_feet": 696
+  },
+  "6755757": {
+    "bedrooms": 3.0,
+    "bathrooms": 2.5,
+    "square_feet": 2800
   }
 }
