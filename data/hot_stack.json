@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-17T13:29:45.894137+00:00",
+  "fetched_at": "2026-07-17T20:43:20.970942+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "hot_stack",
   "description": "\ud83d\udd25 2+ distress signals \u2014 highest priority",
@@ -44,9 +44,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "foreclosure",
         "tax_delinquent",
-        "sheriff_sale",
-        "foreclosure"
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -179,9 +179,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "foreclosure",
         "tax_delinquent",
-        "sheriff_sale",
-        "foreclosure"
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -314,9 +314,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "foreclosure",
         "tax_delinquent",
-        "sheriff_sale",
-        "foreclosure"
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -450,9 +450,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "foreclosure",
         "tax_delinquent",
-        "sheriff_sale",
-        "foreclosure"
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -583,9 +583,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "foreclosure",
         "tax_delinquent",
-        "sheriff_sale",
-        "foreclosure"
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -714,9 +714,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "foreclosure",
         "tax_delinquent",
-        "sheriff_sale",
-        "foreclosure"
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -844,9 +844,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "foreclosure",
         "tax_delinquent",
-        "sheriff_sale",
-        "foreclosure"
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -976,9 +976,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "foreclosure",
         "tax_delinquent",
-        "sheriff_sale",
-        "foreclosure"
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1106,9 +1106,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "foreclosure",
         "tax_delinquent",
-        "sheriff_sale",
-        "foreclosure"
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1236,9 +1236,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "foreclosure",
         "tax_delinquent",
-        "sheriff_sale",
-        "foreclosure"
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1368,9 +1368,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "foreclosure",
         "tax_delinquent",
-        "sheriff_sale",
-        "foreclosure"
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1501,8 +1501,8 @@
       "match_score": 0.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
         "foreclosure",
+        "tax_delinquent",
         "vacant_land"
       ],
       "distress_count": 3,
@@ -1633,8 +1633,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
         "foreclosure",
+        "tax_delinquent",
         "vacant_land"
       ],
       "distress_count": 3,
@@ -1765,8 +1765,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
         "foreclosure",
+        "tax_delinquent",
         "vacant_land"
       ],
       "distress_count": 3,
@@ -1897,8 +1897,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
         "foreclosure",
+        "tax_delinquent",
         "vacant_land"
       ],
       "distress_count": 3,
@@ -2023,8 +2023,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
         "foreclosure",
+        "tax_delinquent",
         "vacant_land"
       ],
       "distress_count": 3,
@@ -2149,8 +2149,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
         "foreclosure",
+        "tax_delinquent",
         "vacant_land"
       ],
       "distress_count": 3,
@@ -10785,8 +10785,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "code_violation"
+        "code_violation",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
