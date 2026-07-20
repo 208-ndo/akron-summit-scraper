@@ -4070,5 +4070,41 @@
     "source_url": "https://ari.akronohio.gov/",
     "searched_address": "1970 CRAMER AVE",
     "checked_at": "2026-07-13T20:54:47.852810+00:00"
+  },
+  "1087 COLLINWOOD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1087 Collinwood Avenue",
+    "checked_at": "2026-07-20T14:10:43.941763+00:00"
+  },
+  "1203 PITKIN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1203 Pitkin Avenue",
+    "checked_at": "2026-07-20T14:10:44.392584+00:00"
+  },
+  "1253 MCINTOSH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1253 McIntosh Avenue",
+    "checked_at": "2026-07-20T14:10:44.836007+00:00"
+  },
+  "1316 HARPSTER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1316 Harpster Avenue",
+    "checked_at": "2026-07-20T14:10:45.279745+00:00"
+  },
+  "1529 HILLSIDE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1529 Hillside Terrace",
+    "checked_at": "2026-07-20T14:10:45.731409+00:00"
+  },
+  "1578 SALEM": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1578 Salem Avenue",
+    "checked_at": "2026-07-20T14:10:46.176139+00:00"
   }
 }
