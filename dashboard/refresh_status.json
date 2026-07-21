@@ -11,12 +11,12 @@
     "error": ""
   },
   "cuyahoga": {
-    "data_updated_at": "2026-07-21T13:41:34+00:00",
-    "last_checked_at": "2026-07-21T13:42:08+00:00",
+    "data_updated_at": "2026-07-21T21:02:15+00:00",
+    "last_checked_at": "2026-07-21T21:03:15+00:00",
     "source_dataset_date": "",
     "status": "success_updated",
     "message": "cuyahoga refresh ran and found updated data",
-    "records_before": 11431,
+    "records_before": 11440,
     "records_after": 11440,
     "new_today": 9,
     "error": ""
