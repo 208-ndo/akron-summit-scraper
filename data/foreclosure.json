@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-22T13:53:43.974654+00:00",
+  "fetched_at": "2026-07-22T20:55:34.673946+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "foreclosure",
   "description": "\u26a0\ufe0f Active foreclosure / lis pendens / sheriff sale filings",
@@ -449,8 +449,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "tax_delinquent",
-        "vacant_land"
+        "vacant_land",
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -581,8 +581,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "tax_delinquent",
-        "vacant_land"
+        "vacant_land",
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -713,8 +713,8 @@
       "with_address": 1,
       "distress_sources": [
         "foreclosure",
-        "tax_delinquent",
-        "vacant_land"
+        "vacant_land",
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -7677,8 +7677,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
-        "foreclosure"
+        "foreclosure",
+        "sheriff_sale"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -8402,17 +8402,17 @@
       "portfolio_owner": false
     },
     {
-      "doc_num": "BICKETT 07",
+      "doc_num": "KUPCHELLA 07",
       "doc_type": "NOFC",
-      "filed": "2026-07-21",
+      "filed": "2026-07-22",
       "cat": "NOFC",
       "cat_label": "Pre-foreclosure",
-      "first_seen_date": "2026-07-21",
-      "pulled_date": "2026-07-21",
-      "owner": "Dakota S Bickett",
-      "grantee": "Carrington Mortgage Services Llc",
+      "first_seen_date": "2026-07-22",
+      "pulled_date": "2026-07-22",
+      "owner": "Kurt Kupchella",
+      "grantee": "Pnc Bank, National Association",
       "amount": null,
-      "legal": "CARRINGTON MORTGAGE SERVICES LLC -VS- DAKOTA S BICKETT",
+      "legal": "PNC BANK, NATIONAL ASSOCIATION -VS- KURT KUPCHELLA",
       "prop_address": "",
       "prop_city": "",
       "prop_state": "OH",
@@ -8446,7 +8446,7 @@
       "phones": [],
       "phone_types": [],
       "emails": [],
-      "skip_trace_source": "Tracerfy",
+      "skip_trace_source": "",
       "traced_owner_name": "",
       "traced_owner": "",
       "traced_phones": [],
@@ -8464,8 +8464,8 @@
       "traced_mailing_city": "",
       "traced_mailing_state": "",
       "traced_mailing_zip": "",
-      "skip_trace_status": "no_hit",
-      "skip_trace_timestamp": "2026-07-21T21:01:59.873457Z",
+      "skip_trace_status": "",
+      "skip_trace_timestamp": "",
       "has_phone": false,
       "has_email": false,
       "assessed_value": null,
