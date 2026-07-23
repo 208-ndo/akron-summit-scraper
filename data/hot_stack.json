@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-22T20:55:33.003012+00:00",
+  "fetched_at": "2026-07-23T13:59:05.639807+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "hot_stack",
   "description": "\ud83d\udd25 2+ distress signals \u2014 highest priority",
@@ -44,9 +44,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -101,7 +101,7 @@
       "sheriff_sale_date": "2026-08-28",
       "appraised_value": 81000.0,
       "lender": "Ohio Catholic Fed CU",
-      "auction_days_until": 37,
+      "auction_days_until": 36,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -179,9 +179,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -236,8 +236,8 @@
       "sheriff_sale_date": "2026-07-24",
       "appraised_value": 45000.0,
       "lender": "Seven Stories East Unit Owners' Condo Assoc Inc",
-      "auction_days_until": 2,
-      "auction_countdown": "2 days left",
+      "auction_days_until": 1,
+      "auction_countdown": "1 day left",
       "auction_urgency": "hot",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -314,9 +314,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "sheriff_sale",
-        "tax_delinquent"
+        "tax_delinquent",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -371,8 +371,8 @@
       "sheriff_sale_date": "2026-07-24",
       "appraised_value": 45000.0,
       "lender": "Dollar Bk FSB",
-      "auction_days_until": 2,
-      "auction_countdown": "2 days left",
+      "auction_days_until": 1,
+      "auction_countdown": "1 day left",
       "auction_urgency": "hot",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -445,9 +445,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "tax_delinquent",
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -501,8 +501,8 @@
       "sheriff_sale_date": "2026-07-24",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": 2,
-      "auction_countdown": "2 days left",
+      "auction_days_until": 1,
+      "auction_countdown": "1 day left",
       "auction_urgency": "hot",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -575,9 +575,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "tax_delinquent",
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -631,8 +631,8 @@
       "sheriff_sale_date": "2026-07-24",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": 2,
-      "auction_countdown": "2 days left",
+      "auction_days_until": 1,
+      "auction_countdown": "1 day left",
       "auction_urgency": "hot",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -707,9 +707,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "tax_delinquent",
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -763,8 +763,8 @@
       "sheriff_sale_date": "2026-07-24",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": 2,
-      "auction_countdown": "2 days left",
+      "auction_days_until": 1,
+      "auction_countdown": "1 day left",
       "auction_urgency": "hot",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -837,9 +837,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "tax_delinquent",
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -893,7 +893,7 @@
       "sheriff_sale_date": "2026-08-28",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": 37,
+      "auction_days_until": 36,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -967,9 +967,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "tax_delinquent",
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1023,8 +1023,8 @@
       "sheriff_sale_date": "2026-07-24",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": 2,
-      "auction_countdown": "2 days left",
+      "auction_days_until": 1,
+      "auction_countdown": "1 day left",
       "auction_urgency": "hot",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -1099,9 +1099,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "tax_delinquent",
         "foreclosure",
-        "sheriff_sale",
-        "tax_delinquent"
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1155,8 +1155,8 @@
       "sheriff_sale_date": "2026-07-24",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": 2,
-      "auction_countdown": "2 days left",
+      "auction_days_until": 1,
+      "auction_countdown": "1 day left",
       "auction_urgency": "hot",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -1196,7 +1196,7 @@
     {
       "doc_num": "CV2025 07 3103",
       "doc_type": "TAXDEED",
-      "filed": "2026-07-22",
+      "filed": "2026-07-23",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-07-02",
@@ -1232,9 +1232,9 @@
       "match_score": 0.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "tax_delinquent",
         "vacant_land",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1289,12 +1289,12 @@
       "sheriff_sale_date": "2026-08-04",
       "appraised_value": null,
       "lender": "Summit County Fiscal Office",
-      "auction_days_until": 13,
-      "auction_countdown": "13 days left",
+      "auction_days_until": 12,
+      "auction_countdown": "12 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 07 3103",
-      "foreclosure_notice_date": "2026-07-22",
+      "foreclosure_notice_date": "2026-07-23",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -1330,7 +1330,7 @@
     {
       "doc_num": "CV2026 01 0200",
       "doc_type": "TAXDEED",
-      "filed": "2026-07-22",
+      "filed": "2026-07-23",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-07-02",
@@ -1364,9 +1364,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "tax_delinquent",
         "vacant_land",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1421,12 +1421,12 @@
       "sheriff_sale_date": "2026-08-04",
       "appraised_value": null,
       "lender": "Summit County Fiscal Office",
-      "auction_days_until": 13,
-      "auction_countdown": "13 days left",
+      "auction_days_until": 12,
+      "auction_countdown": "12 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2026 01 0200",
-      "foreclosure_notice_date": "2026-07-22",
+      "foreclosure_notice_date": "2026-07-23",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -1462,7 +1462,7 @@
     {
       "doc_num": "CV2025 06 2702",
       "doc_type": "TAXDEED",
-      "filed": "2026-07-22",
+      "filed": "2026-07-23",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-07-02",
@@ -1496,9 +1496,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "tax_delinquent",
         "vacant_land",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1553,12 +1553,12 @@
       "sheriff_sale_date": "2026-08-04",
       "appraised_value": null,
       "lender": "Summit County Fiscal Office",
-      "auction_days_until": 13,
-      "auction_countdown": "13 days left",
+      "auction_days_until": 12,
+      "auction_countdown": "12 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 06 2702",
-      "foreclosure_notice_date": "2026-07-22",
+      "foreclosure_notice_date": "2026-07-23",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -1594,7 +1594,7 @@
     {
       "doc_num": "VACLAND-5102474",
       "doc_type": "VACLAND",
-      "filed": "2026-07-22",
+      "filed": "2026-07-23",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "first_seen_date": "2026-07-02",
@@ -1628,9 +1628,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "tax_delinquent",
         "vacant_land",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1679,8 +1679,8 @@
       "sheriff_sale_date": "2026-08-04",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": 13,
-      "auction_countdown": "13 days left",
+      "auction_days_until": 12,
+      "auction_countdown": "12 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -1720,7 +1720,7 @@
     {
       "doc_num": "VACLAND-5107573",
       "doc_type": "VACLAND",
-      "filed": "2026-07-22",
+      "filed": "2026-07-23",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "first_seen_date": "2026-07-02",
@@ -1754,9 +1754,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "tax_delinquent",
         "vacant_land",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1805,8 +1805,8 @@
       "sheriff_sale_date": "2026-08-04",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": 13,
-      "auction_countdown": "13 days left",
+      "auction_days_until": 12,
+      "auction_countdown": "12 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -1846,7 +1846,7 @@
     {
       "doc_num": "VACLAND-5401464",
       "doc_type": "VACLAND",
-      "filed": "2026-07-22",
+      "filed": "2026-07-23",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "first_seen_date": "2026-07-02",
@@ -1880,9 +1880,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "tax_delinquent",
         "vacant_land",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1931,8 +1931,8 @@
       "sheriff_sale_date": "2026-08-04",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": 13,
-      "auction_countdown": "13 days left",
+      "auction_days_until": 12,
+      "auction_countdown": "12 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -2063,7 +2063,7 @@
       "sheriff_sale_date": "2026-09-11",
       "appraised_value": 576000.0,
       "lender": "Wilmington Savings Fund Society FSB",
-      "auction_days_until": 51,
+      "auction_days_until": 50,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -2195,7 +2195,7 @@
       "sheriff_sale_date": "2026-09-11",
       "appraised_value": 399000.0,
       "lender": "Towd Point Mtg Trust 2019-2, etc",
-      "auction_days_until": 51,
+      "auction_days_until": 50,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -2327,8 +2327,8 @@
       "sheriff_sale_date": "2026-08-21",
       "appraised_value": 210000.0,
       "lender": "US Bank Trust NA",
-      "auction_days_until": 30,
-      "auction_countdown": "30 days left",
+      "auction_days_until": 29,
+      "auction_countdown": "29 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -2459,8 +2459,8 @@
       "sheriff_sale_date": "2026-08-21",
       "appraised_value": 213000.0,
       "lender": "Lakeview Loan Srving LLC",
-      "auction_days_until": 30,
-      "auction_countdown": "30 days left",
+      "auction_days_until": 29,
+      "auction_countdown": "29 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -2591,8 +2591,8 @@
       "sheriff_sale_date": "2026-08-21",
       "appraised_value": 375000.0,
       "lender": "The Woods at Ethan's Green Homeowners Assoc",
-      "auction_days_until": 30,
-      "auction_countdown": "30 days left",
+      "auction_days_until": 29,
+      "auction_countdown": "29 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -2723,8 +2723,8 @@
       "sheriff_sale_date": "2026-08-14",
       "appraised_value": 312000.0,
       "lender": "US Bank Trust NA",
-      "auction_days_until": 23,
-      "auction_countdown": "23 days left",
+      "auction_days_until": 22,
+      "auction_countdown": "22 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -2855,8 +2855,8 @@
       "sheriff_sale_date": "2026-08-14",
       "appraised_value": 228000.0,
       "lender": "Planet Home Lending LLC",
-      "auction_days_until": 23,
-      "auction_countdown": "23 days left",
+      "auction_days_until": 22,
+      "auction_countdown": "22 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -2987,8 +2987,8 @@
       "sheriff_sale_date": "2026-08-07",
       "appraised_value": 213000.0,
       "lender": "MidFirst Bk",
-      "auction_days_until": 16,
-      "auction_countdown": "16 days left",
+      "auction_days_until": 15,
+      "auction_countdown": "15 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -3120,8 +3120,8 @@
       "sheriff_sale_date": "2026-07-31",
       "appraised_value": 249000.0,
       "lender": "UMB Bank NA",
-      "auction_days_until": 9,
-      "auction_countdown": "9 days left",
+      "auction_days_until": 8,
+      "auction_countdown": "8 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -3253,8 +3253,8 @@
       "sheriff_sale_date": "2026-07-31",
       "appraised_value": 201000.0,
       "lender": "US Bank Trust NA",
-      "auction_days_until": 9,
-      "auction_countdown": "9 days left",
+      "auction_days_until": 8,
+      "auction_countdown": "8 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -3386,8 +3386,8 @@
       "sheriff_sale_date": "2026-07-31",
       "appraised_value": 210000.0,
       "lender": "Wilmington Savings Fund Society FSB",
-      "auction_days_until": 9,
-      "auction_countdown": "9 days left",
+      "auction_days_until": 8,
+      "auction_countdown": "8 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -3519,8 +3519,8 @@
       "sheriff_sale_date": "2026-07-24",
       "appraised_value": 330000.0,
       "lender": "Nationstar Mtg LLC",
-      "auction_days_until": 2,
-      "auction_countdown": "2 days left",
+      "auction_days_until": 1,
+      "auction_countdown": "1 day left",
       "auction_urgency": "hot",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -3595,8 +3595,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -3728,8 +3728,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -3923,7 +3923,7 @@
       "sheriff_sale_date": "2026-09-11",
       "appraised_value": 111000.0,
       "lender": "Rocket Mtg LLC fka",
-      "auction_days_until": 51,
+      "auction_days_until": 50,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -4054,7 +4054,7 @@
       "sheriff_sale_date": "2026-08-28",
       "appraised_value": 186000.0,
       "lender": "Selene Finance LP",
-      "auction_days_until": 37,
+      "auction_days_until": 36,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -4185,7 +4185,7 @@
       "sheriff_sale_date": "2026-08-28",
       "appraised_value": 171000.0,
       "lender": "Third Fed Savings and Loan Assoc",
-      "auction_days_until": 37,
+      "auction_days_until": 36,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -4316,8 +4316,8 @@
       "sheriff_sale_date": "2026-08-21",
       "appraised_value": 183000.0,
       "lender": "US Bank NA",
-      "auction_days_until": 30,
-      "auction_countdown": "30 days left",
+      "auction_days_until": 29,
+      "auction_countdown": "29 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -4446,8 +4446,8 @@
       "sheriff_sale_date": "2026-08-21",
       "appraised_value": 132000.0,
       "lender": "Pine Mill Ridge Condo Estates No 3 Assoc Inc",
-      "auction_days_until": 30,
-      "auction_countdown": "30 days left",
+      "auction_days_until": 29,
+      "auction_countdown": "29 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -4576,8 +4576,8 @@
       "sheriff_sale_date": "2026-08-14",
       "appraised_value": 120000.0,
       "lender": "Toorak Capital Partners LLC",
-      "auction_days_until": 23,
-      "auction_countdown": "23 days left",
+      "auction_days_until": 22,
+      "auction_countdown": "22 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -4707,8 +4707,8 @@
       "sheriff_sale_date": "2026-08-07",
       "appraised_value": 186000.0,
       "lender": "Nationstar Mtg LLC",
-      "auction_days_until": 16,
-      "auction_countdown": "16 days left",
+      "auction_days_until": 15,
+      "auction_countdown": "15 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -4837,8 +4837,8 @@
       "sheriff_sale_date": "2026-08-07",
       "appraised_value": 102000.0,
       "lender": "US Bank NA",
-      "auction_days_until": 16,
-      "auction_countdown": "16 days left",
+      "auction_days_until": 15,
+      "auction_countdown": "15 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -4969,8 +4969,8 @@
       "sheriff_sale_date": "2026-07-31",
       "appraised_value": 162000.0,
       "lender": "Fed Home Loan Mtg Corp",
-      "auction_days_until": 9,
-      "auction_countdown": "9 days left",
+      "auction_days_until": 8,
+      "auction_countdown": "8 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -5100,8 +5100,8 @@
       "sheriff_sale_date": "2026-07-24",
       "appraised_value": 126000.0,
       "lender": "Rocket Mtg LLC",
-      "auction_days_until": 2,
-      "auction_countdown": "2 days left",
+      "auction_days_until": 1,
+      "auction_countdown": "1 day left",
       "auction_urgency": "hot",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -5175,8 +5175,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5313,8 +5313,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5452,8 +5452,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5591,8 +5591,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5722,8 +5722,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5852,8 +5852,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5982,8 +5982,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -6171,7 +6171,7 @@
       "sheriff_sale_date": "2026-09-11",
       "appraised_value": 45000.0,
       "lender": "Wilmington Savings Fund Society FSB",
-      "auction_days_until": 51,
+      "auction_days_until": 50,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -6304,7 +6304,7 @@
       "sheriff_sale_date": "2026-09-11",
       "appraised_value": 72000.0,
       "lender": "Wilmington Savings Fund Society FSB",
-      "auction_days_until": 51,
+      "auction_days_until": 50,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -6437,7 +6437,7 @@
       "sheriff_sale_date": "2026-09-11",
       "appraised_value": 57000.0,
       "lender": "Wilmington Savings Fund Society FSB",
-      "auction_days_until": 51,
+      "auction_days_until": 50,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -6570,7 +6570,7 @@
       "sheriff_sale_date": "2026-09-11",
       "appraised_value": 51000.0,
       "lender": "Wilmington Savings Fund Society FSB",
-      "auction_days_until": 51,
+      "auction_days_until": 50,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -6703,7 +6703,7 @@
       "sheriff_sale_date": "2026-09-11",
       "appraised_value": 87000.0,
       "lender": "Wilmington Savings Fund Society FSB",
-      "auction_days_until": 51,
+      "auction_days_until": 50,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -6836,7 +6836,7 @@
       "sheriff_sale_date": "2026-09-11",
       "appraised_value": 42000.0,
       "lender": "Wilmington Savings Fund Society FSB",
-      "auction_days_until": 51,
+      "auction_days_until": 50,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -6969,7 +6969,7 @@
       "sheriff_sale_date": "2026-09-11",
       "appraised_value": 45000.0,
       "lender": "Wilmington Savings Fund Society FSB",
-      "auction_days_until": 51,
+      "auction_days_until": 50,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -7102,7 +7102,7 @@
       "sheriff_sale_date": "2026-09-11",
       "appraised_value": 57000.0,
       "lender": "Wilmington Savings Fund Society FSB",
-      "auction_days_until": 51,
+      "auction_days_until": 50,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -7235,7 +7235,7 @@
       "sheriff_sale_date": "2026-09-11",
       "appraised_value": 66000.0,
       "lender": "Wilmington Savings Fund Society FSB",
-      "auction_days_until": 51,
+      "auction_days_until": 50,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -7368,7 +7368,7 @@
       "sheriff_sale_date": "2026-09-11",
       "appraised_value": 57000.0,
       "lender": "Wilmington Savings Fund Society FSB",
-      "auction_days_until": 51,
+      "auction_days_until": 50,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -7501,7 +7501,7 @@
       "sheriff_sale_date": "2026-09-11",
       "appraised_value": 72000.0,
       "lender": "Wilmington Savings Fund Society FSB",
-      "auction_days_until": 51,
+      "auction_days_until": 50,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -7631,7 +7631,7 @@
       "sheriff_sale_date": "2026-09-11",
       "appraised_value": 84000.0,
       "lender": "Pentagon Fed CU",
-      "auction_days_until": 51,
+      "auction_days_until": 50,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -7761,7 +7761,7 @@
       "sheriff_sale_date": "2026-09-11",
       "appraised_value": 72000.0,
       "lender": "Crosscountry Mtg LLC",
-      "auction_days_until": 51,
+      "auction_days_until": 50,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -7891,7 +7891,7 @@
       "sheriff_sale_date": "2026-09-11",
       "appraised_value": 75000.0,
       "lender": "US Bank NA",
-      "auction_days_until": 51,
+      "auction_days_until": 50,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -8021,7 +8021,7 @@
       "sheriff_sale_date": "2026-09-11",
       "appraised_value": 54000.0,
       "lender": "Loandepot.com LLC",
-      "auction_days_until": 51,
+      "auction_days_until": 50,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -8151,7 +8151,7 @@
       "sheriff_sale_date": "2026-09-11",
       "appraised_value": 90000.0,
       "lender": "Crosscountry Mtg LLC",
-      "auction_days_until": 51,
+      "auction_days_until": 50,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -8281,7 +8281,7 @@
       "sheriff_sale_date": "2026-08-28",
       "appraised_value": 51000.0,
       "lender": "Headlands Alternative Investments LP",
-      "auction_days_until": 37,
+      "auction_days_until": 36,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -8411,7 +8411,7 @@
       "sheriff_sale_date": "2026-08-28",
       "appraised_value": 84000.0,
       "lender": "US Bank Trust NA",
-      "auction_days_until": 37,
+      "auction_days_until": 36,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -8541,7 +8541,7 @@
       "sheriff_sale_date": "2026-08-28",
       "appraised_value": 66000.0,
       "lender": "US Bank NA",
-      "auction_days_until": 37,
+      "auction_days_until": 36,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -8671,8 +8671,8 @@
       "sheriff_sale_date": "2026-08-21",
       "appraised_value": 81000.0,
       "lender": "US Bank Trust NA",
-      "auction_days_until": 30,
-      "auction_countdown": "30 days left",
+      "auction_days_until": 29,
+      "auction_countdown": "29 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -8801,8 +8801,8 @@
       "sheriff_sale_date": "2026-08-14",
       "appraised_value": 81000.0,
       "lender": "Freedom Mtg Corp",
-      "auction_days_until": 23,
-      "auction_countdown": "23 days left",
+      "auction_days_until": 22,
+      "auction_countdown": "22 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -8931,8 +8931,8 @@
       "sheriff_sale_date": "2026-08-14",
       "appraised_value": 93000.0,
       "lender": "US Bank NA",
-      "auction_days_until": 23,
-      "auction_countdown": "23 days left",
+      "auction_days_until": 22,
+      "auction_countdown": "22 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -9061,8 +9061,8 @@
       "sheriff_sale_date": "2026-08-14",
       "appraised_value": 78000.0,
       "lender": "Truist Bk fka",
-      "auction_days_until": 23,
-      "auction_countdown": "23 days left",
+      "auction_days_until": 22,
+      "auction_countdown": "22 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -9191,8 +9191,8 @@
       "sheriff_sale_date": "2026-08-07",
       "appraised_value": 66000.0,
       "lender": "US Bank NA",
-      "auction_days_until": 16,
-      "auction_countdown": "16 days left",
+      "auction_days_until": 15,
+      "auction_countdown": "15 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -9321,8 +9321,8 @@
       "sheriff_sale_date": "2026-08-07",
       "appraised_value": 99000.0,
       "lender": "Planet Home Lending LLC",
-      "auction_days_until": 16,
-      "auction_countdown": "16 days left",
+      "auction_days_until": 15,
+      "auction_countdown": "15 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -9452,8 +9452,8 @@
       "sheriff_sale_date": "2026-07-31",
       "appraised_value": 51000.0,
       "lender": "MidFirst Bank",
-      "auction_days_until": 9,
-      "auction_countdown": "9 days left",
+      "auction_days_until": 8,
+      "auction_countdown": "8 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -9583,8 +9583,8 @@
       "sheriff_sale_date": "2026-07-31",
       "appraised_value": 45000.0,
       "lender": "US Bank Trust NA",
-      "auction_days_until": 9,
-      "auction_countdown": "9 days left",
+      "auction_days_until": 8,
+      "auction_countdown": "8 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -9714,8 +9714,8 @@
       "sheriff_sale_date": "2026-07-24",
       "appraised_value": 75000.0,
       "lender": "US Bank Trust Co NA",
-      "auction_days_until": 2,
-      "auction_countdown": "2 days left",
+      "auction_days_until": 1,
+      "auction_countdown": "1 day left",
       "auction_urgency": "hot",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -9845,8 +9845,8 @@
       "sheriff_sale_date": "2026-07-24",
       "appraised_value": 42000.0,
       "lender": "US Bank Trust Natl",
-      "auction_days_until": 2,
-      "auction_countdown": "2 days left",
+      "auction_days_until": 1,
+      "auction_countdown": "1 day left",
       "auction_urgency": "hot",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -9918,8 +9918,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10047,8 +10047,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10234,7 +10234,7 @@
       "sheriff_sale_date": "2026-09-11",
       "appraised_value": 39000.0,
       "lender": "Wilmington Savings Fund Society FSB",
-      "auction_days_until": 51,
+      "auction_days_until": 50,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -10308,8 +10308,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10364,7 +10364,7 @@
       "sheriff_sale_date": "2026-09-11",
       "appraised_value": 39000.0,
       "lender": "Planet Home Lending LLC",
-      "auction_days_until": 51,
+      "auction_days_until": 50,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -10493,8 +10493,8 @@
       "sheriff_sale_date": "2026-08-14",
       "appraised_value": 39000.0,
       "lender": "Pentagon Fed CU",
-      "auction_days_until": 23,
-      "auction_countdown": "23 days left",
+      "auction_days_until": 22,
+      "auction_countdown": "22 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "",
       "foreclosure_case_number": "",
@@ -10566,8 +10566,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10702,8 +10702,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10830,8 +10830,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10958,8 +10958,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11087,8 +11087,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11213,8 +11213,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11339,8 +11339,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11465,8 +11465,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11590,8 +11590,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11715,8 +11715,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11842,8 +11842,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12061,7 +12061,7 @@
     {
       "doc_num": "VACLAND-0105173",
       "doc_type": "VACLAND",
-      "filed": "2026-07-22",
+      "filed": "2026-07-23",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "first_seen_date": "2026-06-11",
@@ -12093,8 +12093,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12184,7 +12184,7 @@
     {
       "doc_num": "VACLAND-0105174",
       "doc_type": "VACLAND",
-      "filed": "2026-07-22",
+      "filed": "2026-07-23",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "first_seen_date": "2026-06-11",
@@ -12216,8 +12216,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12307,7 +12307,7 @@
     {
       "doc_num": "VACLAND-0400149",
       "doc_type": "VACLAND",
-      "filed": "2026-07-22",
+      "filed": "2026-07-23",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "first_seen_date": "2026-06-11",
@@ -12339,8 +12339,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12430,7 +12430,7 @@
     {
       "doc_num": "VACLAND-1903436",
       "doc_type": "VACLAND",
-      "filed": "2026-07-22",
+      "filed": "2026-07-23",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "first_seen_date": "2026-06-11",
@@ -12462,8 +12462,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12553,7 +12553,7 @@
     {
       "doc_num": "VACLAND-1905499",
       "doc_type": "VACLAND",
-      "filed": "2026-07-22",
+      "filed": "2026-07-23",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "first_seen_date": "2026-06-11",
@@ -12585,8 +12585,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12676,7 +12676,7 @@
     {
       "doc_num": "VACLAND-6700202",
       "doc_type": "VACLAND",
-      "filed": "2026-07-22",
+      "filed": "2026-07-23",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "first_seen_date": "2026-06-11",
@@ -12708,8 +12708,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12799,7 +12799,7 @@
     {
       "doc_num": "VACLAND-6804680",
       "doc_type": "VACLAND",
-      "filed": "2026-07-22",
+      "filed": "2026-07-23",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "first_seen_date": "2026-06-11",
@@ -12831,8 +12831,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12922,7 +12922,7 @@
     {
       "doc_num": "VACLAND-0115446",
       "doc_type": "VACLAND",
-      "filed": "2026-07-22",
+      "filed": "2026-07-23",
       "cat": "VACLAND",
       "cat_label": "Vacant Land",
       "first_seen_date": "2026-07-20",
@@ -12956,8 +12956,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13006,7 +13006,7 @@
       "sheriff_sale_date": "2026-09-11",
       "appraised_value": null,
       "lender": "",
-      "auction_days_until": 51,
+      "auction_days_until": 50,
       "auction_countdown": "30+ days",
       "auction_urgency": "green",
       "foreclosure_stage": "",
@@ -13047,7 +13047,7 @@
     {
       "doc_num": "CV2022 06 1807",
       "doc_type": "TAXDEED",
-      "filed": "2026-07-22",
+      "filed": "2026-07-23",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-07-02",
@@ -13134,12 +13134,12 @@
       "sheriff_sale_date": "2026-08-04",
       "appraised_value": null,
       "lender": "Summit County Fiscal Office",
-      "auction_days_until": 13,
-      "auction_countdown": "13 days left",
+      "auction_days_until": 12,
+      "auction_countdown": "12 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2022 06 1807",
-      "foreclosure_notice_date": "2026-07-22",
+      "foreclosure_notice_date": "2026-07-23",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -13175,7 +13175,7 @@
     {
       "doc_num": "CV2023 07 2747",
       "doc_type": "TAXDEED",
-      "filed": "2026-07-22",
+      "filed": "2026-07-23",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-07-02",
@@ -13260,12 +13260,12 @@
       "sheriff_sale_date": "2026-08-04",
       "appraised_value": null,
       "lender": "Summit County Fiscal Office",
-      "auction_days_until": 13,
-      "auction_countdown": "13 days left",
+      "auction_days_until": 12,
+      "auction_countdown": "12 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2023 07 2747",
-      "foreclosure_notice_date": "2026-07-22",
+      "foreclosure_notice_date": "2026-07-23",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -13301,7 +13301,7 @@
     {
       "doc_num": "CV2025 02 0639",
       "doc_type": "TAXDEED",
-      "filed": "2026-07-22",
+      "filed": "2026-07-23",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-07-02",
@@ -13386,12 +13386,12 @@
       "sheriff_sale_date": "2026-08-04",
       "appraised_value": null,
       "lender": "Summit County Fiscal Office",
-      "auction_days_until": 13,
-      "auction_countdown": "13 days left",
+      "auction_days_until": 12,
+      "auction_countdown": "12 days left",
       "auction_urgency": "gold",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 02 0639",
-      "foreclosure_notice_date": "2026-07-22",
+      "foreclosure_notice_date": "2026-07-23",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
