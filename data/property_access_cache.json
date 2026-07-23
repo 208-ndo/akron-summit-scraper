@@ -4561,7 +4561,11 @@
     "bathrooms": 1.0,
     "square_feet": 995
   },
-  "6008428": {},
+  "6008428": {
+    "bedrooms": 1.0,
+    "bathrooms": 1.0,
+    "square_feet": 1040
+  },
   "6402949": {},
   "6403297": {
     "bedrooms": 1.0,
