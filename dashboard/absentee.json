@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-24T13:39:09.319258+00:00",
+  "fetched_at": "2026-07-24T21:02:51.296901+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "absentee",
   "description": "\ud83d\udced Owner mailing address differs from property",
@@ -44,9 +44,9 @@
       "match_score": 0.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
+        "tax_delinquent",
         "foreclosure",
-        "tax_delinquent"
+        "vacant_land"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -176,9 +176,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
+        "tax_delinquent",
         "foreclosure",
-        "tax_delinquent"
+        "vacant_land"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -308,9 +308,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
+        "tax_delinquent",
         "foreclosure",
-        "tax_delinquent"
+        "vacant_land"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -992,8 +992,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1123,8 +1123,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1253,8 +1253,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1383,8 +1383,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1513,8 +1513,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,

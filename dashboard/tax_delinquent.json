@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-24T13:39:08.241605+00:00",
+  "fetched_at": "2026-07-24T21:02:50.235803+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "tax_delinquent",
   "description": "\ud83d\udcb0 Residential properties with unpaid property taxes",
@@ -44,9 +44,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "tax_delinquent",
         "sheriff_sale",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -178,9 +178,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "tax_delinquent",
         "sheriff_sale",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -313,9 +313,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "tax_delinquent",
         "sheriff_sale",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -448,9 +448,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "tax_delinquent",
         "sheriff_sale",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -579,9 +579,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "tax_delinquent",
         "sheriff_sale",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -709,9 +709,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "tax_delinquent",
         "sheriff_sale",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -841,9 +841,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "tax_delinquent",
         "sheriff_sale",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -971,9 +971,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "tax_delinquent",
         "sheriff_sale",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1101,9 +1101,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "tax_delinquent",
         "sheriff_sale",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1233,9 +1233,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "tax_delinquent",
         "sheriff_sale",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1363,9 +1363,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "tax_delinquent",
         "sheriff_sale",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -2184,8 +2184,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -2315,8 +2315,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -2445,8 +2445,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -2575,8 +2575,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -2704,8 +2704,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -2833,8 +2833,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -3097,8 +3097,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -3225,8 +3225,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -3353,8 +3353,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -4110,8 +4110,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -4237,8 +4237,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -4364,8 +4364,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -4487,8 +4487,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -4610,8 +4610,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -4733,8 +4733,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -4856,8 +4856,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -4979,8 +4979,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -5102,8 +5102,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
