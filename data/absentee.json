@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-28T14:07:13.901547+00:00",
+  "fetched_at": "2026-07-28T20:58:57.314075+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "absentee",
   "description": "\ud83d\udced Owner mailing address differs from property",
@@ -44,9 +44,9 @@
       "match_score": 0.0,
       "with_address": 1,
       "distress_sources": [
+        "vacant_land",
         "foreclosure",
-        "tax_delinquent",
-        "vacant_land"
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -176,9 +176,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "vacant_land",
         "foreclosure",
-        "tax_delinquent",
-        "vacant_land"
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -308,9 +308,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "vacant_land",
         "foreclosure",
-        "tax_delinquent",
-        "vacant_land"
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -441,8 +441,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -574,8 +574,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -714,8 +714,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -853,8 +853,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
