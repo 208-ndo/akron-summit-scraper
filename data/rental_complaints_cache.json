@@ -4106,5 +4106,17 @@
     "source_url": "https://ari.akronohio.gov/",
     "searched_address": "1578 Salem Avenue",
     "checked_at": "2026-07-20T14:10:46.176139+00:00"
+  },
+  "128 W SUMMIT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "128 W SUMMIT ST",
+    "checked_at": "2026-08-20T06:55:29.863367+00:00"
+  },
+  "1417 KRUMROY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1417 KRUMROY RD",
+    "checked_at": "2026-08-20T06:55:30.315745+00:00"
   }
 }
