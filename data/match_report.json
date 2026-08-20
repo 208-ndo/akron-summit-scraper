@@ -1,27 +1,23 @@
 {
   "matched": 0,
-  "unmatched": 91,
+  "unmatched": 82,
   "with_address": 0,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 91
+    "unmatched": 82
   },
   "sample_unmatched": [
+    {
+      "doc_num": "PCF1-T1-R6",
+      "owner": "Basmala Inc"
+    },
     {
       "doc_num": "LOWIS 08",
       "owner": "Terrence M Lowis"
     },
     {
-      "doc_num": "PCF1-T1-R15",
-      "owner": "Basmala Inc"
-    },
-    {
       "doc_num": "PETTIFORD 08",
       "owner": "Dimichael Pettiford"
-    },
-    {
-      "doc_num": "REDFORD 08",
-      "owner": "Gary D Redford"
     },
     {
       "doc_num": "JACOBS 08",
@@ -106,8 +102,12 @@
     {
       "doc_num": "2026 AT 10",
       "owner": ""
+    },
+    {
+      "doc_num": "2026 AT 10",
+      "owner": ""
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-08-20T06:55:47.753952+00:00"
+  "generated_at": "2026-08-20T12:50:56.889075+00:00"
 }
