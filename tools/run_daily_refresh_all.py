@@ -54,6 +54,50 @@ MONTGOMERY_WRAPPER = REPO / "tools" / "refresh_montgomery_weekday.py"
 
 ALL_COUNTIES = ("summit", "cuyahoga", "montgomery")
 
+# A records.json this big is close enough to GitHub's hard 100 MiB
+# (104,857,600 byte) per-file push limit that the *next* run would very
+# likely tip it over - this is exactly what silently froze Summit's data
+# for 23 days starting 2026-07-28 (push kept failing, but nothing made
+# the job fail, so nobody noticed). Shard proactively, well before the
+# wall, rather than reactively after a push has already failed.
+SHARD_THRESHOLD_BYTES = 70_000_000
+
+
+def _load_shard_utils_module():
+    """Load scraper/shard_utils.py by file path - this script's own
+    directory (tools/) isn't on sys.path as scraper/ would be, so a
+    plain `import shard_utils` can't be relied on here."""
+    import importlib.util as _ilu
+    spec = _ilu.spec_from_file_location("shard_utils", REPO / "scraper" / "shard_utils.py")
+    module = _ilu.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+_shard_utils = _load_shard_utils_module()
+
+
+def maybe_shard_large_file(primary_file: Path, log) -> None:
+    """If `primary_file` has grown past SHARD_THRESHOLD_BYTES, split its
+    records out into shard files and replace it with a small manifest
+    (see scraper/shard_utils.py) so the commit never hits GitHub's
+    per-file push limit. Safe to call every run - it's a no-op once the
+    file is already comfortably small, and idempotent when re-run on an
+    already-large file."""
+    try:
+        if not primary_file.exists() or primary_file.stat().st_size <= SHARD_THRESHOLD_BYTES:
+            return
+        payload = json.loads(primary_file.read_text(encoding="utf-8"))
+        if not isinstance(payload, dict) or _shard_utils.is_sharded(payload):
+            return
+        before_bytes = primary_file.stat().st_size
+        manifest = _shard_utils.shard_payload(payload, primary_file)
+        primary_file.write_text(json.dumps(manifest, ensure_ascii=False), encoding="utf-8")
+        log(f"Sharded {primary_file.name}: {before_bytes} bytes / {manifest['record_count']} records "
+            f"-> manifest + {manifest['shard_count']} shard file(s) under {primary_file.stem}_shards/.")
+    except Exception as e:
+        log(f"WARNING: sharding {primary_file} failed, leaving it as-is: {e}")
+
 
 def run(cmd: list[str], cwd: Path = REPO) -> subprocess.CompletedProcess:
     return subprocess.run(cmd, cwd=cwd, capture_output=True, text=True)
@@ -74,11 +118,10 @@ def make_logger(county: str):
 
 
 def count_records(path: Path) -> int | None:
-    try:
-        payload = json.loads(path.read_text(encoding="utf-8"))
-        return len(payload.get("records", []))
-    except Exception:
-        return None
+    # Shard-aware: a records.json this big may be a small manifest
+    # pointing at dashboard/records_shards/*.json rather than an inline
+    # "records" list - see scraper/shard_utils.py.
+    return _shard_utils.count_records(path)
 
 
 def read_fetched_at(path: Path) -> str:
@@ -92,9 +135,11 @@ def read_fetched_at(path: Path) -> str:
 def count_new_today(path: Path) -> int:
     """Records with a real first-seen date of today - never just
     touched/updated today (Today's Leads honesty rule, Steps 20/25)."""
-    try:
-        payload = json.loads(path.read_text(encoding="utf-8"))
-    except Exception:
+    # Shard-aware (see scraper/shard_utils.py): expands a manifest back
+    # into a full records list first; a plain json.loads here would
+    # silently read 0 records from a sharded file and always report 0.
+    payload = _shard_utils.load_payload(path)
+    if not payload:
         return 0
     today = datetime.now().date().isoformat()
     count = 0
@@ -164,9 +209,16 @@ def refresh_simple_county(county: str, command: list[str], add_paths: list[str],
         update_status(county, "failed", f"{county} refresh command failed - see {county}_daily_refresh.log",
                        records_before=before_count or 0, records_after=before_count or 0,
                        error=result.stderr.strip()[:500] or f"exit code {result.returncode}")
-        if commit:
-            commit_status_file(county, log, push)
-        return {"county": county, "status": "failed", "records_before": before_count, "records_after": before_count}
+        status_push_failed = commit_status_file(county, log, push) if commit else False
+        return {"county": county, "status": "failed", "records_before": before_count, "records_after": before_count,
+                "push_failed": status_push_failed}
+
+    # 2026-08-20 fix: reshape an oversized primary_file into a shard
+    # manifest *before* measuring after_count / diffing / committing, so
+    # the guard below and the eventual git push both see (and ship) the
+    # small manifest form rather than a file that GitHub will silently
+    # refuse to push.
+    maybe_shard_large_file(primary_file, log)
 
     after_count = count_records(primary_file)
     if after_count is None:
@@ -175,9 +227,9 @@ def refresh_simple_county(county: str, command: list[str], add_paths: list[str],
         update_status(county, "failed", f"Could not read {primary_file.name} after refresh - reverted",
                        records_before=before_count or 0, records_after=before_count or 0,
                        error="could not read primary data file after refresh")
-        if commit:
-            commit_status_file(county, log, push)
-        return {"county": county, "status": "failed", "records_before": before_count, "records_after": before_count}
+        status_push_failed = commit_status_file(county, log, push) if commit else False
+        return {"county": county, "status": "failed", "records_before": before_count, "records_after": before_count,
+                "push_failed": status_push_failed}
 
     log(f"After count: {after_count}")
 
@@ -187,9 +239,9 @@ def refresh_simple_county(county: str, command: list[str], add_paths: list[str],
         update_status(county, "blocked", f"Record count would have shrunk {before_count} -> {after_count} - reverted",
                        records_before=before_count, records_after=before_count,
                        error=f"record count shrank {before_count} -> {after_count}")
-        if commit:
-            commit_status_file(county, log, push)
-        return {"county": county, "status": "blocked", "records_before": before_count, "records_after": before_count}
+        status_push_failed = commit_status_file(county, log, push) if commit else False
+        return {"county": county, "status": "blocked", "records_before": before_count, "records_after": before_count,
+                "push_failed": status_push_failed}
 
     new_today = count_new_today(primary_file)
 
@@ -233,29 +285,41 @@ def refresh_simple_county(county: str, command: list[str], add_paths: list[str],
                 "new_today": new_today, "no_new_leads_reason": reason}
     log(f"Committed: {commit_result.stdout.strip()}")
 
+    push_failed = False
     if push:
-        git_push_with_retry(log)
+        push_failed = not git_push_with_retry(log)
+        if push_failed:
+            log(f"FAILURE: {county} refresh committed locally but did NOT reach origin/main. "
+                f"This run will be reported as a failure even though the scrape itself succeeded.")
 
     return {"county": county, "status": status, "records_before": before_count, "records_after": after_count,
-            "new_today": new_today, "no_new_leads_reason": reason}
+            "new_today": new_today, "no_new_leads_reason": reason, "push_failed": push_failed}
 
 
-def commit_status_file(county: str, log, push: bool) -> None:
+def commit_status_file(county: str, log, push: bool) -> bool:
+    """Returns True if a push was attempted and failed (2026-08-20 fix -
+    previously this was silent: the caller never checked, so a rejected
+    push - e.g. an oversized file - left Actions green with nothing
+    actually landing on origin/main)."""
     add = run(["git", "add", "dashboard/refresh_status.json"])
     if add.returncode != 0:
         log(f"FAILURE: git add refresh_status.json failed: {add.stderr.strip()}")
-        return
+        return False
     diff = run(["git", "diff", "--cached", "--quiet"])
     if diff.returncode == 0:
         log("No status change to commit.")
-        return
+        return False
     commit_result = run(["git", "commit", "-m", f"[dashboard] record {county} refresh status"])
     if commit_result.returncode != 0:
         log(f"FAILURE: git commit failed: {commit_result.stderr.strip()}")
-        return
+        return False
     log(f"Committed: {commit_result.stdout.strip()}")
     if push:
-        git_push_with_retry(log)
+        push_failed = not git_push_with_retry(log)
+        if push_failed:
+            log(f"FAILURE: {county} status commit did NOT reach origin/main.")
+        return push_failed
+    return False
 
 
 def refresh_summit(commit: bool, push: bool) -> dict:
@@ -356,6 +420,22 @@ def main(argv=None) -> int:
             results[county] = {"county": county, "status": "failed", "error": str(e)}
 
     print(json.dumps(results, indent=2, default=str))
+
+    # 2026-08-20 fix: a rejected push (e.g. a file over GitHub's 100MB
+    # limit) used to be logged and swallowed - the job stayed green and
+    # Summit's dashboard silently froze on 2026-07-28 data for 23 days
+    # before anyone noticed. Any county whose push failed now fails the
+    # job so Actions actually flags it.
+    #
+    # Known gap: Montgomery pushes internally via
+    # tools/refresh_montgomery_weekday.py and isn't included in this
+    # check yet - if that wrapper's own push can fail silently the same
+    # way, it needs the same treatment, but that wasn't part of this fix.
+    failed_pushes = [c for c, r in results.items() if isinstance(r, dict) and r.get("push_failed")]
+    if failed_pushes:
+        print(f"ERROR: push failed for: {', '.join(failed_pushes)} - see tools/logs/*_daily_refresh.log", file=sys.stderr)
+        return 1
+
     return 0
 
 

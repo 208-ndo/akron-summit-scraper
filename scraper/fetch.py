@@ -3804,13 +3804,31 @@ def first_seen_match_keys(record:LeadRecord)->List[str]:
         add(f"{prop}|{clean_text(record.prop_city).upper()}|{clean_text(record.prop_state).upper()}")
     return keys
 
+def _load_shard_utils_module():
+    """Load scraper/shard_utils.py by file path so this keeps working
+    however fetch.py itself gets invoked - mirrors the existing
+    spec_from_file_location pattern this file already uses for
+    merge_preserve.py (see write_json_outputs below)."""
+    import importlib.util as _ilu
+    _spec=_ilu.spec_from_file_location("shard_utils", Path(__file__).resolve().parent/"shard_utils.py")
+    _module=_ilu.module_from_spec(_spec); _spec.loader.exec_module(_module)
+    return _module
+
 def load_existing_first_seen_dates()->Dict[str,str]:
     existing={}
+    shard_utils=_load_shard_utils_module()
     for path in (DATA_DIR/"records.json", DASHBOARD_DIR/"records.json"):
         if not path.exists():
             continue
         try:
             payload=json.loads(path.read_text(encoding="utf-8"))
+            # 2026-08-20 fix: once records.json is large enough to be
+            # sharded (see scraper/shard_utils.py), it no longer carries
+            # an inline "records" list - expand it back so first-seen
+            # dates keep being read from the full history, not an
+            # apparently-empty file.
+            if isinstance(payload,dict):
+                payload=shard_utils.unshard_payload(payload, path.parent)
             records=payload.get("records",[]) if isinstance(payload,dict) else payload
             if not isinstance(records,list):
                 continue

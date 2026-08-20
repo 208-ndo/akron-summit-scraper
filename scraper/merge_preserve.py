@@ -190,6 +190,20 @@ def merge_payload_preserving_previous(new_payload: dict,
     return out
 
 
+def _load_shard_utils():
+    """Load scraper/shard_utils.py by file path (not by package import),
+    matching how fetch.py loads this very module - keeps this working
+    whether merge_preserve.py is imported normally, dynamically loaded
+    via spec_from_file_location (as fetch.py and the test suite both do),
+    or run from a different working directory."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "shard_utils", Path(__file__).resolve().parent / "shard_utils.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
 def merge_with_previous_file(new_payload: dict, previous_path: Path,
                               today: Optional[str] = None) -> dict:
     previous_payload = None
@@ -200,4 +214,17 @@ def merge_with_previous_file(new_payload: dict, previous_path: Path,
         logging.warning("merge_preserve: could not read %s: %s", previous_path, e)
     if not isinstance(previous_payload, dict):
         previous_payload = None
+    elif previous_payload:
+        # 2026-08-20 fix: once a records.json gets big enough to exceed
+        # GitHub's 100MB push limit, tools/shard_dashboard_records.py
+        # (via scraper/shard_utils.py) replaces the inline "records" list
+        # with a small shard-file manifest. Expand it back to a normal
+        # in-memory payload here so carry-forward keeps working exactly
+        # as before - this function otherwise has no idea sharding
+        # exists. No-op for a plain, unsharded previous file.
+        try:
+            previous_payload = _load_shard_utils().unshard_payload(
+                previous_payload, Path(previous_path).parent)
+        except Exception as e:
+            logging.warning("merge_preserve: could not expand sharded %s: %s", previous_path, e)
     return merge_payload_preserving_previous(new_payload, previous_payload, today=today)

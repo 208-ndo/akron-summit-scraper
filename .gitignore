@@ -4,3 +4,36 @@ __pycache__/
 *.bak.json
 imports/montgomery_oh/*.csv
 imports/montgomery_oh/*.jsonl
+
+# 2026-08-20 fix: these data/*.json files are byte-identical copies of
+# their dashboard/*.json counterparts (scraper/fetch.py's
+# write_json_outputs/write_category_json write both on every run).
+# Nothing reads them back as state - fetch.py always regenerates them
+# fresh each run, and any previous-run state it needs (first-seen
+# dates, carry-forward) is read from dashboard/*.json instead. Keeping
+# a second committed copy of the same ~100MB+ dataset roughly doubled
+# the size of every Summit commit for no benefit. They stay on disk
+# each run for any same-run tooling that wants them (e.g. the CSV
+# export step) - they just stop being committed. If you added a new
+# reader that expects one of these to exist in a *fresh checkout*
+# (not just the current run), untrack it from this list first.
+data/records.json
+data/records.enriched.json
+data/hot_stack.json
+data/sheriff_sales.json
+data/probate.json
+data/code_violations.json
+data/vacant_homes.json
+data/tax_delinquent.json
+data/absentee.json
+data/out_of_state.json
+data/foreclosure.json
+data/subject_to.json
+data/prime_subject_to.json
+data/inherited.json
+data/evictions.json
+data/fire_damage.json
+data/divorces.json
+data/cash_buyers.json
+data/tired_landlord_plus.json
+data/vacant_land.json

@@ -120,3 +120,42 @@ def test_corrupt_previous_file_is_safe(tmp_path):
     new = payload([rec(doc_num="A1")])
     merged = mp.merge_with_previous_file(new, bad, today=TODAY)
     assert merged["total"] == 1
+
+
+def test_sharded_previous_file_still_carries_forward(tmp_path):
+    """2026-08-20 fix: once a previous records.json is big enough to be
+    sharded (scraper/shard_utils.py), it has no inline "records" list at
+    all - merge_with_previous_file must expand it back to a full payload
+    first, or every carried-forward record would silently vanish the
+    moment sharding kicks in."""
+    su_spec = importlib.util.spec_from_file_location(
+        "shard_utils", REPO / "scraper" / "shard_utils.py")
+    su = importlib.util.module_from_spec(su_spec)
+    su_spec.loader.exec_module(su)
+
+    prev_path = tmp_path / "records.json"
+    prev_full = payload([rec(doc_num="A1"), rec(doc_num="A2"), rec(doc_num="A3")])
+    manifest = su.shard_payload(prev_full, prev_path, max_per_shard=1)
+    assert manifest["sharded"] is True
+    assert manifest["records"] == []  # sanity: this is the failure mode being tested
+    prev_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    new = payload([rec(doc_num="A1")])
+    merged = mp.merge_with_previous_file(new, prev_path, today=TODAY)
+
+    assert merged["total"] == 3
+    doc_nums = {r["doc_num"] for r in merged["records"]}
+    assert doc_nums == {"A1", "A2", "A3"}
+    carried = {r["doc_num"] for r in merged["records"] if r.get("carried_forward")}
+    assert carried == {"A2", "A3"}
+
+
+def test_plain_previous_file_unaffected_by_shard_awareness(tmp_path):
+    """Backward compatibility: a records.json written before sharding
+    existed has no "sharded" key at all and must merge exactly as it did
+    before this fix."""
+    prev_path = tmp_path / "records.json"
+    prev_path.write_text(json.dumps(payload([rec(doc_num="A1")])), encoding="utf-8")
+    new = payload([rec(doc_num="B1")])
+    merged = mp.merge_with_previous_file(new, prev_path, today=TODAY)
+    assert {r["doc_num"] for r in merged["records"]} == {"A1", "B1"}

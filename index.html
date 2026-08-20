@@ -1786,11 +1786,36 @@ function clearTraceData(r){
   applyDerivedLeadFields(r);
 }
 
+// 2026-08-20 fix: Summit's records.json grew past GitHub's 100MB
+// per-file push limit (see scraper/shard_utils.py). Once that happens,
+// the scraper ships a small manifest ({sharded:true, shard_files:[...],
+// records:[]}) instead of one giant inline array. This stitches the
+// shard files back into a normal-shaped payload so every caller below
+// keeps working exactly as before - they never need to know sharding
+// exists. No-op for a plain (unsharded) payload.
+async function expandShardedPayload(payload,sourceUrl){
+  if(!payload||!payload.sharded||!Array.isArray(payload.shard_files))return payload;
+  const base=sourceUrl.slice(0,sourceUrl.lastIndexOf('/')+1);
+  const shardResults=await Promise.all(payload.shard_files.map(async rel=>{
+    try{
+      const r=await fetch(base+rel+'?t='+Date.now(),{cache:'no-store'});
+      if(!r.ok){console.warn('Shard unavailable',rel,r.status);return [];}
+      const shard=await r.json();
+      return Array.isArray(shard.records)?shard.records:[];
+    }catch(e){
+      console.warn('Shard load failed',rel,e);
+      return [];
+    }
+  }));
+  payload.records=shardResults.flat();
+  return payload;
+}
+
 async function fetchJSON(file){
   for(const p of['dashboard/'+file,file,'data/'+file,'../data/'+file]){
     try{
       const r=await fetch(p+'?t='+Date.now(),{cache:'no-store'});
-      if(r.ok)return await r.json();
+      if(r.ok)return await expandShardedPayload(await r.json(),p);
     }catch(e){}
   }
   return null;
@@ -1805,7 +1830,7 @@ async function fetchCountyURL(url){
   for(const p of candidates){
     try{
       const r=await fetch(p+'?t='+Date.now(),{cache:'no-store'});
-      if(r.ok)return await r.json();
+      if(r.ok)return await expandShardedPayload(await r.json(),p);
       console.warn('County data unavailable',p,r.status);
     }catch(e){
       console.warn('County data load failed',p,e);
