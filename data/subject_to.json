@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-08-25T12:54:15.020904+00:00",
+  "fetched_at": "2026-08-25T20:11:12.211509+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "subject_to",
   "description": "\ud83c\udfaf Subject-to acquisition candidates (score \u226550)",
-  "total": 1827,
+  "total": 1828,
   "records": [
     {
       "doc_num": "CV2026 03 0993",
@@ -44,9 +44,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
+        "foreclosure",
         "sheriff_sale",
-        "foreclosure"
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -179,9 +179,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
+        "foreclosure",
         "sheriff_sale",
-        "foreclosure"
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -313,9 +313,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
+        "foreclosure",
         "sheriff_sale",
-        "foreclosure"
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -448,9 +448,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
+        "foreclosure",
         "sheriff_sale",
-        "foreclosure"
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -581,9 +581,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
+        "foreclosure",
         "sheriff_sale",
-        "foreclosure"
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -714,9 +714,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
+        "foreclosure",
         "sheriff_sale",
-        "foreclosure"
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -846,9 +846,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
+        "foreclosure",
         "sheriff_sale",
-        "foreclosure"
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -2166,8 +2166,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -2299,8 +2299,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -4144,8 +4144,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -4282,8 +4282,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -4421,8 +4421,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -4560,8 +4560,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -4691,8 +4691,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -4821,8 +4821,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -4951,8 +4951,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -8886,8 +8886,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -9015,8 +9015,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -9145,8 +9145,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "cash_buyer"
+        "cash_buyer",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -164831,6 +164831,132 @@
         "Known tax debt ~$4,183",
         "Mortgage estimate: no sale history, assumes 50% LTV",
         "Very high net equity",
+        "LTV <70%"
+      ],
+      "sheriff_sale_date": "",
+      "appraised_value": null,
+      "lender": "",
+      "auction_days_until": null,
+      "auction_countdown": "",
+      "auction_urgency": "",
+      "foreclosure_stage": "",
+      "foreclosure_case_number": "",
+      "foreclosure_notice_date": "",
+      "code_violation_case": "",
+      "code_violation_date": "",
+      "decedent_name": "",
+      "executor_name": "",
+      "executor_state": "",
+      "estate_value": null,
+      "is_inherited": false,
+      "bedrooms": null,
+      "bathrooms": null,
+      "square_feet": null,
+      "buyer_purchase_count": 0,
+      "buyer_unique_parcels": 0,
+      "buyer_last_purchase_date": "",
+      "buyer_avg_purchase_price": null,
+      "buyer_total_purchase_volume": null,
+      "buyer_zips": [],
+      "buyer_property_addresses": [],
+      "buyer_type": "",
+      "rental_complaint": false,
+      "rental_complaint_source": "",
+      "rental_complaint_date": "",
+      "rental_case_number": "",
+      "rental_complaint_open_count": 0,
+      "rental_complaint_resolved_count": 0,
+      "rental_complaint_total_count": 0,
+      "landlord_pain": false,
+      "tired_landlord_plus": false,
+      "tired_landlord_reasons": [],
+      "owner_property_count": 0,
+      "repeat_distress_owner": false,
+      "portfolio_owner": false
+    },
+    {
+      "doc_num": "FAST 08",
+      "doc_type": "NOFC",
+      "filed": "2026-08-24",
+      "cat": "NOFC",
+      "cat_label": "Pre-foreclosure",
+      "first_seen_date": "2026-08-24",
+      "pulled_date": "2026-08-24",
+      "owner": "Ted Fast",
+      "grantee": "Newrez Llc D/B/A Shellpoint Mortgage Ser",
+      "amount": null,
+      "legal": "NEWREZ LLC D/B/A SHELLPOINT MORTGAGE SER -VS- TED FAST",
+      "prop_address": "1484 Grand Blvd #Barberto",
+      "prop_city": "BARBERTON",
+      "prop_state": "OH",
+      "prop_zip": "44203",
+      "mail_address": "1915 CANTERBURY RD",
+      "mail_city": "AKRON",
+      "mail_state": "OH",
+      "mail_zip": "44333",
+      "clerk_url": "https://newcivilfilings.summitoh.net/",
+      "flags": [
+        "Research More",
+        "Pre-foreclosure",
+        "New this week",
+        "Low Equity",
+        "\ud83c\udfaf Subject-To Candidate"
+      ],
+      "score": 78,
+      "match_method": "parcel_from_legal_notice",
+      "match_score": 1.0,
+      "with_address": 1,
+      "distress_sources": [
+        "foreclosure"
+      ],
+      "distress_count": 1,
+      "hot_stack": false,
+      "luc": "510",
+      "acres": "",
+      "is_vacant_land": false,
+      "is_vacant_home": false,
+      "is_absentee": false,
+      "is_out_of_state": false,
+      "parcel_id": "0112634",
+      "phones": [],
+      "phone_types": [],
+      "emails": [],
+      "skip_trace_source": "",
+      "traced_owner_name": "",
+      "traced_owner": "",
+      "traced_phones": [],
+      "traced_phone_types": [],
+      "traced_emails": [],
+      "phone_primary": "",
+      "phone_primary_type": "",
+      "phone_secondary": "",
+      "phone_secondary_type": "",
+      "phone_tertiary": "",
+      "phone_tertiary_type": "",
+      "email_primary": "",
+      "traced_email": "",
+      "traced_mailing_address": "",
+      "traced_mailing_city": "",
+      "traced_mailing_state": "",
+      "traced_mailing_zip": "",
+      "skip_trace_status": "",
+      "skip_trace_timestamp": "",
+      "has_phone": false,
+      "has_email": false,
+      "assessed_value": 26880.0,
+      "estimated_value": 76800.0,
+      "last_sale_price": null,
+      "last_sale_year": null,
+      "est_mortgage_balance": 38400.0,
+      "est_equity": 38400.0,
+      "est_arrears": null,
+      "est_payoff": 38400.0,
+      "subject_to_score": 55,
+      "mortgage_signals": [
+        "Value source: county market estimate",
+        "Mortgage estimate: no sale history, assumes 50% LTV",
+        "Moderate net equity",
+        "Active foreclosure",
         "LTV <70%"
       ],
       "sheriff_sale_date": "",
