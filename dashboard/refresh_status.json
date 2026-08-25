@@ -1,13 +1,13 @@
 {
   "summit": {
-    "data_updated_at": "2026-08-24T20:11:52.959471+00:00",
-    "last_checked_at": "2026-08-24T20:12:13+00:00",
+    "data_updated_at": "2026-08-25T12:54:03.755429+00:00",
+    "last_checked_at": "2026-08-25T12:54:21+00:00",
     "source_dataset_date": "",
     "status": "success_updated",
     "message": "summit refresh ran and found updated data",
-    "records_before": 33021,
-    "records_after": 33121,
-    "new_today": 29,
+    "records_before": 33121,
+    "records_after": 34046,
+    "new_today": 24,
     "error": ""
   },
   "cuyahoga": {
