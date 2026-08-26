@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-25T20:11:10.523362+00:00",
+  "fetched_at": "2026-08-26T12:55:05.447829+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "code_violations",
   "description": "\ud83c\udfda City-declared nuisance / housing code violations \u2014 repair or sell",
@@ -668,8 +668,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "code_violation"
+        "code_violation",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
