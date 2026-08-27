@@ -1,12 +1,36 @@
 {
   "matched": 0,
-  "unmatched": 119,
+  "unmatched": 116,
   "with_address": 0,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 119
+    "unmatched": 116
   },
   "sample_unmatched": [
+    {
+      "doc_num": "BIELECH 08",
+      "owner": "Christie Bielech"
+    },
+    {
+      "doc_num": "BRINK 08",
+      "owner": "April Brink"
+    },
+    {
+      "doc_num": "DURNAN 08",
+      "owner": "Joseph M Durnan"
+    },
+    {
+      "doc_num": "HIPP 08",
+      "owner": "James Hipp"
+    },
+    {
+      "doc_num": "LOFTIN 08",
+      "owner": "Darlene Loftin"
+    },
+    {
+      "doc_num": "SHORF 08",
+      "owner": "Frank Shorf"
+    },
     {
       "doc_num": "GUYETTE 08",
       "owner": "Joseph Guyette"
@@ -20,32 +44,8 @@
       "owner": "Harris Swanzetta"
     },
     {
-      "doc_num": "TH 08",
-      "owner": "Lois Jean Sharp, Successor Trustee Of Th"
-    },
-    {
-      "doc_num": "WEAVER 08",
-      "owner": "Frank Weaver"
-    },
-    {
-      "doc_num": "SANDHU 08",
-      "owner": "Lovepreet Sandhu"
-    },
-    {
-      "doc_num": "BARNWELL 08",
-      "owner": "David J Barnwell"
-    },
-    {
-      "doc_num": "MORRISON 08",
-      "owner": "Andrea Morrison"
-    },
-    {
-      "doc_num": "NICODEMUS 08",
-      "owner": "Michael L Nicodemus"
-    },
-    {
-      "doc_num": "REVEILLE 08",
-      "owner": "Jaret S Reveille"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
       "doc_num": "2026 AT 10",
@@ -109,5 +109,5 @@
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-08-26T22:41:16.162521+00:00"
+  "generated_at": "2026-08-27T21:53:44.921143+00:00"
 }
