@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-29T02:41:38.831615+00:00",
+  "fetched_at": "2026-08-29T16:18:47.000480+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "vacant_land",
   "description": "\ud83c\udf3f Distressed vacant infill lots \u22642ac \u2014 tax delinquent or in foreclosure",
@@ -42,8 +42,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
         "foreclosure",
+        "tax_delinquent",
         "vacant_land"
       ],
       "distress_count": 3,
