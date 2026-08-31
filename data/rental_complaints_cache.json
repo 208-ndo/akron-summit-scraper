@@ -4118,5 +4118,15 @@
     "source_url": "https://ari.akronohio.gov/",
     "searched_address": "1417 KRUMROY RD",
     "checked_at": "2026-08-20T06:55:30.315745+00:00"
+  },
+  "127 PARIS": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=58910",
+    "address": "127 Paris Ave Akron, OH",
+    "owner": "OCG Austin LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 127 Paris Ave Akron, OH Property Owner OCG Austin LLC Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-08-31T19:35:08.137834+00:00"
   }
 }

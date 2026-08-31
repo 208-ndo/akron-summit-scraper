@@ -3269,7 +3269,11 @@
   "6706305": {},
   "6706335": {},
   "6706429": {},
-  "6706833": {},
+  "6706833": {
+    "bedrooms": 2.0,
+    "bathrooms": 2.0,
+    "square_feet": 1662
+  },
   "6706843": {},
   "6707361": {},
   "6707499": {
@@ -5676,5 +5680,119 @@
     "bedrooms": 2.0,
     "bathrooms": 1.0,
     "square_feet": 1102
+  },
+  "5100337": {},
+  "6727786": {},
+  "5103811": {},
+  "6749343": {},
+  "5111079": {},
+  "0110022": {},
+  "5400576": {},
+  "5402710": {},
+  "6831603": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.5,
+    "square_feet": 1040
+  },
+  "5802008": {
+    "square_feet": 1106
+  },
+  "6723565": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 1151
+  },
+  "6846427": {
+    "bedrooms": 4.0,
+    "bathrooms": 1.5,
+    "square_feet": 1373
+  },
+  "6718805": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1275
+  },
+  "6705113": {
+    "bedrooms": 3.0,
+    "bathrooms": 2.0,
+    "square_feet": 1356
+  },
+  "0401595": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 1593
+  },
+  "6707048": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1124
+  },
+  "6836336": {
+    "bedrooms": 5.0,
+    "bathrooms": 3.0,
+    "square_feet": 1732
+  },
+  "6835224": {
+    "bedrooms": 4.0,
+    "bathrooms": 1.0,
+    "square_feet": 1238
+  },
+  "6824765": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 982
+  },
+  "6840434": {
+    "square_feet": 6177
+  },
+  "5601699": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.5,
+    "square_feet": 960
+  },
+  "6742404": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1349
+  },
+  "6743180": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 1040
+  },
+  "6734134": {
+    "bedrooms": 4.0,
+    "bathrooms": 2.0,
+    "square_feet": 2400
+  },
+  "6807236": {
+    "bedrooms": 4.0,
+    "bathrooms": 2.0,
+    "square_feet": 1252
+  },
+  "6723717": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 1080
+  },
+  "6722182": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1224
+  },
+  "0217516": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.5,
+    "square_feet": 1100
+  },
+  "6744766": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1120
+  },
+  "6709861": {
+    "bedrooms": 4.0,
+    "bathrooms": 1.0,
+    "square_feet": 1248
   }
 }
