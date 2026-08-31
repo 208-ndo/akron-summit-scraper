@@ -1,12 +1,52 @@
 {
   "matched": 0,
-  "unmatched": 120,
-  "with_address": 6,
+  "unmatched": 135,
+  "with_address": 5,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 120
+    "unmatched": 135
   },
   "sample_unmatched": [
+    {
+      "doc_num": "KADET 08",
+      "owner": "Dianne Kadet"
+    },
+    {
+      "doc_num": "SWARTZ 08",
+      "owner": "Nicholas Swartz"
+    },
+    {
+      "doc_num": "STAUFFER 08",
+      "owner": "Kenneth Stauffer"
+    },
+    {
+      "doc_num": "SKUBOVIUS 08",
+      "owner": "Lorraine Skubovius"
+    },
+    {
+      "doc_num": "SALERA 08",
+      "owner": "Richard A Salera"
+    },
+    {
+      "doc_num": "HITE 08",
+      "owner": "Richard Hite"
+    },
+    {
+      "doc_num": "MINEWEASER 08",
+      "owner": "Jennifer Mineweaser"
+    },
+    {
+      "doc_num": "PARTEE 08",
+      "owner": "Deborah Partee"
+    },
+    {
+      "doc_num": "BANDROWSKY 08",
+      "owner": "Darran Bandrowsky"
+    },
+    {
+      "doc_num": "DORSEY 08",
+      "owner": "Kevin M Dorsey"
+    },
     {
       "doc_num": "YONKER 08",
       "owner": "Terry Yonker"
@@ -14,14 +54,6 @@
     {
       "doc_num": "CALMESE 08",
       "owner": "Reiko Calmese"
-    },
-    {
-      "doc_num": "ESPERSEN 08",
-      "owner": "Jasmine Espersen"
-    },
-    {
-      "doc_num": "PENMAN 08",
-      "owner": "Lauren Penman"
     },
     {
       "doc_num": "TH 08",
@@ -74,40 +106,8 @@
     {
       "doc_num": "FISTER 08",
       "owner": "Matthew E Fister"
-    },
-    {
-      "doc_num": "RODRGUEZ 08",
-      "owner": "Reinaldo Garay-Rodrguez"
-    },
-    {
-      "doc_num": "DOWDY 08",
-      "owner": "Winford D Dowdy"
-    },
-    {
-      "doc_num": "AKAROGBE 08",
-      "owner": "Oghogho L Akarogbe"
-    },
-    {
-      "doc_num": "SIEDLECKI 08",
-      "owner": "Heather Siedlecki"
-    },
-    {
-      "doc_num": "MELER 08",
-      "owner": "Ann Nadya Meler"
-    },
-    {
-      "doc_num": "2026 AT 10",
-      "owner": ""
-    },
-    {
-      "doc_num": "2026 AT 10",
-      "owner": ""
-    },
-    {
-      "doc_num": "2026 AT 10",
-      "owner": ""
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-08-31T19:35:29.042186+00:00"
+  "generated_at": "2026-08-31T23:42:54.939294+00:00"
 }
