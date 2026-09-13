@@ -12,14 +12,14 @@
   },
   "cuyahoga": {
     "data_updated_at": "2026-09-12T14:52:24+00:00",
-    "last_checked_at": "2026-09-12T14:53:00+00:00",
+    "last_checked_at": "2026-09-13T15:30:35+00:00",
     "source_dataset_date": "",
-    "status": "success_updated",
-    "message": "cuyahoga refresh ran and found updated data",
+    "status": "failed",
+    "message": "cuyahoga refresh command failed - see cuyahoga_daily_refresh.log",
     "records_before": 11546,
     "records_after": 11546,
     "new_today": 0,
-    "error": ""
+    "error": "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/urllib/request.py\", line 1348, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/http/client.py\", line 1351, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/http/client.py\", line 1397, in _send_request\n    self.endheader"
   },
   "montgomery": {
     "data_updated_at": "2026-06-04",
