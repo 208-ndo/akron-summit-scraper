@@ -1,14 +1,14 @@
 {
   "summit": {
     "data_updated_at": "2026-08-31T23:42:37.127125+00:00",
-    "last_checked_at": "2026-09-17T22:23:30+00:00",
+    "last_checked_at": "2026-09-18T15:41:25+00:00",
     "source_dataset_date": "",
     "status": "failed",
     "message": "summit refresh command failed - see summit_daily_refresh.log",
     "records_before": 39845,
     "records_after": 39845,
     "new_today": 59,
-    "error": "2026-09-17 22:23:30,317 | INFO | === Akron Summit County — Motivated Seller Intelligence ===\n2026-09-17 22:23:30,317 | INFO | Discovering CAMA downloads...\n2026-09-17 22:23:30,726 | WARNING | Request failed (1/3) https://fiscaloffice.summitoh.net/index.php/documents-a-forms/viewcategory/10-cama: 404 Client Error: Not Found for url: https://fiscaloffice.summitoh.net/index.php/documents-a-forms/viewcategory/10-cama\n2026-09-17 22:23:30,759 | WARNING | Request failed (2/3) https://fiscaloffice.summi"
+    "error": "2026-09-18 15:41:24,719 | INFO | === Akron Summit County — Motivated Seller Intelligence ===\n2026-09-18 15:41:24,719 | INFO | Discovering CAMA downloads...\n2026-09-18 15:41:25,145 | WARNING | Request failed (1/3) https://fiscaloffice.summitoh.net/index.php/documents-a-forms/viewcategory/10-cama: 404 Client Error: Not Found for url: https://fiscaloffice.summitoh.net/index.php/documents-a-forms/viewcategory/10-cama\n2026-09-18 15:41:25,206 | WARNING | Request failed (2/3) https://fiscaloffice.summi"
   },
   "cuyahoga": {
     "data_updated_at": "2026-09-17T22:23:33+00:00",
