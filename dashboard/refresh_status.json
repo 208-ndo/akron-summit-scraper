@@ -11,14 +11,14 @@
     "error": "2026-09-18 15:41:24,719 | INFO | === Akron Summit County — Motivated Seller Intelligence ===\n2026-09-18 15:41:24,719 | INFO | Discovering CAMA downloads...\n2026-09-18 15:41:25,145 | WARNING | Request failed (1/3) https://fiscaloffice.summitoh.net/index.php/documents-a-forms/viewcategory/10-cama: 404 Client Error: Not Found for url: https://fiscaloffice.summitoh.net/index.php/documents-a-forms/viewcategory/10-cama\n2026-09-18 15:41:25,206 | WARNING | Request failed (2/3) https://fiscaloffice.summi"
   },
   "cuyahoga": {
-    "data_updated_at": "2026-09-17T22:23:33+00:00",
-    "last_checked_at": "2026-09-17T22:24:40+00:00",
+    "data_updated_at": "2026-09-18T15:41:28+00:00",
+    "last_checked_at": "2026-09-18T15:42:02+00:00",
     "source_dataset_date": "",
     "status": "success_updated",
     "message": "cuyahoga refresh ran and found updated data",
     "records_before": 11565,
     "records_after": 11565,
-    "new_today": 9,
+    "new_today": 0,
     "error": ""
   },
   "montgomery": {
