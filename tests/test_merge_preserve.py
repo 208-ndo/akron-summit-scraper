@@ -120,3 +120,38 @@ def test_corrupt_previous_file_is_safe(tmp_path):
     new = payload([rec(doc_num="A1")])
     merged = mp.merge_with_previous_file(new, bad, today=TODAY)
     assert merged["total"] == 1
+
+
+# ---- retention (2026-10-22) ----
+def test_retention_drops_old_event_leads_and_past_sheriff_sales():
+    today = "2026-10-22"
+    recs = [
+        rec(doc_num="E1", cat_label="Eviction", filed="2026-07-01", last_seen_date=today),
+        rec(doc_num="E2", cat_label="Eviction", filed="2026-10-01", last_seen_date=today),
+        rec(doc_num="S1", cat_label="Sheriff Sale", sheriff_sale_date="2026-09-01", last_seen_date=today),
+        rec(doc_num="S2", cat_label="Sheriff Sale", sheriff_sale_date="2026-11-05", last_seen_date=today),
+        rec(doc_num="T1", cat_label="Tax Delinquent", last_seen_date=today),
+        rec(doc_num="T2", cat_label="Tax Delinquent", last_seen_date="2026-07-01"),
+        rec(doc_num="P1", cat_label="Eviction", filed="2026-05-01", last_seen_date="2026-06-01", has_phone=True),
+    ]
+    out = mp.apply_retention({"records": recs}, today, 60)
+    kept = {r["doc_num"] for r in out["records"]}
+    assert kept == {"E2", "S2", "T1", "P1"}
+    assert out["pruned_stale_count"] == 3
+
+
+def test_retention_off_keeps_everything():
+    recs = [rec(doc_num="E1", cat_label="Eviction", filed="2020-01-01", last_seen_date="2020-01-01")]
+    out = mp.apply_retention({"records": recs}, "2026-10-22", 0)
+    assert len(out["records"]) == 1
+
+
+def test_merge_with_previous_file_reports_pruned(tmp_path):
+    today = datetime.now().date()
+    old = (today - timedelta(days=200)).isoformat()
+    prev = payload([rec(doc_num="OLD", cat_label="Judgment", filed=old, last_seen_date=old), rec(doc_num="KEEP")])
+    p = tmp_path / "records.json"
+    p.write_text(json.dumps(prev))
+    merged = mp.merge_with_previous_file(payload([rec(doc_num="KEEP")]), p)
+    assert {r["doc_num"] for r in merged["records"]} == {"KEEP"}
+    assert merged["pruned_stale_count"] == 1

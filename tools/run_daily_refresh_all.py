@@ -132,6 +132,15 @@ def read_fetched_at(path: Path) -> str:
         return ""
 
 
+def read_pruned(path: Path) -> int:
+    """Records deliberately dropped by retention this run (scraper/merge_preserve.py)."""
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        return int(payload.get("pruned_stale_count") or 0)
+    except Exception:
+        return 0
+
+
 def count_new_today(path: Path) -> int:
     """Records with a real first-seen date of today - never just
     touched/updated today (Today's Leads honesty rule, Steps 20/25)."""
@@ -233,7 +242,12 @@ def refresh_simple_county(county: str, command: list[str], add_paths: list[str],
 
     log(f"After count: {after_count}")
 
-    if before_count is not None and after_count < before_count:
+    # 2026-10-22: retention drops old leads on purpose. Allow the count to
+    # fall by exactly that many; any other shrink is still a source failure.
+    pruned = read_pruned(primary_file)
+    if pruned:
+        log(f"Retention pruned {pruned} stale records this run.")
+    if before_count is not None and after_count + pruned < before_count:
         log(f"HARD GUARD FAILED: {before_count} -> {after_count}. Reverting {add_paths}.")
         revert_paths(add_paths)
         update_status(county, "blocked", f"Record count would have shrunk {before_count} -> {after_count} - reverted",

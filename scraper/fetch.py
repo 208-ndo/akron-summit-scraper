@@ -85,14 +85,16 @@ PROBATE_NEWS_URLS    = [
     for d in range(1, 91, 7)  # weekly intervals back 90 days
 ]
 
-CAMA_PAGE_URL        = "https://fiscaloffice.summitoh.net/index.php/documents-a-forms/viewcategory/10-cama"
+CAMA_PAGE_URL        = "https://fiscaloffice.summitoh.net/data-downloads"
+# The Fiscal Office moved its site in late Aug 2026; the old Joomla CAMA page now 404s. Kept as a fallback.
+CAMA_PAGE_URLS       = [CAMA_PAGE_URL, "https://fiscaloffice.summitoh.net/index.php/documents-a-forms/viewcategory/10-cama"]
 VACANT_BUILDING_URL  = "https://www.akronohio.gov/government/boards_and_commissions/vacant_building_board.php"
 HOUSING_APPEALS_URL  = "https://www.akronohio.gov/government/boards_and_commissions/housing_appeals_board.php"
 SHERIFF_SALES_URL    = "https://www.akronlegalnews.com/notices/sheriff_sale_abstracts"
 ALN_FORECLOSURE_NOTICE_INDEX_URLS = [SHERIFF_SALES_URL]
 DELINQUENT_INDEX_URL = "https://www.akronlegalnews.com/notices/delinquent_taxes"
-RECORDER_TRANSFER_URL = "https://fiscaloffice.summitoh.net/index.php/real-estate/conveyance-data"
-RECORDER_SEARCH_URL   = "https://fiscaloffice.summitoh.net/index.php/real-estate"
+RECORDER_TRANSFER_URL = "https://fiscaloffice.summitoh.net/recorded-documents/property-transfer"
+RECORDER_SEARCH_URL   = "https://fiscaloffice.summitoh.net/property-tax-appraisal"
 EVICTION_URL          = "https://newcivilfilings.summitoh.net/"  # same as clerk
 DIVORCE_URL           = "https://clerk.summitoh.net/RecordsSearch/Disclaimer.asp?toPage=SelectDivision.asp"
 DOMESTIC_CIVIL_URL    = "https://newcivilfilings.summitoh.net/"
@@ -1708,18 +1710,25 @@ def scrape_tax_delinquent_parcels()->Dict[str,dict]:
 # -----------------------------------------------------------------------
 def discover_cama_downloads()->List[str]:
     logging.info("Discovering CAMA downloads...")
-    resp=retry_request(CAMA_PAGE_URL); soup=BeautifulSoup(resp.text,"lxml")
     wanted={"SC700","SC701","SC702","SC705","SC706","SC720","SC731","SC750"}; urls=[]
-    for a in soup.select("a[href]"):
-        href=clean_text(a.get("href","")); text=clean_text(a.get_text(" ")).upper()
-        blob=f"{href} {text}".upper()
-        if not any(c in blob for c in wanted): continue
-        full=requests.compat.urljoin(CAMA_PAGE_URL,href)
-        if "/finish/" in full: urls.append(full)
-        elif "/viewdownload/" in full: urls.append(full.replace("/viewdownload/","/finish/"))
+    for page in CAMA_PAGE_URLS:
+        try: resp=retry_request(page)
+        except Exception as e:
+            logging.warning("CAMA page unavailable %s: %s",page,e); continue
+        soup=BeautifulSoup(resp.text,"lxml")
+        for a in soup.select("a[href]"):
+            href=clean_text(a.get("href","")); text=clean_text(a.get_text(" ")).upper()
+            blob=f"{href} {text}".upper()
+            if not any(c in blob for c in wanted): continue
+            full=requests.compat.urljoin(page,href)
+            if "/finish/" in full: urls.append(full)
+            elif "/viewdownload/" in full: urls.append(full.replace("/viewdownload/","/finish/"))
+            elif re.search(r"\.(zip|txt|dat|csv)(\?|$)",full,re.I): urls.append(full)
+        if urls: break
     deduped,seen=[],set()
     for u in urls:
         if u not in seen: seen.add(u); deduped.append(u)
+    if not deduped: raise RuntimeError("No CAMA file links found on "+", ".join(CAMA_PAGE_URLS))
     logging.info("Found %s CAMA file links",len(deduped)); return deduped
 
 def parse_delimited_text(raw:str)->List[dict]:

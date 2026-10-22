@@ -35,8 +35,9 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 import re
-from datetime import datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -95,6 +96,90 @@ def dedupe_identity(rec: dict) -> tuple:
 def _comparable(rec: dict) -> str:
     slim = {k: v for k, v in rec.items() if k not in _VOLATILE_FIELDS}
     return json.dumps(slim, sort_keys=True, default=str)
+
+
+# ---------------------------------------------------------------------
+# Retention (added 2026-10-22): stop carrying dead leads forever.
+# The merge layer made the dataset grow without limit (39,845 Summit
+# records, 36,144 of them carried forward). Leads are now dropped when
+# they are clearly old, using only dates already on the record:
+#   - event leads (eviction, judgment, pre-foreclosure, lis pendens,
+#     tax deed, divorce, probate...) whose filing date is older than
+#     RETENTION_DAYS,
+#   - sheriff sales whose sale date passed more than 7 days ago,
+#   - anything no source has returned for RETENTION_DAYS (last_seen_date).
+# Status leads that are still on a live county list (tax delinquent,
+# vacant land/home, absentee) are kept, because every run re-sees them.
+# Skip-traced leads (has_phone) are kept unless their sheriff sale passed,
+# so paid phone data is never thrown away.
+# Set LEAD_RETENTION_DAYS=0 to turn retention off.
+# ---------------------------------------------------------------------
+EVENT_CATEGORIES = {
+    "EVICTION", "JUDGMENT", "PRE-FORECLOSURE", "LIS PENDENS", "TAX DEED",
+    "DIVORCE", "PROBATE", "INHERITED", "FIRE DAMAGE", "CODE VIOLATION",
+}
+_EVENT_DATE_FIELDS = ("filed", "date_filed", "code_violation_date",
+                      "foreclosure_notice_date", "rental_complaint_date")
+
+
+def retention_days_default() -> int:
+    try:
+        return max(0, int(os.environ.get("LEAD_RETENTION_DAYS", "60")))
+    except ValueError:
+        return 60
+
+
+def _iso(v) -> str:
+    s = _clean(v)[:10]
+    return s if re.match(r"^\d{4}-\d{2}-\d{2}$", s) else ""
+
+
+def stale_reason(rec: dict, today: str, days: int) -> str:
+    """Why a record is too old to keep, or "" to keep it."""
+    if not days:
+        return ""
+    t = date.fromisoformat(today)
+    cutoff = (t - timedelta(days=days)).isoformat()
+    cat = _clean(rec.get("cat_label") or rec.get("doc_type")).upper()
+    sale = _iso(rec.get("sheriff_sale_date"))
+    if cat == "SHERIFF SALE" and sale and sale < (t - timedelta(days=7)).isoformat():
+        return "sheriff sale date passed"
+    if rec.get("has_phone"):
+        return ""
+    seen = _iso(rec.get("last_seen_date"))
+    if seen and seen < cutoff:
+        return f"not seen by any source in {days} days"
+    if cat in EVENT_CATEGORIES:
+        dates = [d for d in (_iso(rec.get(f)) for f in _EVENT_DATE_FIELDS) if d]
+        if dates and max(dates) < cutoff:
+            return f"filed more than {days} days ago"
+    return ""
+
+
+def apply_retention(payload: dict, today: str, days: Optional[int] = None) -> dict:
+    days = retention_days_default() if days is None else days
+    records = list(payload.get("records", []) or [])
+    if not days or not records:
+        payload["pruned_stale_count"] = 0
+        return payload
+    kept, pruned = [], {}
+    for rec in records:
+        why = stale_reason(rec, today, days) if isinstance(rec, dict) else ""
+        if why:
+            key = f"{_clean(rec.get('cat_label') or rec.get('doc_type')) or 'Other'}: {why}"
+            pruned[key] = pruned.get(key, 0) + 1
+        else:
+            kept.append(rec)
+    out = dict(payload)
+    out["records"] = kept
+    out["total"] = len(kept)
+    out["pruned_stale_count"] = len(records) - len(kept)
+    out["pruned_stale_breakdown"] = dict(sorted(pruned.items(), key=lambda kv: -kv[1]))
+    out["retention_days"] = days
+    if pruned:
+        logging.info("retention: dropped %s stale records older than %s days (%s kept). %s",
+                     out["pruned_stale_count"], days, len(kept), out["pruned_stale_breakdown"])
+    return out
 
 
 def merge_payload_preserving_previous(new_payload: dict,
@@ -227,4 +312,7 @@ def merge_with_previous_file(new_payload: dict, previous_path: Path,
                 previous_payload, Path(previous_path).parent)
         except Exception as e:
             logging.warning("merge_preserve: could not expand sharded %s: %s", previous_path, e)
-    return merge_payload_preserving_previous(new_payload, previous_payload, today=today)
+    merged = merge_payload_preserving_previous(new_payload, previous_payload, today=today)
+    # Retention runs after the merge, so the shrink guard in
+    # tools/run_daily_refresh_all.py can allow exactly pruned_stale_count.
+    return apply_retention(merged, today or datetime.now().date().isoformat())
