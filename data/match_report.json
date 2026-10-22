@@ -1,113 +1,113 @@
 {
   "matched": 0,
-  "unmatched": 135,
+  "unmatched": 98,
   "with_address": 5,
-  "with_mail_address": 0,
+  "with_mail_address": 4,
   "match_methods": {
-    "unmatched": 135
+    "unmatched": 98
   },
   "sample_unmatched": [
     {
-      "doc_num": "KADET 08",
-      "owner": "Dianne Kadet"
+      "doc_num": "WATERS 10",
+      "owner": "Kimberly Waters"
     },
     {
-      "doc_num": "SWARTZ 08",
-      "owner": "Nicholas Swartz"
+      "doc_num": "HERRIN 10",
+      "owner": "Cathy Herrin"
     },
     {
-      "doc_num": "STAUFFER 08",
-      "owner": "Kenneth Stauffer"
+      "doc_num": "ABREU 10",
+      "owner": "Jordan F. De Abreu"
     },
     {
-      "doc_num": "SKUBOVIUS 08",
-      "owner": "Lorraine Skubovius"
+      "doc_num": "NARAINE 10",
+      "owner": "Rudolph D Naraine"
     },
     {
-      "doc_num": "SALERA 08",
-      "owner": "Richard A Salera"
+      "doc_num": "COSTON 10",
+      "owner": "Marcus Coston"
     },
     {
-      "doc_num": "HITE 08",
-      "owner": "Richard Hite"
+      "doc_num": "KNOX 10",
+      "owner": "Julie Knox"
     },
     {
-      "doc_num": "MINEWEASER 08",
-      "owner": "Jennifer Mineweaser"
+      "doc_num": "HASENKOPF 10",
+      "owner": "Adam Hasenkopf"
     },
     {
-      "doc_num": "PARTEE 08",
-      "owner": "Deborah Partee"
+      "doc_num": "BERMUDEZ 10",
+      "owner": "Rosa Chicas Bermudez"
     },
     {
-      "doc_num": "BANDROWSKY 08",
-      "owner": "Darran Bandrowsky"
+      "doc_num": "WIEGEL 10",
+      "owner": "Hiedi Wiegel"
     },
     {
-      "doc_num": "DORSEY 08",
-      "owner": "Kevin M Dorsey"
+      "doc_num": "CHEROTTI 10",
+      "owner": "Timothy Cherotti"
     },
     {
-      "doc_num": "YONKER 08",
-      "owner": "Terry Yonker"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "CALMESE 08",
-      "owner": "Reiko Calmese"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "TH 08",
-      "owner": "Lois Jean Sharp, Successor Trustee Of Th"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "WALLS 08",
-      "owner": "Marquis Walls"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "ZABUR 08",
-      "owner": "Stephen Zabur"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "VERNAZA 08",
-      "owner": "Jose Vernaza"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "KINTZ 08",
-      "owner": "Sara Kintz"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "MADIO 08",
-      "owner": "Kathryn A Madio"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "MINKS 08",
-      "owner": "Jason Minks"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "OCONNOR 08",
-      "owner": "Brandie M Oconnor"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "PANASEK 08",
-      "owner": "Stephen Panasek"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "PASS 08",
-      "owner": "Valentina Pass"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "PAXSON 08",
-      "owner": "Kristopher J Paxson"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "RADMILA 08",
-      "owner": "Forcan Radmila"
+      "doc_num": "2026 AT 10",
+      "owner": ""
     },
     {
-      "doc_num": "FISTER 08",
-      "owner": "Matthew E Fister"
+      "doc_num": "CV2025 07 3164",
+      "owner": "The Renovation And Appliance"
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-08-31T23:42:54.939294+00:00"
+  "generated_at": "2026-10-22T23:27:46.421274+00:00"
 }

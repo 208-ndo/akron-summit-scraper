@@ -4128,5 +4128,529 @@
     "rental_complaint": false,
     "raw_text": "Property Details Akron Rental Information Search Property Address 127 Paris Ave Akron, OH Property Owner OCG Austin LLC Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
     "checked_at": "2026-08-31T19:35:08.137834+00:00"
+  },
+  "10 12 TRUDY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "10 & 12 TRUDY LN",
+    "checked_at": "2026-10-22T23:26:53.566222+00:00"
+  },
+  "100 PETTIT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "100 PETTIT RD",
+    "checked_at": "2026-10-22T23:26:54.022537+00:00"
+  },
+  "1003 WOOSTER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1003 WOOSTER RD",
+    "checked_at": "2026-10-22T23:26:54.470648+00:00"
+  },
+  "10061 RIDGEWOOD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "10061 RIDGEWOOD DR",
+    "checked_at": "2026-10-22T23:26:54.912751+00:00"
+  },
+  "10083 HIDEAWAY CV": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "10083 HIDEAWAY CV",
+    "checked_at": "2026-10-22T23:26:55.360958+00:00"
+  },
+  "101 LUDEN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "101 LUDEN AVE",
+    "checked_at": "2026-10-22T23:26:55.811342+00:00"
+  },
+  "1010 BROAD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1010 BROAD BLVD",
+    "checked_at": "2026-10-22T23:26:56.236164+00:00"
+  },
+  "1011 BROOKPOINT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1011 BROOKPOINT DR",
+    "checked_at": "2026-10-22T23:26:56.676827+00:00"
+  },
+  "10112 RIDGEWOOD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "10112 RIDGEWOOD DR",
+    "checked_at": "2026-10-22T23:26:57.116291+00:00"
+  },
+  "10123 REGATTA TRL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "10123 REGATTA TRL",
+    "checked_at": "2026-10-22T23:26:57.554067+00:00"
+  },
+  "10141 BELMEADOW": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "10141 BELMEADOW DR",
+    "checked_at": "2026-10-22T23:26:57.975520+00:00"
+  },
+  "10144 PIRATES TRL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "10144 PIRATES TRL",
+    "checked_at": "2026-10-22T23:26:58.412387+00:00"
+  },
+  "10160 SPINNAKER RUN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "10160 SPINNAKER RUN",
+    "checked_at": "2026-10-22T23:26:58.836590+00:00"
+  },
+  "1018 TALLMADGE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1018 TALLMADGE RD",
+    "checked_at": "2026-10-22T23:26:59.275827+00:00"
+  },
+  "10190 BRIGHTON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "10190 BRIGHTON CIR",
+    "checked_at": "2026-10-22T23:26:59.697194+00:00"
+  },
+  "10203 SPINNAKER RUN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "10203 SPINNAKER RUN",
+    "checked_at": "2026-10-22T23:27:00.143434+00:00"
+  },
+  "1029 COLUMBUS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1029 COLUMBUS AVE",
+    "checked_at": "2026-10-22T23:27:00.588386+00:00"
+  },
+  "1031 SACKETT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1031 SACKETT AVE",
+    "checked_at": "2026-10-22T23:27:01.031217+00:00"
+  },
+  "1032 THISTLERIDGE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1032 THISTLERIDGE DR",
+    "checked_at": "2026-10-22T23:27:01.462379+00:00"
+  },
+  "10346 REDBUD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "10346 REDBUD DR",
+    "checked_at": "2026-10-22T23:27:01.886573+00:00"
+  },
+  "1040 WOOSTER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1040 WOOSTER RD",
+    "checked_at": "2026-10-22T23:27:02.309103+00:00"
+  },
+  "1043 BERWIN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1043 BERWIN ST",
+    "checked_at": "2026-10-22T23:27:02.733236+00:00"
+  },
+  "1052 COLUMBUS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1052 COLUMBUS AVE",
+    "checked_at": "2026-10-22T23:27:03.157119+00:00"
+  },
+  "10539 CONNECTICUT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "10539 CONNECTICUT ST",
+    "checked_at": "2026-10-22T23:27:03.581231+00:00"
+  },
+  "1057 ALLENDALE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1057 ALLENDALE AVE",
+    "checked_at": "2026-10-22T23:27:04.032010+00:00"
+  },
+  "10604 VALLEY VIEW": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "10604 VALLEY VIEW RD",
+    "checked_at": "2026-10-22T23:27:04.455449+00:00"
+  },
+  "1066 CANYON VIEW": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1066 CANYON VIEW RD",
+    "checked_at": "2026-10-22T23:27:04.903070+00:00"
+  },
+  "1066 COLUMBUS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1066 COLUMBUS AVE",
+    "checked_at": "2026-10-22T23:27:05.342166+00:00"
+  },
+  "1068 ALPINE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1068 ALPINE BLVD",
+    "checked_at": "2026-10-22T23:27:05.767164+00:00"
+  },
+  "1070 GEORGIA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1070 GEORGIA AVE",
+    "checked_at": "2026-10-22T23:27:06.190766+00:00"
+  },
+  "1097 COLUMBUS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1097 COLUMBUS AVE",
+    "checked_at": "2026-10-22T23:27:06.644880+00:00"
+  },
+  "111 15TH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "111 15TH ST",
+    "checked_at": "2026-10-22T23:27:07.070737+00:00"
+  },
+  "1125 MYRTLE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1125 MYRTLE AVE",
+    "checked_at": "2026-10-22T23:27:07.494103+00:00"
+  },
+  "1141 1143 E NIMISILA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1141 & 1143 E NIMISILA RD",
+    "checked_at": "2026-10-22T23:27:07.918078+00:00"
+  },
+  "115 N ARLINGTON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "115 N. Arlington Street",
+    "checked_at": "2026-10-22T23:27:08.346015+00:00"
+  },
+  "116 YONKER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "116 YONKER ST",
+    "checked_at": "2026-10-22T23:27:08.770781+00:00"
+  },
+  "1168 DOUGLASS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1168 DOUGLASS AVE",
+    "checked_at": "2026-10-22T23:27:09.192935+00:00"
+  },
+  "1188 DOUGLASS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1188 DOUGLASS AVE",
+    "checked_at": "2026-10-22T23:27:09.616618+00:00"
+  },
+  "120 W STATE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "120 W STATE ST",
+    "checked_at": "2026-10-22T23:27:10.038767+00:00"
+  },
+  "1210 ELOWEN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1210 ELOWEN WAY",
+    "checked_at": "2026-10-22T23:27:10.460280+00:00"
+  },
+  "1217 LOCKWOOD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1217 LOCKWOOD RD",
+    "checked_at": "2026-10-22T23:27:10.890563+00:00"
+  },
+  "1219 MIDLAND": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1219 MIDLAND AVE",
+    "checked_at": "2026-10-22T23:27:11.321590+00:00"
+  },
+  "1220 W BATH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1220 W BATH RD",
+    "checked_at": "2026-10-22T23:27:11.746821+00:00"
+  },
+  "1224 MIDLAND": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1224 MIDLAND AVE",
+    "checked_at": "2026-10-22T23:27:12.174582+00:00"
+  },
+  "1230 ELOWEN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1230 ELOWEN WAY",
+    "checked_at": "2026-10-22T23:27:12.597950+00:00"
+  },
+  "1265 MAIN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1265 MAIN ST",
+    "checked_at": "2026-10-22T23:27:13.021576+00:00"
+  },
+  "127 E AURORA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "127 E AURORA RD",
+    "checked_at": "2026-10-22T23:27:13.445422+00:00"
+  },
+  "1285 MEADOWBROOK": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1285 MEADOWBROOK CT",
+    "checked_at": "2026-10-22T23:27:13.870117+00:00"
+  },
+  "1296 AUBURN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1296 AUBURN AVE",
+    "checked_at": "2026-10-22T23:27:14.308725+00:00"
+  },
+  "1300 WOOSTER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1300 WOOSTER RD",
+    "checked_at": "2026-10-22T23:27:14.732150+00:00"
+  },
+  "1305 CENTER 1": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1305 CENTER RD #1 RD",
+    "checked_at": "2026-10-22T23:27:15.156256+00:00"
+  },
+  "1308 AUBURN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1308 AUBURN AVE",
+    "checked_at": "2026-10-22T23:27:15.590601+00:00"
+  },
+  "1314 CURTIS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1314 CURTIS AVE",
+    "checked_at": "2026-10-22T23:27:16.022785+00:00"
+  },
+  "1315 CULBERTSON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1315 CULBERTSON DR",
+    "checked_at": "2026-10-22T23:27:16.442284+00:00"
+  },
+  "134 BAYBERRY": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "134 BAYBERRY DR",
+    "checked_at": "2026-10-22T23:27:16.868479+00:00"
+  },
+  "136 SE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "136 SOUTHEAST AVE",
+    "checked_at": "2026-10-22T23:27:17.296093+00:00"
+  },
+  "1364 WOOSTER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1364 WOOSTER RD",
+    "checked_at": "2026-10-22T23:27:17.721351+00:00"
+  },
+  "1374 SILVERDALE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1374 SILVERDALE CIR",
+    "checked_at": "2026-10-22T23:27:18.144530+00:00"
+  },
+  "139 141 SW 2ND": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "139 &141 SW 2ND ST",
+    "checked_at": "2026-10-22T23:27:18.565788+00:00"
+  },
+  "140 8TH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "140 8TH ST",
+    "checked_at": "2026-10-22T23:27:18.990646+00:00"
+  },
+  "140 BUTTERNUT": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "140 BUTTERNUT LN",
+    "checked_at": "2026-10-22T23:27:19.417055+00:00"
+  },
+  "1423 1425 CALIFORNIA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1423 & 1425 CALIFORNIA AVE",
+    "checked_at": "2026-10-22T23:27:19.844804+00:00"
+  },
+  "143 BOSTON MILLS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "143 BOSTON MILLS RD",
+    "checked_at": "2026-10-22T23:27:20.269987+00:00"
+  },
+  "1434 SAXON": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1434 SAXON CIR",
+    "checked_at": "2026-10-22T23:27:20.693467+00:00"
+  },
+  "144 NORMAN": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "144 NORMAN ST",
+    "checked_at": "2026-10-22T23:27:21.114876+00:00"
+  },
+  "1444 CLETUS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1444 CLETUS AVE",
+    "checked_at": "2026-10-22T23:27:21.550684+00:00"
+  },
+  "1449 WINCHELL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1449 WINCHELL DR",
+    "checked_at": "2026-10-22T23:27:21.980907+00:00"
+  },
+  "1455 CRUSADE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1455 CRUSADE DR",
+    "checked_at": "2026-10-22T23:27:22.431525+00:00"
+  },
+  "1457 GRAND": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1457 GRAND BLVD",
+    "checked_at": "2026-10-22T23:27:22.854545+00:00"
+  },
+  "1459 BRUCE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1459 BRUCE RD",
+    "checked_at": "2026-10-22T23:27:23.279114+00:00"
+  },
+  "148 NORWOOD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "148 NORWOOD ST",
+    "checked_at": "2026-10-22T23:27:23.705806+00:00"
+  },
+  "1485 12 LAKEVIEW": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1485 & 1/2 LAKEVIEW ST",
+    "checked_at": "2026-10-22T23:27:24.130333+00:00"
+  },
+  "149 BOSTON MILLS": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "149 BOSTON MILLS RD",
+    "checked_at": "2026-10-22T23:27:24.553127+00:00"
+  },
+  "15 17TH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "15 17TH ST",
+    "checked_at": "2026-10-22T23:27:24.972167+00:00"
+  },
+  "1516 NOBLE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1516 NOBLE ST",
+    "checked_at": "2026-10-22T23:27:25.400097+00:00"
+  },
+  "1525 WOODLAKE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1525 WOODLAKE BLVD",
+    "checked_at": "2026-10-22T23:27:25.827656+00:00"
+  },
+  "153 MILO": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "153 MILO AVE",
+    "checked_at": "2026-10-22T23:27:26.249209+00:00"
+  },
+  "1530 LAKE": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1530 LAKE RD",
+    "checked_at": "2026-10-22T23:27:26.675085+00:00"
+  },
+  "1534 COLLINWOOD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1534 COLLINWOOD CIR",
+    "checked_at": "2026-10-22T23:27:27.117243+00:00"
+  },
+  "154 ELMWOOD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "154 ELMWOOD AVE",
+    "checked_at": "2026-10-22T23:27:27.541900+00:00"
+  },
+  "1540 13TH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1540 13TH ST",
+    "checked_at": "2026-10-22T23:27:27.966657+00:00"
+  },
+  "1558 HILLCREST": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=71509",
+    "address": "1558 Hillcrest St Akron, OH 44314",
+    "owner": "K & M Investments 1 LLC",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 1558 Hillcrest St Akron, OH 44314 Property Owner K & M Investments 1 LLC Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-10-22T23:27:28.677682+00:00"
+  },
+  "1566 LOCKWOOD": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1566 LOCKWOOD RD",
+    "checked_at": "2026-10-22T23:27:29.105892+00:00"
+  },
+  "157 7TH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "157 7TH ST",
+    "checked_at": "2026-10-22T23:27:29.531548+00:00"
+  },
+  "157 HENRY": {
+    "source_url": "https://ari.akronohio.gov/propertyDetails?id=38480",
+    "address": "157 Henry St Akron, OH",
+    "owner": "Liberty Investment Properties",
+    "open_complaints": 0,
+    "resolved_complaints": 0,
+    "rental_complaint": false,
+    "raw_text": "Property Details Akron Rental Information Search Property Address 157 Henry St Akron, OH Property Owner Liberty Investment Properties Call owner Complaints (last two years) 0 Open complaints 0 Resolved complaints Contact Us City of Akron 311 Akron, Ohio 2023 All Rights Reserved",
+    "checked_at": "2026-10-22T23:27:30.225541+00:00"
+  },
+  "1572 1574 HILDA": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1572 1574 HILDA ST",
+    "checked_at": "2026-10-22T23:27:30.651341+00:00"
   }
 }
