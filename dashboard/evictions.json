@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-27T17:26:47.320754+00:00",
+  "fetched_at": "2026-10-27T23:17:43.189040+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "evictions",
   "description": "\ud83d\udeaa Eviction filings \u2014 landlords offloading problem properties",
@@ -839,7 +839,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-11",
       "pulled_date": "2026-06-11",
-      "owner": "Unknown",
+      "owner": "Shanae Griffin",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -858,8 +858,8 @@
         "New this week"
       ],
       "score": 53,
-      "match_method": "unmatched",
-      "match_score": 0.0,
+      "match_method": "eviction_blazor",
+      "match_score": 0.85,
       "with_address": 0,
       "distress_sources": [
         "eviction"
@@ -957,7 +957,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-11",
       "pulled_date": "2026-06-11",
-      "owner": "Unknown",
+      "owner": "Brenden J. Taylor",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -976,8 +976,8 @@
         "New this week"
       ],
       "score": 53,
-      "match_method": "unmatched",
-      "match_score": 0.0,
+      "match_method": "eviction_blazor",
+      "match_score": 0.85,
       "with_address": 0,
       "distress_sources": [
         "eviction"
@@ -1075,7 +1075,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-11",
       "pulled_date": "2026-06-11",
-      "owner": "Christopher John Clark",
+      "owner": "Warren N Lincoln 10/27",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -1094,8 +1094,8 @@
         "New this week"
       ],
       "score": 53,
-      "match_method": "eviction_blazor",
-      "match_score": 0.85,
+      "match_method": "unmatched",
+      "match_score": 0.0,
       "with_address": 0,
       "distress_sources": [
         "eviction"
@@ -1193,7 +1193,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-11",
       "pulled_date": "2026-06-11",
-      "owner": "Noel Evans",
+      "owner": "Ataf M. Abed",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -1311,7 +1311,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-11",
       "pulled_date": "2026-06-11",
-      "owner": "Phillip E. Miles 10/27",
+      "owner": "Mark S Crites",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -1330,8 +1330,8 @@
         "New this week"
       ],
       "score": 53,
-      "match_method": "unmatched",
-      "match_score": 0.0,
+      "match_method": "eviction_blazor",
+      "match_score": 0.85,
       "with_address": 0,
       "distress_sources": [
         "eviction"
@@ -1429,7 +1429,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-11",
       "pulled_date": "2026-06-11",
-      "owner": "Tamela M Schimpf",
+      "owner": "Truly Reaching You, Inc. C/O Perry Lee C",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -1448,8 +1448,8 @@
         "New this week"
       ],
       "score": 53,
-      "match_method": "unmatched",
-      "match_score": 0.0,
+      "match_method": "eviction_blazor",
+      "match_score": 0.85,
       "with_address": 0,
       "distress_sources": [
         "eviction"
@@ -1547,7 +1547,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-14",
       "pulled_date": "2026-06-14",
-      "owner": "Daylon Rookard 10/27/2",
+      "owner": "Joseph Sabo",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -1665,7 +1665,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "Demetrious Thompson",
+      "owner": "Joseph Patrick Delio",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -1783,7 +1783,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "State Farm Insurance Company",
+      "owner": "Joshua Evans",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -1799,12 +1799,11 @@
       "flags": [
         "Low Priority",
         "Eviction filed",
-        "New this week",
-        "LLC / corp owner"
+        "New this week"
       ],
       "score": 53,
-      "match_method": "unmatched",
-      "match_score": 0.0,
+      "match_method": "eviction_blazor",
+      "match_score": 0.85,
       "with_address": 0,
       "distress_sources": [
         "eviction"
@@ -1902,7 +1901,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "Darnell Kennerly",
+      "owner": "Douglas Green",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -2015,12 +2014,12 @@
     {
       "doc_num": "EVIC-0018",
       "doc_type": "EVICTION",
-      "filed": "2026-10-26",
+      "filed": "2026-10-27",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "Perfect Power Wash, Llc",
+      "owner": "Tymere Blackmon 10/27/",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -2039,8 +2038,8 @@
         "New this week"
       ],
       "score": 53,
-      "match_method": "eviction_blazor",
-      "match_score": 0.85,
+      "match_method": "unmatched",
+      "match_score": 0.0,
       "with_address": 0,
       "distress_sources": [
         "eviction"
@@ -2133,12 +2132,12 @@
     {
       "doc_num": "EVIC-0019",
       "doc_type": "EVICTION",
-      "filed": "2026-10-26",
+      "filed": "2026-10-27",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "Samantha Erin Alexandria Petty",
+      "owner": "Christopher John Clark",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -2157,8 +2156,8 @@
         "New this week"
       ],
       "score": 53,
-      "match_method": "unmatched",
-      "match_score": 0.0,
+      "match_method": "eviction_blazor",
+      "match_score": 0.85,
       "with_address": 0,
       "distress_sources": [
         "eviction"
@@ -2251,12 +2250,12 @@
     {
       "doc_num": "EVIC-0020",
       "doc_type": "EVICTION",
-      "filed": "2026-10-26",
+      "filed": "2026-10-27",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "Mark Anthony Calhoun",
+      "owner": "Noel Evans",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -2369,12 +2368,12 @@
     {
       "doc_num": "EVIC-0021",
       "doc_type": "EVICTION",
-      "filed": "2026-10-26",
+      "filed": "2026-10-27",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "Tawanna C. Young",
+      "owner": "Phillip E. Miles 10/27",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -2393,8 +2392,8 @@
         "New this week"
       ],
       "score": 53,
-      "match_method": "eviction_blazor",
-      "match_score": 0.85,
+      "match_method": "unmatched",
+      "match_score": 0.0,
       "with_address": 0,
       "distress_sources": [
         "eviction"
@@ -2487,12 +2486,12 @@
     {
       "doc_num": "EVIC-0022",
       "doc_type": "EVICTION",
-      "filed": "2026-10-26",
+      "filed": "2026-10-27",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-11",
       "pulled_date": "2026-06-11",
-      "owner": "Anthony Averitt",
+      "owner": "Tamela M Schimpf",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -2605,12 +2604,12 @@
     {
       "doc_num": "EVIC-0023",
       "doc_type": "EVICTION",
-      "filed": "2026-10-26",
+      "filed": "2026-10-27",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "Mattie Tucker",
+      "owner": "Daylon Rookard 10/27/2",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -2723,12 +2722,12 @@
     {
       "doc_num": "EVIC-0024",
       "doc_type": "EVICTION",
-      "filed": "2026-10-26",
+      "filed": "2026-10-27",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "Bhanu Kafley",
+      "owner": "Demetrious Thompson",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -2747,8 +2746,8 @@
         "New this week"
       ],
       "score": 53,
-      "match_method": "unmatched",
-      "match_score": 0.0,
+      "match_method": "eviction_blazor",
+      "match_score": 0.85,
       "with_address": 0,
       "distress_sources": [
         "eviction"
@@ -2841,12 +2840,12 @@
     {
       "doc_num": "EVIC-0025",
       "doc_type": "EVICTION",
-      "filed": "2026-10-26",
+      "filed": "2026-10-27",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "Adonis Lamont Bell 10/",
+      "owner": "State Farm Insurance Company",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -2862,11 +2861,12 @@
       "flags": [
         "Low Priority",
         "Eviction filed",
-        "New this week"
+        "New this week",
+        "LLC / corp owner"
       ],
       "score": 53,
-      "match_method": "eviction_blazor",
-      "match_score": 0.85,
+      "match_method": "unmatched",
+      "match_score": 0.0,
       "with_address": 0,
       "distress_sources": [
         "eviction"
@@ -2959,12 +2959,12 @@
     {
       "doc_num": "EVIC-0026",
       "doc_type": "EVICTION",
-      "filed": "2026-10-26",
+      "filed": "2026-10-27",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "Christopher M Greene",
+      "owner": "Darnell Kennerly",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -3082,7 +3082,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "Tamara King",
+      "owner": "Perfect Power Wash, Llc",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -3200,7 +3200,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "Emch Construction Llc",
+      "owner": "Samantha Erin Alexandria Petty",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -3216,8 +3216,7 @@
       "flags": [
         "Low Priority",
         "Eviction filed",
-        "New this week",
-        "LLC / corp owner"
+        "New this week"
       ],
       "score": 53,
       "match_method": "unmatched",
@@ -3319,7 +3318,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "Debora Casey",
+      "owner": "Mark Anthony Calhoun",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -3437,7 +3436,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "Robert Haffner",
+      "owner": "Tawanna C. Young",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -3555,7 +3554,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "Mike Fink",
+      "owner": "Anthony Averitt",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -3574,8 +3573,8 @@
         "New this week"
       ],
       "score": 53,
-      "match_method": "eviction_blazor",
-      "match_score": 0.85,
+      "match_method": "unmatched",
+      "match_score": 0.0,
       "with_address": 0,
       "distress_sources": [
         "eviction"
@@ -3673,7 +3672,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "Leah G Huffman",
+      "owner": "Mattie Tucker",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -3692,8 +3691,8 @@
         "New this week"
       ],
       "score": 53,
-      "match_method": "unmatched",
-      "match_score": 0.0,
+      "match_method": "eviction_blazor",
+      "match_score": 0.85,
       "with_address": 0,
       "distress_sources": [
         "eviction"
@@ -3791,7 +3790,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "John P Conaway",
+      "owner": "Bhanu Kafley",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -3909,7 +3908,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "Edward J Suchy",
+      "owner": "Adonis Lamont Bell 10/",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -4027,7 +4026,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "Clunk, Hoose Co., Lpa",
+      "owner": "Christopher M Greene",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -4043,12 +4042,11 @@
       "flags": [
         "Low Priority",
         "Eviction filed",
-        "New this week",
-        "LLC / corp owner"
+        "New this week"
       ],
       "score": 53,
-      "match_method": "unmatched",
-      "match_score": 0.0,
+      "match_method": "eviction_blazor",
+      "match_score": 0.85,
       "with_address": 0,
       "distress_sources": [
         "eviction"
@@ -4146,7 +4144,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "Michael J Marino",
+      "owner": "Tamara King",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -4264,7 +4262,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "Catherine A. Wojciehowski",
+      "owner": "Emch Construction Llc",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -4280,11 +4278,12 @@
       "flags": [
         "Low Priority",
         "Eviction filed",
-        "New this week"
+        "New this week",
+        "LLC / corp owner"
       ],
       "score": 53,
-      "match_method": "eviction_blazor",
-      "match_score": 0.85,
+      "match_method": "unmatched",
+      "match_score": 0.0,
       "with_address": 0,
       "distress_sources": [
         "eviction"
@@ -4382,7 +4381,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "U.S. Xpress Leasing, Inc.",
+      "owner": "Debora Casey",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -4398,12 +4397,11 @@
       "flags": [
         "Low Priority",
         "Eviction filed",
-        "New this week",
-        "LLC / corp owner"
+        "New this week"
       ],
       "score": 53,
-      "match_method": "unmatched",
-      "match_score": 0.0,
+      "match_method": "eviction_blazor",
+      "match_score": 0.85,
       "with_address": 0,
       "distress_sources": [
         "eviction"
@@ -4501,7 +4499,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "Akron Concrete Corp.",
+      "owner": "Robert Haffner",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -4619,7 +4617,7 @@
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-15",
       "pulled_date": "2026-06-15",
-      "owner": "Last Ride Recovery & Towing Llc",
+      "owner": "Mike Fink",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -4732,12 +4730,12 @@
     {
       "doc_num": "EVIC-0041",
       "doc_type": "EVICTION",
-      "filed": "2026-10-24",
+      "filed": "2026-10-26",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-16",
       "pulled_date": "2026-06-16",
-      "owner": "John A. Collier",
+      "owner": "Leah G Huffman",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -4756,8 +4754,8 @@
         "New this week"
       ],
       "score": 53,
-      "match_method": "eviction_blazor",
-      "match_score": 0.85,
+      "match_method": "unmatched",
+      "match_score": 0.0,
       "with_address": 0,
       "distress_sources": [
         "eviction"
@@ -4850,12 +4848,12 @@
     {
       "doc_num": "EVIC-0042",
       "doc_type": "EVICTION",
-      "filed": "2026-10-24",
+      "filed": "2026-10-26",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-16",
       "pulled_date": "2026-06-16",
-      "owner": "Michael L Kaltwasser",
+      "owner": "John P Conaway",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -4874,8 +4872,8 @@
         "New this week"
       ],
       "score": 53,
-      "match_method": "eviction_blazor",
-      "match_score": 0.85,
+      "match_method": "unmatched",
+      "match_score": 0.0,
       "with_address": 0,
       "distress_sources": [
         "eviction"
@@ -4968,12 +4966,12 @@
     {
       "doc_num": "EVIC-0043",
       "doc_type": "EVICTION",
-      "filed": "2026-10-24",
+      "filed": "2026-10-26",
       "cat": "EVICTION",
       "cat_label": "Eviction",
       "first_seen_date": "2026-06-16",
       "pulled_date": "2026-06-16",
-      "owner": "Samantha Brabson",
+      "owner": "Edward J Suchy",
       "grantee": "",
       "amount": null,
       "legal": "",
@@ -4992,8 +4990,8 @@
         "New this week"
       ],
       "score": 53,
-      "match_method": "unmatched",
-      "match_score": 0.0,
+      "match_method": "eviction_blazor",
+      "match_score": 0.85,
       "with_address": 0,
       "distress_sources": [
         "eviction"
