@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-28T18:02:21.141789+00:00",
+  "fetched_at": "2026-10-28T23:40:56.091304+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "tax_delinquent",
   "description": "\ud83d\udcb0 Residential properties with unpaid property taxes",
@@ -588,8 +588,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "tax_delinquent",
+        "foreclosure",
         "sheriff_sale"
       ],
       "distress_count": 3,
@@ -722,8 +722,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "tax_delinquent",
+        "foreclosure",
         "sheriff_sale"
       ],
       "distress_count": 3,
@@ -851,8 +851,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "tax_delinquent",
+        "foreclosure",
         "sheriff_sale"
       ],
       "distress_count": 3,
@@ -977,8 +977,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "tax_delinquent",
+        "foreclosure",
         "sheriff_sale"
       ],
       "distress_count": 3,
