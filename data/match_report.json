@@ -1,12 +1,16 @@
 {
   "matched": 0,
-  "unmatched": 90,
+  "unmatched": 96,
   "with_address": 4,
   "with_mail_address": 4,
   "match_methods": {
-    "unmatched": 90
+    "unmatched": 96
   },
   "sample_unmatched": [
+    {
+      "doc_num": "LLC 10",
+      "owner": "Alt & Alt, Llc"
+    },
     {
       "doc_num": "KRISTOFF 10",
       "owner": "Matthew Kristoff A/K/A Matthew Paul Kristoff"
@@ -42,10 +46,6 @@
     {
       "doc_num": "HOEFLE 10",
       "owner": "Raymond M Hoefle"
-    },
-    {
-      "doc_num": "HARDIN 10",
-      "owner": "Edward L Hardin"
     },
     {
       "doc_num": "2026 AT 10",
@@ -109,5 +109,5 @@
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-10-29T23:44:53.408419+00:00"
+  "generated_at": "2026-10-30T17:52:17.787025+00:00"
 }
