@@ -1,10 +1,10 @@
 {
   "matched": 0,
-  "unmatched": 106,
+  "unmatched": 84,
   "with_address": 4,
   "with_mail_address": 4,
   "match_methods": {
-    "unmatched": 106
+    "unmatched": 84
   },
   "sample_unmatched": [
     {
@@ -14,46 +14,6 @@
     {
       "doc_num": "KAZY 10",
       "owner": "Misty A Kazy"
-    },
-    {
-      "doc_num": "LLC 10",
-      "owner": "Alt & Alt, Llc"
-    },
-    {
-      "doc_num": "KRISTOFF 10",
-      "owner": "Matthew Kristoff A/K/A Matthew Paul Kristoff"
-    },
-    {
-      "doc_num": "KOSHAR 10",
-      "owner": "Victoria Koshar"
-    },
-    {
-      "doc_num": "RADCLIFFE 10",
-      "owner": "Alisa M Radcliffe"
-    },
-    {
-      "doc_num": "MCBURNEY 10",
-      "owner": "Amanda L Mcburney"
-    },
-    {
-      "doc_num": "LENKOWSKI 10",
-      "owner": "Kimberly M Lenkowski"
-    },
-    {
-      "doc_num": "KOROSI 10",
-      "owner": "Diana Korosi"
-    },
-    {
-      "doc_num": "KIRBY 10",
-      "owner": "Russel Kirby"
-    },
-    {
-      "doc_num": "KEY 10",
-      "owner": "Carlos Key"
-    },
-    {
-      "doc_num": "HOEFLE 10",
-      "owner": "Raymond M Hoefle"
     },
     {
       "doc_num": "2026 AT 10",
@@ -106,8 +66,48 @@
     {
       "doc_num": "2026 AT 10",
       "owner": ""
+    },
+    {
+      "doc_num": "2026 AT 10",
+      "owner": ""
+    },
+    {
+      "doc_num": "2026 AT 10",
+      "owner": ""
+    },
+    {
+      "doc_num": "2026 AT 10",
+      "owner": ""
+    },
+    {
+      "doc_num": "2026 AT 10",
+      "owner": ""
+    },
+    {
+      "doc_num": "2026 AT 10",
+      "owner": ""
+    },
+    {
+      "doc_num": "2026 AT 10",
+      "owner": ""
+    },
+    {
+      "doc_num": "2026 AT 10",
+      "owner": ""
+    },
+    {
+      "doc_num": "2026 AT 10",
+      "owner": ""
+    },
+    {
+      "doc_num": "2026 AT 10",
+      "owner": ""
+    },
+    {
+      "doc_num": "2026 AT 10",
+      "owner": ""
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-10-30T23:16:57.698619+00:00"
+  "generated_at": "2026-10-31T16:55:43.149012+00:00"
 }
