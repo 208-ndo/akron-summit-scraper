@@ -11,15 +11,15 @@
     "error": ""
   },
   "cuyahoga": {
-    "data_updated_at": "2026-10-30T23:17:07+00:00",
-    "last_checked_at": "2026-10-31T16:55:58+00:00",
+    "data_updated_at": "2026-11-01T17:46:03+00:00",
+    "last_checked_at": "2026-11-01T17:46:54+00:00",
     "source_dataset_date": "",
-    "status": "failed",
-    "message": "cuyahoga refresh command failed - see cuyahoga_daily_refresh.log",
+    "status": "success_updated",
+    "message": "cuyahoga refresh ran and found updated data",
     "records_before": 11661,
     "records_after": 11661,
     "new_today": 0,
-    "error": "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/urllib/request.py\", line 1361, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/http/client.py\", line 1351, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/http/client.py\", line 1397, in _send_request\n    self.endheader"
+    "error": ""
   },
   "montgomery": {
     "data_updated_at": "2026-06-04",
