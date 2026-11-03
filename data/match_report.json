@@ -1,12 +1,16 @@
 {
   "matched": 0,
-  "unmatched": 109,
-  "with_address": 4,
+  "unmatched": 78,
+  "with_address": 5,
   "with_mail_address": 4,
   "match_methods": {
-    "unmatched": 109
+    "unmatched": 78
   },
   "sample_unmatched": [
+    {
+      "doc_num": "POWELL 11",
+      "owner": "Jasmin Powell"
+    },
     {
       "doc_num": "SHIELDS 11",
       "owner": "Delani A Shields"
@@ -14,34 +18,6 @@
     {
       "doc_num": "BOROTKANICS 11",
       "owner": "Tina Borotkanics"
-    },
-    {
-      "doc_num": "PCF1-T1-R27",
-      "owner": "Bryant & Bryant, Inc"
-    },
-    {
-      "doc_num": "TOMASIK 11",
-      "owner": "Timothy Tomasik"
-    },
-    {
-      "doc_num": "VARGA 11",
-      "owner": "Laszlo Varga"
-    },
-    {
-      "doc_num": "RISLEY 11",
-      "owner": "Denise Risley"
-    },
-    {
-      "doc_num": "PRAMIK 11",
-      "owner": "Kevin Pramik"
-    },
-    {
-      "doc_num": "PESHOFF 10",
-      "owner": "Carl Peshoff"
-    },
-    {
-      "doc_num": "KAZY 10",
-      "owner": "Misty A Kazy"
     },
     {
       "doc_num": "CV2025 07 3164",
@@ -106,8 +82,32 @@
     {
       "doc_num": "2026 AT 10",
       "owner": ""
+    },
+    {
+      "doc_num": "2026 AT 10",
+      "owner": ""
+    },
+    {
+      "doc_num": "2026 AT 10",
+      "owner": ""
+    },
+    {
+      "doc_num": "2026 AT 10",
+      "owner": ""
+    },
+    {
+      "doc_num": "2026 AT 10",
+      "owner": ""
+    },
+    {
+      "doc_num": "2026 AT 10",
+      "owner": ""
+    },
+    {
+      "doc_num": "2026 AT 10",
+      "owner": ""
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-11-03T01:56:34.279896+00:00"
+  "generated_at": "2026-11-03T19:12:55.948071+00:00"
 }

@@ -4652,5 +4652,11 @@
     "source_url": "https://ari.akronohio.gov/",
     "searched_address": "1572 1574 HILDA ST",
     "checked_at": "2026-10-22T23:27:30.651341+00:00"
+  },
+  "1283 SWEITZER": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1283 SWEITZER AVE",
+    "checked_at": "2026-11-03T19:12:44.190395+00:00"
   }
 }

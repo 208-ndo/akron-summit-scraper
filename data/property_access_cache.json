@@ -6223,5 +6223,32 @@
     "bedrooms": 4.0,
     "bathrooms": 1.0,
     "square_feet": 1472
+  },
+  "5103187": {},
+  "5103149": {},
+  "4600034": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1507
+  },
+  "6744142": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1248
+  },
+  "6712905": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 801
+  },
+  "3501986": {
+    "bedrooms": 3.0,
+    "bathrooms": 1.0,
+    "square_feet": 1292
+  },
+  "6707273": {
+    "bedrooms": 2.0,
+    "bathrooms": 1.0,
+    "square_feet": 940
   }
 }
