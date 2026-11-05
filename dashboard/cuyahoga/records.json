@@ -1,8 +1,8 @@
 {
   "source": "Cleveland Open Data - Complaint Violation Notices",
   "source_url": "https://services3.arcgis.com/dty2kHktVXHrqO8i/arcgis/rest/services/Complaint_Violation_Notices/FeatureServer/0",
-  "fetched_at": "2026-11-05T00:40:44+00:00",
-  "record_count": 11671,
+  "fetched_at": "2026-11-05T19:36:28+00:00",
+  "record_count": 11681,
   "code_violation_count": 1689,
   "records": [
     {
@@ -6894,7 +6894,7 @@
       "source_name": "Cleveland Open Data - Complaint Violation Notices",
       "date_filed": "2026-04-13",
       "filed": "2026-04-13",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Code violation",
@@ -55283,7 +55283,7 @@
       "source_name": "Cleveland Open Data - Complaint Violation Notices",
       "date_filed": "2026-02-27",
       "filed": "2026-02-27",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Code violation",
@@ -57383,7 +57383,7 @@
       "source_name": "Cleveland Open Data - Complaint Violation Notices",
       "date_filed": "2026-02-25",
       "filed": "2026-02-25",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Code violation",
@@ -75502,7 +75502,7 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "2025-02-27",
       "filed": "2025-02-27",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Active Condemnation",
@@ -75659,9 +75659,11 @@
       "doc_num": "78",
       "distress_sources": [
         "active_condemnation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "foreclosure",
+        "sheriff_sale"
       ],
-      "distress_count": 2,
+      "distress_count": 4,
       "hot_stack": false,
       "tired_landlord_plus": true,
       "seller_score": 100,
@@ -75672,8 +75674,9 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "2024-03-05",
       "filed": "2024-03-05",
-      "last_updated": "2026-04-29T22:46:24+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
+        "Call First",
         "Active Condemnation",
         "Vacant",
         "Unsafe",
@@ -75683,9 +75686,13 @@
         "Tax Foreclosure",
         "Absentee",
         "Tired Landlord Plus",
-        "Prime Deal"
+        "Prime Deal",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure"
       ],
       "tags": [
+        "Call First",
         "Active Condemnation",
         "Vacant",
         "Unsafe",
@@ -75695,7 +75702,10 @@
         "Tax Foreclosure",
         "Absentee",
         "Tired Landlord Plus",
-        "Prime Deal"
+        "Prime Deal",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure"
       ],
       "active_condemnation": true,
       "condemnation_status": "Yes",
@@ -75763,7 +75773,21 @@
       "stack_score": 100,
       "lead_score": 100,
       "first_seen_date": "2024-03-05",
-      "first_seen_backfilled": true
+      "first_seen_backfilled": true,
+      "foreclosure": true,
+      "sheriff_sale": true,
+      "foreclosure_case_number": "CV25124414",
+      "sheriff_sale_date": "2026-11-04",
+      "foreclosure_status": "SOLD",
+      "foreclosure_source_url": "https://cpdocket.cp.cuyahogacounty.gov/SheriffSearch/",
+      "foreclosure_source_name": "Cuyahoga Clerk of Courts Sheriff Sale Results",
+      "sheriff_sale_type": "11/4/2026 Tax Delinquent",
+      "foreclosure_plaintiff": "TREASURER OF CUYAHOGA COUNTY, OH",
+      "foreclosure_defendant": "UNK. HEIRS ETC. OF HARRY HEIDENREICH JR.",
+      "sheriff_minimum_bid": 55881.45,
+      "auction_days_until": -1,
+      "auction_countdown": "Auction passed",
+      "auction_urgency": "gray"
     },
     {
       "county": "Cuyahoga County",
@@ -77312,7 +77336,7 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "2024-07-19",
       "filed": "2024-07-19",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Active Condemnation",
@@ -81268,7 +81292,7 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "2025-07-07",
       "filed": "2025-07-07",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Active Condemnation",
@@ -99609,7 +99633,7 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "2026-02-11",
       "filed": "2026-02-11",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Active Condemnation",
@@ -112803,7 +112827,7 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "2026-01-08",
       "filed": "2026-01-08",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Active Condemnation",
@@ -126369,7 +126393,7 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "2018-07-12",
       "filed": "2018-07-12",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Active Condemnation",
@@ -128180,9 +128204,11 @@
       "doc_num": "477",
       "distress_sources": [
         "active_condemnation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "foreclosure",
+        "sheriff_sale"
       ],
-      "distress_count": 2,
+      "distress_count": 4,
       "hot_stack": false,
       "tired_landlord_plus": true,
       "seller_score": 100,
@@ -128193,8 +128219,9 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "",
       "filed": "",
-      "last_updated": "2026-04-29T22:46:24+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
+        "Call First",
         "Active Condemnation",
         "Vacant",
         "Unsafe",
@@ -128204,9 +128231,13 @@
         "Tax Foreclosure",
         "Absentee",
         "Tired Landlord Plus",
-        "Prime Deal"
+        "Prime Deal",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure"
       ],
       "tags": [
+        "Call First",
         "Active Condemnation",
         "Vacant",
         "Unsafe",
@@ -128216,7 +128247,10 @@
         "Tax Foreclosure",
         "Absentee",
         "Tired Landlord Plus",
-        "Prime Deal"
+        "Prime Deal",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure"
       ],
       "active_condemnation": true,
       "condemnation_status": "Yes",
@@ -128283,7 +128317,21 @@
       "stack_score": 100,
       "lead_score": 100,
       "first_seen_date": "2026-04-29",
-      "first_seen_backfilled": true
+      "first_seen_backfilled": true,
+      "foreclosure": true,
+      "sheriff_sale": true,
+      "foreclosure_case_number": "CV19917093",
+      "sheriff_sale_date": "2026-11-04",
+      "foreclosure_status": "WITHDRAWN - TAX DELINQUENT",
+      "foreclosure_source_url": "https://cpdocket.cp.cuyahogacounty.gov/SheriffSearch/",
+      "foreclosure_source_name": "Cuyahoga Clerk of Courts Sheriff Sale Results",
+      "sheriff_sale_type": "11/4/2026 Tax Delinquent",
+      "foreclosure_plaintiff": "TREASURER OF CUYAHOGA COUNTY, OH",
+      "foreclosure_defendant": "PARKS/TRACY /O.",
+      "sheriff_minimum_bid": 4261.73,
+      "auction_days_until": -1,
+      "auction_countdown": "Auction passed",
+      "auction_urgency": "gray"
     },
     {
       "county": "Cuyahoga County",
@@ -146428,7 +146476,7 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "2024-10-01",
       "filed": "2024-10-01",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Active Condemnation",
@@ -148426,7 +148474,7 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "2021-12-09",
       "filed": "2021-12-09",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Active Condemnation",
@@ -153110,7 +153158,7 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "2017-02-03",
       "filed": "2017-02-03",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Active Condemnation",
@@ -153449,7 +153497,7 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "2015-08-26",
       "filed": "2015-08-26",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Active Condemnation",
@@ -160130,7 +160178,7 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "",
       "filed": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Active Condemnation",
@@ -164508,7 +164556,7 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "2024-02-26",
       "filed": "2024-02-26",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Active Condemnation",
@@ -171403,7 +171451,7 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "2025-03-25",
       "filed": "2025-03-25",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Active Condemnation",
@@ -175213,7 +175261,7 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "2025-07-10",
       "filed": "2025-07-10",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Active Condemnation",
@@ -175912,7 +175960,7 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "2022-03-04",
       "filed": "2022-03-04",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Active Condemnation",
@@ -183571,7 +183619,7 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "2026-04-01",
       "filed": "2026-04-01",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Active Condemnation",
@@ -193329,7 +193377,7 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "2018-03-27",
       "filed": "2018-03-27",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Active Condemnation",
@@ -211939,7 +211987,7 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "2024-10-29",
       "filed": "2024-10-29",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Active Condemnation",
@@ -223400,7 +223448,7 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "2021-06-10",
       "filed": "2021-06-10",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Active Condemnation",
@@ -223755,7 +223803,7 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "2016-12-27",
       "filed": "2016-12-27",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Active Condemnation",
@@ -225278,7 +225326,7 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "2024-06-07",
       "filed": "2024-06-07",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Active Condemnation",
@@ -241567,7 +241615,7 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "2025-10-01",
       "filed": "2025-10-01",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Active Condemnation",
@@ -246848,7 +246896,7 @@
       "source_name": "Cleveland Open Data Active Condemnations",
       "date_filed": "2025-12-12",
       "filed": "2025-12-12",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Active Condemnation",
@@ -252522,7 +252570,7 @@
       "source_name": "Cleveland Open Data - Complaint Violation Notices",
       "date_filed": "2026-02-13",
       "filed": "2026-02-13",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Code violation",
@@ -254000,7 +254048,7 @@
       "source_name": "Cleveland Open Data - Complaint Violation Notices",
       "date_filed": "2026-02-10",
       "filed": "2026-02-10",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Code violation",
@@ -267437,7 +267485,7 @@
       "source_name": "Cleveland Open Data - Complaint Violation Notices",
       "date_filed": "2026-01-02",
       "filed": "2026-01-02",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Code violation",
@@ -273954,7 +274002,7 @@
       "source_name": "Cleveland Open Data - Complaint Violation Notices",
       "date_filed": "2025-12-08",
       "filed": "2025-12-08",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Code violation",
@@ -297343,9 +297391,11 @@
         "code_violation",
         "cleveland_housing_pain",
         "building_violation_status",
-        "demolition"
+        "demolition",
+        "foreclosure",
+        "sheriff_sale"
       ],
-      "distress_count": 3,
+      "distress_count": 5,
       "hot_stack": false,
       "tired_landlord_plus": false,
       "seller_score": 72,
@@ -297356,20 +297406,28 @@
       "source_name": "Cleveland Open Data Building Violation Status History",
       "date_filed": "2025-09-24",
       "filed": "2025-09-24",
-      "last_updated": "2026-04-30T14:16:14+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
+        "Call First",
         "Code violation",
         "Cleveland Housing Pain",
         "Cuyahoga Hot Stack",
         "Demolition",
         "Blight Pressure",
-        "Unsafe"
+        "Unsafe",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure"
       ],
       "tags": [
+        "Call First",
         "Cuyahoga Hot Stack",
         "Demolition",
         "Blight Pressure",
-        "Unsafe"
+        "Unsafe",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure"
       ],
       "building_violation_status": "Case Closed",
       "building_violation_task_name": "Closure",
@@ -297390,7 +297448,22 @@
       "demolition_contractor": "HEZ ENTERPRISES LLC",
       "demolition_job_value": 30000,
       "first_seen_date": "2025-09-24",
-      "first_seen_backfilled": true
+      "first_seen_backfilled": true,
+      "foreclosure": true,
+      "sheriff_sale": true,
+      "foreclosure_case_number": "CV23982788",
+      "sheriff_sale_date": "2026-11-04",
+      "foreclosure_status": "SOLD",
+      "foreclosure_source_url": "https://cpdocket.cp.cuyahogacounty.gov/SheriffSearch/",
+      "foreclosure_source_name": "Cuyahoga Clerk of Courts Sheriff Sale Results",
+      "sheriff_sale_type": "11/4/2026 Tax Delinquent",
+      "foreclosure_plaintiff": "TREASURER OF CUYAHOGA COUNTY, OH",
+      "foreclosure_defendant": "BOYCE/MICHAEL/",
+      "foreclosure_description": "LEGAL DESCRIPTION ATTACHED",
+      "sheriff_minimum_bid": 6070.91,
+      "auction_days_until": -1,
+      "auction_countdown": "Auction passed",
+      "auction_urgency": "gray"
     },
     {
       "county": "Cuyahoga County",
@@ -308678,7 +308751,7 @@
       "source_name": "Cleveland Open Data Building Violation Status History",
       "date_filed": "2026-04-06",
       "filed": "2026-04-06",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Code violation",
@@ -318927,7 +319000,7 @@
       "source_name": "Cleveland Open Data Building Violation Status History",
       "date_filed": "2025-05-20",
       "filed": "2025-05-20",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Code violation",
@@ -324142,7 +324215,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -324516,7 +324589,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 77,
       "lead_score": 77,
@@ -327229,7 +327302,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -327283,7 +327356,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -327337,7 +327410,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -327391,7 +327464,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -327499,7 +327572,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -328454,15 +328527,15 @@
       "foreclosure": true,
       "sheriff_sale": true,
       "foreclosure_case_number": "CV24102404",
-      "sheriff_sale_date": "2026-04-08",
+      "sheriff_sale_date": "2026-11-04",
       "foreclosure_status": "WITHDRAWN - TAX DELINQUENT",
       "foreclosure_source_url": "https://cpdocket.cp.cuyahogacounty.gov/SheriffSearch/",
       "foreclosure_source_name": "Cuyahoga Clerk of Courts Sheriff Sale Results",
-      "sheriff_sale_type": "4/8/2026 Tax Delinquent",
+      "sheriff_sale_type": "11/4/2026 Tax Delinquent",
       "foreclosure_plaintiff": "TREASURER OF CUYAHOGA COUNTY, OH",
       "foreclosure_defendant": "PETRAS /DAVID/M",
       "foreclosure_description": "LEGAL DESCRIPTION ATTACHED",
-      "sheriff_minimum_bid": 89151.62,
+      "sheriff_minimum_bid": 111743.79,
       "distress_sources": [
         "foreclosure",
         "sheriff_sale"
@@ -328484,13 +328557,13 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-10-07T23:42:27+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 77,
       "lead_score": 77,
       "seller_score": 77,
       "score": 77,
-      "auction_days_until": -182,
+      "auction_days_until": -1,
       "auction_countdown": "Auction passed",
       "auction_urgency": "gray",
       "first_seen_date": "2026-07-01",
@@ -328537,7 +328610,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 77,
       "lead_score": 77,
@@ -329552,7 +329625,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -329660,7 +329733,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -330383,7 +330456,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -330545,7 +330618,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -330653,7 +330726,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -332052,7 +332125,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -333380,7 +333453,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -333434,7 +333507,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -333542,7 +333615,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -334028,7 +334101,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -334767,7 +334840,7 @@
       "source_city_key": "cleveland",
       "property_city": "Cleveland",
       "city": "Cleveland",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 3,
       "stack_score": 94,
       "lead_score": 94,
@@ -334956,7 +335029,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -335010,7 +335083,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -335118,7 +335191,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -335226,7 +335299,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -335388,7 +335461,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -335604,7 +335677,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -335869,7 +335942,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 77,
       "lead_score": 77,
@@ -336337,7 +336410,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -337952,7 +338025,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -338006,7 +338079,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -338222,7 +338295,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -339842,7 +339915,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -341061,7 +341134,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -341169,7 +341242,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -342117,7 +342190,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -342782,7 +342855,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -342890,7 +342963,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -343213,7 +343286,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -343267,7 +343340,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -344107,7 +344180,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 77,
       "lead_score": 77,
@@ -344213,7 +344286,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -344321,7 +344394,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -345176,7 +345249,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 77,
       "lead_score": 77,
@@ -345946,7 +346019,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -346540,7 +346613,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -346864,7 +346937,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -347242,7 +347315,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -347458,7 +347531,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -348369,7 +348442,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -349689,7 +349762,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 77,
       "lead_score": 77,
@@ -349741,7 +349814,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 77,
       "lead_score": 77,
@@ -350268,7 +350341,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -350371,7 +350444,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -350425,7 +350498,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -350479,7 +350552,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -351994,7 +352067,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -352799,7 +352872,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -354881,7 +354954,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -355028,7 +355101,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -355128,7 +355201,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -355529,25 +355602,27 @@
       "foreclosure": true,
       "sheriff_sale": true,
       "foreclosure_case_number": "CV24101795",
-      "sheriff_sale_date": "2025-11-05",
-      "foreclosure_status": "WITHDRAWN - TAX DELINQUENT",
+      "sheriff_sale_date": "2026-11-04",
+      "foreclosure_status": "SOLD",
       "foreclosure_source_url": "https://cpdocket.cp.cuyahogacounty.gov/SheriffSearch/",
       "foreclosure_source_name": "Cuyahoga Clerk of Courts Sheriff Sale Results",
-      "sheriff_sale_type": "11/5/2025 Tax Delinquent",
+      "sheriff_sale_type": "11/4/2026 Tax Delinquent",
       "foreclosure_plaintiff": "TREASURER OF CUYAHOGA COUNTY, OH",
       "foreclosure_defendant": "BOYCE/MICHAEL /",
-      "sheriff_minimum_bid": 16894.91,
+      "sheriff_minimum_bid": 21097.65,
       "distress_sources": [
         "foreclosure",
         "sheriff_sale"
       ],
       "flags": [
+        "Call First",
         "Foreclosure",
         "Sheriff Sale",
         "Auction Pressure",
         "Cuyahoga Hot Stack"
       ],
       "tags": [
+        "Call First",
         "Foreclosure",
         "Sheriff Sale",
         "Auction Pressure",
@@ -355556,14 +355631,17 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-04-30T05:04:20+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 77,
       "lead_score": 77,
       "seller_score": 77,
       "score": 77,
       "first_seen_date": "2026-04-30",
-      "first_seen_backfilled": true
+      "first_seen_backfilled": true,
+      "auction_days_until": -1,
+      "auction_countdown": "Auction passed",
+      "auction_urgency": "gray"
     },
     {
       "county": "Cuyahoga County",
@@ -356046,7 +356124,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "stack_score": 67,
       "lead_score": 67,
@@ -364049,7 +364127,7 @@
       "source_name": "Cleveland Open Data Demolition Permits",
       "date_filed": "2025-10-01",
       "filed": "2025-10-01",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Demolition",
@@ -369672,7 +369750,7 @@
       "source_name": "Cleveland Open Data Demolition Permits",
       "date_filed": "2025-08-11",
       "filed": "2025-08-11",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Demolition",
@@ -374967,7 +375045,7 @@
       "source_name": "Cleveland Open Data Demolition Permits",
       "date_filed": "2025-06-12",
       "filed": "2025-06-12",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Demolition",
@@ -380998,7 +381076,7 @@
       "source_name": "Cleveland Open Data Demolition Permits",
       "date_filed": "2025-04-29",
       "filed": "2025-04-29",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Demolition",
@@ -384320,7 +384398,7 @@
       "source_name": "Cleveland Open Data Demolition Permits",
       "date_filed": "2025-04-08",
       "filed": "2025-04-08",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Demolition",
@@ -394887,7 +394965,7 @@
       "source_name": "Cleveland Open Data Demolition Permits",
       "date_filed": "2024-12-12",
       "filed": "2024-12-12",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Demolition",
@@ -399198,7 +399276,7 @@
       "source_name": "Cleveland Open Data Demolition Permits",
       "date_filed": "2024-11-06",
       "filed": "2024-11-06",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Demolition",
@@ -402311,7 +402389,7 @@
       "source_name": "Cleveland Open Data Demolition Permits",
       "date_filed": "2024-09-23",
       "filed": "2024-09-23",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Demolition",
@@ -407629,7 +407707,7 @@
       "source_name": "Cleveland Open Data Demolition Permits",
       "date_filed": "2024-07-02",
       "filed": "2024-07-02",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Demolition",
@@ -462504,7 +462582,7 @@
       "source_name": "Cleveland Open Data Demolition Permits",
       "date_filed": "2022-11-09",
       "filed": "2022-11-09",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Demolition",
@@ -467650,7 +467728,7 @@
       "source_name": "Cleveland Open Data Demolition Permits",
       "date_filed": "2022-08-15",
       "filed": "2022-08-15",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Demolition",
@@ -479937,7 +480015,7 @@
       "source_name": "Cleveland Open Data Demolition Permits",
       "date_filed": "2021-12-16",
       "filed": "2021-12-16",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Demolition",
@@ -485949,7 +486027,7 @@
       "source_name": "Cleveland Open Data Demolition Permits",
       "date_filed": "2021-09-29",
       "filed": "2021-09-29",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Demolition",
@@ -500385,7 +500463,7 @@
       "source_name": "Cleveland Open Data Demolition Permits",
       "date_filed": "2021-05-10",
       "filed": "2021-05-10",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Demolition",
@@ -508576,7 +508654,7 @@
       "source_name": "Cleveland Open Data Demolition Permits",
       "date_filed": "2021-03-16",
       "filed": "2021-03-16",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Demolition",
@@ -519313,7 +519391,7 @@
       "source_name": "Cleveland Open Data Demolition Permits",
       "date_filed": "2020-11-24",
       "filed": "2020-11-24",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Demolition",
@@ -525639,7 +525717,7 @@
       "source_name": "Cleveland Open Data Demolition Permits",
       "date_filed": "2020-10-22",
       "filed": "2020-10-22",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Demolition",
@@ -545549,7 +545627,7 @@
       "source_name": "Cleveland Open Data Demolition Permits",
       "date_filed": "2020-06-03",
       "filed": "2020-06-03",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Demolition",
@@ -589372,7 +589450,7 @@
       "source_name": "Cleveland Open Data Demolition Permits",
       "date_filed": "2019-11-08",
       "filed": "2019-11-08",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Demolition",
@@ -590344,7 +590422,7 @@
       "source_name": "Cleveland Open Data Demolition Permits",
       "date_filed": "2019-11-06",
       "filed": "2019-11-06",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Demolition",
@@ -593961,7 +594039,7 @@
       "source_name": "Cleveland Open Data Demolition Permits",
       "date_filed": "2019-10-23",
       "filed": "2019-10-23",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Demolition",
@@ -641075,7 +641153,7 @@
       "source_name": "Cleveland CDPH Public Health Complaints",
       "date_filed": "2026-04-22",
       "filed": "2026-04-22",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Public Health Complaint",
@@ -713317,7 +713395,7 @@
       "source_name": "Cleveland CDPH Public Health Complaints",
       "date_filed": "2025-12-12",
       "filed": "2025-12-12",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Public Health Complaint",
@@ -720950,7 +721028,7 @@
       "source_name": "Cleveland CDPH Public Health Complaints",
       "date_filed": "2025-12-01",
       "filed": "2025-12-01",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Public Health Complaint",
@@ -797316,7 +797394,7 @@
       "source_name": "Cleveland CDPH Public Health Complaints",
       "date_filed": "2025-08-13",
       "filed": "2025-08-13",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Public Health Complaint",
@@ -801624,7 +801702,7 @@
       "source_name": "Cleveland CDPH Public Health Complaints",
       "date_filed": "2025-08-08",
       "filed": "2025-08-08",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "flags": [
         "Call First",
         "Public Health Complaint",
@@ -814882,7 +814960,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -814931,7 +815009,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -814980,7 +815058,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -815029,7 +815107,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -815077,7 +815155,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -815125,7 +815203,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -815175,7 +815253,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -815225,7 +815303,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -815275,7 +815353,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -815325,7 +815403,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -815375,7 +815453,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -815425,7 +815503,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -815475,7 +815553,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -815525,7 +815603,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -815575,7 +815653,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -815625,7 +815703,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -815675,7 +815753,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -815725,7 +815803,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -815775,7 +815853,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -815825,7 +815903,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -815875,7 +815953,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -815923,7 +816001,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -815971,7 +816049,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -816019,7 +816097,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -816067,7 +816145,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -816115,7 +816193,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -816163,7 +816241,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -816211,7 +816289,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -816259,7 +816337,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -816307,7 +816385,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -816356,7 +816434,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -816404,7 +816482,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -816454,7 +816532,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -816504,7 +816582,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -816554,7 +816632,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -816604,7 +816682,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -816654,7 +816732,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -816704,7 +816782,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -816754,7 +816832,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -816804,7 +816882,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -816854,7 +816932,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -816904,7 +816982,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -816954,7 +817032,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -817004,7 +817082,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -817052,7 +817130,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -817100,7 +817178,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -817148,7 +817226,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -817196,7 +817274,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -817244,7 +817322,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -817292,7 +817370,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -817340,7 +817418,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -817388,7 +817466,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -817436,7 +817514,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -817484,7 +817562,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -817532,7 +817610,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -817580,7 +817658,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -817628,7 +817706,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -817678,7 +817756,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -817728,7 +817806,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -817778,7 +817856,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -817828,7 +817906,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-06-30",
       "first_seen_backfilled": true
@@ -817878,7 +817956,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -817928,7 +818006,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -817978,7 +818056,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -818028,7 +818106,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -818078,7 +818156,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -818128,7 +818206,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -818178,7 +818256,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -818228,7 +818306,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -818278,7 +818356,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -818327,7 +818405,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -818376,7 +818454,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -818424,7 +818502,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -818472,7 +818550,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -818520,7 +818598,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -818569,7 +818647,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -818617,7 +818695,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -818666,7 +818744,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -818716,7 +818794,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -818766,7 +818844,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -818816,7 +818894,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -818866,7 +818944,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -818916,7 +818994,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -818966,7 +819044,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -819016,7 +819094,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -819066,7 +819144,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -819116,7 +819194,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -819166,7 +819244,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -819216,7 +819294,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -819264,7 +819342,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -819312,7 +819390,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -819361,7 +819439,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -819409,7 +819487,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -819458,7 +819536,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -819506,7 +819584,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -819554,7 +819632,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -819602,7 +819680,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -819651,7 +819729,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -819701,7 +819779,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -819751,7 +819829,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -819801,7 +819879,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -819851,7 +819929,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -819901,7 +819979,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -819951,7 +820029,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -820001,7 +820079,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -820051,7 +820129,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -820101,7 +820179,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -820151,7 +820229,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -820199,7 +820277,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -820247,7 +820325,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -820295,7 +820373,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -820343,7 +820421,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -820391,7 +820469,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -820439,7 +820517,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -820487,7 +820565,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -820535,7 +820613,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -820583,7 +820661,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -820631,7 +820709,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -820679,7 +820757,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -820727,7 +820805,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -820775,7 +820853,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -820825,7 +820903,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -820875,7 +820953,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -820925,7 +821003,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -820975,7 +821053,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -821025,7 +821103,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -821075,7 +821153,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -821125,7 +821203,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -821175,7 +821253,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -821225,7 +821303,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -821275,7 +821353,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -821325,7 +821403,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -821375,7 +821453,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -821423,7 +821501,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -821471,7 +821549,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -821519,7 +821597,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -821567,7 +821645,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -821615,7 +821693,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -821663,7 +821741,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -821711,7 +821789,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -821759,7 +821837,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -821807,7 +821885,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -821855,7 +821933,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -821903,7 +821981,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -821951,7 +822029,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -821999,7 +822077,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -822149,7 +822227,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "distress_count": 2,
       "first_seen_date": "2026-07-01",
       "first_seen_backfilled": true
@@ -822599,7 +822677,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-23T14:26:33+00:00",
       "distress_count": 2
     },
@@ -822648,7 +822726,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-23T14:26:33+00:00",
       "distress_count": 2
     },
@@ -822697,7 +822775,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-23T14:26:33+00:00",
       "distress_count": 2
     },
@@ -822746,7 +822824,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-23T14:26:33+00:00",
       "distress_count": 2
     },
@@ -822795,7 +822873,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-23T14:26:33+00:00",
       "distress_count": 2
     },
@@ -822844,7 +822922,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-23T14:26:33+00:00",
       "distress_count": 2
     },
@@ -822893,7 +822971,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-23T14:26:33+00:00",
       "distress_count": 2
     },
@@ -822942,7 +823020,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-23T14:26:33+00:00",
       "distress_count": 2
     },
@@ -822990,7 +823068,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-23T14:26:33+00:00",
       "distress_count": 2
     },
@@ -823039,7 +823117,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-23T14:26:33+00:00",
       "distress_count": 2
     },
@@ -823088,7 +823166,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-23T14:26:33+00:00",
       "distress_count": 2
     },
@@ -823137,7 +823215,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-23T14:26:33+00:00",
       "distress_count": 2
     },
@@ -823186,7 +823264,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-24T14:58:32+00:00",
       "distress_count": 2
     },
@@ -823233,7 +823311,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-25T14:58:18+00:00",
       "distress_count": 2
     },
@@ -823280,7 +823358,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-25T14:58:18+00:00",
       "distress_count": 2
     },
@@ -823327,7 +823405,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-25T14:58:18+00:00",
       "distress_count": 2
     },
@@ -823374,7 +823452,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-25T14:58:18+00:00",
       "distress_count": 2
     },
@@ -823421,7 +823499,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-25T14:58:18+00:00",
       "distress_count": 2
     },
@@ -823468,7 +823546,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-25T14:58:18+00:00",
       "distress_count": 2
     },
@@ -823515,7 +823593,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-25T14:58:18+00:00",
       "distress_count": 2
     },
@@ -823563,7 +823641,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-25T14:58:18+00:00",
       "distress_count": 2
     },
@@ -823611,7 +823689,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-25T14:58:18+00:00",
       "distress_count": 2
     },
@@ -823658,7 +823736,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-25T14:58:18+00:00",
       "distress_count": 2
     },
@@ -823705,7 +823783,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-25T14:58:18+00:00",
       "distress_count": 2
     },
@@ -823754,7 +823832,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-30T14:45:11+00:00",
       "distress_count": 2
     },
@@ -823803,7 +823881,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-30T14:45:11+00:00",
       "distress_count": 2
     },
@@ -823852,7 +823930,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-30T14:45:11+00:00",
       "distress_count": 2
     },
@@ -823901,7 +823979,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-30T14:45:11+00:00",
       "distress_count": 2
     },
@@ -823998,7 +824076,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-30T14:45:11+00:00",
       "distress_count": 2
     },
@@ -824047,7 +824125,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-30T14:45:11+00:00",
       "distress_count": 2
     },
@@ -824095,7 +824173,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-30T14:45:11+00:00",
       "distress_count": 2
     },
@@ -824193,7 +824271,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-30T14:45:11+00:00",
       "distress_count": 2
     },
@@ -824242,7 +824320,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-30T14:45:11+00:00",
       "distress_count": 2
     },
@@ -824291,7 +824369,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-30T14:45:11+00:00",
       "distress_count": 2
     },
@@ -824340,7 +824418,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-30T14:45:11+00:00",
       "distress_count": 2
     },
@@ -824389,7 +824467,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-06-30T14:45:11+00:00",
       "distress_count": 2
     },
@@ -824438,7 +824516,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-01T15:03:43+00:00",
       "distress_count": 2
     },
@@ -824487,7 +824565,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-01T15:03:43+00:00",
       "distress_count": 2
     },
@@ -824536,7 +824614,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-01T21:23:47+00:00",
       "distress_count": 2
     },
@@ -824585,7 +824663,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-01T21:23:47+00:00",
       "distress_count": 2
     },
@@ -824683,7 +824761,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-07T14:33:11+00:00",
       "distress_count": 2
     },
@@ -824732,7 +824810,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-07T14:33:11+00:00",
       "distress_count": 2
     },
@@ -824781,7 +824859,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-07T14:33:11+00:00",
       "distress_count": 2
     },
@@ -824830,7 +824908,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-07T14:33:11+00:00",
       "distress_count": 2
     },
@@ -824927,7 +825005,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-07T21:23:48+00:00",
       "distress_count": 2
     },
@@ -824976,7 +825054,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-14T13:37:55+00:00",
       "distress_count": 2
     },
@@ -825073,7 +825151,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-14T13:37:55+00:00",
       "distress_count": 2
     },
@@ -825122,7 +825200,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-14T13:37:55+00:00",
       "distress_count": 2
     },
@@ -825171,7 +825249,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-14T13:37:55+00:00",
       "distress_count": 2
     },
@@ -825220,7 +825298,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-14T13:37:55+00:00",
       "distress_count": 2
     },
@@ -825269,7 +825347,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-14T13:37:55+00:00",
       "distress_count": 2
     },
@@ -825318,7 +825396,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-14T13:37:55+00:00",
       "distress_count": 2
     },
@@ -825367,7 +825445,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-21T13:41:34+00:00",
       "distress_count": 2
     },
@@ -825416,7 +825494,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-21T13:41:34+00:00",
       "distress_count": 2
     },
@@ -825660,7 +825738,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-21T13:41:34+00:00",
       "distress_count": 2
     },
@@ -825758,7 +825836,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-21T13:41:34+00:00",
       "distress_count": 2
     },
@@ -825807,7 +825885,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-22T20:55:51+00:00",
       "distress_count": 2
     },
@@ -825856,7 +825934,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-22T20:55:51+00:00",
       "distress_count": 2
     },
@@ -825905,7 +825983,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-22T20:55:51+00:00",
       "distress_count": 2
     },
@@ -825954,7 +826032,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-22T20:55:51+00:00",
       "distress_count": 2
     },
@@ -826003,7 +826081,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-22T20:55:51+00:00",
       "distress_count": 2
     },
@@ -826052,7 +826130,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-22T20:55:51+00:00",
       "distress_count": 2
     },
@@ -826101,7 +826179,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-22T20:55:51+00:00",
       "distress_count": 2
     },
@@ -826150,7 +826228,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-22T20:55:51+00:00",
       "distress_count": 2
     },
@@ -826199,7 +826277,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-22T20:55:51+00:00",
       "distress_count": 2
     },
@@ -826297,7 +826375,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-28T14:07:33+00:00",
       "distress_count": 2
     },
@@ -826346,7 +826424,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-28T14:07:33+00:00",
       "distress_count": 2
     },
@@ -826395,7 +826473,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-28T14:07:33+00:00",
       "distress_count": 2
     },
@@ -826444,7 +826522,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-28T14:07:33+00:00",
       "distress_count": 2
     },
@@ -826493,7 +826571,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-28T14:07:33+00:00",
       "distress_count": 2
     },
@@ -826542,7 +826620,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-28T14:07:33+00:00",
       "distress_count": 2
     },
@@ -826591,7 +826669,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-28T14:07:33+00:00",
       "distress_count": 2
     },
@@ -826640,7 +826718,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-28T14:07:33+00:00",
       "distress_count": 2
     },
@@ -826689,7 +826767,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-28T14:07:33+00:00",
       "distress_count": 2
     },
@@ -826738,7 +826816,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-28T14:07:33+00:00",
       "distress_count": 2
     },
@@ -826787,7 +826865,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-28T14:07:33+00:00",
       "distress_count": 2
     },
@@ -826836,7 +826914,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-28T14:07:33+00:00",
       "distress_count": 2
     },
@@ -826885,7 +826963,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-28T14:07:33+00:00",
       "distress_count": 2
     },
@@ -826934,7 +827012,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-28T14:07:33+00:00",
       "distress_count": 2
     },
@@ -826982,7 +827060,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-28T20:59:16+00:00",
       "distress_count": 2
     },
@@ -827031,7 +827109,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-07-28T20:59:16+00:00",
       "distress_count": 2
     },
@@ -827080,7 +827158,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -827129,7 +827207,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -827178,7 +827256,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -827227,7 +827305,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -827276,7 +827354,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -827325,7 +827403,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -827374,7 +827452,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -827423,7 +827501,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -827472,7 +827550,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -827521,7 +827599,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -827570,7 +827648,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -827619,7 +827697,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -827668,7 +827746,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -827717,7 +827795,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -827766,7 +827844,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -827815,7 +827893,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -827864,7 +827942,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -827913,7 +827991,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -827962,7 +828040,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -828011,7 +828089,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -828060,7 +828138,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -828109,7 +828187,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -828158,7 +828236,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -828207,7 +828285,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -828256,7 +828334,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -828305,7 +828383,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -828354,7 +828432,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -828403,7 +828481,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -828452,7 +828530,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -828501,7 +828579,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -828550,7 +828628,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-20T06:56:03+00:00",
       "distress_count": 2
     },
@@ -828599,7 +828677,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-25T12:54:32+00:00",
       "distress_count": 2
     },
@@ -828648,7 +828726,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-25T20:11:31+00:00",
       "distress_count": 2
     },
@@ -828697,7 +828775,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-08-25T20:11:31+00:00",
       "distress_count": 2
     },
@@ -828746,7 +828824,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-01T15:57:52+00:00",
       "distress_count": 2
     },
@@ -828795,7 +828873,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-01T15:57:52+00:00",
       "distress_count": 2
     },
@@ -828844,7 +828922,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-01T15:57:52+00:00",
       "distress_count": 2
     },
@@ -828893,7 +828971,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-01T15:57:52+00:00",
       "distress_count": 2
     },
@@ -828942,7 +829020,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-01T15:57:52+00:00",
       "distress_count": 2
     },
@@ -828991,7 +829069,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-01T15:57:52+00:00",
       "distress_count": 2
     },
@@ -829040,7 +829118,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-01T15:57:52+00:00",
       "distress_count": 2
     },
@@ -829089,7 +829167,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-01T15:57:52+00:00",
       "distress_count": 2
     },
@@ -829136,7 +829214,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-03T15:39:59+00:00",
       "distress_count": 2
     },
@@ -829184,7 +829262,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-03T15:39:59+00:00",
       "distress_count": 2
     },
@@ -829231,7 +829309,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-03T15:39:59+00:00",
       "distress_count": 2
     },
@@ -829278,7 +829356,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-03T15:39:59+00:00",
       "distress_count": 2
     },
@@ -829325,7 +829403,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-03T15:39:59+00:00",
       "distress_count": 2
     },
@@ -829372,7 +829450,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-03T15:39:59+00:00",
       "distress_count": 2
     },
@@ -829420,7 +829498,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-03T15:39:59+00:00",
       "distress_count": 2
     },
@@ -829467,7 +829545,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-03T15:39:59+00:00",
       "distress_count": 2
     },
@@ -829514,7 +829592,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-03T15:39:59+00:00",
       "distress_count": 2
     },
@@ -829561,7 +829639,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-03T15:39:59+00:00",
       "distress_count": 2
     },
@@ -829608,7 +829686,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-03T15:39:59+00:00",
       "distress_count": 2
     },
@@ -829655,7 +829733,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-03T15:39:59+00:00",
       "distress_count": 2
     },
@@ -829702,7 +829780,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-03T15:39:59+00:00",
       "distress_count": 2
     },
@@ -829749,7 +829827,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-03T15:39:59+00:00",
       "distress_count": 2
     },
@@ -829847,7 +829925,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-09T15:48:07+00:00",
       "distress_count": 2
     },
@@ -829896,7 +829974,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-09T15:48:07+00:00",
       "distress_count": 2
     },
@@ -829945,7 +830023,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-09T15:48:07+00:00",
       "distress_count": 2
     },
@@ -829994,7 +830072,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-09T15:48:07+00:00",
       "distress_count": 2
     },
@@ -830043,7 +830121,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-09T15:48:07+00:00",
       "distress_count": 2
     },
@@ -830092,7 +830170,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-09T15:48:07+00:00",
       "distress_count": 2
     },
@@ -830141,7 +830219,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-09T15:48:07+00:00",
       "distress_count": 2
     },
@@ -830190,7 +830268,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-09T15:48:07+00:00",
       "distress_count": 2
     },
@@ -830239,7 +830317,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-09T21:53:08+00:00",
       "distress_count": 2
     },
@@ -830288,7 +830366,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-09T21:53:08+00:00",
       "distress_count": 2
     },
@@ -830335,7 +830413,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-10T15:42:58+00:00",
       "distress_count": 2
     },
@@ -830382,7 +830460,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-10T15:42:58+00:00",
       "distress_count": 2
     },
@@ -830429,7 +830507,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-10T15:42:58+00:00",
       "distress_count": 2
     },
@@ -830476,7 +830554,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-10T15:42:58+00:00",
       "distress_count": 2
     },
@@ -830523,7 +830601,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-10T15:42:58+00:00",
       "distress_count": 2
     },
@@ -830570,7 +830648,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-10T15:42:58+00:00",
       "distress_count": 2
     },
@@ -830617,7 +830695,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-10T15:42:58+00:00",
       "distress_count": 2
     },
@@ -830664,7 +830742,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-10T15:42:58+00:00",
       "distress_count": 2
     },
@@ -830712,7 +830790,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-10T15:42:58+00:00",
       "distress_count": 2
     },
@@ -830759,7 +830837,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-10T15:42:58+00:00",
       "distress_count": 2
     },
@@ -830806,7 +830884,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-10T15:42:58+00:00",
       "distress_count": 2
     },
@@ -830853,7 +830931,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-10T15:42:58+00:00",
       "distress_count": 2
     },
@@ -830900,7 +830978,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-10T15:42:58+00:00",
       "distress_count": 2
     },
@@ -830949,7 +831027,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-14T17:29:16+00:00",
       "distress_count": 2
     },
@@ -830998,7 +831076,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-15T16:05:48+00:00",
       "distress_count": 2
     },
@@ -831047,7 +831125,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-15T16:05:48+00:00",
       "distress_count": 2
     },
@@ -831096,7 +831174,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-15T16:05:48+00:00",
       "distress_count": 2
     },
@@ -831145,7 +831223,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-15T16:05:48+00:00",
       "distress_count": 2
     },
@@ -831194,7 +831272,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-15T16:05:48+00:00",
       "distress_count": 2
     },
@@ -831243,7 +831321,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-15T16:05:48+00:00",
       "distress_count": 2
     },
@@ -831292,7 +831370,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-15T16:05:48+00:00",
       "distress_count": 2
     },
@@ -831341,7 +831419,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-15T16:05:48+00:00",
       "distress_count": 2
     },
@@ -831390,7 +831468,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-15T16:05:48+00:00",
       "distress_count": 2
     },
@@ -831437,7 +831515,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-17T16:05:18+00:00",
       "distress_count": 2
     },
@@ -831485,7 +831563,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-17T16:05:18+00:00",
       "distress_count": 2
     },
@@ -831532,7 +831610,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-17T16:05:18+00:00",
       "distress_count": 2
     },
@@ -831579,7 +831657,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-17T16:05:18+00:00",
       "distress_count": 2
     },
@@ -831627,7 +831705,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-17T16:05:18+00:00",
       "distress_count": 2
     },
@@ -831674,7 +831752,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-17T16:05:18+00:00",
       "distress_count": 2
     },
@@ -831722,7 +831800,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-17T16:05:18+00:00",
       "distress_count": 2
     },
@@ -831769,7 +831847,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-17T16:05:18+00:00",
       "distress_count": 2
     },
@@ -831817,7 +831895,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-17T16:05:18+00:00",
       "distress_count": 2
     },
@@ -831866,7 +831944,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-22T16:08:24+00:00",
       "distress_count": 2
     },
@@ -831915,7 +831993,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-22T16:08:24+00:00",
       "distress_count": 2
     },
@@ -831964,7 +832042,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-22T16:08:24+00:00",
       "distress_count": 2
     },
@@ -832013,7 +832091,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-22T16:08:24+00:00",
       "distress_count": 2
     },
@@ -832062,7 +832140,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-22T16:08:24+00:00",
       "distress_count": 2
     },
@@ -832111,7 +832189,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-22T16:08:24+00:00",
       "distress_count": 2
     },
@@ -832160,7 +832238,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-22T16:08:24+00:00",
       "distress_count": 2
     },
@@ -832209,7 +832287,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-22T16:08:24+00:00",
       "distress_count": 2
     },
@@ -832258,7 +832336,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-22T22:23:18+00:00",
       "distress_count": 2
     },
@@ -832306,7 +832384,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-24T16:21:36+00:00",
       "distress_count": 2
     },
@@ -832353,7 +832431,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-24T16:21:36+00:00",
       "distress_count": 2
     },
@@ -832400,7 +832478,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-24T16:21:36+00:00",
       "distress_count": 2
     },
@@ -832447,7 +832525,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-24T16:21:36+00:00",
       "distress_count": 2
     },
@@ -832494,7 +832572,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-24T16:21:36+00:00",
       "distress_count": 2
     },
@@ -832542,7 +832620,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-24T16:21:36+00:00",
       "distress_count": 2
     },
@@ -832590,7 +832668,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-24T16:21:36+00:00",
       "distress_count": 2
     },
@@ -832637,7 +832715,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-24T16:21:36+00:00",
       "distress_count": 2
     },
@@ -832685,7 +832763,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-24T16:21:36+00:00",
       "distress_count": 2
     },
@@ -832733,7 +832811,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-24T16:21:36+00:00",
       "distress_count": 2
     },
@@ -832782,7 +832860,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-29T17:30:16+00:00",
       "distress_count": 2
     },
@@ -832831,7 +832909,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-29T17:30:16+00:00",
       "distress_count": 2
     },
@@ -832880,7 +832958,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-29T17:30:16+00:00",
       "distress_count": 2
     },
@@ -832929,7 +833007,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-29T17:30:16+00:00",
       "distress_count": 2
     },
@@ -832978,7 +833056,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-29T17:30:16+00:00",
       "distress_count": 2
     },
@@ -833027,7 +833105,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-29T17:30:16+00:00",
       "distress_count": 2
     },
@@ -833076,7 +833154,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-29T23:08:03+00:00",
       "distress_count": 2
     },
@@ -833125,7 +833203,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-09-29T23:08:03+00:00",
       "distress_count": 2
     },
@@ -833174,7 +833252,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-06T17:48:07+00:00",
       "distress_count": 2
     },
@@ -833223,7 +833301,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-06T17:48:07+00:00",
       "distress_count": 2
     },
@@ -833272,7 +833350,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-06T17:48:07+00:00",
       "distress_count": 2
     },
@@ -833321,7 +833399,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-06T17:48:07+00:00",
       "distress_count": 2
     },
@@ -833370,7 +833448,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-06T17:48:07+00:00",
       "distress_count": 2
     },
@@ -833419,7 +833497,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-06T17:48:07+00:00",
       "distress_count": 2
     },
@@ -833468,7 +833546,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-06T17:48:07+00:00",
       "distress_count": 2
     },
@@ -833517,7 +833595,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-06T17:48:07+00:00",
       "distress_count": 2
     },
@@ -833566,7 +833644,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-06T17:48:07+00:00",
       "distress_count": 2
     },
@@ -833615,7 +833693,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-07T18:19:37+00:00",
       "distress_count": 2
     },
@@ -833662,7 +833740,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-08T18:19:48+00:00",
       "distress_count": 2
     },
@@ -833709,7 +833787,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-08T18:19:48+00:00",
       "distress_count": 2
     },
@@ -833756,7 +833834,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-08T18:19:48+00:00",
       "distress_count": 2
     },
@@ -833803,7 +833881,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-08T18:19:48+00:00",
       "distress_count": 2
     },
@@ -833850,7 +833928,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-08T18:19:48+00:00",
       "distress_count": 2
     },
@@ -833897,7 +833975,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-08T18:19:48+00:00",
       "distress_count": 2
     },
@@ -833944,7 +834022,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-08T18:19:48+00:00",
       "distress_count": 2
     },
@@ -833992,7 +834070,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-08T18:19:48+00:00",
       "distress_count": 2
     },
@@ -834039,7 +834117,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-08T18:19:48+00:00",
       "distress_count": 2
     },
@@ -834088,7 +834166,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-14T16:22:45+00:00",
       "distress_count": 2
     },
@@ -834137,7 +834215,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-14T16:22:45+00:00",
       "distress_count": 2
     },
@@ -834186,7 +834264,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-14T16:22:45+00:00",
       "distress_count": 2
     },
@@ -834234,7 +834312,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-14T16:22:45+00:00",
       "distress_count": 2
     },
@@ -834283,7 +834361,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-14T16:22:45+00:00",
       "distress_count": 2
     },
@@ -834381,7 +834459,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-14T16:22:45+00:00",
       "distress_count": 2
     },
@@ -834479,7 +834557,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-14T16:22:45+00:00",
       "distress_count": 2
     },
@@ -834528,7 +834606,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-14T16:22:45+00:00",
       "distress_count": 2
     },
@@ -834577,7 +834655,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-14T16:22:45+00:00",
       "distress_count": 2
     },
@@ -834626,7 +834704,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-14T22:31:56+00:00",
       "distress_count": 2
     },
@@ -834675,7 +834753,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-20T16:14:01+00:00",
       "distress_count": 2
     },
@@ -834724,7 +834802,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-20T16:14:01+00:00",
       "distress_count": 2
     },
@@ -834773,7 +834851,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-20T16:14:01+00:00",
       "distress_count": 2
     },
@@ -834822,7 +834900,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-20T16:14:01+00:00",
       "distress_count": 2
     },
@@ -834871,7 +834949,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-20T16:14:01+00:00",
       "distress_count": 2
     },
@@ -834920,7 +834998,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-20T16:14:01+00:00",
       "distress_count": 2
     },
@@ -834969,7 +835047,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-20T16:14:01+00:00",
       "distress_count": 2
     },
@@ -835018,7 +835096,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-20T16:14:01+00:00",
       "distress_count": 2
     },
@@ -835067,7 +835145,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-20T16:14:01+00:00",
       "distress_count": 2
     },
@@ -835116,7 +835194,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-20T16:14:01+00:00",
       "distress_count": 2
     },
@@ -835165,7 +835243,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-21T16:28:45+00:00",
       "distress_count": 2
     },
@@ -835214,7 +835292,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-21T22:37:17+00:00",
       "distress_count": 2
     },
@@ -835262,7 +835340,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-22T16:29:31+00:00",
       "distress_count": 2
     },
@@ -835310,7 +835388,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-22T16:29:31+00:00",
       "distress_count": 2
     },
@@ -835358,7 +835436,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-22T16:29:31+00:00",
       "distress_count": 2
     },
@@ -835405,7 +835483,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-22T16:29:31+00:00",
       "distress_count": 2
     },
@@ -835453,7 +835531,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-22T16:29:31+00:00",
       "distress_count": 2
     },
@@ -835500,7 +835578,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-22T16:29:31+00:00",
       "distress_count": 2
     },
@@ -835547,7 +835625,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-22T16:29:31+00:00",
       "distress_count": 2
     },
@@ -835595,7 +835673,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-22T16:29:31+00:00",
       "distress_count": 2
     },
@@ -835642,7 +835720,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-22T16:29:31+00:00",
       "distress_count": 2
     },
@@ -835689,7 +835767,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-22T16:29:31+00:00",
       "distress_count": 2
     },
@@ -835737,7 +835815,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-22T16:29:31+00:00",
       "distress_count": 2
     },
@@ -835785,7 +835863,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-22T16:29:31+00:00",
       "distress_count": 2
     },
@@ -835834,7 +835912,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-27T17:27:02+00:00",
       "distress_count": 2
     },
@@ -835883,7 +835961,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-27T17:27:02+00:00",
       "distress_count": 2
     },
@@ -835932,7 +836010,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-27T17:27:02+00:00",
       "distress_count": 2
     },
@@ -835981,7 +836059,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-27T17:27:02+00:00",
       "distress_count": 2
     },
@@ -836030,7 +836108,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-27T17:27:02+00:00",
       "distress_count": 2
     },
@@ -836079,7 +836157,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-27T17:27:02+00:00",
       "distress_count": 2
     },
@@ -836128,7 +836206,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-27T17:27:02+00:00",
       "distress_count": 2
     },
@@ -836177,7 +836255,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-27T17:27:02+00:00",
       "distress_count": 2
     },
@@ -836226,7 +836304,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-27T17:27:02+00:00",
       "distress_count": 2
     },
@@ -836275,7 +836353,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-27T17:27:02+00:00",
       "distress_count": 2
     },
@@ -836324,7 +836402,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-27T17:27:02+00:00",
       "distress_count": 2
     },
@@ -836373,7 +836451,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-27T17:27:02+00:00",
       "distress_count": 2
     },
@@ -836471,7 +836549,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-10-27T23:17:56+00:00",
       "distress_count": 2
     },
@@ -836520,7 +836598,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-11-03T19:13:17+00:00",
       "distress_count": 2
     },
@@ -836569,7 +836647,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-11-03T19:13:17+00:00",
       "distress_count": 2
     },
@@ -836618,7 +836696,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-11-03T19:13:17+00:00",
       "distress_count": 2
     },
@@ -836667,7 +836745,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-11-03T19:13:17+00:00",
       "distress_count": 2
     },
@@ -836716,7 +836794,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-11-03T19:13:17+00:00",
       "distress_count": 2
     },
@@ -836765,7 +836843,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-11-03T19:13:17+00:00",
       "distress_count": 2
     },
@@ -836814,7 +836892,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-11-03T19:13:17+00:00",
       "distress_count": 2
     },
@@ -836863,7 +836941,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-11-03T19:13:17+00:00",
       "distress_count": 2
     },
@@ -836912,7 +836990,7 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-11-03T19:13:17+00:00",
       "distress_count": 2
     },
@@ -836961,8 +837039,479 @@
       "source_city_key": "",
       "property_city": "",
       "city": "",
-      "last_updated": "2026-11-05T00:40:44+00:00",
+      "last_updated": "2026-11-05T19:36:28+00:00",
       "first_seen_date": "2026-11-04T00:24:37+00:00",
+      "distress_count": 2
+    },
+    {
+      "county": "Cuyahoga County",
+      "source_county_key": "cuyahoga",
+      "market_area": "Cleveland Metro",
+      "property_address": "1164 E 77 ST",
+      "property_state": "OH",
+      "parcel_id": "10532100",
+      "lead_type": "Foreclosure / Sheriff Sale",
+      "foreclosure": true,
+      "sheriff_sale": true,
+      "foreclosure_case_number": "CV12775413",
+      "sheriff_sale_date": "2026-11-04",
+      "foreclosure_status": "WITHDRAWN - TAX DELINQUENT",
+      "foreclosure_source_url": "https://cpdocket.cp.cuyahogacounty.gov/SheriffSearch/",
+      "foreclosure_source_name": "Cuyahoga Clerk of Courts Sheriff Sale Results",
+      "sheriff_sale_type": "11/4/2026 Tax Delinquent",
+      "foreclosure_plaintiff": "TREASURER OF CUYAHOGA COUNTY OHIO",
+      "foreclosure_defendant": "SAILES/VANESSA/",
+      "sheriff_minimum_bid": 3817.03,
+      "distress_sources": [
+        "foreclosure",
+        "sheriff_sale"
+      ],
+      "flags": [
+        "Call First",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure",
+        "Cuyahoga Hot Stack"
+      ],
+      "tags": [
+        "Call First",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure",
+        "Cuyahoga Hot Stack"
+      ],
+      "auction_days_until": -1,
+      "auction_countdown": "Auction passed",
+      "auction_urgency": "gray",
+      "source_city_key": "",
+      "property_city": "",
+      "city": "",
+      "last_updated": "2026-11-05T19:36:28+00:00",
+      "first_seen_date": "2026-11-05T19:36:28+00:00",
+      "distress_count": 2
+    },
+    {
+      "county": "Cuyahoga County",
+      "source_county_key": "cuyahoga",
+      "market_area": "Cleveland Metro",
+      "property_address": "140 FOREST DR",
+      "property_state": "OH",
+      "parcel_id": "81226025",
+      "lead_type": "Foreclosure / Sheriff Sale",
+      "foreclosure": true,
+      "sheriff_sale": true,
+      "foreclosure_case_number": "CV20940497",
+      "sheriff_sale_date": "2026-11-04",
+      "foreclosure_status": "WITHDRAWN - TAX DELINQUENT",
+      "foreclosure_source_url": "https://cpdocket.cp.cuyahogacounty.gov/SheriffSearch/",
+      "foreclosure_source_name": "Cuyahoga Clerk of Courts Sheriff Sale Results",
+      "sheriff_sale_type": "11/4/2026 Tax Delinquent",
+      "foreclosure_plaintiff": "TREASURER OF CUYAHOGA COUNTY, OH",
+      "foreclosure_defendant": "WORTHY JR./ARTHUR/",
+      "sheriff_minimum_bid": 59789.3,
+      "distress_sources": [
+        "foreclosure",
+        "sheriff_sale"
+      ],
+      "flags": [
+        "Call First",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure",
+        "Cuyahoga Hot Stack"
+      ],
+      "tags": [
+        "Call First",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure",
+        "Cuyahoga Hot Stack"
+      ],
+      "auction_days_until": -1,
+      "auction_countdown": "Auction passed",
+      "auction_urgency": "gray",
+      "source_city_key": "",
+      "property_city": "",
+      "city": "",
+      "last_updated": "2026-11-05T19:36:28+00:00",
+      "first_seen_date": "2026-11-05T19:36:28+00:00",
+      "distress_count": 2
+    },
+    {
+      "county": "Cuyahoga County",
+      "source_county_key": "cuyahoga",
+      "market_area": "Cleveland Metro",
+      "property_address": "27100 DOGWOOD LANE",
+      "property_state": "OH",
+      "parcel_id": "26415058",
+      "lead_type": "Foreclosure / Sheriff Sale",
+      "foreclosure": true,
+      "sheriff_sale": true,
+      "foreclosure_case_number": "CV23976259",
+      "sheriff_sale_date": "2026-11-04",
+      "foreclosure_status": "WITHDRAWN - TAX DELINQUENT",
+      "foreclosure_source_url": "https://cpdocket.cp.cuyahogacounty.gov/SheriffSearch/",
+      "foreclosure_source_name": "Cuyahoga Clerk of Courts Sheriff Sale Results",
+      "sheriff_sale_type": "11/4/2026 Tax Delinquent",
+      "foreclosure_plaintiff": "TREASURER OF CUYAHOGA COUNTY, OH//",
+      "foreclosure_defendant": "JANIK/MEREDITH/JANE",
+      "foreclosure_description": ".",
+      "sheriff_minimum_bid": 121563.29,
+      "distress_sources": [
+        "foreclosure",
+        "sheriff_sale"
+      ],
+      "flags": [
+        "Call First",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure",
+        "Cuyahoga Hot Stack"
+      ],
+      "tags": [
+        "Call First",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure",
+        "Cuyahoga Hot Stack"
+      ],
+      "auction_days_until": -1,
+      "auction_countdown": "Auction passed",
+      "auction_urgency": "gray",
+      "source_city_key": "",
+      "property_city": "",
+      "city": "",
+      "last_updated": "2026-11-05T19:36:28+00:00",
+      "first_seen_date": "2026-11-05T19:36:28+00:00",
+      "distress_count": 2
+    },
+    {
+      "county": "Cuyahoga County",
+      "source_county_key": "cuyahoga",
+      "market_area": "Cleveland Metro",
+      "property_address": "66 WOODROW AVENUE",
+      "property_state": "OH",
+      "parcel_id": "81312044",
+      "lead_type": "Foreclosure / Sheriff Sale",
+      "foreclosure": true,
+      "sheriff_sale": true,
+      "foreclosure_case_number": "CV23988582",
+      "sheriff_sale_date": "2026-11-04",
+      "foreclosure_status": "WITHDRAWN - TAX DELINQUENT",
+      "foreclosure_source_url": "https://cpdocket.cp.cuyahogacounty.gov/SheriffSearch/",
+      "foreclosure_source_name": "Cuyahoga Clerk of Courts Sheriff Sale Results",
+      "sheriff_sale_type": "11/4/2026 Tax Delinquent",
+      "foreclosure_plaintiff": "TREASURER OF CUYAHOGA COUNTY, OH",
+      "foreclosure_defendant": "BOGAN/JEROLYN/R",
+      "sheriff_minimum_bid": 57170.39,
+      "distress_sources": [
+        "foreclosure",
+        "sheriff_sale"
+      ],
+      "flags": [
+        "Call First",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure",
+        "Cuyahoga Hot Stack"
+      ],
+      "tags": [
+        "Call First",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure",
+        "Cuyahoga Hot Stack"
+      ],
+      "auction_days_until": -1,
+      "auction_countdown": "Auction passed",
+      "auction_urgency": "gray",
+      "source_city_key": "",
+      "property_city": "",
+      "city": "",
+      "last_updated": "2026-11-05T19:36:28+00:00",
+      "first_seen_date": "2026-11-05T19:36:28+00:00",
+      "distress_count": 2
+    },
+    {
+      "county": "Cuyahoga County",
+      "source_county_key": "cuyahoga",
+      "market_area": "Cleveland Metro",
+      "property_address": "4011 E.141ST STREET",
+      "property_state": "OH",
+      "parcel_id": "13905014",
+      "lead_type": "Foreclosure / Sheriff Sale",
+      "foreclosure": true,
+      "sheriff_sale": true,
+      "foreclosure_case_number": "CV24994343",
+      "sheriff_sale_date": "2026-11-04",
+      "foreclosure_status": "WITHDRAWN - TAX DELINQUENT",
+      "foreclosure_source_url": "https://cpdocket.cp.cuyahogacounty.gov/SheriffSearch/",
+      "foreclosure_source_name": "Cuyahoga Clerk of Courts Sheriff Sale Results",
+      "sheriff_sale_type": "11/4/2026 Tax Delinquent",
+      "foreclosure_plaintiff": "TREASURER OF CUYAHOGA COUNTY, OH",
+      "foreclosure_defendant": "MACK/MONIKA/",
+      "sheriff_minimum_bid": 47467.1,
+      "distress_sources": [
+        "foreclosure",
+        "sheriff_sale"
+      ],
+      "flags": [
+        "Call First",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure",
+        "Cuyahoga Hot Stack"
+      ],
+      "tags": [
+        "Call First",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure",
+        "Cuyahoga Hot Stack"
+      ],
+      "auction_days_until": -1,
+      "auction_countdown": "Auction passed",
+      "auction_urgency": "gray",
+      "source_city_key": "",
+      "property_city": "",
+      "city": "",
+      "last_updated": "2026-11-05T19:36:28+00:00",
+      "first_seen_date": "2026-11-05T19:36:28+00:00",
+      "distress_count": 2
+    },
+    {
+      "county": "Cuyahoga County",
+      "source_county_key": "cuyahoga",
+      "market_area": "Cleveland Metro",
+      "property_address": "193 WEST GLENDALE STREET",
+      "property_state": "OH",
+      "parcel_id": "81218036",
+      "lead_type": "Foreclosure / Sheriff Sale",
+      "foreclosure": true,
+      "sheriff_sale": true,
+      "foreclosure_case_number": "CV24999028",
+      "sheriff_sale_date": "2026-11-04",
+      "foreclosure_status": "WITHDRAWN - TAX DELINQUENT",
+      "foreclosure_source_url": "https://cpdocket.cp.cuyahogacounty.gov/SheriffSearch/",
+      "foreclosure_source_name": "Cuyahoga Clerk of Courts Sheriff Sale Results",
+      "sheriff_sale_type": "11/4/2026 Tax Delinquent",
+      "foreclosure_plaintiff": "TREASURER OF CUYAHOGA COUNTY, OH",
+      "foreclosure_defendant": "SHEPPARD/MELINDA/",
+      "sheriff_minimum_bid": 78981.61,
+      "distress_sources": [
+        "foreclosure",
+        "sheriff_sale"
+      ],
+      "flags": [
+        "Call First",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure",
+        "Cuyahoga Hot Stack"
+      ],
+      "tags": [
+        "Call First",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure",
+        "Cuyahoga Hot Stack"
+      ],
+      "auction_days_until": -1,
+      "auction_countdown": "Auction passed",
+      "auction_urgency": "gray",
+      "source_city_key": "",
+      "property_city": "",
+      "city": "",
+      "last_updated": "2026-11-05T19:36:28+00:00",
+      "first_seen_date": "2026-11-05T19:36:28+00:00",
+      "distress_count": 2
+    },
+    {
+      "county": "Cuyahoga County",
+      "source_county_key": "cuyahoga",
+      "market_area": "Cleveland Metro",
+      "property_address": "19218 LONGBROOK ROAD",
+      "property_state": "OH",
+      "parcel_id": "76115051",
+      "lead_type": "Foreclosure / Sheriff Sale",
+      "foreclosure": true,
+      "sheriff_sale": true,
+      "foreclosure_case_number": "CV25114225",
+      "sheriff_sale_date": "2026-11-04",
+      "foreclosure_status": "WITHDRAWN - TAX DELINQUENT",
+      "foreclosure_source_url": "https://cpdocket.cp.cuyahogacounty.gov/SheriffSearch/",
+      "foreclosure_source_name": "Cuyahoga Clerk of Courts Sheriff Sale Results",
+      "sheriff_sale_type": "11/4/2026 Tax Delinquent",
+      "foreclosure_plaintiff": "TREASURER OF CUYAHOGA COUNTY, OH",
+      "foreclosure_defendant": "LYKES/DORA/L.",
+      "sheriff_minimum_bid": 16051.49,
+      "distress_sources": [
+        "foreclosure",
+        "sheriff_sale"
+      ],
+      "flags": [
+        "Call First",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure",
+        "Cuyahoga Hot Stack"
+      ],
+      "tags": [
+        "Call First",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure",
+        "Cuyahoga Hot Stack"
+      ],
+      "auction_days_until": -1,
+      "auction_countdown": "Auction passed",
+      "auction_urgency": "gray",
+      "source_city_key": "",
+      "property_city": "",
+      "city": "",
+      "last_updated": "2026-11-05T19:36:28+00:00",
+      "first_seen_date": "2026-11-05T19:36:28+00:00",
+      "distress_count": 2
+    },
+    {
+      "county": "Cuyahoga County",
+      "source_county_key": "cuyahoga",
+      "market_area": "Cleveland Metro",
+      "property_address": "3622 ATHERSTONE ROAD",
+      "property_state": "OH",
+      "parcel_id": "68207001",
+      "lead_type": "Foreclosure / Sheriff Sale",
+      "foreclosure": true,
+      "sheriff_sale": true,
+      "foreclosure_case_number": "CV25120540",
+      "sheriff_sale_date": "2026-11-04",
+      "foreclosure_status": "SOLD",
+      "foreclosure_source_url": "https://cpdocket.cp.cuyahogacounty.gov/SheriffSearch/",
+      "foreclosure_source_name": "Cuyahoga Clerk of Courts Sheriff Sale Results",
+      "sheriff_sale_type": "11/4/2026 Tax Delinquent",
+      "foreclosure_plaintiff": "TREASURER OF CUYAHOGA COUNTY, OH",
+      "foreclosure_defendant": "UNK. HEIRS ETC.",
+      "sheriff_minimum_bid": 61902.98,
+      "distress_sources": [
+        "foreclosure",
+        "sheriff_sale"
+      ],
+      "flags": [
+        "Call First",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure",
+        "Cuyahoga Hot Stack"
+      ],
+      "tags": [
+        "Call First",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure",
+        "Cuyahoga Hot Stack"
+      ],
+      "auction_days_until": -1,
+      "auction_countdown": "Auction passed",
+      "auction_urgency": "gray",
+      "source_city_key": "",
+      "property_city": "",
+      "city": "",
+      "last_updated": "2026-11-05T19:36:28+00:00",
+      "first_seen_date": "2026-11-05T19:36:28+00:00",
+      "distress_count": 2
+    },
+    {
+      "county": "Cuyahoga County",
+      "source_county_key": "cuyahoga",
+      "market_area": "Cleveland Metro",
+      "property_address": "17406 TARKINGTON AVENUE",
+      "property_state": "OH",
+      "parcel_id": "14316090",
+      "lead_type": "Foreclosure / Sheriff Sale",
+      "foreclosure": true,
+      "sheriff_sale": true,
+      "foreclosure_case_number": "CV25122068",
+      "sheriff_sale_date": "2026-11-04",
+      "foreclosure_status": "WITHDRAWN - TAX DELINQUENT",
+      "foreclosure_source_url": "https://cpdocket.cp.cuyahogacounty.gov/SheriffSearch/",
+      "foreclosure_source_name": "Cuyahoga Clerk of Courts Sheriff Sale Results",
+      "sheriff_sale_type": "11/4/2026 Tax Delinquent",
+      "foreclosure_plaintiff": "TREASURER OF CUYAHOGA COUNTY, OHIO",
+      "foreclosure_defendant": "MCCOWIN/ANGELIC/",
+      "sheriff_minimum_bid": 37073.67,
+      "distress_sources": [
+        "foreclosure",
+        "sheriff_sale"
+      ],
+      "flags": [
+        "Call First",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure",
+        "Cuyahoga Hot Stack"
+      ],
+      "tags": [
+        "Call First",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure",
+        "Cuyahoga Hot Stack"
+      ],
+      "auction_days_until": -1,
+      "auction_countdown": "Auction passed",
+      "auction_urgency": "gray",
+      "source_city_key": "",
+      "property_city": "",
+      "city": "",
+      "last_updated": "2026-11-05T19:36:28+00:00",
+      "first_seen_date": "2026-11-05T19:36:28+00:00",
+      "distress_count": 2
+    },
+    {
+      "county": "Cuyahoga County",
+      "source_county_key": "cuyahoga",
+      "market_area": "Cleveland Metro",
+      "property_address": "18008 OLYMPIA RD",
+      "property_state": "OH",
+      "parcel_id": "11708053",
+      "lead_type": "Foreclosure / Sheriff Sale",
+      "foreclosure": true,
+      "sheriff_sale": true,
+      "foreclosure_case_number": "CV25124741",
+      "sheriff_sale_date": "2026-11-04",
+      "foreclosure_status": "SOLD",
+      "foreclosure_source_url": "https://cpdocket.cp.cuyahogacounty.gov/SheriffSearch/",
+      "foreclosure_source_name": "Cuyahoga Clerk of Courts Sheriff Sale Results",
+      "sheriff_sale_type": "11/4/2026 Tax Delinquent",
+      "foreclosure_plaintiff": "TREASURER OF CUYAHOGA COUNTY, OH",
+      "foreclosure_defendant": "WALKER/LENA/",
+      "sheriff_minimum_bid": 7586.83,
+      "distress_sources": [
+        "foreclosure",
+        "sheriff_sale"
+      ],
+      "flags": [
+        "Call First",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure",
+        "Cuyahoga Hot Stack"
+      ],
+      "tags": [
+        "Call First",
+        "Foreclosure",
+        "Sheriff Sale",
+        "Auction Pressure",
+        "Cuyahoga Hot Stack"
+      ],
+      "auction_days_until": -1,
+      "auction_countdown": "Auction passed",
+      "auction_urgency": "gray",
+      "source_city_key": "",
+      "property_city": "",
+      "city": "",
+      "last_updated": "2026-11-05T19:36:28+00:00",
+      "first_seen_date": "2026-11-05T19:36:28+00:00",
       "distress_count": 2
     }
   ],
@@ -837045,17 +837594,17 @@
     "backup_path": "C:\\Users\\nodaysoff\\Desktop\\akron-summit-scraper-main\\akron-summit-scraper-main\\dashboard\\cuyahoga\\records.phase2f-tax-delinquent.2026-04-30T003400Z0000.bak.json"
   },
   "phase_2g_foreclosure_enrichment": {
-    "timestamp": "2026-11-05T00:40:44+00:00",
+    "timestamp": "2026-11-05T19:36:28+00:00",
     "source": "Cuyahoga Clerk of Courts Sheriff Sale Results",
     "source_url": "https://cpdocket.cp.cuyahogacounty.gov/SheriffSearch/",
-    "sale_dates_checked": 40,
-    "records_pulled": 547,
-    "matched": 547,
-    "standalone": 0,
-    "foreclosure_count": 1128,
-    "sheriff_sale_count": 1128,
-    "cuyahoga_hot_stack_count": 4390,
-    "backup_path": "/home/runner/work/akron-summit-scraper/akron-summit-scraper/dashboard/cuyahoga/records.phase2g-foreclosure.2026-11-05T004044Z0000.bak.json"
+    "sale_dates_checked": 41,
+    "records_pulled": 562,
+    "matched": 552,
+    "standalone": 10,
+    "foreclosure_count": 1141,
+    "sheriff_sale_count": 1141,
+    "cuyahoga_hot_stack_count": 4400,
+    "backup_path": "/home/runner/work/akron-summit-scraper/akron-summit-scraper/dashboard/cuyahoga/records.phase2g-foreclosure.2026-11-05T193628Z0000.bak.json"
   },
   "phase_2h_cash_buyer_enrichment": {
     "timestamp": "2026-04-30T05:49:32+00:00",
