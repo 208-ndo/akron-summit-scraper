@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-06T00:42:02.679216+00:00",
+  "fetched_at": "2026-11-06T19:01:00.615077+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "tax_delinquent",
   "description": "\ud83d\udcb0 Residential properties with unpaid property taxes",
@@ -46,8 +46,8 @@
       "with_address": 1,
       "distress_sources": [
         "tax_delinquent",
-        "foreclosure",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -182,8 +182,8 @@
       "with_address": 1,
       "distress_sources": [
         "tax_delinquent",
-        "foreclosure",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -316,8 +316,8 @@
       "with_address": 1,
       "distress_sources": [
         "tax_delinquent",
-        "foreclosure",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -451,8 +451,8 @@
       "with_address": 1,
       "distress_sources": [
         "tax_delinquent",
-        "foreclosure",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -581,8 +581,8 @@
       "with_address": 1,
       "distress_sources": [
         "tax_delinquent",
-        "foreclosure",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -707,8 +707,8 @@
       "with_address": 1,
       "distress_sources": [
         "tax_delinquent",
-        "foreclosure",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,

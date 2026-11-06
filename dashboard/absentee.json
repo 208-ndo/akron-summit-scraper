@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-06T00:42:03.632098+00:00",
+  "fetched_at": "2026-11-06T19:01:01.689603+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "absentee",
   "description": "\ud83d\udced Owner mailing address differs from property",
@@ -46,8 +46,8 @@
       "with_address": 1,
       "distress_sources": [
         "tax_delinquent",
-        "foreclosure",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,

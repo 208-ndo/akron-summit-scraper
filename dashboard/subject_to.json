@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-06T00:42:03.870161+00:00",
+  "fetched_at": "2026-11-06T19:01:01.975264+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "subject_to",
   "description": "\ud83c\udfaf Subject-to acquisition candidates (score \u226550)",
@@ -46,8 +46,8 @@
       "with_address": 1,
       "distress_sources": [
         "tax_delinquent",
-        "foreclosure",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -182,8 +182,8 @@
       "with_address": 1,
       "distress_sources": [
         "tax_delinquent",
-        "foreclosure",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -316,8 +316,8 @@
       "with_address": 1,
       "distress_sources": [
         "tax_delinquent",
-        "foreclosure",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -451,8 +451,8 @@
       "with_address": 1,
       "distress_sources": [
         "tax_delinquent",
-        "foreclosure",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -7040,8 +7040,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 2,
       "hot_stack": true,
