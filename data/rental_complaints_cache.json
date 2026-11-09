@@ -4658,5 +4658,11 @@
     "source_url": "https://ari.akronohio.gov/",
     "searched_address": "1283 SWEITZER AVE",
     "checked_at": "2026-11-03T19:12:44.190395+00:00"
+  },
+  "1202 DIAGONAL": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1202 Diagonal Road",
+    "checked_at": "2026-11-09T22:03:28.079613+00:00"
   }
 }
