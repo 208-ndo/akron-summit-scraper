@@ -1,12 +1,44 @@
 {
   "matched": 0,
-  "unmatched": 143,
+  "unmatched": 137,
   "with_address": 1,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 143
+    "unmatched": 137
   },
   "sample_unmatched": [
+    {
+      "doc_num": "PIESTO 11",
+      "owner": "James J Piesto"
+    },
+    {
+      "doc_num": "PETREY 11",
+      "owner": "Chris Petrey"
+    },
+    {
+      "doc_num": "OWINO 11",
+      "owner": "Margaret A Owino"
+    },
+    {
+      "doc_num": "ORNOUSKI 11",
+      "owner": "Anthony Ornouski"
+    },
+    {
+      "doc_num": "MCCARTHY 11",
+      "owner": "Suzanne Mccarthy"
+    },
+    {
+      "doc_num": "MANNING 11",
+      "owner": "David Manning"
+    },
+    {
+      "doc_num": "ELLERSON 11",
+      "owner": "Todd A Ellerson"
+    },
+    {
+      "doc_num": "CAYSON 11",
+      "owner": "Cioxcia Cayson"
+    },
     {
       "doc_num": "MUSCARELLA 11",
       "owner": "William H. Muscarella"
@@ -26,6 +58,10 @@
     {
       "doc_num": "VANN 11",
       "owner": "Karen Vann"
+    },
+    {
+      "doc_num": "RUFFIN 11",
+      "owner": "Ernest E Ruffin"
     },
     {
       "doc_num": "MARKOWSKI 11",
@@ -52,14 +88,6 @@
       "owner": "Katherine Ramirez Grisales"
     },
     {
-      "doc_num": "DUVALL 11",
-      "owner": "Britta L Duvall"
-    },
-    {
-      "doc_num": "DICKSON 11",
-      "owner": "Laura Dickson"
-    },
-    {
       "doc_num": "PROROK 11",
       "owner": "Kevin R Prorok"
     },
@@ -68,46 +96,18 @@
       "owner": "Gary R Ruiz"
     },
     {
+      "doc_num": "DUVALL 11",
+      "owner": "Britta L Duvall"
+    },
+    {
+      "doc_num": "DICKSON 11",
+      "owner": "Laura Dickson"
+    },
+    {
       "doc_num": "DEUCHER 11",
       "owner": "Jeff Deucher"
-    },
-    {
-      "doc_num": "DAMSA 11",
-      "owner": "April Damsa"
-    },
-    {
-      "doc_num": "COWAN 11",
-      "owner": "Ashley Cowan"
-    },
-    {
-      "doc_num": "BONCALDO 11",
-      "owner": "Paul J Boncaldo"
-    },
-    {
-      "doc_num": "BOLEK 11",
-      "owner": "Mariah N Bolek"
-    },
-    {
-      "doc_num": "BAXTER 11",
-      "owner": "Brian Baxter"
-    },
-    {
-      "doc_num": "BLANCHARD 11",
-      "owner": "Brandon Blanchard"
-    },
-    {
-      "doc_num": "CANTRELL 11",
-      "owner": "Shannon R Cantrell"
-    },
-    {
-      "doc_num": "ROSIER 11",
-      "owner": "Dale Rosier"
-    },
-    {
-      "doc_num": "ABBOTT 11",
-      "owner": "Renee M Abbott"
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-11-10T02:39:49.839249+00:00"
+  "generated_at": "2026-11-10T19:25:05.248709+00:00"
 }

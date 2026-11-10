@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-10T02:39:45.818885+00:00",
+  "fetched_at": "2026-11-10T19:25:01.506140+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "absentee",
   "description": "\ud83d\udced Owner mailing address differs from property",
@@ -45,9 +45,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "tax_delinquent",
-        "sheriff_sale"
+        "sheriff_sale",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -177,9 +177,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "tax_delinquent",
         "vacant_land",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -309,9 +309,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
+        "tax_delinquent",
         "vacant_land",
-        "tax_delinquent"
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -442,8 +442,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -574,8 +574,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -713,8 +713,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
