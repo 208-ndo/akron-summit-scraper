@@ -1,12 +1,32 @@
 {
   "matched": 0,
-  "unmatched": 137,
+  "unmatched": 142,
   "with_address": 1,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 137
+    "unmatched": 142
   },
   "sample_unmatched": [
+    {
+      "doc_num": "BEDELL 11",
+      "owner": "Kathleen Bedell"
+    },
+    {
+      "doc_num": "KIRSCH 11",
+      "owner": "Paul M Kirsch"
+    },
+    {
+      "doc_num": "ODEAR 11",
+      "owner": "Rian Odear"
+    },
+    {
+      "doc_num": "BOGGESS 11",
+      "owner": "Franklin Boggess"
+    },
+    {
+      "doc_num": "PULTEA 11",
+      "owner": "Tina Pultea"
+    },
     {
       "doc_num": "PIESTO 11",
       "owner": "James J Piesto"
@@ -52,16 +72,16 @@
       "owner": "Ryan Scarlett"
     },
     {
+      "doc_num": "RUFFIN 11",
+      "owner": "Ernest E Ruffin"
+    },
+    {
       "doc_num": "TANG 11",
       "owner": "Haiying Tang"
     },
     {
       "doc_num": "VANN 11",
       "owner": "Karen Vann"
-    },
-    {
-      "doc_num": "RUFFIN 11",
-      "owner": "Ernest E Ruffin"
     },
     {
       "doc_num": "MARKOWSKI 11",
@@ -86,28 +106,8 @@
     {
       "doc_num": "GRISALES 11",
       "owner": "Katherine Ramirez Grisales"
-    },
-    {
-      "doc_num": "PROROK 11",
-      "owner": "Kevin R Prorok"
-    },
-    {
-      "doc_num": "RUIZ 11",
-      "owner": "Gary R Ruiz"
-    },
-    {
-      "doc_num": "DUVALL 11",
-      "owner": "Britta L Duvall"
-    },
-    {
-      "doc_num": "DICKSON 11",
-      "owner": "Laura Dickson"
-    },
-    {
-      "doc_num": "DEUCHER 11",
-      "owner": "Jeff Deucher"
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-11-10T19:25:05.248709+00:00"
+  "generated_at": "2026-11-11T00:24:11.185592+00:00"
 }
