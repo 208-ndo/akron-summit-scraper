@@ -11,14 +11,14 @@
     "error": ""
   },
   "cuyahoga": {
-    "data_updated_at": "2026-11-10T19:25:17+00:00",
-    "last_checked_at": "2026-11-10T19:25:52+00:00",
+    "data_updated_at": "2026-11-11T00:24:23+00:00",
+    "last_checked_at": "2026-11-11T00:25:14+00:00",
     "source_dataset_date": "",
     "status": "success_updated",
     "message": "cuyahoga refresh ran and found updated data",
-    "records_before": 11681,
+    "records_before": 11692,
     "records_after": 11692,
-    "new_today": 11,
+    "new_today": 0,
     "error": ""
   },
   "montgomery": {
