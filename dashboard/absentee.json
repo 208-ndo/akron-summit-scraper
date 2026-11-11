@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-11T00:24:08.625264+00:00",
+  "fetched_at": "2026-11-11T19:23:59.486022+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "absentee",
   "description": "\ud83d\udced Owner mailing address differs from property",
@@ -177,8 +177,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
         "tax_delinquent",
+        "vacant_land",
         "foreclosure"
       ],
       "distress_count": 3,
@@ -309,8 +309,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
         "tax_delinquent",
+        "vacant_land",
         "foreclosure"
       ],
       "distress_count": 3,

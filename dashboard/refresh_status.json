@@ -1,11 +1,11 @@
 {
   "summit": {
-    "data_updated_at": "2026-11-11T00:23:59.848316+00:00",
-    "last_checked_at": "2026-11-11T00:24:15+00:00",
+    "data_updated_at": "2026-11-11T19:23:49.614234+00:00",
+    "last_checked_at": "2026-11-11T19:24:06+00:00",
     "source_dataset_date": "",
     "status": "success_updated",
     "message": "summit refresh ran and found updated data",
-    "records_before": 22047,
+    "records_before": 22976,
     "records_after": 22976,
     "new_today": 12,
     "error": ""

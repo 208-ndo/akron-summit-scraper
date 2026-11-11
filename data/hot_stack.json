@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-11T00:24:07.645991+00:00",
+  "fetched_at": "2026-11-11T19:23:58.335614+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "hot_stack",
   "description": "\ud83d\udd25 2+ distress signals \u2014 highest priority",
@@ -582,8 +582,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
         "tax_delinquent",
+        "vacant_land",
         "foreclosure"
       ],
       "distress_count": 3,
@@ -714,8 +714,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
         "tax_delinquent",
+        "vacant_land",
         "foreclosure"
       ],
       "distress_count": 3,
@@ -1098,8 +1098,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
         "tax_delinquent",
+        "vacant_land",
         "foreclosure"
       ],
       "distress_count": 3,
@@ -1224,8 +1224,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
         "tax_delinquent",
+        "vacant_land",
         "foreclosure"
       ],
       "distress_count": 3,
