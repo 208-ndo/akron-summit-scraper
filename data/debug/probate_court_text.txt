@@ -1,9 +1,7 @@
-﻿
 
-
-
-
-	 The Akron Legal News 
+ The Akron Legal News 
+ 
+ 
  
  
  
@@ -26,8 +24,7 @@
  Business 
  Local 
  Sports 
- State 
- Technology Search Archvie 
+ State Search Archvie 
  
    The Courts 
  
@@ -87,7 +84,7 @@
  
  
  
- Login  | 			November 14, 2026 
+ Login  | 			November 15, 2026 
  
  
  

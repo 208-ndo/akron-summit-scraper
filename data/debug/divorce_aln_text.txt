@@ -1,5 +1,8 @@
-﻿ 
+
+ 
  The Akron Legal News 
+ 
+ 
  
  
  
@@ -22,8 +25,7 @@
  Business 
  Local 
  Sports 
- State 
- Technology Search Archvie 
+ State Search Archvie 
  
    The Courts 
  
@@ -83,7 +85,7 @@
  
  
  
- Login  | 			November 14, 2026 
+ Login  | 			November 15, 2026 
  
  
  
@@ -132,6 +134,8 @@
  
  
  The Akron Legal News • 60 South Summit St. • Akron, Ohio 44308 • Phone: 330-376-0917 • Fax: 330-376-7001 
+ 
+ 
  
  
  
