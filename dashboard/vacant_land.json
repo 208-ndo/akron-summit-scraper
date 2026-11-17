@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-17T02:45:14.052385+00:00",
+  "fetched_at": "2026-11-17T20:33:29.468007+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "vacant_land",
   "description": "\ud83c\udf3f Distressed vacant infill lots \u22642ac \u2014 tax delinquent or in foreclosure",
@@ -42,9 +42,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "tax_delinquent",
-        "vacant_land"
+        "vacant_land",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -168,9 +168,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "tax_delinquent",
-        "vacant_land"
+        "vacant_land",
+        "foreclosure"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -54655,7 +54655,7 @@
       "prop_address": "1496 SOUTHEAST AVE",
       "prop_city": "",
       "prop_state": "OH",
-      "prop_zip": "44278",
+      "prop_zip": "",
       "mail_address": "",
       "mail_city": "",
       "mail_state": "OH",
@@ -70244,7 +70244,7 @@
       "prop_address": "VAN EVERETT AVE",
       "prop_city": "",
       "prop_state": "OH",
-      "prop_zip": "44306",
+      "prop_zip": "",
       "mail_address": "",
       "mail_city": "",
       "mail_state": "OH",
@@ -77741,7 +77741,7 @@
       "prop_address": "2680 NESMITH LAKE BLVD",
       "prop_city": "",
       "prop_state": "OH",
-      "prop_zip": "44314",
+      "prop_zip": "",
       "mail_address": "",
       "mail_city": "",
       "mail_state": "OH",
