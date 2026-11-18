@@ -4664,5 +4664,17 @@
     "source_url": "https://ari.akronohio.gov/",
     "searched_address": "1202 Diagonal Road",
     "checked_at": "2026-11-09T22:03:28.079613+00:00"
+  },
+  "1578 13TH": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "1578 13TH ST",
+    "checked_at": "2026-11-18T20:08:43.767221+00:00"
+  },
+  "158 1ST": {
+    "rental_complaint": false,
+    "source_url": "https://ari.akronohio.gov/",
+    "searched_address": "158 1ST ST",
+    "checked_at": "2026-11-18T20:08:44.068666+00:00"
   }
 }

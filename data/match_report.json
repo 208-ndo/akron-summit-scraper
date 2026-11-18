@@ -1,10 +1,10 @@
 {
   "matched": 0,
-  "unmatched": 95,
+  "unmatched": 133,
   "with_address": 1,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 95
+    "unmatched": 133
   },
   "sample_unmatched": [
     {
@@ -12,102 +12,102 @@
       "owner": "Cultural Food Logistics Llc"
     },
     {
-      "doc_num": "KILMIRE 11",
-      "owner": "Paulette Kilmire"
+      "doc_num": "TIPPEL 11",
+      "owner": "Pamela Tippel"
     },
     {
-      "doc_num": "STEINBORN 11",
-      "owner": "Cara L. Murkins"
+      "doc_num": "FRIESEN 11",
+      "owner": "Christopher Friesen"
     },
     {
-      "doc_num": "DEMPSTER 11",
-      "owner": "Rebecca A. Dempster"
+      "doc_num": "DINGLE 11",
+      "owner": "Lataja L Dingle"
     },
     {
-      "doc_num": "KOEGLE 11",
-      "owner": "Douglas Koegle"
+      "doc_num": "DAMSA 11",
+      "owner": "April S Damsa"
     },
     {
-      "doc_num": "STORMER 11",
-      "owner": "Dennis K. Stormer"
+      "doc_num": "BRUNEN 11",
+      "owner": "Cori Brunen"
     },
     {
-      "doc_num": "LANNUM 11",
-      "owner": "Brittainy V. Weber Lannum"
+      "doc_num": "BRKIC 11",
+      "owner": "Ivica Brkic"
     },
     {
-      "doc_num": "LIEBERTH 11",
-      "owner": "Tiffany Lieberth"
+      "doc_num": "WORTMAN 11",
+      "owner": "Mary Wortman"
     },
     {
-      "doc_num": "2026 AT 10",
-      "owner": ""
+      "doc_num": "SCHULZ 11",
+      "owner": "James E Schulz"
     },
     {
-      "doc_num": "2026 AT 10",
-      "owner": ""
+      "doc_num": "SHARP 11",
+      "owner": "Yurika Sharp"
     },
     {
-      "doc_num": "2026 AT 10",
-      "owner": ""
+      "doc_num": "MCDONALD 11",
+      "owner": "Tammy Mcdonald"
     },
     {
-      "doc_num": "2026 AT 10",
-      "owner": ""
+      "doc_num": "GORHAM 11",
+      "owner": "Janel Gorham"
     },
     {
-      "doc_num": "2026 AT 10",
-      "owner": ""
+      "doc_num": "ALBAUGH 11",
+      "owner": "Mandy Albaugh"
     },
     {
-      "doc_num": "2026 AT 10",
-      "owner": ""
+      "doc_num": "CRISS 11",
+      "owner": "Susan M Mott Criss"
     },
     {
-      "doc_num": "2026 AT 10",
-      "owner": ""
+      "doc_num": "MOSLEY 11",
+      "owner": "Shannelle Mosley"
     },
     {
-      "doc_num": "2026 AT 10",
-      "owner": ""
+      "doc_num": "POTOK 11",
+      "owner": "Frederick Potok"
     },
     {
-      "doc_num": "CV2025 10 5160",
-      "owner": "Janet H Slack"
+      "doc_num": "JINNETT 11",
+      "owner": "Maryanne Jinnett"
     },
     {
-      "doc_num": "2026 AT 10",
-      "owner": ""
+      "doc_num": "HORVATH 11",
+      "owner": "Daniel W Horvath"
     },
     {
-      "doc_num": "2026 AT 10",
-      "owner": ""
+      "doc_num": "HORNSBY 11",
+      "owner": "Bryan Hornsby"
     },
     {
-      "doc_num": "2026 AT 10",
-      "owner": ""
+      "doc_num": "LYNUM 11",
+      "owner": "Trevon Lynum"
     },
     {
-      "doc_num": "2026 AT 10",
-      "owner": ""
+      "doc_num": "KRIVINS 11",
+      "owner": "Aldona Krivins"
     },
     {
-      "doc_num": "2026 AT 10",
-      "owner": ""
+      "doc_num": "KADILAK 11",
+      "owner": "Morgan D Kadilak"
     },
     {
-      "doc_num": "2026 AT 10",
-      "owner": ""
+      "doc_num": "HAMILTON 11",
+      "owner": "Julius Hamilton"
     },
     {
-      "doc_num": "2026 AT 10",
-      "owner": ""
+      "doc_num": "GLAZE 11",
+      "owner": "Rahim Glaze"
     },
     {
-      "doc_num": "2026 AT 10",
-      "owner": ""
+      "doc_num": "GEAR 11",
+      "owner": "Brenda Gear"
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-11-18T02:00:06.071208+00:00"
+  "generated_at": "2026-11-18T20:08:58.841734+00:00"
 }
