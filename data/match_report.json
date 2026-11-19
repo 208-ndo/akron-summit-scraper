@@ -1,12 +1,104 @@
 {
   "matched": 0,
-  "unmatched": 137,
+  "unmatched": 162,
   "with_address": 1,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 137
+    "unmatched": 162
   },
   "sample_unmatched": [
+    {
+      "doc_num": "ADAMS 11",
+      "owner": "Sylvia Adams"
+    },
+    {
+      "doc_num": "BARTH 11",
+      "owner": "Lynda D Barth"
+    },
+    {
+      "doc_num": "BROWNING 11",
+      "owner": "Virginia L Browning"
+    },
+    {
+      "doc_num": "BERGHAUSER 11",
+      "owner": "Tamera Berghauser"
+    },
+    {
+      "doc_num": "CAPLETON 11",
+      "owner": "Aamaya L Capleton"
+    },
+    {
+      "doc_num": "CLAPPER 11",
+      "owner": "Brooke M Clapper"
+    },
+    {
+      "doc_num": "GARVER 11",
+      "owner": "Rachel M Garver"
+    },
+    {
+      "doc_num": "CRUSE 11",
+      "owner": "Zachary Cruse"
+    },
+    {
+      "doc_num": "MORGNER 11",
+      "owner": "Garrett Morgner"
+    },
+    {
+      "doc_num": "RUHLIN 11",
+      "owner": "Brooke Ruhlin"
+    },
+    {
+      "doc_num": "REVEILLE 11",
+      "owner": "Kathy Reveille"
+    },
+    {
+      "doc_num": "PARIDON 11",
+      "owner": "Andrea M Paridon"
+    },
+    {
+      "doc_num": "RASAILE 11",
+      "owner": "Man B Rasaile"
+    },
+    {
+      "doc_num": "PITINGORO 11",
+      "owner": "Fonda L Pitingoro"
+    },
+    {
+      "doc_num": "PREASE 11",
+      "owner": "Sally A Prease"
+    },
+    {
+      "doc_num": "NOCERO 11",
+      "owner": "Kelly R Nocero"
+    },
+    {
+      "doc_num": "MCINTOSH 11",
+      "owner": "Kristopher Mcintosh"
+    },
+    {
+      "doc_num": "WALTERS 11",
+      "owner": "David Walters"
+    },
+    {
+      "doc_num": "WORTHEY 11",
+      "owner": "Amanda Worthey"
+    },
+    {
+      "doc_num": "BOWMAN 11",
+      "owner": "Lily M Bowman"
+    },
+    {
+      "doc_num": "DICKEY 11",
+      "owner": "Tracey Dickey"
+    },
+    {
+      "doc_num": "JEMISON 11",
+      "owner": "Alyssa Jemison"
+    },
+    {
+      "doc_num": "HACKWORTH 11",
+      "owner": "Lisa Hackworth"
+    },
     {
       "doc_num": "LLC 11",
       "owner": "Cultural Food Logistics Llc"
@@ -14,100 +106,8 @@
     {
       "doc_num": "TIPPEL 11",
       "owner": "Pamela Tippel"
-    },
-    {
-      "doc_num": "FRIESEN 11",
-      "owner": "Christopher Friesen"
-    },
-    {
-      "doc_num": "DINGLE 11",
-      "owner": "Lataja L Dingle"
-    },
-    {
-      "doc_num": "DAMSA 11",
-      "owner": "April S Damsa"
-    },
-    {
-      "doc_num": "BRUNEN 11",
-      "owner": "Cori Brunen"
-    },
-    {
-      "doc_num": "BRKIC 11",
-      "owner": "Ivica Brkic"
-    },
-    {
-      "doc_num": "MCDONALD 11",
-      "owner": "Tammy Mcdonald"
-    },
-    {
-      "doc_num": "GORHAM 11",
-      "owner": "Janel Gorham"
-    },
-    {
-      "doc_num": "ALBAUGH 11",
-      "owner": "Mandy Albaugh"
-    },
-    {
-      "doc_num": "WORTMAN 11",
-      "owner": "Mary Wortman"
-    },
-    {
-      "doc_num": "SCHULZ 11",
-      "owner": "James E Schulz"
-    },
-    {
-      "doc_num": "SHARP 11",
-      "owner": "Yurika Sharp"
-    },
-    {
-      "doc_num": "CRISS 11",
-      "owner": "Susan M Mott Criss"
-    },
-    {
-      "doc_num": "MOSLEY 11",
-      "owner": "Shannelle Mosley"
-    },
-    {
-      "doc_num": "POTOK 11",
-      "owner": "Frederick Potok"
-    },
-    {
-      "doc_num": "JINNETT 11",
-      "owner": "Maryanne Jinnett"
-    },
-    {
-      "doc_num": "HORVATH 11",
-      "owner": "Daniel W Horvath"
-    },
-    {
-      "doc_num": "HORNSBY 11",
-      "owner": "Bryan Hornsby"
-    },
-    {
-      "doc_num": "LYNUM 11",
-      "owner": "Trevon Lynum"
-    },
-    {
-      "doc_num": "KRIVINS 11",
-      "owner": "Aldona Krivins"
-    },
-    {
-      "doc_num": "KADILAK 11",
-      "owner": "Morgan D Kadilak"
-    },
-    {
-      "doc_num": "HAMILTON 11",
-      "owner": "Julius Hamilton"
-    },
-    {
-      "doc_num": "GLAZE 11",
-      "owner": "Rahim Glaze"
-    },
-    {
-      "doc_num": "GEAR 11",
-      "owner": "Brenda Gear"
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-11-19T01:33:19.044069+00:00"
+  "generated_at": "2026-11-19T20:04:35.365362+00:00"
 }
