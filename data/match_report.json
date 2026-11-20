@@ -1,12 +1,36 @@
 {
   "matched": 0,
-  "unmatched": 162,
+  "unmatched": 171,
   "with_address": 1,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 162
+    "unmatched": 171
   },
   "sample_unmatched": [
+    {
+      "doc_num": "HANASH 11",
+      "owner": "Ferdoos Hanash"
+    },
+    {
+      "doc_num": "CROSIER 11",
+      "owner": "Dylan Crosier"
+    },
+    {
+      "doc_num": "RAINES 11",
+      "owner": "Shawn Raines"
+    },
+    {
+      "doc_num": "KRIZAY 11",
+      "owner": "Jeffrey Krizay"
+    },
+    {
+      "doc_num": "GAITER 11",
+      "owner": "Andreia Monae Gaiter"
+    },
+    {
+      "doc_num": "BURLEY 11",
+      "owner": "Tyler Burley"
+    },
     {
       "doc_num": "ADAMS 11",
       "owner": "Sylvia Adams"
@@ -82,32 +106,8 @@
     {
       "doc_num": "WORTHEY 11",
       "owner": "Amanda Worthey"
-    },
-    {
-      "doc_num": "BOWMAN 11",
-      "owner": "Lily M Bowman"
-    },
-    {
-      "doc_num": "DICKEY 11",
-      "owner": "Tracey Dickey"
-    },
-    {
-      "doc_num": "JEMISON 11",
-      "owner": "Alyssa Jemison"
-    },
-    {
-      "doc_num": "HACKWORTH 11",
-      "owner": "Lisa Hackworth"
-    },
-    {
-      "doc_num": "LLC 11",
-      "owner": "Cultural Food Logistics Llc"
-    },
-    {
-      "doc_num": "TIPPEL 11",
-      "owner": "Pamela Tippel"
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-11-19T20:04:35.365362+00:00"
+  "generated_at": "2026-11-20T01:36:31.241025+00:00"
 }
