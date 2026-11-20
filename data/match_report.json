@@ -1,113 +1,113 @@
 {
   "matched": 0,
-  "unmatched": 171,
+  "unmatched": 210,
   "with_address": 1,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 171
+    "unmatched": 210
   },
   "sample_unmatched": [
     {
-      "doc_num": "HANASH 11",
-      "owner": "Ferdoos Hanash"
+      "doc_num": "FINEFINE 11",
+      "owner": "Layne Finefine"
     },
     {
-      "doc_num": "CROSIER 11",
-      "owner": "Dylan Crosier"
+      "doc_num": "COUTS 11",
+      "owner": "Patricia D Couts"
     },
     {
-      "doc_num": "RAINES 11",
-      "owner": "Shawn Raines"
+      "doc_num": "CHATMAN 11",
+      "owner": "Taylor A Chatman"
     },
     {
-      "doc_num": "KRIZAY 11",
-      "owner": "Jeffrey Krizay"
+      "doc_num": "HUWIG 11",
+      "owner": "Traci Huwig"
     },
     {
-      "doc_num": "GAITER 11",
-      "owner": "Andreia Monae Gaiter"
+      "doc_num": "GUBANYOR 11",
+      "owner": "Ryan Gubanyor"
+    },
+    {
+      "doc_num": "MCKOWN 11",
+      "owner": "Cheryl Mckown"
+    },
+    {
+      "doc_num": "STOUFFER 11",
+      "owner": "Richard L Stouffer"
+    },
+    {
+      "doc_num": "SAMOUK 11",
+      "owner": "Anesa Samouk"
+    },
+    {
+      "doc_num": "SCHLUETER 11",
+      "owner": "Jeremy Schlueter"
+    },
+    {
+      "doc_num": "SKELLY 11",
+      "owner": "Meggon Skelly"
+    },
+    {
+      "doc_num": "STEINMETZ 11",
+      "owner": "Nicholas Steinmetz"
+    },
+    {
+      "doc_num": "SULLIVAN 11",
+      "owner": "Glenda Sullivan"
+    },
+    {
+      "doc_num": "TAOUFIK 11",
+      "owner": "Rym Taoufik"
+    },
+    {
+      "doc_num": "TRAINOR 11",
+      "owner": "Justin Trainor"
+    },
+    {
+      "doc_num": "WEYRICK 11",
+      "owner": "Danielle Weyrick"
+    },
+    {
+      "doc_num": "LLC 11",
+      "owner": "Cultural Food Logistics Llc"
+    },
+    {
+      "doc_num": "FRIESEN 11",
+      "owner": "Christopher Friesen"
+    },
+    {
+      "doc_num": "DINGLE 11",
+      "owner": "Lataja L Dingle"
+    },
+    {
+      "doc_num": "DAMSA 11",
+      "owner": "April S Damsa"
+    },
+    {
+      "doc_num": "BARTOS 11",
+      "owner": "Alexa Bartos"
+    },
+    {
+      "doc_num": "BARTUNEK 11",
+      "owner": "Kelly R Bartunek"
+    },
+    {
+      "doc_num": "BECKER 11",
+      "owner": "Amber L Becker"
+    },
+    {
+      "doc_num": "BUCHANAN 11",
+      "owner": "Arverta L Buchanan"
     },
     {
       "doc_num": "BURLEY 11",
-      "owner": "Tyler Burley"
+      "owner": "Darius D Burley"
     },
     {
-      "doc_num": "ADAMS 11",
-      "owner": "Sylvia Adams"
-    },
-    {
-      "doc_num": "BARTH 11",
-      "owner": "Lynda D Barth"
-    },
-    {
-      "doc_num": "BROWNING 11",
-      "owner": "Virginia L Browning"
-    },
-    {
-      "doc_num": "BERGHAUSER 11",
-      "owner": "Tamera Berghauser"
-    },
-    {
-      "doc_num": "CAPLETON 11",
-      "owner": "Aamaya L Capleton"
-    },
-    {
-      "doc_num": "CLAPPER 11",
-      "owner": "Brooke M Clapper"
-    },
-    {
-      "doc_num": "GARVER 11",
-      "owner": "Rachel M Garver"
-    },
-    {
-      "doc_num": "CRUSE 11",
-      "owner": "Zachary Cruse"
-    },
-    {
-      "doc_num": "MORGNER 11",
-      "owner": "Garrett Morgner"
-    },
-    {
-      "doc_num": "RUHLIN 11",
-      "owner": "Brooke Ruhlin"
-    },
-    {
-      "doc_num": "REVEILLE 11",
-      "owner": "Kathy Reveille"
-    },
-    {
-      "doc_num": "PARIDON 11",
-      "owner": "Andrea M Paridon"
-    },
-    {
-      "doc_num": "RASAILE 11",
-      "owner": "Man B Rasaile"
-    },
-    {
-      "doc_num": "PITINGORO 11",
-      "owner": "Fonda L Pitingoro"
-    },
-    {
-      "doc_num": "PREASE 11",
-      "owner": "Sally A Prease"
-    },
-    {
-      "doc_num": "NOCERO 11",
-      "owner": "Kelly R Nocero"
-    },
-    {
-      "doc_num": "MCINTOSH 11",
-      "owner": "Kristopher Mcintosh"
-    },
-    {
-      "doc_num": "WALTERS 11",
-      "owner": "David Walters"
-    },
-    {
-      "doc_num": "WORTHEY 11",
-      "owner": "Amanda Worthey"
+      "doc_num": "BUTRICK 11",
+      "owner": "Matthew Butrick"
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-11-20T01:36:31.241025+00:00"
+  "generated_at": "2026-11-20T19:42:43.896420+00:00"
 }
