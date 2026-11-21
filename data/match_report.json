@@ -1,51 +1,27 @@
 {
   "matched": 0,
-  "unmatched": 210,
+  "unmatched": 204,
   "with_address": 1,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 210
+    "unmatched": 204
   },
   "sample_unmatched": [
     {
+      "doc_num": "LLC 11",
+      "owner": "Electioniq Llc"
+    },
+    {
       "doc_num": "FINEFINE 11",
       "owner": "Layne Finefine"
-    },
-    {
-      "doc_num": "COUTS 11",
-      "owner": "Patricia D Couts"
-    },
-    {
-      "doc_num": "CHATMAN 11",
-      "owner": "Taylor A Chatman"
-    },
-    {
-      "doc_num": "HUWIG 11",
-      "owner": "Traci Huwig"
-    },
-    {
-      "doc_num": "GUBANYOR 11",
-      "owner": "Ryan Gubanyor"
     },
     {
       "doc_num": "MCKOWN 11",
       "owner": "Cheryl Mckown"
     },
     {
-      "doc_num": "STOUFFER 11",
-      "owner": "Richard L Stouffer"
-    },
-    {
       "doc_num": "SAMOUK 11",
       "owner": "Anesa Samouk"
-    },
-    {
-      "doc_num": "SCHLUETER 11",
-      "owner": "Jeremy Schlueter"
-    },
-    {
-      "doc_num": "SKELLY 11",
-      "owner": "Meggon Skelly"
     },
     {
       "doc_num": "STEINMETZ 11",
@@ -62,10 +38,6 @@
     {
       "doc_num": "TRAINOR 11",
       "owner": "Justin Trainor"
-    },
-    {
-      "doc_num": "WEYRICK 11",
-      "owner": "Danielle Weyrick"
     },
     {
       "doc_num": "LLC 11",
@@ -106,8 +78,36 @@
     {
       "doc_num": "BUTRICK 11",
       "owner": "Matthew Butrick"
+    },
+    {
+      "doc_num": "FURMAN 11",
+      "owner": "Aaron D Furman"
+    },
+    {
+      "doc_num": "FICHTNER 11",
+      "owner": "Anna M Fichtner"
+    },
+    {
+      "doc_num": "FANIZZI 11",
+      "owner": "Stephanie Fanizzi"
+    },
+    {
+      "doc_num": "DUBOSE 11",
+      "owner": "Leslie R Dubose"
+    },
+    {
+      "doc_num": "COUTS 11",
+      "owner": "Patricia D Couts"
+    },
+    {
+      "doc_num": "CHATMAN 11",
+      "owner": "Taylor A Chatman"
+    },
+    {
+      "doc_num": "HUWIG 11",
+      "owner": "Traci Huwig"
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-11-20T19:42:43.896420+00:00"
+  "generated_at": "2026-11-21T01:09:46.205877+00:00"
 }
