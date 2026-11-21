@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-21T01:09:43.105073+00:00",
+  "fetched_at": "2026-11-21T18:51:16.742411+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "absentee",
   "description": "\ud83d\udced Owner mailing address differs from property",
@@ -45,9 +45,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "sheriff_sale",
         "foreclosure",
-        "tax_delinquent"
+        "tax_delinquent",
+        "sheriff_sale"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -177,8 +177,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "vacant_land",
+        "foreclosure",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -309,8 +309,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "foreclosure",
         "vacant_land",
+        "foreclosure",
         "tax_delinquent"
       ],
       "distress_count": 3,
@@ -706,8 +706,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -969,8 +969,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1370,8 +1370,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1510,8 +1510,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
