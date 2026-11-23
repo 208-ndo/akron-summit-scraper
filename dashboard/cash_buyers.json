@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-22T19:09:19.866323+00:00",
+  "fetched_at": "2026-11-23T23:29:30.593199+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "cash_buyers",
   "description": "Investor buyers who purchased 3+ unique properties in the last 12 months",
@@ -6277,10 +6277,10 @@
       "prop_city": "AKRON",
       "prop_state": "OH",
       "prop_zip": "44305",
-      "mail_address": "896 HUBER ST",
+      "mail_address": "303 CRESTWOOD AVE",
       "mail_city": "Tucson",
       "mail_state": "AZ",
-      "mail_zip": "44306",
+      "mail_zip": "44281",
       "clerk_url": "https://fiscaloffice.summitoh.net/data-downloads",
       "flags": [
         "Low Priority",
@@ -11712,7 +11712,6 @@
       "buyer_total_purchase_volume": 419750.0,
       "buyer_zips": [
         "44223",
-        "44278",
         "44312",
         "44313"
       ],
