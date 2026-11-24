@@ -1,12 +1,68 @@
 {
   "matched": 0,
-  "unmatched": 129,
+  "unmatched": 136,
   "with_address": 1,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 129
+    "unmatched": 136
   },
   "sample_unmatched": [
+    {
+      "doc_num": "KEENER 11",
+      "owner": "Allison Keener"
+    },
+    {
+      "doc_num": "HER 11",
+      "owner": "Recene Woodfolk, At The Date Of Her"
+    },
+    {
+      "doc_num": "CANTER 11",
+      "owner": "Robert Canter"
+    },
+    {
+      "doc_num": "TIPPEL 11",
+      "owner": "Pamela Tippel"
+    },
+    {
+      "doc_num": "AD 11",
+      "owner": "Kathy L. Townend, Individually And As Ad"
+    },
+    {
+      "doc_num": "PALMATIER 11",
+      "owner": "Elizabeth Palmatier"
+    },
+    {
+      "doc_num": "RAMJIT 11",
+      "owner": "Surendra B Ramjit"
+    },
+    {
+      "doc_num": "BRADEMEYER 11",
+      "owner": "Jami Brademeyer"
+    },
+    {
+      "doc_num": "CAMARENA 11",
+      "owner": "Venoni Camarena"
+    },
+    {
+      "doc_num": "BOWLING 11",
+      "owner": "Deshanetia M Bowling"
+    },
+    {
+      "doc_num": "EAKETT 11",
+      "owner": "David A Eakett"
+    },
+    {
+      "doc_num": "FITZGERALD 11",
+      "owner": "Cheyenne Fitzgerald"
+    },
+    {
+      "doc_num": "GIACOMAZZA 11",
+      "owner": "Theresa Giacomazza"
+    },
+    {
+      "doc_num": "GILLESPIE 11",
+      "owner": "Nancy E Gillespie"
+    },
     {
       "doc_num": "SKIDMORE 11",
       "owner": "Tony Skidmore"
@@ -48,66 +104,10 @@
       "owner": "Cheryl Mckown"
     },
     {
-      "doc_num": "LLC 11",
-      "owner": "Cultural Food Logistics Llc"
-    },
-    {
-      "doc_num": "FRIESEN 11",
-      "owner": "Christopher Friesen"
-    },
-    {
-      "doc_num": "DINGLE 11",
-      "owner": "Lataja L Dingle"
-    },
-    {
-      "doc_num": "DAMSA 11",
-      "owner": "April S Damsa"
-    },
-    {
-      "doc_num": "DUPERT 11",
-      "owner": "Zachary Dupert"
-    },
-    {
-      "doc_num": "FROHMAN 11",
-      "owner": "Craig Frohman"
-    },
-    {
-      "doc_num": "DIETERICH 11",
-      "owner": "Lexy N Dieterich"
-    },
-    {
-      "doc_num": "DUHON 11",
-      "owner": "Michelle M Duhon"
-    },
-    {
-      "doc_num": "HENLEY 11",
-      "owner": "Daniel G Henley"
-    },
-    {
-      "doc_num": "SAMOUK 11",
-      "owner": "Anesa Samouk"
-    },
-    {
-      "doc_num": "STEINMETZ 11",
-      "owner": "Nicholas Steinmetz"
-    },
-    {
-      "doc_num": "SULLIVAN 11",
-      "owner": "Glenda Sullivan"
-    },
-    {
-      "doc_num": "TAOUFIK 11",
-      "owner": "Rym Taoufik"
-    },
-    {
-      "doc_num": "TRAINOR 11",
-      "owner": "Justin Trainor"
-    },
-    {
       "doc_num": "CV2025 10 5160",
       "owner": "Janet H Slack"
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-11-24T04:38:56.705975+00:00"
+  "generated_at": "2026-11-24T22:05:46.019779+00:00"
 }
