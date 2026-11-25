@@ -1,12 +1,100 @@
 {
   "matched": 0,
-  "unmatched": 136,
+  "unmatched": 149,
   "with_address": 1,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 136
+    "unmatched": 149
   },
   "sample_unmatched": [
+    {
+      "doc_num": "SEVERNS 11",
+      "owner": "Tyler C Severns"
+    },
+    {
+      "doc_num": "LAPOCZKA 11",
+      "owner": "Gregory Lapoczka"
+    },
+    {
+      "doc_num": "RAHMAN 11",
+      "owner": "Rubina Rahman"
+    },
+    {
+      "doc_num": "INC 11",
+      "owner": "Abc Roofing Inc"
+    },
+    {
+      "doc_num": "BENHAMM 11",
+      "owner": "William Benhamm"
+    },
+    {
+      "doc_num": "BUCHANAN 11",
+      "owner": "Kathy M Snider-Buchanan"
+    },
+    {
+      "doc_num": "WALTERS 11",
+      "owner": "Danielle Walters"
+    },
+    {
+      "doc_num": "WITHERSPOON 11",
+      "owner": "Wilbert Witherspoon"
+    },
+    {
+      "doc_num": "SNIDER 11",
+      "owner": "Katherine Snider"
+    },
+    {
+      "doc_num": "SHROPSHIRE 11",
+      "owner": "Willie C Shropshire"
+    },
+    {
+      "doc_num": "SHOPPER 11",
+      "owner": "Joe S Shopper"
+    },
+    {
+      "doc_num": "PARSON 11",
+      "owner": "Hannah Parson"
+    },
+    {
+      "doc_num": "MOTZ 11",
+      "owner": "Terri Motz"
+    },
+    {
+      "doc_num": "ROBERSON 11",
+      "owner": "Larry Roberson"
+    },
+    {
+      "doc_num": "MURPH 11",
+      "owner": "Jacqueline M Murph"
+    },
+    {
+      "doc_num": "MELLINGER 11",
+      "owner": "Marnie L Mellinger"
+    },
+    {
+      "doc_num": "LITTEN 11",
+      "owner": "Jack Litten"
+    },
+    {
+      "doc_num": "LIBERMAN 11",
+      "owner": "Aaron J Liberman"
+    },
+    {
+      "doc_num": "HESSION 11",
+      "owner": "Keith Hession"
+    },
+    {
+      "doc_num": "KAMMER 11",
+      "owner": "Kaitlin M Kammer"
+    },
+    {
+      "doc_num": "HOPSON 11",
+      "owner": "Edwin Hopson"
+    },
+    {
+      "doc_num": "CABLE 11",
+      "owner": "William Cable"
+    },
     {
       "doc_num": "KEENER 11",
       "owner": "Allison Keener"
@@ -18,96 +106,8 @@
     {
       "doc_num": "CANTER 11",
       "owner": "Robert Canter"
-    },
-    {
-      "doc_num": "TIPPEL 11",
-      "owner": "Pamela Tippel"
-    },
-    {
-      "doc_num": "AD 11",
-      "owner": "Kathy L. Townend, Individually And As Ad"
-    },
-    {
-      "doc_num": "PALMATIER 11",
-      "owner": "Elizabeth Palmatier"
-    },
-    {
-      "doc_num": "RAMJIT 11",
-      "owner": "Surendra B Ramjit"
-    },
-    {
-      "doc_num": "BRADEMEYER 11",
-      "owner": "Jami Brademeyer"
-    },
-    {
-      "doc_num": "CAMARENA 11",
-      "owner": "Venoni Camarena"
-    },
-    {
-      "doc_num": "BOWLING 11",
-      "owner": "Deshanetia M Bowling"
-    },
-    {
-      "doc_num": "EAKETT 11",
-      "owner": "David A Eakett"
-    },
-    {
-      "doc_num": "FITZGERALD 11",
-      "owner": "Cheyenne Fitzgerald"
-    },
-    {
-      "doc_num": "GIACOMAZZA 11",
-      "owner": "Theresa Giacomazza"
-    },
-    {
-      "doc_num": "GILLESPIE 11",
-      "owner": "Nancy E Gillespie"
-    },
-    {
-      "doc_num": "SKIDMORE 11",
-      "owner": "Tony Skidmore"
-    },
-    {
-      "doc_num": "SAMS 11",
-      "owner": "Rose Sams"
-    },
-    {
-      "doc_num": "WEISS 11",
-      "owner": "The Unknow Heirs Of Beverly M. Weiss"
-    },
-    {
-      "doc_num": "MATTERN 11",
-      "owner": "Helen E. Mattern"
-    },
-    {
-      "doc_num": "CHEROTTI 11",
-      "owner": "Timothy Cherotti"
-    },
-    {
-      "doc_num": "CALIMAN 11",
-      "owner": "Mecca L Caliman"
-    },
-    {
-      "doc_num": "COLOSIMO 11",
-      "owner": "Terralyn Colosimo"
-    },
-    {
-      "doc_num": "LLC 11",
-      "owner": "Electioniq Llc"
-    },
-    {
-      "doc_num": "FINEFINE 11",
-      "owner": "Layne Finefine"
-    },
-    {
-      "doc_num": "MCKOWN 11",
-      "owner": "Cheryl Mckown"
-    },
-    {
-      "doc_num": "CV2025 10 5160",
-      "owner": "Janet H Slack"
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-11-25T03:19:24.374466+00:00"
+  "generated_at": "2026-11-25T21:09:37.030573+00:00"
 }
