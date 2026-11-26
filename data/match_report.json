@@ -1,12 +1,16 @@
 {
   "matched": 0,
-  "unmatched": 149,
+  "unmatched": 136,
   "with_address": 1,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 149
+    "unmatched": 136
   },
   "sample_unmatched": [
+    {
+      "doc_num": "EARLENBAUGH 11",
+      "owner": "Mark Earlenbaugh"
+    },
     {
       "doc_num": "SEVERNS 11",
       "owner": "Tyler C Severns"
@@ -102,12 +106,8 @@
     {
       "doc_num": "HER 11",
       "owner": "Recene Woodfolk, At The Date Of Her"
-    },
-    {
-      "doc_num": "CANTER 11",
-      "owner": "Robert Canter"
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-11-26T02:32:40.032480+00:00"
+  "generated_at": "2026-11-26T21:00:14.221893+00:00"
 }
