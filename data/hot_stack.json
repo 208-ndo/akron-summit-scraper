@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-27T02:35:52.150747+00:00",
+  "fetched_at": "2026-11-27T20:48:03.302333+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "hot_stack",
   "description": "\ud83d\udd25 2+ distress signals \u2014 highest priority",
@@ -46,9 +46,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "sheriff_sale",
         "foreclosure",
-        "tax_delinquent",
-        "sheriff_sale"
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -182,9 +182,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "sheriff_sale",
         "foreclosure",
-        "tax_delinquent",
-        "sheriff_sale"
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -317,9 +317,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "sheriff_sale",
         "foreclosure",
-        "tax_delinquent",
-        "sheriff_sale"
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -452,9 +452,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "sheriff_sale",
         "foreclosure",
-        "tax_delinquent",
-        "sheriff_sale"
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -584,9 +584,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
         "foreclosure",
-        "tax_delinquent"
+        "tax_delinquent",
+        "vacant_land"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -716,9 +716,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
         "foreclosure",
-        "tax_delinquent"
+        "tax_delinquent",
+        "vacant_land"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -846,9 +846,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "sheriff_sale",
         "foreclosure",
-        "tax_delinquent",
-        "sheriff_sale"
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -972,9 +972,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
+        "sheriff_sale",
         "foreclosure",
-        "tax_delinquent",
-        "sheriff_sale"
+        "tax_delinquent"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1100,9 +1100,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
         "foreclosure",
-        "tax_delinquent"
+        "tax_delinquent",
+        "vacant_land"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1226,9 +1226,9 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "vacant_land",
         "foreclosure",
-        "tax_delinquent"
+        "tax_delinquent",
+        "vacant_land"
       ],
       "distress_count": 3,
       "hot_stack": true,
@@ -1353,8 +1353,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -1485,8 +1485,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -3608,8 +3608,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -3879,8 +3879,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -4010,8 +4010,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -9534,8 +9534,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -9662,8 +9662,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10309,8 +10309,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10436,8 +10436,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10565,8 +10565,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10691,8 +10691,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10817,8 +10817,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -10943,8 +10943,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11068,8 +11068,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11193,8 +11193,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11318,8 +11318,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "tax_delinquent",
-        "code_violation"
+        "code_violation",
+        "tax_delinquent"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11576,8 +11576,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -11957,8 +11957,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12082,8 +12082,8 @@
       "match_score": 0.9,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "code_violation"
+        "code_violation",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12207,8 +12207,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12330,8 +12330,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12453,8 +12453,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12576,8 +12576,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12699,8 +12699,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12822,8 +12822,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -12945,8 +12945,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13068,8 +13068,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13191,8 +13191,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13314,8 +13314,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13437,8 +13437,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13560,8 +13560,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13683,8 +13683,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13806,8 +13806,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -13929,8 +13929,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -14052,8 +14052,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -14177,8 +14177,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -14300,8 +14300,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -14423,8 +14423,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -14548,8 +14548,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "cash_buyer",
-        "tax_delinquent"
+        "tax_delinquent",
+        "cash_buyer"
       ],
       "distress_count": 2,
       "hot_stack": true,

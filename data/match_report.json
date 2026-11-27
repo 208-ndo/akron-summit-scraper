@@ -1,12 +1,20 @@
 {
   "matched": 0,
-  "unmatched": 136,
+  "unmatched": 144,
   "with_address": 1,
   "with_mail_address": 0,
   "match_methods": {
-    "unmatched": 136
+    "unmatched": 144
   },
   "sample_unmatched": [
+    {
+      "doc_num": "CURREY 11",
+      "owner": "Alan Currey"
+    },
+    {
+      "doc_num": "HICKEY 11",
+      "owner": "Krista L Hickey"
+    },
     {
       "doc_num": "EARLENBAUGH 11",
       "owner": "Mark Earlenbaugh"
@@ -98,16 +106,8 @@
     {
       "doc_num": "CABLE 11",
       "owner": "William Cable"
-    },
-    {
-      "doc_num": "KEENER 11",
-      "owner": "Allison Keener"
-    },
-    {
-      "doc_num": "HER 11",
-      "owner": "Recene Woodfolk, At The Date Of Her"
     }
   ],
   "sample_no_property_match": [],
-  "generated_at": "2026-11-27T02:35:57.211984+00:00"
+  "generated_at": "2026-11-27T20:48:07.386028+00:00"
 }
