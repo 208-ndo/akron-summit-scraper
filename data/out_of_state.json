@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-27T20:48:04.588512+00:00",
+  "fetched_at": "2026-11-28T02:18:56.496092+00:00",
   "source": "Akron / Summit County, Ohio",
   "category": "out_of_state",
   "description": "\ud83c\udf0e Owner mails from out of state",
@@ -40,8 +40,8 @@
       "match_score": 1.0,
       "with_address": 1,
       "distress_sources": [
-        "code_violation",
-        "tax_delinquent"
+        "tax_delinquent",
+        "code_violation"
       ],
       "distress_count": 2,
       "hot_stack": true,
@@ -267,7 +267,7 @@
     {
       "doc_num": "CV2025 10 5160",
       "doc_type": "TAXDEED",
-      "filed": "2026-11-27",
+      "filed": "2026-11-28",
       "cat": "TAXDEED",
       "cat_label": "Tax Deed",
       "first_seen_date": "2026-11-03",
@@ -351,12 +351,12 @@
       "sheriff_sale_date": "2026-12-01",
       "appraised_value": null,
       "lender": "Summit County Fiscal Office",
-      "auction_days_until": 4,
-      "auction_countdown": "4 days left",
-      "auction_urgency": "warn",
+      "auction_days_until": 3,
+      "auction_countdown": "3 days left",
+      "auction_urgency": "hot",
       "foreclosure_stage": "Tax foreclosure sheriff-sale notice",
       "foreclosure_case_number": "CV2025 10 5160",
-      "foreclosure_notice_date": "2026-11-27",
+      "foreclosure_notice_date": "2026-11-28",
       "code_violation_case": "",
       "code_violation_date": "",
       "decedent_name": "",
@@ -17985,7 +17985,7 @@
     {
       "doc_num": "VHOME-6723306",
       "doc_type": "VHOME",
-      "filed": "2026-11-27",
+      "filed": "2026-11-28",
       "cat": "VHOME",
       "cat_label": "Vacant Home",
       "first_seen_date": "2026-06-17",
@@ -18108,7 +18108,7 @@
     {
       "doc_num": "VHOME-6807445",
       "doc_type": "VHOME",
-      "filed": "2026-11-27",
+      "filed": "2026-11-28",
       "cat": "VHOME",
       "cat_label": "Vacant Home",
       "first_seen_date": "2026-06-17",
